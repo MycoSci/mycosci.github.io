@@ -5,8 +5,8 @@
 # 'bundle exec jekyll serve'. If you change this file, please restart the server process.
 
 # Site title and description
-title:              JW Analytics
-description:        Analytics Consulting, Validation & Support Services
+title:              SOUTIEN
+description:        Customer Support Helpdesk Jekyll theme
 lang:               en
 
 # Site subpath, e.g. /blog
@@ -23,17 +23,20 @@ logo:
   
 # Default author settings
 author:
-    name:           Joshua Wiedeman
-    title:          Analytics Manager  
-    avatar:         josh.jpg
+    name:           Pete Seth
+    title:          Lead Developer  
+    avatar:         https://via.placeholder.com/80x80
 
 # Author settings, displayed on post pages if front matter references author name e.g. author: peter
 authors:
-    josh:
-      name:         Joshua Wiedeman
-      title:        Analytics Manager    
-      avatar:       josh.jpg
-
+    evan:
+      name:         Evan Wells
+      title:        Support    
+      avatar:       https://via.placeholder.com/80x80
+    alex:
+      name:         Alex Koch
+      title:        Design Engineer     
+      avatar:       https://via.placeholder.com/80x80
 
 # Social icons displayed in footer
 social:
@@ -60,7 +63,7 @@ share:
 
 # Default footer image settings
 footer:
-    copyright:      Made by <a href="https://www.linkedin.com/in/joshua-f-wiedeman/">Joshua Wiedeman</a> in Portland, Oregon.
+    copyright:      Made by <a href="https://unbound.studio/">Unbound Studio</a> in Bratislava, Slovakia.
 
 # Disqus comments shortname, requires Disqus account https://disqus.com/
 disqus:
@@ -112,7 +115,7 @@ sass:
 collections:
   articles:
     output:         true
-  services:
+  faqs:
     output:         false
     
 # Defaults

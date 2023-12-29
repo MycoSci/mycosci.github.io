@@ -462,16 +462,4 @@
     }
     
 }
-// SASS variables
-$faq-column-count: 2; // Adjust the number of columns
-$faq-column-gap: 20px; // Adjust the gap between columns
 
-// SASS styles for multi-column layout
-.faq-columns {
-    column-count: $faq-column-count;
-    column-gap: $faq-column-gap;
-}
-
-.faq-item {
-    margin-bottom: 20px; // Adjust the margin as needed
-}

@@ -1,18 +1,20 @@
-- title: Implementation
+- title: Getting Started
   icon: cog
   articles:
   - installation
   - setup
   - footer
 
-- title: Validation
+- title: Create Content
   icon: file-edit
   articles:
-  - validation
-  - validation_install_charlesproxy
-  - validation_install_omnibug
+  - posts
+  - articles
+  - comments
+  - media
+  - alerts
 
-- title: Specifications
+- title: Theme Features
   icon: settings
   articles:
   - home
@@ -22,33 +24,30 @@
   - changelog
   - contact
 
-- title: Customization
+- title: Navigation Bar
   icon: menu
   articles:
   - navigation
 
-- title: Data Privacy
+- title: Google Analytics
   icon: history
   articles:
   - analytics
 
-- title: Reporting
+- title: Newsletter Sign Up
+  icon: mail
+  articles:
+  - mailchimp
+
+- title: Customization
   icon: code
   articles:
   - translation
   - customize
   - development
 
-- title: Web Platform Documentation
-  icon: cog
+- title: Help & Sources
+  icon: question
   articles:
-  - platformdocumentationweb
-  - web_platform_wordpress
-  - web_platform_shopify
-  - web_platform_bigcommerce
-
-
-- title: Ad & Analytics Platform Documentation
-  icon: cog
-  articles:
-  - platformdocumentationadanalytics
+  - support
+  - sources
