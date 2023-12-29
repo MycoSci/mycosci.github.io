@@ -1,0 +1,23 @@
+{% if page.author %}
+  {% assign author = site.authors[page.author] %}
+{% else %}
+  {% assign author = site.author %}
+{% endif %}
+
+{% if author.avatar %}
+  {% if author.avatar contains 'http' %}
+      {% assign domain = '' %}
+  {% else %}
+      {% assign domain = site.uploads | absolute_url %}
+  {% endif %}
+  <img class="uk-border-circle" src="{{ domain }}{{ author.avatar }}" alt="{{ author.name }}" width="40" height="40">
+{% endif %}
+<p class="uk-margin-small-left uk-article-meta">
+  {% if author.name %}
+    {{ site.data.translation[site.lang].by | default: "By" }} <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ author.name }}</span></span>
+  {% endif %}
+  <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+    {% assign date_format = site.date_format | default: "%b %-d, %Y" %}
+    {{ page.date | date: date_format }}
+  </time>
+</p>

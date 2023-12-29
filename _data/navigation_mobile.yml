@@ -1,0 +1,20 @@
+# Mobile menu navigation links
+
+- title: Home
+  url: /
+
+- title: Articles
+  url: /articles/installation/
+
+- title: Faq
+  url: /faq/
+
+- title: Blog
+  url: /blog/
+
+- title: Changelog
+  url: /changelog/
+    
+- title: Contact Us
+  url: /contact/
+  button: primary

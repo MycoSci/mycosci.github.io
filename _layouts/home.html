@@ -1,0 +1,16 @@
+---
+layout: default
+---
+
+{% if page.search %}
+<div{% if page.layout == 'home' %} class="uk-background-muted"{% endif %}>
+    <div class="uk-container">
+        <div class="uk-margin">
+            {% include search.html %}
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{{ content }}
+

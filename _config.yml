@@ -1,0 +1,131 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+
+# Site title and description
+title:              JW Analytics
+description:        Analytics Consulting, Validation & Support Services
+lang:               en
+
+# Site subpath, e.g. /blog
+baseurl:            ""
+
+# Permalink URLs structure, for permalink style options see: https://jekyllrb.com/docs/permalinks/
+permalink:          /:title/
+
+# Site base hostname & protocol, e.g. http://example.com
+url:                "https://jekyll-theme-soutien.netlify.com"
+
+# Site logo # e.g. logo.png, upload logo image file to /uploads/ folder
+logo:               
+  
+# Default author settings
+author:
+    name:           Joshua Wiedeman
+    title:          Analytics Manager  
+    avatar:         josh.jpg
+
+# Author settings, displayed on post pages if front matter references author name e.g. author: peter
+authors:
+    josh:
+      name:         Joshua Wiedeman
+      title:        Analytics Manager    
+      avatar:       josh.jpg
+
+
+# Social icons displayed in footer
+social:
+    email:
+    website:
+    facebook:       https://www.facebook.com/
+    flickr:
+    dribbble:
+    github:
+    googleplus:
+    instagram:      https://www.instagram.com/
+    linkedin:
+    pinterest:
+    twitter:        https://twitter.com/
+    vimeo:          https://vimeo.com/
+    youtube:
+
+# Share button
+share:
+    post:           true # Display share buttons on a post page
+    article:        false # Display share buttons on an article page
+    twitter:        username # Enable by adding Twitter handle 
+    facebook:       true # Enable by setting true (Facebook handle not required)
+
+# Default footer image settings
+footer:
+    copyright:      Made by <a href="https://www.linkedin.com/in/joshua-f-wiedeman/">Joshua Wiedeman</a> in Portland, Oregon.
+
+# Disqus comments shortname, requires Disqus account https://disqus.com/
+disqus:
+    shortname:      # 1234
+
+# Google analytics code, get your code here https://www.google.com/analytics/
+google_analytics:
+
+# Number of posts displayed on blog page
+paginate:           6
+
+# Blog path
+paginate_path:      "/blog/:num/"
+
+# Path to post content assets directory i.e post images, pdfs etc
+uploads:            /uploads/
+
+mailchimp:
+  title:            "Get your weekly startup report"
+  form_action:      "https://pressapps.us8.list-manage.com/subscribe/post?u=2e56c123105fcd37e5dab02bd&amp;id=e6e945b784"
+  hidden_name:      "b_2e56c123105fcd37e5dab02bd_e6e945b784"
+
+post:
+  mailchimp: true
+
+article:
+  search:             true
+  cta:
+    text:           "Didn't find an answer to your question, we are here to help"
+    button_text:    "Contact Us"
+    button_url:     /contact/
+
+# Build settings
+markdown:           kramdown
+highlighter:        rouge
+
+gems:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-gist
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+
+sass:
+  style:            compressed
+
+collections:
+  articles:
+    output:         true
+  services:
+    output:         false
+    
+# Defaults
+defaults:
+  # _posts
+  - scope:
+      path:         ""
+      type:         posts
+    values:
+      layout:       post
+  # _articles
+  - scope:
+      path:         ""
+      type:         articles
+    values:
+      layout:       article

@@ -1,0 +1,51 @@
+{% if include.link_url contains 'http' %}
+    {% assign domain = '' %}
+{% else %}
+    {% assign domain = '' | relative_url %}
+{% endif %}
+{% if include.link_url2 contains 'http' %}
+    {% assign domain2 = '' %}
+{% else %}
+    {% assign domain2 = '' | relative_url %}
+{% endif %}
+<section class="uk-section{% if include.background %} uk-section-{{include.background}}{% endif %}">
+    <div class="uk-container">
+        <div class="uk-grid-divider uk-grid-large uk-child-width-expand@m" data-uk-grid>
+
+            <div>
+                <div class="uk-flex uk-flex-middle" data-uk-grid>
+                    <div class="uk-width-auto uk-text-primary">
+                        <span data-uk-icon="icon: {{ include.icon }}; ratio: 2"></span>
+                    </div>
+                    <div class="uk-width-4-5">
+                        {% if include.title %}
+                        <h5 class="margin-xsmall-bottom">{{ include.title }}</h5>
+                        {% endif %}
+                        {% if include.text or include.link_url %}
+                        <p class="uk-margin-remove">{{ include.text | escape }} <a class="button-link" href="{{ domain }}{{ include.link_url }}">{{ include.link_text }}</a></p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            {% if include.link_url2 %}
+            <div>
+                <div class="uk-flex uk-flex-middle" data-uk-grid>
+                    <div class="uk-width-auto uk-text-primary">
+                        <span data-uk-icon="icon: {{ include.icon2 }}; ratio: 2"></span>
+                    </div>
+                    <div class="uk-width-4-5">
+                        {% if include.title2 %}
+                        <h5 class="margin-xsmall-bottom">{{ include.title2 }}</h5>
+                        {% endif %}
+                        {% if include.text2 or include.link_url2 %}
+                        <p class="uk-margin-remove">{{ include.text2 | escape }} <a class="button-link" href="{{ domain2 }}{{ include.link_url2 }}">{{ include.link_text2 }}</a></p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
+

@@ -1,0 +1,54 @@
+- title: Implementation
+  icon: cog
+  articles:
+  - installation
+  - setup
+  - footer
+
+- title: Validation
+  icon: file-edit
+  articles:
+  - validation
+  - validation_install_charlesproxy
+  - validation_install_omnibug
+
+- title: Specifications
+  icon: settings
+  articles:
+  - home
+  - categories
+  - faq
+  - cta
+  - changelog
+  - contact
+
+- title: Customization
+  icon: menu
+  articles:
+  - navigation
+
+- title: Data Privacy
+  icon: history
+  articles:
+  - analytics
+
+- title: Reporting
+  icon: code
+  articles:
+  - translation
+  - customize
+  - development
+
+- title: Web Platform Documentation
+  icon: cog
+  articles:
+  - platformdocumentationweb
+  - web_platform_wordpress
+  - web_platform_shopify
+  - web_platform_bigcommerce
+
+
+- title: Ad & Analytics Platform Documentation
+  icon: cog
+  articles:
+  - platformdocumentationadanalytics

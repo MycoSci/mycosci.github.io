@@ -1,0 +1,86 @@
+<footer class="uk-section uk-section-muted">
+    <div class="uk-container">
+        <div class="uk-grid-large uk-child-width-expand@m" data-uk-grid>
+
+            <div>
+                <div class="uk-margin">
+                    <a class="uk-logo" href="{{ "/" | relative_url }}">{% if site.logo %}<img src="{{ site.uploads | absolute_url }}{{ site.logo }}" alt="{{ site.title | escape }}">{% else %}{{ site.title | escape }}{% endif %}</a>
+                </div>
+            </div>
+
+            {% if site.data.footer.col1 %}
+            <div>
+                <ul class="uk-list uk-list-large">
+                {% for link in site.data.footer.col1 %}
+                    {% if link.url contains 'http' %}
+                        {% assign domain = '' %}
+                    {% else %}
+                        {% assign domain = '' | relative_url %}
+                    {% endif %}
+                    {% if link.url %}
+                        <li><a href="{{ domain }}{{ link.url }}" {% if link.url contains 'http' %}target="_blank" {% endif %}>{{ link.title }}</a></li>
+                    {% else %}
+                        <li><h5>{{ link.title }}</h5></li>
+                    {% endif %}
+                {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+
+            {% if site.data.footer.col2 %}
+            <div>
+                <ul class="uk-list uk-list-large">
+                {% for link in site.data.footer.col2 %}
+                    {% if link.url contains 'http' %}
+                        {% assign domain = '' %}
+                    {% else %}
+                        {% assign domain = '' | relative_url %}
+                    {% endif %}
+                    {% if link.url %}
+                        <li><a href="{{ domain }}{{ link.url }}" {% if link.url contains 'http' %}target="_blank" {% endif %}>{{ link.title }}</a></li>
+                    {% else %}
+                        <li><h5>{{ link.title }}</h5></li>
+                    {% endif %}
+                {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+
+            {% if site.data.footer.col3 %}
+            <div>
+                <ul class="uk-list uk-list-large">
+                {% for link in site.data.footer.col3 %}
+                    {% if link.url contains 'http' %}
+                        {% assign domain = '' %}
+                    {% else %}
+                        {% assign domain = '' | relative_url %}
+                    {% endif %}
+                    {% if link.url %}
+                        <li><a href="{{ domain }}{{ link.url }}" {% if link.url contains 'http' %}target="_blank" {% endif %}>{{ link.title }}</a></li>
+                    {% else %}
+                        <li><h5>{{ link.title }}</h5></li>
+                    {% endif %}
+                {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+
+        </div>
+  
+        <div class="uk-grid-large uk-margin-large-top uk-flex uk-flex-middle" data-uk-grid>
+  
+            <div class="uk-width-1-4@m"></div>
+            <div class="uk-width-expand@m">
+                <div class="uk-width-auto@m uk-margin-medium uk-text-small">
+                    <p class="uk-display-inline-block uk-margin-medium-right uk-margin-remove-bottom">{{ site.footer.copyright }}</p>
+                </div>
+            </div>
+            <div class="uk-width-auto@m">
+                <div class="uk-width-auto@m uk-margin-medium uk-text-small">
+                    {% include social-networks.html %}
+                </div>
+            </div>
+  
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,34 @@
+# Changelog page source
+
+- title: Version 1.0.0
+  date: Oct 21, 2019
+  list:
+  - Added Slideshow component
+  - Added style support for radio and minusbox in Firefox
+  - Removed class from Section component
+  - Allow fullscreen mode for videos in Lightbox
+  - Fixed responsive images in modal for IE11
+  - Fix Grid and Margin component for cells with no height
+  - Larger horizontal padding for form input and textarea
+
+- title: Version 1.0.0
+  date: Sep 01, 2019
+  list:
+  - Allow fullscreen mode for YouTube videos in Lightbox
+  - Fix icons not displaying if connected in rapid succession
+  - Fix scrollbar jumping in Switcher
+
+- title: Version 0.6.0
+  date: Aug 15, 2019
+  list:
+  - Added style support for radio and checkbox in Firefox
+  - Removed class from Section component
+  - Add workaround to mitigate the duplicating icons issue
+  - Fixed responsive images in modal for IE11
+
+- title: Version 0.5.0
+  date: Oct 21, 2019
+  list:
+  - Media options now support any valid media query syntax
+  - Added style support for radio and checkbox in Firefox
+  - Fix whitespace trimming in dist

@@ -1,0 +1,23 @@
+# Navbar left menu navigation links
+left:
+
+# Navbar right menu navigation links
+right:
+  - title: Home
+    url: /
+
+  - title: Articles
+    url: /articles/installation/
+
+  - title: Services
+    url: /services/
+
+  - title: Blog
+    url: /blog/
+
+  - title: Changelog
+    url: /changelog/
+     
+  - title: Contact Us
+    url: /contact/
+    button: primary

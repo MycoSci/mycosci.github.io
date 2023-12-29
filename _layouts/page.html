@@ -1,0 +1,22 @@
+---
+layout: default
+---
+
+{% if page.width == 'expand' %}
+    {{ content }}
+{% else %}
+<div class="uk-section">
+
+    <div class="uk-text-center uk-container uk-container-xsmall">
+        <h1 class="uk-article-title">{{ page.title | escape }}</h1>
+        {% if page.subtitle %}
+        <p class="uk-text-lead">{{ page.subtitle | escape }}</p>
+        {% endif %}
+    </div>
+
+    <div class="uk-container{% if page.width %} uk-container-{{page.width}}{% endif %}">
+        <hr class="uk-margin-large-top uk-margin-large-bottom">
+        <div class="article-content button-link">{{ content }}</div> 
+    </div>
+</div>
+{% endif %}

@@ -1,0 +1,17 @@
+<div class="timeline uk-margin-large-top">
+    {% for version in site.data.changelog %}
+    <div class="timeline-entry">
+        <div class="timeline-time">
+            <h5>{{ version.date }}</h5>
+        </div>
+        <div class="timeline-body">
+            <h3 class="text-400">{{ version.title }}{% if version.label %}<span class="uk-label uk-margin-small-left">{{ version.label }}</span>{% endif %}</h3>
+            <ul class="uk-list">
+                {% for item in version.list %}
+                <li>{{ item }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    {% endfor %}
+</div>
