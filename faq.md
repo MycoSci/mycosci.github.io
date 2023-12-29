@@ -2,9 +2,9 @@
 layout: page
 width: xsmall
 title: Frequently Asked Questions
-subtitle: M'envies viuríem relació amb país la barcelona. Han sóc ple déus, crucigrama, si un espai del són catalans que l'eternitat.
+subtitle: Unraveling the Enigmatic World of Mycology through Questions, Where Curiosity Meets Complexity
 ---
 
-{% include faqs.html title="Support Questions" category="presale" %}
+{% include faqs.html title="Common Questions" category="common" %}
 
-{% include faqs.html title="Product Questions" category="product" %}
+

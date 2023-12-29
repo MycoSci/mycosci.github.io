@@ -3,7 +3,7 @@ layout: home
 search: true
 ---
 
-{% include categories.html columns="4" title="How can we help?" %}
+{% include categories.html columns="4" title="Mycology taxonomy search" %}
 
 {% include cta.html 
     icon="mail" title="Need more help?" text="Get in touch with us, support is provided daily" link_text="contact us" link_url="/contact/" 

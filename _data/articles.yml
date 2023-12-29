@@ -1,53 +1,46 @@
 - title: Getting Started
   icon: cog
   articles:
-  - installation
-  - setup
-  - footer
 
-- title: Create Content
+
+- title: Foraging
   icon: file-edit
   articles:
-  - posts
-  - articles
-  - comments
-  - media
-  - alerts
 
-- title: Theme Features
+
+- title: Species
   icon: settings
   articles:
-  - home
-  - categories
-  - faq
-  - cta
-  - changelog
-  - contact
+  - Abacina alboatra
+  - Pleurotus sulfureoides
+  - Pleurotus florida
 
-- title: Navigation Bar
+
+
+- title: Recipes
   icon: menu
   articles:
-  - navigation
+ 
 
-- title: Google Analytics
+- title: Cultivation
   icon: history
   articles:
-  - analytics
 
-- title: Newsletter Sign Up
-  icon: mail
-  articles:
-  - mailchimp
 
-- title: Customization
-  icon: code
-  articles:
-  - translation
-  - customize
-  - development
+# - title: 
+#   icon: mail
+#   articles:
+#   - mailchimp
 
-- title: Help & Sources
-  icon: question
-  articles:
-  - support
-  - sources
+# - title: Customization
+#   icon: code
+#   articles:
+#   - translation
+#   - customize
+#   - development
+
+# - title: Help & Sources
+#   icon: question
+#   articles:
+#   - support
+#   - sources
