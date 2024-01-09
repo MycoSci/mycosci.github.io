@@ -1,7 +1,10 @@
 ---
 title: Pleurotus florida
 subtitle: Exploring the Fascinating World of Mushroom Species
-tags: [Fungi, Pleurotus, Edible]
+tags:
+- Fungi
+- Pleurotus
+- Edible
 ---
 
 ![Image of Pleurotus florida](image_url_here)
@@ -47,4 +50,3 @@ For more information about Pleurotus florida and its place in the fungal kingdom
 **Name:** Pleurotus florida
 
 ---
-

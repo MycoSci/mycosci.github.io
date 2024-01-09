@@ -11,10 +11,41 @@
 - title: Species
   icon: settings
   articles:
-  - Abacina alboatra
-  - Pleurotus sulfureoides
-  - Pleurotus florida
-
+  - tuber-melanosporum
+  - tricholoma-magnivelare
+  - tremella-mesenterica
+  - trametes-versicolor
+  - suillus-luteus
+  - stropharia-ambigua
+  - sparassis-crispa
+  - russula-xerampelina
+  - ramaria-stricta
+  - pleurotus-sulfureoides
+  - pleurotus-ostreatus
+  - pleurotus-florida
+  - morchella-importuna
+  - morchella-esculenta
+  - morchella-elata
+  - lactarius-deliciosus
+  - hypomyces-lactifluorum
+  - hydnum-umbilicatum
+  - hydnum-repandum
+  - hericeum-erinaceus
+  - gomphidius-glutinosus
+  - coprinus-comatus
+  - coprinellus-micaceus
+  - clitocybe-nuda
+  - chroogomphus-tomentosus
+  - cantharellus-subalbidus
+  - cantharellus-formosus
+  - cantharellus-cibarius
+  - calvatia-gigantea
+  - boletus-zelleri
+  - boletus-mirabilis
+  - boletus-edulis
+  - amanita-pantherina
+  - amanita-muscaria
+  - abacina-alboatra
 
 
 - title: Recipes

@@ -1,7 +1,10 @@
 ---
 title: Pleurotus sulfureoides
 subtitle: Exploring the Fascinating World of Mushroom Species
-tags: [Fungi, Pleurotus, Edible]
+tags:
+- Fungi
+- Pleurotus
+- Edible
 ---
 
 ![Image of Pleurotus sulfureoides](image_url_here)
@@ -47,4 +50,3 @@ For more information about Pleurotus sulfureoides and its place in the fungal ki
 **Name:** Pleurotus sulfureoides
 
 ---
-
