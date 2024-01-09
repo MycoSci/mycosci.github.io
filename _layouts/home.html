@@ -14,3 +14,80 @@ layout: default
 
 {{ content }}
 
+
+
+
+<div id="image-feed" class="image-columns">
+  {% for image in site.static_files %}
+    {% if image.path contains 'uploads/' %}
+      <a href="{{ site.url }}{{ image | relative_url }}" class="image-item">
+        <img data-src="{{ site.url }}{{ image }}" alt="{{ image.name }}">
+      </a>
+    {% endif %}
+  {% endfor %}
+</div>
+
+<!-- JavaScript for lazy loading, fading, and infinite scrolling -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  var loading = false;
+  var maxImages = 50; // Maximum number of images to display at any time
+
+  function lazyLoadImages() {
+    $('img[data-src]').each(function() {
+      var img = $(this);
+      var imgTop = img.offset().top;
+      var winTop = $(window).scrollTop() + $(window).height();
+
+      if (imgTop < winTop) {
+        img.attr('src', img.attr('data-src')).fadeIn(1000); // Fade in over 1 second
+        img.removeAttr('data-src');
+      }
+    });
+  }
+
+  function loadMoreImages() {
+    if (!loading && $('#image-feed .image-item').length < maxImages) {
+      loading = true;
+
+      var newImages = [];
+
+      {% for image in site.static_files %}
+        {% if image.path contains 'uploads/' %}
+          newImages.push('{{ site.url }}{{ image | relative_url }}');
+        {% endif %}
+      {% endfor %}
+
+      // Shuffle the array of image URLs randomly
+      newImages.sort(function() { return 0.5 - Math.random() });
+
+      // Append the first 10 shuffled image URLs
+      newImages.slice(0, 10).forEach(function(imageURL) {
+        var imageItem = $('<a href="' + imageURL + '" class="image-item"><img data-src="' + imageURL + '" alt=""></a>');
+        $('#image-feed').append(imageItem);
+      });
+
+      loading = false;
+    }
+  }
+
+  function checkImageCount() {
+    var imageCount = $('#image-feed .image-item').length;
+    if (imageCount > maxImages) {
+      $('#image-feed .image-item:lt(' + (imageCount - maxImages) + ')').remove();
+    }
+  }
+
+  $(document).ready(function() {
+    lazyLoadImages();
+    loadMoreImages();
+  });
+
+  $(window).on('scroll', function() {
+    lazyLoadImages();
+    if ($('#image-feed .image-item').length < maxImages) {
+      loadMoreImages();
+    }
+    checkImageCount();
+  });
+</script>

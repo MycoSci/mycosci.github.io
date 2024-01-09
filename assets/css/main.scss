@@ -18,3 +18,14 @@
 // Other vendor styles
 // @import "syntax-highlighting/cld";
 @import "syntax-highlighting/bw";
+
+.image-columns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.image-columns a {
+  flex: 0 0 calc(33.33% - 10px); /* 3 columns with 10px spacing */
+  margin-bottom: 10px;
+}
