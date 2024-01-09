@@ -14,7 +14,7 @@ Theme strings can be translated in `_data/translation.yml`, copy the current Eng
 en:
   previous:                   "Previous"
   next:                       "Next"
-  related_articles:           "Related Articles"
+  related_articles:           "Relatives"
   related_posts:              "Related Posts"
   read_more:                  "Read more"
   by:                         "By"

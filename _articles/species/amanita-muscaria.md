@@ -2,7 +2,7 @@
 title: Amanita muscaria
 subtitle: Fly Agaric
 tags:
-- fungi
+- Amanita
 ---
 
 Fly Agaric

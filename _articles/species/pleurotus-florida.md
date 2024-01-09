@@ -2,7 +2,6 @@
 title: Pleurotus florida
 subtitle: Exploring the Fascinating World of Mushroom Species
 tags:
-- Fungi
 - Pleurotus
 - Edible
 ---

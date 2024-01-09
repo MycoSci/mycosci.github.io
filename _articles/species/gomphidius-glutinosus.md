@@ -2,7 +2,7 @@
 title: Gomphidius glutinosus
 subtitle: Slippery Jack's Relative
 tags:
-- fungi
+- Gomphidius
 ---
 
 Slippery Jack's Relative

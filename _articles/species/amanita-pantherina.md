@@ -2,7 +2,7 @@
 title: Amanita pantherina
 subtitle: Panther Cap
 tags:
-- fungi
+- Amanita
 ---
 
 Panther Cap

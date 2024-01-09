@@ -2,7 +2,6 @@
 title: Abacina alboatra
 subtitle: Exploring the Enigmatic World of Lichen Species
 tags:
-- Lichen
 - Abacina
 ---
 

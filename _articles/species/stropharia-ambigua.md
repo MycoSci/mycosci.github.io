@@ -2,7 +2,7 @@
 title: Stropharia ambigua
 subtitle: Questionable Stropharia
 tags:
-- fungi
+- Stropharia
 ---
 
 Questionable Stropharia

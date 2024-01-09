@@ -2,7 +2,7 @@
 title: Clitocybe nuda
 subtitle: Wood Blewit
 tags:
-- fungi
+- Clitocybe
 ---
 
 Wood Blewit
