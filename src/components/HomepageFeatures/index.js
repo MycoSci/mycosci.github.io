@@ -11,7 +11,7 @@ const FeatureList = [
         Shroomdex provides an extensive database of mushroom species, each detailed with rich information to enhance your knowledge and identification skills. Dive into the world of fungi with ease and accuracy.
       </>
     ),
-    link: '/species'
+    link: '/docs/intro'
   },
   {
     title: 'Join the Community',
@@ -21,7 +21,7 @@ const FeatureList = [
         Connect with fellow mycophiles in our community! Share experiences, exchange tips, and participate in discussions. Whether you're a beginner or an expert, our community is here to support and inspire your mycological journey.
       </>
     ),
-    link: '/community'
+    link: '/community/intro'
   },
   {
     title: 'Mushroom Foraging',
@@ -31,7 +31,7 @@ const FeatureList = [
         Enhance your foraging skills with our comprehensive guides. Learn to safely identify, locate, and harvest mushrooms. Whether it's your first foray or you're honing your expertise, our resources are tailored to help you succeed.
       </>
     ),
-    link: '/foraging'
+    link: '/docs/category/foraging'
   },
 ];
 

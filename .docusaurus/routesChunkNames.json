@@ -70,7 +70,7 @@
     "sidebar": "sidebar---blog-814-8ac",
     "tags": "tags---blog-tagsa-70-da2"
   },
-  "/blog/tags/docusaurus-82b": {
+  "/blog/tags/exploration-841": {
     "__comp": "__comp---theme-blog-tags-posts-page-687-b6c",
     "__context": {
       "plugin": "plugin---blog-9-cf-8b4"
@@ -81,10 +81,10 @@
         "content": "content---blog-766-e3c"
       }
     ],
-    "tag": "tag---blog-tags-docusaurusa-80-728",
-    "listMetadata": "listMetadata---blog-tags-docusaurus-608-c09"
+    "tag": "tag---blog-tags-exploration-1-bc-3b0",
+    "listMetadata": "listMetadata---blog-tags-exploration-41-e-438"
   },
-  "/blog/tags/facebook-09f": {
+  "/blog/tags/introduction-710": {
     "__comp": "__comp---theme-blog-tags-posts-page-687-b6c",
     "__context": {
       "plugin": "plugin---blog-9-cf-8b4"
@@ -95,10 +95,10 @@
         "content": "content---blog-766-e3c"
       }
     ],
-    "tag": "tag---blog-tags-facebook-031-c52",
-    "listMetadata": "listMetadata---blog-tags-facebook-096-d31"
+    "tag": "tag---blog-tags-introduction-204-dbd",
+    "listMetadata": "listMetadata---blog-tags-introduction-5-ad-a84"
   },
-  "/blog/tags/hello-231": {
+  "/blog/tags/mycology-c44": {
     "__comp": "__comp---theme-blog-tags-posts-page-687-b6c",
     "__context": {
       "plugin": "plugin---blog-9-cf-8b4"
@@ -109,8 +109,8 @@
         "content": "content---blog-766-e3c"
       }
     ],
-    "tag": "tag---blog-tags-hello-30-a-bed",
-    "listMetadata": "listMetadata---blog-tags-hello-664-70a"
+    "tag": "tag---blog-tags-mycologyeb-0-6a2",
+    "listMetadata": "listMetadata---blog-tags-mycology-4-f-7-6d3"
   },
   "/blog/welcome-f2f": {
     "__comp": "__comp---theme-blog-post-pageccc-cab",
@@ -155,17 +155,17 @@
     "__comp": "__comp---theme-doc-item-178-a40",
     "content": "content---community-translate-your-site-2-ad-28c"
   },
-  "/docs-3aa": {
+  "/docs-41f": {
     "__comp": "__comp---theme-docs-root-5-e-9-0b6",
     "__context": {
       "plugin": "plugin---docs-614-7b1"
     }
   },
-  "/docs-246": {
+  "/docs-5b1": {
     "__comp": "__comp---theme-doc-version-roota-7-b-5de",
     "version": "version---docs-935-398"
   },
-  "/docs-144": {
+  "/docs-d50": {
     "__comp": "__comp---theme-doc-roota-94-67a"
   },
   "/docs/category/ascomycota-0a1": {
@@ -195,6 +195,10 @@
   "/docs/category/family-e49": {
     "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
     "categoryGeneratedIndex": "categoryGeneratedIndex---docs-category-family-393-d74"
+  },
+  "/docs/category/foraging-6a9": {
+    "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
+    "categoryGeneratedIndex": "categoryGeneratedIndex---docs-category-foraging-31-d-a07"
   },
   "/docs/category/genus-300": {
     "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
@@ -248,29 +252,13 @@
     "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
     "categoryGeneratedIndex": "categoryGeneratedIndex---docs-category-zoopagomycotinaac-4-b15"
   },
-  "/docs/cultivation/congratulations-f67": {
+  "/docs/cultivation/intro-d9a": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-cultivation-congratulationsd-0-b-752"
+    "content": "content---docs-cultivation-intro-8-e-9-035"
   },
-  "/docs/cultivation/create-a-blog-post-0e2": {
+  "/docs/foraging/intro-f30": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-cultivation-create-a-blog-post-236-e4f"
-  },
-  "/docs/cultivation/create-a-document-ac5": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-cultivation-create-a-documentd-9-c-ed8"
-  },
-  "/docs/cultivation/create-a-page-835": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-cultivation-create-a-pagef-2-f-b36"
-  },
-  "/docs/cultivation/deploy-your-site-97c": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-cultivation-deploy-your-site-0-b-6-b3d"
-  },
-  "/docs/cultivation/markdown-features-0ed": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-cultivation-markdown-features-798-75a"
+    "content": "content---docs-foraging-intro-215-e39"
   },
   "/docs/intro-643": {
     "__comp": "__comp---theme-doc-item-178-a40",

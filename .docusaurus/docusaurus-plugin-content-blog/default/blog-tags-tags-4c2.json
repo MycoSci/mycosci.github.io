@@ -1,17 +1,17 @@
 [
   {
-    "label": "facebook",
-    "permalink": "/blog/tags/facebook",
+    "label": "introduction",
+    "permalink": "/blog/tags/introduction",
     "count": 1
   },
   {
-    "label": "hello",
-    "permalink": "/blog/tags/hello",
+    "label": "mycology",
+    "permalink": "/blog/tags/mycology",
     "count": 1
   },
   {
-    "label": "docusaurus",
-    "permalink": "/blog/tags/docusaurus",
+    "label": "exploration",
+    "permalink": "/blog/tags/exploration",
     "count": 1
   }
 ]
