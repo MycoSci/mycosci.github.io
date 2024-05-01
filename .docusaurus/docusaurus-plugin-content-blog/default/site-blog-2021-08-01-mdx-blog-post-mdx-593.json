@@ -15,18 +15,18 @@
   "hasTruncateMarker": false,
   "authors": [
     {
-      "name": "Sébastien Lorber",
-      "title": "Docusaurus maintainer",
-      "url": "https://sebastienlorber.com",
-      "imageURL": "https://github.com/slorber.png",
-      "key": "slorber"
+      "name": "Joshua F. Wiedeman",
+      "title": "Mycology Nerd",
+      "url": "https://github.com/jwiedeman.png",
+      "imageURL": "https://github.com/jwiedeman.png",
+      "key": "joshua"
     }
   ],
   "frontMatter": {
     "slug": "mdx-blog-post",
     "title": "MDX Blog Post",
     "authors": [
-      "slorber"
+      "joshua"
     ],
     "tags": [
       "docusaurus"

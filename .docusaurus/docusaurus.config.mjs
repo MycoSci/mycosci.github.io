@@ -63,7 +63,7 @@ export default {
           "type": "doc",
           "docId": "intro",
           "position": "left",
-          "label": "Species Taxonomy"
+          "label": "Species & Taxonomy"
         },
         {
           "to": "/blog",
@@ -76,7 +76,7 @@ export default {
           "position": "left"
         },
         {
-          "href": "https://github.com/facebook/docusaurus",
+          "href": "https://github.com/MycoSci/mycosci.github.io",
           "label": "GitHub",
           "position": "right"
         }
@@ -100,7 +100,7 @@ export default {
           "items": [
             {
               "label": "Discord",
-              "href": "https://discordapp.com/invite/docusaurus"
+              "href": "#"
             }
           ]
         },

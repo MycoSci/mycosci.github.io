@@ -19,17 +19,19 @@
   "hasTruncateMarker": true,
   "authors": [
     {
-      "name": "Endilie Yacop Sucipto",
-      "title": "Maintainer of Docusaurus",
-      "url": "https://github.com/endiliey",
-      "imageURL": "https://github.com/endiliey.png",
-      "key": "endi"
+      "name": "Joshua F. Wiedeman",
+      "title": "Mycology Nerd",
+      "url": "https://github.com/jwiedeman.png",
+      "imageURL": "https://github.com/jwiedeman.png",
+      "key": "joshua"
     }
   ],
   "frontMatter": {
     "slug": "long-blog-post",
     "title": "Long Blog Post",
-    "authors": "endi",
+    "authors": [
+      "joshua"
+    ],
     "tags": [
       "hello",
       "docusaurus"

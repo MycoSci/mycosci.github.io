@@ -89,12 +89,12 @@ plugins: [
             type: 'doc',
             docId: 'intro', // Assuming 'intro' is the document ID for the introductory document in the species taxonomy
             position: 'left',
-            label: 'Species Taxonomy',
+            label: 'Species & Taxonomy',
           },
           { to: '/blog', label: 'Blog', position: 'left' },
           { to: '/community/intro', label: 'Community', position: 'left' },
           {
-            href: 'https://github.com/facebook/docusaurus',
+            href: 'https://github.com/MycoSci/mycosci.github.io',
             label: 'GitHub',
             position: 'right',
           },
@@ -119,7 +119,7 @@ plugins: [
               
               {
                 label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
+                href: '#',
               }
               
             ],

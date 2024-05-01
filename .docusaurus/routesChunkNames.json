@@ -42,6 +42,87 @@
       "plugin": "plugin---docusaurus-debug-842-fe7"
     }
   },
+  "/blog-125": {
+    "__comp": "__comp---theme-blog-list-pagea-6-a-7ba",
+    "__context": {
+      "plugin": "plugin---blog-9-cf-8b4"
+    },
+    "sidebar": "sidebar---blog-814-8ac",
+    "items": [
+      {
+        "content": "content---blog-766-e3c"
+      }
+    ],
+    "metadata": "metadata---blogb-2-b-df1"
+  },
+  "/blog/archive-301": {
+    "__comp": "__comp---theme-blog-archive-page-9-e-4-1d8",
+    "__context": {
+      "plugin": "plugin---blog-9-cf-8b4"
+    },
+    "archive": "archive---blog-archiveb-2-f-393"
+  },
+  "/blog/tags-a7a": {
+    "__comp": "__comp---theme-blog-tags-list-page-01-a-d0b",
+    "__context": {
+      "plugin": "plugin---blog-9-cf-8b4"
+    },
+    "sidebar": "sidebar---blog-814-8ac",
+    "tags": "tags---blog-tagsa-70-da2"
+  },
+  "/blog/tags/docusaurus-82b": {
+    "__comp": "__comp---theme-blog-tags-posts-page-687-b6c",
+    "__context": {
+      "plugin": "plugin---blog-9-cf-8b4"
+    },
+    "sidebar": "sidebar---blog-814-8ac",
+    "items": [
+      {
+        "content": "content---blog-766-e3c"
+      }
+    ],
+    "tag": "tag---blog-tags-docusaurusa-80-728",
+    "listMetadata": "listMetadata---blog-tags-docusaurus-608-c09"
+  },
+  "/blog/tags/facebook-09f": {
+    "__comp": "__comp---theme-blog-tags-posts-page-687-b6c",
+    "__context": {
+      "plugin": "plugin---blog-9-cf-8b4"
+    },
+    "sidebar": "sidebar---blog-814-8ac",
+    "items": [
+      {
+        "content": "content---blog-766-e3c"
+      }
+    ],
+    "tag": "tag---blog-tags-facebook-031-c52",
+    "listMetadata": "listMetadata---blog-tags-facebook-096-d31"
+  },
+  "/blog/tags/hello-231": {
+    "__comp": "__comp---theme-blog-tags-posts-page-687-b6c",
+    "__context": {
+      "plugin": "plugin---blog-9-cf-8b4"
+    },
+    "sidebar": "sidebar---blog-814-8ac",
+    "items": [
+      {
+        "content": "content---blog-766-e3c"
+      }
+    ],
+    "tag": "tag---blog-tags-hello-30-a-bed",
+    "listMetadata": "listMetadata---blog-tags-hello-664-70a"
+  },
+  "/blog/welcome-f2f": {
+    "__comp": "__comp---theme-blog-post-pageccc-cab",
+    "__context": {
+      "data": {
+        "blogMetadata": "blogMetadata---blog-welcomeace-e47"
+      },
+      "plugin": "plugin---blog-9-cf-8b4"
+    },
+    "sidebar": "sidebar---blog-814-8ac",
+    "content": "content---blog-welcomed-9-f-ffb"
+  },
   "/markdown-page-90a": {
     "__comp": "__comp---theme-mdx-page-1-f-3-b90",
     "__context": {
@@ -49,17 +130,17 @@
     },
     "content": "content---markdown-page-393-028"
   },
-  "/community-736": {
+  "/community-753": {
     "__comp": "__comp---theme-docs-root-5-e-9-0b6",
     "__context": {
       "plugin": "plugin---community-58-e-06d"
     }
   },
-  "/community-407": {
+  "/community-728": {
     "__comp": "__comp---theme-doc-version-roota-7-b-5de",
     "version": "version---community-306-8a8"
   },
-  "/community-f0b": {
+  "/community-e82": {
     "__comp": "__comp---theme-doc-roota-94-67a"
   },
   "/community/deploy-your-site-a8f": {
@@ -70,70 +151,206 @@
     "__comp": "__comp---theme-doc-item-178-a40",
     "content": "content---community-introfcb-11a"
   },
-  "/community/roadmap-d5e": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---community-roadmap-579-b4c"
-  },
   "/community/translate-your-site-5e4": {
     "__comp": "__comp---theme-doc-item-178-a40",
     "content": "content---community-translate-your-site-2-ad-28c"
   },
-  "/docs-169": {
+  "/docs-3aa": {
     "__comp": "__comp---theme-docs-root-5-e-9-0b6",
     "__context": {
       "plugin": "plugin---docs-614-7b1"
     }
   },
-  "/docs-8dd": {
+  "/docs-246": {
     "__comp": "__comp---theme-doc-version-roota-7-b-5de",
     "version": "version---docs-935-398"
   },
-  "/docs-ec2": {
+  "/docs-144": {
     "__comp": "__comp---theme-doc-roota-94-67a"
   },
-  "/docs/category/tutorial---basics-5c8": {
+  "/docs/category/ascomycota-0a1": {
     "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
-    "categoryGeneratedIndex": "categoryGeneratedIndex---docs-category-tutorial-basicsb-10-edc"
+    "categoryGeneratedIndex": "categoryGeneratedIndex---docs-category-ascomycota-28-b-0ac"
   },
-  "/docs/category/tutorial---extras-297": {
+  "/docs/category/basidiomycota-a1e": {
     "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
-    "categoryGeneratedIndex": "categoryGeneratedIndex---docs-category-tutorial-extrasc-9-a-d3b"
+    "categoryGeneratedIndex": "categoryGeneratedIndex---docs-category-basidiomycota-27-c-593"
+  },
+  "/docs/category/blastocladiomycota-567": {
+    "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
+    "categoryGeneratedIndex": "categoryGeneratedIndex---docs-category-blastocladiomycota-364-0b9"
+  },
+  "/docs/category/chytridiomycota-5aa": {
+    "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
+    "categoryGeneratedIndex": "categoryGeneratedIndex---docs-category-chytridiomycota-4-fa-191"
+  },
+  "/docs/category/class-abc": {
+    "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
+    "categoryGeneratedIndex": "categoryGeneratedIndex---docs-category-class-784-667"
+  },
+  "/docs/category/cultivation-fe7": {
+    "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
+    "categoryGeneratedIndex": "categoryGeneratedIndex---docs-category-cultivation-4-a-9-bf0"
+  },
+  "/docs/category/family-e49": {
+    "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
+    "categoryGeneratedIndex": "categoryGeneratedIndex---docs-category-family-393-d74"
+  },
+  "/docs/category/genus-300": {
+    "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
+    "categoryGeneratedIndex": "categoryGeneratedIndex---docs-category-genus-586-82d"
+  },
+  "/docs/category/glomeromycota-eba": {
+    "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
+    "categoryGeneratedIndex": "categoryGeneratedIndex---docs-category-glomeromycota-99-f-7a4"
+  },
+  "/docs/category/morchella-4de": {
+    "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
+    "categoryGeneratedIndex": "categoryGeneratedIndex---docs-category-morchella-3-f-3-a8b"
+  },
+  "/docs/category/morchellaceae-df3": {
+    "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
+    "categoryGeneratedIndex": "categoryGeneratedIndex---docs-category-morchellaceae-0-ac-4d0"
+  },
+  "/docs/category/mucoromycota-5f4": {
+    "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
+    "categoryGeneratedIndex": "categoryGeneratedIndex---docs-category-mucoromycotabb-1-fd4"
+  },
+  "/docs/category/neocallimastigomycota-231": {
+    "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
+    "categoryGeneratedIndex": "categoryGeneratedIndex---docs-category-neocallimastigomycota-1-a-8-ba6"
+  },
+  "/docs/category/opisthosporidia-3d9": {
+    "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
+    "categoryGeneratedIndex": "categoryGeneratedIndex---docs-category-opisthosporidia-13-b-cfd"
+  },
+  "/docs/category/order-9c4": {
+    "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
+    "categoryGeneratedIndex": "categoryGeneratedIndex---docs-category-orderbce-ced"
+  },
+  "/docs/category/pezizales-548": {
+    "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
+    "categoryGeneratedIndex": "categoryGeneratedIndex---docs-category-pezizales-5-e-0-301"
+  },
+  "/docs/category/pezizomycetes-dc3": {
+    "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
+    "categoryGeneratedIndex": "categoryGeneratedIndex---docs-category-pezizomycetesc-82-a16"
+  },
+  "/docs/category/phylum-c85": {
+    "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
+    "categoryGeneratedIndex": "categoryGeneratedIndex---docs-category-phylum-57-e-569"
+  },
+  "/docs/category/species-907": {
+    "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
+    "categoryGeneratedIndex": "categoryGeneratedIndex---docs-category-species-30-e-575"
+  },
+  "/docs/category/zoopagomycotina-544": {
+    "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
+    "categoryGeneratedIndex": "categoryGeneratedIndex---docs-category-zoopagomycotinaac-4-b15"
+  },
+  "/docs/cultivation/congratulations-f67": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-cultivation-congratulationsd-0-b-752"
+  },
+  "/docs/cultivation/create-a-blog-post-0e2": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-cultivation-create-a-blog-post-236-e4f"
+  },
+  "/docs/cultivation/create-a-document-ac5": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-cultivation-create-a-documentd-9-c-ed8"
+  },
+  "/docs/cultivation/create-a-page-835": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-cultivation-create-a-pagef-2-f-b36"
+  },
+  "/docs/cultivation/deploy-your-site-97c": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-cultivation-deploy-your-site-0-b-6-b3d"
+  },
+  "/docs/cultivation/markdown-features-0ed": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-cultivation-markdown-features-798-75a"
   },
   "/docs/intro-643": {
     "__comp": "__comp---theme-doc-item-178-a40",
     "content": "content---docs-intro-0-e-3-be1"
   },
-  "/docs/tutorial-basics/congratulations-45e": {
+  "/docs/phylum/Ascomycota/intro-3f6": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-tutorial-basics-congratulations-822-958"
+    "content": "content---docs-phylum-ascomycota-intro-3-e-2-714"
   },
-  "/docs/tutorial-basics/create-a-blog-post-4de": {
+  "/docs/phylum/Ascomycota/Pezizomycetes/intro-026": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-tutorial-basics-create-a-blog-post-533-e85"
+    "content": "content---docs-phylum-ascomycota-pezizomycetes-introe-28-bde"
   },
-  "/docs/tutorial-basics/create-a-document-223": {
+  "/docs/phylum/Ascomycota/Pezizomycetes/Pezizales/intro-5b7": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-tutorial-basics-create-a-document-1-e-4-078"
+    "content": "content---docs-phylum-ascomycota-pezizomycetes-pezizales-intro-191-5d3"
   },
-  "/docs/tutorial-basics/create-a-page-6e9": {
+  "/docs/phylum/Ascomycota/Pezizomycetes/Pezizales/Morchellaceae/intro-659": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-tutorial-basics-create-a-page-5-c-8-e19"
+    "content": "content---docs-phylum-ascomycota-pezizomycetes-pezizales-morchellaceae-intro-6-bd-779"
   },
-  "/docs/tutorial-basics/deploy-your-site-5c0": {
+  "/docs/phylum/Ascomycota/Pezizomycetes/Pezizales/Morchellaceae/Morchella/intro-bc4": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-tutorial-basics-deploy-your-sitef-55-a3f"
+    "content": "content---docs-phylum-ascomycota-pezizomycetes-pezizales-morchellaceae-morchella-intro-718-88d"
   },
-  "/docs/tutorial-basics/markdown-features-ef7": {
+  "/docs/phylum/Basidiomycota/intro-d4a": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-tutorial-basics-markdown-features-18-c-a79"
+    "content": "content---docs-phylum-basidiomycota-intro-293-799"
   },
-  "/docs/tutorial-extras/manage-docs-versions-716": {
+  "/docs/phylum/Blastocladiomycota/intro-2b5": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-tutorial-extras-manage-docs-versionsdff-6d4"
+    "content": "content---docs-phylum-blastocladiomycota-intro-861-db8"
   },
-  "/docs/tutorial-extras/translate-your-site-3fa": {
+  "/docs/phylum/Chytridiomycota/intro-e44": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-tutorial-extras-translate-your-sitee-44-ddf"
+    "content": "content---docs-phylum-chytridiomycota-intro-2-ed-586"
+  },
+  "/docs/phylum/class/intro-a75": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-phylum-class-intro-91-d-7e5"
+  },
+  "/docs/phylum/class/order/family/genus/intro-d5f": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-phylum-class-order-family-genus-intro-7-ca-90b"
+  },
+  "/docs/phylum/class/order/family/genus/species/intro-507": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-phylum-class-order-family-genus-species-intro-9-c-3-b4c"
+  },
+  "/docs/phylum/class/order/family/intro-3e0": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-phylum-class-order-family-introb-17-aee"
+  },
+  "/docs/phylum/class/order/intro-702": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-phylum-class-order-introac-2-16c"
+  },
+  "/docs/phylum/Glomeromycota/intro-8b4": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-phylum-glomeromycota-introfb-2-a38"
+  },
+  "/docs/phylum/intro-919": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-phylum-intro-6-f-1-466"
+  },
+  "/docs/phylum/Mucoromycota/intro-a3f": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-phylum-mucoromycota-intro-88-f-41e"
+  },
+  "/docs/phylum/Neocallimastigomycota/intro-4b0": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-phylum-neocallimastigomycota-introf-50-836"
+  },
+  "/docs/phylum/Opisthosporidia/intro-00a": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-phylum-opisthosporidia-intro-6-e-5-b6f"
+  },
+  "/docs/phylum/Zoopagomycotina/intro-d3e": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-phylum-zoopagomycotina-introba-5-a9a"
   },
   "/-9e1": {
     "__comp": "__comp---site-src-pages-index-jsc-4-f-f99",

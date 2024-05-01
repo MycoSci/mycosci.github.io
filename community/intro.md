@@ -19,3 +19,6 @@ Connect in real-time with other community members. Share tips, ask questions, or
 ### Follow Us on Instagram
 
 Get a visual taste of what we're all about. Follow us for
+
+
+# ShroomDex Roadmap
