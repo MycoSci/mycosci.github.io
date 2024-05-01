@@ -1,0 +1,15 @@
+{
+  "title": "Instagram",
+  "slug": "/category/instagram",
+  "permalink": "/community/category/instagram",
+  "navigation": {
+    "previous": {
+      "title": "Welcome to Our Community!",
+      "permalink": "/community/intro"
+    },
+    "next": {
+      "title": "Join the Instagram Community",
+      "permalink": "/community/instagram/translate-your-site"
+    }
+  }
+}

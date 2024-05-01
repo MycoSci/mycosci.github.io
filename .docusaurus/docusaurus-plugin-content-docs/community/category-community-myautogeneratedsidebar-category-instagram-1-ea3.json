@@ -1,0 +1,15 @@
+{
+  "title": "Instagram",
+  "slug": "/category/instagram-1",
+  "permalink": "/community/category/instagram-1",
+  "navigation": {
+    "previous": {
+      "title": "Translate your site",
+      "permalink": "/community/instagram/translate-your-site"
+    },
+    "next": {
+      "title": "Manage Docs Versions",
+      "permalink": "/community/instagram copy/manage-docs-versions"
+    }
+  }
+}

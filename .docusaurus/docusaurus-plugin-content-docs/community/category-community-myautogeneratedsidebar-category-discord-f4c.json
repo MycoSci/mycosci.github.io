@@ -1,0 +1,16 @@
+{
+  "title": "Discord",
+  "description": "5 minutes to learn the most important Docusaurus concepts.",
+  "slug": "/category/discord",
+  "permalink": "/community/category/discord",
+  "navigation": {
+    "previous": {
+      "title": "Welcome to Our Community!",
+      "permalink": "/community/intro"
+    },
+    "next": {
+      "title": "Join the Discord Community",
+      "permalink": "/community/discord/deploy-your-site"
+    }
+  }
+}
