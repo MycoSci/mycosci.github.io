@@ -1,25 +1,54 @@
-# ShroomDex Project Overview
+# Starlight Starter Kit: Basics
 
-## What is ShroomDex?
+[![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
 
-ShroomDex is an innovative online platform dedicated to the fascinating world of fungi. It serves as a comprehensive resource for mycologists, nature enthusiasts, and the curious public. Our goal is to demystify the complexity of mushrooms and provide a user-friendly interface for learning about mushroom species, their habitats, uses, and ecological roles.
+```
+npm create astro@latest -- --template starlight
+```
 
-## Utilizing Docusaurus
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/starlight/tree/main/examples/basics)
+[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/starlight/tree/main/examples/basics)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/withastro/starlight&create_from_path=examples/basics)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fwithastro%2Fstarlight%2Ftree%2Fmain%2Fexamples%2Fbasics&project-name=my-starlight-docs&repository-name=my-starlight-docs)
 
-To create an engaging and educational experience, we've chosen [Docusaurus](https://docusaurus.io/), a modern static website generator. Docusaurus helps us easily manage content and ensure that our community can access up-to-date and reliable information seamlessly. Here’s how we are using Docusaurus:
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
-- **Documentation**: Detailed guides and articles about various mushroom species, their taxonomy, and identification techniques.
-- **Blog**: Regular updates, feature articles, and news related to mycology.
-- **Community Hub**: Integration of discussion forums and user-generated content, fostering a community around the love for mycology.
+## 🚀 Project Structure
 
-## Future Plans
+Inside of your Astro + Starlight project, you'll see the following folders and files:
 
-ShroomDex is more than just an information repository. We are actively working to incorporate interactive and innovative features:
+```
+.
+├── public/
+├── src/
+│   ├── assets/
+│   ├── content/
+│   │   ├── docs/
+│   └── content.config.ts
+├── astro.config.mjs
+├── package.json
+└── tsconfig.json
+```
 
-- **Leaderboards**: Engage the community with gamification. Users can earn points and badges for their contributions, such as identifying species, participating in forums, or contributing to citizen science projects.
-- **Vision AI**: Implement a machine learning model to assist in the identification of mushrooms from photographs. This tool will make ShroomDex a powerful companion for foragers and researchers.
-- **GitHub Integration**: Leverage GitHub for open-source collaboration. Developers and scientists can contribute to the ShroomDex project, enhancing its features and expanding its reach.
+Starlight looks for `.md` or `.mdx` files in the `src/content/docs/` directory. Each file is exposed as a route based on its file name.
 
-## Conclusion
+Images can be added to `src/assets/` and embedded in Markdown with a relative link.
 
-ShroomDex aims to be the go-to platform for everything related to mushrooms. By combining thorough research, community engagement, and cutting-edge technology, we are on track to revolutionize how people interact with and understand the natural fungal world.
+Static assets, like favicons, can be placed in the `public/` directory.
+
+## 🧞 Commands
+
+All commands are run from the root of the project, from a terminal:
+
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | Installs dependencies                            |
+| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm run build`           | Build your production site to `./dist/`          |
+| `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro -- --help` | Get help using the Astro CLI                     |
+
+## 👀 Want to learn more?
+
+Check out [Starlight’s docs](https://starlight.astro.build/), read [the Astro documentation](https://docs.astro.build), or jump into the [Astro Discord server](https://astro.build/chat).

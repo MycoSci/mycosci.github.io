@@ -1,6 +1,0 @@
----
-sidebar_position: 1
----
-# Ascomycota Phylum
-
-The Ascomycota, commonly known as sac fungi or ascomycetes, constitute the largest taxonomic group within the Eumycota.[51] These fungi form meiotic spores called ascospores, which are enclosed in a special sac-like structure called an ascus. This phylum includes morels, a few mushrooms and truffles, unicellular yeasts (e.g., of the genera Saccharomyces, Kluyveromyces, Pichia, and Candida), and many filamentous fungi living as saprotrophs, parasites, and mutualistic symbionts (e.g. lichens). Prominent and important genera of filamentous ascomycetes include Aspergillus, Penicillium, Fusarium, and Claviceps. Many ascomycete species have only been observed undergoing asexual reproduction (called anamorphic species), but analysis of molecular data has often been able to identify their closest teleomorphs in the Ascomycota.[164] Because the products of meiosis are retained within the sac-like ascus, ascomycetes have been used for elucidating principles of genetics and heredity (e.g., Neurospora crassa).

@@ -1,6 +1,0 @@
----
-sidebar_position: 1
----
-# Glomeromycota Phylum
-
-Members of the Glomeromycota form arbuscular mycorrhizae, a form of mutualist symbiosis wherein fungal hyphae invade plant root cells and both species benefit from the resulting increased supply of nutrients. All known Glomeromycota species reproduce asexually.[90] The symbiotic association between the Glomeromycota and plants is ancient, with evidence dating to 400 million years ago.[160] Formerly part of the Zygomycota (commonly known as 'sugar' and 'pin' molds), the Glomeromycota were elevated to phylum status in 2001 and now replace the older phylum Zygomycota.[161] Fungi that were placed in the Zygomycota are now being reassigned to the Glomeromycota, or the subphyla incertae sedis Mucoromycotina, Kickxellomycotina, the Zoopagomycotina and the Entomophthoromycotina.[52] Some well-known examples of fungi formerly in the Zygomycota include black bread mold (Rhizopus stolonifer), and Pilobolus species, capable of ejecting spores several meters through the air.[162] Medically relevant genera include Mucor, Rhizomucor, and Rhizopus.
