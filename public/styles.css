@@ -37,3 +37,15 @@ body {
 
 .not-found { min-height: 50vh; display: flex; align-items: center; justify-content: center; }
 
+/* Footer styles */
+.footer-gradient {
+  background: linear-gradient(135deg, #3b2d1f, #251c3d);
+}
+.footer-link {
+  color: #ffffff;
+  text-decoration: none;
+}
+.footer-link:hover {
+  text-decoration: underline;
+}
+
