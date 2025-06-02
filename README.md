@@ -1,6 +1,6 @@
 # MycoSci Website
 
-
+MycoSci is a community-driven portal cataloging the fungal kingdom. The site is built with [Astro](https://astro.build) and styled using [Bootstrap](https://getbootstrap.com) for a crisp, NASA-inspired look. The former Starlight documentation theme was removed in favor of our own Bootstrap layout. Legacy markdown content remains in `src/content/` for future reference. Our new design will grow into thousands of dynamic species pages as we map over **100k** mushrooms with a trustworthy interface.
 
 ## Development
 
@@ -21,7 +21,7 @@ Run the following commands from the project root:
 ├── src/
 │   ├── layouts/     # Reusable page layouts
 │   └── pages/       # Site pages
-
+├── src/content/    # Markdown data (legacy docs)
 ├── astro.config.mjs
 └── package.json
 ```

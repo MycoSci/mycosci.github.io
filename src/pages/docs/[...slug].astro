@@ -1,0 +1,17 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+const slugArray = Astro.params.slug;
+const pathBase = '../../content/docs/' + slugArray.join('/');
+const mdxPages = import.meta.glob('../../content/docs/**/*.mdx');
+const mdPages = import.meta.glob('../../content/docs/**/*.md');
+let pageImport = mdxPages[pathBase + '.mdx'] || mdPages[pathBase + '.md'];
+let Content;
+if (pageImport) {
+  Content = (await pageImport()).default;
+} else {
+  throw new Error(`Document not found: ${pathBase}`);
+}
+---
+<MainLayout title="Docs">
+  <Content />
+</MainLayout>
