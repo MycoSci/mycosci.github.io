@@ -1,0 +1,47 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+---
+
+<MainLayout title="Docs">
+  <div class="container my-5">
+    <h1 class="mb-4 text-center">MycoSci Documentation</h1>
+    <p class="lead text-center">Your free, community-powered field guide to the fungal kingdom.</p>
+    <div class="row row-cols-1 row-cols-md-2 g-4 mt-4">
+      <div class="col">
+        <div class="card h-100 bg-dark text-white">
+          <div class="card-body">
+            <h5 class="card-title">Field Guide</h5>
+            <p class="card-text">Identify over 500 species with photos and look-alike warnings.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100 bg-dark text-white">
+          <div class="card-body">
+            <h5 class="card-title">Cultivation Basics</h5>
+            <p class="card-text">Step-by-step monotub, PF-tek, and gourmet log methods.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100 bg-dark text-white">
+          <div class="card-body">
+            <h5 class="card-title">Advanced Lab Protocols</h5>
+            <p class="card-text">Agar cloning, liquid culture, and sterile technique.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100 bg-dark text-white">
+          <div class="card-body">
+            <h5 class="card-title">Research Library</h5>
+            <p class="card-text">Curated papers, genome data sets, and historic texts.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-5">
+      <a href="/docs/quick-start" class="btn btn-primary btn-lg">Quick Start Guide</a>
+    </div>
+  </div>
+</MainLayout>
