@@ -1,5 +1,7 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
+import speciesData from '../data/species.json';
+const featured = speciesData.slice(0, 4);
 ---
 
 <MainLayout>
@@ -36,6 +38,22 @@ import MainLayout from '../layouts/MainLayout.astro';
           >Join the Community</a
         >
       </div>
+    </div>
+  </section>
+  <section class="container my-5">
+    <h2 class="mb-4 text-center">Featured Species</h2>
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+      {featured.map(sp => (
+        <div class="col" key={sp.slug}>
+          <div class="card h-100 bg-dark text-white">
+            <div class="card-body text-center">
+              <h5 class="card-title">{sp.common_name}</h5>
+              <p class="card-text fst-italic">{sp.scientific_name}</p>
+              <a href={`/species/${sp.slug}`} class="btn btn-primary btn-sm mt-2">Read More</a>
+            </div>
+          </div>
+        </div>
+      ))}
     </div>
   </section>
   <main class="container my-5">
