@@ -1,0 +1,8 @@
+---
+const { href = '#', variant = 'primary', icon, iconPlacement = 'end' } = Astro.props;
+---
+<a href={href} class={`btn btn-link text-${variant}`}> 
+  {icon && iconPlacement === 'start' && <span class={`bi-${icon} me-1`}></span>}
+  <slot />
+  {icon && iconPlacement === 'end' && <span class={`bi-${icon} ms-1`}></span>}
+</a>

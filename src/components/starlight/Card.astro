@@ -1,0 +1,15 @@
+---
+const { title, icon } = Astro.props;
+---
+<div class="col">
+  <div class="card h-100 text-dark">
+    {title && (
+      <div class="card-header">
+        {icon && <span class="me-1">{icon}</span>}{title}
+      </div>
+    )}
+    <div class="card-body">
+      <slot />
+    </div>
+  </div>
+</div>

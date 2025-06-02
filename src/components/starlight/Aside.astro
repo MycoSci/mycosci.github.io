@@ -1,0 +1,8 @@
+---
+const { type, title } = Astro.props;
+const variant = type === 'caution' ? 'warning' : type === 'note' ? 'info' : 'secondary';
+---
+<div class={`alert alert-${variant}`}> 
+  {title && <h5 class="alert-heading">{title}</h5>}
+  <slot />
+</div>
