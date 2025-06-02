@@ -9,12 +9,12 @@ export async function getStaticPaths() {
       const relative = path
         .replace('../../content/docs/', '')
         .replace(/\.(md|mdx)$/, '');
-      return { params: { slug: relative.split('/') } };
+      return { params: { slug: relative } };
     });
 }
 
-const slugArray = Astro.params.slug;
-const pathBase = '../../content/docs/' + slugArray.join('/');
+const slugParam = Astro.params.slug;
+const pathBase = '../../content/docs/' + slugParam;
 const mdxPages = import.meta.glob('../../content/docs/**/*.mdx');
 const mdPages = import.meta.glob('../../content/docs/**/*.md');
 let pageImport = mdxPages[pathBase + '.mdx'] || mdPages[pathBase + '.md'];
