@@ -1,16 +1,35 @@
 ---
 import speciesData from '../../data/species.json';
 import MainLayout from '../../layouts/MainLayout.astro';
+
+export async function getStaticPaths() {
+  return speciesData.map((sp) => ({ params: { slug: sp.slug } }));
+}
+
 const { slug } = Astro.params;
-const entry = speciesData.find(s => s.slug === slug);
-const species = entry ?? { common_name: 'Unknown Species', scientific_name: slug, description: 'Information coming soon.' };
+const entry = speciesData.find((s) => s.slug === slug);
+const species =
+  entry ?? {
+    common_name: 'Unknown Species',
+    scientific_name: slug,
+    description: 'Information coming soon.',
+  };
 ---
 
 <MainLayout title={species.common_name}>
   <div class="container my-5">
-    <h1 class="mb-3 text-center">{species.common_name}</h1>
-    <h2 class="h5 text-center fst-italic">{species.scientific_name}</h2>
-    <p class="lead text-center mb-4">{species.description}</p>
-    <p class="text-center text-muted">More data will be added as the catalog grows.</p>
+    <div class="card bg-dark text-white shadow-lg mx-auto" style="max-width: 50rem;">
+      <img
+        src="https://via.placeholder.com/800x400"
+        class="card-img-top"
+        alt={species.common_name}
+      />
+      <div class="card-body text-center">
+        <h1 class="card-title mb-3">{species.common_name}</h1>
+        <h2 class="h5 fst-italic">{species.scientific_name}</h2>
+        <p class="card-text mt-3">{species.description}</p>
+        <p class="text-muted">More data will be added as the catalog grows.</p>
+      </div>
+    </div>
   </div>
 </MainLayout>
