@@ -23,7 +23,17 @@ body {
   justify-content: center;
 }
 
+@media (max-width: 575px) {
+  .hero {
+    min-height: 30vh;
+    background-position: top;
+  }
+}
+
 .card {
   background-color: #1b1f2a;
   border-color: #2a2f3b;
 }
+
+.not-found { min-height: 50vh; display: flex; align-items: center; justify-content: center; }
+
