@@ -9,6 +9,11 @@ body {
   letter-spacing: 0.05em;
 }
 
+/* Give the dark navbar a subtle mycology-inspired gradient */
+.navbar.bg-dark {
+  background-image: linear-gradient(90deg, #3d2b1f, #243a28);
+}
+
 .card-img-top {
   object-fit: cover;
 }
