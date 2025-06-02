@@ -10,3 +10,9 @@ body {
 .card-img-top {
   object-fit: cover;
 }
+
+.hero {
+  background: url('/houston.webp') center/cover no-repeat;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+}

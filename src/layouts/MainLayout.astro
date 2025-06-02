@@ -33,12 +33,31 @@ const { title } = Astro.props;
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link" href="/gallery">Gallery</a>
+              <a class="nav-link" href="/explore">Explore</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/mycogram">MycoGram</a>
+              <a class="nav-link" href="/gallery">Visual Gallery</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/mycogram">Mushroom Instagram</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/mycopedia">MycoPedia</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/lab">Lab &amp; Cultivation</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/community">Community</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/resources">Resources</a>
             </li>
           </ul>
+          <form class="d-flex" role="search">
+            <input class="form-control form-control-sm me-2" type="search" placeholder="Search" aria-label="Search" />
+            <button class="btn btn-outline-light btn-sm" type="submit">Search</button>
+          </form>
         </div>
       </div>
     </nav>
