@@ -3,7 +3,6 @@ title: "{{common_name}} ({{genus}} {{species}})"
 description: "{{description}}"
 ---
 
-import { Card, CardGrid, Badge, Aside, Steps, Tabs, TabItem, Icon, LinkButton } from '@astrojs/starlight/components';
 
 # *{{genus}} {{species}}*
 

@@ -1,0 +1,16 @@
+---
+import speciesData from '../../data/species.json';
+import MainLayout from '../../layouts/MainLayout.astro';
+const { slug } = Astro.params;
+const entry = speciesData.find(s => s.slug === slug);
+const species = entry ?? { common_name: 'Unknown Species', scientific_name: slug, description: 'Information coming soon.' };
+---
+
+<MainLayout title={species.common_name}>
+  <div class="container my-5">
+    <h1 class="mb-3 text-center">{species.common_name}</h1>
+    <h2 class="h5 text-center fst-italic">{species.scientific_name}</h2>
+    <p class="lead text-center mb-4">{species.description}</p>
+    <p class="text-center text-muted">More data will be added as the catalog grows.</p>
+  </div>
+</MainLayout>

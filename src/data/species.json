@@ -1,0 +1,14 @@
+[
+  {
+    "slug": "amanita-muscaria",
+    "common_name": "Fly Agaric",
+    "scientific_name": "Amanita muscaria",
+    "description": "Iconic red mushroom with white spots, known for its psychoactive properties."
+  },
+  {
+    "slug": "pleurotus-ostreatus",
+    "common_name": "Oyster Mushroom",
+    "scientific_name": "Pleurotus ostreatus",
+    "description": "Edible mushroom widely cultivated and found on decaying wood."
+  }
+]
