@@ -1,8 +1,11 @@
 ---
-import MainLayout from '../../layouts/MainLayout.astro';
+import DocsLayout from '../../layouts/DocsLayout.astro';
+import { getDocsNav } from '../../utils/getDocsNav';
+
+const nav = getDocsNav();
 ---
 
-<MainLayout title="Docs" description="Documentation and guides for MycoSci">
+<DocsLayout title="Docs" description="Documentation and guides for MycoSci" nav={nav}>
   <div class="container my-5">
     <h1 class="mb-4 text-center">MycoSci Documentation</h1>
     <p class="lead text-center">Your free, community-powered field guide to the fungal kingdom.</p>
@@ -44,4 +47,4 @@ import MainLayout from '../../layouts/MainLayout.astro';
       <a href="/docs/quick-start" class="btn btn-primary btn-lg">Quick Start Guide</a>
     </div>
   </div>
-</MainLayout>
+</DocsLayout>

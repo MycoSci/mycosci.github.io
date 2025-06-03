@@ -1,0 +1,47 @@
+---
+const { title, description, nav } = Astro.props;
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {description && <meta name="description" content={description} />}
+    <title>{title ? `${title} | MycoSci` : 'MycoSci'}</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body id="top" class="bg-dark text-white d-flex flex-column min-vh-100">
+    <Header />
+    <main class="flex-fill py-4">
+      <div class="container-fluid">
+        <div class="row">
+          <aside class="col-md-3 mb-3">
+            <nav class="nav flex-column">
+              {nav.map(item => (
+                <a href={item.url} class="nav-link text-white" style={`padding-left: ${item.depth}rem`}>{item.title}</a>
+              ))}
+            </nav>
+          </aside>
+          <div class="col-md-9">
+            <slot />
+          </div>
+        </div>
+      </div>
+    </main>
+    <Footer />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
