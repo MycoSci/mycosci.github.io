@@ -1,0 +1,38 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+import { getLabNav } from '../../utils/getLabNav';
+
+export async function getStaticPaths() {
+  const pages = import.meta.glob('../../content/docs/{lab,cultivation}/**/*.{md,mdx}');
+  return Object.keys(pages)
+    .filter((path) => !path.endsWith('/index.mdx'))
+    .map((path) => {
+      const relative = path
+        .replace('../../content/docs/', '')
+        .replace(/\.(md|mdx)$/, '');
+      return { params: { slug: relative } };
+    });
+}
+
+const slugParam = Astro.params.slug;
+const slugPath = Array.isArray(slugParam) ? slugParam.join('/') : slugParam;
+const pathBase = '../../content/docs/' + slugPath;
+const mdxPages = import.meta.glob('../../content/docs/{lab,cultivation}/**/*.mdx');
+const mdPages = import.meta.glob('../../content/docs/{lab,cultivation}/**/*.md');
+let pageImport = mdxPages[pathBase + '.mdx'] || mdPages[pathBase + '.md'];
+let page;
+let Content;
+let pageTitle = 'Lab & Cultivation';
+if (pageImport) {
+  page = await pageImport();
+  Content = page.default;
+  pageTitle = page.frontmatter?.title ?? pageTitle;
+} else {
+  throw new Error(`Document not found: ${pathBase}`);
+}
+
+const nav = getLabNav();
+---
+<DocsLayout title={pageTitle} nav={nav}>
+  <Content />
+</DocsLayout>
