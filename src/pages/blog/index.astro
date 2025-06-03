@@ -11,20 +11,43 @@ const sorted = posts.sort((a,b) => new Date(b.date) - new Date(a.date));
 ---
 
 <MainLayout title="Blog" description="News and articles from the MycoSci community">
-  <h1 class="mb-4">Latest Posts</h1>
-  <div class="row row-cols-1 row-cols-md-2 g-4">
-    {sorted.map(post => (
-      <div class="col" key={post.slug}>
-        <div class="card bg-dark text-white h-100">
-          <div class="card-body">
-            <h3 class="card-title">
-              <a href={`/blog/${post.slug}`} class="stretched-link text-white text-decoration-none">{post.title}</a>
-            </h3>
-            <p class="mb-1"><small>By <a href={`/blog/authors/${post.author}`}>{getAuthor(post.author).name}</a> on {post.date}</small></p>
-            <p class="card-text">{post.snippet}</p>
+  <header class="text-center mb-5">
+    <h1 class="display-4 fw-bold">MycoSci Blog</h1>
+    <p class="lead">Insights and updates from the world of fungi.</p>
+  </header>
+  <section class="mb-5">
+    <h2 class="mb-4">Latest Posts</h2>
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+      {sorted.map(post => (
+        <div class="col" key={post.slug}>
+          <div class="card bg-dark text-white h-100">
+            <div class="card-body">
+              <h3 class="card-title">
+                <a href={`/blog/${post.slug}`} class="stretched-link text-white text-decoration-none">{post.title}</a>
+              </h3>
+              <p class="mb-1"><small>By <a href={`/blog/authors/${post.author}`}>{getAuthor(post.author).name}</a> on {post.date}</small></p>
+              <p class="card-text">{post.snippet}</p>
+            </div>
           </div>
         </div>
-      </div>
-    ))}
-  </div>
+      ))}
+    </div>
+  </section>
+  <section>
+    <h2 class="mb-4">Meet Our Contributors</h2>
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+      {authors.map(author => (
+        <div class="col" key={author.slug}>
+          <div class="card bg-dark text-white h-100">
+            <div class="card-body">
+              <h5 class="card-title">
+                <a href={`/blog/authors/${author.slug}`} class="stretched-link text-white text-decoration-none">{author.name}</a>
+              </h5>
+              <p class="card-text">{author.bio}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
 </MainLayout>
