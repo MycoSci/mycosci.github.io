@@ -4,14 +4,13 @@ import { getDocsNav } from '../../utils/getDocsNav';
 
 export async function getStaticPaths() {
   const pages = import.meta.glob('../../content/docs/**/*.{md,mdx}');
-  return Object.keys(pages)
-    .filter((path) => !path.endsWith('/index.mdx'))
-    .map((path) => {
-      const relative = path
-        .replace('../../content/docs/', '')
-        .replace(/\.(md|mdx)$/, '');
-      return { params: { slug: relative } };
-    });
+  return Object.keys(pages).map((path) => {
+    const relative = path
+      .replace('../../content/docs/', '')
+      .replace(/\/index\.(md|mdx)$/, '')
+      .replace(/\.(md|mdx)$/, '');
+    return { params: { slug: relative } };
+  });
 }
 
 const slugParam = Astro.params.slug;
@@ -19,7 +18,11 @@ const slugPath = Array.isArray(slugParam) ? slugParam.join('/') : slugParam;
 const pathBase = '../../content/docs/' + slugPath;
 const mdxPages = import.meta.glob('../../content/docs/**/*.mdx');
 const mdPages = import.meta.glob('../../content/docs/**/*.md');
-let pageImport = mdxPages[pathBase + '.mdx'] || mdPages[pathBase + '.md'];
+let pageImport =
+  mdxPages[pathBase + '.mdx'] ||
+  mdPages[pathBase + '.md'] ||
+  mdxPages[pathBase + '/index.mdx'] ||
+  mdPages[pathBase + '/index.md'];
 let page;
 let Content;
 let pageTitle = 'Docs';
@@ -28,7 +31,7 @@ if (pageImport) {
   Content = page.default;
   pageTitle = page.frontmatter?.title ?? pageTitle;
 } else {
-  throw new Error(`Document not found: ${pathBase}`);
+  throw new Error(`Document not found: ${slugPath}`);
 }
 
 const nav = getDocsNav();
