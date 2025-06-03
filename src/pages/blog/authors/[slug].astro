@@ -1,0 +1,36 @@
+---
+import posts from '../../../data/posts.json';
+import authors from '../../../data/authors.json';
+import MainLayout from '../../../layouts/MainLayout.astro';
+
+export async function getStaticPaths() {
+  return authors.map(a => ({ params: { slug: a.slug } }));
+}
+
+const { slug } = Astro.params;
+const author = authors.find(a => a.slug === slug);
+const authorPosts = posts.filter(p => p.author === slug);
+---
+
+{author ? (
+  <MainLayout title={author.name} description={`Posts by ${author.name}`}
+  >
+    <h1 class="mb-3">{author.name}</h1>
+    <p class="mb-4">{author.bio}</p>
+    {authorPosts.length > 0 ? (
+      <ul>
+        {authorPosts.map(post => (
+          <li key={post.slug}>
+            <a href={`/blog/${post.slug}`}>{post.title}</a>
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <p>No posts yet.</p>
+    )}
+  </MainLayout>
+) : (
+  <MainLayout title="Author not found">
+    <p>Sorry, this author does not exist.</p>
+  </MainLayout>
+)}
