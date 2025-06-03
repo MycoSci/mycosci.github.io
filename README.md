@@ -1,6 +1,15 @@
 # MycoSci Website
 
-MycoSci is a community-driven portal cataloging the fungal kingdom. The site is built with [Astro](https://astro.build) and styled using [Bootstrap](https://getbootstrap.com) for a crisp, NASA-inspired look. The former Starlight documentation theme was removed in favor of our own Bootstrap layout. Legacy markdown content remains in `src/content/` for future reference. Our new design will grow into thousands of dynamic species pages as we map over **100k** mushrooms with a trustworthy interface.
+MycoSci is building a comprehensive portal to catalog the fungal kingdom. The site
+uses [Astro](https://astro.build) and [Bootstrap](https://getbootstrap.com) to deliver a clean, NASA-inspired interface.
+Legacy markdown content remains in `src/content/` while the new layout will scale to thousands of dynamic species pages as we map over **100k** mushrooms.
+
+
+## Project Goals
+
+- Document a vast catalog of fungi with reliable taxonomy and identification info
+- Offer research, cultivation and community resources in one place
+- Encourage contributions of photos, notes and corrections from enthusiasts
 
 ## Development
 
@@ -19,14 +28,18 @@ Run the following commands from the project root:
 .
 ├── public/          # Static assets
 ├── src/
-│   ├── layouts/     # Reusable page layouts
-│   └── pages/       # Site pages
-├── src/content/    # Markdown data (legacy docs)
+│   ├── components/  # UI pieces
+│   ├── layouts/     # Page layouts
+│   ├── pages/       # Astro pages
+│   └── content/     # Legacy markdown docs
+├── src/data/       # JSON seeds for authors, posts and species
+├── template_species.md    # Template for species pages
+├── fill_prompt.md   # Data entry fields
 ├── astro.config.mjs
 └── package.json
 ```
 
-Feel free to contribute new pages or mushroom data as the project grows.
+Feel free to contribute new pages or mushroom data as the project grows. See `AGENTS.md` for contribution guidelines.
 
 ## Navigation Overview
 
