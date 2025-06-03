@@ -1,10 +1,24 @@
 ---
+export async function getStaticPaths() {
+  const pages = import.meta.glob('../../../content/docs/Taxonomy/**/*.{md,mdx}');
+  return Object.keys(pages)
+    .filter((path) => !path.endsWith('/index.mdx'))
+    .map((path) => {
+      const relative = path
+        .replace('../../../content/docs/Taxonomy/', '')
+        .replace(/\.(md|mdx)$/, '');
+      return { params: { slug: relative } };
+    });
+}
+
+const slugParam = Astro.params.slug;
+const slug = Array.isArray(slugParam) ? slugParam.join('/') : slugParam;
 ---
 <html>
   <head>
+    <meta http-equiv="refresh" content={`0; url=/docs/${slug}`}/>
     <script>
-      const slug = Array.isArray(Astro.params.slug) ? Astro.params.slug.join('/') : Astro.params.slug;
-      window.location.href = '/docs/' + slug;
+      window.location.href = '/docs/${slug}';
     </script>
   </head>
   <body></body>
