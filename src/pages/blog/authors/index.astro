@@ -1,0 +1,23 @@
+---
+import authors from '../../../data/authors.json';
+import MainLayout from '../../../layouts/MainLayout.astro';
+---
+
+<MainLayout title="Authors" description="Meet the contributors behind MycoSci">
+  <h1 class="mb-4">Our Authors</h1>
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+    {authors.map(a => (
+      <div class="col" key={a.slug}>
+        <div class="card bg-dark text-white h-100">
+          <div class="card-body">
+            <h5 class="card-title">
+              <a href={`/blog/authors/${a.slug}`} class="stretched-link text-white text-decoration-none">{a.name}</a>
+            </h5>
+            <p class="card-text">{a.bio}</p>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+</MainLayout>
+

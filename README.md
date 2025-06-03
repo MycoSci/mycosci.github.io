@@ -40,3 +40,5 @@ The site features a Bootstrap-powered navbar linking to key sections:
 - **Lab & Cultivation** – teks and protocols
 - **Community** – forums and events
 - **Resources** – videos, podcasts, and research links
+- **Blog** – news articles and tutorials
+- **Author Directory** – bios of contributors
