@@ -9,7 +9,7 @@ export async function getStaticPaths() {
       const relative = path
         .replace('../../../content/docs/Taxonomy/', '')
         .replace(/\.(md|mdx)$/, '');
-      return { params: { slug: relative.split('/') } };
+      return { params: { slug: relative } };
     });
 }
 
