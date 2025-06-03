@@ -1,0 +1,26 @@
+[
+  {
+    "slug": "fungal-frontiers",
+    "title": "Fungal Frontiers: New Discoveries",
+    "author": "jdoe",
+    "date": "2023-11-01",
+    "snippet": "Recent research is uncovering amazing fungal secrets.",
+    "content": "<p>The world of mycology is expanding with new species and novel applications discovered each year. From bioremediation to sustainable materials, fungi are proving to be indispensable allies.</p>"
+  },
+  {
+    "slug": "cultivation-basics",
+    "title": "Cultivation Basics for Beginners",
+    "author": "asmith",
+    "date": "2023-10-15",
+    "snippet": "Starting a mushroom grow can be simple with the right approach.",
+    "content": "<p>With just a few supplies and some patience, you can cultivate gourmet mushrooms at home. We'll cover substrate preparation, inoculation, and fruiting conditions.</p>"
+  },
+  {
+    "slug": "edible-vs-poisonous",
+    "title": "Edible vs. Poisonous Lookalikes",
+    "author": "jdoe",
+    "date": "2023-09-30",
+    "snippet": "Learn to tell delicious mushrooms from dangerous imposters.",
+    "content": "<p>Field identification is a vital skill for foragers. We'll compare common edible species with their toxic counterparts and share tips to stay safe.</p>"
+  }
+]
