@@ -1,0 +1,35 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+import { getLabNav } from '../../utils/getLabNav';
+
+const nav = getLabNav();
+---
+
+<DocsLayout title="Lab & Cultivation" description="Guides and protocols for mushroom cultivation" nav={nav}>
+  <div class="container my-5">
+    <h1 class="mb-4 text-center">Lab & Cultivation</h1>
+    <p class="lead text-center">Guides, teks, and protocols for successful mushroom cultivation.</p>
+    <div class="row row-cols-1 row-cols-md-2 g-4 mt-4">
+      <div class="col">
+        <a href="/lab/cultivation/beginner/pf-tek" class="text-decoration-none">
+          <div class="card h-100 bg-dark text-white">
+            <div class="card-body">
+              <h5 class="card-title">Cultivation Basics</h5>
+              <p class="card-text">Step-by-step PF-Tek and other beginner teks.</p>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="col">
+        <a href="/lab/lab/intro" class="text-decoration-none">
+          <div class="card h-100 bg-dark text-white">
+            <div class="card-body">
+              <h5 class="card-title">Lab Techniques</h5>
+              <p class="card-text">Agar cloning, liquid culture, and sterile technique.</p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</DocsLayout>
