@@ -1,5 +1,6 @@
 ---
-import MainLayout from '../../layouts/MainLayout.astro';
+import DocsLayout from '../../layouts/DocsLayout.astro';
+import { getDocsNav } from '../../utils/getDocsNav';
 
 export async function getStaticPaths() {
   const pages = import.meta.glob('../../content/docs/**/*.{md,mdx}');
@@ -19,13 +20,19 @@ const pathBase = '../../content/docs/' + slugPath;
 const mdxPages = import.meta.glob('../../content/docs/**/*.mdx');
 const mdPages = import.meta.glob('../../content/docs/**/*.md');
 let pageImport = mdxPages[pathBase + '.mdx'] || mdPages[pathBase + '.md'];
+let page;
 let Content;
+let pageTitle = 'Docs';
 if (pageImport) {
-  Content = (await pageImport()).default;
+  page = await pageImport();
+  Content = page.default;
+  pageTitle = page.frontmatter?.title ?? pageTitle;
 } else {
   throw new Error(`Document not found: ${pathBase}`);
 }
+
+const nav = getDocsNav();
 ---
-<MainLayout title="Docs">
+<DocsLayout title={pageTitle} nav={nav}>
   <Content />
-</MainLayout>
+</DocsLayout>
