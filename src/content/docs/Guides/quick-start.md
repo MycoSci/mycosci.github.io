@@ -7,6 +7,8 @@ Welcome to **MycoSci**, your free, open-source hub dedicated to the science, cul
 
 Our docs are organized scientifically, practically, and intuitively, helping you navigate from detailed species references to hands-on cultivation techniques and field guides.
 
+If you're looking for a deep dive into classification, start in the [Taxonomy section](../Taxonomy/).
+
 ## How to Navigate the Docs
 
 ### 📖 **Taxonomy (Scientific Reference)**
@@ -37,6 +39,13 @@ Start safely in the [Foraging Guide](../foraging/getting-started).
 Guides to setting up a functional mushroom lab—covering gear for beginners and specialized equipment for professional mycologists.
 
 Visit our [Lab Setup & Equipment](../equipment/beginner-lab-setup) page to see what's needed.
+
+---
+
+### 🍽️ **Culinary Recipes**
+Discover tasty ways to cook your harvest or cultivated mushrooms.
+
+Browse our [Recipe Collection](../recipes/intro) for inspiration.
 
 ---
 
