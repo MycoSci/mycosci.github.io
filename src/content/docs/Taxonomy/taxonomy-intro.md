@@ -113,6 +113,8 @@ Start Your Journey!
 
 Dive deep into MycoSci's extensive taxonomy documentation, discover intriguing fungal species, and enjoy your exploration of the fungal kingdom.
 
+For cultivation guides, lab techniques, and recipes, head back to the [main docs](../index).
+
 Happy exploring and learning! 🍄🌿
 
 --- **The MycoSci Team**
