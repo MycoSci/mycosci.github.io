@@ -1,0 +1,31 @@
+---
+import MainLayout from '../../../layouts/MainLayout.astro';
+
+export async function getStaticPaths() {
+  const pages = import.meta.glob('../../../content/docs/Taxonomy/**/*.{md,mdx}');
+  return Object.keys(pages)
+    .filter((path) => !path.endsWith('/index.mdx'))
+    .map((path) => {
+      const relative = path
+        .replace('../../../content/docs/Taxonomy/', '')
+        .replace(/\.(md|mdx)$/, '');
+      return { params: { slug: relative.split('/') } };
+    });
+}
+
+const slugParam = Astro.params.slug;
+const slugPath = Array.isArray(slugParam) ? slugParam.join('/') : slugParam;
+const pathBase = '../../../content/docs/Taxonomy/' + slugPath;
+const mdxPages = import.meta.glob('../../../content/docs/Taxonomy/**/*.mdx');
+const mdPages = import.meta.glob('../../../content/docs/Taxonomy/**/*.md');
+let pageImport = mdxPages[pathBase + '.mdx'] || mdPages[pathBase + '.md'];
+let Content;
+if (pageImport) {
+  Content = (await pageImport()).default;
+} else {
+  throw new Error(`Document not found: ${pathBase}`);
+}
+---
+<MainLayout title="Taxonomy">
+  <Content />
+</MainLayout>
