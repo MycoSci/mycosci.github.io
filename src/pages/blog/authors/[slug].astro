@@ -15,19 +15,42 @@ const authorPosts = posts.filter(p => p.author === slug);
 {author ? (
   <MainLayout title={author.name} description={`Posts by ${author.name}`}
   >
-    <h1 class="mb-3">{author.name}</h1>
-    <p class="mb-4">{author.bio}</p>
+    <div class="text-center mb-4">
+      <img
+        src={author.avatar ?? 'https://via.placeholder.com/150'}
+        alt={`${author.name} avatar`}
+        class="rounded-circle mb-3"
+        width="150"
+        height="150"
+        loading="lazy"
+      />
+      <h1 class="mb-3">{author.name}</h1>
+      <p class="mb-4">{author.bio}</p>
+    </div>
     {authorPosts.length > 0 ? (
-      <ul>
+      <div class="row row-cols-1 row-cols-md-2 g-4">
         {authorPosts.map(post => (
-          <li key={post.slug}>
-            <a href={`/blog/${post.slug}`}>{post.title}</a>
-          </li>
+          <div class="col" key={post.slug}>
+            <div class="card bg-dark text-white h-100">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <a href={`/blog/${post.slug}`} class="stretched-link text-white text-decoration-none">
+                    {post.title}
+                  </a>
+                </h5>
+                <p class="mb-1"><small>{post.date}</small></p>
+                <p class="card-text">{post.snippet}</p>
+              </div>
+            </div>
+          </div>
         ))}
-      </ul>
+      </div>
     ) : (
       <p>No posts yet.</p>
     )}
+    <p class="mt-4">
+      <a href="/blog/authors">Back to all authors</a>
+    </p>
   </MainLayout>
 ) : (
   <MainLayout title="Author not found">

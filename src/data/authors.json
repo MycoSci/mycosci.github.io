@@ -2,11 +2,13 @@
   {
     "slug": "jdoe",
     "name": "Jane Doe",
-    "bio": "Science writer and mycology enthusiast who loves exploring the hidden world of fungi."
+    "bio": "Science writer and mycology enthusiast who loves exploring the hidden world of fungi.",
+    "avatar": "https://via.placeholder.com/150"
   },
   {
     "slug": "asmith",
     "name": "Alex Smith",
-    "bio": "Cultivator and educator sharing practical techniques for mushroom growers."
+    "bio": "Cultivator and educator sharing practical techniques for mushroom growers.",
+    "avatar": "https://via.placeholder.com/150"
   }
 ]
