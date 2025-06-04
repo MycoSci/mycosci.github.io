@@ -1,0 +1,16 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import ProfileCard from '../../components/ProfileCard.astro';
+import authors from '../../data/authors.json';
+
+const user = authors[0];
+---
+
+<MainLayout title="Your Profile">
+  <h1 class="mb-4 text-center">Profile</h1>
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <ProfileCard user={user} />
+    </div>
+  </div>
+</MainLayout>

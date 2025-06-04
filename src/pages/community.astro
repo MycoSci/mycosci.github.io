@@ -1,11 +1,18 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
+import Forum from '../components/Forum.astro';
+import Leaderboard from '../components/Leaderboard.astro';
 ---
 
 <MainLayout title="Community" description="Forums and events for mushroom enthusiasts">
-  <div class="container my-5">
-    <h1 class="mb-4 text-center">Community</h1>
-    <p class="lead text-center">Join discussions, share photos, and take part in events.</p>
-    <p class="text-center">Forums and challenges are coming soon.</p>
-  </div>
+  <header class="text-center mb-5">
+    <h1 class="display-4 fw-bold">Community</h1>
+    <p class="lead">Connect with other mycologists, share knowledge, and climb the leaderboard.</p>
+    <p>
+      <a href="/community/signin" class="btn btn-primary me-2">Sign In</a>
+      <a href="/community/profile" class="btn btn-outline-light">View Profile</a>
+    </p>
+  </header>
+  <Forum />
+  <Leaderboard />
 </MainLayout>
