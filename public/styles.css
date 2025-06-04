@@ -19,13 +19,23 @@ body {
 }
 
 .hero {
-  background: url('/houston.webp') center/cover no-repeat;
+  background: url("/houston.webp") center/cover no-repeat;
   color: #fff;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
   min-height: 50vh;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.blog-hero {
+  background: linear-gradient(135deg, #253425, #1e1e3c);
+  color: #fff;
+  min-height: 30vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
 }
 
 @media (max-width: 575px) {
@@ -40,7 +50,12 @@ body {
   border-color: #2a2f3b;
 }
 
-.not-found { min-height: 50vh; display: flex; align-items: center; justify-content: center; }
+.not-found {
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 /* Footer styles */
 .footer-gradient {
@@ -53,4 +68,3 @@ body {
 .footer-link:hover {
   text-decoration: underline;
 }
-
