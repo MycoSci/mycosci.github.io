@@ -3,12 +3,14 @@
     "id": 1,
     "title": "Best methods for oyster cultivation?",
     "author": "asmith",
-    "replies": 4
+    "replies": 4,
+    "species": "pleurotus-ostreatus"
   },
   {
     "id": 2,
     "title": "Share your favorite mushroom photos",
     "author": "jdoe",
-    "replies": 8
+    "replies": 8,
+    "species": "amanita-muscaria"
   }
 ]

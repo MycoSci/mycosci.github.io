@@ -1,5 +1,17 @@
 [
-  { "username": "asmith", "points": 120 },
-  { "username": "jdoe", "points": 90 },
-  { "username": "guest", "points": 45 }
+  {
+    "username": "asmith",
+    "points": 120,
+    "species": "pleurotus-ostreatus"
+  },
+  {
+    "username": "jdoe",
+    "points": 90,
+    "species": "amanita-muscaria"
+  },
+  {
+    "username": "guest",
+    "points": 45,
+    "species": "amanita-muscaria"
+  }
 ]

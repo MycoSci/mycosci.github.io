@@ -1,26 +1,55 @@
 ---
 import threads from '../data/forum.json';
 import authors from '../data/authors.json';
+import speciesList from '../data/species.json';
 
 function getAuthor(slug) {
   return authors.find(a => a.slug === slug) ?? { name: slug };
 }
+
+function getSpecies(slug) {
+  return (
+    speciesList.find((s) => s.slug === slug) ?? {
+      slug,
+      common_name: slug,
+      phylum: 'Unknown',
+    }
+  );
+}
+
+const grouped = {};
+for (const t of threads) {
+  const sp = getSpecies(t.species);
+  if (!grouped[sp.phylum]) grouped[sp.phylum] = {};
+  if (!grouped[sp.phylum][sp.slug]) grouped[sp.phylum][sp.slug] = [];
+  grouped[sp.phylum][sp.slug].push(t);
+}
 ---
 <section class="mb-5">
   <h2 class="mb-4">Forum</h2>
-  <div class="list-group">
-    {threads.map(thread => (
-      <a
-        href="#"
-        class="list-group-item list-group-item-action bg-dark text-white"
-        key={thread.id}
-      >
-        <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">{thread.title}</h5>
-          <small>{thread.replies} replies</small>
+  {Object.entries(grouped).map(([phylum, bySpecies]) => (
+    <div class="mb-4" key={phylum}>
+      <h3 class="h4">{phylum} Gym</h3>
+      {Object.entries(bySpecies).map(([slug, posts]) => (
+        <div class="mb-3" key={slug}>
+          <h4 class="h5">{getSpecies(slug).common_name}</h4>
+          <div class="list-group">
+            {posts.map((thread) => (
+              <a
+                href="#"
+                class="list-group-item list-group-item-action bg-dark text-white"
+                key={thread.id}
+              >
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1">{thread.title}</h5>
+                  <small>{thread.replies} replies</small>
+                </div>
+                <small>Started by {getAuthor(thread.author).name}</small>
+              </a>
+            ))}
+          </div>
         </div>
-        <small>Started by {getAuthor(thread.author).name}</small>
-      </a>
-    ))}
-  </div>
+      ))}
+    </div>
+  ))}
 </section>
