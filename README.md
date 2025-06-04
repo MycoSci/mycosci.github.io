@@ -4,7 +4,6 @@ MycoSci is building a comprehensive portal to catalog the fungal kingdom. The si
 uses [Astro](https://astro.build) and [Bootstrap](https://getbootstrap.com) to deliver a clean, NASA-inspired interface.
 Legacy markdown content remains in `src/content/` while the new layout will scale to thousands of dynamic species pages as we map over **100k** mushrooms.
 
-
 ## Project Goals
 
 - Document a vast catalog of fungi with reliable taxonomy and identification info
@@ -15,12 +14,12 @@ Legacy markdown content remains in `src/content/` while the new layout will scal
 
 Run the following commands from the project root:
 
-| Command        | Action                                      |
-| :------------- | :------------------------------------------ |
-| `npm install`  | Install dependencies                        |
-| `npm run dev`  | Start the dev server at `localhost:4321`    |
-| `npm run build`| Build the production site in `./dist/`      |
-| `npm run preview` | Preview the built site locally            |
+| Command           | Action                                   |
+| :---------------- | :--------------------------------------- |
+| `npm install`     | Install dependencies                     |
+| `npm run dev`     | Start the dev server at `localhost:4321` |
+| `npm run build`   | Build the production site in `./dist/`   |
+| `npm run preview` | Preview the built site locally           |
 
 ## Project Structure
 
@@ -40,6 +39,10 @@ Run the following commands from the project root:
 ```
 
 Feel free to contribute new pages or mushroom data as the project grows. See `AGENTS.md` for contribution guidelines.
+
+## Community Features
+
+The community section includes a simple forum scaffold with a sign-in page and leaderboard. You can view a sample user profile and browse discussion threads. These pages live under `src/pages/community` and the related UI components are in `src/components`.
 
 ## Navigation Overview
 
