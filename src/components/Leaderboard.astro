@@ -1,22 +1,43 @@
 ---
 import leaders from '../data/leaderboard.json';
 import authors from '../data/authors.json';
+import speciesList from '../data/species.json';
 
 function getName(slug) {
   return authors.find(a => a.slug === slug)?.name ?? slug;
 }
+
+function getSpecies(slug) {
+  return (
+    speciesList.find((s) => s.slug === slug) ?? {
+      common_name: slug,
+      slug,
+    }
+  );
+}
+
+const grouped = {};
+for (const entry of leaders) {
+  if (!grouped[entry.species]) grouped[entry.species] = [];
+  grouped[entry.species].push(entry);
+}
 ---
 <section class="mb-5">
   <h2 class="mb-4">Leaderboard</h2>
-  <ol class="list-group list-group-numbered">
-    {leaders.map(l => (
-      <li
-        class="list-group-item bg-dark text-white d-flex justify-content-between align-items-center"
-        key={l.username}
-      >
-        <span>{getName(l.username)}</span>
-        <span class="badge bg-primary rounded-pill">{l.points}</span>
-      </li>
-    ))}
-  </ol>
+  {Object.entries(grouped).map(([slug, entries]) => (
+    <div class="mb-4" key={slug}>
+      <h3 class="h5">{getSpecies(slug).common_name} Gym</h3>
+      <ol class="list-group list-group-numbered">
+        {entries.map((l) => (
+          <li
+            class="list-group-item bg-dark text-white d-flex justify-content-between align-items-center"
+            key={l.username}
+          >
+            <span>{getName(l.username)}</span>
+            <span class="badge bg-primary rounded-pill">{l.points}</span>
+          </li>
+        ))}
+      </ol>
+    </div>
+  ))}
 </section>
