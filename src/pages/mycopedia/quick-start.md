@@ -10,9 +10,11 @@ Our docs are organized scientifically, practically, and intuitively, helping you
 ## How to Navigate the Docs
 
 ### 📖 **Taxonomy (Scientific Reference)**
+
 Explore mushrooms through a structured scientific hierarchy:
+
 - **Kingdom → Phylum → Class → Order → Family → Genus → Species**  
-Every species page provides detailed identification information, genetics insights, chemistry, and practical notes.
+  Every species page provides detailed identification information, genetics insights, chemistry, and practical notes.
 
 **Example:**  
 [Basidiomycota → Agaricomycetes → Agaricales → Agaricaceae → Agaricus → Agaricus bisporus](../taxonomy/basidiomycota/agaricomycetes/agaricales/agaricaceae/agaricus/agaricus_bisporus/intro)
@@ -20,6 +22,7 @@ Every species page provides detailed identification information, genetics insigh
 ---
 
 ### 🌱 **Cultivation Methods**
+
 Learn mushroom cultivation techniques, from beginner-friendly monotubs and PF-Tek jars to advanced sterile lab practices and agar cultures.
 
 Check out the [Cultivation Section](../cultivation/beginner/pf-tek) to start your mushroom-growing journey.
@@ -27,6 +30,7 @@ Check out the [Cultivation Section](../cultivation/beginner/pf-tek) to start you
 ---
 
 ### 🍄 **Foraging & Field Guides**
+
 Find resources for safely identifying and responsibly harvesting wild mushrooms. Avoid common pitfalls and dangerous look-alikes.
 
 Start safely in the [Foraging Guide](../foraging/getting-started).
@@ -34,6 +38,7 @@ Start safely in the [Foraging Guide](../foraging/getting-started).
 ---
 
 ### 🧪 **Equipment & Lab Setup**
+
 Guides to setting up a functional mushroom lab—covering gear for beginners and specialized equipment for professional mycologists.
 
 Visit our [Lab Setup & Equipment](../equipment/beginner-lab-setup) page to see what's needed.
@@ -41,6 +46,7 @@ Visit our [Lab Setup & Equipment](../equipment/beginner-lab-setup) page to see w
 ---
 
 ### ⚗️ **Chemistry & Nutrition**
+
 Explore the biochemical and nutritional properties of mushrooms—from medicinal compounds to metabolite analysis.
 
 Dive deeper in the [Chemistry & Nutrition](../chemistry-nutrition/mushroom-nutrition) section.
@@ -48,6 +54,7 @@ Dive deeper in the [Chemistry & Nutrition](../chemistry-nutrition/mushroom-nutri
 ---
 
 ### 📚 **Research & References**
+
 Access curated literature, genome databases, and historical mycology texts to deepen your understanding and support your research.
 
 Browse our [Research Library](../references/historical-literature).
