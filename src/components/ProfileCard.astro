@@ -1,0 +1,17 @@
+---
+const { user } = Astro.props;
+---
+<div class="card bg-dark text-white">
+  <div class="card-body text-center">
+    <img
+      src={user.avatar ?? 'https://via.placeholder.com/150'}
+      alt={`${user.name} avatar`}
+      class="rounded-circle mb-3"
+      width="150"
+      height="150"
+      loading="lazy"
+    />
+    <h5 class="card-title">{user.name}</h5>
+    <p class="card-text">{user.bio}</p>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+---
+import threads from '../data/forum.json';
+import authors from '../data/authors.json';
+
+function getAuthor(slug) {
+  return authors.find(a => a.slug === slug) ?? { name: slug };
+}
+---
+<section class="mb-5">
+  <h2 class="mb-4">Forum</h2>
+  <div class="list-group">
+    {threads.map(thread => (
+      <a
+        href="#"
+        class="list-group-item list-group-item-action bg-dark text-white"
+        key={thread.id}
+      >
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">{thread.title}</h5>
+          <small>{thread.replies} replies</small>
+        </div>
+        <small>Started by {getAuthor(thread.author).name}</small>
+      </a>
+    ))}
+  </div>
+</section>
