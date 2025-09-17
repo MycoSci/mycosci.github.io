@@ -18,45 +18,70 @@ export default defineConfig({
   sidebar: [
     {
       label: "Start Here",
+      collapsed: false,
       items: [
         { label: "Overview", link: "/docs/" },
-        { label: "Quick Start", link: "/docs/Guides/quick-start/" },
+        {
+          label: "Orientation Guides",
+          autogenerate: { directory: "Guides" },
+        },
       ],
     },
     {
       label: "Field Guide",
-      autogenerate: { directory: "Taxonomy" },
+      collapsed: true,
+      items: [
+        { label: "Taxonomy Overview", link: "/docs/Taxonomy/" },
+        {
+          label: "Taxonomy Introduction",
+          link: "/docs/Taxonomy/taxonomy-intro/",
+        },
+        {
+          label: "Basidiomycota",
+          autogenerate: { directory: "Taxonomy/Basidiomycota" },
+        },
+        {
+          label: "Ascomycota",
+          autogenerate: { directory: "Taxonomy/Ascomycota" },
+        },
+      ],
     },
     {
       label: "Cultivation",
+      collapsed: true,
       autogenerate: { directory: "cultivation" },
     },
     {
       label: "Lab & Equipment",
-      autogenerate: { directory: "lab" },
+      collapsed: true,
+      items: [
+        { label: "Lab Protocols", autogenerate: { directory: "lab" } },
+        { label: "Equipment Guides", autogenerate: { directory: "equipment" } },
+      ],
     },
     {
-      label: "Foraging",
+      label: "Foraging & Safety",
+      collapsed: true,
       autogenerate: { directory: "foraging" },
     },
     {
       label: "Chemistry & Nutrition",
+      collapsed: true,
       autogenerate: { directory: "chemistry-nutrition" },
     },
     {
-      label: "Equipment",
-      autogenerate: { directory: "equipment" },
-    },
-    {
       label: "Recipes",
+      collapsed: true,
       autogenerate: { directory: "recipes" },
     },
     {
       label: "Research Library",
+      collapsed: true,
       autogenerate: { directory: "references" },
     },
     {
       label: "Legacy Reference",
+      collapsed: true,
       autogenerate: { directory: "Reference" },
     },
   ],
