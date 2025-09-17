@@ -2,89 +2,107 @@
 import MainLayout from '../layouts/MainLayout.astro';
 import speciesData from '../data/species.json';
 import SearchBox from '../components/SearchBox.astro';
+
 const featured = speciesData.slice(0, 4);
+const totalSpecies = speciesData.length;
 ---
 
-<MainLayout title="Home" description="MycoSci - cataloging the fungal kingdom with Bootstrap-powered design">
-  <header class="hero text-white text-center mb-5">
-    <div class="container py-5">
-      <h1 class="display-3 fw-bold mb-4">Mapping the Mycological Universe, One Spore at a Time.</h1>
-      <SearchBox data={speciesData} />
+<MainLayout title="Home" description="MycoSci - cataloging the fungal kingdom with mission-grade precision">
+  <header class="hero mb-5">
+    <div class="hero__inner">
+      <div class="hero__copy">
+        <p class="hero__eyebrow">Mission Control // Fungal Division</p>
+        <h1 class="hero__title">Mapping the Mycological Universe, One Spore at a Time.</h1>
+        <p class="hero__text">
+          Built like the notebooks of classic aerospace programs, MycoSci keeps fungal data orderly,
+          verifiable, and ready for deployment in the field or the lab.
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn-primary btn-lg" href="/mycopedia">Open Species Index</a>
+          <a class="btn btn-outline-light btn-lg" href="/lab">View Lab Protocols</a>
+        </div>
+      </div>
+      <div class="hero__panel">
+        <div class="hero__panel-header">
+          <span class="hero__panel-tag">Console 01</span>
+          <span class="hero__panel-status">Systems Ready</span>
+        </div>
+        <SearchBox data={speciesData} />
+        <dl class="hero__stats">
+          <div class="hero__stat">
+            <dt>Catalogued Species</dt>
+            <dd>{totalSpecies}</dd>
+          </div>
+          <div class="hero__stat">
+            <dt>Field Logs</dt>
+            <dd>128</dd>
+          </div>
+          <div class="hero__stat">
+            <dt>Lab Protocols</dt>
+            <dd>42</dd>
+          </div>
+        </dl>
+      </div>
     </div>
   </header>
-  <main class="container">
-    <section class="row text-center g-4 mb-5">
-      <div class="col-md-4">
-        <div class="card h-100 bg-dark text-white">
-          <div class="card-body">
-            <h3 class="card-title">Identify a Mushroom</h3>
-            <p class="card-text">Use our tools to pinpoint fungi in the field.</p>
-            <a class="btn btn-outline-light mt-2" href="/explore">Explore</a>
-          </div>
+
+  <section class="mission-modules mb-5">
+    <h2 class="section-title text-center">Mission Modules</h2>
+    <div class="mission-grid">
+      <article class="mission-card">
+        <span class="mission-card__eyebrow">Module 01</span>
+        <h3 class="mission-card__title">Field Identification</h3>
+        <p class="mission-card__text">
+          Precision checklists for morphology, habitat, and spore data designed for disciplined field
+          expeditions.
+        </p>
+        <a class="mission-card__link" href="/gallery">Launch Gallery</a>
+      </article>
+      <article class="mission-card">
+        <span class="mission-card__eyebrow">Module 02</span>
+        <h3 class="mission-card__title">Research Archives</h3>
+        <p class="mission-card__text">
+          A curated dossier of species records with instrumentation-grade metadata and historical references.
+        </p>
+        <a class="mission-card__link" href="/mycopedia">Browse MycoPedia</a>
+      </article>
+      <article class="mission-card">
+        <span class="mission-card__eyebrow">Module 03</span>
+        <h3 class="mission-card__title">Lab Operations</h3>
+        <p class="mission-card__text">
+          Sterile technique, cultivation teks, and monitoring protocols assembled like a mission handbook.
+        </p>
+        <a class="mission-card__link" href="/lab">Review Protocols</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="catalog-preview mb-5">
+    <div class="section-header d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+      <h2 class="section-title mb-0">Featured Species</h2>
+      <a class="btn btn-outline-primary btn-sm text-uppercase" href="/mycopedia">View Full Index</a>
+    </div>
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+      {featured.map(sp => (
+        <div class="col" key={sp.slug}>
+          <article class="catalog-card h-100">
+            <header class="catalog-card__header">
+              <span class="catalog-card__common">{sp.common_name}</span>
+              <span class="catalog-card__scientific">{sp.scientific_name}</span>
+            </header>
+            <a href={`/species/${sp.slug}`} class="catalog-card__link">Open dossier</a>
+          </article>
         </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card h-100 bg-dark text-white">
-          <div class="card-body">
-            <h3 class="card-title">Cultivation Guides</h3>
-            <p class="card-text">Learn proven methods for growing mushrooms.</p>
-            <a class="btn btn-outline-light mt-2" href="/lab">Read Guides</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card h-100 bg-dark text-white">
-          <div class="card-body">
-            <h3 class="card-title">Join the Community</h3>
-            <p class="card-text">Connect with fellow mycophiles and share tips.</p>
-            <a class="btn btn-outline-light mt-2" href="/community">Get Involved</a>
-          </div>
-        </div>
-      </div>
-    </section>
+      ))}
+    </div>
+  </section>
 
-    <section class="mb-5">
-      <h2 class="mb-4 text-center">Featured Species</h2>
-      <div class="row row-cols-1 row-cols-md-4 g-4">
-        {featured.map(sp => (
-          <div class="col" key={sp.slug}>
-            <div class="card h-100 bg-dark text-white">
-              <div class="card-body text-center">
-                <h5 class="card-title">{sp.common_name}</h5>
-                <p class="card-text fst-italic">{sp.scientific_name}</p>
-                <a href={`/species/${sp.slug}`} class="btn btn-primary btn-sm mt-2">Read More</a>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
-
-    <section id="gallery" class="mb-5">
-      <h2 class="mb-3 text-center">Mushroom Gallery</h2>
-      <div class="row row-cols-2 row-cols-md-4 g-3">
-        {Array.from({ length: 8 }).map(() => (
-          <div class="col">
-            <div class="card">
-              <img src="/houston.webp" class="card-img-top" alt="Mushroom photo" />
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
-
-    <section class="text-center mb-5">
-      <h2 class="mb-3">Join MycoGram</h2>
-      <p>Browse community photos and share your own mushroom finds.</p>
-      <a class="btn btn-primary" href="/mycogram">Open MycoGram</a>
-    </section>
-
-    <section class="mb-5">
-      <h2>About</h2>
-      <p>
-        This project aims to catalog every known fungal species with clear,
-        approachable information and crisp engineering design.
-      </p>
-    </section>
-  </main>
+  <section class="mission-brief mb-5">
+    <h2 class="section-title">Mission Brief</h2>
+    <p>
+      MycoSci operates like a timeless flight manual—concise typography, disciplined hierarchies, and
+      dependable datasets. Every page is engineered for clarity so researchers and explorers can navigate the
+      fungal kingdom with NASA-era confidence.
+    </p>
+  </section>
 </MainLayout>

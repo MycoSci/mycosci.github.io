@@ -12,10 +12,10 @@ const sorted = posts.sort((a,b) => new Date(b.date) - new Date(a.date));
 
 <MainLayout title="Blog" description="News and articles from the MycoSci community">
   <header class="blog-hero mb-5">
-    <div class="container text-center">
-      <h1 class="display-4 fw-bold">MycoSci Blog</h1>
-      <p class="lead mb-4">Insights and updates from the world of fungi.</p>
-      <a href="/community" class="btn btn-primary btn-lg">Join the discussion</a>
+    <div class="blog-hero__inner">
+      <p class="blog-hero__eyebrow">Mission Briefings</p>
+      <h1 class="blog-hero__title">MycoSci Blog</h1>
+      <p class="blog-hero__text">Insights and updates from the world of fungi.</p>
     </div>
   </header>
   <section class="mb-5">

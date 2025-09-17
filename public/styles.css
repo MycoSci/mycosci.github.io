@@ -1,20 +1,24 @@
 :root {
   --nasa-blue: #0b3d91;
-  --nasa-red: #fc3d21;
-  --nasa-ink: #0f172a;
-  --nasa-muted: #4b5563;
-  --nasa-ivory: #f5f7fa;
-  --nasa-card: rgba(255, 255, 255, 0.94);
+  --nasa-blue-dark: #062864;
+  --nasa-red: #d1342f;
+  --nasa-ink: #0b152d;
+  --nasa-slate: #4f586b;
+  --nasa-ivory: #f4f6fb;
+  --nasa-grid: rgba(11, 61, 145, 0.06);
+  --nasa-panel: #08162f;
   --nasa-border: rgba(11, 61, 145, 0.22);
-  --nasa-grid: rgba(11, 61, 145, 0.08);
+  --nasa-border-strong: rgba(11, 61, 145, 0.48);
 }
 
 .nasa-body {
   background-color: var(--nasa-ivory);
   background-image:
-    linear-gradient(90deg, var(--nasa-grid) 1px, transparent 1px),
-    linear-gradient(0deg, var(--nasa-grid) 1px, transparent 1px);
-  background-size: 72px 72px;
+    linear-gradient(0deg, var(--nasa-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--nasa-grid) 1px, transparent 1px);
+  background-size:
+    100% 64px,
+    64px 100%;
   color: var(--nasa-ink);
   font-family: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
   letter-spacing: 0.01em;
@@ -29,15 +33,12 @@
 a {
   color: var(--nasa-blue);
   text-decoration: none;
-  transition:
-    color 0.2s ease,
-    text-shadow 0.2s ease;
+  transition: color 0.2s ease;
 }
 
 a:hover,
 a:focus {
   color: var(--nasa-red);
-  text-shadow: 0 0 12px rgba(12, 30, 58, 0.18);
 }
 
 h1,
@@ -48,18 +49,17 @@ h5,
 h6 {
   font-family: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
 h1 {
-  font-weight: 700;
-  font-size: clamp(2.5rem, 2.2rem + 1vw, 3.5rem);
+  font-size: clamp(2.4rem, 3vw, 3.6rem);
 }
 
 main {
-  padding-top: 1rem;
-  padding-bottom: 2rem;
+  padding-top: 2.5rem;
+  padding-bottom: 4rem;
 }
 
 section + section {
@@ -68,40 +68,57 @@ section + section {
 
 p,
 li {
-  color: var(--nasa-muted);
+  color: var(--nasa-slate);
   line-height: 1.7;
+}
+
+.btn {
+  border-radius: 0;
+  font-family: "IBM Plex Mono", "IBM Plex Sans", sans-serif;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
 }
 
 .btn-primary {
   background-color: var(--nasa-blue);
   border-color: var(--nasa-blue);
   color: #fff;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
 }
 
 .btn-primary:hover,
 .btn-primary:focus {
-  background-color: #082b68;
-  border-color: #082b68;
+  background-color: var(--nasa-blue-dark);
+  border-color: var(--nasa-blue-dark);
+  color: #fff;
 }
 
 .btn-outline-primary {
-  border-color: var(--nasa-blue);
+  border: 2px solid var(--nasa-blue);
   color: var(--nasa-blue);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
 }
 
 .btn-outline-primary:hover,
 .btn-outline-primary:focus {
   background-color: var(--nasa-blue);
+  border-color: var(--nasa-blue);
   color: #fff;
+}
+
+.btn-outline-light {
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  color: #fff;
+}
+
+.btn-outline-light:hover,
+.btn-outline-light:focus {
+  background-color: #fff;
+  border-color: #fff;
+  color: var(--nasa-panel);
 }
 
 .form-control {
   border-radius: 0;
-  border-color: var(--nasa-border);
+  border: 2px solid var(--nasa-border);
   box-shadow: none !important;
 }
 
@@ -111,17 +128,17 @@ li {
 }
 
 .nasa-navbar {
-  background-color: rgba(255, 255, 255, 0.96);
-  backdrop-filter: blur(10px);
-  border-bottom: 4px solid var(--nasa-blue);
-  box-shadow: 0 8px 0 rgba(15, 23, 42, 0.08);
-  font-size: 0.85rem;
-  letter-spacing: 0.08em;
+  background-color: #fff;
+  border-bottom: 3px solid var(--nasa-blue);
+  box-shadow: none;
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
 }
 
 .nasa-navbar .navbar-brand {
   font-weight: 700;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--nasa-blue);
 }
@@ -134,16 +151,15 @@ li {
 .nasa-navbar .nav-link {
   color: var(--nasa-ink);
   font-weight: 600;
-  padding: 0.75rem 1rem;
+  padding: 0.75rem 1.2rem;
   position: relative;
-  text-transform: uppercase;
 }
 
 .nasa-navbar .nav-link::after {
   background: var(--nasa-red);
-  bottom: 0.4rem;
+  bottom: 0.35rem;
   content: "";
-  height: 3px;
+  height: 2px;
   left: 0;
   position: absolute;
   transform: scaleX(0);
@@ -174,74 +190,406 @@ li {
 }
 
 .hero {
-  background:
-    linear-gradient(120deg, rgba(11, 61, 145, 0.78), rgba(15, 23, 42, 0.86)),
-    url("/houston.webp") center/cover no-repeat;
-  border: 1px solid var(--nasa-border);
-  border-radius: 1rem;
-  box-shadow: 0 32px 60px rgba(15, 23, 42, 0.3);
-  color: #f9fbff;
+  background: #fff;
+  border: 3px solid var(--nasa-blue);
+  overflow: hidden;
+  padding: clamp(2.25rem, 5vw, 3.75rem);
+  position: relative;
+}
+
+.hero::after {
+  background: linear-gradient(90deg, var(--nasa-red) 0%, var(--nasa-blue) 100%);
+  content: "";
+  height: 6px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.hero__inner {
+  display: grid;
+  gap: clamp(2rem, 3vw, 3.5rem);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  position: relative;
+}
+
+.hero__copy {
+  max-width: 560px;
+}
+
+.hero__eyebrow {
+  color: var(--nasa-red);
+  display: inline-block;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.32em;
+  margin-bottom: 1.5rem;
+}
+
+.hero__title {
+  margin-bottom: 1.5rem;
+}
+
+.hero__text {
+  color: var(--nasa-slate);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  max-width: 34rem;
+}
+
+.hero__actions {
   display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+
+.hero__panel {
+  background: var(--nasa-panel);
+  border: 3px solid var(--nasa-blue);
+  color: #fff;
+  padding: clamp(1.75rem, 3vw, 2.5rem);
+  position: relative;
+}
+
+.hero__panel::before {
+  background: linear-gradient(135deg, rgba(11, 61, 145, 0.35), transparent 60%);
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.hero__panel > * {
+  position: relative;
+  z-index: 1;
+}
+
+.hero__panel-header {
   align-items: center;
-  justify-content: center;
-  min-height: 55vh;
-  padding: 4rem 2rem;
-  text-align: center;
+  display: flex;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.7rem;
+  justify-content: space-between;
+  letter-spacing: 0.24em;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
 }
 
-.hero h1 {
-  letter-spacing: 0.12em;
+.hero__panel-tag {
+  color: #fff;
 }
 
-.hero p {
-  color: rgba(248, 250, 255, 0.9);
-  max-width: 36rem;
-  margin: 1.5rem auto 0;
-  text-transform: none;
+.hero__panel-status {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.hero__stats {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  margin-top: 2rem;
+}
+
+.hero__stat dt {
+  color: rgba(255, 255, 255, 0.65);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.28em;
+  margin-bottom: 0.5rem;
+}
+
+.hero__stat dd {
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  margin: 0;
+}
+
+.search-box {
+  background: rgba(4, 13, 29, 0.72);
+  border: 2px solid rgba(255, 255, 255, 0.18);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem;
+}
+
+.search-box__header {
+  align-items: center;
+  display: flex;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.7rem;
+  justify-content: space-between;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.search-box__tag {
+  color: #fff;
+}
+
+.search-box__status {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.search-box__form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.search-box__label {
+  color: rgba(255, 255, 255, 0.65);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.search-box__control {
+  background: rgba(2, 10, 24, 0.4);
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  color: #fff;
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.search-box__control::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+}
+
+.search-box__control:focus {
+  border-color: #fff;
+  box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.2);
+}
+
+.search-box__results {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+.search-box__result {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  color: #fff;
+  display: block;
+  font-family: "IBM Plex Mono", monospace;
+  padding: 0.75rem 1rem;
+  text-transform: uppercase;
+}
+
+.search-box__result:hover,
+.search-box__result:focus {
+  background: rgba(11, 61, 145, 0.35);
+  color: #fff;
+}
+
+.search-box__result-name {
+  letter-spacing: 0.2em;
+}
+
+.search-box__result-scientific {
+  color: rgba(255, 255, 255, 0.65);
+  display: block;
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  margin-top: 0.3rem;
+}
+
+.search-box__empty {
+  color: rgba(255, 255, 255, 0.7);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  padding: 0.75rem 1rem;
+  text-transform: uppercase;
+}
+
+.section-title {
+  margin-bottom: 1.75rem;
+}
+
+.mission-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.mission-card {
+  background: #fff;
+  border: 2px solid var(--nasa-blue);
+  padding: 1.8rem;
+  position: relative;
+}
+
+.mission-card::before {
+  background: linear-gradient(90deg, var(--nasa-red) 0%, transparent 100%);
+  content: "";
+  height: 3px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.mission-card__eyebrow {
+  color: var(--nasa-red);
+  display: inline-block;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.28em;
+  margin-bottom: 1rem;
+}
+
+.mission-card__title {
+  margin-bottom: 1rem;
+}
+
+.mission-card__text {
+  color: var(--nasa-slate);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.mission-card__link {
+  color: var(--nasa-blue);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.mission-card__link:hover,
+.mission-card__link:focus {
+  color: var(--nasa-red);
+}
+
+.catalog-card {
+  background: #fff;
+  border: 2px solid var(--nasa-border-strong);
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  padding: 1.75rem;
+}
+
+.catalog-card__header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.catalog-card__common {
+  color: var(--nasa-ink);
+  font-size: 1rem;
+  letter-spacing: 0.2em;
+}
+
+.catalog-card__scientific {
+  color: var(--nasa-slate);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.14em;
+}
+
+.catalog-card__link {
+  color: var(--nasa-blue);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.catalog-card__link:hover,
+.catalog-card__link:focus {
+  color: var(--nasa-red);
+}
+
+.mission-brief p {
+  max-width: 48rem;
 }
 
 .blog-hero {
-  background: linear-gradient(
-    135deg,
-    rgba(11, 61, 145, 0.85),
-    rgba(252, 61, 33, 0.65)
-  );
-  border-radius: 0.75rem;
-  color: #f9fbff;
-  min-height: 28vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 3rem 2rem;
+  background: #fff;
+  border: 3px solid var(--nasa-blue);
+  overflow: hidden;
+  padding: clamp(2rem, 4vw, 3rem);
+  position: relative;
+}
+
+.blog-hero::after {
+  background: linear-gradient(90deg, var(--nasa-red), var(--nasa-blue));
+  content: "";
+  height: 4px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.blog-hero__inner {
+  margin: 0 auto;
+  max-width: 640px;
   text-align: center;
 }
 
+.blog-hero__eyebrow {
+  color: var(--nasa-red);
+  display: inline-block;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.32em;
+  margin-bottom: 1.25rem;
+}
+
+.blog-hero__title {
+  margin-bottom: 1rem;
+}
+
+.blog-hero__text {
+  color: var(--nasa-slate);
+  font-size: 1.05rem;
+  letter-spacing: 0.08em;
+  text-transform: none;
+}
+
 .card {
-  background-color: var(--nasa-card);
-  border: 1px solid var(--nasa-border);
-  border-radius: 0.75rem;
-  box-shadow: 0 24px 48px rgba(15, 23, 42, 0.08);
-  overflow: hidden;
+  background: #fff;
+  border: 2px solid var(--nasa-border);
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .card + .card {
   margin-top: 1.5rem;
 }
 
-.card-img-top {
-  object-fit: cover;
-}
-
 .card-title {
   color: var(--nasa-ink);
   font-family: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
-  font-size: 1.1rem;
-  letter-spacing: 0.06em;
+  font-size: 1rem;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
 }
 
 .card-text {
-  color: var(--nasa-muted);
+  color: var(--nasa-slate);
+}
+
+.card.bg-dark {
+  background: var(--nasa-panel) !important;
+  border-color: var(--nasa-blue);
+  color: #fff;
+}
+
+.card.bg-dark .card-title {
+  color: #fff;
+}
+
+.card.bg-dark .card-text {
+  color: rgba(255, 255, 255, 0.75);
 }
 
 .badge {
@@ -252,20 +600,16 @@ li {
 }
 
 .not-found {
-  min-height: 50vh;
-  display: flex;
   align-items: center;
+  display: flex;
   justify-content: center;
+  min-height: 50vh;
   text-align: center;
 }
 
 .nasa-footer {
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.96) 0%,
-    rgba(245, 247, 250, 0.98) 100%
-  );
-  border-top: 4px solid var(--nasa-blue);
+  background: #fff;
+  border-top: 3px solid var(--nasa-blue);
   color: var(--nasa-ink);
 }
 
@@ -273,8 +617,8 @@ li {
   background: linear-gradient(
     90deg,
     var(--nasa-blue) 0%,
-    var(--nasa-blue) 55%,
-    var(--nasa-red) 55%,
+    var(--nasa-blue) 60%,
+    var(--nasa-red) 60%,
     var(--nasa-red) 100%
   );
   height: 4px;
@@ -282,13 +626,13 @@ li {
 
 .nasa-footer__brand {
   font-size: 1.2rem;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.2em;
 }
 
 .nasa-footer__title {
-  color: var(--nasa-muted);
-  font-size: 0.85rem;
-  letter-spacing: 0.14em;
+  color: var(--nasa-slate);
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
   margin-bottom: 0.75rem;
 }
 
@@ -298,8 +642,8 @@ li {
 
 .nasa-footer__link {
   color: var(--nasa-ink);
-  font-size: 0.85rem;
-  letter-spacing: 0.08em;
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
 }
 
@@ -309,9 +653,9 @@ li {
 }
 
 .nasa-footer__copy {
-  color: var(--nasa-muted);
-  font-size: 0.85rem;
-  letter-spacing: 0.06em;
+  color: var(--nasa-slate);
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 
@@ -319,32 +663,51 @@ li {
   border-bottom: 1px solid var(--nasa-border);
 }
 
-@media (max-width: 767.98px) {
+@media (max-width: 991.98px) {
+  .hero__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__panel {
+    margin-top: 1.5rem;
+  }
+
   .nasa-navbar {
-    border-bottom-width: 3px;
+    font-size: 0.75rem;
   }
 
   .nasa-navbar .nav-link {
     padding-left: 0;
   }
+}
 
+@media (max-width: 767.98px) {
   .hero {
-    min-height: 40vh;
-    padding: 3rem 1.5rem;
+    padding: 2rem;
   }
 
-  .hero p {
-    margin-top: 1rem;
+  .mission-grid {
+    gap: 1.25rem;
+  }
+
+  .catalog-card {
+    padding: 1.5rem;
   }
 }
 
 @media (max-width: 575.98px) {
   .nasa-body {
-    background-size: 54px 54px;
+    background-size:
+      100% 48px,
+      48px 100%;
   }
 
-  .blog-hero {
-    min-height: 22vh;
-    padding: 2.5rem 1.5rem;
+  .hero__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-box {
+    padding: 1.25rem;
   }
 }

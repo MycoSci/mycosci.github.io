@@ -1,31 +1,63 @@
 ---
 const { data } = Astro.props;
+const inputId = `search-${Math.random().toString(36).slice(2, 8)}`;
+const totalEntries = data.length;
 ---
-<form class="d-flex justify-content-center mb-2" role="search" onsubmit="event.preventDefault()">
-  <input id="searchInput" class="form-control form-control-lg w-50 me-2" type="search" placeholder="Search species" aria-label="Search" autocomplete="off" />
-</form>
-<div id="searchResults" class="list-group"></div>
+<div class="search-box" data-search-root>
+  <div class="search-box__header">
+    <span class="search-box__tag">Console Input</span>
+    <span class="search-box__status">Records: {totalEntries}</span>
+  </div>
+  <form class="search-box__form" role="search">
+    <label class="search-box__label" for={inputId}>Species Query</label>
+    <input
+      id={inputId}
+      class="form-control form-control-lg search-box__control"
+      type="search"
+      placeholder="Enter common name or binomial"
+      aria-label="Search species"
+      autocomplete="off"
+    />
+  </form>
+  <div class="search-box__results" aria-live="polite"></div>
+</div>
 
 <script type="module" data-species={JSON.stringify(data)}>
-  const data = JSON.parse(document.currentScript.dataset.species);
-  const input = document.querySelector('#searchInput');
-  const results = document.querySelector('#searchResults');
+  const payload = JSON.parse(document.currentScript.dataset.species);
+  const root = document.currentScript.previousElementSibling;
+  const form = root.querySelector('form');
+  const input = root.querySelector('input[type="search"]');
+  const results = root.querySelector('.search-box__results');
+
   const render = () => {
-    const q = input.value.trim().toLowerCase();
-    if (!q) {
+    const query = input.value.trim().toLowerCase();
+
+    if (!query) {
       results.innerHTML = '';
       return;
     }
-    const matches = data.filter(
-      (sp) =>
-        sp.common_name.toLowerCase().includes(q) ||
-        sp.scientific_name.toLowerCase().includes(q)
+
+    const matches = payload.filter(
+      sp =>
+        sp.common_name.toLowerCase().includes(query) ||
+        sp.scientific_name.toLowerCase().includes(query)
     );
+
+    if (!matches.length) {
+      results.innerHTML = '<div class="search-box__empty">No entries found</div>';
+      return;
+    }
+
     results.innerHTML = matches
       .map(
-        (sp) => `<a href="/species/${sp.slug}" class="list-group-item list-group-item-action">${sp.common_name} <span class="fst-italic text-muted">${sp.scientific_name}</span></a>`
+        sp => `<a href="/species/${sp.slug}" class="search-box__result">
+            <span class="search-box__result-name">${sp.common_name}</span>
+            <span class="search-box__result-scientific">${sp.scientific_name}</span>
+          </a>`
       )
       .join('');
   };
+
+  form.addEventListener('submit', event => event.preventDefault());
   input.addEventListener('input', render);
 </script>
