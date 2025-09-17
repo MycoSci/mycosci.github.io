@@ -34,7 +34,7 @@ Run the following commands from the project root:
 │   ├── pages/       # Astro pages
 │   ├── content/     # Shared markdown/MDX docs
 │   └── env.d.ts     # Astro ambient type declarations
-├── starlight.config.ts # Optional Starlight site configuration
+├── starlight.config.mjs # Optional Starlight site configuration
 ├── src/data/       # JSON seeds for authors, posts and species
 ├── template_species.md    # Template for species pages
 ├── fill_prompt.md   # Data entry fields
