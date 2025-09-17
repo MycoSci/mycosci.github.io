@@ -1,7 +1,7 @@
 # MycoSci Website
 
 MycoSci is building a comprehensive portal to catalog the fungal kingdom. The site
-uses [Astro](https://astro.build) and [Bootstrap](https://getbootstrap.com) to deliver a clean, NASA-inspired interface.
+uses [Astro](https://astro.build) and [Bootstrap](https://getbootstrap.com) to deliver a crisp, mission-inspired interface.
 Legacy markdown content remains in `src/content/` while the new layout will scale to thousands of dynamic species pages as we map over **100k** mushrooms.
 
 ## Project Goals

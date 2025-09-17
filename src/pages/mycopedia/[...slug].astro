@@ -14,9 +14,10 @@ export async function getStaticPaths() {
 }
 
 const slugParam = Astro.params.slug;
-const slugPath = Array.isArray(slugParam) ? slugParam.join('/') : slugParam;
+const slugPath = Array.isArray(slugParam) ? slugParam.join('/') : slugParam ?? '';
+const withTrailingSlash = (value: string) => (value.endsWith('/') ? value : `${value}/`);
 if (import.meta.env.STARLIGHT_ENABLED) {
-  const redirectTarget = slugPath ? `/docs/${slugPath}` : '/docs';
+  const redirectTarget = slugPath ? withTrailingSlash(`/docs/${slugPath}`) : '/docs/';
   return Astro.redirect(redirectTarget);
 }
 const pathBase = '../../content/docs/' + slugPath;
@@ -30,16 +31,18 @@ let pageImport =
 let page;
 let Content;
 let pageTitle = 'MycoPedia';
+let pageDescription: string | undefined;
 if (pageImport) {
   page = await pageImport();
   Content = page.default;
   pageTitle = page.frontmatter?.title ?? pageTitle;
+  pageDescription = page.frontmatter?.description;
 } else {
   throw new Error(`Document not found: ${slugPath}`);
 }
 
 const nav = getDocsNav();
 ---
-<DocsLayout title={pageTitle} nav={nav}>
+<DocsLayout title={pageTitle} description={pageDescription} nav={nav}>
   <Content />
 </DocsLayout>
