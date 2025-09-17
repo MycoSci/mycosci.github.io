@@ -21,7 +21,7 @@ Run the following commands from the project root:
 | `npm run build`   | Build the production site in `./dist/`   |
 | `npm run preview` | Preview the built site locally           |
 
-> **Starlight docs**: The repository now targets the official Starlight documentation shell. Install it locally with `npm install @astrojs/starlight` to enable the `/docs` routes. If the package is missing, `/mycopedia` renders installation instructions instead of the legacy layout.
+> **Starlight docs**: The repository now bundles the official Starlight documentation shell. The `/docs` routes are available out of the box when you run `npm run dev` or build for production.
 
 ## Project Structure
 
@@ -33,7 +33,7 @@ Run the following commands from the project root:
 │   ├── layouts/     # Page layouts
 │   ├── pages/       # Astro pages
 │   ├── content/     # Shared markdown/MDX docs
-│   └── env.d.ts     # Type definitions for build-time env flags
+│   └── env.d.ts     # Astro ambient type declarations
 ├── starlight.config.ts # Optional Starlight site configuration
 ├── src/data/       # JSON seeds for authors, posts and species
 ├── template_species.md    # Template for species pages
@@ -54,8 +54,7 @@ The site features a Bootstrap-powered navbar linking to key sections:
 
 - **Visual Gallery** – community photos
 - **Mushroom Instagram** – MycoGram feed
-- **MycoPedia** – redirects into `/docs` when Starlight is available, or shows setup guidance otherwise
-- **Docs** – official Starlight documentation shell (auto-enabled once installed)
+- **MycoPedia** – official documentation portal powered by Astro Starlight (`/docs`)
 - **Lab & Cultivation** – teks and protocols
 - **Resources** – videos, podcasts, and research links
 - **Blog** – news articles and tutorials

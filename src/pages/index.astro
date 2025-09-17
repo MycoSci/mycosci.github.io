@@ -5,8 +5,8 @@ import SearchBox from '../components/SearchBox.astro';
 
 const featured = speciesData.slice(0, 4);
 const totalSpecies = speciesData.length;
-const docsBase = import.meta.env.STARLIGHT_ENABLED ? '/docs/' : '/mycopedia/';
-const labHref = import.meta.env.STARLIGHT_ENABLED ? '/docs/lab/intro/' : '/mycopedia/';
+const docsBase = '/docs/';
+const labHref = '/docs/lab/intro/';
 ---
 
 <MainLayout title="Home" description="MycoSci - cataloging the fungal kingdom with mission-grade precision">
