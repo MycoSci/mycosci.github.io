@@ -5,6 +5,8 @@ import SearchBox from '../components/SearchBox.astro';
 
 const featured = speciesData.slice(0, 4);
 const totalSpecies = speciesData.length;
+const docsBase = '/docs/';
+const labHref = '/docs/lab/intro/';
 ---
 
 <MainLayout title="Home" description="MycoSci - cataloging the fungal kingdom with mission-grade precision">
@@ -18,8 +20,8 @@ const totalSpecies = speciesData.length;
           verifiable, and ready for deployment in the field or the lab.
         </p>
         <div class="hero__actions">
-          <a class="btn btn-primary btn-lg" href="/mycopedia">Open Species Index</a>
-          <a class="btn btn-outline-light btn-lg" href="/lab">View Lab Protocols</a>
+          <a class="btn btn-primary btn-lg" href={docsBase}>Open Species Index</a>
+          <a class="btn btn-outline-light btn-lg" href={labHref}>View Lab Protocols</a>
         </div>
       </div>
       <div class="hero__panel">
@@ -64,7 +66,7 @@ const totalSpecies = speciesData.length;
         <p class="mission-card__text">
           A curated dossier of species records with instrumentation-grade metadata and historical references.
         </p>
-        <a class="mission-card__link" href="/mycopedia">Browse MycoPedia</a>
+        <a class="mission-card__link" href={docsBase}>Browse MycoPedia</a>
       </article>
       <article class="mission-card">
         <span class="mission-card__eyebrow">Module 03</span>
@@ -72,7 +74,7 @@ const totalSpecies = speciesData.length;
         <p class="mission-card__text">
           Sterile technique, cultivation teks, and monitoring protocols assembled like a mission handbook.
         </p>
-        <a class="mission-card__link" href="/lab">Review Protocols</a>
+        <a class="mission-card__link" href={labHref}>Review Protocols</a>
       </article>
     </div>
   </section>
@@ -80,7 +82,7 @@ const totalSpecies = speciesData.length;
   <section class="catalog-preview mb-5">
     <div class="section-header d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
       <h2 class="section-title mb-0">Featured Species</h2>
-      <a class="btn btn-outline-primary btn-sm text-uppercase" href="/mycopedia">View Full Index</a>
+      <a class="btn btn-outline-primary btn-sm text-uppercase" href={docsBase}>View Full Index</a>
     </div>
     <div class="row row-cols-1 row-cols-md-4 g-4">
       {featured.map(sp => (
@@ -102,7 +104,7 @@ const totalSpecies = speciesData.length;
     <p>
       MycoSci operates like a timeless flight manual—concise typography, disciplined hierarchies, and
       dependable datasets. Every page is engineered for clarity so researchers and explorers can navigate the
-      fungal kingdom with NASA-era confidence.
+      fungal kingdom with mission-era confidence.
     </p>
   </section>
 </MainLayout>

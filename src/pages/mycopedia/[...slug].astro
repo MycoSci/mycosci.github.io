@@ -1,45 +1,22 @@
 ---
-import DocsLayout from '../../layouts/DocsLayout.astro';
-import { getDocsNav } from '../../utils/getDocsNav';
-
 export async function getStaticPaths() {
   const pages = import.meta.glob('../../content/docs/**/*.{md,mdx}');
-  return Object.keys(pages).map((path) => {
-    const relative = path
-      .replace('../../content/docs/', '')
-      .replace(/\/index\.(md|mdx)$/, '')
-      .replace(/\.(md|mdx)$/, '');
-    return { params: { slug: relative } };
-  });
+  return Object.keys(pages)
+    .map(path => {
+      const relative = path
+        .replace('../../content/docs/', '')
+        .replace(/\.(md|mdx)$/, '')
+        .replace(/\/index$/, '');
+      if (!relative) return undefined;
+      return { params: { slug: relative } };
+    })
+    .filter((entry): entry is { params: { slug: string } } => Boolean(entry));
 }
 
 const slugParam = Astro.params.slug;
-const slugPath = Array.isArray(slugParam) ? slugParam.join('/') : slugParam;
-if (import.meta.env.STARLIGHT_ENABLED) {
-  const redirectTarget = slugPath ? `/docs/${slugPath}` : '/docs';
-  return Astro.redirect(redirectTarget);
-}
-const pathBase = '../../content/docs/' + slugPath;
-const mdxPages = import.meta.glob('../../content/docs/**/*.mdx');
-const mdPages = import.meta.glob('../../content/docs/**/*.md');
-let pageImport =
-  mdxPages[pathBase + '.mdx'] ||
-  mdPages[pathBase + '.md'] ||
-  mdxPages[pathBase + '/index.mdx'] ||
-  mdPages[pathBase + '/index.md'];
-let page;
-let Content;
-let pageTitle = 'MycoPedia';
-if (pageImport) {
-  page = await pageImport();
-  Content = page.default;
-  pageTitle = page.frontmatter?.title ?? pageTitle;
-} else {
-  throw new Error(`Document not found: ${slugPath}`);
-}
+const slugPath = Array.isArray(slugParam) ? slugParam.join('/') : slugParam ?? '';
 
-const nav = getDocsNav();
+const withTrailingSlash = (value: string) => (value.endsWith('/') ? value : `${value}/`);
+const target = slugPath ? `/docs/${slugPath}` : '/docs/';
+return Astro.redirect(withTrailingSlash(target));
 ---
-<DocsLayout title={pageTitle} nav={nav}>
-  <Content />
-</DocsLayout>

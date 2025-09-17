@@ -1,10 +1,11 @@
 ---
-const docsHref = import.meta.env.STARLIGHT_ENABLED ? '/docs' : '/mycopedia';
+const docsHref = '/docs/';
+const labHref = '/docs/lab/intro/';
 const navLinks = [
   { href: '/gallery', label: 'Gallery' },
   { href: docsHref, label: 'MycoPedia' },
   { href: '/blog', label: 'Blog' },
-  { href: '/lab', label: 'Lab & Cultivation' },
+  { href: labHref, label: 'Lab & Cultivation' },
 ];
 
 const normalize = (value: string) => (value.endsWith('/') ? value : value + '/');

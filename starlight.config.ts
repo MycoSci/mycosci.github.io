@@ -18,7 +18,7 @@ export default defineConfig({
   sidebar: [
     {
       label: "Start Here",
-      collapsed: false,
+      collapsed: true,
       items: [
         { label: "Overview", link: "/docs/" },
         {
