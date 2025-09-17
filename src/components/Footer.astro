@@ -1,8 +1,9 @@
 ---
-const docsHref = import.meta.env.STARLIGHT_ENABLED ? '/docs' : '/mycopedia';
+const docsHref = import.meta.env.STARLIGHT_ENABLED ? '/docs/' : '/mycopedia/';
 const quickStartHref = import.meta.env.STARLIGHT_ENABLED
-  ? '/docs/Guides/quick-start/'
-  : '/mycopedia/quick-start';
+  ? '/docs/guides/quick-start/'
+  : '/mycopedia/quick-start/';
+const labHref = import.meta.env.STARLIGHT_ENABLED ? '/docs/lab/intro/' : '/mycopedia/';
 ---
 <footer class="nasa-footer mt-auto">
   <div class="nasa-footer__band"></div>
@@ -19,7 +20,7 @@ const quickStartHref = import.meta.env.STARLIGHT_ENABLED
         <ul class="list-unstyled nasa-footer__list mb-0">
           <li><a href="/gallery" class="nasa-footer__link">Gallery</a></li>
           <li><a href={docsHref} class="nasa-footer__link">MycoPedia</a></li>
-          <li><a href="/lab" class="nasa-footer__link">Lab &amp; Cultivation</a></li>
+          <li><a href={labHref} class="nasa-footer__link">Lab &amp; Cultivation</a></li>
         </ul>
       </div>
       <div class="col-6 col-lg-2">

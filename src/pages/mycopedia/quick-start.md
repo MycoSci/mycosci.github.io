@@ -1,70 +1,66 @@
 ---
 title: Getting Started with MycoSci
-description: How to use and navigate MycoSci’s mushroom documentation and resources.
+description: How to install Astro Starlight locally and navigate the MycoPedia documentation system.
 ---
 
-Welcome to **MycoSci**, your free, open-source hub dedicated to the science, cultivation, and exploration of mushrooms. Whether you're a seasoned mycologist, a passionate cultivator, or simply fungi-curious, you've come to the right place.
+Welcome to **MycoSci**, your open documentation stack for fungal research, cultivation, and fieldwork. The
+reference is now powered by the official **Astro Starlight** theme, which means collapsible sidebar groups,
+responsive navigation, and a growing component library that keeps dense scientific content easy to scan.
 
-Our docs are organized scientifically, practically, and intuitively, helping you navigate from detailed species references to hands-on cultivation techniques and field guides.
+Use this guide to install the theme locally and jump into the sections that matter most to your work.
 
-## How to Navigate the Docs
+## 1. Install the Starlight Theme
 
-### 📖 **Taxonomy (Scientific Reference)**
+```bash
+npm install @astrojs/starlight
+npm run dev
+```
 
-Explore mushrooms through a structured scientific hierarchy:
+Once the dev server is running, head to <http://localhost:4321/docs/>. The sidebar mirrors the MycoPedia
+hierarchy and defaults to collapsed groups so you can focus on one discipline at a time.
 
-- **Kingdom → Phylum → Class → Order → Family → Genus → Species**  
-  Every species page provides detailed identification information, genetics insights, chemistry, and practical notes.
+## 2. Explore the Documentation
 
-**Example:**  
-[Basidiomycota → Agaricomycetes → Agaricales → Agaricaceae → Agaricus → Agaricus bisporus](../taxonomy/basidiomycota/agaricomycetes/agaricales/agaricaceae/agaricus/agaricus_bisporus/intro)
+### 📖 Taxonomy (Scientific Reference)
 
----
+Walk through a fully nested hierarchy:
 
-### 🌱 **Cultivation Methods**
+- **Kingdom → Phylum → Class → Order → Family → Genus → Species**
+- Each species dossier captures macroscopic traits, microscopy, chemistry, edibility, and caution notes.
 
-Learn mushroom cultivation techniques, from beginner-friendly monotubs and PF-Tek jars to advanced sterile lab practices and agar cultures.
+**Example:**
+[Basidiomycota → Agaricomycetes → Agaricales → Agaricaceae → Agaricus → Agaricus bisporus](/docs/Taxonomy/Basidiomycota/Agaricomycetes/Agaricales/Agaricaceae/Agaricus/agaricus_bisporus/intro/)
 
-Check out the [Cultivation Section](../cultivation/beginner/pf-tek) to start your mushroom-growing journey.
+### 🌱 Cultivation Methods
 
----
+Starlight tabs and asides bundle teks for every skill level—from PF Tek jars to monotubs and commercial
+sterile workflows.
 
-### 🍄 **Foraging & Field Guides**
+Start with the [PF Tek walkthrough](/docs/cultivation/beginner/pf-tek/) or dive into [advanced lab teks](/docs/lab/intro/).
 
-Find resources for safely identifying and responsibly harvesting wild mushrooms. Avoid common pitfalls and dangerous look-alikes.
+### 🍄 Foraging & Field Guides
 
-Start safely in the [Foraging Guide](../foraging/getting-started).
+Checklists and visual references help you recognize edible species while steering clear of look-alikes.
+Launch from the [Foraging primer](/docs/foraging/getting-started/).
 
----
+### 🧪 Equipment & Lab Setup
 
-### 🧪 **Equipment & Lab Setup**
+Bill of materials, cleanroom layouts, and instrumentation guides keep lab builds precise. Begin with the
+[Beginner Lab Setup](/docs/equipment/beginner-lab-setup/).
 
-Guides to setting up a functional mushroom lab—covering gear for beginners and specialized equipment for professional mycologists.
+### ⚗️ Chemistry & Nutrition
 
-Visit our [Lab Setup & Equipment](../equipment/beginner-lab-setup) page to see what's needed.
+Dig into metabolite profiles, nutritional analysis, and extraction protocols in the
+[Chemistry & Nutrition section](/docs/chemistry-nutrition/mushroom-nutrition/).
 
----
+### 📚 Research Library
 
-### ⚗️ **Chemistry & Nutrition**
+A curated archive of field notes, historical scans, and database links lives in the
+[Research Library](/docs/references/historical-literature/).
 
-Explore the biochemical and nutritional properties of mushrooms—from medicinal compounds to metabolite analysis.
+## 3. Share Feedback
 
-Dive deeper in the [Chemistry & Nutrition](../chemistry-nutrition/mushroom-nutrition) section.
+Found a missing species or want to suggest a navigation improvement? Open an issue or PR so we can keep
+iterating on the MycoPedia flight manual.
 
----
-
-### 📚 **Research & References**
-
-Access curated literature, genome databases, and historical mycology texts to deepen your understanding and support your research.
-
-Browse our [Research Library](../references/historical-literature).
-
----
-
-## Thanks for Visiting!
-
-MycoSci is continually growing, just like the mycelium networks that inspire us. We deeply appreciate your interest in mushrooms and hope these resources help you on your fungal journey.
-
-Happy exploring, and may your mushrooms thrive!
-
-🌲 **— The MycoSci Team**
+Happy exploring, and may your cultures thrive!
