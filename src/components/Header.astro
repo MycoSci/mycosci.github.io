@@ -1,17 +1,21 @@
 ---
+const navLinks = [
+  { href: '/gallery', label: 'Gallery' },
+  { href: '/mycopedia', label: 'MycoPedia' },
+  { href: '/blog', label: 'Blog' },
+  { href: '/lab', label: 'Lab & Cultivation' },
+];
+
+const normalize = (value: string) => (value.endsWith('/') ? value : value + '/');
+const currentPath = normalize(Astro.url.pathname);
+const isActive = (href: string) => currentPath.startsWith(normalize(href));
 ---
 <header class="site-header">
-  <div class="site-header__band">
-    <div class="container d-flex flex-wrap align-items-center justify-content-between gap-3">
-      <span class="site-header__band-label">MycoSci Mission Operations</span>
-      <span class="site-header__band-meta">Revision 3.2 // Status: Nominal</span>
-    </div>
-  </div>
-  <nav class="navbar navbar-expand-lg navbar-light nasa-navbar">
+  <nav class="navbar navbar-expand-lg site-navbar" aria-label="Primary navigation">
     <div class="container">
-      <a class="navbar-brand" href="/">
-        <span class="navbar-brand__wordmark">MycoSci</span>
-        <span class="navbar-brand__sub">Mycology Systems Division</span>
+      <a class="navbar-brand site-navbar__brand" href="/">
+        <span class="site-navbar__wordmark">MycoSci</span>
+        <span class="site-navbar__sub">Mycology Systems Division</span>
       </a>
       <button
         class="navbar-toggler"
@@ -26,10 +30,20 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item"><a class="nav-link" href="/gallery">Gallery</a></li>
-          <li class="nav-item"><a class="nav-link" href="/mycopedia">MycoPedia</a></li>
-          <li class="nav-item"><a class="nav-link" href="/blog">Blog</a></li>
-          <li class="nav-item"><a class="nav-link" href="/lab">Lab &amp; Cultivation</a></li>
+          {navLinks.map(link => {
+            const active = isActive(link.href);
+            return (
+              <li class="nav-item">
+                <a
+                  class={`nav-link${active ? ' active' : ''}`}
+                  href={link.href}
+                  aria-current={active ? 'page' : undefined}
+                >
+                  {link.label}
+                </a>
+              </li>
+            );
+          })}
         </ul>
         <form class="d-none d-lg-flex" role="search">
           <label class="visually-hidden" for="header-search">Search the catalog</label>
@@ -40,7 +54,7 @@
             placeholder="Species, labs, posts"
             aria-label="Search"
           />
-          <button class="btn btn-outline-primary btn-sm" type="submit">Execute</button>
+          <button class="btn btn-outline-primary btn-sm" type="submit">Search</button>
         </form>
       </div>
     </div>

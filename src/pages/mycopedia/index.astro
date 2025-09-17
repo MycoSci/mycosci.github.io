@@ -6,67 +6,75 @@ const nav = getDocsNav();
 ---
 
 <DocsLayout title="MycoPedia" description="Documentation and guides for MycoSci" nav={nav}>
-  <div class="container my-5">
-    <h1 class="mb-4 text-center">MycoPedia</h1>
-    <p class="lead text-center">Your free, community-powered field guide to the fungal kingdom.</p>
-    <div class="row row-cols-1 row-cols-md-2 g-4 mt-4">
+  <section class="docs-landing">
+    <header class="text-center mb-5">
+      <h1 class="mb-3">MycoPedia</h1>
+      <p class="lead text-muted">Your free, community-powered field guide to the fungal kingdom.</p>
+    </header>
+    <div class="row row-cols-1 row-cols-md-2 g-4">
       <div class="col">
-        <a href="/mycopedia/Taxonomy/" class="text-decoration-none">
-          <div class="card h-100 bg-dark text-white">
-            <div class="card-body">
-              <h5 class="card-title">Field Guide</h5>
-              <p class="card-text">Browse taxonomy from phylum down to individual species.</p>
-            </div>
+        <a
+          href="/mycopedia/Taxonomy/"
+          class="docs-card card h-100 shadow-sm text-decoration-none"
+        >
+          <div class="card-body">
+            <h5 class="card-title">Field Guide</h5>
+            <p class="card-text text-muted">Browse taxonomy from phylum down to individual species.</p>
           </div>
         </a>
       </div>
       <div class="col">
-        <a href="/mycopedia/cultivation/beginner/pf-tek" class="text-decoration-none">
-          <div class="card h-100 bg-dark text-white">
-            <div class="card-body">
-              <h5 class="card-title">Cultivation Basics</h5>
-              <p class="card-text">Step-by-step monotub, PF-tek, and gourmet log methods.</p>
-            </div>
+        <a
+          href="/mycopedia/cultivation/beginner/pf-tek"
+          class="docs-card card h-100 shadow-sm text-decoration-none"
+        >
+          <div class="card-body">
+            <h5 class="card-title">Cultivation Basics</h5>
+            <p class="card-text text-muted">Step-by-step monotub, PF-tek, and gourmet log methods.</p>
           </div>
         </a>
       </div>
       <div class="col">
-        <a href="/mycopedia/lab/intro" class="text-decoration-none">
-          <div class="card h-100 bg-dark text-white">
-            <div class="card-body">
-              <h5 class="card-title">Lab Techniques</h5>
-              <p class="card-text">Agar cloning, liquid culture, and sterile technique.</p>
-            </div>
+        <a
+          href="/mycopedia/lab/intro"
+          class="docs-card card h-100 shadow-sm text-decoration-none"
+        >
+          <div class="card-body">
+            <h5 class="card-title">Lab Techniques</h5>
+            <p class="card-text text-muted">Agar cloning, liquid culture, and sterile technique.</p>
           </div>
         </a>
       </div>
       <div class="col">
-        <a href="/mycopedia/recipes/intro" class="text-decoration-none">
-          <div class="card h-100 bg-dark text-white">
-            <div class="card-body">
-              <h5 class="card-title">Recipes</h5>
-              <p class="card-text">Culinary ideas for cooking wild and cultivated fungi.</p>
-            </div>
+        <a
+          href="/mycopedia/recipes/intro"
+          class="docs-card card h-100 shadow-sm text-decoration-none"
+        >
+          <div class="card-body">
+            <h5 class="card-title">Recipes</h5>
+            <p class="card-text text-muted">Culinary ideas for cooking wild and cultivated fungi.</p>
           </div>
         </a>
       </div>
       <div class="col">
-        <a href="/mycopedia/chemistry-nutrition/mushroom-nutrition" class="text-decoration-none">
-          <div class="card h-100 bg-dark text-white">
-            <div class="card-body">
-              <h5 class="card-title">Nutrition & Chemistry</h5>
-              <p class="card-text">Explore medicinal compounds and health benefits.</p>
-            </div>
+        <a
+          href="/mycopedia/chemistry-nutrition/mushroom-nutrition"
+          class="docs-card card h-100 shadow-sm text-decoration-none"
+        >
+          <div class="card-body">
+            <h5 class="card-title">Nutrition &amp; Chemistry</h5>
+            <p class="card-text text-muted">Explore medicinal compounds and health benefits.</p>
           </div>
         </a>
       </div>
       <div class="col">
-        <a href="/mycopedia/references/historical-literature" class="text-decoration-none">
-          <div class="card h-100 bg-dark text-white">
-            <div class="card-body">
-              <h5 class="card-title">Research Library</h5>
-              <p class="card-text">Curated papers, genome data sets, and historic texts.</p>
-            </div>
+        <a
+          href="/mycopedia/references/historical-literature"
+          class="docs-card card h-100 shadow-sm text-decoration-none"
+        >
+          <div class="card-body">
+            <h5 class="card-title">Research Library</h5>
+            <p class="card-text text-muted">Curated papers, genome data sets, and historic texts.</p>
           </div>
         </a>
       </div>
@@ -74,5 +82,5 @@ const nav = getDocsNav();
     <div class="text-center mt-5">
       <a href="/mycopedia/quick-start" class="btn btn-primary btn-lg">Quick Start Guide</a>
     </div>
-  </div>
+  </section>
 </DocsLayout>
