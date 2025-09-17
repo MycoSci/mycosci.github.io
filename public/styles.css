@@ -32,21 +32,7 @@
 }
 
 .nasa-body::before {
-  background: linear-gradient(
-    180deg,
-    var(--nasa-blue) 0%,
-    var(--nasa-blue) 52%,
-    var(--nasa-red) 52%,
-    var(--nasa-red) 100%
-  );
-  content: "";
-  height: 100vh;
-  left: 0;
-  position: fixed;
-  top: 0;
-  width: 12px;
-  pointer-events: none;
-  z-index: 0;
+  content: none;
 }
 
 .nasa-body::selection {

@@ -33,7 +33,7 @@ const currentPath = normalize(Astro.url.pathname);
     <main class="flex-fill py-5">
       <div class="container">
         <div class="row g-4 g-xl-5">
-          <aside class="col-lg-3 col-xl-2">
+          <aside class="col-lg-4 col-xl-3">
             <nav class="docs-sidenav" aria-label="Documentation navigation">
               {nav.map(item => {
                 const itemPath = normalize(item.url);
@@ -51,7 +51,7 @@ const currentPath = normalize(Astro.url.pathname);
               })}
             </nav>
           </aside>
-          <div class="col-lg-9 col-xl-10">
+          <div class="col-lg-8 col-xl-9">
             <article class="docs-content">
               <slot />
             </article>
