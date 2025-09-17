@@ -1,62 +1,70 @@
 ---
 const navLinks = [
-  { href: '/gallery', label: 'Gallery' },
+  { href: '/', label: 'Home' },
   { href: '/mycopedia', label: 'MycoPedia' },
-  { href: '/blog', label: 'Blog' },
+  { href: '/gallery', label: 'Gallery' },
   { href: '/lab', label: 'Lab & Cultivation' },
+  { href: '/resources', label: 'Resources' },
+  { href: '/blog', label: 'Blog' },
 ];
 
 const normalize = (value: string) => (value.endsWith('/') ? value : value + '/');
 const currentPath = normalize(Astro.url.pathname);
 const isActive = (href: string) => currentPath.startsWith(normalize(href));
+const navId = 'primary-navigation';
 ---
-<header class="site-header">
-  <nav class="navbar navbar-expand-lg site-navbar" aria-label="Primary navigation">
-    <div class="container">
-      <a class="navbar-brand site-navbar__brand" href="/">
-        <span class="site-navbar__wordmark">MycoSci</span>
-        <span class="site-navbar__sub">Mycology Systems Division</span>
-      </a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          {navLinks.map(link => {
-            const active = isActive(link.href);
-            return (
-              <li class="nav-item">
-                <a
-                  class={`nav-link${active ? ' active' : ''}`}
-                  href={link.href}
-                  aria-current={active ? 'page' : undefined}
-                >
-                  {link.label}
-                </a>
-              </li>
-            );
-          })}
-        </ul>
-        <form class="d-none d-lg-flex" role="search">
-          <label class="visually-hidden" for="header-search">Search the catalog</label>
-          <input
-            id="header-search"
-            class="form-control form-control-sm me-2"
-            type="search"
-            placeholder="Species, labs, posts"
-            aria-label="Search"
-          />
-          <button class="btn btn-outline-primary btn-sm" type="submit">Search</button>
-        </form>
-      </div>
-    </div>
-  </nav>
+<header class="sl-header" data-sl-header>
+  <div class="sl-header__band" aria-hidden="true"></div>
+  <div class="sl-container sl-header__inner">
+    <a class="sl-header__brand" href="/">
+      <span class="sl-header__wordmark">MycoSci</span>
+      <span class="sl-header__tagline">Mycology Systems Division</span>
+    </a>
+    <button
+      class="sl-header__toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls={navId}
+      data-sl-nav-toggle
+    >
+      Menu
+    </button>
+    <nav id={navId} class="sl-header__nav" aria-label="Primary navigation" data-sl-nav>
+      <ul class="sl-header__list">
+        {navLinks.map(link => {
+          const active = isActive(link.href);
+          return (
+            <li class="sl-header__item">
+              <a
+                class={`sl-header__link${active ? ' is-active' : ''}`}
+                href={link.href}
+                aria-current={active ? 'page' : undefined}
+              >
+                {link.label}
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </nav>
+  </div>
+  <script is:inline>
+    const headers = document.querySelectorAll('[data-sl-header]');
+    headers.forEach(header => {
+      const toggle = header.querySelector('[data-sl-nav-toggle]');
+      const nav = header.querySelector('[data-sl-nav]');
+      if (!toggle || !nav) return;
+      toggle.addEventListener('click', () => {
+        const isOpen = nav.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', String(isOpen));
+      });
+      nav.addEventListener('keydown', event => {
+        if (event.key === 'Escape') {
+          nav.classList.remove('is-open');
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.focus();
+        }
+      });
+    });
+  </script>
 </header>

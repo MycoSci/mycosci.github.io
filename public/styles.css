@@ -23,7 +23,10 @@
     100% 64px,
     64px 100%;
   color: var(--nasa-ink);
+  display: flex;
+  flex-direction: column;
   font-family: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+  min-height: 100vh;
   letter-spacing: 0.01em;
   line-height: 1.6;
   position: relative;
@@ -38,6 +41,363 @@
 .nasa-body::selection {
   background-color: var(--nasa-blue);
   color: #fff;
+}
+
+.skip-link {
+  background: var(--nasa-blue);
+  border-radius: 0 0 4px 4px;
+  color: #fff;
+  font-family: "IBM Plex Mono", "IBM Plex Sans", sans-serif;
+  font-size: 0.875rem;
+  letter-spacing: 0.14em;
+  padding: 0.5rem 1rem;
+  position: absolute;
+  left: 1rem;
+  top: 0;
+  transform: translateY(-150%);
+  transition: transform 0.2s ease;
+  z-index: 200;
+}
+
+.skip-link:focus {
+  outline: none;
+  transform: translateY(0%);
+}
+
+.sl-container {
+  margin: 0 auto;
+  max-width: 1180px;
+  padding-inline: clamp(1rem, 4vw, 2.75rem);
+  width: 100%;
+}
+
+.sl-main {
+  flex: 1 0 auto;
+  padding-block: clamp(2.5rem, 4vw, 4rem);
+}
+
+.sl-main--docs {
+  padding-block: clamp(2rem, 3vw, 3.5rem);
+}
+
+.sl-header {
+  background: linear-gradient(
+    180deg,
+    rgba(16, 26, 50, 0.95),
+    rgba(16, 26, 50, 0.88)
+  );
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 18px 30px rgba(12, 32, 74, 0.24);
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 120;
+}
+
+.sl-header__band {
+  background: linear-gradient(90deg, var(--nasa-red), var(--nasa-blue));
+  height: 3px;
+  width: 100%;
+}
+
+.sl-header__inner {
+  align-items: center;
+  display: flex;
+  gap: 1.5rem;
+  justify-content: space-between;
+  padding-block: 1rem;
+}
+
+.sl-header__brand {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  font-family: "Barlow Condensed", "Helvetica Neue", Arial, sans-serif;
+  gap: 0.15rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.sl-header__brand:hover,
+.sl-header__brand:focus {
+  color: #fff;
+  text-decoration: none;
+}
+
+.sl-header__wordmark {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  letter-spacing: 0.32em;
+}
+
+.sl-header__tagline {
+  color: rgba(255, 255, 255, 0.7);
+  font-family: "IBM Plex Mono", "IBM Plex Sans", sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+}
+
+.sl-header__toggle {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  color: #fff;
+  display: none;
+  font-family: "IBM Plex Mono", "IBM Plex Sans", sans-serif;
+  font-size: 0.75rem;
+  gap: 0.5rem;
+  letter-spacing: 0.24em;
+  padding: 0.5rem 1rem;
+  text-transform: uppercase;
+}
+
+.sl-header__toggle:focus-visible {
+  outline: 2px solid var(--nasa-red);
+  outline-offset: 3px;
+}
+
+.sl-header__nav {
+  display: block;
+}
+
+.sl-header__nav.is-open {
+  display: block;
+}
+
+.sl-header__list {
+  align-items: center;
+  display: flex;
+  gap: clamp(1rem, 3vw, 2rem);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sl-header__item {
+  margin: 0;
+}
+
+.sl-header__link {
+  color: rgba(255, 255, 255, 0.75);
+  font-family: "IBM Plex Mono", "IBM Plex Sans", sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  position: relative;
+  text-transform: uppercase;
+  transition: color 0.15s ease;
+}
+
+.sl-header__link::after {
+  background: rgba(255, 255, 255, 0.65);
+  border-radius: 999px;
+  bottom: -0.75rem;
+  content: "";
+  height: 2px;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  transform: scaleX(0.4);
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+  width: 100%;
+}
+
+.sl-header__link:hover,
+.sl-header__link:focus {
+  color: #fff;
+}
+
+.sl-header__link.is-active {
+  color: #fff;
+}
+
+.sl-header__link.is-active::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.sl-main .sl-container {
+  position: relative;
+}
+
+.sl-docs {
+  display: grid;
+  gap: clamp(1.5rem, 3vw, 3rem);
+  grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
+}
+
+.sl-docs__sidebar {
+  align-self: start;
+  position: sticky;
+  top: 5.75rem;
+}
+
+.sl-docs__nav {
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid var(--nasa-border);
+  border-radius: 14px;
+  box-shadow: 0 14px 30px rgba(11, 61, 145, 0.12);
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  position: relative;
+}
+
+.sl-docs__link {
+  border-left: 3px solid transparent;
+  color: var(--nasa-slate);
+  display: block;
+  font-family: "IBM Plex Sans", Arial, sans-serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  margin-left: calc(var(--nav-depth) * 0.75rem);
+  padding: 0.35rem 0.65rem;
+  text-transform: uppercase;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.sl-docs__link:hover,
+.sl-docs__link:focus {
+  background: rgba(11, 61, 145, 0.08);
+  border-color: var(--nasa-blue);
+  color: var(--nasa-blue);
+}
+
+.sl-docs__link.is-active {
+  background: rgba(11, 61, 145, 0.12);
+  border-color: var(--nasa-blue);
+  color: var(--nasa-blue);
+  font-weight: 600;
+}
+
+.sl-docs__content {
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(11, 61, 145, 0.12);
+  border-radius: 18px;
+  box-shadow: 0 24px 45px rgba(12, 32, 74, 0.18);
+  padding: clamp(1.75rem, 3vw, 3rem);
+}
+
+.sl-footer {
+  background: rgba(16, 26, 50, 0.96);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.78);
+  padding-block: clamp(2.5rem, 4vw, 3.5rem);
+}
+
+.sl-footer__band {
+  background: linear-gradient(90deg, var(--nasa-blue), var(--nasa-red));
+  height: 3px;
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.sl-footer__inner {
+  display: grid;
+  gap: clamp(1.5rem, 3vw, 2.75rem);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.sl-footer__brand {
+  color: #fff;
+  font-family: "Barlow Condensed", "Helvetica Neue", Arial, sans-serif;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  letter-spacing: 0.32em;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.sl-footer__about {
+  max-width: 360px;
+}
+
+.sl-footer__copy {
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.05em;
+}
+
+.sl-footer__links {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+
+.sl-footer__title {
+  color: rgba(255, 255, 255, 0.6);
+  font-family: "IBM Plex Mono", "IBM Plex Sans", sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.24em;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+}
+
+.sl-footer__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sl-footer__link {
+  color: rgba(255, 255, 255, 0.78);
+  display: inline-flex;
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  padding-block: 0.35rem;
+  text-transform: uppercase;
+}
+
+.sl-footer__link:hover,
+.sl-footer__link:focus {
+  color: #fff;
+}
+
+.sl-footer__meta {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  margin-top: clamp(1rem, 3vw, 2rem);
+  padding-top: clamp(1rem, 2vw, 1.5rem);
+  text-align: center;
+}
+
+@media (max-width: 960px) {
+  .sl-header__toggle {
+    display: inline-flex;
+  }
+
+  .sl-header__nav {
+    background: rgba(16, 26, 50, 0.96);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 18px 40px rgba(5, 14, 36, 0.35);
+    display: none;
+    left: clamp(1rem, 4vw, 2.5rem);
+    padding: 1.5rem;
+    position: absolute;
+    right: clamp(1rem, 4vw, 2.5rem);
+    top: calc(100% + 0.75rem);
+  }
+
+  .sl-header__nav.is-open {
+    display: block;
+  }
+
+  .sl-header__list {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .sl-docs {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .sl-docs__sidebar {
+    position: static;
+  }
+
+  .sl-docs__nav {
+    position: relative;
+  }
 }
 
 a {
@@ -293,7 +653,8 @@ li {
   font-weight: 600;
 }
 
-.docs-content {
+.docs-content,
+.sl-docs__content {
   background: #fff;
   border: 1px solid var(--nasa-border);
   border-radius: 0.75rem;
@@ -301,11 +662,13 @@ li {
   padding: clamp(1.75rem, 2vw + 1.25rem, 3rem);
 }
 
-.docs-content > :first-child {
+.docs-content > :first-child,
+.sl-docs__content > :first-child {
   margin-top: 0;
 }
 
-.docs-content > :last-child {
+.docs-content > :last-child,
+.sl-docs__content > :last-child {
   margin-bottom: 0;
 }
 
