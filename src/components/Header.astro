@@ -1,22 +1,48 @@
 ---
 ---
-<nav class="navbar navbar-expand-lg navbar-light nasa-navbar">
-  <div class="container">
-    <a class="navbar-brand" href="/">MycoSci</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item"><a class="nav-link" href="/gallery">Gallery</a></li>
-        <li class="nav-item"><a class="nav-link" href="/mycopedia">MycoPedia</a></li>
-        <li class="nav-item"><a class="nav-link" href="/blog">Blog</a></li>
-        <li class="nav-item"><a class="nav-link" href="/lab">Lab &amp; Cultivation</a></li>
-      </ul>
-      <form class="d-none d-lg-flex" role="search">
-        <input class="form-control form-control-sm me-2" type="search" placeholder="Search" aria-label="Search" />
-        <button class="btn btn-outline-primary btn-sm" type="submit">Search</button>
-      </form>
+<header class="site-header">
+  <div class="site-header__band">
+    <div class="container d-flex flex-wrap align-items-center justify-content-between gap-3">
+      <span class="site-header__band-label">MycoSci Mission Operations</span>
+      <span class="site-header__band-meta">Revision 3.2 // Status: Nominal</span>
     </div>
   </div>
-</nav>
+  <nav class="navbar navbar-expand-lg navbar-light nasa-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="/">
+        <span class="navbar-brand__wordmark">MycoSci</span>
+        <span class="navbar-brand__sub">Mycology Systems Division</span>
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="/gallery">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="/mycopedia">MycoPedia</a></li>
+          <li class="nav-item"><a class="nav-link" href="/blog">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="/lab">Lab &amp; Cultivation</a></li>
+        </ul>
+        <form class="d-none d-lg-flex" role="search">
+          <label class="visually-hidden" for="header-search">Search the catalog</label>
+          <input
+            id="header-search"
+            class="form-control form-control-sm me-2"
+            type="search"
+            placeholder="Species, labs, posts"
+            aria-label="Search"
+          />
+          <button class="btn btn-outline-primary btn-sm" type="submit">Execute</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+</header>
