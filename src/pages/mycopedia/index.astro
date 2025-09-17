@@ -2,7 +2,12 @@
 import DocsLayout from '../../layouts/DocsLayout.astro';
 import { getDocsNav } from '../../utils/getDocsNav';
 
+const docsBase = import.meta.env.STARLIGHT_ENABLED ? '/docs' : '/mycopedia';
+const quickStartHref = import.meta.env.STARLIGHT_ENABLED
+  ? `${docsBase}/Guides/quick-start/`
+  : '/mycopedia/quick-start';
 const nav = getDocsNav();
+const showStarlightNotice = import.meta.env.STARLIGHT_ENABLED;
 ---
 
 <DocsLayout title="MycoPedia" description="Documentation and guides for MycoSci" nav={nav}>
@@ -11,12 +16,15 @@ const nav = getDocsNav();
       <h1 class="mb-3">MycoPedia</h1>
       <p class="lead text-muted">Your free, community-powered field guide to the fungal kingdom.</p>
     </header>
+    {showStarlightNotice && (
+      <div class="alert alert-info" role="status">
+        Our documentation now lives at <a href="/docs/">/docs</a> with the official Starlight interface. These legacy cards link
+        directly into the new experience.
+      </div>
+    )}
     <div class="row row-cols-1 row-cols-md-2 g-4">
       <div class="col">
-        <a
-          href="/mycopedia/Taxonomy/"
-          class="docs-card card h-100 shadow-sm text-decoration-none"
-        >
+        <a href={`${docsBase}/Taxonomy/`} class="docs-card card h-100 shadow-sm text-decoration-none">
           <div class="card-body">
             <h5 class="card-title">Field Guide</h5>
             <p class="card-text text-muted">Browse taxonomy from phylum down to individual species.</p>
@@ -25,7 +33,7 @@ const nav = getDocsNav();
       </div>
       <div class="col">
         <a
-          href="/mycopedia/cultivation/beginner/pf-tek"
+          href={`${docsBase}/cultivation/beginner/pf-tek`}
           class="docs-card card h-100 shadow-sm text-decoration-none"
         >
           <div class="card-body">
@@ -35,10 +43,7 @@ const nav = getDocsNav();
         </a>
       </div>
       <div class="col">
-        <a
-          href="/mycopedia/lab/intro"
-          class="docs-card card h-100 shadow-sm text-decoration-none"
-        >
+        <a href={`${docsBase}/lab/intro`} class="docs-card card h-100 shadow-sm text-decoration-none">
           <div class="card-body">
             <h5 class="card-title">Lab Techniques</h5>
             <p class="card-text text-muted">Agar cloning, liquid culture, and sterile technique.</p>
@@ -46,10 +51,7 @@ const nav = getDocsNav();
         </a>
       </div>
       <div class="col">
-        <a
-          href="/mycopedia/recipes/intro"
-          class="docs-card card h-100 shadow-sm text-decoration-none"
-        >
+        <a href={`${docsBase}/recipes/intro`} class="docs-card card h-100 shadow-sm text-decoration-none">
           <div class="card-body">
             <h5 class="card-title">Recipes</h5>
             <p class="card-text text-muted">Culinary ideas for cooking wild and cultivated fungi.</p>
@@ -58,7 +60,7 @@ const nav = getDocsNav();
       </div>
       <div class="col">
         <a
-          href="/mycopedia/chemistry-nutrition/mushroom-nutrition"
+          href={`${docsBase}/chemistry-nutrition/mushroom-nutrition`}
           class="docs-card card h-100 shadow-sm text-decoration-none"
         >
           <div class="card-body">
@@ -69,7 +71,7 @@ const nav = getDocsNav();
       </div>
       <div class="col">
         <a
-          href="/mycopedia/references/historical-literature"
+          href={`${docsBase}/references/historical-literature`}
           class="docs-card card h-100 shadow-sm text-decoration-none"
         >
           <div class="card-body">
@@ -80,7 +82,7 @@ const nav = getDocsNav();
       </div>
     </div>
     <div class="text-center mt-5">
-      <a href="/mycopedia/quick-start" class="btn btn-primary btn-lg">Quick Start Guide</a>
+      <a href={quickStartHref} class="btn btn-primary btn-lg">Quick Start Guide</a>
     </div>
   </section>
 </DocsLayout>

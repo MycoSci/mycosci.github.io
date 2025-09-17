@@ -15,6 +15,10 @@ export async function getStaticPaths() {
 
 const slugParam = Astro.params.slug;
 const slugPath = Array.isArray(slugParam) ? slugParam.join('/') : slugParam;
+if (import.meta.env.STARLIGHT_ENABLED) {
+  const redirectTarget = slugPath ? `/docs/${slugPath}` : '/docs';
+  return Astro.redirect(redirectTarget);
+}
 const pathBase = '../../content/docs/' + slugPath;
 const mdxPages = import.meta.glob('../../content/docs/**/*.mdx');
 const mdPages = import.meta.glob('../../content/docs/**/*.md');

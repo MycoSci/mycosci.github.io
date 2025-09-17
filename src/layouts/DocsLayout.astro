@@ -28,34 +28,42 @@ const currentPath = normalize(Astro.url.pathname);
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="stylesheet" href="/styles.css" />
   </head>
-  <body id="top" class="nasa-body">
-    <a class="skip-link" href="#main-content">Skip to content</a>
+  <body id="top" class="nasa-body d-flex flex-column min-vh-100">
     <Header />
-    <main id="main-content" class="sl-main sl-main--docs" role="main">
-      <div class="sl-docs">
-        <aside class="sl-docs__sidebar" aria-label="Documentation navigation">
-          <nav class="sl-docs__nav">
-            {nav.map(item => {
-              const itemPath = normalize(item.url);
-              const isActive = currentPath.startsWith(itemPath);
-              return (
-                <a
-                  href={item.url}
-                  class={`sl-docs__link${isActive ? ' is-active' : ''}`}
-                  style={`--nav-depth: ${item.depth}`}
-                  aria-current={isActive ? 'page' : undefined}
-                >
-                  {item.title}
-                </a>
-              );
-            })}
-          </nav>
-        </aside>
-        <article class="sl-docs__content">
-          <slot />
-        </article>
+    <main class="flex-fill py-5">
+      <div class="container">
+        <div class="row g-4 g-xl-5">
+          <aside class="col-lg-4 col-xl-3">
+            <nav class="docs-sidenav" aria-label="Documentation navigation">
+              {nav.map(item => {
+                const itemPath = normalize(item.url);
+                const isActive = currentPath.startsWith(itemPath);
+                return (
+                  <a
+                    href={item.url}
+                    class={`docs-sidenav__link${isActive ? ' active' : ''}`}
+                    style={`--nav-depth: ${item.depth}`}
+                    aria-current={isActive ? 'page' : undefined}
+                  >
+                    {item.title}
+                  </a>
+                );
+              })}
+            </nav>
+          </aside>
+          <div class="col-lg-8 col-xl-9">
+            <article class="docs-content">
+              <slot />
+            </article>
+          </div>
+        </div>
       </div>
     </main>
     <Footer />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
