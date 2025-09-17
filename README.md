@@ -21,7 +21,7 @@ Run the following commands from the project root:
 | `npm run build`   | Build the production site in `./dist/`   |
 | `npm run preview` | Preview the built site locally           |
 
-> **Starlight docs**: The repository supports the official Starlight documentation shell. Install it locally with `npm install @astrojs/starlight` to enable the `/docs` routes. Builds will fall back to the legacy MycoPedia layout when the package isn't available.
+> **Starlight docs**: The repository now targets the official Starlight documentation shell. Install it locally with `npm install @astrojs/starlight` to enable the `/docs` routes. If the package is missing, `/mycopedia` renders installation instructions instead of the legacy layout.
 
 ## Project Structure
 
@@ -54,7 +54,7 @@ The site features a Bootstrap-powered navbar linking to key sections:
 
 - **Visual Gallery** – community photos
 - **Mushroom Instagram** – MycoGram feed
-- **MycoPedia** – legacy species hub (links redirect into `/docs` when Starlight is present)
+- **MycoPedia** – redirects into `/docs` when Starlight is available, or shows setup guidance otherwise
 - **Docs** – official Starlight documentation shell (auto-enabled once installed)
 - **Lab & Cultivation** – teks and protocols
 - **Resources** – videos, podcasts, and research links

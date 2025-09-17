@@ -14,7 +14,7 @@ try {
   hasStarlight = typeof starlightIntegration === "function";
 } catch (error) {
   console.warn(
-    "[astro.config] @astrojs/starlight is not installed; falling back to the legacy MycoPedia layout.",
+    "[astro.config] @astrojs/starlight is not installed; /mycopedia will show installation instructions instead of the docs shell.",
   );
 }
 
