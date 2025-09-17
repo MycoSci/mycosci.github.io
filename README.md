@@ -42,19 +42,17 @@ Feel free to contribute new pages or mushroom data as the project grows. See `AG
 
 ## Community Features
 
-The community section includes a simple forum scaffold with a sign-in page and leaderboard. You can view a sample user profile and browse discussion threads. These pages live under `src/pages/community` and the related UI components are in `src/components`.
+The forum, profile, and leaderboard prototypes remain in `src/components`, but the community pages have been removed from the current build while the experience is reworked. You can reference the existing components if you want to explore the scaffold offline.
 
 ## Navigation Overview
 
 The site features a Bootstrap-powered navbar linking to key sections:
 
-- **Explore** – maps and identification tools
 - **Visual Gallery** – community photos
 - **Mushroom Instagram** – MycoGram feed
 - **MycoPedia** – species profiles and taxonomy
 - **Docs** – guides and reference material
 - **Lab & Cultivation** – teks and protocols
-- **Community** – forums and events
 - **Resources** – videos, podcasts, and research links
 - **Blog** – news articles and tutorials
 - **Author Directory** – bios of contributors

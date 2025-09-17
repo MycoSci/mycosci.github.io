@@ -1,28 +1,52 @@
 :root {
   --nasa-blue: #0b3d91;
-  --nasa-blue-dark: #062864;
-  --nasa-red: #d1342f;
-  --nasa-ink: #0b152d;
-  --nasa-slate: #4f586b;
-  --nasa-ivory: #f4f6fb;
-  --nasa-grid: rgba(11, 61, 145, 0.06);
-  --nasa-panel: #08162f;
-  --nasa-border: rgba(11, 61, 145, 0.22);
-  --nasa-border-strong: rgba(11, 61, 145, 0.48);
+  --nasa-blue-dark: #072b6c;
+  --nasa-red: #fc3d21;
+  --nasa-ink: #121d33;
+  --nasa-slate: #3f4c63;
+  --nasa-ivory: #f5f7fc;
+  --nasa-grid: rgba(11, 61, 145, 0.05);
+  --nasa-panel: #eef1f8;
+  --nasa-border: rgba(11, 61, 145, 0.24);
+  --nasa-border-strong: rgba(11, 61, 145, 0.45);
+  --nasa-shadow: rgba(11, 61, 145, 0.08);
+  --nasa-band-muted: #d7deeb;
+  --nasa-midnight: #101a32;
 }
 
 .nasa-body {
   background-color: var(--nasa-ivory);
   background-image:
-    linear-gradient(0deg, var(--nasa-grid) 1px, transparent 1px),
-    linear-gradient(90deg, var(--nasa-grid) 1px, transparent 1px);
+    linear-gradient(0deg, transparent 63px, var(--nasa-grid) 64px),
+    linear-gradient(90deg, transparent 63px, var(--nasa-grid) 64px);
   background-size:
     100% 64px,
     64px 100%;
   color: var(--nasa-ink);
   font-family: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
   letter-spacing: 0.01em;
+  line-height: 1.6;
+  position: relative;
   text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+.nasa-body::before {
+  background: linear-gradient(
+    180deg,
+    var(--nasa-blue) 0%,
+    var(--nasa-blue) 52%,
+    var(--nasa-red) 52%,
+    var(--nasa-red) 100%
+  );
+  content: "";
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 12px;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .nasa-body::selection {
@@ -33,6 +57,7 @@
 a {
   color: var(--nasa-blue);
   text-decoration: none;
+  text-underline-offset: 0.3em;
   transition: color 0.2s ease;
 }
 
@@ -47,14 +72,14 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+  font-family: "Barlow Condensed", "Helvetica Neue", Arial, sans-serif;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
 h1 {
-  font-size: clamp(2.4rem, 3vw, 3.6rem);
+  font-size: clamp(2.75rem, 4vw, 4rem);
 }
 
 main {
@@ -76,7 +101,14 @@ li {
   border-radius: 0;
   font-family: "IBM Plex Mono", "IBM Plex Sans", sans-serif;
   letter-spacing: 0.18em;
+  padding: 0.65rem 1.75rem;
   text-transform: uppercase;
+  box-shadow: 4px 4px 0 0 var(--nasa-shadow);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    background-color 0.15s ease,
+    color 0.15s ease;
 }
 
 .btn-primary {
@@ -104,6 +136,13 @@ li {
   color: #fff;
 }
 
+.btn-outline-primary:active,
+.btn-primary:active,
+.btn-outline-light:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 0 var(--nasa-shadow);
+}
+
 .btn-outline-light {
   border: 2px solid rgba(255, 255, 255, 0.6);
   color: #fff;
@@ -113,34 +152,93 @@ li {
 .btn-outline-light:focus {
   background-color: #fff;
   border-color: #fff;
-  color: var(--nasa-panel);
+  color: var(--nasa-blue);
+}
+
+.btn:focus-visible {
+  outline: 2px dashed var(--nasa-red);
+  outline-offset: 3px;
 }
 
 .form-control {
   border-radius: 0;
   border: 2px solid var(--nasa-border);
   box-shadow: none !important;
+  font-family: "IBM Plex Mono", "IBM Plex Sans", sans-serif;
+  letter-spacing: 0.08em;
 }
 
 .form-control:focus {
   border-color: var(--nasa-blue);
-  box-shadow: 0 0 0 0.2rem rgba(11, 61, 145, 0.15);
+  box-shadow: 0 0 0 3px rgba(11, 61, 145, 0.12);
+}
+
+.site-header {
+  background: transparent;
+  margin-bottom: 2rem;
+}
+
+.site-header__band {
+  background: linear-gradient(
+    90deg,
+    rgba(11, 61, 145, 0.08) 0%,
+    rgba(11, 61, 145, 0.08) 65%,
+    transparent 65%
+  );
+  border-bottom: 1px solid var(--nasa-border);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.24em;
+  padding: 0.65rem 0;
+  position: relative;
+  text-transform: uppercase;
+}
+
+.site-header__band::after {
+  background: linear-gradient(
+    90deg,
+    var(--nasa-blue) 0%,
+    var(--nasa-blue) 70%,
+    var(--nasa-red) 70%,
+    var(--nasa-red) 100%
+  );
+  content: "";
+  height: 3px;
+  left: 0;
+  position: absolute;
+  bottom: -3px;
+  width: 128px;
+}
+
+.site-header__band-label {
+  color: var(--nasa-blue);
+}
+
+.site-header__band-meta {
+  color: var(--nasa-slate);
+  opacity: 0.8;
 }
 
 .nasa-navbar {
   background-color: #fff;
   border-bottom: 3px solid var(--nasa-blue);
-  box-shadow: none;
-  font-size: 0.8rem;
-  letter-spacing: 0.18em;
+  border-top: 1px solid var(--nasa-border);
+  box-shadow: 0 12px 0 -10px var(--nasa-band-muted);
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
 }
 
 .nasa-navbar .navbar-brand {
-  font-weight: 700;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
+  align-items: flex-start;
   color: var(--nasa-blue);
+  display: flex;
+  flex-direction: column;
+  font-weight: 700;
+  gap: 0.1rem;
+  letter-spacing: 0.24em;
+  line-height: 1;
+  text-transform: uppercase;
 }
 
 .nasa-navbar .navbar-brand:hover,
@@ -148,15 +246,31 @@ li {
   color: var(--nasa-red);
 }
 
+.navbar-brand__wordmark {
+  font-family: "Barlow Condensed", "Helvetica Neue", Arial, sans-serif;
+  font-size: 1.85rem;
+  letter-spacing: 0.28em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.navbar-brand__sub {
+  color: var(--nasa-slate);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.28em;
+}
+
 .nasa-navbar .nav-link {
   color: var(--nasa-ink);
-  font-weight: 600;
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 500;
   padding: 0.75rem 1.2rem;
   position: relative;
 }
 
 .nasa-navbar .nav-link::after {
-  background: var(--nasa-red);
+  background: linear-gradient(90deg, var(--nasa-blue) 0%, var(--nasa-red) 100%);
   bottom: 0.35rem;
   content: "";
   height: 2px;
@@ -191,20 +305,41 @@ li {
 
 .hero {
   background: #fff;
-  border: 3px solid var(--nasa-blue);
+  border: 4px solid var(--nasa-blue);
+  box-shadow: 14px 14px 0 -8px var(--nasa-band-muted);
   overflow: hidden;
-  padding: clamp(2.25rem, 5vw, 3.75rem);
+  padding: clamp(2.5rem, 5vw, 4rem);
   position: relative;
 }
 
+.hero::before {
+  background: repeating-linear-gradient(
+    180deg,
+    transparent 0 20px,
+    rgba(11, 61, 145, 0.08) 20px 21px
+  );
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+}
+
 .hero::after {
-  background: linear-gradient(90deg, var(--nasa-red) 0%, var(--nasa-blue) 100%);
+  background: linear-gradient(
+    90deg,
+    var(--nasa-blue) 0%,
+    var(--nasa-blue) 72%,
+    var(--nasa-red) 72%,
+    var(--nasa-red) 100%
+  );
   content: "";
   height: 6px;
   left: 0;
   position: absolute;
   top: 0;
   width: 100%;
+  z-index: 1;
 }
 
 .hero__inner {
@@ -212,6 +347,7 @@ li {
   gap: clamp(2rem, 3vw, 3.5rem);
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   position: relative;
+  z-index: 2;
 }
 
 .hero__copy {
@@ -219,12 +355,22 @@ li {
 }
 
 .hero__eyebrow {
-  color: var(--nasa-red);
-  display: inline-block;
+  align-items: center;
+  background: linear-gradient(
+    90deg,
+    rgba(11, 61, 145, 0.12) 0%,
+    rgba(11, 61, 145, 0.12) 80%,
+    transparent 80%
+  );
+  border: 1px solid var(--nasa-border);
+  color: var(--nasa-blue);
+  display: inline-flex;
   font-family: "IBM Plex Mono", monospace;
-  font-size: 0.75rem;
+  font-size: 0.72rem;
+  gap: 0.5rem;
   letter-spacing: 0.32em;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.75rem;
+  padding: 0.4rem 0.9rem;
 }
 
 .hero__title {
@@ -248,17 +394,40 @@ li {
 .hero__panel {
   background: var(--nasa-panel);
   border: 3px solid var(--nasa-blue);
-  color: #fff;
+  color: var(--nasa-ink);
   padding: clamp(1.75rem, 3vw, 2.5rem);
   position: relative;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.65);
 }
 
 .hero__panel::before {
-  background: linear-gradient(135deg, rgba(11, 61, 145, 0.35), transparent 60%);
+  background:
+    linear-gradient(180deg, rgba(11, 61, 145, 0.12) 0%, transparent 100%),
+    repeating-linear-gradient(
+      90deg,
+      rgba(11, 61, 145, 0.08) 0 1px,
+      transparent 1px 32px
+    );
   content: "";
   inset: 0;
   pointer-events: none;
   position: absolute;
+}
+
+.hero__panel::after {
+  background: linear-gradient(
+    90deg,
+    var(--nasa-blue) 0%,
+    var(--nasa-blue) 55%,
+    var(--nasa-red) 55%,
+    var(--nasa-red) 100%
+  );
+  content: "";
+  height: 6px;
+  left: -3px;
+  position: absolute;
+  top: -3px;
+  width: calc(100% + 6px);
 }
 
 .hero__panel > * {
@@ -271,6 +440,7 @@ li {
   display: flex;
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.7rem;
+  color: var(--nasa-ink);
   justify-content: space-between;
   letter-spacing: 0.24em;
   margin-bottom: 1.5rem;
@@ -278,11 +448,11 @@ li {
 }
 
 .hero__panel-tag {
-  color: #fff;
+  color: var(--nasa-blue);
 }
 
 .hero__panel-status {
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--nasa-slate);
 }
 
 .hero__stats {
@@ -290,34 +460,40 @@ li {
   gap: 1.5rem;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--nasa-border);
 }
 
 .hero__stat dt {
-  color: rgba(255, 255, 255, 0.65);
+  color: var(--nasa-slate);
   font-family: "IBM Plex Mono", monospace;
-  font-size: 0.7rem;
-  letter-spacing: 0.28em;
-  margin-bottom: 0.5rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.26em;
+  margin-bottom: 0.45rem;
 }
 
 .hero__stat dd {
-  font-size: 2rem;
+  color: var(--nasa-blue);
+  font-family: "Barlow Condensed", "Helvetica Neue", Arial, sans-serif;
+  font-size: 2.25rem;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.05em;
   margin: 0;
 }
 
 .search-box {
-  background: rgba(4, 13, 29, 0.72);
-  border: 2px solid rgba(255, 255, 255, 0.18);
+  background: #fff;
+  border: 2px solid var(--nasa-border-strong);
+  box-shadow: 8px 8px 0 -4px var(--nasa-shadow);
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.25rem;
   padding: 1.5rem;
 }
 
 .search-box__header {
   align-items: center;
+  color: var(--nasa-blue);
   display: flex;
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.7rem;
@@ -327,11 +503,11 @@ li {
 }
 
 .search-box__tag {
-  color: #fff;
+  color: inherit;
 }
 
 .search-box__status {
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--nasa-slate);
 }
 
 .search-box__form {
@@ -341,49 +517,50 @@ li {
 }
 
 .search-box__label {
-  color: rgba(255, 255, 255, 0.65);
+  color: var(--nasa-slate);
   font-family: "IBM Plex Mono", monospace;
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   letter-spacing: 0.24em;
   text-transform: uppercase;
 }
 
 .search-box__control {
-  background: rgba(2, 10, 24, 0.4);
-  border: 2px solid rgba(255, 255, 255, 0.35);
-  color: #fff;
+  background: #fff;
+  border: 2px solid var(--nasa-border);
+  color: var(--nasa-ink);
   font-family: "IBM Plex Mono", monospace;
 }
 
 .search-box__control::placeholder {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(18, 29, 51, 0.5);
   text-transform: uppercase;
 }
 
 .search-box__control:focus {
-  border-color: #fff;
-  box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.2);
+  border-color: var(--nasa-blue);
+  box-shadow: 0 0 0 3px rgba(11, 61, 145, 0.12);
 }
 
 .search-box__results {
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: var(--nasa-panel);
+  border: 1px solid var(--nasa-border);
   max-height: 260px;
   overflow-y: auto;
 }
 
 .search-box__result {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  color: #fff;
+  border-bottom: 1px solid var(--nasa-border);
+  color: var(--nasa-ink);
   display: block;
   font-family: "IBM Plex Mono", monospace;
-  padding: 0.75rem 1rem;
+  padding: 0.85rem 1rem;
   text-transform: uppercase;
 }
 
 .search-box__result:hover,
 .search-box__result:focus {
-  background: rgba(11, 61, 145, 0.35);
-  color: #fff;
+  background: rgba(11, 61, 145, 0.12);
+  color: var(--nasa-blue);
 }
 
 .search-box__result-name {
@@ -391,7 +568,7 @@ li {
 }
 
 .search-box__result-scientific {
-  color: rgba(255, 255, 255, 0.65);
+  color: var(--nasa-slate);
   display: block;
   font-size: 0.75rem;
   letter-spacing: 0.16em;
@@ -399,7 +576,7 @@ li {
 }
 
 .search-box__empty {
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--nasa-slate);
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.75rem;
   letter-spacing: 0.2em;
@@ -408,7 +585,23 @@ li {
 }
 
 .section-title {
+  align-items: center;
+  display: inline-flex;
+  gap: 0.75rem;
+  letter-spacing: 0.16em;
   margin-bottom: 1.75rem;
+}
+
+.section-title.text-center {
+  justify-content: center;
+}
+
+.section-title::before {
+  color: var(--nasa-red);
+  content: "//";
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.95rem;
+  letter-spacing: 0.24em;
 }
 
 .mission-grid {
@@ -419,28 +612,45 @@ li {
 
 .mission-card {
   background: #fff;
-  border: 2px solid var(--nasa-blue);
-  padding: 1.8rem;
+  border: 2px solid var(--nasa-border-strong);
+  box-shadow: 10px 10px 0 -6px var(--nasa-shadow);
+  padding: 2rem;
   position: relative;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .mission-card::before {
-  background: linear-gradient(90deg, var(--nasa-red) 0%, transparent 100%);
+  background: linear-gradient(
+    90deg,
+    var(--nasa-blue) 0%,
+    var(--nasa-blue) 70%,
+    var(--nasa-red) 70%,
+    var(--nasa-red) 100%
+  );
   content: "";
-  height: 3px;
-  left: 0;
+  height: 4px;
+  left: -2px;
   position: absolute;
-  top: 0;
-  width: 100%;
+  top: -2px;
+  width: calc(100% + 4px);
+}
+
+.mission-card:hover {
+  box-shadow: 12px 12px 0 -4px var(--nasa-shadow);
+  transform: translateY(-6px);
 }
 
 .mission-card__eyebrow {
-  color: var(--nasa-red);
-  display: inline-block;
+  color: var(--nasa-blue);
+  display: inline-flex;
   font-family: "IBM Plex Mono", monospace;
-  font-size: 0.75rem;
+  font-size: 0.72rem;
+  gap: 0.35rem;
   letter-spacing: 0.28em;
   margin-bottom: 1rem;
+  text-transform: uppercase;
 }
 
 .mission-card__title {
@@ -458,6 +668,9 @@ li {
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.8rem;
   letter-spacing: 0.24em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
   text-transform: uppercase;
 }
 
@@ -466,13 +679,51 @@ li {
   color: var(--nasa-red);
 }
 
+.mission-card__link::after {
+  content: "→";
+  font-size: 1rem;
+  letter-spacing: 0;
+  transition: transform 0.2s ease;
+}
+
+.mission-card__link:hover::after,
+.mission-card__link:focus::after {
+  transform: translateX(4px);
+}
+
 .catalog-card {
   background: #fff;
   border: 2px solid var(--nasa-border-strong);
+  box-shadow: 8px 8px 0 -4px var(--nasa-shadow);
   display: flex;
   flex-direction: column;
   gap: 1.75rem;
   padding: 1.75rem;
+  position: relative;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.catalog-card::before {
+  background: linear-gradient(
+    90deg,
+    var(--nasa-blue) 0%,
+    var(--nasa-blue) 75%,
+    var(--nasa-red) 75%,
+    var(--nasa-red) 100%
+  );
+  content: "";
+  height: 4px;
+  left: -2px;
+  position: absolute;
+  top: -2px;
+  width: calc(100% + 4px);
+}
+
+.catalog-card:hover {
+  box-shadow: 10px 10px 0 -2px var(--nasa-shadow);
+  transform: translateY(-4px);
 }
 
 .catalog-card__header {
@@ -499,12 +750,27 @@ li {
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.8rem;
   letter-spacing: 0.24em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
   text-transform: uppercase;
 }
 
 .catalog-card__link:hover,
 .catalog-card__link:focus {
   color: var(--nasa-red);
+}
+
+.catalog-card__link::after {
+  content: "→";
+  font-size: 1rem;
+  letter-spacing: 0;
+  transition: transform 0.2s ease;
+}
+
+.catalog-card__link:hover::after,
+.catalog-card__link:focus::after {
+  transform: translateX(4px);
 }
 
 .mission-brief p {
@@ -579,8 +845,9 @@ li {
 }
 
 .card.bg-dark {
-  background: var(--nasa-panel) !important;
+  background: var(--nasa-midnight) !important;
   border-color: var(--nasa-blue);
+  box-shadow: 8px 8px 0 -6px rgba(11, 61, 145, 0.18);
   color: #fff;
 }
 
@@ -609,7 +876,8 @@ li {
 
 .nasa-footer {
   background: #fff;
-  border-top: 3px solid var(--nasa-blue);
+  border-top: 4px solid var(--nasa-blue);
+  box-shadow: 0 -12px 0 -10px var(--nasa-band-muted);
   color: var(--nasa-ink);
 }
 
@@ -617,16 +885,17 @@ li {
   background: linear-gradient(
     90deg,
     var(--nasa-blue) 0%,
-    var(--nasa-blue) 60%,
-    var(--nasa-red) 60%,
+    var(--nasa-blue) 68%,
+    var(--nasa-red) 68%,
     var(--nasa-red) 100%
   );
-  height: 4px;
+  height: 6px;
 }
 
 .nasa-footer__brand {
-  font-size: 1.2rem;
-  letter-spacing: 0.2em;
+  font-family: "Barlow Condensed", "Helvetica Neue", Arial, sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 0.24em;
 }
 
 .nasa-footer__title {
@@ -664,6 +933,14 @@ li {
 }
 
 @media (max-width: 991.98px) {
+  .site-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .site-header__band::after {
+    width: 96px;
+  }
+
   .hero__inner {
     grid-template-columns: 1fr;
   }
