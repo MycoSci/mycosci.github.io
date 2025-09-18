@@ -26,7 +26,7 @@ export default {
         { label: "Overview", link: "/docs/" },
         {
           label: "Orientation Guides",
-          autogenerate: { directory: "Guides" },
+          autogenerate: { directory: "guides" },
         },
       ],
     },
@@ -34,18 +34,18 @@ export default {
       label: "Field Guide",
       collapsed: true,
       items: [
-        { label: "Taxonomy Overview", link: "/docs/Taxonomy/" },
+        { label: "Taxonomy Overview", link: "/docs/taxonomy/" },
         {
           label: "Taxonomy Introduction",
-          link: "/docs/Taxonomy/taxonomy-intro/",
+          link: "/docs/taxonomy/taxonomy-intro/",
         },
         {
           label: "Basidiomycota",
-          autogenerate: { directory: "Taxonomy/Basidiomycota" },
+          autogenerate: { directory: "taxonomy/basidiomycota" },
         },
         {
           label: "Ascomycota",
-          autogenerate: { directory: "Taxonomy/Ascomycota" },
+          autogenerate: { directory: "taxonomy/ascomycota" },
         },
       ],
     },
@@ -85,7 +85,7 @@ export default {
     {
       label: "Legacy Reference",
       collapsed: true,
-      autogenerate: { directory: "Reference" },
+      autogenerate: { directory: "reference" },
     },
   ],
 };
