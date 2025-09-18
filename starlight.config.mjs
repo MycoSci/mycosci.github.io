@@ -1,3 +1,9 @@
+import { fileURLToPath } from "node:url";
+
+const faviconPath = fileURLToPath(
+  new URL("./public/favicon.svg", import.meta.url),
+);
+
 /**
  * @type {import('@astrojs/starlight').StarlightConfig}
  */
@@ -6,8 +12,8 @@ export default {
   description:
     "MycoSci field guides, lab protocols, and reference documentation.",
   logo: {
-    light: "/favicon.svg",
-    dark: "/favicon.svg",
+    light: faviconPath,
+    dark: faviconPath,
   },
   social: {
     github: "https://github.com/MycoSci/mycosci.github.io",
