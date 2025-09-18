@@ -4,12 +4,17 @@ import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import starlightConfig from "./starlight.config.mjs";
 
-const integrations = [mdx()];
+const integrations = [];
 const alias = {};
 
 try {
   const { default: starlight } = await import("@astrojs/starlight");
-  integrations.push(starlight(starlightConfig));
+  const starlightIntegration = starlight(starlightConfig);
+  if (Array.isArray(starlightIntegration)) {
+    integrations.push(...starlightIntegration);
+  } else if (starlightIntegration) {
+    integrations.push(starlightIntegration);
+  }
 } catch (error) {
   if (
     error &&
@@ -26,6 +31,8 @@ try {
     new URL("./src/components/starlight/index.ts", import.meta.url),
   );
 }
+
+integrations.push(mdx());
 
 // https://astro.build/config
 export default defineConfig({
