@@ -62,5 +62,14 @@ export default {
       label: "Legacy Reference",
       autogenerate: { directory: "Reference" },
     },
+    {
+      label: "Community",
+      items: [
+        { label: "Blog", autogenerate: { directory: "blog" } },
+        { label: "Gallery", link: "/gallery/" },
+        { label: "MycoGram", link: "/mycogram/" },
+        { label: "Resources", link: "/resources/" },
+      ],
+    },
   ],
 };
