@@ -1,0 +1,50 @@
+---
+import MainLayout from './MainLayout.astro';
+import NavItem from '../components/docs/NavItem.astro';
+import type { SidebarSection } from '../utils/docsNav';
+
+interface Props {
+  title: string;
+  description?: string;
+  sections: SidebarSection[];
+  headings: { depth: number; slug: string; text: string }[];
+}
+
+const { title, description, sections, headings }: Props = Astro.props;
+
+const hasHeadings = headings.length > 0;
+---
+<MainLayout title={title} description={description}>
+  <div class="docs-layout container-fluid px-0">
+    <div class="row g-0">
+      <aside class="col-12 col-xl-3 docs-sidebar" aria-label="Documentation navigation">
+        {sections.map(section => (
+          <details
+            class={`docs-sidebar__section${section.isActive ? ' is-active' : ''}`}
+            open={!section.collapsed || section.isActive}
+          >
+            <summary>{section.label}</summary>
+            <ul class="docs-nav">{section.items.map(item => <NavItem item={item} />)}</ul>
+          </details>
+        ))}
+      </aside>
+      <article class={`col-12 ${hasHeadings ? 'col-xl-6' : 'col-xl-9'} docs-content`}>
+        <slot />
+      </article>
+      {hasHeadings && (
+        <nav class="col-12 col-xl-3 docs-toc" aria-label="On this page">
+          <div class="docs-toc__inner">
+            <h2 class="docs-toc__title">On this page</h2>
+            <ul>
+              {headings.map(heading => (
+                <li class={`docs-toc__item docs-toc__item--depth-${heading.depth}`}>
+                  <a href={`#${heading.slug}`}>{heading.text}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </nav>
+      )}
+    </div>
+  </div>
+</MainLayout>

@@ -1,0 +1,32 @@
+---
+import starlightConfig from '../../../starlight.config.mjs';
+import DocsLayout from '../../layouts/DocsLayout.astro';
+import { buildSidebar, titleFromEntry } from '../../utils/docsNav';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const docs = await getCollection('docs');
+  return docs
+    .filter(entry => entry.slug !== 'index')
+    .map(entry => ({ params: { slug: entry.slug } }));
+}
+
+const slugParam = Astro.params.slug;
+const slugValue = Array.isArray(slugParam) ? slugParam.join('/') : slugParam ?? '';
+const normalizedSlug = slugValue || 'index';
+
+const docs = await getCollection('docs');
+const entry = docs.find(doc => doc.slug === normalizedSlug);
+
+if (!entry) {
+  throw new Error(`Doc not found for slug: ${normalizedSlug}`);
+}
+
+const { Content, headings } = await entry.render();
+const sidebar = buildSidebar(docs, starlightConfig.sidebar, entry.slug);
+const pageTitle = entry.data.title ?? titleFromEntry(entry);
+const description = entry.data.description;
+---
+<DocsLayout title={pageTitle} description={description} sections={sidebar} headings={headings}>
+  <Content />
+</DocsLayout>

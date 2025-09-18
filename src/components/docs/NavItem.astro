@@ -1,0 +1,36 @@
+---
+import type { NavItem } from '../../utils/docsNav';
+
+const { item }: { item: NavItem } = Astro.props;
+const classes = ['docs-nav__item'];
+if (item.type === 'group') classes.push('docs-nav__item--group');
+if (item.isCurrent) classes.push('is-current');
+if (item.isActive) classes.push('is-active');
+
+const This = Astro.self;
+---
+<li class={classes.join(' ')}>
+  {item.type === 'link' ? (
+    <a class="docs-nav__link" href={item.href} aria-current={item.isCurrent ? 'page' : undefined}>
+      {item.label}
+    </a>
+  ) : (
+    <details open={!item.collapsed || item.isActive}>
+      <summary>
+        <span>{item.label}</span>
+        {item.href && (
+          <a class="docs-nav__summary-link" href={item.href}>
+            Overview
+          </a>
+        )}
+      </summary>
+      {item.children.length > 0 && (
+        <ul>
+          {item.children.map(child => (
+            <This item={child} />
+          ))}
+        </ul>
+      )}
+    </details>
+  )}
+</li>

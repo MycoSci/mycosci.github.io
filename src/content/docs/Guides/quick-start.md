@@ -9,7 +9,7 @@ Welcome to **MycoSci**, your free, open-source hub dedicated to the science, cul
 
 Our docs are organized scientifically, practically, and intuitively, helping you navigate from detailed species references to hands-on cultivation techniques and field guides.
 
-If you're looking for a deep dive into classification, start in the [Taxonomy section](../Taxonomy/).
+If you're looking for a deep dive into classification, start in the [Taxonomy section](../taxonomy/).
 
 ## How to Navigate the Docs
 
