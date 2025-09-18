@@ -5,13 +5,9 @@ export default {
   title: "MycoPedia",
   description:
     "MycoSci field guides, lab protocols, and reference documentation.",
-  base: "/docs",
   logo: {
-    alt: "MycoSci",
-    src: {
-      light: "/favicon.svg",
-      dark: "/favicon.svg",
-    },
+    light: "/favicon.svg",
+    dark: "/favicon.svg",
   },
   social: {
     github: "https://github.com/MycoSci/mycosci.github.io",
