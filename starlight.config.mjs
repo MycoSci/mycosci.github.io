@@ -21,42 +21,22 @@ export default {
   sidebar: [
     {
       label: "Start Here",
-      collapsed: false,
-      items: [
-        { label: "Overview", link: "/docs/" },
-        {
-          label: "Orientation Guides",
-          autogenerate: { directory: "guides" },
-        },
-      ],
+      items: [{ label: "Overview", link: "/" }],
     },
     {
-      label: "Field Guide",
-      collapsed: true,
-      items: [
-        { label: "Taxonomy Overview", link: "/docs/taxonomy/" },
-        {
-          label: "Taxonomy Introduction",
-          link: "/docs/taxonomy/taxonomy-intro/",
-        },
-        {
-          label: "Basidiomycota",
-          autogenerate: { directory: "taxonomy/basidiomycota" },
-        },
-        {
-          label: "Ascomycota",
-          autogenerate: { directory: "taxonomy/ascomycota" },
-        },
-      ],
+      label: "Guides",
+      autogenerate: { directory: "Guides" },
+    },
+    {
+      label: "Taxonomy",
+      autogenerate: { directory: "Taxonomy" },
     },
     {
       label: "Cultivation",
-      collapsed: true,
       autogenerate: { directory: "cultivation" },
     },
     {
       label: "Lab & Equipment",
-      collapsed: true,
       items: [
         { label: "Lab Protocols", autogenerate: { directory: "lab" } },
         { label: "Equipment Guides", autogenerate: { directory: "equipment" } },
@@ -64,28 +44,23 @@ export default {
     },
     {
       label: "Foraging & Safety",
-      collapsed: true,
       autogenerate: { directory: "foraging" },
     },
     {
       label: "Chemistry & Nutrition",
-      collapsed: true,
       autogenerate: { directory: "chemistry-nutrition" },
     },
     {
       label: "Recipes",
-      collapsed: true,
       autogenerate: { directory: "recipes" },
     },
     {
       label: "Research Library",
-      collapsed: true,
       autogenerate: { directory: "references" },
     },
     {
       label: "Legacy Reference",
-      collapsed: true,
-      autogenerate: { directory: "reference" },
+      autogenerate: { directory: "Reference" },
     },
   ],
 };
