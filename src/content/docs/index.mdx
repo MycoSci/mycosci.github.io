@@ -5,7 +5,7 @@ template: splash
 hero:
   tagline: Your free, community-powered field guide to the fungal kingdom.
   image:
-    file: ../../assets/houston.webp   # Swap for a spore-tastic image of choice
+    file: /houston.webp # Swap for a spore-tastic image of choice
   actions:
     - text: Learn More
       link: /guides/quick-start/
@@ -16,31 +16,29 @@ hero:
       variant: minimal
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+import { Card, CardGrid } from "@astrojs/starlight/components";
 
 ## Explore the MycoSci Lab
 
 <CardGrid stagger>
   <Card title="Field Guide" icon="mushroom">
-    Identify over 500 species with photos, spore-print colors, and look-alike warnings.
+    Identify over 500 species with photos, spore-print colors, and look-alike
+    warnings.
   </Card>
-
   <Card title="Cultivation Basics" icon="seedling">
     Step-by-step monotub, PF-tek, and gourmet log methods—gear lists included.
   </Card>
-
   <Card title="Advanced Lab Protocols" icon="microscope">
-    Agar cloning, liquid culture, sterile technique, and contamination troubleshooting.
+    Agar cloning, liquid culture, sterile technique, and contamination
+    troubleshooting.
   </Card>
-
   <Card title="Chemistry & Nutrition" icon="flask">
     Dive into metabolites, medicinal compounds, and optimal substrate formulas.
   </Card>
-
   <Card title="Foraging Safety" icon="compass">
-    Seasonal charts, legal guidelines, and first-aid steps for misidentification.
+    Seasonal charts, legal guidelines, and first-aid steps for
+    misidentification.
   </Card>
-
   <Card title="Research Library" icon="open-book">
     Curated papers, genome data sets, and historical mycology texts—all free.
   </Card>
