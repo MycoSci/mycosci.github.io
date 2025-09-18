@@ -1,6 +1,7 @@
-import { defineConfig } from "@astrojs/starlight/config";
-
-export default defineConfig({
+/**
+ * @type {import('@astrojs/starlight').StarlightConfig}
+ */
+export default {
   title: "MycoPedia",
   description:
     "MycoSci field guides, lab protocols, and reference documentation.",
@@ -85,4 +86,4 @@ export default defineConfig({
       autogenerate: { directory: "Reference" },
     },
   ],
-});
+};
