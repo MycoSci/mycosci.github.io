@@ -1,0 +1,32 @@
+---
+interface Props {
+  type?: 'note' | 'tip' | 'caution' | 'danger';
+  title?: string;
+}
+const { type = 'note', title } = Astro.props;
+
+const typeConfig = {
+  note: { icon: 'info', border: 'border-lab-600', bg: 'bg-lab-800/50', text: 'text-lab-300' },
+  tip: { icon: 'lightbulb', border: 'border-bio-600', bg: 'bg-bio-950/50', text: 'text-bio-400' },
+  caution: { icon: 'alert', border: 'border-spore-500', bg: 'bg-spore-500/10', text: 'text-spore-400' },
+  danger: { icon: 'skull', border: 'border-red-500', bg: 'bg-red-500/10', text: 'text-red-400' },
+};
+
+const config = typeConfig[type];
+const icons = {
+  info: 'i',
+  lightbulb: '💡',
+  alert: '⚠️',
+  skull: '☠️',
+};
+---
+
+<aside class={`card p-4 mb-4 border-l-4 ${config.border} ${config.bg}`}>
+  <div class={`flex items-center gap-2 font-medium ${config.text} mb-2`}>
+    <span>{icons[config.icon]}</span>
+    <span>{title || type.charAt(0).toUpperCase() + type.slice(1)}</span>
+  </div>
+  <div class="text-sm text-lab-400">
+    <slot />
+  </div>
+</aside>

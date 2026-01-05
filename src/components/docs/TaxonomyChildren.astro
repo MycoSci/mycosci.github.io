@@ -1,0 +1,72 @@
+---
+import { getCollection } from 'astro:content';
+
+interface Props {
+  currentPath: string;
+}
+
+const { currentPath } = Astro.props;
+
+// Get all taxonomy docs
+const allDocs = await getCollection('docs');
+const taxonomyDocs = allDocs.filter(d => d.id.startsWith('taxonomy/'));
+
+// Normalize the current path to match doc IDs
+const normalizedPath = currentPath.toLowerCase().replace(/^\/docs\//, '').replace(/\/$/, '');
+
+// Find direct children of the current path
+const children = taxonomyDocs.filter(doc => {
+  // Must start with current path
+  if (!doc.id.startsWith(normalizedPath + '/')) return false;
+
+  // Get the remaining path after current
+  const remaining = doc.id.slice(normalizedPath.length + 1);
+
+  // Direct children have exactly one path segment (no more slashes)
+  const parts = remaining.split('/').filter(Boolean);
+  return parts.length === 1;
+});
+
+// Sort children: folders first, then species alphabetically
+children.sort((a, b) => {
+  // Count path depth to determine if it's a folder (has children) or leaf
+  const aIsFolder = taxonomyDocs.some(d => d.id.startsWith(a.id + '/'));
+  const bIsFolder = taxonomyDocs.some(d => d.id.startsWith(b.id + '/'));
+
+  if (aIsFolder && !bIsFolder) return -1;
+  if (!aIsFolder && bIsFolder) return 1;
+
+  return a.data.title.localeCompare(b.data.title);
+});
+
+// Check if child is a folder (has its own children)
+function isFolder(docId: string): boolean {
+  return taxonomyDocs.some(d => d.id.startsWith(docId + '/'));
+}
+---
+
+{children.length > 0 && (
+  <div class="mt-8 pt-8 border-t border-lab-800">
+    <h2 class="text-xl font-semibold text-lab-100 mb-4">
+      {children.some(c => !isFolder(c.id)) ? 'Species in this group' : 'Subgroups'}
+    </h2>
+
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-2">
+      {children.map(child => {
+        const href = `/docs/${child.id}`;
+        const name = child.data.title;
+        const childIsFolder = isFolder(child.id);
+
+        return (
+          <a
+            href={href}
+            class="card card-hover px-4 py-3 text-sm text-lab-300 hover:text-bio-400 transition-colors flex items-center gap-2"
+          >
+            <span class="text-lab-600">{childIsFolder ? '📁' : '🍄'}</span>
+            <span class={!childIsFolder ? 'italic' : ''}>{name}</span>
+          </a>
+        );
+      })}
+    </div>
+  </div>
+)}

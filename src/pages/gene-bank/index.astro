@@ -1,0 +1,289 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+// Storage pricing
+const storageTiers = [
+  {
+    samples: '1-10',
+    perSample: '$8',
+    description: 'Hobbyist',
+  },
+  {
+    samples: '11-50',
+    perSample: '$6',
+    description: 'Cultivator',
+  },
+  {
+    samples: '51-200',
+    perSample: '$4',
+    description: 'Commercial',
+  },
+  {
+    samples: '200+',
+    perSample: 'Custom',
+    description: 'Research',
+  },
+];
+
+// Generation (pull) pricing
+const generationOptions = [
+  {
+    name: 'Agar Plates',
+    icon: '🧫',
+    price: '$35',
+    unit: 'per generation',
+    description: '3 colonized plates from your stored genetics',
+    details: ['Fully colonized', 'Ready to transfer', 'Quality verified'],
+  },
+  {
+    name: 'Liquid Culture',
+    icon: '💧',
+    price: '$45',
+    unit: 'per generation',
+    description: '10ml LC syringe from your stored genetics',
+    details: ['Sterile syringe', 'Vigorous mycelium', 'Ready to inoculate'],
+  },
+  {
+    name: 'Slant Backup',
+    icon: '🧪',
+    price: '$25',
+    unit: 'per generation',
+    description: 'Agar slant for your own long-term storage',
+    details: ['Sealed tube', 'Refrigerator stable', '6-12 month viability'],
+  },
+];
+
+// Subscription options
+const subscriptions = [
+  {
+    name: 'Monthly Fresh',
+    frequency: 'Every month',
+    discount: '15% off',
+    description: 'Regular LC or plates delivered monthly',
+  },
+  {
+    name: 'Quarterly',
+    frequency: 'Every 3 months',
+    discount: '10% off',
+    description: 'Seasonal refreshes of your working cultures',
+  },
+  {
+    name: 'On Demand',
+    frequency: 'When you need it',
+    discount: 'Standard pricing',
+    description: 'Generate anytime through your dashboard',
+  },
+];
+
+const process = [
+  {
+    step: '01',
+    title: 'Deposit',
+    description: 'Send us your cultures, slants, or LC. We isolate, verify purity, and prepare for cryo storage.',
+    price: '$45 per sample',
+  },
+  {
+    step: '02',
+    title: 'Store',
+    description: 'Your genetics are stored in liquid nitrogen (-196°C) at partner university facilities.',
+    price: 'From $4/sample/month',
+  },
+  {
+    step: '03',
+    title: 'Generate',
+    description: 'Request fresh plates or LC anytime. We grow out from your stored genetics.',
+    price: 'From $25/generation',
+  },
+  {
+    step: '04',
+    title: 'Receive',
+    description: 'Fresh, viable cultures shipped to your door. Set up subscriptions for regular delivery.',
+    price: 'Shipping included',
+  },
+];
+---
+
+<BaseLayout title="Gene Bank | MycoSci">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <span class="label text-bio-500">GENE BANKING SERVICE</span>
+      <h1 class="text-3xl sm:text-4xl font-bold text-lab-100 mt-2">Store Your Genetics</h1>
+      <p class="text-lab-400 mt-3 max-w-2xl mx-auto">
+        Cryo-preserve your best strains. Generate fresh plates or liquid culture whenever you need them.
+        Never lose a culture to contamination again.
+      </p>
+    </div>
+
+    <!-- How it works -->
+    <div class="mb-20">
+      <h2 class="text-xl font-semibold text-lab-100 mb-8 text-center">How It Works</h2>
+      <div class="grid md:grid-cols-4 gap-6">
+        {process.map((item, index) => (
+          <div class="relative">
+            <div class="card p-6 h-full">
+              <span class="text-3xl font-bold text-bio-600/30 font-mono">{item.step}</span>
+              <h3 class="font-semibold text-lab-100 mt-3 mb-2">{item.title}</h3>
+              <p class="text-sm text-lab-500 mb-3">{item.description}</p>
+              <span class="text-xs font-mono text-bio-400">{item.price}</span>
+            </div>
+            {index < 3 && (
+              <div class="hidden md:block absolute top-1/2 -right-3 w-6 text-lab-700">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Storage Pricing -->
+    <div class="mb-16">
+      <h2 class="text-xl font-semibold text-lab-100 mb-3 text-center">Storage Pricing</h2>
+      <p class="text-lab-500 text-center mb-8 max-w-xl mx-auto">
+        Pay per sample, per month. Volume discounts for larger collections.
+      </p>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {storageTiers.map((tier, index) => (
+          <div class={`card p-6 text-center ${index === 1 ? 'border-bio-500/50 bg-bio-950/20' : ''}`}>
+            {index === 1 && <span class="badge badge-bio text-2xs mb-3">Most Popular</span>}
+            <div class="text-sm text-lab-500 mb-1">{tier.description}</div>
+            <div class="text-lg font-semibold text-lab-100 mb-2">{tier.samples} samples</div>
+            <div class="text-3xl font-bold text-bio-400 font-mono">{tier.perSample}</div>
+            <div class="text-xs text-lab-600 mt-1">per sample / month</div>
+          </div>
+        ))}
+      </div>
+      <p class="text-xs text-lab-600 text-center mt-4">
+        One-time deposit fee: $45 per new sample (includes isolation, verification, and cryo prep)
+      </p>
+    </div>
+
+    <!-- Generation Options -->
+    <div class="mb-16">
+      <h2 class="text-xl font-semibold text-lab-100 mb-3 text-center">Generation Options</h2>
+      <p class="text-lab-500 text-center mb-8 max-w-xl mx-auto">
+        Request fresh cultures from your stored genetics anytime.
+      </p>
+      <div class="grid md:grid-cols-3 gap-6">
+        {generationOptions.map((option) => (
+          <div class="card p-6">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="text-3xl">{option.icon}</span>
+              <div>
+                <h3 class="font-semibold text-lab-100">{option.name}</h3>
+                <div class="flex items-baseline gap-1">
+                  <span class="text-xl font-bold text-bio-400 font-mono">{option.price}</span>
+                  <span class="text-xs text-lab-600">{option.unit}</span>
+                </div>
+              </div>
+            </div>
+            <p class="text-sm text-lab-500 mb-4">{option.description}</p>
+            <ul class="space-y-2">
+              {option.details.map((detail) => (
+                <li class="flex items-center gap-2 text-xs text-lab-400">
+                  <svg class="w-3 h-3 text-bio-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  {detail}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Subscriptions -->
+    <div class="mb-16">
+      <h2 class="text-xl font-semibold text-lab-100 mb-3 text-center">Delivery Subscriptions</h2>
+      <p class="text-lab-500 text-center mb-8 max-w-xl mx-auto">
+        Set up recurring deliveries and save. Fresh genetics on your schedule.
+      </p>
+      <div class="grid md:grid-cols-3 gap-4">
+        {subscriptions.map((sub) => (
+          <div class="card p-5">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="font-semibold text-lab-100">{sub.name}</h3>
+              <span class="badge bg-bio-950 text-bio-400 border-bio-600 text-2xs">{sub.discount}</span>
+            </div>
+            <div class="text-sm text-lab-500 mb-1">{sub.frequency}</div>
+            <p class="text-xs text-lab-600">{sub.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Example calculation -->
+    <div class="card p-8 bg-lab-900/50 mb-16">
+      <h3 class="font-semibold text-lab-100 mb-4 text-center">Example: Storing 5 Strains</h3>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div>
+          <h4 class="text-sm text-lab-500 mb-3">Initial Setup</h4>
+          <div class="space-y-2 text-sm">
+            <div class="flex justify-between">
+              <span class="text-lab-400">Deposit fee (5 × $45)</span>
+              <span class="text-lab-200 font-mono">$225</span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h4 class="text-sm text-lab-500 mb-3">Monthly Cost</h4>
+          <div class="space-y-2 text-sm">
+            <div class="flex justify-between">
+              <span class="text-lab-400">Storage (5 × $8/mo)</span>
+              <span class="text-lab-200 font-mono">$40/mo</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="divider my-6"></div>
+      <div class="text-center">
+        <p class="text-sm text-lab-400 mb-2">When you need fresh cultures:</p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <span class="text-xs text-lab-500">3 Agar Plates: <span class="text-bio-400 font-mono">$35</span></span>
+          <span class="text-xs text-lab-500">LC Syringe: <span class="text-bio-400 font-mono">$45</span></span>
+          <span class="text-xs text-lab-500">Slant Backup: <span class="text-bio-400 font-mono">$25</span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="card p-8 bg-gradient-to-r from-lab-900 to-lab-800 mb-12">
+      <div class="grid sm:grid-cols-4 gap-6 text-center">
+        <div>
+          <div class="text-2xl font-bold text-bio-400 font-mono">-196°C</div>
+          <div class="text-xs text-lab-500 mt-1">Storage Temp</div>
+        </div>
+        <div>
+          <div class="text-2xl font-bold text-bio-400 font-mono">99.8%</div>
+          <div class="text-xs text-lab-500 mt-1">Viability Rate</div>
+        </div>
+        <div>
+          <div class="text-2xl font-bold text-bio-400 font-mono">50+ yrs</div>
+          <div class="text-xs text-lab-500 mt-1">Storage Life</div>
+        </div>
+        <div>
+          <div class="text-2xl font-bold text-bio-400 font-mono">48hr</div>
+          <div class="text-xs text-lab-500 mt-1">Generation Time</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="card p-8 text-center border-bio-600/30 bg-bio-950/20">
+      <span class="text-4xl block mb-4">🧬</span>
+      <h3 class="text-xl font-semibold text-lab-100 mb-2">Ready to Preserve Your Genetics?</h3>
+      <p class="text-lab-400 text-sm max-w-md mx-auto mb-6">
+        Sign up for early access. We're finalizing partnerships with university cryo facilities
+        and will be accepting deposits soon.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto">
+        <input type="email" placeholder="your@email.com" class="input flex-1" />
+        <button class="btn btn-primary">Join Waitlist</button>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

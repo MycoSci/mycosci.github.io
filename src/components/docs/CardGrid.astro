@@ -1,0 +1,10 @@
+---
+interface Props {
+  stagger?: boolean;
+}
+const { stagger } = Astro.props;
+---
+
+<div class={`grid sm:grid-cols-2 gap-4 ${stagger ? 'items-start' : ''}`}>
+  <slot />
+</div>

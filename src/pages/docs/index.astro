@@ -1,0 +1,111 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const docs = await getCollection('docs');
+
+// Group docs by top-level category
+const categories = docs.reduce((acc, doc) => {
+  const parts = doc.id.split('/');
+  const category = parts[0] || 'General';
+  if (!acc[category]) acc[category] = [];
+  acc[category].push(doc);
+  return acc;
+}, {} as Record<string, typeof docs>);
+
+// Sort categories
+const sortedCategories = Object.entries(categories).sort(([a], [b]) => a.localeCompare(b));
+
+const categoryIcons: Record<string, string> = {
+  'Taxonomy': '🧬',
+  'Guides': '📖',
+  'Cultivation': '🌱',
+  'Equipment': '🔧',
+  'Foraging': '🌲',
+  'lab': '🔬',
+  'recipes': '🍳',
+  'references': '📚',
+  'blog': '📝',
+  'mycogram': '📸',
+  'gallery': '🖼️',
+  'chemistry-nutrition': '⚗️',
+  'resources': '📦',
+};
+---
+
+<BaseLayout title="Documentation | MycoSci">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-12">
+    <!-- Header -->
+    <div class="mb-12">
+      <span class="label text-bio-500">DOCUMENTATION</span>
+      <h1 class="text-3xl sm:text-4xl font-bold text-lab-100 mt-2">Knowledge Base</h1>
+      <p class="text-lab-400 mt-2">Guides, species documentation, and research materials.</p>
+    </div>
+
+    <!-- Stats -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+      <div class="card p-4 text-center">
+        <div class="text-2xl font-bold text-bio-400 font-mono">{docs.length}</div>
+        <div class="text-xs text-lab-500 font-mono uppercase">Total Pages</div>
+      </div>
+      <div class="card p-4 text-center">
+        <div class="text-2xl font-bold text-bio-400 font-mono">{sortedCategories.length}</div>
+        <div class="text-xs text-lab-500 font-mono uppercase">Categories</div>
+      </div>
+      <div class="card p-4 text-center">
+        <div class="text-2xl font-bold text-bio-400 font-mono">
+          {categories['Taxonomy']?.length || 0}
+        </div>
+        <div class="text-xs text-lab-500 font-mono uppercase">Species Docs</div>
+      </div>
+      <div class="card p-4 text-center">
+        <div class="text-2xl font-bold text-bio-400 font-mono">
+          {categories['Guides']?.length || 0}
+        </div>
+        <div class="text-xs text-lab-500 font-mono uppercase">Guides</div>
+      </div>
+    </div>
+
+    <!-- Search -->
+    <div class="card p-4 mb-8">
+      <input
+        type="text"
+        id="doc-search"
+        placeholder="Search documentation..."
+        class="input w-full"
+      />
+    </div>
+
+    <!-- Categories Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {sortedCategories.map(([category, items]) => (
+        <div class="card p-5">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-2xl">{categoryIcons[category] || '📄'}</span>
+            <div>
+              <h2 class="font-semibold text-lab-100">{category}</h2>
+              <span class="text-xs text-lab-500">{items.length} pages</span>
+            </div>
+          </div>
+          <ul class="space-y-2">
+            {items.slice(0, 5).map((doc) => (
+              <li>
+                <a
+                  href={`/docs/${doc.id}`}
+                  class="text-sm text-lab-400 hover:text-bio-400 transition-colors block truncate"
+                >
+                  {doc.data.title}
+                </a>
+              </li>
+            ))}
+            {items.length > 5 && (
+              <li class="text-xs text-lab-600 pt-2">
+                +{items.length - 5} more pages
+              </li>
+            )}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</BaseLayout>

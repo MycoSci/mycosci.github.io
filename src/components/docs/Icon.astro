@@ -1,0 +1,25 @@
+---
+interface Props {
+  name: string;
+  size?: string;
+}
+const { name, size = '1em' } = Astro.props;
+
+const iconMap: Record<string, string> = {
+  'rocket': '🚀',
+  'star': '⭐',
+  'warning': '⚠️',
+  'check': '✓',
+  'x': '✗',
+  'info': 'ℹ',
+  'arrow-right': '→',
+  'arrow-left': '←',
+  'external': '↗',
+  'document': '📄',
+  'folder': '📁',
+  'seti:json': '{}',
+  'seti:typescript': 'TS',
+};
+---
+
+<span style={`font-size: ${size}`}>{iconMap[name] || name}</span>

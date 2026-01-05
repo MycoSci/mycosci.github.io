@@ -1,0 +1,29 @@
+---
+interface Props {
+  href: string;
+  variant?: 'primary' | 'secondary' | 'minimal';
+  icon?: string;
+  iconPlacement?: 'start' | 'end';
+}
+const { href, variant = 'primary', icon, iconPlacement = 'end' } = Astro.props;
+
+const variantClasses = {
+  primary: 'btn btn-primary',
+  secondary: 'btn btn-secondary',
+  minimal: 'text-bio-400 hover:text-bio-300 text-sm inline-flex items-center gap-1',
+};
+
+const iconMap: Record<string, string> = {
+  'arrow-up': '↑',
+  'arrow-down': '↓',
+  'arrow-left': '←',
+  'arrow-right': '→',
+  'external': '↗',
+};
+---
+
+<a href={href} class={variantClasses[variant]}>
+  {icon && iconPlacement === 'start' && <span>{iconMap[icon] || icon}</span>}
+  <slot />
+  {icon && iconPlacement === 'end' && <span>{iconMap[icon] || icon}</span>}
+</a>

@@ -1,0 +1,26 @@
+# Training data (large files)
+data/*.jpg
+data/*.png
+data/*.jpeg
+data/**/*.jpg
+data/**/*.png
+data/**/*.jpeg
+data/raw/
+data/processed/
+
+# Model checkpoints
+training/checkpoints/
+training/*.h5
+training/*.keras
+
+# Exported models (keep only final versions)
+models/dev/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/

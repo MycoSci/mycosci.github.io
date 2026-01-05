@@ -1,0 +1,245 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getProducts, getPosts } from '../lib/wordpress';
+
+let products = [];
+let posts = [];
+
+try {
+  products = await getProducts(4);
+  posts = await getPosts(3);
+} catch (e) {
+  console.error('Failed to fetch WP data:', e);
+}
+
+const stats = [
+  { value: '905+', label: 'Species Documented' },
+  { value: '12K+', label: 'Genetic Markers' },
+  { value: '99.2%', label: 'AI Accuracy' },
+  { value: '24/7', label: 'Lab Operations' },
+];
+
+const features = [
+  {
+    icon: '🧬',
+    title: 'Gene Banking',
+    description: 'Long-term cryo storage with university lab partnership. Preserve your genetics for years.',
+    href: '/gene-bank',
+  },
+  {
+    icon: '🔬',
+    title: 'AI Detection',
+    description: 'Offline-capable mushroom identification. Runs entirely on your device.',
+    href: '/detect',
+  },
+  {
+    icon: '📊',
+    title: 'Species Database',
+    description: '905+ fully documented species with morphology, ecology, and genetic data.',
+    href: '/database',
+  },
+  {
+    icon: '🧪',
+    title: 'Lab Supplies',
+    description: 'Agar, liquid culture, and everything you need for clean cultivation.',
+    href: '/shop',
+  },
+];
+---
+
+<BaseLayout title="MycoSci — Mycology Research Lab">
+  <!-- Hero Section -->
+  <section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+    <!-- Grid background -->
+    <div class="absolute inset-0 bg-grid opacity-30"></div>
+
+    <!-- Gradient overlays -->
+    <div class="absolute inset-0 bg-gradient-to-b from-lab-950 via-transparent to-lab-950"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-bio-600/5 rounded-full blur-3xl"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 py-24 text-center">
+      <!-- Status badge -->
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-lab-900/80 border border-lab-800 mb-8">
+        <span class="status-dot status-active"></span>
+        <span class="text-xs font-mono text-lab-300">RESEARCH DIVISION ACTIVE</span>
+      </div>
+
+      <!-- Main headline -->
+      <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-lab-50 mb-6 tracking-tight">
+        Mycology
+        <span class="text-bio-400 glow">Research</span>
+        <br />Infrastructure
+      </h1>
+
+      <p class="text-lg sm:text-xl text-lab-400 max-w-2xl mx-auto mb-10 text-balance">
+        Gene banking, AI-powered identification, and comprehensive species data.
+        Open source tools for serious mycology work.
+      </p>
+
+      <!-- CTA buttons -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+        <a href="/database" class="btn btn-primary px-6 py-3 text-base">
+          Explore Database
+        </a>
+        <a href="/detect" class="btn btn-secondary px-6 py-3 text-base">
+          Try AI Detection
+        </a>
+      </div>
+
+      <!-- Stats -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
+        {stats.map((stat) => (
+          <div class="card p-4">
+            <div class="text-2xl sm:text-3xl font-bold text-bio-400 font-mono">{stat.value}</div>
+            <div class="text-xs text-lab-500 font-mono uppercase tracking-wider mt-1">{stat.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-lab-600">
+      <span class="text-2xs font-mono uppercase tracking-widest">Scroll</span>
+      <div class="w-px h-8 bg-gradient-to-b from-lab-600 to-transparent"></div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="py-24 border-t border-lab-800/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-16">
+        <span class="label text-bio-500">CAPABILITIES</span>
+        <h2 class="text-3xl sm:text-4xl font-bold text-lab-100 mt-2">Research Infrastructure</h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        {features.map((feature) => (
+          <a href={feature.href} class="card card-hover p-6 group">
+            <div class="flex items-start gap-4">
+              <div class="text-3xl">{feature.icon}</div>
+              <div class="flex-1">
+                <h3 class="text-lg font-semibold text-lab-100 group-hover:text-bio-400 transition-colors">
+                  {feature.title}
+                </h3>
+                <p class="text-sm text-lab-400 mt-1">{feature.description}</p>
+              </div>
+              <div class="text-lab-600 group-hover:text-bio-500 transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  {products.length > 0 && (
+    <section class="py-24 border-t border-lab-800/50 bg-lab-900/30">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="flex items-end justify-between mb-12">
+          <div>
+            <span class="label text-bio-500">LAB SUPPLIES</span>
+            <h2 class="text-3xl font-bold text-lab-100 mt-2">From the Shop</h2>
+          </div>
+          <a href="/shop" class="text-sm text-bio-400 hover:text-bio-300 flex items-center gap-1">
+            View all
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {products.map((product) => (
+            <div class="card card-hover overflow-hidden group">
+              <div class="aspect-square bg-lab-800 flex items-center justify-center">
+                {product.image?.sourceUrl ? (
+                  <img src={product.image.sourceUrl} alt={product.name} class="w-full h-full object-cover" />
+                ) : (
+                  <span class="text-4xl opacity-30">🧫</span>
+                )}
+              </div>
+              <div class="p-4">
+                <div class="text-2xs font-mono text-lab-500 uppercase tracking-wider mb-1">
+                  {product.productCategories?.nodes?.[0]?.name || 'Product'}
+                </div>
+                <h3 class="font-medium text-lab-100 group-hover:text-bio-400 transition-colors line-clamp-1">
+                  {product.name}
+                </h3>
+                <div class="flex items-center justify-between mt-3">
+                  <span class="text-lg font-bold text-mycel-400 font-mono">{product.price || 'TBD'}</span>
+                  <button class="btn btn-secondary text-xs py-1.5">Add</button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Blog Section -->
+  {posts.length > 0 && (
+    <section class="py-24 border-t border-lab-800/50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="flex items-end justify-between mb-12">
+          <div>
+            <span class="label text-bio-500">FIELD NOTES</span>
+            <h2 class="text-3xl font-bold text-lab-100 mt-2">Latest Research</h2>
+          </div>
+          <a href="/blog" class="text-sm text-bio-400 hover:text-bio-300 flex items-center gap-1">
+            View all
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          {posts.map((post) => (
+            <a href={`/blog/${post.slug}`} class="card card-hover overflow-hidden group">
+              <div class="aspect-video bg-lab-800 flex items-center justify-center">
+                {post.featuredImage?.node?.sourceUrl ? (
+                  <img src={post.featuredImage.node.sourceUrl} alt={post.title} class="w-full h-full object-cover" />
+                ) : (
+                  <span class="text-4xl opacity-30">🍄</span>
+                )}
+              </div>
+              <div class="p-5">
+                <div class="text-2xs font-mono text-lab-500 mb-2">
+                  {new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }).toUpperCase()}
+                </div>
+                <h3 class="font-semibold text-lab-100 group-hover:text-bio-400 transition-colors line-clamp-2">
+                  {post.title}
+                </h3>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- CTA Section -->
+  <section class="py-24 border-t border-lab-800/50 bg-gradient-to-b from-lab-900/50 to-lab-950">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <span class="label text-bio-500">GENE BANKING</span>
+      <h2 class="text-3xl sm:text-4xl font-bold text-lab-100 mt-2 mb-4">
+        Store Your Genetics
+      </h2>
+      <p class="text-lab-400 mb-8 max-w-xl mx-auto">
+        Cryo-preserve your best strains. Generate fresh plates or liquid culture
+        whenever you need them. Never lose a culture to contamination again.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="/gene-bank" class="btn btn-primary px-6 py-3">
+          View Pricing
+        </a>
+        <span class="text-sm text-lab-500">From $4/sample/month</span>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

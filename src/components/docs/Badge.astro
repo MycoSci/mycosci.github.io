@@ -1,0 +1,21 @@
+---
+interface Props {
+  text?: string;
+  variant?: 'note' | 'tip' | 'caution' | 'danger' | 'success' | 'default';
+  size?: 'small' | 'medium' | 'large';
+}
+const { text, variant = 'default', size = 'small' } = Astro.props;
+
+const variantClasses = {
+  note: 'bg-lab-800 text-lab-300 border-lab-700',
+  tip: 'bg-bio-950 text-bio-400 border-bio-600',
+  caution: 'bg-spore-500/10 text-spore-400 border-spore-500/50',
+  danger: 'bg-red-500/10 text-red-400 border-red-500/50',
+  success: 'bg-mycel-500/10 text-mycel-400 border-mycel-500/50',
+  default: 'bg-lab-800 text-lab-300 border-lab-700',
+};
+---
+
+<span class={`badge ${variantClasses[variant]}`}>
+  {text || <slot />}
+</span>

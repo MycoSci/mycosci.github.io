@@ -1,0 +1,28 @@
+---
+---
+
+<div class="steps-container space-y-4 my-6 pl-8 border-l-2 border-lab-700">
+  <slot />
+</div>
+
+<style>
+  .steps-container :global(> *) {
+    position: relative;
+  }
+  .steps-container :global(> *)::before {
+    content: counter(step);
+    counter-increment: step;
+    position: absolute;
+    left: -2.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    background: var(--color-bio-600, #00b8a9);
+    color: var(--color-lab-950, #18181b);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+</style>

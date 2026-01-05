@@ -1,0 +1,99 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+import TaxonomyChildren from '../../components/docs/TaxonomyChildren.astro';
+
+export async function getStaticPaths() {
+  const docs = await getCollection('docs');
+  return docs.map((doc) => ({
+    params: { slug: doc.id },
+    props: { doc },
+  }));
+}
+
+const { doc } = Astro.props;
+const { Content } = await render(doc);
+
+// Parse breadcrumbs from the slug
+const pathParts = doc.id.split('/').filter(Boolean);
+const breadcrumbs = pathParts.slice(0, -1).map((part, index) => ({
+  label: part.charAt(0).toUpperCase() + part.slice(1),
+  href: `/docs/${pathParts.slice(0, index + 1).join('/')}`,
+}));
+
+// Check if this is a taxonomy page that should show children
+// Index pages are those that represent a taxonomic level (phylum, class, order, family, genus)
+// They don't have a species name at the end (species names are concatenated like "amanitamuscaria")
+const isTaxonomy = doc.id.startsWith('taxonomy/');
+const pathDepth = doc.id.split('/').length;
+// Taxonomy structure: taxonomy/phylum/class/order/family/genus/species
+// Index pages are at depth 2-6, species pages are at depth 7
+const isTaxonomyIndex = isTaxonomy && pathDepth <= 7;
+const currentPath = `/docs/${doc.id}`;
+---
+
+<BaseLayout title={`${doc.data.title} | MycoSci`}>
+  <article class="max-w-4xl mx-auto px-4 sm:px-6 py-12">
+    <!-- Breadcrumbs -->
+    {breadcrumbs.length > 0 && (
+      <nav class="flex items-center gap-2 text-sm text-lab-500 mb-6 flex-wrap">
+        <a href="/docs" class="hover:text-bio-400 transition-colors">Docs</a>
+        {breadcrumbs.map((crumb, i) => (
+          <>
+            <span class="text-lab-700">/</span>
+            <a href={crumb.href} class="hover:text-bio-400 transition-colors">
+              {crumb.label}
+            </a>
+          </>
+        ))}
+      </nav>
+    )}
+
+    <!-- Header -->
+    <header class="mb-8">
+      <span class="label text-bio-500">DOCUMENTATION</span>
+      <h1 class="text-3xl sm:text-4xl font-bold text-lab-100 mt-2">{doc.data.title}</h1>
+      {doc.data.description && (
+        <p class="text-lab-400 mt-3">{doc.data.description}</p>
+      )}
+    </header>
+
+    <!-- Content -->
+    <div class="prose prose-invert prose-lg max-w-none
+      prose-headings:text-lab-100 prose-headings:font-semibold
+      prose-p:text-lab-300 prose-p:leading-relaxed
+      prose-a:text-bio-400 prose-a:no-underline hover:prose-a:underline
+      prose-strong:text-lab-100
+      prose-code:text-bio-400 prose-code:bg-lab-800 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm
+      prose-pre:bg-lab-900 prose-pre:border prose-pre:border-lab-800
+      prose-blockquote:border-bio-600 prose-blockquote:text-lab-400
+      prose-img:rounded-lg
+      prose-hr:border-lab-800
+      prose-li:text-lab-300
+      prose-th:text-lab-200 prose-td:text-lab-400">
+      <Content />
+    </div>
+
+    <!-- Taxonomy children navigation -->
+    {isTaxonomyIndex && <TaxonomyChildren currentPath={currentPath} />}
+
+    <!-- Footer navigation -->
+    <div class="mt-12 pt-8 border-t border-lab-800">
+      <a href="/docs" class="inline-flex items-center gap-2 text-sm text-lab-500 hover:text-bio-400 transition-colors">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+        Back to Documentation
+      </a>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .prose :where(h2):not(:where([class~="not-prose"] *)) {
+    @apply mt-10 mb-4;
+  }
+  .prose :where(h3):not(:where([class~="not-prose"] *)) {
+    @apply mt-8 mb-3;
+  }
+</style>

@@ -1,0 +1,190 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'MycoSci',
+  description = 'Mycology research, gene banking, and AI-powered identification'
+} = Astro.props;
+
+const navItems = [
+  { href: '/', label: 'Home' },
+  { href: '/database', label: 'Database' },
+  { href: '/detect', label: 'Detect' },
+  { href: '/shop', label: 'Shop' },
+  { href: '/gene-bank', label: 'Gene Bank' },
+  { href: '/blog', label: 'Blog' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  </head>
+  <body class="flex flex-col min-h-screen">
+    <!-- Noise overlay -->
+    <div class="fixed inset-0 pointer-events-none noise z-50"></div>
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-40 border-b border-lab-800/50 bg-lab-950/80 backdrop-blur-xl">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="flex items-center justify-between h-14">
+          <!-- Logo -->
+          <a href="/" class="flex items-center gap-3 group">
+            <div class="w-8 h-8 rounded bg-bio-600 flex items-center justify-center">
+              <span class="text-lab-950 font-bold text-sm">M</span>
+            </div>
+            <div class="flex flex-col">
+              <span class="font-semibold text-lab-100 text-sm tracking-tight">MYCOSCI</span>
+              <span class="text-2xs font-mono text-lab-500 tracking-widest">RESEARCH LAB</span>
+            </div>
+          </a>
+
+          <!-- Navigation -->
+          <nav class="hidden md:flex items-center gap-1">
+            {navItems.map((item) => (
+              <a
+                href={item.href}
+                class:list={[
+                  'px-3 py-1.5 text-sm rounded transition-all duration-200',
+                  currentPath === item.href || (item.href !== '/' && currentPath.startsWith(item.href))
+                    ? 'text-bio-400 bg-bio-950/50'
+                    : 'text-lab-400 hover:text-lab-100 hover:bg-lab-800/50'
+                ]}
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
+
+          <!-- Right side -->
+          <div class="flex items-center gap-2">
+            <div class="hidden lg:flex items-center gap-2 text-2xs font-mono text-lab-500 mr-2">
+              <span class="status-dot status-active"></span>
+              <span>SYSTEMS ONLINE</span>
+            </div>
+            <!-- Cart Button -->
+            <div class="relative" id="cart-button-container">
+              <a href="/cart" class="btn btn-ghost text-xs flex items-center gap-1.5 px-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+                <span id="cart-count" class="w-5 h-5 bg-bio-500 text-lab-950 text-2xs font-bold rounded-full flex items-center justify-center hidden">0</span>
+              </a>
+            </div>
+            <a href="/account" class="btn btn-ghost text-xs">
+              Sign In
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main content -->
+    <main class="flex-1 pt-14">
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-lab-800/50 bg-lab-950">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 py-12">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+          <div>
+            <h4 class="label mb-4">Research</h4>
+            <ul class="space-y-2">
+              <li><a href="/database" class="text-sm text-lab-400 hover:text-lab-100">Species Database</a></li>
+              <li><a href="/detect" class="text-sm text-lab-400 hover:text-lab-100">AI Detection</a></li>
+              <li><a href="/docs/taxonomy" class="text-sm text-lab-400 hover:text-lab-100">Taxonomy</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="label mb-4">Services</h4>
+            <ul class="space-y-2">
+              <li><a href="/shop" class="text-sm text-lab-400 hover:text-lab-100">Shop</a></li>
+              <li><a href="/gene-bank" class="text-sm text-lab-400 hover:text-lab-100">Gene Bank</a></li>
+              <li><a href="/cart" class="text-sm text-lab-400 hover:text-lab-100">Cart</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="label mb-4">Resources</h4>
+            <ul class="space-y-2">
+              <li><a href="/blog" class="text-sm text-lab-400 hover:text-lab-100">Blog</a></li>
+              <li><a href="/docs" class="text-sm text-lab-400 hover:text-lab-100">Documentation</a></li>
+              <li><a href="https://github.com/MycoSci" class="text-sm text-lab-400 hover:text-lab-100">Open Source</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="label mb-4">Connect</h4>
+            <ul class="space-y-2">
+              <li><a href="https://github.com/MycoSci" class="text-sm text-lab-400 hover:text-lab-100">GitHub</a></li>
+              <li><a href="/about" class="text-sm text-lab-400 hover:text-lab-100">About</a></li>
+              <li><a href="/account" class="text-sm text-lab-400 hover:text-lab-100">Account</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="divider mb-8"></div>
+
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-lab-500">
+          <div class="flex items-center gap-2">
+            <span class="font-mono">© 2026 MYCOSCI RESEARCH LAB</span>
+          </div>
+          <div class="flex items-center gap-4 font-mono">
+            <span>BUILD 0.1.0</span>
+            <span class="text-lab-700">|</span>
+            <span class="flex items-center gap-1.5">
+              <span class="status-dot status-active"></span>
+              ALL SYSTEMS OPERATIONAL
+            </span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Cart count updater script -->
+    <script>
+      function updateCartCount() {
+        const countEl = document.getElementById('cart-count');
+        if (!countEl) return;
+
+        try {
+          const cart = JSON.parse(localStorage.getItem('mycosci_cart') || '{"items":[]}');
+          const count = cart.items.reduce((sum, item) => sum + item.quantity, 0);
+
+          if (count > 0) {
+            countEl.textContent = count > 99 ? '99+' : count.toString();
+            countEl.classList.remove('hidden');
+          } else {
+            countEl.classList.add('hidden');
+          }
+        } catch (e) {
+          countEl.classList.add('hidden');
+        }
+      }
+
+      // Update on page load
+      document.addEventListener('DOMContentLoaded', updateCartCount);
+      updateCartCount();
+
+      // Update when cart changes
+      window.addEventListener('cart-updated', updateCartCount);
+      window.addEventListener('storage', (e) => {
+        if (e.key === 'mycosci_cart') updateCartCount();
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,222 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getProductBySlug, getProducts } from '../../lib/wordpress';
+
+export async function getStaticPaths() {
+  const products = await getProducts(100);
+  return products.map((product) => ({
+    params: { slug: product.slug },
+  }));
+}
+
+const { slug } = Astro.params;
+let product = null;
+let error = null;
+
+try {
+  product = await getProductBySlug(slug as string);
+} catch (e) {
+  error = e instanceof Error ? e.message : 'Failed to load product';
+}
+---
+
+<BaseLayout title={product ? `${product.name} | MycoSci Shop` : 'Product | MycoSci'}>
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+    <!-- Back link -->
+    <a href="/shop" class="inline-flex items-center gap-2 text-sm text-lab-500 hover:text-bio-400 transition-colors mb-8 group">
+      <svg class="w-4 h-4 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+      </svg>
+      Back to Shop
+    </a>
+
+    {error && (
+      <div class="card p-4 border-spore-500/50 bg-spore-500/10 mb-8">
+        <p class="text-spore-400 text-sm">{error}</p>
+      </div>
+    )}
+
+    {product ? (
+      <div class="grid md:grid-cols-2 gap-8 lg:gap-12">
+        <!-- Product Image -->
+        <div class="space-y-4">
+          <div class="card overflow-hidden aspect-square bg-lab-800 flex items-center justify-center">
+            {product.image?.sourceUrl ? (
+              <img src={product.image.sourceUrl} alt={product.name} class="w-full h-full object-cover" />
+            ) : (
+              <span class="text-8xl opacity-20">🧫</span>
+            )}
+          </div>
+          {product.onSale && (
+            <div class="card p-3 bg-spore-500/10 border-spore-500/50 text-center">
+              <span class="text-spore-400 font-medium">On Sale!</span>
+            </div>
+          )}
+        </div>
+
+        <!-- Product Info -->
+        <div>
+          <div class="mb-6">
+            <span class="text-2xs font-mono text-lab-500 uppercase tracking-wider">
+              {product.productCategories?.nodes?.[0]?.name || 'Product'}
+            </span>
+            <h1 class="text-3xl font-bold text-lab-100 mt-2">{product.name}</h1>
+          </div>
+
+          <!-- Price -->
+          <div class="flex items-baseline gap-3 mb-6">
+            <span class="text-3xl font-bold text-mycel-400 font-mono">{product.price || 'TBD'}</span>
+            {product.salePrice && product.regularPrice !== product.salePrice && (
+              <span class="text-xl text-lab-600 line-through font-mono">{product.regularPrice}</span>
+            )}
+          </div>
+
+          <!-- Short Description -->
+          {product.shortDescription && (
+            <div class="text-lab-400 mb-6" set:html={product.shortDescription} />
+          )}
+
+          <!-- Add to Cart -->
+          <div class="flex gap-4 mb-8">
+            <div class="flex items-center border border-lab-700 rounded">
+              <button id="qty-decrease" class="w-10 h-10 flex items-center justify-center text-lab-400 hover:text-lab-100 transition-colors">−</button>
+              <span id="qty-value" class="w-12 text-center text-lab-200">1</span>
+              <button id="qty-increase" class="w-10 h-10 flex items-center justify-center text-lab-400 hover:text-lab-100 transition-colors">+</button>
+            </div>
+            <button
+              id="add-to-cart-btn"
+              class="btn btn-primary flex-1 py-3"
+              data-id={product.databaseId}
+              data-name={product.name}
+              data-price={product.price || '0'}
+              data-image={product.image?.sourceUrl || ''}
+            >
+              Add to Cart
+            </button>
+          </div>
+
+          <!-- Product Details -->
+          <div class="card p-6 space-y-4">
+            <h3 class="font-semibold text-lab-100">Product Details</h3>
+            {product.description ? (
+              <div class="text-sm text-lab-400 prose prose-invert prose-sm max-w-none" set:html={product.description} />
+            ) : (
+              <p class="text-sm text-lab-500">No additional details available.</p>
+            )}
+          </div>
+
+          <!-- Categories -->
+          {product.productCategories?.nodes?.length > 0 && (
+            <div class="mt-6">
+              <span class="text-xs text-lab-500">Categories: </span>
+              {product.productCategories.nodes.map((cat, i) => (
+                <>
+                  <a href={`/shop/category/${cat.slug}`} class="text-xs text-bio-400 hover:underline">
+                    {cat.name}
+                  </a>
+                  {i < product.productCategories.nodes.length - 1 && <span class="text-lab-600">, </span>}
+                </>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+    ) : !error && (
+      <div class="card p-12 text-center">
+        <span class="text-5xl opacity-30 block mb-4">🔍</span>
+        <h2 class="text-xl font-semibold text-lab-100 mb-2">Product Not Found</h2>
+        <p class="text-lab-400 mb-6">The product you're looking for doesn't exist or has been removed.</p>
+        <a href="/shop" class="btn btn-primary">Browse Shop</a>
+      </div>
+    )}
+  </div>
+
+  <!-- Toast notification -->
+  <div id="cart-toast" class="fixed bottom-4 right-4 transform translate-y-full opacity-0 transition-all duration-300 z-50">
+    <div class="card p-4 bg-bio-950 border-bio-600 flex items-center gap-3">
+      <svg class="w-5 h-5 text-bio-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+      </svg>
+      <span class="text-sm text-lab-200">Added to cart!</span>
+      <a href="/cart" class="text-xs text-bio-400 hover:underline ml-2">View Cart</a>
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const qtyValue = document.getElementById('qty-value');
+    const qtyDecrease = document.getElementById('qty-decrease');
+    const qtyIncrease = document.getElementById('qty-increase');
+    const addToCartBtn = document.getElementById('add-to-cart-btn');
+    const toast = document.getElementById('cart-toast');
+
+    let quantity = 1;
+
+    qtyDecrease?.addEventListener('click', () => {
+      if (quantity > 1) {
+        quantity--;
+        if (qtyValue) qtyValue.textContent = quantity.toString();
+      }
+    });
+
+    qtyIncrease?.addEventListener('click', () => {
+      quantity++;
+      if (qtyValue) qtyValue.textContent = quantity.toString();
+    });
+
+    addToCartBtn?.addEventListener('click', () => {
+      const btn = addToCartBtn as HTMLButtonElement;
+      const id = parseInt(btn.dataset.id || '0');
+      const name = btn.dataset.name || '';
+      const price = btn.dataset.price || '0';
+      const image = btn.dataset.image || '';
+
+      // Get current cart
+      let cart = { items: [], total: 0 };
+      try {
+        cart = JSON.parse(localStorage.getItem('mycosci_cart') || '{"items":[],"total":0}');
+      } catch (e) {}
+
+      // Add item
+      const existingIndex = cart.items.findIndex((i: any) => i.id === id);
+      if (existingIndex >= 0) {
+        cart.items[existingIndex].quantity += quantity;
+      } else {
+        cart.items.push({ id, name, price, image, quantity });
+      }
+
+      // Calculate total
+      cart.total = cart.items.reduce((sum: number, item: any) => {
+        const p = parseFloat(item.price.replace(/[^0-9.]/g, '')) || 0;
+        return sum + (p * item.quantity);
+      }, 0);
+
+      // Save cart
+      localStorage.setItem('mycosci_cart', JSON.stringify(cart));
+      window.dispatchEvent(new CustomEvent('cart-updated', { detail: cart }));
+
+      // Button feedback
+      const originalText = btn.textContent;
+      btn.textContent = 'Added!';
+      btn.disabled = true;
+
+      setTimeout(() => {
+        btn.textContent = originalText;
+        btn.disabled = false;
+      }, 1500);
+
+      // Show toast
+      if (toast) {
+        toast.classList.remove('translate-y-full', 'opacity-0');
+        setTimeout(() => {
+          toast.classList.add('translate-y-full', 'opacity-0');
+        }, 3000);
+      }
+
+      // Reset quantity
+      quantity = 1;
+      if (qtyValue) qtyValue.textContent = '1';
+    });
+  });
+</script>

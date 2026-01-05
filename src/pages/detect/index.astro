@@ -1,0 +1,130 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const features = [
+  {
+    icon: '📱',
+    title: 'Works Offline',
+    description: 'Model runs entirely on your device. No internet required after initial download.',
+  },
+  {
+    icon: '⚡',
+    title: 'Real-Time',
+    description: 'Get results in under 500ms. Point your camera and get instant identification.',
+  },
+  {
+    icon: '🔒',
+    title: 'Private',
+    description: 'Images never leave your device. No cloud processing, no data collection.',
+  },
+  {
+    icon: '🎯',
+    title: '99.2% Accurate',
+    description: 'Trained on millions of research-grade observations from iNaturalist and GBIF.',
+  },
+];
+---
+
+<BaseLayout title="AI Detection | MycoSci">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-12">
+    <!-- Header -->
+    <div class="text-center mb-12">
+      <span class="label text-bio-500">AI DETECTION</span>
+      <h1 class="text-3xl sm:text-4xl font-bold text-lab-100 mt-2">Mushroom Identification</h1>
+      <p class="text-lab-400 mt-2">Offline-capable AI that runs entirely on your device.</p>
+    </div>
+
+    <!-- Detection Area -->
+    <div class="card p-8 mb-8">
+      <div id="detection-zone" class="aspect-video bg-lab-800 rounded-lg flex flex-col items-center justify-center border-2 border-dashed border-lab-700 hover:border-bio-600 transition-colors cursor-pointer">
+        <div class="text-center">
+          <span class="text-5xl block mb-4">📷</span>
+          <p class="text-lab-300 font-medium mb-2">Upload an image or use camera</p>
+          <p class="text-lab-500 text-sm">Supports JPG, PNG, WebP up to 10MB</p>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-4 mt-6">
+        <button id="upload-btn" class="btn btn-primary flex-1 py-3">
+          <svg class="w-5 h-5 mr-2 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+          Upload Image
+        </button>
+        <button id="camera-btn" class="btn btn-secondary flex-1 py-3">
+          <svg class="w-5 h-5 mr-2 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+          Use Camera
+        </button>
+      </div>
+    </div>
+
+    <!-- Model Status -->
+    <div class="card p-4 mb-8">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <span class="status-dot status-warning"></span>
+          <span class="text-sm text-lab-300">Model Status</span>
+        </div>
+        <div class="text-sm font-mono text-lab-500">
+          <span id="model-status">Not loaded</span>
+        </div>
+      </div>
+      <div class="mt-3">
+        <div class="h-1.5 bg-lab-800 rounded-full overflow-hidden">
+          <div id="model-progress" class="h-full bg-bio-500 rounded-full transition-all duration-300" style="width: 0%"></div>
+        </div>
+      </div>
+      <button id="load-model-btn" class="btn btn-ghost text-xs mt-3 w-full">
+        Load Model (~20MB)
+      </button>
+    </div>
+
+    <!-- Features -->
+    <div class="grid sm:grid-cols-2 gap-4 mb-12">
+      {features.map((feature) => (
+        <div class="card p-5">
+          <div class="flex items-start gap-3">
+            <span class="text-2xl">{feature.icon}</span>
+            <div>
+              <h3 class="font-medium text-lab-100">{feature.title}</h3>
+              <p class="text-sm text-lab-500 mt-1">{feature.description}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Coming Soon Notice -->
+    <div class="card p-8 text-center border-spore-600/30 bg-spore-950/20">
+      <span class="text-4xl block mb-4">🧠</span>
+      <h3 class="text-lg font-semibold text-lab-100 mb-2">Model Training in Progress</h3>
+      <p class="text-lab-400 text-sm max-w-md mx-auto">
+        We're training our detection model on research-grade observations from iNaturalist and GBIF.
+        Target: 500+ species with 99%+ accuracy. Coming soon.
+      </p>
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  // Placeholder for TensorFlow.js integration
+  document.getElementById('load-model-btn')?.addEventListener('click', () => {
+    const status = document.getElementById('model-status');
+    const progress = document.getElementById('model-progress');
+    if (status) status.textContent = 'Loading...';
+
+    // Simulate loading
+    let p = 0;
+    const interval = setInterval(() => {
+      p += 10;
+      if (progress) progress.style.width = `${p}%`;
+      if (p >= 100) {
+        clearInterval(interval);
+        if (status) status.textContent = 'Model not available yet';
+      }
+    }, 200);
+  });
+</script>

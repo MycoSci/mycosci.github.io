@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Page Not Found | MycoSci">
+  <div class="min-h-[70vh] flex items-center justify-center px-4">
+    <div class="text-center max-w-lg">
+      <div class="w-24 h-24 rounded-full bg-lab-800 flex items-center justify-center mx-auto mb-8">
+        <span class="text-5xl">🍄</span>
+      </div>
+
+      <span class="text-8xl font-bold text-lab-800 font-mono block mb-4">404</span>
+
+      <h1 class="text-2xl font-bold text-lab-100 mb-4">Page Not Found</h1>
+
+      <p class="text-lab-400 mb-8">
+        The spores you're looking for seem to have dispersed.
+        This page doesn't exist or has been moved.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <a href="/" class="btn btn-primary">
+          <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+          </svg>
+          Go Home
+        </a>
+        <a href="/database" class="btn btn-secondary">
+          Browse Database
+        </a>
+      </div>
+
+      <div class="mt-12 pt-8 border-t border-lab-800">
+        <p class="text-sm text-lab-600 mb-4">Looking for something specific?</p>
+        <div class="flex flex-wrap gap-2 justify-center">
+          <a href="/shop" class="text-xs text-lab-500 hover:text-bio-400">Shop</a>
+          <span class="text-lab-700">•</span>
+          <a href="/blog" class="text-xs text-lab-500 hover:text-bio-400">Blog</a>
+          <span class="text-lab-700">•</span>
+          <a href="/docs" class="text-xs text-lab-500 hover:text-bio-400">Docs</a>
+          <span class="text-lab-700">•</span>
+          <a href="/gene-bank" class="text-xs text-lab-500 hover:text-bio-400">Gene Bank</a>
+          <span class="text-lab-700">•</span>
+          <a href="/detect" class="text-xs text-lab-500 hover:text-bio-400">AI Detection</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
