@@ -1,0 +1,79 @@
+{
+  "slug": "lentinula-edodes",
+  "authorship": "(Berk.) Pegler",
+  "year": 1976,
+  "description": "Shiitake is a choice edible wood-decay mushroom native to East Asia and one of the most widely cultivated mushrooms in the world, grown on hardwood logs and supplemented sawdust. It has a brown, often scaly cap, whitish gills, and a fibrous stem, and is valued both as food and for medicinal interest in its polysaccharide lentinan.",
+  "vernacularNames": [
+    {
+      "lang": "en",
+      "name": "Shiitake"
+    },
+    {
+      "lang": "en",
+      "name": "Black forest mushroom"
+    },
+    {
+      "lang": "ja",
+      "name": "椎茸 (shiitake)"
+    },
+    {
+      "lang": "zh",
+      "name": "香菇 (xiānggū)"
+    }
+  ],
+  "edibility": "edible",
+  "preparation": "cook",
+  "edibilityNotes": "Choice edible only when thoroughly cooked. Eating raw or undercooked shiitake can cause shiitake (flagellate) dermatitis — a self-limiting but intensely itchy whip-lash/linear streak rash, typically appearing within 1-5 days of ingestion. It is attributed to lentinan, a heat-labile polysaccharide; thorough cooking degrades it and prevents the reaction. A minority of people may also experience digestive upset. Always cook shiitake fully before eating.",
+  "capColor": [
+    "brown",
+    "tan",
+    "dark brown"
+  ],
+  "sporePrintColor": "white",
+  "trophicMode": "saprotroph",
+  "substrate": [
+    "hardwood logs",
+    "hardwood sawdust",
+    "dead hardwood"
+  ],
+  "hosts": [
+    "oak (Quercus)",
+    "chestnut (Castanea)",
+    "beech (Fagus)",
+    "hornbeam (Carpinus)",
+    "Shii (Castanopsis)"
+  ],
+  "habitat": [
+    "dead and decaying hardwood",
+    "deciduous forests",
+    "cultivated logs and sawdust blocks"
+  ],
+  "fruitingSeason": [
+    "spring",
+    "autumn"
+  ],
+  "distribution": "Native to warm, moist regions of East Asia (Japan, China, Korea) and Southeast Asia; now cultivated and consumed worldwide.",
+  "notableCompounds": [
+    "lentinan (beta-glucan polysaccharide)",
+    "eritadenine",
+    "lenthionine (aroma compound)"
+  ],
+  "dangerousLookalikes": [
+    {
+      "name": "Omphalotus species (jack-o'-lantern)",
+      "note": "Toxic jack-o'-lanterns are bright orange throughout with crowded, decurrent gills, grow in dense clusters on wood, and lack shiitake's brown scaly cap and white-ish adnexed gills. Wild brown-capped, gilled mushrooms on hardwood should be identified carefully before eating.",
+      "slug": "omphalotus-olearius"
+    }
+  ],
+  "references": [
+    {
+      "title": "Shiitake - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Shiitake"
+    },
+    {
+      "title": "Lentinula edodes (Berk.) Pegler - GBIF",
+      "url": "https://www.gbif.org/species/2537743"
+    }
+  ],
+  "lastReviewed": "2026-05-31"
+}

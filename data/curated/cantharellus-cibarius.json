@@ -1,0 +1,86 @@
+{
+  "slug": "cantharellus-cibarius",
+  "authorship": "Fr.",
+  "year": 1821,
+  "description": "The golden chanterelle is a choice edible mushroom with a yellow-to-orange funnel-shaped cap and decurrent, blunt, fork-like ridges (false gills) running down a tapering stipe. It is ectomycorrhizal, fruiting from soil in association with trees, and is prized worldwide for its firm texture and faintly fruity (apricot-like) aroma.",
+  "vernacularNames": [
+    {
+      "lang": "en",
+      "name": "Golden chanterelle"
+    },
+    {
+      "lang": "en",
+      "name": "Chanterelle"
+    },
+    {
+      "lang": "de",
+      "name": "Pfifferling"
+    },
+    {
+      "lang": "fr",
+      "name": "Girolle"
+    }
+  ],
+  "edibility": "edible",
+  "preparation": "cook",
+  "edibilityNotes": "A prized choice edible, but must always be cooked thoroughly; raw or undercooked chanterelles can cause gastrointestinal upset. Only eat after positively distinguishing from the toxic jack-o'-lantern (Omphalotus) and the false chanterelle (Hygrophoropsis) by confirming the blunt, fork-like false gills (ridges), not true sharp-edged gills.",
+  "capColor": [
+    "yellow",
+    "orange",
+    "golden"
+  ],
+  "sporePrintColor": "pale yellow to cream",
+  "trophicMode": "ectomycorrhizal",
+  "habitat": [
+    "coniferous forest",
+    "deciduous forest",
+    "mossy woodland"
+  ],
+  "substrate": [
+    "soil"
+  ],
+  "hosts": [
+    "oak",
+    "beech",
+    "spruce",
+    "pine",
+    "birch"
+  ],
+  "fruitingSeason": [
+    "summer",
+    "autumn"
+  ],
+  "distribution": "Widespread across the temperate Northern Hemisphere, including Europe, North America, and parts of Asia. Note: many regional populations once called C. cibarius are now recognized as distinct species.",
+  "dangerousLookalikes": [
+    {
+      "name": "Omphalotus olearius (jack-o'-lantern)",
+      "slug": "omphalotus-olearius",
+      "note": "Toxic. Has true, sharp-edged gills (not blunt ridges), grows in dense clusters on wood or buried roots rather than singly from soil, and is more uniformly orange. Causes severe GI illness (muscarine-like / illudin toxins)."
+    },
+    {
+      "name": "Hygrophoropsis aurantiaca (false chanterelle)",
+      "slug": "hygrophoropsis-aurantiaca",
+      "note": "Has true, thin, repeatedly forked gills that are more orange than the cap, a softer texture, and lacks the fruity aroma. Generally regarded as poor or mildly upsetting rather than a choice edible."
+    },
+    {
+      "name": "Omphalotus illudens (eastern jack-o'-lantern)",
+      "slug": "omphalotus-illudens",
+      "note": "Toxic North American counterpart. True gills, clustered on wood, contains illudin S; gills are bioluminescent in fresh specimens. Causes severe GI illness."
+    }
+  ],
+  "references": [
+    {
+      "title": "Cantharellus cibarius — Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Cantharellus_cibarius"
+    },
+    {
+      "title": "Cantharellus cibarius — GBIF",
+      "url": "https://www.gbif.org/species/5238767"
+    },
+    {
+      "title": "Cantharellus cibarius — Index Fungorum",
+      "url": "https://www.indexfungorum.org/names/Names.asp"
+    }
+  ],
+  "lastReviewed": "2026-05-31"
+}

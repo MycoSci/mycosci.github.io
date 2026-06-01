@@ -1,0 +1,100 @@
+{
+  "slug": "agaricus-bisporus",
+  "authorship": "(J.E. Lange) Imbach",
+  "year": 1946,
+  "description": "Agaricus bisporus is the cultivated supermarket mushroom, sold immature and white as the \"button\" or brown as the \"cremini,\" and at full maturity as the \"portobello.\" It is the most widely cultivated and economically important mushroom in the world, grown commercially on pasteurized composted substrate.",
+  "edibility": "edible",
+  "preparation": "cook",
+  "edibilityNotes": "Choice edible and one of the most consumed mushrooms globally, but should be cooked before eating. Raw and undercooked fruiting bodies contain the naturally occurring hydrazine derivative agaritine; thorough cooking reduces agaritine levels and improves digestibility. Caution for foragers: never eat a wild white Agaricus-like mushroom without taking a spore print (must be dark/chocolate-brown, NOT white) and digging up the entire stem base to rule out a deadly Amanita.",
+  "vernacularNames": [
+    {
+      "lang": "en",
+      "name": "Button mushroom"
+    },
+    {
+      "lang": "en",
+      "name": "Cremini"
+    },
+    {
+      "lang": "en",
+      "name": "Portobello"
+    },
+    {
+      "lang": "en",
+      "name": "Common mushroom"
+    },
+    {
+      "lang": "en",
+      "name": "White mushroom"
+    },
+    {
+      "lang": "en",
+      "name": "Champignon"
+    }
+  ],
+  "capColor": [
+    "white",
+    "brown",
+    "cream",
+    "tan"
+  ],
+  "sporePrintColor": "dark brown",
+  "trophicMode": "saprotroph",
+  "habitat": [
+    "grasslands",
+    "fields",
+    "compost",
+    "manured soil",
+    "cultivated"
+  ],
+  "substrate": [
+    "composted straw",
+    "manure",
+    "rich soil"
+  ],
+  "fruitingSeason": [
+    "summer",
+    "autumn"
+  ],
+  "distribution": "Found in grasslands and manured/disturbed soils across Europe, North America, and other temperate regions; now cultivated and consumed worldwide.",
+  "dangerousLookalikes": [
+    {
+      "name": "Amanita phalloides (Death Cap)",
+      "slug": "amanita-phalloides",
+      "note": "Deadly. Has WHITE gills that stay white at all ages and a WHITE spore print, plus a membranous ring and a sac-like volva at the swollen stem base. Agaricus bisporus has pink-to-chocolate-brown gills, a dark brown spore print, and no volva."
+    },
+    {
+      "name": "Amanita virosa / Destroying Angel",
+      "slug": "amanita-virosa",
+      "note": "Deadly. Entirely white with white gills, white spore print, a ring, and a volva at the base. Always check spore print color and dig up the whole stem base before eating any white Agaricus-like mushroom."
+    },
+    {
+      "name": "Agaricus xanthodermus (Yellow Stainer)",
+      "slug": "agaricus-xanthodermus",
+      "note": "Toxic, causes gastrointestinal upset in most people. Bruises bright chrome yellow (especially at the stem base when cut) and has a phenolic/ink-like or carbolic smell, versus the pleasant mushroomy smell of A. bisporus."
+    },
+    {
+      "name": "Leucoagaricus leucothites (White Dapperling)",
+      "slug": "leucoagaricus-leucothites",
+      "note": "Pinkish-white to white gills and a WHITE spore print (vs. the dark brown print of A. bisporus); can be confused with white button forms. Some white-gilled lookalikes are toxic, so a spore print is essential."
+    }
+  ],
+  "notableCompounds": [
+    "agaritine"
+  ],
+  "references": [
+    {
+      "title": "Agaricus bisporus — Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Agaricus_bisporus"
+    },
+    {
+      "title": "Agaricus bisporus — MycoBank",
+      "url": "https://www.mycobank.org/page/Name%20details%20page/name/Agaricus%20bisporus"
+    },
+    {
+      "title": "Agaricus bisporus — GBIF",
+      "url": "https://www.gbif.org/species/2536612"
+    }
+  ],
+  "lastReviewed": "2026-05-31"
+}

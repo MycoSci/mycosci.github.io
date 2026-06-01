@@ -1,0 +1,101 @@
+{
+  "slug": "trametes-versicolor",
+  "authorship": "(L.) Lloyd",
+  "year": 1920,
+  "vernacularNames": [
+    {
+      "lang": "en",
+      "name": "Turkey Tail"
+    },
+    {
+      "lang": "en",
+      "name": "Many-zoned Polypore"
+    },
+    {
+      "lang": "ja",
+      "name": "Kawaratake"
+    },
+    {
+      "lang": "zh",
+      "name": "Yun zhi"
+    }
+  ],
+  "description": "Trametes versicolor (Turkey Tail) is an extremely common, cosmopolitan bracket fungus forming thin, leathery, fan-shaped caps with concentric, multicolored zones and a finely velvety upper surface. The underside bears a layer of tiny white pores. It grows in overlapping clusters and rosettes on dead hardwood and is widely used in traditional medicine.",
+  "edibility": "inedible",
+  "preparation": "special",
+  "edibilityNotes": "Not edible as food: the fruiting body is thin, tough, leathery and indigestible. It is consumed only as a decoction (tea) or as standardized extracts. The polysaccharide-K (PSK/krestin) extract is used as an adjuvant cancer therapy in Japan and PSP is studied in China; do not treat this as general culinary edibility. The mushroom itself is not toxic.",
+  "trophicMode": "saprotroph",
+  "substrate": [
+    "dead hardwood logs",
+    "stumps",
+    "fallen branches",
+    "occasionally conifer wood"
+  ],
+  "habitat": [
+    "deciduous forests",
+    "woodlands",
+    "parks",
+    "dead and decaying wood"
+  ],
+  "capColor": [
+    "brown",
+    "tan",
+    "gray",
+    "rust",
+    "cream",
+    "white",
+    "bluish"
+  ],
+  "sporePrintColor": "white",
+  "fruitingSeason": [
+    "spring",
+    "summer",
+    "autumn",
+    "year-round"
+  ],
+  "distribution": "Cosmopolitan; found throughout temperate forests worldwide, including North America, Europe, and Asia.",
+  "notableCompounds": [
+    "polysaccharide-K (PSK / krestin)",
+    "polysaccharide peptide (PSP)",
+    "beta-glucans"
+  ],
+  "dangerousLookalikes": [
+    {
+      "name": "Stereum ostrea (False Turkey Tail)",
+      "slug": "stereum-ostrea",
+      "note": "Not dangerous, but commonly confused. Lacks pores: its underside is smooth, not porous. Turkey Tail has a distinct layer of tiny white pores (roughly 3-8 per mm) underneath. Checking for pores is the key ID step before brewing tea."
+    },
+    {
+      "name": "Trichaptum biforme (Violet-toothed Polypore)",
+      "slug": "trichaptum-biforme",
+      "note": "Not dangerous, but a frequent lookalike. Underside is purplish and toothed/jagged rather than white with fine round pores; the violet tone fades with age but the irregular, toothed hymenophore distinguishes it."
+    },
+    {
+      "name": "Trametes hirsuta (Hairy Bracket)",
+      "note": "Not dangerous. Coarser, conspicuously hairy grayish-white zones with less vivid coloration; pores generally larger and the surface shaggier."
+    },
+    {
+      "name": "Trametes ochracea",
+      "note": "Not dangerous. Thicker, more bunched zones with browner/ochre tones; less thin and less vividly multicolored than true Turkey Tail."
+    }
+  ],
+  "references": [
+    {
+      "title": "Trametes versicolor — Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Trametes_versicolor"
+    },
+    {
+      "title": "Trametes versicolor — MycoBank",
+      "url": "https://www.mycobank.org/page/Name%20details%20page/field/Mycobank%20%23/281625"
+    },
+    {
+      "title": "Trametes versicolor (L.) Lloyd — Index Fungorum",
+      "url": "https://www.indexfungorum.org/Names/namesrecord.asp?RecordID=281625"
+    },
+    {
+      "title": "Trametes versicolor — GBIF",
+      "url": "https://www.gbif.org/species/2548311"
+    }
+  ],
+  "lastReviewed": "2026-05-31"
+}

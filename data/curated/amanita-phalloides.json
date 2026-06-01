@@ -1,0 +1,96 @@
+{
+  "slug": "amanita-phalloides",
+  "authorship": "(Vaill. ex Fr.) Link",
+  "description": "The death cap is a deadly poisonous ectomycorrhizal mushroom responsible for the majority of fatal mushroom poisonings worldwide. It typically produces a greenish to yellowish cap, white free gills, a white skirt-like ring, and a membranous sac-like volva at the base, with a white spore print. Its lethal amatoxins cause severe liver and kidney failure, often after a deceptive symptom-free latency period.",
+  "edibility": "deadly",
+  "edibilityNotes": "Contains amatoxins (chiefly alpha-amanitin) that are not destroyed by cooking, drying, or freezing. As little as half a cap can be fatal to an adult. Symptoms typically begin 6-12 hours after ingestion (gastrointestinal phase), followed by a deceptive period of apparent recovery, then progressive liver and kidney failure. Seek emergency medical care immediately on any suspicion of ingestion. Never eat.",
+  "preparation": "none",
+  "trophicMode": "ectomycorrhizal",
+  "capColor": [
+    "green",
+    "yellow-green",
+    "olive",
+    "yellow",
+    "brown",
+    "white"
+  ],
+  "sporePrintColor": "white",
+  "habitat": [
+    "broadleaf woodland",
+    "mixed woodland",
+    "parks and gardens",
+    "urban plantings"
+  ],
+  "substrate": [
+    "soil"
+  ],
+  "hosts": [
+    "Quercus (oak)",
+    "Castanea (chestnut)",
+    "Fagus (beech)",
+    "Betula (birch)",
+    "Corylus (hazel)",
+    "Pinus and other conifers"
+  ],
+  "distribution": "Native to Europe, it has spread widely via introduced trees and now occurs across North America, North Africa, Australia, New Zealand, and parts of Asia and South America.",
+  "fruitingSeason": [
+    "summer",
+    "autumn"
+  ],
+  "notableCompounds": [
+    "alpha-amanitin",
+    "beta-amanitin",
+    "phalloidin",
+    "phallacidin"
+  ],
+  "vernacularNames": [
+    {
+      "lang": "en",
+      "name": "Death cap"
+    },
+    {
+      "lang": "fr",
+      "name": "Amanite phalloïde"
+    },
+    {
+      "lang": "de",
+      "name": "Grüner Knollenblätterpilz"
+    },
+    {
+      "lang": "es",
+      "name": "Oronja verde"
+    }
+  ],
+  "dangerousLookalikes": [
+    {
+      "name": "Volvariella volvacea (paddy-straw mushroom)",
+      "slug": "volvariella-volvacea",
+      "note": "An edible species cultivated in Asia and a recurring cause of fatal confusion. Volvariella has a PINK spore print and pink mature gills, and lacks a ring on the stem; the death cap has a white spore print, white gills, and a distinct skirt-like ring. Both have a volva, so spore color and the ring are the decisive features."
+    },
+    {
+      "name": "Amanita citrina (false death cap)",
+      "slug": "amanita-citrina",
+      "note": "Pale lemon-yellow, with a rounded marginate (not sac-like) volval bulb and a raw-potato smell; considered inedible but not deadly. Distinguished by the abrupt bulb versus the death cap's loose membranous sac-like volva."
+    },
+    {
+      "name": "Agaricus species (edible field/button mushrooms)",
+      "slug": "agaricus-campestris",
+      "note": "Young button-stage death caps are mistaken for Agaricus buttons. Agaricus have pink then chocolate-brown gills and a brown spore print and never have a volva; always cut and excavate the base and check for the sac-like volva, which Agaricus lacks."
+    },
+    {
+      "name": "Edible white-spored Amanita and Lepiota species",
+      "note": "All-white forms (and the white var. alba) resemble other pale gilled mushrooms. Always excavate the full stem base to reveal the volva, and avoid any white-gilled, white-spored, volva-bearing, ringed Amanita."
+    }
+  ],
+  "references": [
+    {
+      "title": "Amanita phalloides - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Amanita_phalloides"
+    },
+    {
+      "title": "Amanita phalloides - GBIF",
+      "url": "https://www.gbif.org/species/2526057"
+    }
+  ],
+  "lastReviewed": "2026-05-31"
+}

@@ -1,0 +1,83 @@
+{
+  "slug": "psilocybe-cubensis",
+  "authorship": "(Earle) Singer",
+  "year": 1948,
+  "description": "Psilocybe cubensis is a psilocybin-producing mushroom in the family Hymenogastraceae, recognized by its golden-brown to caramel cap, dark purple-brown spore print, and the blue bruising of its flesh where handled. It is a dung-loving (coprophilous) species of warm grasslands and is the most widely cultivated of the \"magic mushrooms.\" This profile is educational/informational only.",
+  "edibility": "psychoactive",
+  "edibilityNotes": "Contains the controlled psychoactive tryptamines psilocybin and psilocin and is illegal to possess or cultivate in most jurisdictions. Not a culinary food; ingestion produces hallucinogenic effects. Critical safety risk: misidentification with toxic dung- and grass-inhabiting species (e.g. Galerina, Conocybe/Pholiotina) that contain deadly amatoxins. Educational information only — do not consume.",
+  "preparation": "not-applicable",
+  "trophicMode": "saprotroph",
+  "substrate": [
+    "dung",
+    "manure-enriched soil",
+    "decomposing organic matter"
+  ],
+  "habitat": [
+    "pastures",
+    "grasslands",
+    "cattle and water-buffalo dung"
+  ],
+  "hosts": [],
+  "capColor": [
+    "golden brown",
+    "caramel",
+    "reddish brown",
+    "pale tan"
+  ],
+  "sporePrintColor": "dark purplish brown",
+  "fruitingSeason": [
+    "spring",
+    "summer",
+    "autumn"
+  ],
+  "distribution": "Pantropical and subtropical, occurring across the Americas (notably the Gulf Coast of the United States, Mexico, Central America, the Caribbean, and South America), Southeast Asia, and Australia.",
+  "notableCompounds": [
+    "psilocybin",
+    "psilocin",
+    "baeocystin"
+  ],
+  "vernacularNames": [
+    {
+      "lang": "en",
+      "name": "golden teacher"
+    },
+    {
+      "lang": "en",
+      "name": "cubes"
+    },
+    {
+      "lang": "en",
+      "name": "magic mushroom"
+    }
+  ],
+  "dangerousLookalikes": [
+    {
+      "name": "Galerina marginata",
+      "note": "A deadly amatoxin-containing mushroom. It grows on wood/lignin (decaying logs, buried wood) rather than dung, has a rusty-brown (not purple-brown) spore print, and does NOT stain blue. Any brown-spored, non-bluing mushroom in this size class should be treated as potentially deadly.",
+      "slug": "galerina-marginata"
+    },
+    {
+      "name": "Conocybe / Pholiotina species",
+      "note": "Small brown dung- and grass-inhabiting mushrooms; some (e.g. Pholiotina rugosa, formerly Conocybe filaris) contain deadly amatoxins. They have rusty- to cinnamon-brown spore prints, fragile stems, and do not bruise blue."
+    },
+    {
+      "name": "Panaeolus / other Psilocybe species",
+      "note": "Other coprophilous psilocybin and non-psilocybin mushrooms share dung habitat and dark spore prints; precise distinction requires microscopy and spore color, and non-bluing brown-spored species may be toxic."
+    }
+  ],
+  "references": [
+    {
+      "title": "Psilocybe cubensis — Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Psilocybe_cubensis"
+    },
+    {
+      "title": "Psilocybin — Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Psilocybin"
+    },
+    {
+      "title": "Psilocybe cubensis — GBIF",
+      "url": "https://www.gbif.org/species/2526131"
+    }
+  ],
+  "lastReviewed": "2026-05-31"
+}

@@ -1,0 +1,83 @@
+{
+  "slug": "morchella-esculenta",
+  "authorship": "(L.) Pers.",
+  "year": 1801,
+  "description": "The yellow morel is a prized edible ascomycete with a distinctive pale tan to yellowish-brown honeycomb cap whose pits and ridges form a network of irregular chambers. The hollow cap is fully attached to the hollow stipe, and the whole fruitbody is hollow when sliced lengthwise. It must be thoroughly cooked before eating, as raw specimens cause gastrointestinal upset.",
+  "vernacularNames": [
+    {
+      "lang": "en",
+      "name": "Yellow Morel"
+    },
+    {
+      "lang": "en",
+      "name": "Common Morel"
+    },
+    {
+      "lang": "en",
+      "name": "True Morel"
+    },
+    {
+      "lang": "en",
+      "name": "Morel"
+    }
+  ],
+  "edibility": "edible",
+  "preparation": "cook",
+  "edibilityNotes": "Choice edible ONLY when thoroughly cooked. Raw or undercooked morels contain heat-labile, hemolytic toxins that cause nausea, vomiting, and other gastrointestinal distress. Reactions have also been reported when morels are consumed with alcohol. Always cook fully, eat a small amount the first time, and never consume raw. Before eating, cut the fruitbody lengthwise and confirm it is completely hollow from cap to stem base with the cap fully fused to the stem, to rule out the toxic false morels (Gyromitra) and Verpa species.",
+  "capColor": [
+    "tan",
+    "yellow-brown",
+    "ochre",
+    "cream",
+    "grey"
+  ],
+  "sporePrintColor": "cream to pale yellow",
+  "trophicMode": "unknown",
+  "fruitingSeason": [
+    "spring"
+  ],
+  "habitat": [
+    "deciduous woodland",
+    "forest edges",
+    "old orchards",
+    "disturbed ground",
+    "near ash, elm, apple, and poplar trees"
+  ],
+  "substrate": [
+    "soil",
+    "leaf litter"
+  ],
+  "distribution": "Widespread across temperate regions of the Northern Hemisphere, including much of North America and Europe.",
+  "dangerousLookalikes": [
+    {
+      "name": "Gyromitra esculenta (false morel)",
+      "slug": "gyromitra-esculenta",
+      "note": "False morels have a brain-like or saddle-shaped, irregularly wrinkled and lobed reddish-brown cap (not a regular pitted honeycomb), and the interior is chambered/stuffed with wispy cottony tissue rather than a single clean hollow chamber. They contain gyromitrin (metabolized to monomethylhydrazine) and can be deadly. When in doubt, cut the fruitbody lengthwise: true morels are completely hollow."
+    },
+    {
+      "name": "Verpa species (early/false morel, e.g. Verpa bohemica, Verpa conica)",
+      "slug": "verpa-bohemica",
+      "note": "In Verpa the cap hangs free, attached to the stem only at the very top like a thimble or skirt, whereas in true morels the lower edge of the cap is fully fused to the stem. Verpa can cause gastrointestinal upset and loss of muscle coordination in some people."
+    },
+    {
+      "name": "Morchella elata / black morel group",
+      "slug": "morchella-elata",
+      "note": "Edible true morels but worth distinguishing for ID; black morels have darker ridges and longer, vertically aligned pits. Cook thoroughly as with all morels."
+    }
+  ],
+  "references": [
+    {
+      "title": "Morchella esculenta - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Morchella_esculenta"
+    },
+    {
+      "title": "Gyromitra esculenta - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Gyromitra_esculenta"
+    },
+    {
+      "title": "Morchella esculenta - GBIF",
+      "url": "https://www.gbif.org/species/search?q=Morchella%20esculenta"
+    }
+  ],
+  "lastReviewed": "2026-05-31"
+}

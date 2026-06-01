@@ -1,0 +1,99 @@
+{
+  "slug": "boletus-edulis",
+  "authorship": "Bull.",
+  "year": 1782,
+  "description": "Boletus edulis, the porcini or king bolete, is a large, choice edible mushroom with a brown, bun-shaped cap and a pored (rather than gilled) undersurface that is white when young and ages yellowish to olive. It has a stout, pale tan stalk bearing a fine white reticulum (net pattern) near the top, and white flesh that does not stain blue when cut.",
+  "vernacularNames": [
+    {
+      "lang": "en",
+      "name": "Porcini"
+    },
+    {
+      "lang": "en",
+      "name": "King Bolete"
+    },
+    {
+      "lang": "en",
+      "name": "Cep"
+    },
+    {
+      "lang": "en",
+      "name": "Penny Bun"
+    },
+    {
+      "lang": "it",
+      "name": "Porcino"
+    },
+    {
+      "lang": "fr",
+      "name": "Cèpe de Bordeaux"
+    },
+    {
+      "lang": "de",
+      "name": "Steinpilz"
+    }
+  ],
+  "capColor": [
+    "brown",
+    "tan",
+    "reddish-brown"
+  ],
+  "sporePrintColor": "olive-brown",
+  "trophicMode": "ectomycorrhizal",
+  "habitat": [
+    "coniferous forest",
+    "broadleaf forest",
+    "mixed woodland"
+  ],
+  "hosts": [
+    "Pinus",
+    "Picea",
+    "Abies",
+    "Fagus",
+    "Quercus",
+    "Castanea"
+  ],
+  "substrate": [
+    "soil"
+  ],
+  "distribution": "Widespread across the cooler temperate and boreal regions of the Northern Hemisphere in Europe, Asia, and North America, and introduced with host trees to parts of the Southern Hemisphere including southern Africa, Australia, and New Zealand.",
+  "fruitingSeason": [
+    "summer",
+    "autumn"
+  ],
+  "edibility": "edible",
+  "preparation": "cook",
+  "edibilityNotes": "A highly prized, choice edible, eaten fresh or dried; dried specimens develop a stronger aroma. Cook thoroughly before eating and never consume raw. Only collect if you can confidently distinguish it from inedible bitter boletes (Tylopilus felleus, Caloboletus calopus) and from red-pored or blue-staining toxic boletes such as Rubroboletus satanas. Key positive features: white-to-olive pores (never red/orange), white non-blue-staining flesh, mild taste, and a fine white net on the upper stem.",
+  "dangerousLookalikes": [
+    {
+      "name": "Tylopilus felleus (Bitter Bolete)",
+      "slug": "tylopilus-felleus",
+      "note": "Not dangerously toxic but intensely bitter, ruining a dish. Has a coarse dark net on the stem, pink-tinted pores in age, and a pinkish-brown spore print, versus the white-to-olive pores and olive-brown spore print of B. edulis."
+    },
+    {
+      "name": "Caloboletus calopus (Bitter Beech Bolete)",
+      "slug": "caloboletus-calopus",
+      "note": "Bitter and indigestible. Distinguished by a yellow, red-flushed stem, blue-staining flesh, and bitter taste; B. edulis flesh does not stain blue and tastes mild."
+    },
+    {
+      "name": "Rubroboletus satanas (Devil's Bolete)",
+      "slug": "rubroboletus-satanas",
+      "note": "Toxic, causing severe gastrointestinal upset (especially raw). Has red to orange pores and blue-staining flesh, unlike the white-to-olive pores and non-staining flesh of B. edulis."
+    }
+  ],
+  "references": [
+    {
+      "title": "Boletus edulis - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Boletus_edulis"
+    },
+    {
+      "title": "Boletus edulis - GBIF",
+      "url": "https://www.gbif.org/species/2526867"
+    },
+    {
+      "title": "Boletus edulis - MycoBank",
+      "url": "https://www.mycobank.org/page/Name%20details%20page/164888"
+    }
+  ],
+  "lastReviewed": "2026-05-31"
+}

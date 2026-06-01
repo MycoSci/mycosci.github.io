@@ -1,0 +1,100 @@
+{
+  "slug": "ganoderma-lucidum",
+  "authorship": "(Curtis) P. Karst.",
+  "year": 1881,
+  "description": "Ganoderma lucidum, known as Reishi or Lingzhi, is a woody, shelf-like polypore famous for its glossy, varnished reddish-brown cap and prized in East Asian traditional medicine. It is too tough and woody to eat as food but is used as a medicinal decoction, tea, or extract. The name 'G. lucidum' has long been applied broadly, but molecular work shows it is a species complex; G. lucidum sensu stricto is European/temperate, while much non-Asian and cultivated material represents distinct species (e.g. G. lingzhi/G. sichuanense for the cultivated Asian taxon, G. curtisii and G. sessile in North America).",
+  "vernacularNames": [
+    {
+      "lang": "en",
+      "name": "Reishi"
+    },
+    {
+      "lang": "en",
+      "name": "Lingzhi"
+    },
+    {
+      "lang": "en",
+      "name": "Varnished conk"
+    },
+    {
+      "lang": "zh",
+      "name": "灵芝"
+    },
+    {
+      "lang": "ja",
+      "name": "霊芝"
+    }
+  ],
+  "edibility": "inedible",
+  "edibilityNotes": "Not edible as a food: the fruiting body is woody, corky, and indigestible. It is non-poisonous and is used medicinally as a decoction (tea), tincture, or powdered extract rather than eaten whole. Not a culinary mushroom; medicinal claims are not evaluated here.",
+  "preparation": "special",
+  "trophicMode": "saprotroph",
+  "capColor": [
+    "reddish-brown",
+    "mahogany",
+    "orange-brown",
+    "yellow (margin)"
+  ],
+  "sporePrintColor": "brown",
+  "habitat": [
+    "deciduous woodland",
+    "at the base of hardwood trees and stumps"
+  ],
+  "substrate": [
+    "dead and dying hardwood",
+    "stumps",
+    "logs",
+    "roots"
+  ],
+  "hosts": [
+    "Quercus (oak)",
+    "Acer (maple)",
+    "other hardwoods"
+  ],
+  "fruitingSeason": [
+    "summer",
+    "autumn"
+  ],
+  "distribution": "Cosmopolitan as traditionally circumscribed, though true G. lucidum sensu stricto is European/temperate; many regional records represent distinct species within the G. lucidum complex.",
+  "notableCompounds": [
+    "triterpenes (ganoderic acids)",
+    "beta-glucans",
+    "polysaccharides",
+    "sterols"
+  ],
+  "dangerousLookalikes": [
+    {
+      "name": "Ganoderma tsugae",
+      "note": "Hemlock varnish shelf; nearly identical glossy varnished red-brown crust. Distinguished primarily by host (grows on conifers, especially hemlock/Tsuga) versus G. lucidum on hardwoods, and reliably only by genetics. Not toxic, but the most easily confused look-alike.",
+      "slug": "ganoderma-tsugae"
+    },
+    {
+      "name": "Ganoderma curtisii",
+      "note": "North American varnished polypore long misidentified as G. lucidum; distinguished by genetics and often a more elongated stipe and paler tones. Not dangerous, but a taxonomic look-alike."
+    },
+    {
+      "name": "Ganoderma sichuanense",
+      "note": "Linked to the cultivated Asian 'Lingzhi' (often treated as G. lingzhi); molecularly distinct from European G. lucidum. Visually very similar."
+    },
+    {
+      "name": "Ganoderma applanatum",
+      "note": "Artist's conk; lacks the glossy varnished crust and is perennial with a flat dull grey-brown upper surface and a white pore surface that bruises brown.",
+      "slug": "ganoderma-applanatum"
+    }
+  ],
+  "references": [
+    {
+      "title": "Ganoderma lucidum - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Ganoderma_lucidum"
+    },
+    {
+      "title": "Lingzhi (mushroom) - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Lingzhi_(mushroom)"
+    },
+    {
+      "title": "Ganoderma lucidum - GBIF",
+      "url": "https://www.gbif.org/species/165544724"
+    }
+  ],
+  "lastReviewed": "2026-05-31"
+}

@@ -1,0 +1,88 @@
+{
+  "slug": "hericium-erinaceus",
+  "authorship": "(Bull.) Pers.",
+  "year": 1797,
+  "description": "Hericium erinaceus is a toothed fungus that forms a single rounded, unbranched white cushion bearing long, cascading, icicle-like spines. It is prized as a choice edible with a seafood-like (crab or lobster) flavor and texture, and is studied for compounds (hericenones and erinacines) reported to stimulate nerve growth factor (NGF) synthesis in laboratory settings.",
+  "vernacularNames": [
+    {
+      "lang": "en",
+      "name": "Lion's Mane"
+    },
+    {
+      "lang": "en",
+      "name": "Bearded Tooth"
+    },
+    {
+      "lang": "en",
+      "name": "Pom Pom"
+    },
+    {
+      "lang": "ja",
+      "name": "Yamabushitake"
+    },
+    {
+      "lang": "zh",
+      "name": "Houtou"
+    }
+  ],
+  "edibility": "edible",
+  "preparation": "cook",
+  "edibilityNotes": "Choice edible, best cooked; flesh is sliced and sauteed, developing a seafood-like flavor. Cook thoroughly before eating. Harvest while white and firm; older yellowing or browning specimens turn sour and unpleasant. As with all wild fungi, confirm identity before consuming.",
+  "trophicMode": "saprotroph",
+  "substrate": [
+    "hardwood",
+    "standing trees",
+    "logs",
+    "dead wood"
+  ],
+  "hosts": [
+    "Fagus (beech)",
+    "Quercus (oak)",
+    "Juglans (walnut)",
+    "Acer (maple)"
+  ],
+  "habitat": [
+    "deciduous forests",
+    "wounds and scars on living hardwoods",
+    "dead and dying hardwood trunks"
+  ],
+  "capColor": [
+    "white",
+    "cream",
+    "yellowish with age"
+  ],
+  "sporePrintColor": "white",
+  "fruitingSeason": [
+    "summer",
+    "autumn"
+  ],
+  "distribution": "Widespread across temperate forests of the Northern Hemisphere, including North America, Europe, and East Asia.",
+  "notableCompounds": [
+    "hericenones",
+    "erinacines",
+    "beta-glucans"
+  ],
+  "dangerousLookalikes": [
+    {
+      "name": "Hericium coralloides",
+      "note": "Coral tooth fungus: much-branched with spines clustered along the branches, rather than a single unbranched cushion of long hanging spines. Also edible, so not a safety hazard.",
+      "slug": "hericium-coralloides"
+    },
+    {
+      "name": "Hericium americanum",
+      "note": "Bear's head tooth: branched with longer spines than H. coralloides. Also edible; distinguished by its branching habit versus the single unbranched mass of H. erinaceus.",
+      "slug": "hericium-americanum"
+    }
+  ],
+  "references": [
+    {
+      "title": "Hericium erinaceus - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Hericium_erinaceus"
+    },
+    {
+      "title": "Hericium erinaceus - GBIF",
+      "url": "https://www.gbif.org/species/2526681"
+    }
+  ],
+  "lastReviewed": "2026-05-31"
+}
