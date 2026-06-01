@@ -13,7 +13,7 @@
 // `slug` and `genus` are derived from the accepted binomial (not the Genus column,
 // which is stale for ~6 GBIF-reclassified taxa).
 
-import { readFileSync, writeFileSync } from 'node:fs';
+import { readFileSync, writeFileSync, readdirSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
@@ -145,6 +145,46 @@ for (const rec of records) {
   rec.sources = [...rec.sources].sort();
 }
 
+const bySlug = new Map(records.map((r) => [r.slug, r]));
+
+// 4) curated overrides — per-species enrichment merged in by slug (data/curated/*.json).
+// This is how phase-1+ data lands without touching the raw CSVs. Each file is a partial
+// SpeciesRecord; non-empty keys win, the taxon is promoted to curated, and provenance is noted.
+const PROTECTED = new Set(['slug', 'accepted', 'genus', 'sources', 'tier']);
+const curatedDir = join(ROOT, 'data/curated');
+let overridden = 0;
+if (existsSync(curatedDir)) {
+  for (const file of readdirSync(curatedDir).filter((f) => f.endsWith('.json'))) {
+    const patch = JSON.parse(readFileSync(join(curatedDir, file), 'utf8'));
+    const rec = bySlug.get(patch.slug || file.replace(/\.json$/, ''));
+    if (!rec) { console.warn(`! curated override has no matching taxon: ${file}`); continue; }
+    for (const [k, v] of Object.entries(patch)) {
+      if (PROTECTED.has(k)) continue;
+      if (v === null || v === undefined || (Array.isArray(v) && v.length === 0)) continue;
+      rec[k] = v;
+    }
+    rec.tier = 'curated';
+    if (!rec.sources.includes('curated')) { rec.sources.push('curated'); rec.sources.sort(); }
+    overridden++;
+  }
+}
+
+// Safety invariant: dangerousLookalikes must be reciprocal. If A lists B (by slug),
+// ensure B lists A — a one-way warning is a trap for the user coming from the other side.
+let reciprocated = 0;
+for (const rec of records) {
+  for (const la of rec.dangerousLookalikes || []) {
+    const other = la.slug && bySlug.get(la.slug);
+    if (!other) continue;
+    other.dangerousLookalikes ??= [];
+    if (!other.dangerousLookalikes.some((x) => x.slug === rec.slug)) {
+      other.dangerousLookalikes.push({ slug: rec.slug, name: rec.accepted, note: la.note });
+      if (other.tier !== 'curated') other.tier = 'curated';
+      reciprocated++;
+    }
+  }
+}
+
 writeFileSync(join(ROOT, 'data/species.json'), JSON.stringify(records));
 
 // --- report ---
@@ -158,5 +198,6 @@ console.log(`  resolved         : ${resolved}`);
 console.log(`  unresolved       : ${records.length - resolved}`);
 console.log(`  curated tier     : ${curated}`);
 console.log(`synonyms collapsed : ${synonyms}`);
+console.log(`curated overrides  : ${overridden} (+${reciprocated} reciprocal lookalikes)`);
 console.log(`blank family       : ${blankFamily}`);
 console.log(`-> data/species.json (${(JSON.stringify(records).length / 1e6).toFixed(1)} MB)`);

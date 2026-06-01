@@ -2,83 +2,64 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection, render } from 'astro:content';
 import speciesData from '../../../data/species.json';
+import { edibilityMeta, cautionText, registryLinks, cap, type SpeciesRecord } from '../../lib/species';
 
 export async function getStaticPaths() {
-  return (speciesData as SpeciesRecord[]).map((rec) => ({
-    params: { slug: rec.slug },
-    props: { rec },
-  }));
-}
-
-interface SpeciesRecord {
-  slug: string;
-  accepted: string;
-  genus: string;
-  family: string;
-  order: string;
-  class: string;
-  phylum: string;
-  kingdom: string;
-  commonName: string | null;
-  edibility: string;
-  synonyms: string[];
-  tier: 'curated' | 'stub';
-  unresolved?: boolean;
-  mdxPath?: string;
+  return (speciesData as SpeciesRecord[]).map((rec) => ({ params: { slug: rec.slug }, props: { rec } }));
 }
 
 const { rec } = Astro.props as { rec: SpeciesRecord };
 
-// Match a curated MDX body (the few hand-written profiles) tolerantly by path.
+// Pull a curated MDX body if one exists (tolerant path match).
 const normKey = (s: string) => s.toLowerCase().replace(/\.mdx$/, '').replace(/[^a-z0-9]/g, '');
 let Content: any = null;
 if (rec.mdxPath) {
   const docs = await getCollection('docs');
-  const target = normKey(rec.mdxPath);
-  const entry = docs.find((d) => normKey(d.id) === target);
+  const entry = docs.find((d) => normKey(d.id) === normKey(rec.mdxPath!));
   if (entry) Content = (await render(entry)).Content;
 }
 
 const lineage = [
-  { rank: 'Kingdom', value: rec.kingdom },
-  { rank: 'Phylum', value: rec.phylum },
-  { rank: 'Class', value: rec.class },
-  { rank: 'Order', value: rec.order },
-  { rank: 'Family', value: rec.family },
-  { rank: 'Genus', value: rec.genus },
-].filter((l) => l.value);
+  ['Kingdom', rec.kingdom], ['Phylum', rec.phylum], ['Class', rec.class],
+  ['Order', rec.order], ['Family', rec.family], ['Genus', rec.genus],
+].filter(([, v]) => v) as [string, string][];
 
-const edibilityStyle: Record<string, string> = {
-  edible: 'badge-mycel',
-  inedible: 'badge',
-  toxic: 'badge-spore',
-  psychoactive: 'badge-spore',
-  unknown: 'badge',
-};
-const showCaution = rec.edibility === 'toxic' || rec.edibility === 'psychoactive' || rec.edibility === 'unknown';
+const ed = edibilityMeta(rec.edibility);
+const reg = registryLinks(rec.registry);
+const seasons = rec.fruitingSeason?.map(cap).join(' · ');
+
+// Ecology rows that are present
+const ecology = [
+  ['Trophic mode', rec.trophicMode ? cap(rec.trophicMode) : ''],
+  ['Fruiting season', seasons || ''],
+].filter(([, v]) => v) as [string, string][];
+
+const hasEnrichment =
+  rec.vernacularNames?.length || rec.notableCompounds?.length || rec.dangerousLookalikes?.length ||
+  rec.trophicMode || rec.habitat?.length || rec.substrate?.length || rec.hosts?.length ||
+  rec.fruitingSeason?.length || rec.distribution || rec.capColor?.length || rec.sporePrintColor ||
+  rec.edibilityNotes;
 ---
 
-<BaseLayout title={`${rec.accepted}${rec.commonName ? ' — ' + rec.commonName : ''} | MycoSci`} description={`Taxonomy, classification and data for the fungus ${rec.accepted}.`}>
+<BaseLayout title={`${rec.accepted}${rec.commonName ? ' — ' + rec.commonName : ''} | MycoSci`} description={rec.description || `Taxonomy, ecology and data for the fungus ${rec.accepted}.`}>
   <article class="max-w-5xl mx-auto px-4 sm:px-6 py-10">
     <!-- Breadcrumb -->
     <nav class="flex items-center gap-2 text-2xs font-mono uppercase tracking-wider text-lab-500 mb-8 flex-wrap">
       <a href="/database" class="hover:text-bio-400 transition-colors">Catalog</a>
-      {lineage.map((l) => (
-        <>
-          <span class="text-lab-700">/</span>
-          <span>{l.value}</span>
-        </>
-      ))}
+      {lineage.map(([, v]) => (<><span class="text-lab-700">/</span><span>{v}</span></>))}
     </nav>
 
     <!-- Header -->
     <header class="border-b border-lab-800 pb-8 mb-8">
-      <div class="flex items-center gap-3 mb-4">
+      <div class="flex items-center gap-3 mb-4 flex-wrap">
         <span class="badge badge-bio">{rec.tier === 'curated' ? 'Curated' : 'Catalog Stub'}</span>
-        <span class:list={['badge', edibilityStyle[rec.edibility] || 'badge']}>{rec.edibility}</span>
+        <span class:list={['badge', ed.badge]}>{ed.label}</span>
         {rec.unresolved && <span class="badge badge-spore">Unresolved</span>}
       </div>
-      <h1 class="text-3xl sm:text-4xl font-semibold italic text-lab-100 tracking-tight">{rec.accepted}</h1>
+      <h1 class="text-3xl sm:text-4xl font-semibold text-lab-100 tracking-tight">
+        <span class="italic">{rec.accepted}</span>
+        {rec.authorship && <span class="text-lab-500 font-normal text-2xl not-italic"> {rec.authorship}{rec.year ? `, ${rec.year}` : ''}</span>}
+      </h1>
       {rec.commonName && <p class="text-lab-400 mt-2 text-lg">{rec.commonName}</p>}
 
       <div class="flex flex-wrap items-center gap-3 mt-5 text-2xs font-mono uppercase tracking-wider">
@@ -89,76 +70,173 @@ const showCaution = rec.edibility === 'toxic' || rec.edibility === 'psychoactive
       </div>
     </header>
 
-    {showCaution && (
+    <!-- Safety caution (always shown unless confidently non-cautionary) -->
+    {ed.caution && (
       <div class="border-l-2 border-spore-500 bg-spore-600/5 px-4 py-3 mb-8">
         <p class="text-sm text-lab-300">
           <span class="font-mono text-2xs uppercase tracking-wider text-spore-400">Caution · </span>
-          {rec.edibility === 'unknown'
-            ? 'Edibility is not established. Treat as inedible. Never eat a wild fungus identified from this page alone.'
-            : 'This species is reported as ' + rec.edibility + '. Do not consume. Identification from a web page is not a substitute for an expert.'}
+          {cautionText(rec)}
         </p>
       </div>
     )}
 
     <div class="grid md:grid-cols-3 gap-8">
-      <!-- Main -->
-      <div class="md:col-span-2 min-w-0">
+      <!-- Main column -->
+      <div class="md:col-span-2 min-w-0 space-y-10">
+        <!-- Overview: MDX body, else description, else skeleton -->
         {Content ? (
-          <div class="prose prose-invert max-w-none
-            prose-headings:text-lab-100 prose-headings:font-semibold
-            prose-p:text-lab-300 prose-a:text-bio-400 prose-a:no-underline hover:prose-a:underline
-            prose-strong:text-lab-100 prose-li:text-lab-300
-            prose-code:text-bio-400 prose-code:font-mono
-            prose-img:border prose-img:border-lab-800">
+          <div class="prose prose-invert max-w-none prose-headings:text-lab-100 prose-headings:font-semibold prose-p:text-lab-300 prose-a:text-bio-400 prose-a:no-underline hover:prose-a:underline prose-strong:text-lab-100 prose-li:text-lab-300 prose-code:text-bio-400 prose-img:border prose-img:border-lab-800">
             <Content />
           </div>
+        ) : rec.description ? (
+          <p class="text-lab-300 leading-relaxed text-lg">{rec.description}</p>
         ) : (
           <div class="space-y-4">
             <p class="text-lab-400 leading-relaxed">
               <span class="italic text-lab-200">{rec.accepted}</span>
-              {rec.genus && rec.family && (
-                <> is a fungus in the genus <span class="italic">{rec.genus}</span>, family {rec.family}
-                {rec.order && <>, order {rec.order}</>}.</>
-              )}
-              {' '}This is a catalog skeleton — verified taxonomy is in place, and a sourced profile
-              (morphology, ecology, distribution, look-alikes) has not been written yet.
+              {rec.genus && rec.family && <> is a fungus in the genus <span class="italic">{rec.genus}</span>, family {rec.family}.</>}
+              {' '}Verified taxonomy is in place; a sourced profile hasn't been written yet.
             </p>
             <div class="border border-lab-800 p-5">
               <span class="label">// Contribute</span>
-              <p class="text-sm text-lab-400 mt-2">
-                Know this species? Help write its profile. Every entry is open source.
-              </p>
+              <p class="text-sm text-lab-400 mt-2">Know this species? Help write its profile — every entry is open source.</p>
               <a href="https://github.com/MycoSci" class="btn btn-secondary mt-4">Edit on GitHub</a>
             </div>
           </div>
         )}
 
-        {rec.synonyms.length > 0 && (
-          <section class="mt-10">
-            <h2 class="label mb-3">// Synonyms ({rec.synonyms.length})</h2>
-            <div class="flex flex-wrap gap-x-4 gap-y-1.5">
-              {rec.synonyms.map((s) => (
-                <span class="text-sm italic text-lab-500">{s}</span>
+        {/* Edibility & safety detail */}
+        {(rec.edibilityNotes || rec.preparation || rec.notableCompounds?.length) && (
+          <section>
+            <h2 class="label mb-3">// Edibility & Safety</h2>
+            {rec.edibilityNotes && <p class="text-sm text-lab-300 leading-relaxed">{rec.edibilityNotes}</p>}
+            <dl class="mt-3 space-y-2">
+              {rec.preparation && rec.preparation !== 'none' && rec.preparation !== 'not-applicable' && (
+                <div class="flex gap-3 text-sm"><dt class="text-lab-500 w-32 shrink-0 font-mono text-2xs uppercase tracking-wider pt-0.5">Preparation</dt><dd class="text-lab-300">{cap(rec.preparation)}</dd></div>
+              )}
+              {rec.notableCompounds?.length && (
+                <div class="flex gap-3 text-sm"><dt class="text-lab-500 w-32 shrink-0 font-mono text-2xs uppercase tracking-wider pt-0.5">Compounds</dt><dd class="text-lab-300">{rec.notableCompounds.join(', ')}</dd></div>
+              )}
+            </dl>
+          </section>
+        )}
+
+        {/* Dangerous lookalikes (reciprocal, linked) */}
+        {rec.dangerousLookalikes?.length && (
+          <section>
+            <h2 class="label mb-3 text-spore-400">// Dangerous Lookalikes</h2>
+            <div class="space-y-3">
+              {rec.dangerousLookalikes.map((la) => (
+                <div class="border border-lab-800 border-l-2 border-l-spore-500 p-4">
+                  <h3 class="text-sm font-semibold text-lab-100 italic">
+                    {la.slug ? <a href={`/species/${la.slug}`} class="hover:text-bio-400 transition-colors">{la.name}</a> : la.name}
+                  </h3>
+                  {la.note && <p class="text-sm text-lab-400 mt-1">{la.note}</p>}
+                </div>
               ))}
             </div>
           </section>
         )}
+
+        {/* Ecology & habitat */}
+        {(ecology.length || rec.habitat?.length || rec.substrate?.length || rec.hosts?.length || rec.distribution) && (
+          <section>
+            <h2 class="label mb-3">// Ecology & Distribution</h2>
+            <dl class="space-y-2.5">
+              {ecology.map(([k, v]) => (
+                <div class="flex gap-3 text-sm"><dt class="text-lab-500 w-32 shrink-0 font-mono text-2xs uppercase tracking-wider pt-0.5">{k}</dt><dd class="text-lab-300">{v}</dd></div>
+              ))}
+              {rec.hosts?.length && <div class="flex gap-3 text-sm"><dt class="text-lab-500 w-32 shrink-0 font-mono text-2xs uppercase tracking-wider pt-0.5">Hosts</dt><dd class="text-lab-300">{rec.hosts.join(', ')}</dd></div>}
+              {rec.substrate?.length && <div class="flex gap-3 text-sm"><dt class="text-lab-500 w-32 shrink-0 font-mono text-2xs uppercase tracking-wider pt-0.5">Substrate</dt><dd class="text-lab-300">{rec.substrate.join('; ')}</dd></div>}
+              {rec.habitat?.length && <div class="flex gap-3 text-sm"><dt class="text-lab-500 w-32 shrink-0 font-mono text-2xs uppercase tracking-wider pt-0.5">Habitat</dt><dd class="text-lab-300">{rec.habitat.join('; ')}</dd></div>}
+              {rec.distribution && <div class="flex gap-3 text-sm"><dt class="text-lab-500 w-32 shrink-0 font-mono text-2xs uppercase tracking-wider pt-0.5">Distribution</dt><dd class="text-lab-300">{rec.distribution}</dd></div>}
+            </dl>
+          </section>
+        )}
+
+        {/* Morphology */}
+        {(rec.capColor?.length || rec.sporePrintColor) && (
+          <section>
+            <h2 class="label mb-3">// Morphology</h2>
+            <dl class="space-y-2.5">
+              {rec.capColor?.length && <div class="flex gap-3 text-sm"><dt class="text-lab-500 w-32 shrink-0 font-mono text-2xs uppercase tracking-wider pt-0.5">Cap</dt><dd class="text-lab-300">{rec.capColor.join('; ')}</dd></div>}
+              {rec.sporePrintColor && <div class="flex gap-3 text-sm"><dt class="text-lab-500 w-32 shrink-0 font-mono text-2xs uppercase tracking-wider pt-0.5">Spore print</dt><dd class="text-lab-300">{rec.sporePrintColor}</dd></div>}
+            </dl>
+          </section>
+        )}
+
+        {/* Vernacular names */}
+        {rec.vernacularNames?.length && (
+          <section>
+            <h2 class="label mb-3">// Also Known As</h2>
+            <div class="flex flex-wrap gap-2">
+              {rec.vernacularNames.map((v) => (
+                <span class="badge border-lab-700 text-lab-300">{v.name}{v.lang ? <span class="text-lab-600 ml-1.5">{v.lang}</span> : null}</span>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* Synonyms */}
+        {rec.synonyms.length > 0 && (
+          <section>
+            <h2 class="label mb-3">// Synonyms ({rec.synonyms.length})</h2>
+            <div class="flex flex-wrap gap-x-4 gap-y-1.5">
+              {rec.synonyms.map((s) => <span class="text-sm italic text-lab-500">{s}</span>)}
+            </div>
+          </section>
+        )}
+
+        {/* References */}
+        {rec.references?.length && (
+          <section>
+            <h2 class="label mb-3">// References</h2>
+            <ul class="space-y-1.5">
+              {rec.references.map((r) => (
+                <li class="text-sm">{r.url ? <a href={r.url} class="text-bio-400 hover:underline">{r.title} ↗</a> : <span class="text-lab-400">{r.title}</span>}</li>
+              ))}
+            </ul>
+          </section>
+        )}
       </div>
 
-      <!-- Classification sidebar -->
-      <aside class="md:col-span-1">
-        <div class="card sticky top-20">
-          <div class="px-4 py-2.5 border-b border-lab-800">
-            <span class="label">// Classification</span>
-          </div>
+      <!-- Sidebar -->
+      <aside class="md:col-span-1 space-y-6">
+        <div class="card">
+          <div class="px-4 py-2.5 border-b border-lab-800"><span class="label">// Classification</span></div>
           <dl class="divide-y divide-lab-800">
-            {lineage.map((l) => (
+            {lineage.map(([rank, v]) => (
               <div class="flex items-center justify-between px-4 py-2.5">
-                <dt class="text-2xs font-mono uppercase tracking-wider text-lab-500">{l.rank}</dt>
-                <dd class="text-sm text-lab-200">{l.value}</dd>
+                <dt class="text-2xs font-mono uppercase tracking-wider text-lab-500">{rank}</dt>
+                <dd class="text-sm text-lab-200 text-right">{v}</dd>
               </div>
             ))}
           </dl>
+        </div>
+
+        {(rec.authorship || reg.length) && (
+          <div class="card">
+            <div class="px-4 py-2.5 border-b border-lab-800"><span class="label">// Nomenclature</span></div>
+            <dl class="divide-y divide-lab-800">
+              {rec.authorship && (
+                <div class="flex items-center justify-between px-4 py-2.5">
+                  <dt class="text-2xs font-mono uppercase tracking-wider text-lab-500">Authority</dt>
+                  <dd class="text-sm text-lab-200 text-right">{rec.authorship}{rec.year ? `, ${rec.year}` : ''}</dd>
+                </div>
+              )}
+              {reg.map((l) => (
+                <div class="flex items-center justify-between px-4 py-2.5">
+                  <dt class="text-2xs font-mono uppercase tracking-wider text-lab-500">{l.label}</dt>
+                  <dd class="text-sm text-right"><a href={l.url} class="text-bio-400 hover:underline">{l.id} ↗</a></dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        )}
+
+        <div class="text-2xs font-mono uppercase tracking-wider text-lab-600 px-1 space-y-1">
+          <div>Sources: {rec.sources.join(' · ')}</div>
+          {rec.lastReviewed && <div>Reviewed: {rec.lastReviewed}</div>}
         </div>
       </aside>
     </div>

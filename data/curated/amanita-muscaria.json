@@ -1,0 +1,31 @@
+{
+  "slug": "amanita-muscaria",
+  "authorship": "(L.) Lam.",
+  "year": 1783,
+  "vernacularNames": [
+    { "name": "Fly Agaric", "lang": "en" },
+    { "name": "Fly Amanita", "lang": "en" },
+    { "name": "Fliegenpilz", "lang": "de" },
+    { "name": "Amanite tue-mouches", "lang": "fr" },
+    { "name": "Mukhomor (Мухомор)", "lang": "ru" }
+  ],
+  "description": "The archetypal toadstool — a scarlet, white-warted cap that is as culturally iconic as it is chemically active. Ectomycorrhizal with birch and conifers across the Northern Hemisphere.",
+  "edibility": "psychoactive",
+  "preparation": "special",
+  "edibilityNotes": "Contains the neurotoxins ibotenic acid and muscimol; ingestion causes a dose-variable delirient/sedative syndrome plus GI upset, not classical hallucinogenesis. Rarely fatal in healthy adults but genuinely dangerous. Traditional parboiling-and-discarding detoxification is practiced in some cultures but is not reliable or recommended.",
+  "notableCompounds": ["Ibotenic acid", "Muscimol", "Muscazone", "Muscarine (trace)"],
+  "trophicMode": "ectomycorrhizal",
+  "hosts": ["Birch (Betula)", "Pine (Pinus)", "Spruce (Picea)", "Fir (Abies)"],
+  "habitat": ["Boreal and temperate woodland", "Birch and conifer forests, often on poor/sandy soils"],
+  "fruitingSeason": ["summer", "autumn"],
+  "distribution": "Native and widespread across the boreal and temperate Northern Hemisphere; introduced to the Southern Hemisphere (Australia, New Zealand, South America, southern Africa) with planted birch and conifers.",
+  "capColor": ["Scarlet to bright orange-red", "fading to orange or yellow with age or rain", "speckled with white to pale-yellow warts"],
+  "sporePrintColor": "White",
+  "dangerousLookalikes": [
+    { "slug": "amanita-caesarea", "name": "Amanita caesarea", "note": "Caesar's mushroom — a prized edible with a similar red-orange cap, but lacks white warts and has yellow (not white) gills/stem. Rain can wash the warts off A. muscaria, collapsing the distinction." }
+  ],
+  "references": [
+    { "title": "Amanita muscaria — Wikipedia", "url": "https://en.wikipedia.org/wiki/Amanita_muscaria" }
+  ],
+  "lastReviewed": "2026-05-31"
+}

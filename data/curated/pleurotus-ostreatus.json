@@ -1,0 +1,30 @@
+{
+  "slug": "pleurotus-ostreatus",
+  "authorship": "(Jacq.) P. Kumm.",
+  "year": 1871,
+  "vernacularNames": [
+    { "name": "Oyster Mushroom", "lang": "en" },
+    { "name": "Pearl Oyster", "lang": "en" },
+    { "name": "Austernpilz", "lang": "de" },
+    { "name": "Pleurote en huître", "lang": "fr" }
+  ],
+  "description": "A choice, widely cultivated saprotroph that fruits in shelving clusters on dead hardwood. Fast, forgiving and beginner-friendly to grow — one of the most-produced mushrooms in the world.",
+  "edibility": "edible",
+  "preparation": "cook",
+  "edibilityNotes": "A choice edible; always cook thoroughly. Generally beginner-friendly, but see the toxic jack-o'-lantern lookalike below — true oysters grow shelf-like on wood with decurrent gills running down a short off-centre stem, never in gilled clumps from soil/roots.",
+  "notableCompounds": ["Lovastatin (statin)", "Beta-glucans", "Pleurotolysin", "Ergothioneine"],
+  "trophicMode": "saprotroph",
+  "substrate": ["Dead and dying hardwood — beech, poplar, oak, willow", "Logs, stumps and standing dead trunks"],
+  "habitat": ["Temperate and subtropical forests", "Shelving clusters on broadleaf deadwood"],
+  "fruitingSeason": ["autumn", "winter", "spring"],
+  "distribution": "Cosmopolitan across temperate and subtropical forests worldwide; one of the most widely cultivated mushrooms.",
+  "capColor": ["Grey-brown", "variable: bluish-grey, tan, fawn, or near-white"],
+  "sporePrintColor": "White to lilac-grey",
+  "dangerousLookalikes": [
+    { "slug": "omphalotus-olearius", "name": "Omphalotus olearius", "note": "Jack-o'-lantern — toxic, causes severe GI illness. Orange throughout, true gills (not oyster-like ridges), grows in tufts from buried wood/roots, and is faintly bioluminescent." }
+  ],
+  "references": [
+    { "title": "Pleurotus ostreatus — Wikipedia", "url": "https://en.wikipedia.org/wiki/Pleurotus_ostreatus" }
+  ],
+  "lastReviewed": "2026-05-31"
+}
