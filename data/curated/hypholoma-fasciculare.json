@@ -1,0 +1,76 @@
+{
+  "slug": "hypholoma-fasciculare",
+  "edibility": "toxic",
+  "edibilityNotes": "Toxic. Causes gastrointestinal illness (nausea, vomiting, diarrhoea), sometimes with delayed onset, associated with fasciculol-type triterpene compounds. The flesh is also intensely and persistently bitter, which usually deters consumption. Not a food species under any preparation. Its habit of growing in dense clusters on wood alongside genuinely edible species (and the deadly Galerina marginata) makes misidentification a real risk.",
+  "preparation": "none",
+  "description": "Sulphur Tuft (Hypholoma fasciculare) is a common, widespread wood-rotting mushroom that fruits in dense, crowded clusters on dead hardwood and conifer stumps, logs, and buried roots. Caps are typically 2–6 cm across, convex to flattened, sulphur-yellow to greenish-yellow and often more orange-brown or tan toward the centre. The crowded gills start sulphur-yellow, become distinctly green to olive-tinged with age, and finally turn purple-brown as the spores mature. The slender yellowish stems are often rusty-stained below and frequently fused at the base in the cluster; a faint fibrillose ring zone may be present from the cortina-like partial veil. The spore print is purple-brown. The flesh is yellow and intensely bitter. It is a saprotroph, fruiting from spring through autumn (mainly late summer to late autumn) and sometimes in mild winters, and is one of the most frequently encountered cluster-forming wood mushrooms in temperate woodlands. It is toxic and not edible.",
+  "vernacularNames": [
+    {
+      "lang": "en",
+      "name": "Sulphur Tuft"
+    },
+    {
+      "lang": "en",
+      "name": "Clustered Woodlover"
+    }
+  ],
+  "capColor": [
+    "yellow",
+    "greenish-yellow",
+    "orange-brown",
+    "tan"
+  ],
+  "sporePrintColor": "purple-brown",
+  "trophicMode": "saprotroph",
+  "substrate": [
+    "dead wood",
+    "stumps",
+    "logs",
+    "buried roots"
+  ],
+  "habitat": [
+    "deciduous woodland",
+    "coniferous woodland",
+    "mixed woodland"
+  ],
+  "fruitingSeason": [
+    "spring",
+    "summer",
+    "autumn"
+  ],
+  "distribution": "Cosmopolitan and very common across temperate regions, including Europe, North America, Asia, and Australasia.",
+  "dangerousLookalikes": [
+    {
+      "name": "Hypholoma capnoides",
+      "slug": "hypholoma-capnoides",
+      "note": "Edible. Grows on conifer wood; gills are greyish to smoky-grey (never green-tinged) before turning purple-brown, and the flesh is mild rather than bitter."
+    },
+    {
+      "name": "Hypholoma lateritium",
+      "slug": "hypholoma-lateritium",
+      "note": "Brick Cap. Reputedly edible (cook; some sources caution), clusters on hardwood; cap is brick-red to tan with a paler margin and the flesh is mild rather than the intensely bitter taste of Sulphur Tuft."
+    },
+    {
+      "name": "Galerina marginata",
+      "slug": "galerina-marginata",
+      "note": "DEADLY (amatoxins). Also clusters on dead wood but has a rusty-brown spore print (not purple-brown), a browner cap, and a more distinct membranous ring. Lethal if eaten."
+    },
+    {
+      "name": "Armillaria mellea",
+      "slug": "armillaria-mellea",
+      "note": "Honey fungus. Clusters on wood/roots but is honey-brown with a whitish spore print, a persistent ring, and fine dark scales on the cap; edible only when thoroughly cooked."
+    }
+  ],
+  "references": [
+    {
+      "title": "Hypholoma fasciculare - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Hypholoma_fasciculare"
+    }
+  ],
+  "notableCompounds": [
+    "fasciculol E",
+    "fasciculol F"
+  ],
+  "hosts": [],
+  "lastReviewed": "2026-05-31"
+}

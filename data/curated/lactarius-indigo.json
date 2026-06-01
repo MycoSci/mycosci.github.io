@@ -1,0 +1,71 @@
+{
+  "slug": "lactarius-indigo",
+  "edibility": "edible",
+  "preparation": "cook",
+  "edibilityNotes": "Edible and consumed in parts of Mexico, Guatemala, China, and the United States, where it is sold in rural markets. Should be cooked before eating; the firm flesh is best sliced thin, and the blue color fades with cooking. Flavor is described as mild but somewhat slightly peppery or bitter, and texture as coarse or grainy; quality is rated anywhere from superior to mediocre. As with all wild mushrooms, positively confirm identity before consuming.",
+  "description": "Lactarius indigo, the indigo milk cap, is a strikingly distinctive ectomycorrhizal mushroom that is entirely indigo to dark blue when fresh, becoming paler and greenish with age and handling. The cap is 5-15 cm wide, convex to vase-shaped (depressed at the center) at maturity, often with concentric darker zones, and a sticky surface when moist. The closely spaced gills are indigo blue and run down the stem (decurrent). When cut or broken, the flesh exudes a milky latex that is itself a remarkable dark indigo blue, which slowly stains the wounded tissue green upon exposure to air. The stem is blue, often hollow at maturity, and the whole mushroom commonly bruises and discolors green over time. The blue color, blue latex, and green staining make it one of the most readily recognizable mushrooms, with few dangerous lookalikes. The blue pigment is attributed to the azulene derivative (7-isopropenyl-4-methylazulen-1-yl)methyl stearate.",
+  "vernacularNames": [
+    {
+      "lang": "en",
+      "name": "Indigo milk cap"
+    },
+    {
+      "lang": "en",
+      "name": "Blue milk mushroom"
+    },
+    {
+      "lang": "en",
+      "name": "Blue lactarius"
+    }
+  ],
+  "trophicMode": "ectomycorrhizal",
+  "capColor": [
+    "indigo",
+    "blue",
+    "green"
+  ],
+  "sporePrintColor": "cream to yellow",
+  "habitat": [
+    "deciduous and coniferous woodland",
+    "forms ectomycorrhizal associations with trees, especially oak and pine"
+  ],
+  "hosts": [
+    "oak (Quercus)",
+    "pine (Pinus)"
+  ],
+  "substrate": [
+    "soil"
+  ],
+  "distribution": "Southern and eastern North America, Mexico, Central America (Guatemala, Costa Rica) and into South America (Colombia), and Asia (China, India). Reported from southern France in Europe.",
+  "fruitingSeason": [
+    "summer",
+    "autumn"
+  ],
+  "notableCompounds": [
+    "indigo azulene pigment ((7-isopropenyl-4-methylazulen-1-yl)methyl stearate)"
+  ],
+  "dangerousLookalikes": [
+    {
+      "name": "Lactarius paradoxus",
+      "slug": "lactarius-paradoxus",
+      "note": "Has a grayish-blue cap when young but produces reddish-brown to purple-brown latex and gills, rather than the deep indigo-blue latex of L. indigo."
+    },
+    {
+      "name": "Lactarius chelidonium",
+      "note": "A related milk-cap with a yellowish to bluish-gray cap and yellowish to brown latex; lacks the vivid indigo-blue latex."
+    },
+    {
+      "name": "Lactarius quieticolor",
+      "note": "Can show blue-colored flesh in the cap but has orange to red-orange flesh in the base of the stem and lacks the uniformly indigo-blue latex."
+    }
+  ],
+  "authorship": "(Schwein.) Fr.",
+  "year": 1822,
+  "references": [
+    {
+      "title": "Lactarius indigo - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Lactarius_indigo"
+    }
+  ],
+  "lastReviewed": "2026-05-31"
+}

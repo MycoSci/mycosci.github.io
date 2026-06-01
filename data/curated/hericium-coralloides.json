@@ -1,0 +1,77 @@
+{
+  "slug": "hericium-coralloides",
+  "edibility": "edible",
+  "preparation": "cook",
+  "edibilityNotes": "Edible and good when young, fresh, and white; cook before eating (do not eat raw). Mild, seafood-like flavor with a tender texture. Older specimens that have yellowed or browned become tough, bitter, or sour and are not worth collecting. As with any wild mushroom, eat only a small amount the first time. The whole genus Hericium is regarded as edible, so the species it can be confused with (other Hericium) are not toxic; still confirm you have a Hericium before eating.",
+  "description": "Hericium coralloides, the coral tooth fungus, is a white, repeatedly branched, coral-like tooth fungus whose branches bear rows of short, hanging spines that release the spores. Fresh fruitbodies are pure white, yellowing or browning with age. It grows on the dead and dying wood of hardwoods (beech, maple, oak, and other broadleaf trees) as a saprotroph and wound parasite, producing a white rot, and fruits mainly in late summer and autumn across temperate forests of the Northern Hemisphere. Closely related to lion's mane (H. erinaceus), it differs in its openly branched, spreading habit with spines along the branches rather than in a single dense clump. It is a choice edible when young and white. It has no dangerous (toxic) lookalikes; the similar species are other edible Hericium.",
+  "vernacularNames": [
+    {
+      "lang": "en",
+      "name": "Coral Tooth Fungus"
+    },
+    {
+      "lang": "en",
+      "name": "Coral Tooth"
+    },
+    {
+      "lang": "en",
+      "name": "Comb Tooth"
+    }
+  ],
+  "capColor": [
+    "white",
+    "cream",
+    "yellowish"
+  ],
+  "sporePrintColor": "white",
+  "trophicMode": "saprotroph",
+  "habitat": [
+    "temperate hardwood forests",
+    "deciduous and mixed woodland"
+  ],
+  "substrate": [
+    "dead and dying hardwood",
+    "logs",
+    "fallen branches",
+    "standing trunks and wounds"
+  ],
+  "hosts": [
+    "beech (Fagus)",
+    "maple (Acer)",
+    "oak (Quercus)",
+    "other broadleaf hardwoods"
+  ],
+  "distribution": "Widespread across temperate regions of the Northern Hemisphere, including North America, Europe, and Asia.",
+  "fruitingSeason": [
+    "summer",
+    "autumn"
+  ],
+  "dangerousLookalikes": [
+    {
+      "name": "Hericium erinaceus",
+      "slug": "hericium-erinaceus",
+      "note": "Lion's mane; also edible, not dangerous. Forms a single unbranched cushion with long spines hanging like a pom-pom rather than the coral-like branched habit of H. coralloides."
+    },
+    {
+      "name": "Hericium americanum",
+      "slug": "hericium-americanum",
+      "note": "Also edible, not dangerous. Very similar branched form but with fewer, thicker branches and longer spines; mainly an eastern North American species."
+    },
+    {
+      "name": "Hericium abietis",
+      "slug": "hericium-abietis",
+      "note": "Also edible, not dangerous. Bear's-head Hericium; large branched fruitbody, but grows on conifer wood rather than hardwoods."
+    }
+  ],
+  "references": [
+    {
+      "title": "Hericium coralloides - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Hericium_coralloides"
+    },
+    {
+      "title": "Hericium coralloides (Scop.) Pers. - GBIF",
+      "url": "https://www.gbif.org/species/5248532"
+    }
+  ],
+  "lastReviewed": "2026-05-31"
+}

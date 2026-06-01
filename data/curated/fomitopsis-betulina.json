@@ -1,0 +1,80 @@
+{
+  "slug": "fomitopsis-betulina",
+  "edibility": "inedible",
+  "year": 2016,
+  "authorship": "(Bull.) B.K. Cui, M.L. Han & Y.C. Dai (2016); formerly Piptoporus betulinus (Bull.) P. Karst. (1881)",
+  "edibilityNotes": "Not eaten as food: the flesh is tough, corky, and bitter. It has a long history of medicinal and practical use, typically prepared as a tea/decoction or extract rather than consumed as a vegetable. Young white flesh has been used traditionally as an antiseptic, styptic (to stop bleeding), and as a tinder/plaster/strop material. Modern interest centers on its bioactive compounds, but it should be treated as a medicinal/utility fungus, not a culinary one.",
+  "preparation": "special",
+  "description": "The Birch Polypore or Birch Bracket is a common bracket fungus that grows almost exclusively on birch (Betula). It forms smooth, rounded to hoof- or kidney-shaped brackets, usually 5-25 cm across, with a thin incurved margin. The upper surface is smooth and pale grey-brown to tan, often cracking with age, while the underside bears a white-to-pale-grey pore surface with small round pores. The flesh is white, thick, and corky-rubbery when young, becoming harder and bitter. It is a brown-rot fungus that acts as a parasite on weakened or stressed birches and continues as a saprotroph on dead wood, and it is one of the most frequent causes of death and decay in birch. Annual brackets typically appear in late summer and autumn but persist into winter. The species is famous for being among the fungal material carried by Otzi, the ~5,300-year-old Tyrolean Iceman, suggesting prehistoric medicinal or practical use. It has documented antiseptic, styptic, and anti-inflammatory traditional uses and is studied for bioactive triterpenoids.",
+  "vernacularNames": [
+    {
+      "lang": "en",
+      "name": "Birch Polypore"
+    },
+    {
+      "lang": "en",
+      "name": "Birch Bracket"
+    },
+    {
+      "lang": "en",
+      "name": "Razor Strop Fungus"
+    }
+  ],
+  "capColor": [
+    "grey-brown",
+    "tan",
+    "pale brown",
+    "greyish-white"
+  ],
+  "sporePrintColor": "white",
+  "trophicMode": "parasite",
+  "substrate": [
+    "birch wood",
+    "Betula trunks and logs"
+  ],
+  "hosts": [
+    "Betula (birch)"
+  ],
+  "habitat": [
+    "birch woodland",
+    "mixed woodland with birch",
+    "heathland with birch"
+  ],
+  "distribution": "Widespread throughout the temperate Northern Hemisphere, including Europe, northern Asia, and North America, wherever birch trees grow.",
+  "fruitingSeason": [
+    "summer",
+    "autumn",
+    "winter"
+  ],
+  "dangerousLookalikes": [
+    {
+      "name": "Fomes fomentarius (Tinder Bracket)",
+      "slug": "fomes-fomentarius",
+      "note": "Perennial, hard hoof-shaped grey bracket usually on birch or beech, but with a much harder, layered, woody body and a brown context; not the smooth pale annual bracket of the birch polypore. Not a poisoning risk, but commonly confused."
+    },
+    {
+      "name": "Ganoderma applanatum (Artist's Bracket)",
+      "slug": "ganoderma-applanatum",
+      "note": "Perennial, flatter, woody bracket with a white pore surface that bruises brown when scratched; grows on various broadleaf trees rather than almost exclusively birch."
+    }
+  ],
+  "notableCompounds": [
+    "polyporenic acid A",
+    "polyporenic acid C",
+    "betulinic acid",
+    "betulin",
+    "ergosterol peroxide",
+    "piptamine"
+  ],
+  "references": [
+    {
+      "title": "Fomitopsis betulina - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Fomitopsis_betulina"
+    },
+    {
+      "title": "Fomitopsis betulina (formerly Piptoporus betulinus): the Iceman's polypore fungus with modern biotechnological potential",
+      "url": "https://link.springer.com/article/10.1007/s11274-017-2247-0"
+    }
+  ],
+  "lastReviewed": "2026-05-31"
+}

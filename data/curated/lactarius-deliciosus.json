@@ -1,0 +1,82 @@
+{
+  "slug": "lactarius-deliciosus",
+  "edibility": "edible",
+  "preparation": "cook",
+  "edibilityNotes": "Edible and well regarded, especially in Spain/Catalonia (the prized \"rovelló\"), Provence, and across the Mediterranean and Eastern Europe. Always cook it; raw or undercooked Lactarius can cause gastrointestinal upset, and texture improves with grilling, frying, or roasting. The flesh and orange latex stain greenish on handling/aging, which is normal and not a sign of toxicity. The pigments may also harmlessly turn urine orange-red after a meal. Some find it slightly bitter or grainy. Always confirm identification before eating, as several related milkcaps are acrid and unpalatable; the key safe-group traits are carrot-orange latex (not white), a mild (non-acrid) taste, and pine association.",
+  "description": "Lactarius deliciosus, the Saffron Milk Cap, is a brightly colored ectomycorrhizal mushroom associated with pines. The cap is carrot- to saffron-orange, often with darker concentric zones (zonate), 4-12 cm or more across, becoming funnel-shaped or depressed with age and frequently developing greenish blotches where bruised or aging. The gills and stem are also orange, and the hollow stem may show shallow orange pits (scrobicules). Its defining feature is the latex (\"milk\"): when the flesh or gills are cut, it exudes a bright carrot-orange latex that slowly stains the tissue greenish on exposure to air. It is one of the few choice edible members of the genus Lactarius, most of which are acrid or peppery. Fruiting bodies appear from late summer through autumn in coniferous woodland, particularly under pines on calcareous or sandy soils. Note: North American records named L. deliciosus largely represent closely related, distinct species rather than the European type.",
+  "vernacularNames": [
+    {
+      "lang": "en",
+      "name": "Saffron Milk Cap"
+    },
+    {
+      "lang": "en",
+      "name": "Red Pine Mushroom"
+    },
+    {
+      "lang": "es",
+      "name": "Níscalo"
+    },
+    {
+      "lang": "ca",
+      "name": "Rovelló"
+    },
+    {
+      "lang": "fr",
+      "name": "Lactaire délicieux"
+    }
+  ],
+  "capColor": [
+    "orange",
+    "carrot-orange",
+    "saffron",
+    "green (where bruised/aging)"
+  ],
+  "sporePrintColor": "cream to pale ochre/yellowish",
+  "trophicMode": "ectomycorrhizal",
+  "hosts": [
+    "Pinus (pines)"
+  ],
+  "habitat": [
+    "coniferous woodland",
+    "pine forest",
+    "calcareous and sandy soils"
+  ],
+  "substrate": [
+    "soil"
+  ],
+  "fruitingSeason": [
+    "summer",
+    "autumn"
+  ],
+  "distribution": "Native to Europe; widespread across the continent, especially the Mediterranean. Introduced and naturalized elsewhere (e.g. with planted pines in parts of Australia, New Zealand, and South America). The name \"Lactarius deliciosus\" has historically been applied broadly to similar orange-milk milkcaps worldwide; many non-European records (notably in North America) represent closely related but distinct species in the same group.",
+  "dangerousLookalikes": [
+    {
+      "name": "Lactarius deterrimus",
+      "slug": "lactarius-deterrimus",
+      "note": "False saffron milkcap, associated with spruce (Picea). Orange latex turning wine-red then greenish; flesh stains strongly green. Edible but inferior, not dangerous."
+    },
+    {
+      "name": "Lactarius semisanguifluus",
+      "note": "Pine-associated orange-milk milkcap whose latex turns wine-red/blood-red within minutes. Edible, lesser quality; distinguished by the latex color change."
+    },
+    {
+      "name": "Lactarius torminosus",
+      "slug": "lactarius-torminosus",
+      "note": "Woolly milkcap: pinkish cap with a shaggy inrolled margin, WHITE acrid latex (not orange), typically under birch. Causes gastrointestinal upset (nausea/vomiting) if eaten raw or undercooked. The clearest separator from the saffron milkcap is white vs orange latex."
+    }
+  ],
+  "references": [
+    {
+      "title": "Lactarius deliciosus - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Lactarius_deliciosus"
+    },
+    {
+      "title": "Lactarius deliciosus, Saffron Milkcap - First Nature",
+      "url": "https://www.first-nature.com/fungi/lactarius-deliciosus.php"
+    }
+  ],
+  "authorship": "(L.) Gray",
+  "year": 1821,
+  "lastReviewed": "2026-05-31"
+}

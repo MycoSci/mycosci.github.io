@@ -1,0 +1,66 @@
+{
+  "slug": "suillus-luteus",
+  "edibility": "edible",
+  "preparation": "cook",
+  "edibilityNotes": "Edible and widely gathered. Peel off the slimy glutinous cap pellicle (cuticle) and remove the spongy pore/tube layer before cooking, then cook thoroughly. The slime/pellicle is reported to cause mild gastrointestinal upset (laxative effect, loose stools) in some people if eaten in quantity, raw, or undercooked, and a minority of people experience allergic reactions to the slimy skin. Modest flavor, generally considered inferior to co-occurring boletes. Standard bolete caution applies: only eat a pored mushroom positively identified to species.",
+  "description": "Suillus luteus, commonly known as Slippery Jack, is an edible bolete in the family Suillaceae. It is recognized by a glutinous, slimy chocolate- to reddish-brown cap that becomes shiny when wet, small yellow pores beneath (rather than gills), and a distinctive membranous partial-veil ring on the upper stem that is often purplish or brownish on its underside. The stem above the ring bears glandular dots. The flesh is whitish to pale yellow and does not stain blue when cut. It is ectomycorrhizal, forming symbiotic associations almost exclusively with pines (Pinus), and is common in pine plantations and forests across the Northern Hemisphere. It has been widely introduced with planted pines into the Southern Hemisphere (e.g. Australia, New Zealand, southern Africa, South America). It is the type species of the genus Suillus.",
+  "vernacularNames": [
+    {
+      "lang": "en",
+      "name": "Slippery Jack"
+    },
+    {
+      "lang": "de",
+      "name": "Butterpilz"
+    }
+  ],
+  "capColor": [
+    "brown",
+    "reddish-brown",
+    "chocolate-brown",
+    "yellow-brown"
+  ],
+  "sporePrintColor": "ochraceous to clay-brown (cinnamon-brown)",
+  "trophicMode": "ectomycorrhizal",
+  "hosts": [
+    "Pinus (pines)"
+  ],
+  "habitat": [
+    "coniferous forest",
+    "pine plantations",
+    "mixed woodland with pine"
+  ],
+  "substrate": [
+    "soil"
+  ],
+  "fruitingSeason": [
+    "summer",
+    "autumn"
+  ],
+  "distribution": "Native and widespread across the temperate Northern Hemisphere (Europe, Asia, North America) in association with pines; widely introduced into the Southern Hemisphere with planted pines.",
+  "dangerousLookalikes": [
+    {
+      "name": "Paxillus involutus",
+      "slug": "paxillus-involutus",
+      "note": "Brown Roll-rim. A brownish, inrolled-margin mushroom occurring in the same conifer/woodland habitat. Dangerously toxic: repeated consumption can trigger a potentially fatal autoimmune hemolytic reaction, and it also causes acute GI poisoning. It has decurrent gill-like ridges (not true pores) and lacks the slimy cap and stem ring of S. luteus; distinguish by confirming a sponge-like pore layer and the membranous ring."
+    },
+    {
+      "name": "Suillus granulatus",
+      "slug": "suillus-granulatus",
+      "note": "Similar slimy bolete on pine but lacks a stem ring; young stem apex exudes milky droplets from glandular dots. Edible, so confusion is low-risk, but note the absence of the partial-veil ring that characterizes S. luteus."
+    },
+    {
+      "name": "Other Suillus species",
+      "note": "Several other ringed and ringless Suillus on conifers resemble it; all common Suillus are edible after peeling, so the main risk within the genus is GI upset rather than serious poisoning. Confirm pores (not gills), yellow tubes, and pine association."
+    }
+  ],
+  "authorship": "(L.) Roussel",
+  "year": 1796,
+  "references": [
+    {
+      "title": "Suillus luteus - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Suillus_luteus"
+    }
+  ],
+  "lastReviewed": "2026-05-31"
+}

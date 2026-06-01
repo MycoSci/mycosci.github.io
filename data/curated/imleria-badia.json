@@ -1,0 +1,77 @@
+{
+  "slug": "imleria-badia",
+  "edibility": "edible",
+  "preparation": "cook",
+  "description": "Imleria badia, the Bay Bolete, is a pored mushroom of conifer and mixed woodland, long known under the name Boletus badius before being moved to the genus Imleria. It has a chestnut to bay-brown cap that is finely velvety or suede-like when dry and somewhat sticky when wet, growing roughly 4-15 cm across. The underside bears pores (tubes), not gills, which are cream to pale yellow and bruise blue-green to dull bluish on touch or with age. The stipe is paler brown, fibrous and often streaky, without a ring and without a coarse net. It is a popular, good edible when thoroughly cooked, with a mild nutty flavour, but should never be eaten raw. The main confusion species to rule out is the bitter Tylopilus felleus, which has pinkish pores and an intensely bitter taste; always confirm pores rather than gills and check for the characteristic blue-green bruising.",
+  "edibilityNotes": "A well-regarded edible bolete that must be cooked before eating; raw boletes can cause gastrointestinal upset. The bluing reaction of the pores is normal for this species and not a sign of toxicity. As with all foraged fungi, eat only after a confident identification and try a small portion first. Like many wild mushrooms it can accumulate heavy metals and radiocaesium, so avoid harvesting from contaminated or roadside sites and eat in moderation.",
+  "capColor": [
+    "bay-brown",
+    "chestnut-brown",
+    "reddish-brown",
+    "dark brown"
+  ],
+  "sporePrintColor": "olive-brown",
+  "trophicMode": "ectomycorrhizal",
+  "habitat": [
+    "coniferous woodland",
+    "mixed woodland",
+    "deciduous woodland",
+    "acidic soils",
+    "mossy ground"
+  ],
+  "substrate": [
+    "soil",
+    "leaf litter",
+    "around tree roots",
+    "occasionally on decaying conifer wood/stumps"
+  ],
+  "hosts": [
+    "Pinus",
+    "Picea",
+    "Fagus",
+    "Quercus"
+  ],
+  "fruitingSeason": [
+    "summer",
+    "autumn"
+  ],
+  "distribution": "Widespread across Europe and present in North America; reported more broadly across temperate parts of the Northern Hemisphere.",
+  "vernacularNames": [
+    {
+      "lang": "en",
+      "name": "Bay Bolete"
+    },
+    {
+      "lang": "de",
+      "name": "Maronenroehrling"
+    }
+  ],
+  "dangerousLookalikes": [
+    {
+      "name": "Tylopilus felleus",
+      "slug": "tylopilus-felleus",
+      "note": "Bitter bolete; pores are whitish then pinkish (not yellow and not bruising blue-green), stipe bears a coarse dark net, and the flesh is intensely bitter, making it inedible. A bitter taste test on a tiny piece readily separates it. Not deadly but will ruin a dish."
+    },
+    {
+      "name": "Boletus / Imleria species with red pores",
+      "slug": "",
+      "note": "Bay Bolete always has cream-to-yellow pores. Any bolete with orange-to-red pore mouths (e.g. Suillellus / Rubroboletus group) should be left alone unless separately confirmed, as several red-pored, blue-staining boletes are toxic raw or outright poisonous."
+    },
+    {
+      "name": "Hortiboletus / Xerocomellus species",
+      "slug": "",
+      "note": "Several smaller brown, blue-bruising boletes in the Xerocomus group resemble young Bay Bolete. They are not dangerous but are easily confused; the Bay Bolete is distinguished by its larger size, tacky cap when wet, and prompt blue-green bruising of cream-yellow pores."
+    }
+  ],
+  "references": [
+    {
+      "title": "Imleria badia - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Imleria_badia"
+    },
+    {
+      "title": "Tylopilus felleus - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Tylopilus_felleus"
+    }
+  ],
+  "lastReviewed": "2026-05-31"
+}

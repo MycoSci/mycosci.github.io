@@ -1,0 +1,56 @@
+{
+  "slug": "sparassis-crispa",
+  "edibility": "edible",
+  "preparation": "cook",
+  "description": "Sparassis crispa, the cauliflower mushroom, is a distinctive wood-rotting fungus that forms a large, rounded, cream to pale-yellow rosette composed of many flattened, wavy, ribbon-like lobes, superficially resembling a head of cauliflower or a bath sponge. Fruitbodies arise at the base of conifers (chiefly pines) or from nearby roots, where the fungus causes a brown root and butt rot. The flesh is firm and tough when young, with a pleasant aromatic smell. Specimens can be substantial, commonly 10-40 cm across and weighing up to several kilograms. It is a prized choice edible, but the intricate folds readily trap soil, needles, and insects, so it must be cleaned thoroughly and cooked well before eating.",
+  "edibilityNotes": "A choice edible when young, firm, and cream-colored. Discard older specimens that have yellowed and toughened. The convoluted lobes trap pine debris and insects, so clean meticulously and cook thoroughly; it is not eaten raw. As with any wild mushroom, eat only a small amount the first time to check personal tolerance, and rely on a verified identification before consuming.",
+  "vernacularNames": [
+    {
+      "lang": "en",
+      "name": "Cauliflower Mushroom"
+    },
+    {
+      "lang": "en",
+      "name": "Wood Cauliflower"
+    }
+  ],
+  "capColor": [
+    "cream",
+    "pale yellow",
+    "whitish",
+    "ochre"
+  ],
+  "sporePrintColor": "white",
+  "trophicMode": "parasite",
+  "habitat": [
+    "coniferous forest",
+    "plantations"
+  ],
+  "substrate": [
+    "roots and base of conifers",
+    "conifer stumps"
+  ],
+  "hosts": [
+    "Pinus",
+    "conifers"
+  ],
+  "fruitingSeason": [
+    "summer",
+    "autumn"
+  ],
+  "distribution": "Widespread across temperate regions of Europe (e.g. Britain, Scandinavia, Germany, Poland), North America, and Asia, fruiting where suitable conifer (especially pine) hosts occur.",
+  "dangerousLookalikes": [
+    {
+      "name": "Sparassis spathulata",
+      "slug": "sparassis-spathulata",
+      "note": "A closely related cauliflower mushroom with broader, flatter, more erect leaf-like lobes (rather than narrow wavy ribbons), typically at the base of hardwoods such as oak and beech (occasionally pines). Also edible, so confusion is not dangerous, but it is a separate species."
+    }
+  ],
+  "references": [
+    {
+      "title": "Sparassis crispa - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Sparassis_crispa"
+    }
+  ],
+  "lastReviewed": "2026-05-31"
+}

@@ -1,0 +1,76 @@
+{
+  "slug": "inonotus-obliquus",
+  "edibility": "inedible",
+  "edibilityNotes": "Not a culinary mushroom. The sterile conk is woody/corky and is never eaten as food; it is used only as a brewed extract, decoction, or tea in folk and supplement contexts. Medicinal and safety claims are not established by rigorous clinical evidence; high oxalate content has been linked to kidney injury (oxalate nephropathy) with heavy or prolonged use, and it may interact with anticoagulants and affect blood sugar. Harvest only from living birch and observe sustainability concerns.",
+  "preparation": "special",
+  "description": "Inonotus obliquus, commonly called Chaga, is a wood-decay fungus best known not as a fruiting mushroom but as a sterile conk (sclerotium): a hard, blackened, deeply cracked charcoal-like mass that erupts from the trunk of living birch trees. The exterior is brittle and coal-black from accumulated melanin, while the interior is a rusty orange-brown, corky tissue. This conk is sterile vegetative tissue, not the spore-producing body; the true fruiting body (a resupinate, pored hymenium) forms inconspicuously beneath the bark, usually after the host tree dies, and is rarely seen. The fungus is a slow parasite, taking many years to develop a harvestable conk and ultimately contributing to the host tree's decline (a white rot). It has a long history in folk medicine across northern Eurasia, where the ground conk is brewed as a dark, slightly bitter tea or decoction valued for its antioxidant content. Reported constituents include melanin, polysaccharides (beta-glucans), polyphenols, and triterpenes such as betulin and betulinic acid that the fungus concentrates from the birch host, along with inotodiol. It is woody and inedible as food; its use is strictly as a brewed extract, and purported health benefits are not confirmed by robust clinical trials. Because demand has driven heavy wild collection and the conk regenerates very slowly, sustainable and ethical harvesting from living birch is a real conservation concern.",
+  "vernacularNames": [
+    {
+      "lang": "en",
+      "name": "Chaga"
+    },
+    {
+      "lang": "en",
+      "name": "Clinker polypore"
+    },
+    {
+      "lang": "en",
+      "name": "Birch canker polypore"
+    },
+    {
+      "lang": "ru",
+      "name": "Chaga (чага)"
+    }
+  ],
+  "trophicMode": "parasite",
+  "substrate": [
+    "Living birch trunks (Betula spp.)",
+    "Standing birch wood; rarely other hardwoods"
+  ],
+  "hosts": [
+    "Betula (birch)",
+    "occasionally Alnus, Fagus, Ulmus and other hardwoods (less valued)"
+  ],
+  "habitat": [
+    "Boreal and northern temperate birch forests",
+    "Cool-climate woodlands"
+  ],
+  "distribution": "Circumboreal: widespread across the cooler regions of the Northern Hemisphere, including northern and eastern Europe, Russia and Siberia, northern Asia, and northern North America (Canada and the northern United States), wherever birch grows.",
+  "capColor": [
+    "black (sterile conk exterior)",
+    "rusty orange-brown (interior)"
+  ],
+  "sporePrintColor": "pale yellowish to brownish (from the rarely observed fertile crust)",
+  "fruitingSeason": [
+    "year-round"
+  ],
+  "notableCompounds": [
+    "Melanin",
+    "Beta-glucans (polysaccharides)",
+    "Betulin",
+    "Betulinic acid",
+    "Inotodiol",
+    "Polyphenols / antioxidants"
+  ],
+  "dangerousLookalikes": [
+    {
+      "name": "Burl / tree gall on birch",
+      "note": "Woody outgrowths and burls can superficially resemble a Chaga conk but are smooth and bark-covered, lacking the black cracked crust and the rusty-orange brittle interior. Mistaking inert wood for Chaga wastes harvest effort but is not toxic."
+    },
+    {
+      "name": "Phellinus / Fomes bracket fungi",
+      "note": "Hard perennial brackets (e.g. Phellinus igniarius, Fomes fomentarius) grow on birch and other hardwoods but form a distinct hoof- or shelf-shaped fruiting body with a pored underside, not the irregular black sterile sclerotium of Chaga. They lack the rusty-orange interior and are not used as Chaga."
+    },
+    {
+      "name": "Inonotus / Phaeolus rusty-fleshed polypores",
+      "note": "Other Inonotus species and rusty-brown polypores can share the orange-brown flesh tone but form true fleshy/poroid brackets rather than a hard black cracked external conk on living birch."
+    }
+  ],
+  "references": [
+    {
+      "title": "Inonotus obliquus — Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Inonotus_obliquus"
+    }
+  ],
+  "lastReviewed": "2026-05-31"
+}
