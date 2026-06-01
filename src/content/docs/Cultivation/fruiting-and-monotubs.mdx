@@ -1,0 +1,211 @@
+---
+title: "Fruiting Conditions & the Monotub"
+description: "A practical guide to the four fruiting triggers, building a monotub, and dialing in pinning, harvest, and subsequent flushes."
+author: "MycoSci"
+pubDate: 2026-05-31
+tags:
+  - cultivation
+  - fruiting
+  - monotub
+  - troubleshooting
+  - environment
+---
+
+import { Aside, Steps, Tabs, TabItem, Badge, Card, CardGrid, LinkButton } from '@astrojs/starlight/components';
+
+Colonization is the easy half. Once a substrate is fully run with mycelium, fruiting is an environmental engineering problem: you change the conditions and the mycelium switches from "spread" to "reproduce." This tek covers the four triggers, parameter ranges, how to build and run a monotub, and how to read the tub when something goes wrong. The monotub is the workhorse of hobby cultivation because it is cheap, forgiving, and self-buffering — a big block of colonized substrate holds its own humidity and CO2 gradient better than any small container.
+
+<Badge text="Difficulty: Beginner to Intermediate" /> <Badge text="Fits after: Grain Spawn + Bulk Substrate" />
+
+This guide assumes you have already produced fully colonized [grain spawn](/docs/cultivation/grain-spawn) and mixed it into a [bulk substrate](/docs/cultivation/bulk-substrate). If you are not there yet, start with [PF-Tek](/docs/cultivation/pf-tek) for a simpler first grow.
+
+<Aside type="danger">
+Never eat a mushroom you have not positively identified, and never eat anything from a contaminated grow. Mature mycelium and contaminant molds (especially *Aspergillus*, *Penicillium*, and *Trichoderma*) release spores. Open and disturb tubs in a well-ventilated area or outdoors, and wear an N95/FFP2 respirator when handling any tub showing mold. Inhaling *Aspergillus* spores is a genuine respiratory and allergic hazard, and can cause serious lung infection in people who are immunocompromised.
+</Aside>
+
+## The four fruiting triggers
+
+Mushrooms fruit in response to a coordinated change in environment. Get all four roughly right and most species will pin reliably.
+
+<CardGrid>
+  <Card title="Fresh Air Exchange (FAE)">
+    Mycelium exhales CO2. High CO2 says "keep colonizing"; dropping CO2 says "fruit now." Fruiting generally wants lower CO2 at the substrate surface than colonization — many species fruit well in roughly the 600 to 2000 ppm range, though exact targets are species-specific.
+  </Card>
+  <Card title="Humidity (RH)">
+    Pins are mostly water and have no skin to hold it. Target 85 to 95 percent RH during pinning, easing toward 80 to 90 percent once fruits are developing.
+  </Card>
+  <Card title="Temperature">
+    Drives speed and helps trigger the colonize-to-fruit shift. Most common species fruit at 18 to 24 degrees C (64 to 75 degrees F); species-specific (see below).
+  </Card>
+  <Card title="Light">
+    A directional cue, not food. Indirect ambient light, around 12 hours on, tells pins which way is "up" and where to form.
+  </Card>
+</CardGrid>
+
+### CO2 and FAE — the one people get wrong
+
+CO2 is the master variable and the hardest to see. **Colonization** likes high CO2 (often 5000 to 10000 ppm or more) — it suppresses pinning and pushes lateral growth. **Fruiting** needs that CO2 to drop. Too much CO2 at fruiting and you get long stems, tiny caps, and "leggy" or "tentacle" fruits reaching for air. Too much FAE too early and the surface dries before pins set.
+
+The monotub balances this passively through holes plus the surface area of the substrate. You generally do not need a fan. If your fruits are consistently leggy with small caps, add FAE (more or larger holes, or brief fanning). If the surface dries and crusts before pinning, reduce FAE and raise humidity.
+
+<Aside type="note">
+Exact CO2 targets are species-specific. Wood-lovers and some gourmet species (oysters especially) demand aggressive FAE and will deform badly in stale air. "Standard" dung/grain species are far more forgiving. Treat the ranges above as a starting point and tune by reading the fruits.
+</Aside>
+
+## Colonization environment vs fruiting environment
+
+These are two different setups, and conflating them is the most common beginner mistake.
+
+<Tabs>
+  <TabItem label="Colonization">
+
+    - **Light:** none needed; darkness is fine.
+    - **FAE:** minimal — high CO2 is desirable.
+    - **Humidity:** sealed; substrate holds its own moisture.
+    - **Temp:** warm, typically 24 to 27 degrees C (75 to 81 degrees F) for common species — faster, more contam-resistant run.
+    - **Goal:** full, even colonization with no pins yet. Keep the tub closed (tape over holes) and undisturbed.
+
+  </TabItem>
+  <TabItem label="Fruiting">
+
+    - **Light:** indirect ambient, around 12 hours per day.
+    - **FAE:** holes open; gentle air movement in the room.
+    - **Humidity:** 85 to 95 percent RH for pinning.
+    - **Temp:** drop a few degrees, into the species fruiting range (often 18 to 24 degrees C).
+    - **Goal:** trigger pinning, then steady fruit development. Open the tub, introduce the four triggers together.
+
+  </TabItem>
+</Tabs>
+
+## Species temperature & humidity quick reference
+
+Use the species' published range; these are common operating windows. When in doubt, run the **cooler** end — it slows growth but improves contam resistance and fruit quality.
+
+| Group | Fruiting temp | Notes |
+|---|---|---|
+| Common dung/grain species | 18 to 24 degrees C (64 to 75 degrees F) | Forgiving; the default monotub profile. |
+| Oyster (*Pleurotus*) | 13 to 21 degrees C (55 to 70 degrees F) | High FAE demand; deforms in stale air. |
+| Lion's Mane (*Hericium*) | 15 to 21 degrees C (59 to 70 degrees F) | Wants high RH and gentle FAE; sensitive to drying. |
+| Shiitake (*Lentinula*) | 13 to 18 degrees C (55 to 64 degrees F) | Often needs a cold shock and a soak to initiate. |
+
+Fruiting RH for all of the above sits in the 85 to 95 percent band during pinning. Always verify the exact range for your strain.
+
+## Building a monotub
+
+A monotub is an opaque storage tote with holes for passive FAE and a substrate depth that buffers humidity. Opaque matters: light through clear walls causes side pinning and dried, aborted pins against the plastic.
+
+<Steps>
+
+1. **Pick the tote.** A 50 to 80 L (54 to 66 qt) clear tote spray-painted opaque on the bottom and sides (leave the lid clear or paint it too) is the standard. Black or opaque totes work without paint. Bigger is not better for a first grow — more surface to keep humid.
+
+2. **Mark your fill line.** Plan for 10 to 15 cm (4 to 6 in) of substrate depth. Mark it on the inside.
+
+3. **Drill the holes.** Use a 5 cm (2 in) hole saw. Place holes on the **long sides only**, centered on the height of the substrate band (so air enters at the colonized surface, not the headspace). A common starting count is 4 to 6 holes per long side, staggered, with none on the ends. More holes means more FAE and a drier tub; fewer means more humidity and more CO2.
+
+4. **Cover holes with filter.** Tape polyfill (synthetic stuffing) or micropore tape over each hole from the outside. Polyfill lets air diffuse while blocking contaminant spores and pests. Avoid wide-open holes early on.
+
+5. **Paint for opacity.** If using a clear tote, paint the lower band (substrate zone) and sides with a couple of coats so no direct light hits the substrate edges. Headspace can stay clear for viewing.
+
+6. **Add a liner (optional but recommended for first grows).** A black trash-bag liner cut to leave only the top substrate surface exposed forces fruiting up top and prevents side pins. Tuck it against the walls; expose only the flat top.
+
+</Steps>
+
+<Aside type="tip">
+Hole count is a dial, not a fixed recipe. Start conservative (fewer or smaller holes), watch the first flush, and open up FAE if fruits come in leggy. You can always add holes; you cannot easily un-drill them. Tape some holes shut to reduce FAE mid-grow.
+</Aside>
+
+## From colonized tub to pinning
+
+<Steps>
+
+1. **Confirm full colonization.** The surface should be fully white and beginning to "consolidate" — a slightly fuzzy, mycelium-bound top with the first hints of hyphal knots. Premature fruiting wastes the flush.
+
+2. **Introduce the triggers together.** Remove the tape from holes, set the lid on (do not seal), move the tub into a room at fruiting temperature with indirect light on a roughly 12 hour cycle.
+
+3. **Establish humidity.** The freshly colonized substrate plus a closed-ish lid usually holds 90 percent or higher RH on its own. If the surface looks dry, mist the **walls and lid** — not the substrate directly — and avoid pooling water. Fan and mist 1 to 3 times daily as needed in the first week.
+
+4. **Watch for hyphal knots, then primordia (pins).** Small white knots appear first, then tiny pins with visible cap differentiation. This typically takes 3 to 7 days after introducing fruiting conditions for common species.
+
+5. **Ease FAE as pins set.** Once pins are established, slightly increase air movement so caps develop properly. Reduce misting frequency — established fruits need less surface water than bare substrate.
+
+</Steps>
+
+## Harvest timing
+
+Harvest just **before or as the veil tears**, not after. For veiled species, pick when the cap is still slightly convex and the partial veil is stretching but intact-to-just-torn. Waiting longer drops spores (mess, and it ages the fruit), reduces quality, and signals the next flush more slowly.
+
+To harvest, grip the base and twist-and-pull, or cut at the substrate line with a clean blade. Remove the **entire** cluster, including any aborts and stem bases, to reduce rot and contamination between flushes.
+
+<Aside type="caution">
+Mature, spore-dropping fruits coat your grow space in spores. Harvest before heavy sporulation, and consider a light mist over a finished flush to weigh down airborne spores before disturbing the tub. This is hygiene, not optional, in a home. Wear an N95/FFP2 respirator if you are sensitive to spores or handling a heavily sporulating tub.
+</Aside>
+
+## Dunk & roll for subsequent flushes
+
+A healthy block gives 2 to 4 flushes. Between flushes the substrate loses water; replenishing it ("dunk") and resetting the surface ("roll") triggers the next round.
+
+<Steps>
+
+1. **Harvest the flush completely.** Pick everything, including aborts.
+
+2. **Dunk.** Submerge the colonized block in cold, clean water for 12 to 24 hours. Weigh it down (a plate, a second clean tub of water) to keep it under. Cold water also gives a mild temperature shock that helps initiate.
+
+3. **Drain.** Let excess water run off for 1 to 4 hours until it stops dripping — saturated but not sitting in a puddle.
+
+4. **Roll (optional).** Pressing the rehydrated cake onto a sanitized surface or fresh casing/coir layer can even out and boost the next pin set. Many growers simply return the drained block to the tub.
+
+5. **Return to fruiting conditions** and repeat the pinning routine. Subsequent flushes are usually smaller and arrive faster.
+
+</Steps>
+
+<Aside type="tip">
+Each flush is a contamination opportunity — you are adding water and handling the block. Work clean, keep dunk water and tools sanitary, and stop flushing once yields shrink or green/black mold appears. Diminishing returns are not worth a contaminated tub. See [Contamination Identification](/docs/lab/contamination-id).
+</Aside>
+
+## Troubleshooting
+
+<Tabs>
+  <TabItem label="No pins">
+    Usually CO2 too high (insufficient FAE), surface too dry, or premature attempt. Fixes: confirm full colonization first; increase FAE; raise RH and lightly mist walls; ensure around 12 hours of indirect light; nudge temp down a few degrees to cue fruiting. Patience — give a fully colonized tub 1 to 2 weeks under good conditions before assuming failure.
+  </TabItem>
+  <TabItem label="Side pins">
+    Light reaching the sides and/or moisture between liner and wall. Fixes: paint the tote fully opaque, use a liner tucked to expose only the top, and keep direct light off the walls. Side pins rarely develop well; expose only the top surface.
+  </TabItem>
+  <TabItem label="Aborts (leathery, dark pins)">
+    Pins that stall and turn bluish/brown without developing. Causes: inconsistent FAE/humidity swings, drying, or competition. Some aborts are normal. Fixes: stabilize RH and air movement; avoid letting the surface crust then re-wet. Remove aborts at harvest so they do not rot.
+  </TabItem>
+  <TabItem label="Leggy / long-stem / small caps">
+    Classic high-CO2 signature. Fix: add FAE — more or larger holes, more frequent fanning, better room air movement. Stems reaching with tiny caps means the air is stale.
+  </TabItem>
+  <TabItem label="Wet / waterlogged / yellowing">
+    Over-misting, water pooling on the substrate, or stale wet air. Fixes: mist walls not substrate, stop direct watering, increase FAE to dry the surface slightly, and never let water pool on top. Yellow/orange metabolite droplets ("mushroom sweat") plus a bad smell can signal bacterial blotch — back off water and increase airflow.
+  </TabItem>
+  <TabItem label="Dry / crusty surface">
+    Too much FAE or too little humidity. Fixes: reduce or tape over some holes, mist walls and lid more often, keep the lid closer to closed. A crusted surface will not pin.
+  </TabItem>
+</Tabs>
+
+<Aside type="danger">
+If you see green (*Trichoderma*, *Penicillium*), black (*Aspergillus*), or fuzzy/slimy growth that is not your clean white mycelium, do not try to "fruit through it." Bag and dispose of the block, mask up with an N95/FFP2 respirator, and clean the area. A contaminated tub is a spore source and a health risk, not a salvage project. Confirm IDs against [Contamination Identification](/docs/lab/contamination-id).
+</Aside>
+
+## Where to go next
+
+<CardGrid>
+  <Card title="Start clean">
+    Most fruiting failures trace back to contamination introduced earlier. Review [Sterile Technique](/docs/lab/sterile-technique).
+  </Card>
+  <Card title="Better genetics">
+    Cleaner, more vigorous cultures fruit better. See [Agar Work](/docs/lab/agar-work) and [Liquid Culture](/docs/lab/liquid-culture).
+  </Card>
+  <Card title="Substrate prep">
+    Properly hydrated, well-pasteurized bulk substrate is the foundation. See [Bulk Substrates](/docs/cultivation/bulk-substrate) and [Pasteurization & Sterilization](/docs/cultivation/pasteurization-sterilization).
+  </Card>
+  <Card title="Preserve a winner">
+    Found a strong fruiter? Save it. See [Spore Prints, Syringes & Culture Storage](/docs/lab/cultures-and-storage).
+  </Card>
+</CardGrid>
+
+<LinkButton href="/docs/cultivation/grain-spawn">Back to Grain Spawn</LinkButton>
+<LinkButton href="/docs/cultivation/bulk-substrate">Back to Bulk Substrates</LinkButton>
+

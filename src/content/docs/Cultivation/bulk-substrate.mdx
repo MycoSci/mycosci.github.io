@@ -1,0 +1,209 @@
+---
+title: "Bulk Substrates"
+description: "How to mix, hydrate, treat, and load bulk substrates like CVG and manure for healthy colonization and heavy yields"
+author: "MycoSci"
+pubDate: 2026-05-31
+tags:
+  - cultivation
+  - bulk-substrate
+  - cvg
+  - pasteurization
+  - manure
+---
+
+import { Aside, Steps, Tabs, TabItem, Badge, Card, CardGrid, LinkButton } from '@astrojs/starlight/components';
+
+A bulk substrate is the high-volume, low-nutrition bed you mix colonized [grain spawn](/docs/cultivation/grain-spawn) into so the mycelium can run, knit, and fruit. Grain gives the culture energy; bulk gives it water, structure, and the gas exchange that triggers pinning. Get the moisture and the treatment right and the substrate practically grows itself. Get them wrong and you are farming contamination instead of mushrooms. This tek covers the two workhorse families — CVG (coir, vermiculite, gypsum) and manure/straw — plus field capacity, spawn ratios, treatment choice, and the central tradeoff every grower negotiates: nutrition versus contamination.
+
+<Badge text="Difficulty: Beginner to Intermediate" /> <Badge text="Fits after: Grain Spawn, before Fruiting" /> <Badge text="Time: 1–2 hrs hands-on, 7–14 days colonization" />
+
+## Where this sits in the workflow
+
+You should already have fully colonized grain spawn in hand. After this step you load a tub and move to fruiting.
+
+<CardGrid>
+  <Card title="Comes before">
+    Bulk follows colonized [grain spawn](/docs/cultivation/grain-spawn), which itself follows [liquid culture](/docs/lab/liquid-culture) or [agar](/docs/lab/agar-work).
+  </Card>
+  <Card title="Comes after">
+    A loaded tub goes straight to [fruiting conditions and the monotub](/docs/cultivation/fruiting-and-monotubs).
+  </Card>
+</CardGrid>
+
+## Why bulk at all (and when to skip it)
+
+Bulk multiplies your yield per unit of spawn and buys forgiveness: a big, well-hydrated bed holds water through a full flush and resists drying. But it is not always required. For a first grow, [PF-Tek](/docs/cultivation/pf-tek) skips bulk entirely. Bulk earns its place once you want flushes measured in hundreds of grams rather than tens.
+
+## The two workhorse substrates
+
+<Tabs>
+  <TabItem label="CVG (coir-based)">
+    The default for cubensis-type psilocybes and a clean choice for beginners. Cheap, consistent, and forgiving.
+
+    A standard ratio by volume:
+
+    ```text
+    CVG base recipe
+    - 650 g brick coco coir (one standard brick)
+    - 2.5 L coarse vermiculite
+    - 2 Tbsp gypsum (calcium sulfate)
+    - ~4 L boiling water to hydrate the coir
+    ```
+
+    Pour boiling water over the coir in a lined tub or bucket, cover, and let it steam-hydrate 60–90 minutes. This hot hydration is a light pasteurization in itself. Fold in pre-wetted vermiculite and gypsum, then bring to field capacity. Vermiculite buffers water and air; gypsum adds calcium, helps stabilize pH, and keeps the mix from clumping into a dense mat.
+  </TabItem>
+  <TabItem label="Manure / straw">
+    Higher nutrition, higher reward, higher risk. The traditional bed for dung-loving species and many gourmet/agaricoid types.
+
+    A common dung mix:
+
+    ```text
+    Manure substrate (volume basis)
+    - 1 part aged horse or cow manure (composted, not fresh)
+    - 1 part coir or chopped straw for structure
+    - 1 to 2 percent gypsum by dry weight
+    ```
+
+    Straw must be chopped to 2–5 cm and fully wetted; long straw traps dry pockets. Because manure carries a heavier microbial load and more free sugars, it almost always needs a real heat treatment, not just hot-water hydration. See the treatment section below.
+  </TabItem>
+</Tabs>
+
+<Aside type="danger">
+Never use fresh manure. It carries pathogens and a contaminant load no home process reliably handles. Use only well-aged, composted dung, and treat it properly. If a dung source smells of ammonia or raw waste rather than earth, do not use it.
+</Aside>
+
+## Field capacity and the squeeze test
+
+Field capacity is the single most important variable in bulk. It means the substrate holds all the water it can while still allowing air between particles — saturated but not waterlogged. Too dry and the mycelium stalls; too wet and you create anaerobic pockets where bacteria and mold win.
+
+<Steps>
+
+1. Hydrate and mix the substrate thoroughly, then let it equilibrate 20–30 minutes so water distributes evenly.
+
+2. Grab a fistful and squeeze hard with one hand.
+
+3. Read the result: a few drops (3–7) should trickle out between your fingers under firm pressure. A steady stream means too wet. Nothing at all means too dry.
+
+4. If too wet, mix in dry coir or vermiculite and re-test. If too dry, add water a little at a time, mix, rest, and re-test.
+
+</Steps>
+
+<Aside type="tip">
+Hydrate to field capacity before any heat treatment, not after. Adding water to a pasteurized substrate reintroduces unsterile water and undoes your work. Get moisture dialed in, then treat.
+</Aside>
+
+## Spawn-to-bulk ratio
+
+The ratio sets your colonization speed and your contamination margin. More spawn means faster, more aggressive colonization and less time for competitors to establish — at higher cost.
+
+<CardGrid>
+  <Card title="1:2 spawn to bulk">
+    Fast and safe. Best for beginners, dialing in a new culture, or working in a less-than-ideal environment. Colonizes in roughly 7–10 days.
+  </Card>
+  <Card title="1:3 to 1:4">
+    The efficient sweet spot for an experienced grower with clean, vigorous spawn. More yield per jar of grain, but less margin for error.
+  </Card>
+  <Card title="1:5 and beyond">
+    Possible only with strong cultures and excellent technique. Slow colonization invites contamination; not recommended until you have consistent wins.
+  </Card>
+</CardGrid>
+
+Ratios are by volume, not weight. A useful default for your first several grows is 1:2. Once you are colonizing tubs fully and cleanly every time, push toward 1:3.
+
+## Pasteurize or sterilize, by substrate
+
+Bulk substrates are low-nutrition by design, so you usually want pasteurization, not sterilization. Pasteurization knocks back competitors while leaving a beneficial microbial community that helps defend the bed. Sterilization wipes everything out — appropriate for high-nutrition substrates where any survivor would outcompete your mycelium, but it leaves a biological vacuum that a single airborne spore can claim. Full detail lives in [Pasteurization and Sterilization](/docs/cultivation/pasteurization-sterilization).
+
+<Tabs>
+  <TabItem label="Pasteurize (most bulk)">
+    Target 65–75 °C held for 60–90 minutes. Above about 80 °C you start cooking the substrate and can favor thermophilic bacteria; below about 60 °C you fail to knock back molds reliably. Methods:
+
+    - Hot-water bath: submerge a substrate-filled mesh bag in water held at 65–75 °C.
+    - Steam pasteurization: hold the chamber at temperature for 60–90 minutes.
+    - Hot-water hydration (CVG): pouring boiling water and letting it cool covered is a light pasteurization sufficient for clean coir.
+  </TabItem>
+  <TabItem label="Sterilize (high nutrition)">
+    For supplemented or grain-rich beds, sterilize at 15 psi in a pressure cooker for 90–150 minutes depending on volume. Sterilized bulk demands grain-spawn-grade [sterile technique](/docs/lab/sterile-technique) when you mix in spawn, because there is nothing left to defend the bed.
+  </TabItem>
+</Tabs>
+
+<Aside type="danger">
+Pressure-cooker safety: never open a pressurized cooker. Let it return to 0 psi and cool on its own. Keep the vent and safety valve clear, check the gasket before every run, and never leave it unattended at heat. A blocked vent on a sealed vessel is a steam-explosion hazard.
+</Aside>
+
+## Mixing and loading the tub
+
+<Steps>
+
+1. Sanitize your work area and hands. Wipe surfaces with 70% isopropyl and let the substrate cool to under 30 °C — hot substrate kills spawn on contact.
+
+2. Break up your colonized grain spawn while it is still in the sealed bag, shaking it to separate the kernels.
+
+3. In a sanitized tub or liner, layer and fold spawn into the bulk in thirds, distributing grain evenly. Even distribution is what gives fast, uniform colonization.
+
+4. Level the surface and gently tamp to a consistent depth of 5–8 cm. Avoid compacting hard — you want air in the bed.
+
+5. Optionally apply a thin casing or simply leave the surface even. Close the tub and move to colonization conditions.
+
+</Steps>
+
+<Aside type="caution">
+Work fast and clean during mixing — this is the moment of highest contamination risk, with two substrates exposed to open air. A still-air glovebox or a wiped-down, draft-free room helps. Review [sterile technique](/docs/lab/sterile-technique) if your tubs keep coming up contaminated.
+</Aside>
+
+<Aside type="danger">
+Alcohol and flame are a fire hazard. Never spray isopropyl near an open flame or a hot still-air lid, and let sprayed surfaces flash off before bringing any ignition source near them. Keep your alcohol bottle capped and away from your heat source.
+</Aside>
+
+## Colonization conditions
+
+Hold the loaded tub at 24–27 °C in the dark with the lid on and limited fresh air — colonization tolerates and even benefits from elevated CO2. Within a few days you should see white mycelium bridging from the grain into the bulk. Full colonization runs 7–14 days depending on ratio, species, and temperature. Do not introduce fruiting conditions until the surface is at least 90 to 100 percent colonized; pinning too early gives weak, scattered fruits. Transition details are in [fruiting conditions and the monotub](/docs/cultivation/fruiting-and-monotubs).
+
+## Which substrate for which species
+
+<CardGrid>
+  <Card title="CVG">
+    Psilocybe cubensis and relatives, and many gourmet types when supplemented. The forgiving default.
+  </Card>
+  <Card title="Manure / straw">
+    Dung-loving psilocybes, Panaeolus, and Agaricus-type cultivars. Higher nutrition suits species that evolved on rich substrates.
+  </Card>
+  <Card title="Straw-forward">
+    Many oyster (Pleurotus) species fruit prolifically on pasteurized straw with minimal supplementation.
+  </Card>
+  <Card title="Hardwood-based">
+    Wood-lovers (lion's mane, shiitake, and many wood-loving Psilocybe) prefer a supplemented hardwood master's mix over coir or dung.
+  </Card>
+</CardGrid>
+
+Species-specific tuning of moisture, ratio, and treatment matters more than any universal recipe. Start from the defaults here and adjust toward what your culture rewards.
+
+## The nutrition versus contamination tradeoff
+
+This is the core tension of bulk work. Adding nutrition — manure, bran, supplemented master's mix — feeds bigger, faster flushes. But every gram of free nutrition also feeds molds and bacteria, and it raises the bar for treatment: richer substrates trend from pasteurize toward sterilize, and sterilize toward needing flawless technique.
+
+The grower's craft is matching nutrition to your ability to keep things clean. A beginner on plain CVG with hot-water pasteurization will out-yield an ambitious grower whose supplemented bed crashed to [contamination](/docs/lab/contamination-id). Climb the nutrition ladder only as fast as your technique allows.
+
+<Aside type="danger">
+Inhalation hazard: never disturb or sniff a contaminated tub. Green, yellow, or black mold — especially Aspergillus — releases spores that are genuinely dangerous to inhale. Bag a contaminated tub sealed, remove it from your space, and dispose of it. Do not open it to "check."
+</Aside>
+
+<Aside type="danger">
+Never eat any mushroom you cannot identify with certainty. Cultivating a known culture from verified genetics is the safest path; a misidentified wild or contaminated fruit can be lethal. Confirm your culture's provenance before consuming anything you grow.
+</Aside>
+
+## Quick reference
+
+```text
+Bulk substrate cheat sheet
+- Moisture:        field capacity (3 to 7 drops on a hard squeeze)
+- Spawn ratio:     1:2 (beginner) up to 1:3 to 1:4 (experienced)
+- Pasteurize:      65 to 75 C for 60 to 90 min (most bulk)
+- Sterilize:       15 psi, 90 to 150 min (high-nutrition only)
+- Substrate depth: 5 to 8 cm, lightly tamped
+- Colonization:    24 to 27 C, dark, lid on, 7 to 14 days
+- Move to fruit:   at 90 to 100 percent surface colonization
+```
+
+<LinkButton href="/docs/cultivation/fruiting-and-monotubs">Next: Fruiting Conditions and the Monotub</LinkButton>
+

@@ -1,0 +1,242 @@
+---
+title: "Agar Work: Media, Plates & Isolation"
+description: "How to pour clean media, isolate vigorous mycelium, chase the leading edge, and store working plates for cultivation."
+author: "MycoSci"
+pubDate: 2026-05-31
+tags:
+  - cultivation
+  - agar
+  - isolation
+  - sterile-technique
+  - lab
+---
+
+import { Aside, Steps, Tabs, TabItem, Badge, Card, CardGrid, LinkButton } from '@astrojs/starlight/components';
+
+Agar is where serious cultivation begins. A petri dish of clear, solid media turns mycelium into something you can *see, judge, and select* — you can spot contamination before it ever reaches grain, clone the exact genetics of a fruit you liked, and breed out the weak sectors. If you only ever run spore-to-grain, you are flying blind; agar gives you eyes. This tek covers media recipes, pouring clean plates, transfers, isolation from spores and tissue, reading the leading edge, and storing your library.
+
+<Badge text="Difficulty: Intermediate" /> <Badge text="Fits after: Sterile Technique" variant="note" /> <Badge text="Feeds into: Grain Spawn" variant="success" />
+
+Agar work assumes you already work clean. If you have not internalized still air, flame, and alcohol discipline, start there.
+
+<LinkButton href="/docs/lab/sterile-technique" variant="secondary">Read: Sterile Technique &amp; Working Clean</LinkButton>
+
+## Why agar at all
+
+- **Contamination triage.** Bacteria, *Trichoderma*, and cobweb show themselves on agar days before they would on grain. You throw away a 50-cent plate instead of a jar of spawn.
+- **Isolation.** A multispore syringe is a genetic shotgun. Agar lets you pick one vigorous strain and run it.
+- **Cloning.** Tissue from a fruit reproduces that exact genetic, bypassing the spore lottery.
+- **Stock library.** Plates and slants keep a strain alive and transferable for months.
+
+<Aside type="note">Agar is a tool for *selection and storage*, not bulk biomass. Once you have a clean, vigorous isolate, you jump to [liquid culture](/docs/lab/liquid-culture) or [grain spawn](/docs/cultivation/grain-spawn) to scale up.</Aside>
+
+## Media recipes
+
+All recipes are per **1 liter** of distilled or RO water, yielding roughly 40–50 standard 100 mm plates. Agar is the gelling agent (~2%); the rest is food. Mix dry, add water, swirl, then sterilize.
+
+<Tabs>
+  <TabItem label="MEA (general purpose)">
+
+Malt Extract Agar — the default workhorse. Most gourmet and many wild fungi love it.
+
+```
+20 g  light malt extract (DME or LME)
+20 g  agar agar
+ 1 L  water
+(optional) 1 g yeast / nutritional yeast for extra vigor
+```
+
+  </TabItem>
+  <TabItem label="PDA (vigorous, fast)">
+
+Potato Dextrose Agar — cheap, fast colonizing, slightly softer growth.
+
+```
+200 g  potato (peeled, diced, simmered 30 min; use the broth)
+ 20 g  dextrose (or table sugar in a pinch)
+ 20 g  agar agar
+  1 L  total volume (top up broth to 1 L)
+```
+
+Strain the potato solids out before adding agar, or your plates will be cloudy and lumpy.
+
+  </TabItem>
+  <TabItem label="DME + yeast (rich)">
+
+Dried Malt Extract with yeast — a richer plate for slow or finicky strains.
+
+```
+20 g  DME (dried malt extract)
+ 2 g  nutritional yeast or brewer's yeast
+20 g  agar agar
+ 1 L  water
+```
+
+  </TabItem>
+</Tabs>
+
+<Aside type="tip">Keep agar at ~2% (20 g/L). Less and plates tear under a scalpel; more and they dry and crack. For slants in test tubes, bump to 2.5% so the slope holds.</Aside>
+
+### Sterilizing the media
+
+<Aside type="danger">A pressure cooker is a pressurized steam vessel. Never force the lid, never leave it unattended near dry-out, and let pressure return to zero **naturally** before opening — a sudden release can flash-boil your media and scald you. Always run with water in the base and a working pressure gauge or weight.</Aside>
+
+<Steps>
+
+1. Mix dry ingredients and water in a media bottle or flask. Fill no more than 2/3 — agar foams and climbs. Cap **loosely** (a quarter turn) so steam can escape.
+
+2. Pressure cook (PC) at **15 psi for 30 minutes** for 1 L. Larger volumes need longer to reach core temperature.
+
+3. Let pressure fall to zero on its own — typically 30–60 minutes. Do not crack the valve to rush it.
+
+4. Move the still-molten bottle into your still air box (SAB) or flow hood and let it cool to roughly **50–55 °C** — hot enough to pour, cool enough to hold against your wrist for a couple seconds without flinching.
+
+</Steps>
+
+For the full sterilization rationale and times, see the dedicated tek.
+
+<LinkButton href="/docs/cultivation/pasteurization-sterilization" variant="secondary">Pasteurization &amp; Sterilization</LinkButton>
+
+## Pouring plates without condensation
+
+Condensation is the number-one cause of ugly, contam-prone plates. The fix is **temperature control**, not luck.
+
+<Steps>
+
+1. Work inside a still air box or flow hood, surfaces wiped with 70% isopropyl. Flame your bottle lip if you flame-sterilize.
+
+2. Pour at **~50 °C**, not boiling hot. Too hot and steam condenses on the lid; too cool and the agar sets while pouring.
+
+3. Pour quickly — lift the lid only a sliver, fill each plate about **1/4 to 1/3 deep** (roughly 15–20 mL for a 100 mm plate), reseat the lid. A thin plate dries out fast; an over-full one wastes media.
+
+4. Pop any surface bubbles with a quick pass of a flame **just above** the agar, or skip the flame if you are in still air with alcohol vapor around — see the fire warning below.
+
+5. Leave plates to set and cool **lid-up, undisturbed** for 20–30 minutes, then **stack inverted (agar-side up)** so any condensation forms on the agar, not the lid.
+
+</Steps>
+
+<Aside type="danger">Isopropyl and ethanol vapor pool in a closed SAB and are **flammable**. Do not introduce an open flame into a box you just sprayed down. Either work flame-free in still air, or let alcohol fully evaporate and ventilate before lighting an alcohol lamp. People have set their gloves and their boxes on fire doing this carelessly.</Aside>
+
+<Aside type="tip">Persistent condensation? Let set plates sit inverted at room temp for 24–48 hours before use — they self-dry. Store them in their original sleeve to slow water loss.</Aside>
+
+## Transfers (agar to agar)
+
+The core move: cut a colonized wedge and place it on fresh media.
+
+<Steps>
+
+1. Sterilize your scalpel — dip in alcohol, then flame until it glows faintly, then **let it cool 5–10 seconds** or touch it to clean agar at the plate edge. A red-hot blade cooks the tissue you are trying to move.
+
+2. Cut a small wedge (~5 mm) from the **leading edge** of clean, actively growing mycelium — never from the old, tired center.
+
+3. Open the fresh plate just enough, place the wedge **mycelium-side down** in the center, reseal.
+
+4. Label the underside: strain, generation, date. Use a number system — every transfer is a new generation (G1, G2…).
+
+</Steps>
+
+<Aside type="caution">Each transfer adds generations and accelerates senescence (vigor loss). Keep a master plate cold and only work off subcultures. See storage below and [Spore Prints, Syringes & Culture Storage](/docs/lab/cultures-and-storage).</Aside>
+
+## Isolating from spores
+
+A spore swab or dilute spore solution streaked across a plate germinates into many genetically distinct colonies. Your job is to find and pick the best one.
+
+<Steps>
+
+1. Streak or drop a *dilute* spore suspension across the agar. Too concentrated and colonies merge into a lawn you cannot separate.
+
+2. Incubate at the strain's preferred temp (commonly **24–27 °C** for gourmet species) until individual colonies are visible — usually 3–7 days.
+
+3. Identify the most vigorous, rhizomorphic colony that is well-separated from its neighbors.
+
+4. Cut its leading edge and transfer to a fresh plate. Repeat once or twice to clean it up. You now have an isolated strain.
+
+</Steps>
+
+## Isolating from tissue (cloning)
+
+Cloning copies the exact genetics of a fruiting body — the same flush, same traits, no spore lottery.
+
+<Steps>
+
+1. Pick a **young, healthy** fruit. Wipe the outside with alcohol. The interior tissue is sterile; the surface is not.
+
+2. Tear (do not cut through the dirty surface) the fruit open to expose clean inner flesh — the junction of cap and stem is ideal.
+
+3. With a flamed-and-cooled scalpel, lift a tiny piece of interior tissue (~2 mm) and place it on fresh media.
+
+4. Incubate. Within a few days mycelium radiates from the tissue. Once it is clearly clean, transfer the leading edge to a new plate.
+
+</Steps>
+
+<Aside type="danger">Never eat — or clone for eating — a wild fungus you have not positively identified. Cloning does not make a misidentified or contaminated specimen safe. When in doubt, throw it out.</Aside>
+
+## Selecting and chasing the leading edge
+
+The **leading edge** is the youngest, most active rim of growth. It is your purest, most vigorous tissue and your contamination-escape route.
+
+- **Always transfer from the edge**, never the center. Center mycelium is older and may carry slow contaminants the edge has outrun.
+- **Chase the edge** to clean a slightly contaminated plate: cut from the rim *farthest* from any contam, on the side the mycelium is racing away from it. Mycelium often outpaces bacteria; you can sometimes "rescue" a strain by repeatedly jumping ahead of the invader. If contam keeps catching up, scrap it.
+
+<Aside type="caution">Edge-chasing is triage, not a cure. If you see fuzzy green (*Trichoderma*) or wet, shiny, foul-smelling zones (bacteria), the safe call is usually to bin the plate. Confirm what you are looking at first.</Aside>
+
+<Aside type="danger">Do not open or sniff a contaminated or molding plate. Green and blue-green molds such as *Aspergillus* and *Penicillium* release clouds of spores when disturbed, and inhaled *Aspergillus* spores are a real respiratory hazard — especially for anyone immunocompromised, asthmatic, or pregnant. Seal a suspect plate (tape the lid shut), bag it, and dispose of it without prying it open. When you must handle visibly molding plates, do it sealed, with an N95/P2 respirator and good ventilation, and never wave the open dish toward your face to "smell-test" it.</Aside>
+
+<LinkButton href="/docs/lab/contamination-id" variant="secondary">Contamination Identification</LinkButton>
+
+## Sectoring
+
+A **sector** is a wedge of mycelium that looks different from the rest of the colony — faster, denser, more rhizomorphic, or a different texture. Sectors are natural variation, and selecting them is how cultivators breed in vigor.
+
+- Spot a sector that grows faster or looks stronger than its neighbors.
+- Cut its leading edge and isolate it on a fresh plate.
+- Repeat across a few generations, always keeping the best-performing sector. This is **strain isolation** by selection.
+
+<Aside type="note">A sudden weak, stringy, or "fluffy and going nowhere" sector can be early senescence or a degenerating strain — select *away* from it. Trust performance over appearance, but appearance is your first signal.</Aside>
+
+### Rhizomorphic vs tomentose
+
+Two broad growth morphologies you will learn to read:
+
+<CardGrid>
+  <Card title="Rhizomorphic">
+    Stringy, root-like, fast, defined strands. Generally correlates with vigor and strong colonization — usually what you select *for* in gourmet/active strains.
+  </Card>
+  <Card title="Tomentose (fluffy)">
+    Cottony, aerial, cloud-like growth. Not inherently bad — some species and many wild strains are naturally tomentose — but in species that *should* be rhizomorphic, a drift toward fluff can signal aging or off-type genetics.
+  </Card>
+</CardGrid>
+
+<Aside type="tip">Morphology is species-specific. A fluffy plate is normal for some fungi and a warning sign in others. Learn what *your* species looks like at its best, then select toward that.</Aside>
+
+## Storing plates
+
+A clean, sealed plate stays viable for **weeks to a few months** in the fridge. For longer storage, move to slants or a master library.
+
+- **Short term:** seal colonized plates with a strip of micropore tape or paraffin film, store **inverted at 4 °C (fridge)**. Most mesophilic strains pause growth cold and resume when warmed. Label every plate.
+- **Avoid the freezer** for plain agar plates — ice crystals rupture cells and water condenses. Long-term preservation uses slants under sterile mineral oil, or proper cryo methods, both beyond this tek.
+- **Rotate your stock.** Keep one cold **master plate** untouched and only ever cut from working subcultures. Re-isolate from the master every few generations to reset vigor before senescence creeps in.
+
+<Aside type="caution">Cold-storing a contaminated plate just slows the contam — it does not kill it. Only bank plates you are confident are clean.</Aside>
+
+For prints, syringes, slants, and long-term banking, continue here.
+
+<LinkButton href="/docs/lab/cultures-and-storage">Spore Prints, Syringes &amp; Culture Storage</LinkButton>
+
+---
+
+### Where this fits in the workflow
+
+<CardGrid>
+  <Card title="Before">
+    <LinkButton href="/docs/lab/sterile-technique" variant="minimal">Sterile Technique</LinkButton>
+    <LinkButton href="/docs/cultivation/pasteurization-sterilization" variant="minimal">Sterilization</LinkButton>
+  </Card>
+  <Card title="After">
+    <LinkButton href="/docs/lab/liquid-culture" variant="minimal">Liquid Culture</LinkButton>
+    <LinkButton href="/docs/cultivation/grain-spawn" variant="minimal">Grain Spawn</LinkButton>
+  </Card>
+</CardGrid>
+
+Clean media, edge transfers, and ruthless selection are the whole game. Master agar and everything downstream — [bulk substrate](/docs/cultivation/bulk-substrate), [fruiting](/docs/cultivation/fruiting-and-monotubs) — gets dramatically easier and cleaner. New to all of this? The [PF-Tek](/docs/cultivation/pf-tek) is a gentler on-ramp before you commit to a full agar lab.
+

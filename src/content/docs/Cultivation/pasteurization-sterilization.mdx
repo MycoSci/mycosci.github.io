@@ -1,0 +1,226 @@
+---
+title: "Pasteurization & Sterilization"
+description: "The science of killing contaminants — pressure sterilization versus pasteurization, when to use each, and how to run a pressure cooker without hurting yourself."
+author: "MycoSci"
+pubDate: 2026-05-31
+tags:
+  - cultivation
+  - sterilization
+  - pasteurization
+  - substrate
+  - safety
+---
+
+import { Aside, Steps, Tabs, TabItem, Badge, Card, CardGrid, LinkButton } from '@astrojs/starlight/components';
+
+Every contamination problem in this hobby comes down to one question: did you kill what was on your substrate before you gave it to the mycelium? Sterilization and pasteurization are the two tools for that, and they are not interchangeable. Sterilization aims to kill **everything** — bacteria, fungi, and the heat-resistant endospores that survive boiling. Pasteurization only knocks the competition down far enough that your inoculum wins the race. This tek covers what each method kills, why, the exact temperatures and times that matter, and a hard safety section on pressure cookers — because a pressure vessel is the most dangerous thing in most home labs.
+
+<Badge text="Difficulty: Foundational" /> <Badge text="Applies to: grain, agar, bulk substrate, LC" variant="note" />
+
+Read this before you touch grain spawn, agar, or liquid culture.
+
+## The science: what actually dies, and at what temperature
+
+Heat kills microbes by denaturing their proteins and disrupting membranes. The catch is that not all life forms have the same heat tolerance, and the gap between "vegetative cells die" and "spores die" is enormous.
+
+- **Vegetative bacteria, yeasts, molds, and most fungal spores** die at moist-heat temperatures of roughly 60–80 °C held for minutes to an hour. This is the pasteurization window.
+- **Bacterial endospores** — formed by *Bacillus* and *Clostridium* species, the bane of grain culture — are the problem. A dormant endospore can survive hours of boiling at 100 °C. To reliably kill endospores you need moist heat at **121 °C**, which only happens under pressure.
+
+That 121 °C number is not arbitrary. Water boils at 100 °C at sea level; you cannot get liquid water or steam hotter than that at atmospheric pressure. Add pressure and the boiling point rises. At **15 psi above atmospheric**, water boils at about 121 °C — hot enough that endospores die in minutes instead of never. Sterilization is fundamentally a pressure problem, not a temperature dial you can crank on a stovetop.
+
+<Aside type="note">
+Moist heat (steam) is far more effective than dry heat. Steam transfers energy through the latent heat of condensation and denatures proteins through hydrolysis. Dry heat (an oven) needs about 160 °C for 2+ hours to do what a pressure cooker does at 121 °C in 90 minutes. Never try to "oven sterilize" wet grain.
+</Aside>
+
+## Sterilization: pressure cooker / autoclave at 15 psi / 121 °C
+
+This is your method for anything nutritious and fully enclosed: **grain spawn, agar media, liquid culture, and supplemented sawdust / masters mix.** Nutritious substrates feed endospores too, so anything short of true sterilization is a gamble.
+
+The target is **15 psi (about 121 °C)** held for a time that scales with load thickness and density. Times below are *after* the gauge reaches 15 psi and stabilizes, not from when you turn on the burner.
+
+| Load | Time at 15 psi |
+| --- | --- |
+| Agar media (flasks/bottles) | 20–30 min |
+| Liquid culture jars (small) | 20–30 min |
+| Grain jars (quart) | 90 min |
+| Grain bags / large jars | 90–120 min |
+| Supplemented sawdust (5 lb bag) | 2.5–4 hr |
+| Masters mix / dense bulk | 3–4 hr |
+
+<Aside type="caution">
+Grain is the load people under-cook. A dense, fully-hydrated quart of rye is a thermal core that takes real time to reach 121 °C all the way through. Run quarts a full **90 minutes at pressure**, and do not stack jars so tightly that steam cannot circulate. Under-sterilized grain is the number-one cause of bacterial blooms — see [Contamination Identification](/docs/lab/contamination-id).
+</Aside>
+
+### Process
+
+<Steps>
+
+1. Add 1.5–2 inches of water to the cooker (or per your unit's manual). Never run it dry — a dry pressure cooker can scorch, warp, and fail.
+
+2. Load jars/bags on a rack so they sit **above** the water line. Direct contact with the bottom can crack glass and impede steam.
+
+3. Lid on, vent (petcock) **open**, heat on medium-high. Let a steady stream of steam exhaust for **5–10 minutes** to purge all air. Trapped air creates cold pockets that do not reach 121 °C even if the gauge reads 15 psi.
+
+4. Close the vent. Let pressure rise to 15 psi.
+
+5. **Start your timer when the gauge hits 15 psi.** Adjust the burner to hold 15 psi steady for the full time — riding between 13 and 17 is fine; falling to zero means you start over.
+
+6. Kill the heat. Let the cooker cool and **depressurize on its own** to 0 psi. Do not force-vent grain or media (see safety).
+
+7. Only open when the gauge reads zero and the lid lock (if present) has released. Move jars to a still-air box or flow hood to cool before inoculation.
+
+</Steps>
+
+<Aside type="tip">
+A simple **pressure cooker** (stovetop, weighted or gauge) handles everything a home grower needs. A true **autoclave** is essentially a pressure cooker with better instrumentation and a bigger chamber. You do not need to buy one. What you do need is a unit rated for 15 psi with a working gauge or weight and an intact gasket.
+</Aside>
+
+## Pasteurization: hot-water and cold/lime ferment
+
+Pasteurization is for **bulk substrates that feed your fruit body but should NOT feed bacteria as richly** — straw, coco coir, hardwood-based bulk, manure. The goal is selective: knock back competitors so your already-running spawn colonizes faster than anything that survived. You are not trying for a sterile field; you are tilting the odds.
+
+<Tabs>
+
+<TabItem label="Hot-water bath">
+
+Hold the substrate submerged at **65–75 °C for 60–90 minutes.** Stay in that window:
+
+- Below 60 °C you do not kill enough competitors.
+- Above 80 °C you start cooking the substrate into something *more* nutritious and bacteria-friendly, and you waste fuel.
+
+```
+Hot-water pasteurization (straw / coir)
+1. Heat water to 70 C (use a thermometer, not a guess).
+2. Submerge substrate in a mesh bag; weight it down.
+3. Hold 65-75 C for 60-90 min, checking temp.
+4. Drain to field capacity (squeeze: a few drops, no stream).
+5. Cool to room temp before spawning.
+```
+
+</TabItem>
+
+<TabItem label="Cold / lime (high-pH) ferment">
+
+No heat. You raise pH instead, which most bacteria and molds cannot tolerate but oyster-type fungi shrug off.
+
+```
+Lime pasteurization (cold)
+1. Mix hydrated lime (calcium hydroxide) into water:
+   ~2 g per liter, target pH 12-13.
+2. Submerge substrate 12-24 hr.
+3. Drain to field capacity. No rinse needed.
+4. Spawn at room temp.
+```
+
+<Aside type="caution">
+Hydrated lime (calcium hydroxide) is caustic. It burns skin and eyes and the dry powder is hazardous to inhale. Wear gloves and eye protection, mix in a ventilated area, and never inhale the dry dust. Add lime to water slowly to limit airborne powder.
+</Aside>
+
+</TabItem>
+
+</Tabs>
+
+<Aside type="caution">
+Pasteurization is only safe to substitute for sterilization **when you spawn at a high rate** (aim for 1:3 to 1:5 spawn-to-bulk by volume) so colonized grain overwhelms survivors. It also assumes an aggressive colonizer (oysters, *Pleurotus*; *Psilocybe* on coir/manure). Slow or finicky species, and any nutritious bulk like masters mix, want full sterilization. See [Bulk Substrates](/docs/cultivation/bulk-substrate).
+</Aside>
+
+## Tyndallization: fractional sterilization without pressure
+
+If you genuinely have no pressure cooker, **tyndallization** can sterilize media by exploiting the spore life cycle. You steam at 100 °C for about 60 minutes on three consecutive days. Each steaming kills vegetative cells; between sessions, surviving spores germinate into vulnerable vegetative cells in the warm, moist medium — and the next steaming kills them.
+
+<Aside type="note">
+Tyndallization works in theory and is real microbiology, but it is **slow, fuel-hungry, and less reliable than a pressure cooker** for dense loads like grain, where heat penetration is poor and spores may not all germinate on schedule. Treat it as a stopgap for agar or LC, not a primary method. Buy a pressure cooker.
+</Aside>
+
+## When to use which
+
+<CardGrid>
+
+<Card title="Sterilize (121 °C / 15 psi)">
+Grain spawn, agar, liquid culture, supplemented sawdust, masters mix — anything nutritious or fully enclosed. Endospores must die.
+</Card>
+
+<Card title="Pasteurize (65–75 °C or lime)">
+Straw, coir, manure-based bulk for fast colonizers spawned at a high rate. Selective, not sterile.
+</Card>
+
+</CardGrid>
+
+Rule of thumb: **the more nutritious the substrate and the slower your fungus, the harder you must sterilize.** Grain is always sterilized. Plain coir for oysters can be pasteurized. Masters mix is sterilized despite being "bulk," because it is rich enough to grow bacteria.
+
+## Pressure cooker safety — read this every time
+
+<Aside type="danger">
+A pressure cooker stores a large amount of energy and must be respected. A blocked vent, a failed gasket, or a forced opening under pressure can launch the lid and spray scalding steam across the room. People are seriously burned and rooms are damaged by this every year. None of the following is optional.
+</Aside>
+
+<Steps>
+
+1. **Inspect before every run.** Check the gasket for cracks/stiffness, confirm the vent pipe and safety valve are clear (look through them), and verify the gauge or weight moves freely. Replace a hardened gasket — they are cheap.
+
+2. **Never run dry.** Always have water in the chamber. A boil-dry event can warp the vessel and cause catastrophic failure. For long sawdust runs (3+ hr), use enough water or check it periodically.
+
+3. **Never block or defeat the safety valve.** The overpressure/safety valve is your last line of defense. If it ever vents, kill the heat and let it cool fully — something is wrong.
+
+4. **Purge air fully before timing** (the 5–10 min steam exhaust). This is not just for sterility — trapped air makes pressure readings lie.
+
+5. **Do not force-cool or force-vent** a loaded cooker. Cold-shocking glass jars cracks them, and dumping pressure can boil liquid media out of containers. Let it depressurize naturally to **0 psi**.
+
+6. **Never open under pressure.** Confirm the gauge reads zero and any lid-lock has disengaged. If the lid resists, it is still pressurized — wait.
+
+7. **Use a unit rated for the pressure you are running.** Some "pressure canners" max out below 15 psi at altitude; know your unit.
+
+</Steps>
+
+<Aside type="caution">
+Keep your face and hands clear of the vent when it is exhausting steam. Steam at 121 °C condenses on skin and dumps a huge slug of latent heat — far worse than dry air at the same temperature. Open the cooled lid **away** from your face so residual steam vents past you, not into you.
+</Aside>
+
+<Aside type="danger">
+Do not improvise with open flame, alcohol burners, or torches near a pressure cooker or near pooled alcohol. Alcohol vapor ignites easily and burns with a nearly invisible flame. When you flame-sterilize tools at a still-air box or flow hood, keep the alcohol bottle capped and away from the flame, work over a non-flammable surface, and never set a burner under a venting pressure cooker.
+</Aside>
+
+## Handling contaminated or moldy substrate
+
+<Aside type="danger">
+Never open or sniff a jar or bag that has gone moldy, and never blow on it or break it apart in still air. Green/black molds such as *Aspergillus* and *Penicillium* release clouds of airborne spores; inhaling them can cause serious respiratory illness and is especially dangerous for anyone immunocompromised or with asthma. Bag suspected contaminants while still sealed, dispose of them without opening, and if you must handle an open contaminant, do it outdoors or in front of a flow hood while wearing an N95/P2 (or better) respirator. Do not re-use the substrate.
+</Aside>
+
+## Altitude adjustments
+
+Pressure cooker gauges read **gauge pressure** (above ambient), but the boiling point of water depends on **absolute** pressure. At elevation, ambient pressure is lower, so 15 psi on the gauge gives you a *lower* absolute pressure — and a *lower* temperature — than it would at sea level. You do not hit a true 121 °C.
+
+The fix: **add roughly 1 psi for every 1,000 ft (about 300 m) above sea level**, or simply run longer and target 17–18 psi if your unit allows it.
+
+| Elevation | Run at (gauge) |
+| --- | --- |
+| Sea level | 15 psi |
+| 2,000 ft (610 m) | ~16–17 psi |
+| 4,000 ft (1,220 m) | ~17–18 psi |
+| 6,000+ ft (1,800+ m) | ~18+ psi, extend time 25–50% |
+
+<Aside type="tip">
+If your cooker will not safely exceed 15 psi, compensate with **time** instead of pressure: extend grain runs by 30–50% at high elevation. Time is cheap; a burst seam is not. Never force a unit above its rated pressure to hit a temperature target.
+</Aside>
+
+## Common failure modes
+
+- **Bacterial bloom in grain (sour smell, slimy/wet patches).** Almost always under-sterilization: jars stacked too tight, timer started before reaching pressure, or under-hydrated grain creating dry cold cores. Run a full 90 min at a verified 15 psi.
+- **"Sterilized" media still contaminates.** Air was not purged, so cold pockets never hit 121 °C. Always do the 5–10 min steam exhaust. Also suspect post-sterilization handling — see [Sterile Technique](/docs/lab/sterile-technique).
+- **Pasteurized bulk goes green/black with mold.** Spawn rate too low, substrate too wet, or temperature drifted above 80 °C and made it bacteria-friendly. Raise spawn rate to 1:3–1:5 and hold 65–75 °C.
+- **Cracked jars.** Direct contact with the chamber floor, stacking weight, or thermal shock from force-cooling. Use a rack and let it cool naturally.
+- **Lime ferment still molds.** pH too low — verify you are hitting 12–13, and do not over-dilute. Drain to field capacity, not soaking wet.
+- **Liquid media boils dry / discolors.** Over-long sterilization or a too-hot ramp caramelizing sugars. Stick to 20–30 min for LC and agar; sugars degrade and can inhibit growth.
+
+## Where this fits
+
+<CardGrid>
+  <LinkButton href="/docs/cultivation/grain-spawn" variant="secondary">Grain Spawn</LinkButton>
+  <LinkButton href="/docs/cultivation/bulk-substrate" variant="secondary">Bulk Substrates</LinkButton>
+  <LinkButton href="/docs/lab/agar-work" variant="secondary">Agar Work</LinkButton>
+  <LinkButton href="/docs/lab/liquid-culture" variant="secondary">Liquid Culture</LinkButton>
+  <LinkButton href="/docs/lab/sterile-technique" variant="secondary">Sterile Technique</LinkButton>
+  <LinkButton href="/docs/lab/contamination-id" variant="secondary">Contamination ID</LinkButton>
+</CardGrid>
+
+Get heat treatment right and most contamination problems disappear before they start. Sterilize what is nutritious, pasteurize what is fast-colonized, respect the pressure vessel, and verify your numbers instead of trusting the burner.

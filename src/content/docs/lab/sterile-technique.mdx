@@ -1,0 +1,211 @@
+---
+title: "Sterile Technique & Working Clean"
+description: "The foundational mycology tek on contamination theory, clean workflow, alcohol and flame discipline, and choosing between a still air box and a flow hood."
+author: "MycoSci"
+pubDate: 2026-05-31
+tags:
+  - cultivation
+  - sterile-technique
+  - contamination
+  - lab
+  - beginner
+---
+
+import { Aside, Steps, Tabs, TabItem, Badge, Card, CardGrid, LinkButton } from '@astrojs/starlight/components';
+
+Every other tek on this site quietly assumes you can work clean. Agar, liquid culture, grain spawn, isolation — all of them are just sterile technique applied to a specific medium. Master this one page and your contamination rate drops from "most jars" to "the occasional bad batch." Skip it and you will spend months blaming bad spores, bad grain, and bad luck for what is almost always a technique problem. This is the foundation. Read it twice.
+
+<Badge text="Difficulty: Foundational" /> <Badge text="Where it fits: before everything else" />
+
+## Contamination theory: you are not making things sterile, you are losing a race
+
+There is no such thing as a sterile room, a sterile pair of hands, or sterile air. Spores and bacteria are on every surface, drifting in every cubic foot of air you breathe. What you are actually doing is **giving your target organism a head start in a nutrient-rich environment that everything else also wants.**
+
+Mycelium wins by getting there first and colonizing the substrate before competitors establish. Your entire job during inoculation and transfer is to keep competitors out for the few seconds the medium is exposed, so your culture can claim the food. Once mycelium has run the substrate, it defends its territory chemically and physically — but a fresh, uncolonized, sterilized jar of grain is the most vulnerable thing in your lab. It is sterile, warm, wet, and full of food. If anything but your culture lands on it, the contaminant can win.
+
+Internalize this: **the moment of exposure is the only moment that matters.** Lids off, needle in air, agar plate cracked open — that is the race. Everything before is preparation; everything after is just waiting to see who won.
+
+### The vectors — know your enemy
+
+The cards below cover where contamination actually comes from, roughly in order of how often each one sinks beginners.
+
+<CardGrid>
+  <Card title="Air and dust">
+    Settling spores and bacteria-laden dust are the number one vector. Still, undisturbed air drops particles onto exposed surfaces, but moving air carries far more onto them. This is why airflow control (a SAB or flow hood) exists.
+  </Card>
+  <Card title="Your hands and arms">
+    Skin sheds constantly. Bare forearms over an open jar shed skin flakes, bacteria, and the *Aspergillus* and *Penicillium* spores living on you. Gloves and 70% alcohol manage this.
+  </Card>
+  <Card title="Your breath">
+    Talking, coughing, even breathing pushes a plume of oral bacteria and droplets outward. Never exhale over open work. Turn your head; wear a mask.
+  </Card>
+  <Card title="Tools and surfaces">
+    Scalpels, needles, jar lids, and the work surface itself. Anything that touches the medium must be flamed, alcohol-wiped, or sterile out of the package.
+  </Card>
+  <Card title="The medium itself">
+    Under-sterilized grain or media. If your pressure cooker did not hit temperature and hold it, bacterial endospores survive and no amount of clean technique saves you. See pasteurization and sterilization.
+  </Card>
+  <Card title="Cross-contamination">
+    A contaminated culture or plate contaminating a clean one. Work clean-to-dirty, never the reverse, and quarantine anything suspect immediately.
+  </Card>
+</CardGrid>
+
+<Aside type="danger">
+Some of your most common contaminants — *Aspergillus* (green/black mold) and *Penicillium* — are respiratory hazards. *Aspergillus* in particular can cause serious lung infection (aspergillosis), especially for anyone immunocompromised, asthmatic, or pregnant. **Never open, sniff, or disturb a visibly molded jar in your living space.** Bag it sealed before it sporulates, dispose of it outdoors, and never blow on or dump contaminated grain into open trash indoors. When in doubt, seal it and throw it out — do not try to "clean up" a green-sporulating jar by hand.
+</Aside>
+
+## Still air box vs flow hood: pick your battlefield
+
+Airflow control is the single biggest lever on your contamination rate. There are two established approaches. You do not need both, and a beginner should start with the first.
+
+<Tabs>
+  <TabItem label="Still Air Box (SAB)">
+    A clear tote fitted with two arm holes, creating a small enclosed volume of *still* air. The principle: if the air is not moving, spores settle out and stay settled. You work inside a pocket of calm.
+
+    **Pros:** cheap (a clear tote, two cut holes), portable, silent, nothing to maintain, no filters to buy.
+
+    **Cons:** demands disciplined slow movement — any fast motion stirs settled spores back into the air. Cramped. Easy to bump things.
+
+    **Build and use:**
+    - Use a clear tote so you can see. 60-quart and up gives working room.
+    - Cut two arm holes on a long side, low, spaced shoulder-width. Smooth the edges.
+    - Wipe the entire interior with 70% isopropyl and let it sit closed for a few minutes before working so airborne particles settle.
+    - Move **slowly and deliberately.** No sudden gestures. Keep your arms in once you start.
+
+    A SAB is the right call for nearly every hobbyist. It is genuinely effective for inoculation, grain-to-grain transfers, and most agar work.
+  </TabItem>
+  <TabItem label="Laminar Flow Hood">
+    A HEPA-filtered fan that pushes a smooth (laminar) sheet of particle-free air *out* toward you, continuously sweeping contaminants away from your work. You work in front of it, in the clean airstream.
+
+    **Pros:** the gold standard. You can move normally and even work with the lids fully off because clean air constantly blankets the field. Far faster throughput. Forgiving of minor technique errors.
+
+    **Cons:** expensive (a true HEPA filter is the cost), bulky, needs a properly sized blower matched to the filter, and the filter is fragile and must never be touched or sprayed.
+
+    **Use:**
+    - Position all work **downstream** of the filter — between the filter and your body, never reaching back upstream of an open container.
+    - Run the hood several minutes before working to purge the field.
+    - Keep tall items from blocking flow to shorter open containers (this creates turbulent dead zones).
+    - Never spray alcohol *into* the filter face. Wipe the table, not the HEPA.
+  </TabItem>
+</Tabs>
+
+<Aside type="tip">
+Beginner path: build a SAB first. It costs almost nothing, teaches you slow clean movement, and will carry you through PF-tek, liquid culture, grain spawn, and basic agar. Buy a flow hood only when throughput — not contamination — becomes your bottleneck.
+</Aside>
+
+## The clean workflow
+
+Order of operations matters more than any single product. Here is the sequence that wins the race.
+
+<Steps>
+
+1. **Stage everything first.** Gather every jar, syringe, tool, and lighter before you start. Once your hands are clean and you are working in the SAB, you should never have to leave to grab something. Plan the whole session.
+
+2. **Clean the room, then yourself.** Wipe down surfaces. Reduce air movement — close windows, turn off fans and HVAC for a few minutes so dust settles. Shower or at least wash hands and forearms thoroughly. Wear clean clothes; tie back hair; put on a mask.
+
+3. **Sanitize the space.** Wipe the SAB interior or flow-hood table with 70% isopropyl. Let particles settle for a few minutes (SAB) or let the hood purge (flow).
+
+4. **Glove up and wipe down.** Nitrile gloves, then spray gloved hands with 70% iso and rub them together. Wipe every item going into the work zone — jar lids, syringe barrels, the outside of media bags.
+
+5. **Work clean-to-dirty, lids off for the minimum time.** Expose the medium only at the instant of transfer. Flame or alcohol your tool, let it cool, make the transfer, re-cover immediately. Re-flame between every plate or jar.
+
+6. **One thing at a time.** Never have two open vulnerable containers competing for the same airspace longer than necessary. Inoculate, seal, set aside, move to the next.
+
+7. **Re-sterilize on every cycle.** Re-wipe gloves and re-flame the needle or scalpel before each new transfer. Discipline degrades over a long session — let the routine carry you.
+
+8. **Label and incubate.** Date and ID everything immediately. An unlabeled jar three weeks later is a useless jar. See cultures and storage for record-keeping.
+
+</Steps>
+
+## Alcohol, flame, and glove discipline
+
+These three are your active defenses. Used correctly they are decisive; used carelessly they give false confidence — or start fires.
+
+### Alcohol — use 70%, not 99%
+
+Counterintuitive but important: **70% isopropyl alcohol kills better than 91% or 99%.** The water content lets the alcohol penetrate cell walls and denature proteins instead of flash-evaporating and fixing a protective shell. It also stays wet longer, giving real contact time. Buy 70% IPA for surface and glove wiping. Reserve high-proof alcohol for flame-sterilizing tools and for dip-and-flame, not for wiping.
+
+Wipe surfaces and let them air dry; the kill happens during the wet contact time, not after.
+
+### Flame — for tools and tube/jar mouths
+
+A torch lighter, alcohol lamp, or small butane burner. Heat the working end of a scalpel or inoculation needle until it glows dull red, then **let it cool** before it touches the medium — a red-hot needle in agar or grain will kill your tissue and can spit live spores and debris everywhere as it sizzles. Pass jar and tube mouths through the flame briefly when opening and before re-capping. Flame between every single transfer.
+
+<Aside type="danger">
+Alcohol and open flame together are a real fire hazard, and it is how people get hurt in this hobby. **Never flame a tool while it is wet with alcohol near the bottle, your gloves, or pooled spray.** Alcohol vapor and runoff ignite easily — the flame can be nearly invisible — and it travels. Cap the alcohol and move it well aside before you strike a flame. Do not run an open flame inside a sealed still air box full of alcohol vapor; wipe, let it dry and dissipate, then introduce the flame. Keep long hair and loose sleeves clear. Have a way to smother a flare-up (a damp towel or fire blanket) within reach, and never use an open flame near a HEPA filter or its airstream.
+</Aside>
+
+### Gloves — clean, not magic
+
+Nitrile gloves do not make your hands sterile; they make your hands *wipeable*. Their value is that you can spray and rub them with 70% iso repeatedly without drying out and cracking your skin. Re-wipe gloves every time they touch a non-sterile surface and at the start of each transfer cycle. Bare forearms are a major shedding vector — long sleeves or sleeve covers help in a SAB.
+
+## Airflow, breath, and the dead-air discipline
+
+In a SAB, the rule is **slow.** Settled spores are harmless on the floor of the tote; a fast hand sweep lofts them right back into your open jar. Move like you are underwater. In a flow hood, the opposite — the hood handles the air, but you must keep your open containers in the clean stream and never reach upstream of them.
+
+Regardless of setup: **do not breathe on your work.** Turn your head to talk or cough, and wear a mask so your exhaled plume of oral flora does not settle onto exposed agar. Keep your face back and to the side of the open field, never directly above it.
+
+## Common mistakes that sink beginners
+
+<CardGrid>
+  <Card title="Blaming the spores">
+    A whole batch contaminating identically is almost always under-sterilized substrate or a technique gap — not a bad syringe. Audit your process before your supplier.
+  </Card>
+  <Card title="Fast movement in a SAB">
+    The single most common SAB error. Stirring settled air defeats the entire purpose. Slow down.
+  </Card>
+  <Card title="Lids off too long">
+    Every extra second of exposure is extra race time for contaminants. Open, transfer, close. Do not leave a jar gaping while you fumble for the next tool.
+  </Card>
+  <Card title="Using 99% to wipe">
+    High-proof flash-evaporates without real contact time. Wipe with 70%.
+  </Card>
+  <Card title="Skipping the settle time">
+    Spraying the SAB and immediately working leaves alcohol-lofted dust airborne. Wait a few minutes.
+  </Card>
+  <Card title="Red-hot tool into the medium">
+    Spits live spores and kills your tissue. Flame, then cool, then cut.
+  </Card>
+  <Card title="Working tired or rushed">
+    Discipline is the whole game. A rushed session at midnight is how a clean lab gets a contam streak. Stop when sloppy.
+  </Card>
+  <Card title="Not sealing the contam fast">
+    A green jar left open in your space seeds the next ten batches. Bag it sealed the moment you spot it.
+  </Card>
+</CardGrid>
+
+<Aside type="caution">
+Sterile technique protects your *cultures*. It does not protect *you* from misidentification. Nothing in this tek makes a mushroom safe to eat. **Never consume any fungus you have not positively identified** — and never rely on lab cleanliness as if it were an identification. Clean lab work and edibility are entirely separate questions.
+</Aside>
+
+## Where to go next
+
+You now have the foundation. Apply it to a specific medium:
+
+<CardGrid>
+  <Card title="Make sure your substrate is actually sterile">
+    Technique cannot save under-sterilized grain. Get the pressure cooker right first.
+
+    <LinkButton href="/docs/cultivation/pasteurization-sterilization">Pasteurization and Sterilization</LinkButton>
+  </Card>
+  <Card title="Start simple">
+    The beginner method to put these habits into practice with minimal gear.
+
+    <LinkButton href="/docs/cultivation/pf-tek">PF-Tek: The Beginner Method</LinkButton>
+  </Card>
+  <Card title="Work with cultures">
+    Plates, isolation, and the cleanest expression of this technique.
+
+    <LinkButton href="/docs/lab/agar-work">Agar Work</LinkButton>
+  </Card>
+  <Card title="Scale up">
+    Liquid culture and grain spawn both live or die on what you learned here.
+
+    <LinkButton href="/docs/lab/liquid-culture">Liquid Culture</LinkButton>
+  </Card>
+</CardGrid>
+
+When something does go wrong — and it will — learn to read it: see [Contamination Identification](/docs/lab/contamination-id). To preserve the clean cultures you fought for, see [Spore Prints, Syringes and Culture Storage](/docs/lab/cultures-and-storage). And once jars are colonized, move on to [Grain Spawn](/docs/cultivation/grain-spawn), [Bulk Substrates](/docs/cultivation/bulk-substrate), and [Fruiting Conditions and the Monotub](/docs/cultivation/fruiting-and-monotubs).
+
+*Work clean, move slow, expose nothing longer than you must. Win the race.*
+
