@@ -1,0 +1,61 @@
+{
+  "slug": "cortinarius-rubellus",
+  "edibility": "deadly",
+  "edibilityNotes": "DEADLY POISONOUS. Contains orellanine, a nephrotoxin that causes delayed-onset kidney failure. Symptoms are dangerously delayed: there are typically NO acute gastrointestinal symptoms in the usual hunting-and-eating window, and the first signs (thirst, frequent urination, headache, flank/kidney pain, nausea) often appear only ~2 days to 3 weeks after ingestion, by which time severe and frequently irreversible renal damage has occurred. Many victims have required dialysis or kidney transplantation. There is no specific antidote. Never consume any Cortinarius-type (cobweb-veiled) mushroom. Seek emergency medical care immediately if ingestion is suspected, even in the absence of symptoms.",
+  "description": "Cortinarius rubellus, the Deadly Webcap, is a deadly poisonous mushroom of conifer and boggy woodland, formerly widely known under the name Cortinarius speciosissimus. It produces a conical to convex orange-brown to rusty tawny cap, often with a pointed central umbo, with a similarly colored stem and a fibrous cobweb-like partial veil (cortina) typical of the genus. The spore print is rusty brown. Its danger lies in the toxin orellanine, which damages the kidneys and produces a long, deceptive latency period between ingestion and the onset of symptoms. It has caused serious and fatal poisonings, including cases where foragers mistook it for edible mushrooms.",
+  "vernacularNames": [
+    {
+      "lang": "en",
+      "name": "Deadly Webcap"
+    }
+  ],
+  "capColor": [
+    "orange-brown",
+    "rusty brown",
+    "tawny"
+  ],
+  "sporePrintColor": "rusty brown",
+  "trophicMode": "ectomycorrhizal",
+  "habitat": [
+    "coniferous woodland",
+    "boggy woodland",
+    "mossy ground under conifers"
+  ],
+  "substrate": [
+    "soil"
+  ],
+  "hosts": [
+    "conifers"
+  ],
+  "fruitingSeason": [
+    "summer",
+    "autumn"
+  ],
+  "preparation": "not-applicable",
+  "notableCompounds": [
+    "orellanine"
+  ],
+  "dangerousLookalikes": [
+    {
+      "name": "Chanterelle (Cantharellus cibarius)",
+      "note": "Edible chanterelles have been confused with webcaps in documented poisonings, but chanterelles have blunt forking false gills (ridges) running down the stem, a pale to egg-yellow color, a fruity apricot smell, a white/pale spore print, and no cobweb veil.",
+      "slug": "cantharellus-cibarius"
+    },
+    {
+      "name": "Cortinarius orellanus (Fool's Webcap)",
+      "note": "Another deadly orellanine-containing webcap with the same delayed kidney-failure syndrome; favors broadleaf woodland rather than the conifer/bog habitat of C. rubellus.",
+      "slug": "cortinarius-orellanus"
+    }
+  ],
+  "references": [
+    {
+      "title": "Cortinarius rubellus - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Cortinarius_rubellus"
+    },
+    {
+      "title": "Orellanine - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Orellanine"
+    }
+  ],
+  "lastReviewed": "2026-05-31"
+}

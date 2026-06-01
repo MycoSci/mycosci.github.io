@@ -1,0 +1,75 @@
+{
+  "slug": "russula-emetica",
+  "edibility": "toxic",
+  "year": 1774,
+  "description": "Russula emetica, commonly known as The Sickener, is a brittle-fleshed red-capped mushroom of damp conifer woods and Sphagnum bogs. It has a bright scarlet to cherry-red cap (fading to pink or orange with age or weather) whose cuticle peels readily, white to cream gills, a white stem, and a white to yellowish-white spore print. The raw flesh is intensely acrid and peppery. As with many Russula species, the flesh is granular and brittle, snapping like chalk rather than tearing fibrously. It is regarded as toxic: eaten raw or inadequately cooked it causes gastrointestinal upset (nausea, vomiting, diarrhoea, colicky cramps), giving rise to its common name. Although some red Russulas are mild and edible, R. emetica's acrid taste and emetic effects mark it as one to avoid; confident identification of the genus to species by colour alone is unreliable, so all acrid red Russulas are best treated with caution.",
+  "authorship": "(Schaeff.) Pers.",
+  "vernacularNames": [
+    {
+      "lang": "en",
+      "name": "The Sickener"
+    },
+    {
+      "lang": "en",
+      "name": "Emetic Russula"
+    },
+    {
+      "lang": "en",
+      "name": "Vomiting Russula"
+    }
+  ],
+  "capColor": [
+    "red",
+    "scarlet",
+    "crimson",
+    "pink-red"
+  ],
+  "sporePrintColor": "white to yellowish-white",
+  "trophicMode": "ectomycorrhizal",
+  "habitat": [
+    "coniferous woodland",
+    "Sphagnum bogs",
+    "damp acidic ground under conifers"
+  ],
+  "substrate": [
+    "soil"
+  ],
+  "hosts": [
+    "Pinus",
+    "conifers"
+  ],
+  "fruitingSeason": [
+    "summer",
+    "autumn"
+  ],
+  "distribution": "Widespread across the Northern Hemisphere in Europe, Asia and North Africa. The extent of its range in North America is uncertain, as many records there refer to related red-capped white-spored species such as Russula silvicola.",
+  "preparation": "none",
+  "edibilityNotes": "Toxic when raw or poorly cooked. The raw flesh is intensely acrid and peppery and causes gastrointestinal distress (nausea, vomiting, diarrhoea, colicky cramps), typically beginning 30 minutes to 3 hours after ingestion. Symptoms are generally short-lived and not life-threatening, but the species should not be eaten. Historically it was parboiled or pickled (which is said to remove the acrid taste and toxins) and eaten in parts of eastern Europe and Russia, but consumption is not recommended. Because many red Russulas look alike and species-level identification by cap colour is unreliable, all acrid red Russulas should be avoided.",
+  "notableCompounds": [
+    "sesquiterpenes",
+    "lactarorufin A",
+    "furandiol",
+    "methoxyfuranalcohol"
+  ],
+  "dangerousLookalikes": [
+    {
+      "name": "Russula nobilis (Beechwood Sickener)",
+      "note": "A similarly acrid, toxic red Russula associated with beech; shares the emetic gastrointestinal effects and is easily confused with R. emetica."
+    },
+    {
+      "name": "Russula sanguinaria (Bloody Brittlegill)",
+      "note": "Another red, acrid, toxic Russula of conifer woods (often with a reddish flush on the stem); distinguishing red Russulas to species is difficult and several share the acrid, emetic character."
+    },
+    {
+      "name": "Edible mild red Russulas (e.g. Russula paludosa)",
+      "note": "Some red-capped Russulas are mild-tasting and edible, but separating them from acrid species like R. emetica requires a careful taste test and microscopy; do not rely on cap colour alone."
+    }
+  ],
+  "references": [
+    {
+      "title": "Russula emetica - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Russula_emetica"
+    }
+  ],
+  "lastReviewed": "2026-05-31"
+}

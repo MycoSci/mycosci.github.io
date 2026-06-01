@@ -1,0 +1,83 @@
+{
+  "slug": "panaeolus-cyanescens",
+  "edibility": "psychoactive",
+  "authorship": "(Berk. & Broome) Sacc.",
+  "year": 1887,
+  "description": "Panaeolus cyanescens, commonly called Blue Meanie, is a potent psilocybin- and psilocin-containing mushroom of tropical and subtropical pastures. It is coprophilous, fruiting on dung, with a pale grey to brownish cap that often cracks when dry, strong blue-green bruising, and a black spore print. It is psychoactive and controlled in many jurisdictions; its main danger is confusion with small brown dung/grassland mushrooms, some of which are deadly.",
+  "vernacularNames": [
+    {
+      "lang": "en",
+      "name": "Blue Meanie"
+    },
+    {
+      "lang": "en",
+      "name": "Pan Cyan"
+    }
+  ],
+  "capColor": [
+    "grey",
+    "light brown",
+    "off-white",
+    "yellowish"
+  ],
+  "sporePrintColor": "black",
+  "trophicMode": "saprotroph",
+  "substrate": [
+    "dung",
+    "manure"
+  ],
+  "habitat": [
+    "pasture",
+    "grassland",
+    "tropical and subtropical regions"
+  ],
+  "hosts": [],
+  "fruitingSeason": [
+    "year-round"
+  ],
+  "distribution": "Pantropical and subtropical distribution; found in suitable warm, humid regions worldwide including the southern United States, Central and South America, the Caribbean, parts of Europe, Africa, Asia, and Australia.",
+  "notableCompounds": [
+    "psilocybin",
+    "psilocin",
+    "baeocystin",
+    "serotonin",
+    "urea"
+  ],
+  "edibilityNotes": "Psychoactive — contains psilocybin and psilocin, often at high potency. Not consumed as food. Psilocybin and psilocin are controlled substances in many countries, making possession and cultivation illegal in numerous jurisdictions. Effects include marked alterations in perception, mood, and cognition; risks include nausea, anxiety, and dangerous misidentification. The greatest hazard is confusion with small brown dung- or grassland-dwelling mushrooms (\"LBMs\"), some of which are deadly poisonous (e.g. amatoxin-containing Conocybe and Galerina). Strong blue-green bruising and a black spore print are key but not foolproof field characters; never consume any wild mushroom without expert verification.",
+  "preparation": "not-applicable",
+  "dangerousLookalikes": [
+    {
+      "name": "Conocybe filaris",
+      "slug": "conocybe-filaris",
+      "note": "Small grassland/lawn mushroom containing deadly amatoxins (the same toxins as the death cap). Has a rusty- to cinnamon-brown spore print, a movable ring on the stem, and does not bruise blue. Amatoxin poisoning causes delayed (6–24 h) onset, deceptive recovery, then potentially fatal liver and kidney failure."
+    },
+    {
+      "name": "Galerina species",
+      "slug": "galerina-marginata",
+      "note": "Small brown mushrooms; several (e.g. Galerina marginata) contain deadly amatoxins. Typically grow on wood/moss rather than dung, have a rusty-brown spore print (not black), a ring, and do not bruise blue. Amatoxin toxicity is delayed and can be fatal."
+    },
+    {
+      "name": "Other Panaeolus species",
+      "note": "Several Panaeolus species share the dung habitat, dark spore print, and small grey-brown caps. Some contain psilocybin and some do not; potency and legality vary. Strong blue bruising is more pronounced in P. cyanescens."
+    }
+  ],
+  "references": [
+    {
+      "title": "Panaeolus cyanescens — Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Panaeolus_cyanescens"
+    },
+    {
+      "title": "Psilocybin mushroom — Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Psilocybin_mushroom"
+    },
+    {
+      "title": "Panaeolus cyanescens — GBIF",
+      "url": "https://www.gbif.org/species/268612454"
+    },
+    {
+      "title": "Stijve, T. (1992). Psilocin, psilocybin, serotonin and urea in Panaeolus cyanescens from various origin",
+      "url": "https://repository.naturalis.nl/pub/532101"
+    }
+  ],
+  "lastReviewed": "2026-05-31"
+}

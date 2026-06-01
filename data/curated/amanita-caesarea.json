@@ -1,0 +1,79 @@
+{
+  "slug": "amanita-caesarea",
+  "edibility": "edible",
+  "description": "Amanita caesarea, Caesar's Mushroom, is a large, striking agaric prized as a choice edible since Roman times (its Latin name references the Caesars). It produces a smooth, bright orange to orange-red cap (typically 8-15 cm, occasionally to 20 cm) that is hemispherical when young and expands to broadly convex or flat, usually with a faintly striate margin. Unlike most Amanita, the cap is smooth and generally free of the white universal-veil warts seen in the fly agaric. The free gills, stem, and ring are a distinctive lemon to golden yellow, and the white, sac-like, membranous volva (cup) enclosing the base is large and persistent. The young fruitbody emerges from a white \"egg\" of universal veil tissue. It is ectomycorrhizal, associating chiefly with oak (Quercus) and chestnut, fruiting in warm summer and autumn weather, and is native to southern Europe and parts of North Africa and western Asia; similar but distinct related taxa (e.g. A. jacksonii) occur in North America and Asia. CRITICAL SAFETY NOTE: A. caesarea can be confused by inexperienced foragers with the toxic fly agaric, Amanita muscaria, which has a red to orange cap studded WITH white warts and WHITE gills and stem. Because the genus Amanita also contains the world's deadliest mushrooms (the amatoxin-bearing death cap and destroying angels), no Amanita should ever be eaten without confident genus- and species-level identification by an expert. The combination of a smooth orange cap, yellow gills/stem/ring, and a white sac-like volva is the key diagnostic for A. caesarea.",
+  "vernacularNames": [
+    {
+      "lang": "en",
+      "name": "Caesar's Mushroom"
+    },
+    {
+      "lang": "it",
+      "name": "Ovolo buono"
+    },
+    {
+      "lang": "fr",
+      "name": "Oronge"
+    },
+    {
+      "lang": "es",
+      "name": "Oronja"
+    },
+    {
+      "lang": "de",
+      "name": "Kaiserling"
+    }
+  ],
+  "capColor": [
+    "orange",
+    "orange-red"
+  ],
+  "sporePrintColor": "white",
+  "trophicMode": "ectomycorrhizal",
+  "habitat": [
+    "broadleaf woodland",
+    "oak woodland",
+    "chestnut woodland",
+    "warm temperate and Mediterranean forests"
+  ],
+  "hosts": [
+    "Quercus (oak)",
+    "Castanea (chestnut)"
+  ],
+  "substrate": [
+    "soil"
+  ],
+  "fruitingSeason": [
+    "summer",
+    "autumn"
+  ],
+  "distribution": "Native to southern Europe (notably Italy, the Balkans, Iberia, southern France) and extending into North Africa and western Asia; favours warm, often Mediterranean climates. Historically reported more widely, but several similar populations in North America and Asia are now recognised as separate species (e.g. A. jacksonii).",
+  "preparation": "cook",
+  "edibilityNotes": "A highly regarded choice edible, traditionally eaten cooked and sometimes the young \"eggs\" sliced raw in salads in parts of Italy. However, because of the severe danger of confusing any Amanita with deadly amatoxin-containing species (death cap, destroying angels) or with the toxic Amanita muscaria, only foragers with confident genus- and species-level expertise should ever consume it. Key field marks: smooth orange cap (no white warts), yellow free gills/stem/ring, white sac-like volva, white spore print.",
+  "dangerousLookalikes": [
+    {
+      "name": "Amanita muscaria",
+      "slug": "amanita-muscaria",
+      "note": "Fly agaric: red to orange cap studded WITH white/cream warts, and WHITE gills, stem, and ring (not yellow). Toxic (ibotenic acid/muscimol), causing delirium and GI distress. The white warts and white gills are the decisive differences from the smooth-capped, yellow-gilled A. caesarea."
+    },
+    {
+      "name": "Amanita phalloides",
+      "slug": "amanita-phalloides",
+      "note": "Death cap: DEADLY amatoxin mushroom with a greenish to olive or yellowish cap, WHITE gills, white stem with ring and a sac-like volva. Some pale-yellow forms could mislead. Causes delayed-onset (typically 6-24 h) symptoms followed by potentially fatal liver and kidney failure. No Amanita should be eaten without expert ID."
+    },
+    {
+      "name": "Amanita pantherina",
+      "slug": "amanita-pantherina",
+      "note": "Panther cap: brown to tan cap with white warts, white gills/stem/ring, and a rimmed volva. Toxic (ibotenic acid/muscimol), more potent than fly agaric. Distinguished from A. caesarea by warted cap, white (not yellow) gills, and lack of the smooth orange cap with persistent sac-like volva."
+    }
+  ],
+  "references": [
+    {
+      "title": "Amanita caesarea - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Amanita_caesarea"
+    }
+  ],
+  "authorship": "(Scop.) Pers.",
+  "year": 1801,
+  "lastReviewed": "2026-05-31"
+}

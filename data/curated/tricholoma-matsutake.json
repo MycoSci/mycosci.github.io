@@ -1,0 +1,78 @@
+{
+  "slug": "tricholoma-matsutake",
+  "edibility": "edible",
+  "preparation": "cook",
+  "description": "Tricholoma matsutake, the matsutake or pine mushroom, is a choice and highly prized ectomycorrhizal mushroom renowned in Japanese and broader East Asian cuisine. It produces a robust, firm fruitbody with a brown, dry, fibrillose-to-scaly cap that expands from convex to flat, often with the margin remaining inrolled when young. The white, crowded gills are notched (sinuate/adnexed) and attached, and the stout white stipe bears a prominent membranous ring, above which the surface is white and below which it is sheathed with brownish fibrils/scales. The flesh is thick, firm, and white. Its most distinctive feature is a strong, spicy-aromatic odor often described as a mix of cinnamon and sweaty socks. It fruits on the ground in association with pine and other conifers, frequently forming partial rings (\"shiro\") in well-drained, often nutrient-poor soils. Because of declining harvests and habitat loss, matsutake commands extremely high market prices, and the species has been assessed as Vulnerable on the IUCN Red List.",
+  "vernacularNames": [
+    {
+      "lang": "en",
+      "name": "Matsutake"
+    },
+    {
+      "lang": "en",
+      "name": "Pine mushroom"
+    },
+    {
+      "lang": "ja",
+      "name": "松茄 (matsutake)"
+    }
+  ],
+  "capColor": [
+    "brown",
+    "reddish-brown",
+    "tan"
+  ],
+  "sporePrintColor": "white",
+  "trophicMode": "ectomycorrhizal",
+  "hosts": [
+    "Pinus (pine)",
+    "conifers"
+  ],
+  "habitat": [
+    "coniferous forest",
+    "pine forest",
+    "well-drained nutrient-poor soils"
+  ],
+  "substrate": [
+    "soil"
+  ],
+  "distribution": "East Asia, especially Japan, Korea, and China; also reported from parts of northern Europe and the Nordic region. North American pine mushrooms once attributed to this species are now generally treated under the related taxon Tricholoma murrillianum / the T. magnivelare complex.",
+  "fruitingSeason": [
+    "autumn"
+  ],
+  "edibilityNotes": "Choice, highly prized edible valued for its distinctive spicy-aromatic fragrance; typically cooked simply (grilled, in rice, or in clear soup) to preserve the aroma. The critical safety concern is misidentification. In North America especially, the deadly nephrotoxic lookalike Amanita smithiana fruits in the same conifer forests at the same season and at a similar size, and has caused real poisonings among matsutake foragers, producing severe delayed-onset kidney failure (renal injury appearing days after ingestion). Before consuming, always confirm the diagnostic spicy odor, the notched/attached (not free) white gills, and the absence of a volva or bulbous/swollen base. If any of these cannot be confirmed, do not eat.",
+  "dangerousLookalikes": [
+    {
+      "name": "Amanita smithiana",
+      "slug": "amanita-smithiana",
+      "note": "CRITICAL North American lookalike. Nephrotoxic (allenic norleucine), causing early GI symptoms followed by delayed-onset renal failure days later, often requiring dialysis. Distinguished by free gills (not notched/attached), a swollen/bulbous to rooting base sometimes with volval remnants, and the lack of the matsutake spicy-aromatic odor."
+    },
+    {
+      "name": "Amanita silvicola",
+      "note": "White North American conifer-associated Amanita that can be mistaken for a pale pine mushroom; lacks the matsutake odor and has free gills and a swollen/volval base. Treat as toxic/avoid."
+    },
+    {
+      "name": "Catathelasma species",
+      "note": "Robust pine-associated mushrooms that can superficially resemble matsutake but have decurrent gills and a double ring, and lack the strong spicy matsutake odor. Not the deadly concern, but a common point of confusion."
+    }
+  ],
+  "references": [
+    {
+      "title": "Tricholoma matsutake — Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Tricholoma_matsutake"
+    },
+    {
+      "title": "Matsutake — Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Matsutake"
+    },
+    {
+      "title": "Amanita smithiana — Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Amanita_smithiana"
+    },
+    {
+      "title": "Tricholoma matsutake (S. Ito & S. Imai) Singer — GBIF",
+      "url": "https://www.gbif.org/species/5241820"
+    }
+  ],
+  "lastReviewed": "2026-05-31"
+}

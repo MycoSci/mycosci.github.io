@@ -1,0 +1,74 @@
+{
+  "slug": "tricholoma-equestre",
+  "edibility": "toxic",
+  "description": "Tricholoma equestre (Man on Horseback or Yellow Knight) is a medium-sized, fleshy agaric with a yellow to greenish-yellow cap, sulphur-yellow gills, and a pale yellow stem, typically fruiting in autumn on sandy soil in coniferous (especially pine) woodland. The cap is sticky when moist and often becomes finely scaly or fibrillose toward the centre, frequently with adhering sand. The flesh has a mealy (farinaceous) smell and the spore print is white. Long regarded across Europe as a choice edible, it has since the late 1990s/early 2000s been reclassified as toxic: repeated large meals over consecutive days have been linked to delayed-onset rhabdomyolysis (breakdown of skeletal muscle), in some cases progressing to severe muscle pain, dark urine, cardiac and respiratory complications, and death. Because the responsible toxin(s) and toxic dose are not fully characterized and severity appears tied to cumulative consumption, it should not be eaten.",
+  "vernacularNames": [
+    {
+      "lang": "en",
+      "name": "Man on Horseback"
+    },
+    {
+      "lang": "en",
+      "name": "Yellow Knight"
+    },
+    {
+      "lang": "de",
+      "name": "Grünling"
+    },
+    {
+      "lang": "fr",
+      "name": "Bidaou"
+    }
+  ],
+  "capColor": [
+    "yellow",
+    "greenish-yellow"
+  ],
+  "sporePrintColor": "white",
+  "trophicMode": "ectomycorrhizal",
+  "habitat": [
+    "coniferous woodland",
+    "pine forest",
+    "sandy soil"
+  ],
+  "substrate": [
+    "soil"
+  ],
+  "hosts": [
+    "Pinus"
+  ],
+  "fruitingSeason": [
+    "autumn"
+  ],
+  "distribution": "Widespread across temperate Europe and reported in North America; associated with conifers, particularly pines on sandy soils.",
+  "edibilityNotes": "Historically prized as a choice edible (often under the synonym Tricholoma flavovirens), but now regarded as toxic. Repeated, large consumption over consecutive days has been associated with delayed-onset rhabdomyolysis (muscle breakdown), with documented serious poisonings and fatalities in Europe. The responsible toxin(s) and a safe threshold are not well characterized. Not recommended for consumption; treat as toxic.",
+  "preparation": "none",
+  "dangerousLookalikes": [
+    {
+      "name": "Tricholoma sulphureum",
+      "slug": "tricholoma-sulphureum",
+      "note": "Sulphur Knight; also yellow but has a distinctive unpleasant coal-gas/sulphur smell rather than a mealy odour, and is itself inedible/mildly toxic."
+    },
+    {
+      "name": "Tricholoma sejunctum",
+      "slug": "tricholoma-sejunctum",
+      "note": "Deceiving Knight; similar yellowish-green streaked cap but typically whiter gills and a more radially streaked cap; easily confused and best avoided."
+    },
+    {
+      "name": "Amanita phalloides",
+      "slug": "amanita-phalloides",
+      "note": "Death Cap; deadly. Its greenish-yellow cap can superficially resemble T. equestre, but Amanita has white gills, a membranous ring, and a basal volva (sac); causes delayed-onset, potentially fatal amatoxin poisoning."
+    },
+    {
+      "name": "Cortinarius species",
+      "note": "Some yellow/greenish-yellow webcaps (e.g. Cortinarius spp.) can resemble it, but have rusty-brown spore prints and a cortina (cobwebby partial veil); several are dangerously toxic (orellanine, delayed kidney failure)."
+    }
+  ],
+  "references": [
+    {
+      "title": "Tricholoma equestre — Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Tricholoma_equestre"
+    }
+  ],
+  "lastReviewed": "2026-05-31"
+}

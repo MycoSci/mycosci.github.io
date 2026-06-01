@@ -1,0 +1,75 @@
+{
+  "slug": "conocybe-filaris",
+  "edibility": "deadly",
+  "description": "Conocybe filaris (now generally treated as a synonym of Pholiotina rugosa / Pholiotina filaris) is a small, deadly poisonous \"little brown mushroom\" (LBM) widespread in lawns, gardens, and grassy or mossy ground. It is one of the few amatoxin-containing mushrooms outside the genus Amanita: it produces cyclopeptide amatoxins (alpha-amanitin and related compounds) of the same class found in the death cap (Amanita phalloides). The fruit body is small and unassuming — a conic to convex, ochre-brown to cinnamon-brown cap a few centimeters across, often somewhat wrinkled or rugose, on a slender stem. A key field feature is the persistent membranous ring (annulus) on the stalk, which is often movable and may be striate above; the ring frequently becomes dusted rust-brown by falling spores. The gills mature to rusty cinnamon-brown, and the spore print is rust-brown (a useful separator from white-spored Amanitas and from purple-brown-spored Psilocybe). Because it is small, brown, and grows in the same disturbed grassy habitats frequented by lawn mushrooms and by foragers seeking psilocybin species, it is dangerously easy to overlook or misidentify. Poisoning follows the classic amatoxin pattern: a deceptive latency of roughly 6–24 hours with no symptoms, then severe gastrointestinal illness, an apparent recovery phase, and progression to potentially fatal liver (and kidney) failure. There is no household preparation that renders it safe; cooking, drying, and parboiling do not destroy amatoxins. Any suspected ingestion is a medical emergency requiring immediate hospital evaluation.",
+  "vernacularNames": [
+    {
+      "lang": "en",
+      "name": "Deadly Conocybe"
+    },
+    {
+      "lang": "en",
+      "name": "Fool's Conecap"
+    }
+  ],
+  "edibilityNotes": "Deadly poisonous. Contains amatoxins (alpha-amanitin and related cyclopeptides), the same class of toxins as the death cap. Poisoning is characterized by a delayed onset of symptoms (typically 6–24 hours after ingestion) followed by severe gastrointestinal distress and, after a deceptive remission, potentially fatal liver and kidney failure. Toxins are heat-stable and not removed by any cooking, drying, or parboiling. Suspected ingestion is a medical emergency — seek immediate hospital care; do not wait for symptoms.",
+  "preparation": "not-applicable",
+  "trophicMode": "saprotroph",
+  "capColor": [
+    "brown",
+    "ochre",
+    "cinnamon",
+    "tan",
+    "rust-brown"
+  ],
+  "sporePrintColor": "rust-brown",
+  "habitat": [
+    "lawns",
+    "grassy ground",
+    "mossy ground",
+    "gardens",
+    "disturbed soil",
+    "roadsides"
+  ],
+  "substrate": [
+    "soil",
+    "grass",
+    "moss",
+    "decaying plant debris"
+  ],
+  "fruitingSeason": [
+    "summer",
+    "autumn"
+  ],
+  "distribution": "Widespread in temperate regions of the Northern Hemisphere, including North America and Europe; reported from other temperate areas as well.",
+  "notableCompounds": [
+    "alpha-amanitin",
+    "amatoxins"
+  ],
+  "dangerousLookalikes": [
+    {
+      "name": "Psilocybe and other small brown psychoactive mushrooms",
+      "note": "Foragers seeking psilocybin LBMs in grassy ground risk picking deadly Conocybe filaris; Psilocybe species give a dark purple-brown to purple-black spore print (not rust-brown) and often bruise bluish, whereas C. filaris has a rust-brown print and a persistent ring. This is the most dangerous confusion for this species."
+    },
+    {
+      "name": "Galerina marginata",
+      "slug": "galerina-marginata",
+      "note": "Another small deadly amatoxin-containing LBM with a ring and rust-brown spores, but Galerina marginata typically grows on wood/conifer debris rather than in open lawns. Both are lethal — do not eat ringed, rusty-spored LBMs."
+    },
+    {
+      "name": "Conocybe and Pholiotina species (other lawn conecaps)",
+      "note": "Numerous small brown lawn-dwelling conecaps look similar; many lack a ring or have not been confirmed safe. Reliable separation requires microscopy, and the genus is not a foraging target."
+    }
+  ],
+  "references": [
+    {
+      "title": "Pholiotina rugosa — Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Pholiotina_rugosa"
+    },
+    {
+      "title": "Amatoxin — Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Amatoxin"
+    }
+  ],
+  "lastReviewed": "2026-05-31"
+}

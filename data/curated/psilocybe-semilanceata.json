@@ -1,0 +1,78 @@
+{
+  "slug": "psilocybe-semilanceata",
+  "edibility": "psychoactive",
+  "edibilityNotes": "Contains the psychoactive tryptamines psilocybin and psilocin (and minor baeocystin); one of the more potent psilocybin mushrooms by dry-weight concentration. Psilocybin/psilocin are controlled substances in most jurisdictions (e.g. Schedule I in the US, Class A in the UK), so possession, picking, and consumption are illegal in many countries. This is NOT a food mushroom. The greatest practical danger is misidentification: many small brown grassland mushrooms (LBMs) co-occur, and some contain DEADLY amatoxins (Galerina, Pholiotina/Conocybe) that cause delayed-onset (6-24h+) liver and kidney failure. Anyone unable to confidently distinguish these should never consume wild LBMs.",
+  "description": "Psilocybe semilanceata, the Liberty Cap, is a small psilocybin-containing mushroom widespread in temperate grasslands of the Northern Hemisphere. Its hallmark is a distinctly conical-to-bell-shaped cap with a sharp pointed papilla (nipple) at the apex, typically 5-25 mm across. The cap is hygrophanous, ranging from olive-brown to ochre or buff and drying paler, often with a translucent striate margin and a separable gelatinous pellicle. The stem is slender, sinuous, and long relative to the cap; gills are adnate and darken to purple-brown as the spores mature. The flesh frequently bruises bluish where damaged or with age, reflecting oxidation of psilocin. It is saprotrophic, fruiting in autumn among grasses in nutrient-rich pastures, meadows, lawns, and roadside verges. It grows from decaying grass roots and organic matter in soil, NOT directly on dung, which helps separate it from many coprophilous Panaeolus species. Because it is a small grassland mushroom growing alongside potentially deadly lookalikes, identification demands care.",
+  "vernacularNames": [
+    {
+      "lang": "en",
+      "name": "Liberty Cap"
+    },
+    {
+      "lang": "en",
+      "name": "Witch's Hat"
+    }
+  ],
+  "capColor": [
+    "brown",
+    "olive-brown",
+    "ochre",
+    "buff",
+    "tan"
+  ],
+  "sporePrintColor": "purple-brown",
+  "trophicMode": "saprotroph",
+  "substrate": [
+    "grassland soil",
+    "decaying grass roots",
+    "rich organic soil in pasture"
+  ],
+  "habitat": [
+    "grassland",
+    "pasture",
+    "meadow",
+    "lawn",
+    "grazed fields",
+    "roadside verges"
+  ],
+  "fruitingSeason": [
+    "autumn"
+  ],
+  "distribution": "Widespread across temperate regions of the Northern Hemisphere, especially common in Europe (including the British Isles, where it is one of the most frequent psilocybin species) and parts of North America. Favours cool, moist oceanic and temperate climates.",
+  "notableCompounds": [
+    "psilocybin",
+    "psilocin",
+    "baeocystin"
+  ],
+  "preparation": "not-applicable",
+  "dangerousLookalikes": [
+    {
+      "name": "Galerina marginata",
+      "slug": "galerina-marginata",
+      "note": "DEADLY amatoxin-containing species. Small brown mushroom with a rusty-brown (not purple-brown) spore print, typically growing on wood/woody debris rather than open grass. Causes delayed-onset (6-24h+) liver and kidney failure that can be fatal. Lacks blue bruising and the sharp pointed papilla of the Liberty Cap."
+    },
+    {
+      "name": "Pholiotina rugosa",
+      "note": "DEADLY amatoxin-containing LBM (also treated as Conocybe filaris). Rusty-brown spore print, often with a ring or ring zone on the stem, grows in grass and lawns alongside Liberty Caps. Delayed-onset (6-24h+) amatoxin poisoning causing liver failure. Lacks blue bruising and the conical papillate cap."
+    },
+    {
+      "name": "Conocybe species",
+      "note": "Small fragile grassland LBMs with rusty/cinnamon-brown spore prints; some (notably the C. filaris / Pholiotina group) contain DEADLY amatoxins. Conical to bell-shaped but lacking the sharp pointed papilla and blue bruising of the Liberty Cap. Spore-print color (rusty vs purple-brown) is a key separator."
+    },
+    {
+      "name": "Panaeolus species",
+      "note": "Small dark-spored grassland and dung mushrooms (e.g. Panaeolus foenisecii, P. papilionaceus). Black to very dark spore print and often mottled gills; some grow directly on dung, unlike P. semilanceata. Most are not deadly, but mottled gills, rounded (non-papillate) caps, and dung substrate help separate them; some Panaeolus are themselves psilocybin-active."
+    }
+  ],
+  "references": [
+    {
+      "title": "Psilocybe semilanceata - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Psilocybe_semilanceata"
+    },
+    {
+      "title": "Psilocybin - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Psilocybin"
+    }
+  ],
+  "lastReviewed": "2026-05-31"
+}

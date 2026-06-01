@@ -1,0 +1,87 @@
+{
+  "slug": "auricularia-auricula-judae",
+  "edibility": "edible",
+  "description": "Auricularia auricula-judae, commonly known as Wood Ear, Jelly Ear, or (historically) Jew's Ear, is a gelatinous, ear-shaped basidiomycete fungus that grows on dead and dying hardwood. The fruiting body is typically 3–8 cm across, reddish-brown to dark grey-brown, with a thin, rubbery-gelatinous texture and a finely velvety, sometimes wrinkled or vein-like outer surface that resembles a human ear. The inner (spore-bearing) surface is smoother and paler, often with folds and ridges. It is firm and elastic when fresh, shrivelling to a hard, dark, horny mass when dry and reviving when remoistened.\n\nClassically associated with elder (Sambucus nigra) in Europe—the source of its old folk name—it also fruits on many other hardwoods including beech, ash, sycamore, and elm. It can be found year-round in mild, damp conditions but is most conspicuous in autumn, winter, and spring. As a wood-rotting saprotroph (occasionally weakly parasitic on living trees), it plays a role in decomposing dead hardwood.\n\nThe species is widely eaten and commercially cultivated in East Asian cuisine, where it (along with related Auricularia species sometimes sold as cloud ear) is prized more for its crunchy-gelatinous texture than for flavour, which is mild. It should always be cooked. It is generally regarded as easy to identify with no deadly lookalikes—other jelly fungi that might be confused with it are not dangerous. Note that wood ear contains compounds with anticoagulant (blood-thinning) and antiplatelet activity, so eating very large quantities, or eating it while on blood-thinning medication, before surgery, or with a bleeding disorder, warrants caution.",
+  "vernacularNames": [
+    {
+      "lang": "en",
+      "name": "Wood Ear"
+    },
+    {
+      "lang": "en",
+      "name": "Jelly Ear"
+    },
+    {
+      "lang": "en",
+      "name": "Jew's Ear"
+    },
+    {
+      "lang": "zh",
+      "name": "木耳 (mù'ěr)"
+    }
+  ],
+  "capColor": [
+    "reddish-brown",
+    "brown",
+    "grey-brown",
+    "dark brown"
+  ],
+  "sporePrintColor": "white",
+  "trophicMode": "saprotroph",
+  "habitat": [
+    "on dead and dying hardwood",
+    "woodland",
+    "hedgerows"
+  ],
+  "substrate": [
+    "dead hardwood",
+    "fallen branches",
+    "standing dead wood"
+  ],
+  "hosts": [
+    "Sambucus nigra (elder)",
+    "Fagus (beech)",
+    "Fraxinus (ash)",
+    "Acer pseudoplatanus (sycamore)",
+    "Ulmus (elm)"
+  ],
+  "distribution": "Widespread and common across temperate and subtropical regions worldwide, including Europe, Asia, and the Americas.",
+  "fruitingSeason": [
+    "year-round",
+    "autumn",
+    "winter",
+    "spring"
+  ],
+  "edibilityNotes": "Edible and widely cultivated, especially in East Asian cuisine, where it is valued for its crunchy-gelatinous texture rather than flavour. Must be cooked; not eaten raw. Contains anticoagulant and antiplatelet compounds; large amounts may have a blood-thinning effect. Caution is advised for people on anticoagulant or antiplatelet medication (including daily aspirin), those with bleeding disorders, and before surgery.",
+  "preparation": "cook",
+  "dangerousLookalikes": [
+    {
+      "name": "Tremella foliacea (Leafy brain / brown witch's butter)",
+      "note": "A translucent brown gelatinous jelly fungus on dead wood that can resemble wood ear; not dangerous, but lacks the distinct ear shape and has a more brain-like/leafy form."
+    },
+    {
+      "name": "Exidia species (e.g. Exidia glandulosa, witch's butter)",
+      "note": "Brown to black gelatinous fungi on dead wood; not toxic, but form irregular blobs or pads rather than a distinct ear and lack the velvety outer surface."
+    },
+    {
+      "name": "Auricularia mesenterica (tripe fungus)",
+      "note": "A closely related gelatinous fungus on hardwood; not dangerous, but forms bracket-like flaps with a hairy, zoned grey upper surface rather than an ear shape."
+    }
+  ],
+  "authorship": "(Bull.) Quél.",
+  "references": [
+    {
+      "title": "Auricularia auricula-judae — Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Auricularia_auricula-judae"
+    },
+    {
+      "title": "Auricularia auricula-judae (Bull.) Quél. — Index Fungorum (RecordID 102281)",
+      "url": "https://www.indexfungorum.org/names/namesrecord.asp?RecordID=102281"
+    },
+    {
+      "title": "Auricularia auricula-judae (Bull.) Quél. — GBIF",
+      "url": "https://www.gbif.org/species/5249271"
+    }
+  ],
+  "lastReviewed": "2026-05-31"
+}

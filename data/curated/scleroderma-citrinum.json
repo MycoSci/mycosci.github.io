@@ -1,0 +1,83 @@
+{
+  "slug": "scleroderma-citrinum",
+  "edibility": "toxic",
+  "edibilityNotes": "Toxic. Causes gastrointestinal poisoning (nausea, vomiting, diarrhea) usually within a few hours of ingestion; some people also report flushing, sweating, and tingling. Spore exposure can cause irritation of the eyes and respiratory tract (lacrimation, rhinitis, conjunctivitis). Not known to be deadly in healthy adults, but it should never be eaten. The single most important field test: cut any 'puffball' in half before eating. The earthball's interior (gleba) becomes firm and dark purplish-black, often with white marbling, very early, while true edible puffballs (Lycoperdon, Calvatia) are uniformly pure white and homogeneous inside when young. A dark, marbled, or firm interior means do not eat.",
+  "preparation": "none",
+  "description": "Scleroderma citrinum, the common earthball or pigskin poison puffball, is a widespread woodland fungus producing roughly globular, stalkless fruiting bodies typically 4-10 cm across. The outer wall (peridium) is thick, tough, and leathery, dull yellow-brown to ochre, and conspicuously cracked into coarse warts or scales giving a 'pigskin' texture. Unlike true puffballs, it lacks a defined apical pore; at maturity the rind splits irregularly to release spores. The defining internal feature is the gleba: firm and marbled blackish-purple (often with fine white veins) even in young specimens, eventually maturing into a dark purple-brown to black spore mass. It attaches to the substrate by a tough root-like base of white mycelial cords. The species is toxic and a notorious cause of mushroom poisoning because of its superficial resemblance to edible puffballs. It has also been reported as an occasional adulterant used to bulk out commercial truffle products, so dark 'truffle' preparations of uncertain origin warrant caution.",
+  "vernacularNames": [
+    {
+      "lang": "en",
+      "name": "Common Earthball"
+    },
+    {
+      "lang": "en",
+      "name": "Pigskin Poison Puffball"
+    }
+  ],
+  "capColor": [
+    "yellow-brown",
+    "ochre",
+    "tan",
+    "brown"
+  ],
+  "sporePrintColor": "purple-black to brown",
+  "trophicMode": "ectomycorrhizal",
+  "notableCompounds": [
+    "sclerocitrin",
+    "norbadione A",
+    "badione A",
+    "xeromic acid"
+  ],
+  "habitat": [
+    "deciduous and coniferous woodland",
+    "heathland",
+    "mossy ground",
+    "wood edges and paths",
+    "sandy or acidic soils"
+  ],
+  "substrate": [
+    "soil",
+    "leaf litter",
+    "near tree roots",
+    "rotting wood and stumps"
+  ],
+  "hosts": [
+    "oak (Quercus)",
+    "beech (Fagus)",
+    "birch (Betula)",
+    "pine (Pinus)"
+  ],
+  "fruitingSeason": [
+    "summer",
+    "autumn"
+  ],
+  "distribution": "Widespread and common throughout the temperate Northern Hemisphere, including Europe and North America; reported more broadly in temperate regions worldwide.",
+  "dangerousLookalikes": [
+    {
+      "name": "True puffballs (Lycoperdon species)",
+      "slug": "lycoperdon-perlatum",
+      "note": "Edible when young, but ONLY while the interior is uniformly pure white and homogeneous. Lycoperdon has a softer, thinner, often spiny-to-granular skin and a clear apical pore. Always cut open: the earthball's firm dark purplish-black marbled gleba is the key distinction."
+    },
+    {
+      "name": "Giant/large puffballs (Calvatia, Lycoperdon excipuliforme, etc.)",
+      "note": "Edible only with pure white firm flesh inside. The earthball is much harder, has a thick warty rind, and shows a dark marbled interior early. A dark or firm interior always means reject."
+    },
+    {
+      "name": "True truffles (Tuber species)",
+      "note": "Earthball has been reported as an adulterant in dark truffle products. Genuine truffles have characteristic marbled white-veined flesh and a strong aroma; earthball gleba is acrid and the rind is warty and yellow-brown."
+    },
+    {
+      "name": "Other Scleroderma species (e.g. Scleroderma verrucosum, Scleroderma areolatum)",
+      "note": "Also toxic earthballs; not a safe alternative. All Scleroderma should be treated as inedible/toxic."
+    }
+  ],
+  "references": [
+    {
+      "title": "Scleroderma citrinum - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Scleroderma_citrinum"
+    }
+  ],
+  "authorship": "Pers.",
+  "year": 1801,
+  "lastReviewed": "2026-05-31"
+}
