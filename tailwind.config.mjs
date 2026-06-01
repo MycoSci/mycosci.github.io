@@ -4,45 +4,47 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Lab black - the core palette
+        // Neutral backbone — warm near-black instrument greys.
+        // (token name `lab` retained so existing markup keeps working)
         lab: {
-          50: '#f7f7f8',
-          100: '#eeeef0',
-          200: '#d9d9de',
-          300: '#b8b8c1',
-          400: '#91919f',
-          500: '#747484',
-          600: '#5d5d6b',
-          700: '#4c4c57',
-          800: '#41414a',
-          900: '#393940',
-          950: '#18181b',
+          50:  '#f6f6f4',
+          100: '#e9e8e3', // primary text — warm bone-white
+          200: '#d2d1ca',
+          300: '#b0afa6',
+          400: '#88877e', // secondary text
+          500: '#65645c', // muted text / labels
+          600: '#4a4a44',
+          700: '#33332e', // hairline rules on dark
+          800: '#242420', // surface borders / raised edges
+          900: '#181815', // panel surface
+          950: '#0c0c0a', // page background — warm near-black
         },
-        // Accent - bioluminescent cyan/green
+        // Accent — matte bronze instrument readout. Used sparingly.
+        // (token name `bio` retained; no longer neon cyan)
         bio: {
-          50: '#edfffe',
-          100: '#c0fffc',
-          200: '#81fffb',
-          300: '#3afff8',
-          400: '#00ffe4',
-          500: '#00e5cc',
-          600: '#00b8a9',
-          700: '#009287',
-          800: '#00736c',
-          900: '#065f5a',
-          950: '#003d3a',
+          50:  '#faf3e6',
+          100: '#f2e3c6',
+          200: '#e6cd97',
+          300: '#d9b76b',
+          400: '#c89b3f', // primary accent: links, active, key figures
+          500: '#b3852f', // labels
+          600: '#946a23', // button fill
+          700: '#6f4f1b',
+          800: '#4d3713',
+          900: '#30230d',
+          950: '#1c1408',
         },
-        // Warning/danger - spore orange
+        // Functional signal — caution / toxic / live. Distinct from accent.
         spore: {
-          400: '#fb923c',
-          500: '#f97316',
-          600: '#ea580c',
+          400: '#e0673a',
+          500: '#cf4f23',
+          600: '#b03e18',
         },
-        // Success - mycelium green
+        // Semantic — edible / safe / nominal. Muted sage.
         mycel: {
-          400: '#4ade80',
-          500: '#22c55e',
-          600: '#16a34a',
+          400: '#8aa06a',
+          500: '#6f8a4f',
+          600: '#566e3c',
         },
       },
       fontFamily: {
@@ -52,18 +54,9 @@ export default {
       fontSize: {
         '2xs': '0.625rem',
       },
-      animation: {
-        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'glow': 'glow 2s ease-in-out infinite alternate',
-      },
-      keyframes: {
-        glow: {
-          '0%': { opacity: '0.4' },
-          '100%': { opacity: '1' },
-        },
-      },
       backgroundImage: {
-        'grid-pattern': `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2327272a' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+        // Hairline engineering grid — flat, no glow.
+        'grid-pattern': `url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M32 0H0V32' fill='none' stroke='%2333332e' stroke-width='0.5'/%3E%3C/svg%3E")`,
       },
     },
   },

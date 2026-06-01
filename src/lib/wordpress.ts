@@ -7,7 +7,22 @@ const client = new GraphQLClient(endpoint, {
   headers: {
     'Content-Type': 'application/json',
   },
+  // Fail fast: WordPress is not a live dependency. If the endpoint is down or slow,
+  // requests abort after 4s instead of hanging or crashing a static build.
+  fetch: (input: any, init: any) =>
+    fetch(input, { ...init, signal: AbortSignal.timeout(4000) }),
 });
+
+// Wrap a query so an unreachable WordPress never throws — callers get a safe fallback.
+// This keeps `npm run build` green whether or not the WP backend exists.
+async function safe<T>(fn: () => Promise<T>, fallback: T, label: string): Promise<T> {
+  try {
+    return await fn();
+  } catch {
+    console.warn(`[wp] ${label}: backend unreachable, using empty fallback`);
+    return fallback;
+  }
+}
 
 // ============ WOOCOMMERCE TYPES ============
 
@@ -140,8 +155,10 @@ export async function getPosts(first: number = 10): Promise<WPPost[]> {
     }
   `;
 
-  const data = await client.request<{ posts: { nodes: WPPost[] } }>(query, { first });
-  return data.posts.nodes;
+  return safe(async () => {
+    const data = await client.request<{ posts: { nodes: WPPost[] } }>(query, { first });
+    return data.posts.nodes;
+  }, [], 'getPosts');
 }
 
 export async function getPostBySlug(slug: string): Promise<WPPost | null> {
@@ -172,8 +189,10 @@ export async function getPostBySlug(slug: string): Promise<WPPost | null> {
     }
   `;
 
-  const data = await client.request<{ post: WPPost | null }>(query, { slug });
-  return data.post;
+  return safe(async () => {
+    const data = await client.request<{ post: WPPost | null }>(query, { slug });
+    return data.post;
+  }, null, 'getPostBySlug');
 }
 
 export async function getPages(): Promise<WPPage[]> {
@@ -255,8 +274,10 @@ export async function getProducts(first: number = 20): Promise<WPProduct[]> {
     }
   `;
 
-  const data = await client.request<{ products: { nodes: WPProduct[] } }>(query, { first });
-  return data.products.nodes.filter(p => p !== null);
+  return safe(async () => {
+    const data = await client.request<{ products: { nodes: WPProduct[] } }>(query, { first });
+    return data.products.nodes.filter(p => p !== null);
+  }, [], 'getProducts');
 }
 
 export async function getProductBySlug(slug: string): Promise<WPProduct | null> {
@@ -289,8 +310,10 @@ export async function getProductBySlug(slug: string): Promise<WPProduct | null> 
     }
   `;
 
-  const data = await client.request<{ product: WPProduct | null }>(query, { slug });
-  return data.product;
+  return safe(async () => {
+    const data = await client.request<{ product: WPProduct | null }>(query, { slug });
+    return data.product;
+  }, null, 'getProductBySlug');
 }
 
 export async function getProductsByCategory(categorySlug: string): Promise<WPProduct[]> {
@@ -325,8 +348,10 @@ export async function getProductsByCategory(categorySlug: string): Promise<WPPro
     }
   `;
 
-  const data = await client.request<{ products: { nodes: WPProduct[] } }>(query, { category: categorySlug });
-  return data.products.nodes.filter(p => p !== null);
+  return safe(async () => {
+    const data = await client.request<{ products: { nodes: WPProduct[] } }>(query, { category: categorySlug });
+    return data.products.nodes.filter(p => p !== null);
+  }, [], 'getProductsByCategory');
 }
 
 export async function getProductCategories(): Promise<WPProductCategory[]> {
@@ -344,8 +369,10 @@ export async function getProductCategories(): Promise<WPProductCategory[]> {
     }
   `;
 
-  const data = await client.request<{ productCategories: { nodes: WPProductCategory[] } }>(query);
-  return data.productCategories.nodes;
+  return safe(async () => {
+    const data = await client.request<{ productCategories: { nodes: WPProductCategory[] } }>(query);
+    return data.productCategories.nodes;
+  }, [], 'getProductCategories');
 }
 
 // ============ GENE SAMPLE QUERIES ============

@@ -1,244 +1,180 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { getProducts, getPosts } from '../lib/wordpress';
 
-let products = [];
-let posts = [];
-
-try {
-  products = await getProducts(4);
-  posts = await getPosts(3);
-} catch (e) {
-  console.error('Failed to fetch WP data:', e);
-}
-
+// Figures are derived from the consolidated dataset (data/species.json).
+// TODO(phase-2): import these from the canonical data object instead of hardcoding.
 const stats = [
-  { value: '905+', label: 'Species Documented' },
-  { value: '12K+', label: 'Genetic Markers' },
-  { value: '99.2%', label: 'AI Accuracy' },
-  { value: '24/7', label: 'Lab Operations' },
+  { value: '21,599', label: 'Accepted Taxa' },
+  { value: '68,947', label: 'Synonyms Mapped' },
+  { value: '100%', label: 'Open Source' },
+  { value: 'Static', label: 'Free JSON API' },
 ];
 
-const features = [
+const pillars = [
   {
-    icon: '🧬',
-    title: 'Gene Banking',
-    description: 'Long-term cryo storage with university lab partnership. Preserve your genetics for years.',
-    href: '/gene-bank',
-  },
-  {
-    icon: '🔬',
-    title: 'AI Detection',
-    description: 'Offline-capable mushroom identification. Runs entirely on your device.',
-    href: '/detect',
-  },
-  {
-    icon: '📊',
-    title: 'Species Database',
-    description: '905+ fully documented species with morphology, ecology, and genetic data.',
+    index: '01',
+    title: 'Catalog',
+    status: 'ACTIVE',
+    body: 'Every fungal species with a stable URL, verified taxonomy, and sourced detail. Accurate skeleton everywhere; deep where we have data.',
     href: '/database',
   },
   {
-    icon: '🧪',
-    title: 'Lab Supplies',
-    description: 'Agar, liquid culture, and everything you need for clean cultivation.',
-    href: '/shop',
+    index: '02',
+    title: 'Deep Search',
+    status: 'ACTIVE',
+    body: 'Faceted lookup across taxonomy, morphology, ecology, edibility and distribution. Prebuilt index, fully client-side — works on a static build.',
+    href: '/database',
+  },
+  {
+    index: '03',
+    title: 'Cultivation & Lab Teks',
+    status: 'BUILDING',
+    body: 'Opinionated, reproducible guides: agar, liquid culture, grain, fruiting, contamination ID, sterile technique. Process diagrams over prose.',
+    href: '/docs',
+  },
+  {
+    index: '04',
+    title: 'Gene Science',
+    status: 'PLANNED',
+    body: 'Visualize ITS/LSU markers, phylogeny, culture senescence and isolate drift. The part most mycology references never reach.',
+    href: '/docs',
   },
 ];
 ---
 
-<BaseLayout title="MycoSci — Mycology Research Lab">
-  <!-- Hero Section -->
-  <section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-    <!-- Grid background -->
-    <div class="absolute inset-0 bg-grid opacity-30"></div>
+<BaseLayout title="MycoSci — Open Fungal Catalog">
+  <!-- Hero -->
+  <section class="relative border-b border-lab-800 overflow-hidden">
+    <div class="absolute inset-0 bg-grid opacity-40"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-lab-950"></div>
 
-    <!-- Gradient overlays -->
-    <div class="absolute inset-0 bg-gradient-to-b from-lab-950 via-transparent to-lab-950"></div>
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-bio-600/5 rounded-full blur-3xl"></div>
-
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 py-24 text-center">
-      <!-- Status badge -->
-      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-lab-900/80 border border-lab-800 mb-8">
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 pt-20 pb-16">
+      <div class="flex items-center gap-3 mb-8">
         <span class="status-dot status-active"></span>
-        <span class="text-xs font-mono text-lab-300">RESEARCH DIVISION ACTIVE</span>
+        <span class="label">Open Source · Community Built · Free Forever</span>
       </div>
 
-      <!-- Main headline -->
-      <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-lab-50 mb-6 tracking-tight">
-        Mycology
-        <span class="text-bio-400 glow">Research</span>
-        <br />Infrastructure
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-semibold text-lab-100 tracking-tight max-w-4xl text-balance">
+        The fungal kingdom,<br class="hidden sm:block" /> fully catalogued and machine-readable.
       </h1>
 
-      <p class="text-lg sm:text-xl text-lab-400 max-w-2xl mx-auto mb-10 text-balance">
-        Gene banking, AI-powered identification, and comprehensive species data.
-        Open source tools for serious mycology work.
+      <p class="text-lg text-lab-400 max-w-2xl mt-6 leading-relaxed">
+        A free, open catalog of every fungal species — taxonomy, morphology, ecology, edibility and
+        cultivation. Each page is also a static JSON endpoint, so the whole catalog doubles as a free API.
       </p>
 
-      <!-- CTA buttons -->
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-        <a href="/database" class="btn btn-primary px-6 py-3 text-base">
-          Explore Database
-        </a>
-        <a href="/detect" class="btn btn-secondary px-6 py-3 text-base">
-          Try AI Detection
-        </a>
-      </div>
+      <!-- Search -->
+      <form action="/database" method="get" class="flex max-w-xl mt-10 border border-lab-700 focus-within:border-bio-400 transition-colors">
+        <span class="flex items-center pl-3 text-lab-500">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-5.2-5.2M17 11a6 6 0 11-12 0 6 6 0 0112 0z" />
+          </svg>
+        </span>
+        <input
+          type="search"
+          name="q"
+          placeholder="Search 21,599 taxa — e.g. Amanita muscaria"
+          class="flex-1 bg-transparent px-3 py-3 text-sm font-mono text-lab-100 placeholder:text-lab-500 focus:outline-none"
+        />
+        <button type="submit" class="btn btn-primary px-5">Search</button>
+      </form>
 
-      <!-- Stats -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
-        {stats.map((stat) => (
-          <div class="card p-4">
-            <div class="text-2xl sm:text-3xl font-bold text-bio-400 font-mono">{stat.value}</div>
-            <div class="text-xs text-lab-500 font-mono uppercase tracking-wider mt-1">{stat.label}</div>
+      <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mt-12">
+        {stats.map((stat, i) => (
+          <div class="flex items-center gap-4">
+            {i > 0 && <span class="text-lab-700">·</span>}
+            <div class="flex items-baseline gap-2">
+              <span class="text-xl font-mono font-semibold text-bio-400 tabular-nums">{stat.value}</span>
+              <span class="label">{stat.label}</span>
+            </div>
           </div>
         ))}
       </div>
     </div>
-
-    <!-- Scroll indicator -->
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-lab-600">
-      <span class="text-2xs font-mono uppercase tracking-widest">Scroll</span>
-      <div class="w-px h-8 bg-gradient-to-b from-lab-600 to-transparent"></div>
-    </div>
   </section>
 
-  <!-- Features Section -->
-  <section class="py-24 border-t border-lab-800/50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="text-center mb-16">
-        <span class="label text-bio-500">CAPABILITIES</span>
-        <h2 class="text-3xl sm:text-4xl font-bold text-lab-100 mt-2">Research Infrastructure</h2>
+  <!-- Pillars -->
+  <section class="border-b border-lab-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-16">
+      <div class="flex items-baseline justify-between mb-10">
+        <h2 class="label text-lab-400">// Program</h2>
+        <span class="label">04 Pillars</span>
       </div>
 
-      <div class="grid md:grid-cols-2 gap-6">
-        {features.map((feature) => (
-          <a href={feature.href} class="card card-hover p-6 group">
-            <div class="flex items-start gap-4">
-              <div class="text-3xl">{feature.icon}</div>
-              <div class="flex-1">
-                <h3 class="text-lg font-semibold text-lab-100 group-hover:text-bio-400 transition-colors">
-                  {feature.title}
-                </h3>
-                <p class="text-sm text-lab-400 mt-1">{feature.description}</p>
-              </div>
-              <div class="text-lab-600 group-hover:text-bio-500 transition-colors">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                </svg>
-              </div>
+      <div class="grid sm:grid-cols-2 border-t border-l border-lab-800">
+        {pillars.map((p) => (
+          <a href={p.href} class="group block p-6 border-b border-r border-lab-800 hover:bg-lab-900 transition-colors">
+            <div class="flex items-center justify-between mb-4">
+              <span class="font-mono text-2xs text-lab-600">{p.index}</span>
+              <span class:list={[
+                'badge',
+                p.status === 'ACTIVE' ? 'badge-mycel' : p.status === 'BUILDING' ? 'badge-bio' : 'badge'
+              ]}>{p.status}</span>
             </div>
+            <h3 class="text-lg font-semibold text-lab-100 group-hover:text-bio-400 transition-colors">{p.title}</h3>
+            <p class="text-sm text-lab-400 mt-2 leading-relaxed">{p.body}</p>
           </a>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- Products Section -->
-  {products.length > 0 && (
-    <section class="py-24 border-t border-lab-800/50 bg-lab-900/30">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6">
-        <div class="flex items-end justify-between mb-12">
-          <div>
-            <span class="label text-bio-500">LAB SUPPLIES</span>
-            <h2 class="text-3xl font-bold text-lab-100 mt-2">From the Shop</h2>
-          </div>
-          <a href="/shop" class="text-sm text-bio-400 hover:text-bio-300 flex items-center gap-1">
-            View all
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-            </svg>
-          </a>
-        </div>
-
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {products.map((product) => (
-            <div class="card card-hover overflow-hidden group">
-              <div class="aspect-square bg-lab-800 flex items-center justify-center">
-                {product.image?.sourceUrl ? (
-                  <img src={product.image.sourceUrl} alt={product.name} class="w-full h-full object-cover" />
-                ) : (
-                  <span class="text-4xl opacity-30">🧫</span>
-                )}
-              </div>
-              <div class="p-4">
-                <div class="text-2xs font-mono text-lab-500 uppercase tracking-wider mb-1">
-                  {product.productCategories?.nodes?.[0]?.name || 'Product'}
-                </div>
-                <h3 class="font-medium text-lab-100 group-hover:text-bio-400 transition-colors line-clamp-1">
-                  {product.name}
-                </h3>
-                <div class="flex items-center justify-between mt-3">
-                  <span class="text-lg font-bold text-mycel-400 font-mono">{product.price || 'TBD'}</span>
-                  <button class="btn btn-secondary text-xs py-1.5">Add</button>
-                </div>
-              </div>
-            </div>
-          ))}
+  <!-- API -->
+  <section class="border-b border-lab-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-16 grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <span class="label text-bio-500">// Free API</span>
+        <h2 class="text-2xl sm:text-3xl font-semibold text-lab-100 mt-3">Every page is an endpoint.</h2>
+        <p class="text-lab-400 mt-4 leading-relaxed">
+          The catalog is statically generated and served from GitHub Pages — no servers, no keys, no rate limits.
+          Append <code class="text-bio-400 font-mono">.json</code> to any species URL and get structured data back.
+          Sharded indexes let you pull whole genera or families in one request.
+        </p>
+        <div class="flex flex-wrap gap-3 mt-6">
+          <a href="/api" class="btn btn-secondary">API Reference</a>
+          <a href="/database" class="btn btn-ghost">Browse Catalog →</a>
         </div>
       </div>
-    </section>
-  )}
 
-  <!-- Blog Section -->
-  {posts.length > 0 && (
-    <section class="py-24 border-t border-lab-800/50">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6">
-        <div class="flex items-end justify-between mb-12">
-          <div>
-            <span class="label text-bio-500">FIELD NOTES</span>
-            <h2 class="text-3xl font-bold text-lab-100 mt-2">Latest Research</h2>
-          </div>
-          <a href="/blog" class="text-sm text-bio-400 hover:text-bio-300 flex items-center gap-1">
-            View all
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-            </svg>
-          </a>
+      <div class="card font-mono text-xs">
+        <div class="flex items-center gap-2 px-4 py-2.5 border-b border-lab-800 text-lab-500">
+          <span class="status-dot status-active"></span>
+          <span class="tracking-wider">GET /species/amanita-muscaria.json</span>
         </div>
-
-        <div class="grid md:grid-cols-3 gap-6">
-          {posts.map((post) => (
-            <a href={`/blog/${post.slug}`} class="card card-hover overflow-hidden group">
-              <div class="aspect-video bg-lab-800 flex items-center justify-center">
-                {post.featuredImage?.node?.sourceUrl ? (
-                  <img src={post.featuredImage.node.sourceUrl} alt={post.title} class="w-full h-full object-cover" />
-                ) : (
-                  <span class="text-4xl opacity-30">🍄</span>
-                )}
-              </div>
-              <div class="p-5">
-                <div class="text-2xs font-mono text-lab-500 mb-2">
-                  {new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }).toUpperCase()}
-                </div>
-                <h3 class="font-semibold text-lab-100 group-hover:text-bio-400 transition-colors line-clamp-2">
-                  {post.title}
-                </h3>
-              </div>
-            </a>
-          ))}
-        </div>
+        <pre class="p-4 overflow-x-auto text-lab-300 leading-relaxed"><code>{`{
+  "slug": "amanita-muscaria",
+  "accepted": "Amanita muscaria",
+  "genus": "Amanita",
+  "family": "Amanitaceae",
+  "order": "Agaricales",
+  "class": "Agaricomycetes",
+  "phylum": "Basidiomycota",
+  "commonName": "Fly Agaric",
+  "edibility": "toxic",
+  "synonyms": ["Agaricus muscarius", ...],
+  "tier": "curated"
+}`}</code></pre>
       </div>
-    </section>
-  )}
+    </div>
+  </section>
 
-  <!-- CTA Section -->
-  <section class="py-24 border-t border-lab-800/50 bg-gradient-to-b from-lab-900/50 to-lab-950">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-      <span class="label text-bio-500">GENE BANKING</span>
-      <h2 class="text-3xl sm:text-4xl font-bold text-lab-100 mt-2 mb-4">
-        Store Your Genetics
-      </h2>
-      <p class="text-lab-400 mb-8 max-w-xl mx-auto">
-        Cryo-preserve your best strains. Generate fresh plates or liquid culture
-        whenever you need them. Never lose a culture to contamination again.
-      </p>
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="/gene-bank" class="btn btn-primary px-6 py-3">
-          View Pricing
-        </a>
-        <span class="text-sm text-lab-500">From $4/sample/month</span>
+  <!-- Contribute -->
+  <section>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-16">
+      <div class="border border-lab-800 p-8 sm:p-12">
+        <span class="label text-bio-500">// Community</span>
+        <h2 class="text-2xl sm:text-3xl font-semibold text-lab-100 mt-3 max-w-2xl">
+          Built in the open. Owned by no one.
+        </h2>
+        <p class="text-lab-400 mt-4 max-w-2xl leading-relaxed">
+          MycoSci is a volunteer effort to make accurate mycology free and permanent. Every species
+          profile, tek and dataset is open. Found an error, have a source, want to write a profile —
+          the repository is yours to edit.
+        </p>
+        <div class="flex flex-wrap gap-3 mt-8">
+          <a href="https://github.com/MycoSci" class="btn btn-primary">Contribute on GitHub</a>
+          <a href="/about" class="btn btn-secondary">About the Project</a>
+        </div>
       </div>
     </div>
   </section>

@@ -1,0 +1,87 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import speciesData from '../../../data/species.json';
+const total = (speciesData as any[]).length;
+
+const endpoints = [
+  {
+    method: 'GET',
+    path: '/species/{slug}.json',
+    desc: 'A single taxon — full record: accepted name, lineage, synonyms, edibility, tier.',
+    example: '/species/amanita-muscaria.json',
+  },
+  {
+    method: 'GET',
+    path: '/api/species/index.json',
+    desc: 'Manifest — totals and the list of shards with counts.',
+    example: '/api/species/index.json',
+  },
+  {
+    method: 'GET',
+    path: '/api/species/{shard}.json',
+    desc: 'Every record whose slug starts with {shard} (a–z, or 0 for other). Pull whole letters at once.',
+    example: '/api/species/a.json',
+  },
+  {
+    method: 'GET',
+    path: '/api/search-index.json',
+    desc: 'Slim array for client-side search: [slug, accepted, commonName, family, curated, edibility, phylum].',
+    example: '/api/search-index.json',
+  },
+];
+---
+
+<BaseLayout title="JSON API | MycoSci">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-10">
+    <div class="border-b border-lab-800 pb-8 mb-8">
+      <span class="label text-bio-500">// Free API</span>
+      <h1 class="text-3xl sm:text-4xl font-semibold text-lab-100 mt-2 tracking-tight">Static JSON API</h1>
+      <p class="text-lab-400 mt-3 max-w-2xl leading-relaxed">
+        The entire {total.toLocaleString()}-taxon catalog is pre-generated as static JSON and served from
+        GitHub Pages. No servers, no API keys, no rate limits, no auth. Every species page has a
+        <code class="text-bio-400 font-mono">.json</code> twin.
+      </p>
+      <div class="flex flex-wrap gap-x-6 gap-y-2 mt-5 text-2xs font-mono uppercase tracking-wider text-lab-500">
+        <span>Base · https://mycosci.com</span>
+        <span>Format · JSON / UTF-8</span>
+        <span>CORS · open</span>
+        <span>License · CC-BY</span>
+      </div>
+    </div>
+
+    <h2 class="label mb-4">// Endpoints</h2>
+    <div class="border-t border-lab-800 mb-12">
+      {endpoints.map((e) => (
+        <div class="border-b border-lab-800 py-5">
+          <div class="flex items-center gap-3 flex-wrap">
+            <span class="badge badge-mycel">{e.method}</span>
+            <code class="font-mono text-sm text-lab-100">{e.path}</code>
+          </div>
+          <p class="text-sm text-lab-400 mt-2">{e.desc}</p>
+          <a href={e.example} class="inline-block mt-2 text-2xs font-mono text-bio-400 hover:underline">{e.example} ↗</a>
+        </div>
+      ))}
+    </div>
+
+    <h2 class="label mb-4">// Example</h2>
+    <div class="card font-mono text-xs mb-12">
+      <div class="px-4 py-2.5 border-b border-lab-800 text-lab-500 tracking-wider">curl</div>
+      <pre class="p-4 overflow-x-auto text-lab-300"><code>{`# one species
+curl https://mycosci.com/species/pleurotus-ostreatus.json
+
+# every taxon starting with "a"
+curl https://mycosci.com/api/species/a.json
+
+# discover shards
+curl https://mycosci.com/api/species/index.json`}</code></pre>
+    </div>
+
+    <div class="border-l-2 border-bio-600 bg-bio-950/30 px-4 py-3">
+      <p class="text-sm text-lab-300">
+        <span class="font-mono text-2xs uppercase tracking-wider text-bio-400">Note · </span>
+        Data is community-curated and improving. Taxonomy is sourced; deep fields fill in over time.
+        The <code class="text-bio-400">tier</code> field marks <code>curated</code> vs catalog <code>stub</code>.
+      </p>
+    </div>
+  </div>
+</BaseLayout>

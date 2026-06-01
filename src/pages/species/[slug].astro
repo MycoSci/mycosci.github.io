@@ -1,0 +1,166 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+import speciesData from '../../../data/species.json';
+
+export async function getStaticPaths() {
+  return (speciesData as SpeciesRecord[]).map((rec) => ({
+    params: { slug: rec.slug },
+    props: { rec },
+  }));
+}
+
+interface SpeciesRecord {
+  slug: string;
+  accepted: string;
+  genus: string;
+  family: string;
+  order: string;
+  class: string;
+  phylum: string;
+  kingdom: string;
+  commonName: string | null;
+  edibility: string;
+  synonyms: string[];
+  tier: 'curated' | 'stub';
+  unresolved?: boolean;
+  mdxPath?: string;
+}
+
+const { rec } = Astro.props as { rec: SpeciesRecord };
+
+// Match a curated MDX body (the few hand-written profiles) tolerantly by path.
+const normKey = (s: string) => s.toLowerCase().replace(/\.mdx$/, '').replace(/[^a-z0-9]/g, '');
+let Content: any = null;
+if (rec.mdxPath) {
+  const docs = await getCollection('docs');
+  const target = normKey(rec.mdxPath);
+  const entry = docs.find((d) => normKey(d.id) === target);
+  if (entry) Content = (await render(entry)).Content;
+}
+
+const lineage = [
+  { rank: 'Kingdom', value: rec.kingdom },
+  { rank: 'Phylum', value: rec.phylum },
+  { rank: 'Class', value: rec.class },
+  { rank: 'Order', value: rec.order },
+  { rank: 'Family', value: rec.family },
+  { rank: 'Genus', value: rec.genus },
+].filter((l) => l.value);
+
+const edibilityStyle: Record<string, string> = {
+  edible: 'badge-mycel',
+  inedible: 'badge',
+  toxic: 'badge-spore',
+  psychoactive: 'badge-spore',
+  unknown: 'badge',
+};
+const showCaution = rec.edibility === 'toxic' || rec.edibility === 'psychoactive' || rec.edibility === 'unknown';
+---
+
+<BaseLayout title={`${rec.accepted}${rec.commonName ? ' — ' + rec.commonName : ''} | MycoSci`} description={`Taxonomy, classification and data for the fungus ${rec.accepted}.`}>
+  <article class="max-w-5xl mx-auto px-4 sm:px-6 py-10">
+    <!-- Breadcrumb -->
+    <nav class="flex items-center gap-2 text-2xs font-mono uppercase tracking-wider text-lab-500 mb-8 flex-wrap">
+      <a href="/database" class="hover:text-bio-400 transition-colors">Catalog</a>
+      {lineage.map((l) => (
+        <>
+          <span class="text-lab-700">/</span>
+          <span>{l.value}</span>
+        </>
+      ))}
+    </nav>
+
+    <!-- Header -->
+    <header class="border-b border-lab-800 pb-8 mb-8">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="badge badge-bio">{rec.tier === 'curated' ? 'Curated' : 'Catalog Stub'}</span>
+        <span class:list={['badge', edibilityStyle[rec.edibility] || 'badge']}>{rec.edibility}</span>
+        {rec.unresolved && <span class="badge badge-spore">Unresolved</span>}
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-semibold italic text-lab-100 tracking-tight">{rec.accepted}</h1>
+      {rec.commonName && <p class="text-lab-400 mt-2 text-lg">{rec.commonName}</p>}
+
+      <div class="flex flex-wrap items-center gap-3 mt-5 text-2xs font-mono uppercase tracking-wider">
+        <a href={`/species/${rec.slug}.json`} class="inline-flex items-center gap-1.5 px-2.5 py-1 border border-lab-700 text-lab-400 hover:border-bio-400 hover:text-bio-400 transition-colors">
+          <span class="status-dot status-active"></span> View JSON
+        </a>
+        <span class="text-lab-600">/species/{rec.slug}.json</span>
+      </div>
+    </header>
+
+    {showCaution && (
+      <div class="border-l-2 border-spore-500 bg-spore-600/5 px-4 py-3 mb-8">
+        <p class="text-sm text-lab-300">
+          <span class="font-mono text-2xs uppercase tracking-wider text-spore-400">Caution · </span>
+          {rec.edibility === 'unknown'
+            ? 'Edibility is not established. Treat as inedible. Never eat a wild fungus identified from this page alone.'
+            : 'This species is reported as ' + rec.edibility + '. Do not consume. Identification from a web page is not a substitute for an expert.'}
+        </p>
+      </div>
+    )}
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- Main -->
+      <div class="md:col-span-2 min-w-0">
+        {Content ? (
+          <div class="prose prose-invert max-w-none
+            prose-headings:text-lab-100 prose-headings:font-semibold
+            prose-p:text-lab-300 prose-a:text-bio-400 prose-a:no-underline hover:prose-a:underline
+            prose-strong:text-lab-100 prose-li:text-lab-300
+            prose-code:text-bio-400 prose-code:font-mono
+            prose-img:border prose-img:border-lab-800">
+            <Content />
+          </div>
+        ) : (
+          <div class="space-y-4">
+            <p class="text-lab-400 leading-relaxed">
+              <span class="italic text-lab-200">{rec.accepted}</span>
+              {rec.genus && rec.family && (
+                <> is a fungus in the genus <span class="italic">{rec.genus}</span>, family {rec.family}
+                {rec.order && <>, order {rec.order}</>}.</>
+              )}
+              {' '}This is a catalog skeleton — verified taxonomy is in place, and a sourced profile
+              (morphology, ecology, distribution, look-alikes) has not been written yet.
+            </p>
+            <div class="border border-lab-800 p-5">
+              <span class="label">// Contribute</span>
+              <p class="text-sm text-lab-400 mt-2">
+                Know this species? Help write its profile. Every entry is open source.
+              </p>
+              <a href="https://github.com/MycoSci" class="btn btn-secondary mt-4">Edit on GitHub</a>
+            </div>
+          </div>
+        )}
+
+        {rec.synonyms.length > 0 && (
+          <section class="mt-10">
+            <h2 class="label mb-3">// Synonyms ({rec.synonyms.length})</h2>
+            <div class="flex flex-wrap gap-x-4 gap-y-1.5">
+              {rec.synonyms.map((s) => (
+                <span class="text-sm italic text-lab-500">{s}</span>
+              ))}
+            </div>
+          </section>
+        )}
+      </div>
+
+      <!-- Classification sidebar -->
+      <aside class="md:col-span-1">
+        <div class="card sticky top-20">
+          <div class="px-4 py-2.5 border-b border-lab-800">
+            <span class="label">// Classification</span>
+          </div>
+          <dl class="divide-y divide-lab-800">
+            {lineage.map((l) => (
+              <div class="flex items-center justify-between px-4 py-2.5">
+                <dt class="text-2xs font-mono uppercase tracking-wider text-lab-500">{l.rank}</dt>
+                <dd class="text-sm text-lab-200">{l.value}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </aside>
+    </div>
+  </article>
+</BaseLayout>

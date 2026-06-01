@@ -1,14 +1,20 @@
-name: Deploy Starlight to GitHub Pages
+name: Deploy MycoSci to GitHub Pages
 
 on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 permissions:
   contents: read
   pages: write
   id-token: write
+
+# Allow one concurrent deployment; cancel in-progress runs on new pushes.
+concurrency:
+  group: pages
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -20,19 +26,19 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
           cache: 'npm'
 
       - name: Install Dependencies
-        run: npm install
+        run: npm ci
 
-      - name: Install Playwright Browsers
-        run: npx playwright install  # ✅ Fixes missing Chromium issue
-
-      - name: Build Astro Site
+      - name: Build Site
+        # `npm run build` runs the prebuild data step (CSV -> data/species.json + static JSON API)
+        # then the Astro static build (HTML + per-species .json for the whole catalog).
         run: |
           npm run build
-          touch dist/.nojekyll  # ✅ Prevent GitHub from stripping assets
+          touch dist/.nojekyll
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
@@ -41,6 +47,10 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Deploy to GitHub Pages
+        id: deployment
         uses: actions/deploy-pages@v4

@@ -1,130 +1,111 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-const features = [
+const design = [
   {
-    icon: '📱',
-    title: 'Works Offline',
-    description: 'Model runs entirely on your device. No internet required after initial download.',
+    title: 'On-device',
+    body: 'A compact MobileNetV3 classifier compiled to run in the browser via WebAssembly. The model downloads once, then identification happens locally on your phone or laptop.',
   },
   {
-    icon: '⚡',
-    title: 'Real-Time',
-    description: 'Get results in under 500ms. Point your camera and get instant identification.',
+    title: 'Offline-capable',
+    body: 'After the first load the model is cached. No connection, no server round-trip, no upload — the image is processed entirely on your device.',
   },
   {
-    icon: '🔒',
-    title: 'Private',
-    description: 'Images never leave your device. No cloud processing, no data collection.',
+    title: 'Privacy-preserving',
+    body: 'Photos never leave the device. There is no account, no cloud inference and no telemetry. The site is static; there is nothing to collect.',
   },
   {
-    icon: '🎯',
-    title: '99.2% Accurate',
-    description: 'Trained on millions of research-grade observations from iNaturalist and GBIF.',
+    title: 'Source-linked',
+    body: 'Every candidate links straight into the catalog — taxonomy, look-alikes and edibility notes — so a guess is always a starting point for verification, never an answer.',
   },
+];
+
+const open = [
+  ['Training data', 'Research-grade, openly-licensed observations (iNaturalist, GBIF). No proprietary set; the corpus and splits will be documented.'],
+  ['Model size', 'Targeting a quantized model small enough to ship over GitHub Pages and load on a phone — single-digit to low-tens of MB.'],
+  ['Coverage', 'Beginning with a few hundred commonly-photographed species, expanding as the curated catalog tier grows.'],
+  ['Honesty', 'Confidence will be shown plainly, and low-confidence results stated as such. No invented accuracy figure ships until there is a measured one.'],
 ];
 ---
 
-<BaseLayout title="AI Detection | MycoSci">
-  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-12">
+<BaseLayout title="AI Identification | MycoSci">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-10">
     <!-- Header -->
-    <div class="text-center mb-12">
-      <span class="label text-bio-500">AI DETECTION</span>
-      <h1 class="text-3xl sm:text-4xl font-bold text-lab-100 mt-2">Mushroom Identification</h1>
-      <p class="text-lab-400 mt-2">Offline-capable AI that runs entirely on your device.</p>
-    </div>
-
-    <!-- Detection Area -->
-    <div class="card p-8 mb-8">
-      <div id="detection-zone" class="aspect-video bg-lab-800 rounded-lg flex flex-col items-center justify-center border-2 border-dashed border-lab-700 hover:border-bio-600 transition-colors cursor-pointer">
-        <div class="text-center">
-          <span class="text-5xl block mb-4">📷</span>
-          <p class="text-lab-300 font-medium mb-2">Upload an image or use camera</p>
-          <p class="text-lab-500 text-sm">Supports JPG, PNG, WebP up to 10MB</p>
-        </div>
+    <div class="border-b border-lab-800 pb-8 mb-8">
+      <div class="flex items-center gap-3">
+        <span class="label text-bio-500">// Identification</span>
+        <span class="badge badge-spore">Planned</span>
       </div>
-
-      <div class="flex flex-col sm:flex-row gap-4 mt-6">
-        <button id="upload-btn" class="btn btn-primary flex-1 py-3">
-          <svg class="w-5 h-5 mr-2 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-          </svg>
-          Upload Image
-        </button>
-        <button id="camera-btn" class="btn btn-secondary flex-1 py-3">
-          <svg class="w-5 h-5 mr-2 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
-          </svg>
-          Use Camera
-        </button>
+      <h1 class="text-3xl sm:text-4xl font-semibold text-lab-100 mt-2 tracking-tight">On-device AI identification</h1>
+      <p class="text-lab-400 mt-3 max-w-2xl leading-relaxed">
+        An offline, privacy-preserving mushroom classifier that runs entirely in your browser — no upload,
+        no account, no server. It is a planned pillar of MycoSci. It is not built yet, and this page is
+        honest about that.
+      </p>
+      <div class="flex flex-wrap gap-x-6 gap-y-2 mt-5 text-2xs font-mono uppercase tracking-wider text-lab-500">
+        <span>Approach · MobileNetV3 / WASM</span>
+        <span>Runtime · In-browser</span>
+        <span>Data · Stays on device</span>
+        <span>Status · Not live</span>
       </div>
     </div>
 
-    <!-- Model Status -->
-    <div class="card p-4 mb-8">
-      <div class="flex items-center justify-between">
-        <div class="flex items-center gap-3">
-          <span class="status-dot status-warning"></span>
-          <span class="text-sm text-lab-300">Model Status</span>
-        </div>
-        <div class="text-sm font-mono text-lab-500">
-          <span id="model-status">Not loaded</span>
-        </div>
-      </div>
-      <div class="mt-3">
-        <div class="h-1.5 bg-lab-800 rounded-full overflow-hidden">
-          <div id="model-progress" class="h-full bg-bio-500 rounded-full transition-all duration-300" style="width: 0%"></div>
-        </div>
-      </div>
-      <button id="load-model-btn" class="btn btn-ghost text-xs mt-3 w-full">
-        Load Model (~20MB)
-      </button>
+    <!-- Safety caution (load-bearing) -->
+    <div class="border-l-2 border-spore-600 bg-spore-600/5 px-4 py-4 mb-12">
+      <p class="font-mono text-2xs uppercase tracking-wider text-spore-400">Safety · Read this</p>
+      <p class="text-sm text-lab-300 mt-2 leading-relaxed">
+        No phone app — ours or anyone else's — is a safe basis for deciding whether a fungus is edible.
+        Deadly and edible species can look nearly identical, and a classifier returns a guess, not a fact.
+        Never eat a wild fungus identified by software. Confirm with multiple reliable references and an
+        experienced local identifier first.
+      </p>
     </div>
 
-    <!-- Features -->
-    <div class="grid sm:grid-cols-2 gap-4 mb-12">
-      {features.map((feature) => (
-        <div class="card p-5">
-          <div class="flex items-start gap-3">
-            <span class="text-2xl">{feature.icon}</span>
-            <div>
-              <h3 class="font-medium text-lab-100">{feature.title}</h3>
-              <p class="text-sm text-lab-500 mt-1">{feature.description}</p>
-            </div>
-          </div>
+    <!-- What it will be -->
+    <h2 class="label mb-4">// What it will be</h2>
+    <div class="grid sm:grid-cols-2 border-t border-l border-lab-800 mb-12">
+      {design.map((d) => (
+        <div class="border-b border-r border-lab-800 p-6">
+          <h3 class="text-base font-semibold text-lab-100">{d.title}</h3>
+          <p class="text-sm text-lab-400 mt-2 leading-relaxed">{d.body}</p>
         </div>
       ))}
     </div>
 
-    <!-- Coming Soon Notice -->
-    <div class="card p-8 text-center border-spore-600/30 bg-spore-950/20">
-      <span class="text-4xl block mb-4">🧠</span>
-      <h3 class="text-lg font-semibold text-lab-100 mb-2">Model Training in Progress</h3>
-      <p class="text-lab-400 text-sm max-w-md mx-auto">
-        We're training our detection model on research-grade observations from iNaturalist and GBIF.
-        Target: 500+ species with 99%+ accuracy. Coming soon.
+    <!-- Why it isn't live -->
+    <h2 class="label mb-4">// Why it isn't live</h2>
+    <div class="card p-6 mb-12">
+      <p class="text-sm text-lab-400 leading-relaxed">
+        There is no trained model yet. MycoSci is a static, volunteer-built project, and a useful identifier
+        needs a carefully assembled training set, an honestly measured evaluation, and a model small enough
+        to ship for free over GitHub Pages. We would rather ship nothing than ship a fake accuracy number or
+        a model that misleads people about a safety-relevant decision. When there is a real model, it lands here.
       </p>
+    </div>
+
+    <!-- Design notes -->
+    <h2 class="label mb-4">// Design notes</h2>
+    <div class="border-t border-lab-800 mb-12">
+      {open.map(([k, v]) => (
+        <div class="grid sm:grid-cols-[180px_1fr] gap-x-6 gap-y-1 border-b border-lab-800 py-4">
+          <span class="font-mono text-2xs uppercase tracking-wider text-lab-500">{k}</span>
+          <span class="text-sm text-lab-400 leading-relaxed">{v}</span>
+        </div>
+      ))}
+    </div>
+
+    <!-- Follow / contribute -->
+    <div class="border border-lab-800 p-8">
+      <span class="label text-bio-500">// Get involved</span>
+      <h2 class="text-2xl font-semibold text-lab-100 mt-3 max-w-2xl">Help build it.</h2>
+      <p class="text-lab-400 mt-4 max-w-2xl leading-relaxed">
+        Curating the catalog tier and sourcing openly-licensed, labelled imagery is the work that unblocks
+        this. The model follows the data. Everything is in the open repository.
+      </p>
+      <div class="flex flex-wrap gap-3 mt-8">
+        <a href="https://github.com/MycoSci" class="btn btn-primary">Contribute on GitHub</a>
+        <a href="/database" class="btn btn-ghost">Browse Catalog →</a>
+      </div>
     </div>
   </div>
 </BaseLayout>
-
-<script>
-  // Placeholder for TensorFlow.js integration
-  document.getElementById('load-model-btn')?.addEventListener('click', () => {
-    const status = document.getElementById('model-status');
-    const progress = document.getElementById('model-progress');
-    if (status) status.textContent = 'Loading...';
-
-    // Simulate loading
-    let p = 0;
-    const interval = setInterval(() => {
-      p += 10;
-      if (progress) progress.style.width = `${p}%`;
-      if (p >= 100) {
-        clearInterval(interval);
-        if (status) status.textContent = 'Model not available yet';
-      }
-    }, 200);
-  });
-</script>

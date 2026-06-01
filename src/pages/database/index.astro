@@ -1,160 +1,182 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getCollection } from 'astro:content';
+import speciesData from '../../../data/species.json';
 
-// Get all docs to count them
-const allDocs = await getCollection('docs');
+interface Rec {
+  slug: string; accepted: string; genus: string; family: string;
+  phylum: string; commonName: string | null; edibility: string; tier: string;
+}
+const data = speciesData as Rec[];
 
-// Count taxonomy entries
-const taxonomyDocs = allDocs.filter(d => d.id.toLowerCase().startsWith('taxonomy'));
-
-// Get unique phyla, classes, etc from file paths
-const phyla = new Set<string>();
-const classes = new Set<string>();
-const orders = new Set<string>();
-const families = new Set<string>();
-const genera = new Set<string>();
-
-taxonomyDocs.forEach(doc => {
-  const parts = doc.id.split('/');
-  if (parts[1]) phyla.add(parts[1]);
-  if (parts[2]) classes.add(parts[2]);
-  if (parts[3]) orders.add(parts[3]);
-  if (parts[4]) families.add(parts[4]);
-  if (parts[5]) genera.add(parts[5]);
-});
+const total = data.length;
+const resolved = data.filter((r) => r.family).length;
+const families = new Set(data.map((r) => r.family).filter(Boolean)).size;
+const genera = new Set(data.map((r) => r.genus).filter(Boolean)).size;
+const phyla = new Set(data.map((r) => r.phylum).filter(Boolean)).size;
 
 const stats = [
-  { value: taxonomyDocs.length.toString(), label: 'Species Docs' },
-  { value: genera.size.toString(), label: 'Genera' },
-  { value: families.size.toString(), label: 'Families' },
-  { value: phyla.size.toString(), label: 'Phyla' },
+  { value: total.toLocaleString(), label: 'Taxa' },
+  { value: genera.toLocaleString(), label: 'Genera' },
+  { value: families.toLocaleString(), label: 'Families' },
+  { value: phyla.toLocaleString(), label: 'Phyla' },
 ];
 
-// Major taxonomic groups to browse
-const taxonomyBrowse = [
-  {
-    name: 'Basidiomycota',
-    description: 'Club fungi including mushrooms, brackets, puffballs',
-    icon: '🍄',
-    href: '/docs/taxonomy/basidiomycota',
-  },
-  {
-    name: 'Ascomycota',
-    description: 'Sac fungi including morels, truffles, yeasts',
-    icon: '🧫',
-    href: '/docs/taxonomy/ascomycota',
-  },
-  {
-    name: 'All Documentation',
-    description: 'Browse all guides, references, and species profiles',
-    icon: '📚',
-    href: '/docs',
-  },
-];
+// Featured = the hand-written profiles (have a common name attached).
+const featured = data.filter((r) => r.commonName).slice(0, 8);
 
-// Popular genera to feature
-const popularGenera = [
-  { name: 'Amanita', href: '/docs/taxonomy/basidiomycota/agaricomycetes/agaricales/amanitaceae/amanita' },
-  { name: 'Boletus', href: '/docs/taxonomy/basidiomycota/agaricomycetes/boletales/boletaceae/boletus' },
-  { name: 'Agaricus', href: '/docs/taxonomy/basidiomycota/agaricomycetes/agaricales/agaricaceae/agaricus' },
-  { name: 'Russula', href: '/docs/taxonomy/basidiomycota/agaricomycetes/russulales/russulaceae/russula' },
-  { name: 'Lactarius', href: '/docs/taxonomy/basidiomycota/agaricomycetes/russulales/russulaceae/lactarius' },
-  { name: 'Armillaria', href: '/docs/taxonomy/basidiomycota/agaricomycetes/agaricales/physalacriaceae/armillaria' },
-];
+const phylaList = [...new Set(data.map((r) => r.phylum).filter(Boolean))].sort();
 ---
 
-<BaseLayout title="Species Database | MycoSci">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-12">
+<BaseLayout title="Catalog | MycoSci">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-10">
     <!-- Header -->
-    <div class="mb-12">
-      <span class="label text-bio-500">SPECIES DATABASE</span>
-      <h1 class="text-3xl sm:text-4xl font-bold text-lab-100 mt-2">Fungal Species Index</h1>
-      <p class="text-lab-400 mt-2">Comprehensive species documentation with morphology, ecology, and taxonomy.</p>
-    </div>
+    <div class="border-b border-lab-800 pb-8 mb-8">
+      <span class="label text-bio-500">// Catalog</span>
+      <h1 class="text-3xl sm:text-4xl font-semibold text-lab-100 mt-2 tracking-tight">Fungal Species Index</h1>
+      <p class="text-lab-400 mt-2 max-w-2xl">
+        {total.toLocaleString()} taxa with verified taxonomy. Search by scientific name, common name, family or synonym.
+      </p>
 
-    <!-- Stats -->
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-      {stats.map((stat) => (
-        <div class="card p-4 text-center">
-          <div class="text-2xl sm:text-3xl font-bold text-bio-400 font-mono">{stat.value}</div>
-          <div class="text-xs text-lab-500 font-mono uppercase tracking-wider mt-1">{stat.label}</div>
-        </div>
-      ))}
-    </div>
-
-    <!-- Browse Taxonomy -->
-    <div class="mb-12">
-      <h2 class="text-xl font-semibold text-lab-100 mb-6">Browse Taxonomy</h2>
-      <div class="grid md:grid-cols-3 gap-4">
-        {taxonomyBrowse.map((item) => (
-          <a href={item.href} class="card card-hover p-6 group">
-            <div class="flex items-start gap-4">
-              <span class="text-3xl">{item.icon}</span>
-              <div class="flex-1">
-                <h3 class="font-semibold text-lab-100 group-hover:text-bio-400 transition-colors">
-                  {item.name}
-                </h3>
-                <p class="text-sm text-lab-500 mt-1">{item.description}</p>
-              </div>
-              <div class="text-lab-600 group-hover:text-bio-500 transition-colors">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                </svg>
-              </div>
-            </div>
-          </a>
+      <div class="flex flex-wrap items-center gap-x-6 gap-y-2 mt-6">
+        {stats.map((s) => (
+          <div class="flex items-baseline gap-2">
+            <span class="text-xl font-mono font-semibold text-bio-400 tabular-nums">{s.value}</span>
+            <span class="label">{s.label}</span>
+          </div>
         ))}
-      </div>
-    </div>
-
-    <!-- Popular Genera -->
-    <div class="mb-12">
-      <h2 class="text-xl font-semibold text-lab-100 mb-6">Popular Genera</h2>
-      <div class="flex flex-wrap gap-2">
-        {popularGenera.map((genus) => (
-          <a href={genus.href} class="badge bg-lab-800 text-lab-300 border-lab-700 hover:border-bio-600 hover:text-bio-400 transition-colors px-4 py-2">
-            {genus.name}
-          </a>
-        ))}
-        <a href="/docs/taxonomy" class="badge bg-bio-950 text-bio-400 border-bio-600 hover:bg-bio-900 transition-colors px-4 py-2">
-          View All →
-        </a>
       </div>
     </div>
 
     <!-- Search -->
-    <div class="card p-6 mb-8">
-      <h3 class="font-semibold text-lab-100 mb-4">Search Species</h3>
-      <div class="flex flex-col sm:flex-row gap-4">
-        <div class="flex-1">
-          <input
-            type="text"
-            id="species-search"
-            placeholder="Search by scientific name, common name, or genus..."
-            class="input w-full"
-          />
-        </div>
-        <a href="/docs" class="btn btn-primary">
-          Browse All Docs
-        </a>
-      </div>
-      <p class="text-xs text-lab-600 mt-3">
-        Tip: Try searching for "Amanita", "morel", or "porcini"
-      </p>
+    <div class="flex border border-lab-700 focus-within:border-bio-400 transition-colors mb-3">
+      <span class="flex items-center pl-3 text-lab-500">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-5.2-5.2M17 11a6 6 0 11-12 0 6 6 0 0112 0z" />
+        </svg>
+      </span>
+      <input id="q" type="search" autocomplete="off"
+        placeholder="Search the catalog…"
+        class="flex-1 bg-transparent px-3 py-3 text-sm font-mono text-lab-100 placeholder:text-lab-500 focus:outline-none" />
+      <span id="status" class="flex items-center pr-4 text-2xs font-mono uppercase tracking-wider text-lab-500"></span>
     </div>
 
-    <!-- Recent additions or featured -->
-    <div class="card p-8 text-center border-bio-600/30 bg-bio-950/20">
-      <span class="text-4xl block mb-4">🔬</span>
-      <h3 class="text-lg font-semibold text-lab-100 mb-2">Database Growing</h3>
-      <p class="text-lab-400 text-sm max-w-md mx-auto mb-4">
-        We're continuously adding species profiles with detailed morphological descriptions,
-        ecological data, and genetic markers.
-      </p>
-      <a href="/docs" class="btn btn-secondary">
-        Explore Documentation
-      </a>
+    <!-- Filter chips -->
+    <div class="flex flex-wrap gap-2 mb-8" id="phyla">
+      <button data-phylum="" class="badge border-bio-600 text-bio-400 bg-bio-950">All</button>
+      {phylaList.map((p) => (
+        <button data-phylum={p} class="badge border-lab-700 text-lab-400 hover:text-bio-400 hover:border-bio-600 transition-colors">{p}</button>
+      ))}
+    </div>
+
+    <!-- Results (client-rendered) -->
+    <div id="results" class="hidden"></div>
+
+    <!-- Default: featured curated profiles -->
+    <div id="featured">
+      <h2 class="label mb-4">// Featured Profiles</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 border-t border-l border-lab-800">
+        {featured.map((r) => (
+          <a href={`/species/${r.slug}`} class="group block p-5 border-b border-r border-lab-800 hover:bg-lab-900 transition-colors">
+            <div class="flex items-center justify-between mb-3">
+              <span class="badge badge-bio">Curated</span>
+              <span class:list={['badge', r.edibility === 'edible' ? 'badge-mycel' : (r.edibility === 'toxic' || r.edibility === 'psychoactive') ? 'badge-spore' : 'badge']}>{r.edibility}</span>
+            </div>
+            <h3 class="text-base font-semibold italic text-lab-100 group-hover:text-bio-400 transition-colors">{r.accepted}</h3>
+            {r.commonName && <p class="text-sm text-lab-500 mt-1">{r.commonName}</p>}
+            <p class="text-2xs font-mono uppercase tracking-wider text-lab-600 mt-3">{r.family}</p>
+          </a>
+        ))}
+      </div>
     </div>
   </div>
 </BaseLayout>
+
+<script>
+  const EDIB = ['unknown', 'edible', 'inedible', 'toxic', 'psychoactive'];
+  const EDIB_CLASS = ['badge', 'badge-mycel', 'badge', 'badge-spore', 'badge-spore'];
+
+  const qEl = document.getElementById('q') as HTMLInputElement;
+  const statusEl = document.getElementById('status')!;
+  const resultsEl = document.getElementById('results')!;
+  const featuredEl = document.getElementById('featured')!;
+  const phylaEl = document.getElementById('phyla')!;
+
+  let index: any[] = [];   // [slug, accepted, common|0, family|0, curated, edib, phylum|0]
+  let ready = false;
+  let phylum = '';
+
+  async function load() {
+    statusEl.textContent = 'loading…';
+    const res = await fetch('/api/search-index.json');
+    index = await res.json();
+    ready = true;
+    statusEl.textContent = index.length.toLocaleString() + ' taxa';
+    const params = new URLSearchParams(location.search);
+    const q = params.get('q');
+    if (q) { qEl.value = q; run(q); }
+  }
+
+  function esc(s: string) { return s.replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]!)); }
+
+  function run(query: string) {
+    const q = query.trim().toLowerCase();
+    if (!q && !phylum) {
+      resultsEl.classList.add('hidden');
+      featuredEl.classList.remove('hidden');
+      statusEl.textContent = ready ? index.length.toLocaleString() + ' taxa' : '';
+      return;
+    }
+    featuredEl.classList.add('hidden');
+    resultsEl.classList.remove('hidden');
+
+    const scored = [];
+    for (const row of index) {
+      if (phylum && row[6] !== phylum) continue;
+      const [slug, accepted, common, family] = row;
+      const acc = accepted.toLowerCase();
+      const com = common ? String(common).toLowerCase() : '';
+      const fam = family ? String(family).toLowerCase() : '';
+      let score = 0;
+      if (!q) score = 10; // browsing a phylum with no query
+      else if (acc === q || com === q) score = 100;
+      else if (acc.startsWith(q) || com.startsWith(q)) score = 80;
+      else if (acc.includes(q) || com.includes(q)) score = 50;
+      else if (fam.startsWith(q)) score = 30;
+      else if (fam.includes(q)) score = 15;
+      if (score) { if (row[4]) score += 5; scored.push([score, row]); }
+      if (scored.length > 6000) break;
+    }
+    scored.sort((a, b) => b[0] - a[0] || a[1][1].localeCompare(b[1][1]));
+    const top = scored.slice(0, 120);
+    statusEl.textContent = scored.length.toLocaleString() + (phylum && !q ? ' in ' + phylum : ' matches');
+
+    resultsEl.innerHTML = `
+      <h2 class="label mb-4">// ${scored.length.toLocaleString()} result${scored.length === 1 ? '' : 's'}${scored.length > 120 ? ' · showing 120' : ''}</h2>
+      <div class="border-t border-l border-lab-800 grid sm:grid-cols-2 lg:grid-cols-3">
+        ${top.map(([, [slug, accepted, common, family, curated, edib]]) => `
+          <a href="/species/${slug}" class="group block p-4 border-b border-r border-lab-800 hover:bg-lab-900 transition-colors">
+            <div class="flex items-center justify-between gap-2">
+              <h3 class="text-sm font-semibold italic text-lab-100 group-hover:text-bio-400 transition-colors truncate">${esc(accepted)}</h3>
+              <span class="badge ${EDIB_CLASS[edib] || 'badge'} shrink-0">${EDIB[edib] || 'unknown'}</span>
+            </div>
+            ${common ? `<p class="text-xs text-lab-500 mt-1 truncate">${esc(String(common))}</p>` : ''}
+            <p class="text-2xs font-mono uppercase tracking-wider text-lab-600 mt-2">${family ? esc(String(family)) : '—'}${curated ? ' · curated' : ''}</p>
+          </a>`).join('')}
+      </div>`;
+  }
+
+  let t: any;
+  qEl.addEventListener('input', () => { clearTimeout(t); t = setTimeout(() => run(qEl.value), 120); });
+
+  // Phylum chips link to shard browse (phylum isn't in the slim index).
+  phylaEl.addEventListener('click', (e) => {
+    const btn = (e.target as HTMLElement).closest('button');
+    if (!btn) return;
+    phylaEl.querySelectorAll('button').forEach((b) => b.className = 'badge border-lab-700 text-lab-400 hover:text-bio-400 hover:border-bio-600 transition-colors');
+    btn.className = 'badge border-bio-600 text-bio-400 bg-bio-950';
+    phylum = btn.getAttribute('data-phylum') || '';
+    run(qEl.value);
+  });
+
+  load();
+</script>

@@ -5,6 +5,8 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
+    "data": "node scripts/build-data.mjs && node scripts/build-api.mjs",
+    "prebuild": "npm run data",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"

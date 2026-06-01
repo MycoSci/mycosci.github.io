@@ -3,144 +3,109 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    --bio-glow: 0 0 20px rgba(0, 229, 204, 0.3);
-    --bio-glow-strong: 0 0 40px rgba(0, 229, 204, 0.5);
-  }
-
   html {
     @apply bg-lab-950 text-lab-100 antialiased;
-    scroll-behavior: smooth;
   }
 
   body {
     @apply min-h-screen;
-    font-feature-settings: 'ss01', 'ss02', 'cv01';
+    font-feature-settings: 'ss01', 'cv01', 'tnum';
   }
 
   ::selection {
-    @apply bg-bio-500/30 text-white;
+    @apply bg-bio-400 text-lab-950;
   }
 
-  /* Scrollbar */
+  /* Thin, mechanical scrollbar */
   ::-webkit-scrollbar {
-    @apply w-2;
+    @apply w-1.5 h-1.5;
   }
-
   ::-webkit-scrollbar-track {
-    @apply bg-lab-900;
+    @apply bg-lab-950;
   }
-
   ::-webkit-scrollbar-thumb {
-    @apply bg-lab-700 rounded-full;
+    @apply bg-lab-700;
   }
-
   ::-webkit-scrollbar-thumb:hover {
     @apply bg-lab-600;
   }
 }
 
 @layer components {
-  /* Terminal-style text */
+  /* Mono technical text */
   .text-terminal {
     @apply font-mono text-sm tracking-tight;
   }
 
-  /* Glowing accent */
-  .glow {
-    text-shadow: var(--bio-glow);
+  /* Mono uppercase label — the workhorse of the instrument look */
+  .label {
+    @apply text-2xs font-mono uppercase tracking-[0.2em] text-lab-500;
   }
 
-  .glow-strong {
-    text-shadow: var(--bio-glow-strong);
-  }
-
-  /* Status indicators */
+  /* Status indicator — small square, not a glowing dot */
   .status-dot {
-    @apply w-2 h-2 rounded-full;
+    @apply inline-block w-1.5 h-1.5;
   }
+  .status-active  { @apply bg-bio-400; }
+  .status-warning { @apply bg-spore-500; }
+  .status-success { @apply bg-mycel-500; }
 
-  .status-active {
-    @apply bg-bio-500 shadow-[0_0_8px_rgba(0,229,204,0.6)];
-  }
-
-  .status-warning {
-    @apply bg-spore-500;
-  }
-
-  .status-success {
-    @apply bg-mycel-500;
-  }
-
-  /* Card components */
+  /* Panels — flat, hairline-ruled, square corners */
   .card {
-    @apply bg-lab-900/50 border border-lab-800 rounded-lg backdrop-blur-sm;
+    @apply bg-lab-900 border border-lab-800;
   }
-
   .card-hover {
-    @apply hover:border-lab-700 hover:bg-lab-900/70 transition-all duration-200;
+    @apply transition-colors duration-150 hover:border-lab-700 hover:bg-lab-900;
   }
 
-  /* Buttons */
+  /* Buttons — sharp, deliberate, no gradients */
   .btn {
-    @apply px-4 py-2 rounded font-medium text-sm transition-all duration-200;
+    @apply inline-flex items-center justify-center px-4 py-2 font-mono text-xs
+           uppercase tracking-wider transition-colors duration-150
+           border border-transparent;
   }
-
   .btn-primary {
-    @apply bg-bio-600 text-lab-950 hover:bg-bio-500;
+    @apply bg-bio-400 text-lab-950 hover:bg-bio-300;
   }
-
   .btn-secondary {
-    @apply bg-lab-800 text-lab-100 border border-lab-700 hover:bg-lab-700;
+    @apply bg-transparent text-lab-100 border-lab-700 hover:border-lab-500 hover:bg-lab-900;
   }
-
   .btn-ghost {
-    @apply text-lab-400 hover:text-lab-100 hover:bg-lab-800/50;
+    @apply bg-transparent text-lab-400 hover:text-lab-100;
   }
 
-  /* Input fields */
+  /* Inputs — square, hairline, bronze focus rule */
   .input {
-    @apply bg-lab-900 border border-lab-700 rounded px-3 py-2 text-lab-100
-           placeholder:text-lab-500 focus:outline-none focus:border-bio-600
-           focus:ring-1 focus:ring-bio-600/50 transition-all duration-200;
+    @apply w-full bg-lab-900 border border-lab-700 px-3 py-2 text-lab-100 font-mono text-sm
+           placeholder:text-lab-500 focus:outline-none focus:border-bio-400
+           transition-colors duration-150;
   }
 
-  /* Badge */
+  /* Badges — flat, hairline */
   .badge {
-    @apply inline-flex items-center px-2 py-0.5 rounded text-xs font-medium;
+    @apply inline-flex items-center px-2 py-0.5 text-2xs font-mono uppercase tracking-wider border;
   }
+  .badge-bio   { @apply text-bio-400 border-bio-700 bg-bio-950; }
+  .badge-spore { @apply text-spore-400 border-spore-600 bg-spore-600/10; }
+  .badge-mycel { @apply text-mycel-400 border-mycel-600 bg-mycel-600/10; }
 
-  .badge-bio {
-    @apply bg-bio-950 text-bio-400 border border-bio-800;
-  }
-
-  .badge-spore {
-    @apply bg-spore-500/10 text-spore-400 border border-spore-500/30;
-  }
-
-  .badge-mycel {
-    @apply bg-mycel-500/10 text-mycel-400 border border-mycel-500/30;
-  }
-
-  /* Grid background */
+  /* Engineering grid background */
   .bg-grid {
     @apply bg-grid-pattern;
   }
 
-  /* Noise texture overlay */
-  .noise {
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-    opacity: 0.03;
-  }
-
-  /* Section dividers */
+  /* Hairline divider */
   .divider {
-    @apply h-px bg-gradient-to-r from-transparent via-lab-700 to-transparent;
+    @apply h-px bg-lab-800;
   }
 
-  /* Mono label */
-  .label {
-    @apply text-2xs font-mono uppercase tracking-widest text-lab-500;
+  /* Legacy no-ops — kept so older markup doesn't break, glow/noise removed */
+  .glow,
+  .glow-strong {
+    text-shadow: none;
+  }
+  .noise {
+    display: none;
   }
 }
 
@@ -148,19 +113,8 @@
   .text-balance {
     text-wrap: balance;
   }
-
-  .animate-in {
-    animation: fadeIn 0.5s ease-out;
-  }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  /* Hairline rule helper */
+  .rule {
+    @apply border-lab-800;
   }
 }

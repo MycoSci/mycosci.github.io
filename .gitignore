@@ -2,6 +2,10 @@
 dist/
 # generated types
 .astro/
+# generated static JSON API (rebuilt from data/species.json on every build)
+public/species/
+public/api/species/
+public/api/search-index.json
 
 # dependencies
 node_modules/

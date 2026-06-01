@@ -4,105 +4,68 @@ import { getCollection } from 'astro:content';
 
 const docs = await getCollection('docs');
 
-// Group docs by top-level category
+// Group editorial docs by top-level folder. Taxonomy/species now live in the
+// Catalog (/database + /species), so we surface them separately, not as a doc list.
 const categories = docs.reduce((acc, doc) => {
-  const parts = doc.id.split('/');
-  const category = parts[0] || 'General';
-  if (!acc[category]) acc[category] = [];
-  acc[category].push(doc);
+  const category = doc.id.split('/')[0] || 'General';
+  if (category.toLowerCase() === 'taxonomy') return acc;
+  (acc[category] ??= []).push(doc);
   return acc;
 }, {} as Record<string, typeof docs>);
 
-// Sort categories
-const sortedCategories = Object.entries(categories).sort(([a], [b]) => a.localeCompare(b));
-
-const categoryIcons: Record<string, string> = {
-  'Taxonomy': '🧬',
-  'Guides': '📖',
-  'Cultivation': '🌱',
-  'Equipment': '🔧',
-  'Foraging': '🌲',
-  'lab': '🔬',
-  'recipes': '🍳',
-  'references': '📚',
-  'blog': '📝',
-  'mycogram': '📸',
-  'gallery': '🖼️',
-  'chemistry-nutrition': '⚗️',
-  'resources': '📦',
+const order = ['Cultivation', 'lab', 'Equipment', 'Foraging', 'Guides', 'chemistry-nutrition', 'recipes', 'references', 'Reference', 'resources', 'blog', 'gallery', 'mycogram'];
+const labels: Record<string, string> = {
+  'lab': 'Lab Methods',
+  'chemistry-nutrition': 'Chemistry & Nutrition',
+  'mycogram': 'MycoGram',
+  'Reference': 'Reference',
+  'references': 'References',
 };
+const sorted = Object.entries(categories).sort(
+  ([a], [b]) => (order.indexOf(a) + 1 || 99) - (order.indexOf(b) + 1 || 99) || a.localeCompare(b)
+);
 ---
 
-<BaseLayout title="Documentation | MycoSci">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-12">
+<BaseLayout title="Teks & Knowledge | MycoSci">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-10">
     <!-- Header -->
-    <div class="mb-12">
-      <span class="label text-bio-500">DOCUMENTATION</span>
-      <h1 class="text-3xl sm:text-4xl font-bold text-lab-100 mt-2">Knowledge Base</h1>
-      <p class="text-lab-400 mt-2">Guides, species documentation, and research materials.</p>
+    <div class="border-b border-lab-800 pb-8 mb-8">
+      <span class="label text-bio-500">// Knowledge</span>
+      <h1 class="text-3xl sm:text-4xl font-semibold text-lab-100 mt-2 tracking-tight">Teks & Knowledge</h1>
+      <p class="text-lab-400 mt-2 max-w-2xl">
+        Cultivation and lab teks, foraging references, and gene-science explainers.
+        Looking for a species? Use the <a href="/database" class="text-bio-400 hover:underline">Catalog</a>.
+      </p>
     </div>
 
-    <!-- Stats -->
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-      <div class="card p-4 text-center">
-        <div class="text-2xl font-bold text-bio-400 font-mono">{docs.length}</div>
-        <div class="text-xs text-lab-500 font-mono uppercase">Total Pages</div>
+    <!-- Catalog pointer -->
+    <a href="/database" class="group flex items-center justify-between border border-lab-800 hover:border-bio-600 hover:bg-lab-900 transition-colors p-5 mb-10">
+      <div>
+        <span class="label text-bio-500">// Catalog</span>
+        <h2 class="text-lg font-semibold text-lab-100 mt-1 group-hover:text-bio-400 transition-colors">Browse 24,431 fungal taxa →</h2>
+        <p class="text-sm text-lab-400 mt-1">Search by name, family or synonym. Every entry is also a JSON endpoint.</p>
       </div>
-      <div class="card p-4 text-center">
-        <div class="text-2xl font-bold text-bio-400 font-mono">{sortedCategories.length}</div>
-        <div class="text-xs text-lab-500 font-mono uppercase">Categories</div>
-      </div>
-      <div class="card p-4 text-center">
-        <div class="text-2xl font-bold text-bio-400 font-mono">
-          {categories['Taxonomy']?.length || 0}
-        </div>
-        <div class="text-xs text-lab-500 font-mono uppercase">Species Docs</div>
-      </div>
-      <div class="card p-4 text-center">
-        <div class="text-2xl font-bold text-bio-400 font-mono">
-          {categories['Guides']?.length || 0}
-        </div>
-        <div class="text-xs text-lab-500 font-mono uppercase">Guides</div>
-      </div>
-    </div>
+      <span class="hidden sm:block font-mono text-2xl text-lab-700 group-hover:text-bio-400 transition-colors tabular-nums">24,431</span>
+    </a>
 
-    <!-- Search -->
-    <div class="card p-4 mb-8">
-      <input
-        type="text"
-        id="doc-search"
-        placeholder="Search documentation..."
-        class="input w-full"
-      />
-    </div>
-
-    <!-- Categories Grid -->
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {sortedCategories.map(([category, items]) => (
-        <div class="card p-5">
-          <div class="flex items-center gap-3 mb-4">
-            <span class="text-2xl">{categoryIcons[category] || '📄'}</span>
-            <div>
-              <h2 class="font-semibold text-lab-100">{category}</h2>
-              <span class="text-xs text-lab-500">{items.length} pages</span>
-            </div>
+    <!-- Categories -->
+    <h2 class="label mb-4">// Sections</h2>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 border-t border-l border-lab-800">
+      {sorted.map(([category, items]) => (
+        <div class="border-b border-r border-lab-800 p-5">
+          <div class="flex items-baseline justify-between mb-3">
+            <h3 class="font-mono text-sm uppercase tracking-wider text-lab-200">{labels[category] || category}</h3>
+            <span class="text-2xs font-mono text-lab-600">{items.length}</span>
           </div>
-          <ul class="space-y-2">
+          <ul class="space-y-1.5">
             {items.slice(0, 5).map((doc) => (
               <li>
-                <a
-                  href={`/docs/${doc.id}`}
-                  class="text-sm text-lab-400 hover:text-bio-400 transition-colors block truncate"
-                >
+                <a href={`/docs/${doc.id}`} class="text-sm text-lab-400 hover:text-bio-400 transition-colors block truncate">
                   {doc.data.title}
                 </a>
               </li>
             ))}
-            {items.length > 5 && (
-              <li class="text-xs text-lab-600 pt-2">
-                +{items.length - 5} more pages
-              </li>
-            )}
+            {items.length > 5 && <li class="text-2xs font-mono text-lab-600 pt-1">+{items.length - 5} more</li>}
           </ul>
         </div>
       ))}
