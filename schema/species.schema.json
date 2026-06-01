@@ -1,0 +1,3846 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mycosci.com/schema/species.schema.json",
+  "title": "MycoSci Species Record",
+  "description": "Canonical fungal species record. See docs/SPECIES-DATA-MODEL.md.",
+  "type": "object",
+  "properties": {
+    "identity": {
+      "type": "object",
+      "title": "Identity & Record",
+      "description": "Stable internal keys, slug, record tier, primary common name, and the canonical accepted scientific name. The minimal anchor every taxon carries.",
+      "properties": {
+        "recordId": {
+          "title": "Record ID",
+          "type": "string",
+          "x-tier": "core"
+        },
+        "slug": {
+          "title": "URL Slug",
+          "type": "string",
+          "x-tier": "core"
+        },
+        "recordTier": {
+          "title": "Record Curation Tier",
+          "$ref": "#/$defs/RecordTier",
+          "x-tier": "core"
+        },
+        "scientificName": {
+          "title": "Scientific Name (with authorship)",
+          "type": "string",
+          "x-tier": "core",
+          "x-safety": true
+        },
+        "canonicalName": {
+          "title": "Canonical Name (no authorship)",
+          "type": "string",
+          "x-tier": "core"
+        },
+        "primaryCommonName": {
+          "title": "Primary Common Name",
+          "type": "string",
+          "x-tier": "core",
+          "x-safety": true
+        },
+        "taxonRank": {
+          "title": "Taxonomic Rank",
+          "$ref": "#/$defs/TaxonRank",
+          "x-tier": "core"
+        },
+        "taxonomicStatus": {
+          "title": "Taxonomic Status",
+          "$ref": "#/$defs/TaxonomicStatus",
+          "x-tier": "core",
+          "x-safety": true
+        },
+        "acceptedNameUsageId": {
+          "title": "Accepted Name Usage ID",
+          "type": "string",
+          "x-tier": "core",
+          "x-safety": true
+        }
+      }
+    },
+    "naming": {
+      "type": "object",
+      "title": "Naming & Nomenclature",
+      "description": "Authorship, basionym, synonymy, homonymy, type specimen, nomenclatural acts, registration, and etymology. Owns the ICN naming layer.",
+      "properties": {
+        "authorship": {
+          "title": "Full Authorship String",
+          "type": "string",
+          "x-tier": "core"
+        },
+        "basionymAuthorship": {
+          "title": "Basionym Authorship",
+          "type": "string",
+          "x-tier": "standard"
+        },
+        "combinationAuthorship": {
+          "title": "Combination Authorship",
+          "type": "string",
+          "x-tier": "standard"
+        },
+        "namePublishedInYear": {
+          "title": "Year of Publication",
+          "type": "integer",
+          "description": "unit: year",
+          "x-tier": "core"
+        },
+        "nomenclaturalCode": {
+          "title": "Governing Nomenclatural Code",
+          "$ref": "#/$defs/NomenclaturalCode",
+          "x-tier": "standard"
+        },
+        "nomenclaturalStatus": {
+          "title": "Nomenclatural Status",
+          "$ref": "#/$defs/NomenclaturalStatus",
+          "x-tier": "standard"
+        },
+        "sanctioningStatus": {
+          "title": "Sanctioning Status",
+          "$ref": "#/$defs/SanctioningStatus",
+          "x-tier": "deep"
+        },
+        "basionymName": {
+          "title": "Basionym",
+          "type": "string",
+          "x-tier": "standard"
+        },
+        "synonyms": {
+          "title": "Synonyms",
+          "type": "string",
+          "x-tier": "standard",
+          "x-safety": true
+        },
+        "misappliedNames": {
+          "title": "Misapplied Names",
+          "type": "string",
+          "x-tier": "deep",
+          "x-safety": true
+        },
+        "orthographicVariants": {
+          "title": "Orthographic Variants",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-tier": "deep"
+        },
+        "typeStatus": {
+          "title": "Type Specimen Status",
+          "$ref": "#/$defs/TypeStatus",
+          "x-tier": "standard"
+        },
+        "typeSpecimenCitation": {
+          "title": "Type Specimen Citation",
+          "type": "string",
+          "x-tier": "deep"
+        },
+        "typeHerbariumCode": {
+          "title": "Type Herbarium (Index Herbariorum)",
+          "type": "string",
+          "x-tier": "deep"
+        },
+        "typeLocality": {
+          "title": "Type Locality",
+          "type": "string",
+          "x-tier": "standard"
+        },
+        "protologueCitation": {
+          "title": "Protologue Citation",
+          "type": "string",
+          "x-tier": "deep"
+        },
+        "etymology": {
+          "title": "Etymology",
+          "type": "string",
+          "x-tier": "standard"
+        },
+        "etymologyRootLanguage": {
+          "title": "Etymology Root Language",
+          "$ref": "#/$defs/EtymologyRoot",
+          "x-tier": "deep"
+        },
+        "anamorphTeleomorphLink": {
+          "title": "Anamorph/Teleomorph Link",
+          "type": "object",
+          "x-tier": "deep",
+          "x-safety": true
+        }
+      }
+    },
+    "classification": {
+      "type": "object",
+      "title": "Classification & Phylogeny",
+      "description": "Ranked classification path (kingdom→infraspecific), parent linkage, species complex, molecular phylogenetic placement, sister taxa, and reclassification history.",
+      "properties": {
+        "kingdom": {
+          "title": "Kingdom",
+          "type": "string",
+          "x-tier": "core"
+        },
+        "phylum": {
+          "title": "Phylum",
+          "type": "string",
+          "x-tier": "core"
+        },
+        "class": {
+          "title": "Class",
+          "type": "string",
+          "x-tier": "core"
+        },
+        "order": {
+          "title": "Order",
+          "type": "string",
+          "x-tier": "core"
+        },
+        "family": {
+          "title": "Family",
+          "type": "string",
+          "x-tier": "core"
+        },
+        "genus": {
+          "title": "Genus",
+          "type": "string",
+          "x-tier": "core"
+        },
+        "specificEpithet": {
+          "title": "Specific Epithet",
+          "type": "string",
+          "x-tier": "core"
+        },
+        "infraspecificEpithet": {
+          "title": "Infraspecific Epithet",
+          "type": "string",
+          "x-tier": "standard"
+        },
+        "infraspecificRankMarker": {
+          "title": "Infraspecific Rank Marker",
+          "$ref": "#/$defs/InfraspecificRankMarker",
+          "x-tier": "standard"
+        },
+        "intermediateRanks": {
+          "title": "Intermediate Ranks",
+          "type": "object",
+          "x-tier": "deep"
+        },
+        "classificationPath": {
+          "title": "Materialized Classification Path",
+          "type": "string",
+          "x-tier": "standard"
+        },
+        "parentNameUsageId": {
+          "title": "Parent Taxon ID",
+          "type": "string",
+          "x-tier": "core"
+        },
+        "speciesComplex": {
+          "title": "Species Complex / Aggregate",
+          "type": "string",
+          "x-tier": "standard",
+          "x-safety": true
+        },
+        "crypticSpeciesFlag": {
+          "title": "Part of Cryptic Species Group",
+          "type": "boolean",
+          "x-tier": "standard",
+          "x-safety": true
+        },
+        "phylogeneticClade": {
+          "title": "Phylogenetic Clade",
+          "type": "string",
+          "x-tier": "deep"
+        },
+        "sisterTaxa": {
+          "title": "Sister Taxa / Nearest Relatives",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-tier": "standard",
+          "x-safety": true
+        },
+        "placementConfidence": {
+          "title": "Classification Confidence",
+          "$ref": "#/$defs/PlacementConfidence",
+          "x-tier": "standard"
+        },
+        "recentReclassification": {
+          "title": "Recent Reclassification Note",
+          "type": "string",
+          "x-tier": "deep",
+          "x-safety": true
+        }
+      }
+    },
+    "morphology": {
+      "type": "object",
+      "title": "Macroscopic Morphology",
+      "description": "Naked-eye basidiome/ascoma features: cap, hymenophore, stipe, veils, flesh, latex, spore print, sensory, bruising, development. Genus-dependent and nullable.",
+      "properties": {
+        "basidiomeType": {
+          "title": "Sporocarp Type",
+          "$ref": "#/$defs/BasidiomeType",
+          "x-tier": "core"
+        },
+        "growthHabit": {
+          "title": "Growth Habit",
+          "$ref": "#/$defs/GrowthHabit",
+          "x-tier": "standard"
+        },
+        "capDiameter": {
+          "title": "Cap Diameter",
+          "type": "object",
+          "properties": {
+            "min": {
+              "type": "number"
+            },
+            "max": {
+              "type": "number"
+            },
+            "unit": {
+              "type": "string"
+            }
+          },
+          "x-tier": "core"
+        },
+        "capShape": {
+          "title": "Cap Shape",
+          "type": "string",
+          "x-tier": "core"
+        },
+        "capColor": {
+          "title": "Cap Color (Primary)",
+          "type": "string",
+          "x-tier": "core"
+        },
+        "capSurfaceTexture": {
+          "title": "Cap Surface Texture",
+          "type": "string",
+          "x-tier": "core"
+        },
+        "capSurfaceOrnamentation": {
+          "title": "Cap Ornamentation",
+          "$ref": "#/$defs/CapOrnamentation",
+          "x-tier": "standard",
+          "x-safety": true
+        },
+        "hymenophoreType": {
+          "title": "Hymenophore Type",
+          "$ref": "#/$defs/HymenophoreType",
+          "x-tier": "core"
+        },
+        "gillAttachment": {
+          "title": "Gill Attachment",
+          "$ref": "#/$defs/GillAttachment",
+          "x-tier": "core",
+          "x-safety": true
+        },
+        "gillSpacing": {
+          "title": "Gill Spacing",
+          "$ref": "#/$defs/GillSpacing",
+          "x-tier": "standard"
+        },
+        "gillColor": {
+          "title": "Gill Color",
+          "type": "string",
+          "x-tier": "core",
+          "x-safety": true
+        },
+        "poreSurfaceColor": {
+          "title": "Pore Surface Color",
+          "type": "string",
+          "x-tier": "standard",
+          "x-safety": true
+        },
+        "poreDensity": {
+          "title": "Pore Density",
+          "type": "object",
+          "properties": {
+            "min": {
+              "type": "number"
+            },
+            "max": {
+              "type": "number"
+            },
+            "unit": {
+              "type": "string"
+            }
+          },
+          "x-tier": "standard"
+        },
+        "toothLength": {
+          "title": "Hydnoid Tooth Length",
+          "type": "object",
+          "properties": {
+            "min": {
+              "type": "number"
+            },
+            "max": {
+              "type": "number"
+            },
+            "unit": {
+              "type": "string"
+            }
+          },
+          "x-tier": "standard"
+        },
+        "stipePresent": {
+          "title": "Stipe Present",
+          "type": "boolean",
+          "x-tier": "core"
+        },
+        "stipeDimensions": {
+          "title": "Stipe Dimensions",
+          "type": "object",
+          "x-tier": "core"
+        },
+        "stipeColor": {
+          "title": "Stipe Color",
+          "type": "string",
+          "x-tier": "core"
+        },
+        "stipeSurfaceTexture": {
+          "title": "Stipe Surface Texture",
+          "type": "string",
+          "x-tier": "standard"
+        },
+        "annulusPresence": {
+          "title": "Annulus (Ring) Present",
+          "$ref": "#/$defs/AnnulusPresence",
+          "x-tier": "core",
+          "x-safety": true
+        },
+        "cortinaPresence": {
+          "title": "Cortina Present",
+          "type": "boolean",
+          "x-tier": "standard",
+          "x-safety": true
+        },
+        "volvaPresence": {
+          "title": "Volva (Universal Veil Cup) Present",
+          "$ref": "#/$defs/VolvaPresence",
+          "x-tier": "core",
+          "x-safety": true
+        },
+        "stipeBaseShape": {
+          "title": "Stipe Base Form",
+          "$ref": "#/$defs/StipeBaseShape",
+          "x-tier": "standard",
+          "x-safety": true
+        },
+        "basalMycelium": {
+          "title": "Basal Mycelium / Rhizomorphs",
+          "$ref": "#/$defs/BasalMycelium",
+          "x-tier": "deep"
+        },
+        "fleshColor": {
+          "title": "Flesh Color",
+          "type": "string",
+          "x-tier": "core"
+        },
+        "fleshColorChangeOnCut": {
+          "title": "Flesh Color Change on Cutting",
+          "type": "string",
+          "x-tier": "core",
+          "x-safety": true
+        },
+        "latexPresence": {
+          "title": "Latex Present",
+          "type": "boolean",
+          "x-tier": "core",
+          "x-safety": true
+        },
+        "latexColorFresh": {
+          "title": "Latex Color (Fresh)",
+          "$ref": "#/$defs/LatexColor",
+          "x-tier": "standard",
+          "x-safety": true
+        },
+        "latexColorChange": {
+          "title": "Latex Color Change on Exposure",
+          "type": "string",
+          "x-tier": "standard",
+          "x-safety": true
+        },
+        "sporePrintColor": {
+          "title": "Spore Print Color",
+          "$ref": "#/$defs/SporePrintColor",
+          "x-tier": "core",
+          "x-safety": true
+        },
+        "odor": {
+          "title": "Odor Descriptor",
+          "type": "string",
+          "x-tier": "core",
+          "x-safety": true
+        },
+        "taste": {
+          "title": "Taste Descriptor",
+          "$ref": "#/$defs/TasteDescriptor",
+          "x-tier": "core",
+          "x-safety": true
+        },
+        "bruisingReaction": {
+          "title": "General Bruising / Staining",
+          "type": "object",
+          "x-tier": "core",
+          "x-safety": true
+        },
+        "glebaDescription": {
+          "title": "Gleba Description (Gasteroid)",
+          "type": "object",
+          "x-tier": "standard",
+          "x-safety": true
+        },
+        "autodigestionDeliquescence": {
+          "title": "Autodigestion / Deliquescence",
+          "type": "boolean",
+          "x-tier": "standard",
+          "x-safety": true
+        },
+        "luminescence": {
+          "title": "Bioluminescence",
+          "type": "boolean",
+          "x-tier": "deep"
+        },
+        "basidiomeDevelopmentType": {
+          "title": "Basidiome Development Type",
+          "$ref": "#/$defs/DevelopmentType",
+          "x-tier": "deep"
+        },
+        "fruitingBodyTexture": {
+          "title": "Overall Consistency",
+          "$ref": "#/$defs/FruitbodyTexture",
+          "x-tier": "standard"
+        }
+      }
+    },
+    "microscopy": {
+      "type": "object",
+      "title": "Microscopy & Anatomy",
+      "description": "Spores (dimensions, Q, ornamentation, reactions), basidia, cystidia, hyphal system, tissue layers, asci/ascospores, crystals, and measurement-protocol metadata.",
+      "properties": {
+        "basidiosporeDimensions": {
+          "title": "Basidiospore Dimensions",
+          "type": "object",
+          "x-tier": "core"
+        },
+        "qRatio": {
+          "title": "Q Ratio (length/width)",
+          "type": "object",
+          "x-tier": "standard"
+        },
+        "basidiosporeShape": {
+          "title": "Basidiospore Shape",
+          "$ref": "#/$defs/SporeShape",
+          "x-tier": "core"
+        },
+        "basidiosporeOrnamentation": {
+          "title": "Spore Ornamentation",
+          "$ref": "#/$defs/SporeOrnamentation",
+          "x-tier": "standard"
+        },
+        "basidiosporeReactionMelzer": {
+          "title": "Spore Reaction in Melzer's",
+          "$ref": "#/$defs/AmyloidReaction",
+          "x-tier": "core",
+          "x-safety": true
+        },
+        "basidiosporeGermPore": {
+          "title": "Germ Pore",
+          "$ref": "#/$defs/GermPore",
+          "x-tier": "standard",
+          "x-safety": true
+        },
+        "basidiaShape": {
+          "title": "Basidia Shape",
+          "$ref": "#/$defs/BasidiaShape",
+          "x-tier": "standard"
+        },
+        "basidiaSterigmataNumber": {
+          "title": "Sterigmata per Basidium",
+          "$ref": "#/$defs/SterigmataNumber",
+          "x-tier": "standard"
+        },
+        "cheilocystidia": {
+          "title": "Cheilocystidia",
+          "type": "object",
+          "x-tier": "standard"
+        },
+        "pleurocystidia": {
+          "title": "Pleurocystidia",
+          "type": "object",
+          "x-tier": "standard"
+        },
+        "hyphalSystem": {
+          "title": "Hyphal System",
+          "$ref": "#/$defs/HyphalSystem",
+          "x-tier": "standard"
+        },
+        "clampConnections": {
+          "title": "Clamp Connections",
+          "$ref": "#/$defs/ClampConnections",
+          "x-tier": "standard"
+        },
+        "tramaType": {
+          "title": "Lamellar Trama Type",
+          "$ref": "#/$defs/TramaType",
+          "x-tier": "standard"
+        },
+        "pileipellisType": {
+          "title": "Pileipellis Type",
+          "$ref": "#/$defs/PileipellisType",
+          "x-tier": "standard"
+        },
+        "setaePresence": {
+          "title": "Setae / Setal Hyphae",
+          "$ref": "#/$defs/SetaePresence",
+          "x-tier": "deep"
+        },
+        "crystalsPresence": {
+          "title": "Crystals in Tissue",
+          "$ref": "#/$defs/CrystalsPresence",
+          "x-tier": "deep"
+        },
+        "ascusType": {
+          "title": "Ascus Type (Ascomycota)",
+          "$ref": "#/$defs/AscusType",
+          "x-tier": "deep"
+        },
+        "ascosporeFeatures": {
+          "title": "Ascospore Features (Ascomycota)",
+          "type": "object",
+          "x-tier": "deep"
+        },
+        "measurementProtocol": {
+          "title": "Measurement Protocol Metadata",
+          "type": "object",
+          "x-tier": "standard"
+        }
+      }
+    },
+    "chemistry": {
+      "type": "object",
+      "title": "Chemistry, Toxins & Medicinal",
+      "description": "Toxin inventory and toxidromes, psychoactive and medicinal compounds, nutrition, bioaccumulation, allergens, pigments, and macrochemical spot tests. Owns compound identity and hazard axis.",
+      "properties": {
+        "toxicityClass": {
+          "title": "Overall Toxicity Class",
+          "$ref": "#/$defs/ToxicityClass",
+          "x-tier": "core",
+          "x-safety": true
+        },
+        "primaryToxidrome": {
+          "title": "Primary Toxidrome",
+          "$ref": "#/$defs/Toxidrome",
+          "x-tier": "core",
+          "x-safety": true
+        },
+        "secondaryToxidromes": {
+          "title": "Secondary Toxidromes",
+          "type": "string",
+          "x-tier": "standard",
+          "x-safety": true
+        },
+        "onsetCategory": {
+          "title": "Symptom Onset Category",
+          "$ref": "#/$defs/OnsetCategory",
+          "x-tier": "core",
+          "x-safety": true
+        },
+        "onsetTimeRange": {
+          "title": "Symptom Onset Time",
+          "type": "object",
+          "properties": {
+            "min": {
+              "type": "number"
+            },
+            "max": {
+              "type": "number"
+            },
+            "unit": {
+              "type": "string"
+            }
+          },
+          "x-tier": "standard",
+          "x-safety": true
+        },
+        "toxins": {
+          "title": "Toxin Inventory",
+          "type": "string",
+          "x-tier": "core",
+          "x-safety": true
+        },
+        "lethalDoseHuman": {
+          "title": "Estimated Human Lethal Dose",
+          "type": "string",
+          "x-tier": "standard",
+          "x-safety": true
+        },
+        "targetOrgans": {
+          "title": "Target Organs",
+          "type": "string",
+          "x-tier": "core",
+          "x-safety": true
+        },
+        "antidotes": {
+          "title": "Antidotes / Treatments",
+          "type": "string",
+          "x-tier": "standard",
+          "x-safety": true
+        },
+        "toxinThermolability": {
+          "title": "Toxin Cooking Stability",
+          "$ref": "#/$defs/ToxinThermolability",
+          "x-tier": "standard",
+          "x-safety": true
+        },
+        "psychoactiveStatus": {
+          "title": "Psychoactive Status",
+          "$ref": "#/$defs/PsychoactiveStatus",
+          "x-tier": "core",
+          "x-safety": true
+        },
+        "psychoactiveCompounds": {
+          "title": "Psychoactive Compound Profile",
+          "type": "string",
+          "x-tier": "standard",
+          "x-safety": true
+        },
+        "medicinalCompounds": {
+          "title": "Medicinal / Bioactive Inventory",
+          "type": "string",
+          "x-tier": "standard"
+        },
+        "medicinalEvidenceGrade": {
+          "title": "Medicinal Claim Evidence Grade",
+          "$ref": "#/$defs/MedicinalEvidenceGrade",
+          "x-tier": "standard",
+          "x-safety": true
+        },
+        "nutritionalComposition": {
+          "title": "Nutritional Composition (per 100g)",
+          "type": "object",
+          "x-tier": "deep"
+        },
+        "bioaccumulatorFlag": {
+          "title": "Known Bioaccumulator",
+          "$ref": "#/$defs/BioaccumulatorFlag",
+          "x-tier": "core",
+          "x-safety": true
+        },
+        "bioaccumulationProfile": {
+          "title": "Heavy Metal / Radionuclide Profile",
+          "type": "string",
+          "x-tier": "standard",
+          "x-safety": true
+        },
+        "allergenProfile": {
+          "title": "Allergen / Hypersensitivity Profile",
+          "type": "string",
+          "x-tier": "standard",
+          "x-safety": true
+        },
+        "bluingReaction": {
+          "title": "Bluing / Oxidation Staining",
+          "$ref": "#/$defs/BluingReaction",
+          "x-tier": "standard",
+          "x-safety": true
+        },
+        "macrochemicalReactions": {
+          "title": "Macrochemical Spot Tests",
+          "type": "string",
+          "x-tier": "deep",
+          "x-safety": true
+        },
+        "pigmentChemistry": {
+          "title": "Pigment Chemistry",
+          "type": "string",
+          "x-tier": "deep"
+        },
+        "legalScheduleStatus": {
+          "title": "Controlled-Substance Status",
+          "$ref": "#/$defs/LegalScheduleStatus",
+          "x-tier": "standard",
+          "x-safety": true
+        }
+      }
+    },
+    "edibility": {
+      "type": "object",
+      "title": "Edibility & Safety",
+      "description": "Safety-first edibility classification, preparation requirements, dangerous lookalikes, sensory/culinary profile, preservation, and consumption cautions. The actionable safety layer.",
+      "properties": {
+        "edibilityClass": {
+          "title": "Edibility Classification",
+          "$ref": "#/$defs/EdibilityClass",
+          "x-tier": "core",
+          "x-safety": true
+        },
+        "edibilityConfidence": {
+          "title": "Edibility Confidence",
+          "$ref": "#/$defs/EdibilityConfidence",
+          "x-tier": "core",
+          "x-safety": true
+        },
+        "edibilityRationale": {
+          "title": "Reason for Classification",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-tier": "core",
+          "x-safety": true
+        },
+        "noviceSafetyRating": {
+          "title": "Novice-Safety Rating",
+          "$ref": "#/$defs/NoviceSafetyRating",
+          "x-tier": "core",
+          "x-safety": true
+        },
+        "deadlyLookalikeRisk": {
+          "title": "Deadly Lookalike Risk Level",
+          "$ref": "#/$defs/LookalikeRiskLevel",
+          "x-tier": "core",
+          "x-safety": true
+        },
+        "toxicWhenRaw": {
+          "title": "Toxic / Irritant When Raw",
+          "type": "boolean",
+          "x-tier": "core",
+          "x-safety": true
+        },
+        "preparationRequirement": {
+          "title": "Mandatory Preparation",
+          "type": "string",
+          "x-tier": "core",
+          "x-safety": true
+        },
+        "alcoholInteraction": {
+          "title": "Alcohol Interaction (Coprine-type)",
+          "$ref": "#/$defs/AlcoholInteraction",
+          "x-tier": "core",
+          "x-safety": true
+        },
+        "dangerousLookalikes": {
+          "title": "Dangerous Lookalikes",
+          "type": "string",
+          "x-tier": "core",
+          "x-safety": true
+        },
+        "keyDistinguishingTests": {
+          "title": "Key Disambiguation Tests",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-tier": "standard",
+          "x-safety": true
+        },
+        "firstTimeTrialAdvice": {
+          "title": "First-Time Trial Advice",
+          "type": "string",
+          "x-tier": "standard",
+          "x-safety": true
+        },
+        "individualIdiosyncrasyRisk": {
+          "title": "Idiosyncratic Reaction Risk",
+          "type": "boolean",
+          "x-tier": "deep",
+          "x-safety": true
+        },
+        "tasteRating": {
+          "title": "Culinary Taste Rating",
+          "$ref": "#/$defs/TasteRating",
+          "x-tier": "standard"
+        },
+        "flavorProfile": {
+          "title": "Flavor Profile",
+          "type": "string",
+          "x-tier": "standard"
+        },
+        "aromaDescriptors": {
+          "title": "Aroma / Odor Descriptors",
+          "type": "string",
+          "x-tier": "standard"
+        },
+        "textureCooked": {
+          "title": "Texture (cooked)",
+          "type": "string",
+          "x-tier": "standard"
+        },
+        "culinaryUses": {
+          "title": "Culinary Uses",
+          "type": "string",
+          "x-tier": "standard"
+        },
+        "preservationMethods": {
+          "title": "Preservation Methods",
+          "type": "string",
+          "x-tier": "standard"
+        },
+        "commercialFoodStatus": {
+          "title": "Commercial Food Status",
+          "$ref": "#/$defs/CommercialFoodStatus",
+          "x-tier": "standard"
+        },
+        "regionalEdibilityVariation": {
+          "title": "Regional / Chemotype Variation",
+          "type": "string",
+          "x-tier": "deep",
+          "x-safety": true
+        },
+        "specialPopulationCaution": {
+          "title": "Special-Population Caution",
+          "type": "string",
+          "x-tier": "deep",
+          "x-safety": true
+        }
+      }
+    },
+    "ecology": {
+      "type": "object",
+      "title": "Ecology & Habitat",
+      "description": "Trophic mode, substrate/host associations, habitat/biome, climate/soil preference, fruiting phenology, ecological role, and conservation status.",
+      "properties": {
+        "trophicMode": {
+          "title": "Primary Trophic Mode",
+          "$ref": "#/$defs/TrophicMode",
+          "x-tier": "core"
+        },
+        "trophicModeSecondary": {
+          "title": "Secondary Trophic Modes",
+          "type": "string",
+          "x-tier": "standard"
+        },
+        "decayType": {
+          "title": "Wood Decay Type",
+          "$ref": "#/$defs/DecayType",
+          "x-tier": "standard"
+        },
+        "substrateType": {
+          "title": "Substrate Type(s)",
+          "type": "string",
+          "x-tier": "core",
+          "x-safety": true
+        },
+        "hostAssociations": {
+          "title": "Host / Plant Associations",
+          "type": "string",
+          "x-tier": "core",
+          "x-safety": true
+        },
+        "hostBreadthClass": {
+          "title": "Host Breadth (Angio/Gymno)",
+          "$ref": "#/$defs/HostBreadthClass",
+          "x-tier": "standard",
+          "x-safety": true
+        },
+        "habitatType": {
+          "title": "Habitat Type(s)",
+          "type": "string",
+          "x-tier": "core"
+        },
+        "climateClass": {
+          "title": "Coarse Climate Affinity",
+          "$ref": "#/$defs/ClimateClass",
+          "x-tier": "standard"
+        },
+        "soilPreference": {
+          "title": "Soil Type Preference",
+          "type": "string",
+          "x-tier": "deep"
+        },
+        "soilPhRange": {
+          "title": "Soil pH Range",
+          "type": "object",
+          "properties": {
+            "min": {
+              "type": "number"
+            },
+            "max": {
+              "type": "number"
+            },
+            "unit": {
+              "type": "string"
+            }
+          },
+          "x-tier": "deep"
+        },
+        "moisturePreference": {
+          "title": "Moisture Preference",
+          "$ref": "#/$defs/MoisturePreference",
+          "x-tier": "deep"
+        },
+        "fruitingSeason": {
+          "title": "Fruiting Season(s)",
+          "type": "string",
+          "x-tier": "core",
+          "x-safety": true
+        },
+        "phenologyHemisphere": {
+          "title": "Phenology Reference Hemisphere",
+          "$ref": "#/$defs/PhenologyHemisphere",
+          "x-tier": "standard"
+        },
+        "fruitingTriggers": {
+          "title": "Fruiting Triggers",
+          "type": "string",
+          "x-tier": "deep"
+        },
+        "fruitingPosition": {
+          "title": "Fruiting Body Position",
+          "$ref": "#/$defs/FruitingPosition",
+          "x-tier": "standard"
+        },
+        "ecologicalRole": {
+          "title": "Ecological Role",
+          "type": "string",
+          "x-tier": "deep"
+        },
+        "indicatorSpeciesRole": {
+          "title": "Indicator Species Role",
+          "$ref": "#/$defs/IndicatorSpeciesRole",
+          "x-tier": "deep"
+        },
+        "iucnStatus": {
+          "title": "IUCN Red List Category",
+          "$ref": "#/$defs/IucnStatus",
+          "x-tier": "standard"
+        },
+        "abundance": {
+          "title": "Abundance / Commonness",
+          "$ref": "#/$defs/Abundance",
+          "x-tier": "standard",
+          "x-safety": true
+        },
+        "legalProtection": {
+          "title": "Legal Protection / Harvest Restriction",
+          "type": "string",
+          "x-tier": "deep",
+          "x-safety": true
+        },
+        "habitatNotes": {
+          "title": "Habitat & Ecology Notes",
+          "type": "string",
+          "x-tier": "standard"
+        }
+      }
+    },
+    "distribution": {
+      "type": "object",
+      "title": "Distribution & Biogeography",
+      "description": "Native/introduced range, country/region distribution, biogeographic realms, elevation, occurrence-record statistics, and range dynamics.",
+      "properties": {
+        "nativeStatus": {
+          "title": "Nativeness Status",
+          "$ref": "#/$defs/NativeStatus",
+          "x-tier": "standard"
+        },
+        "nativeRange": {
+          "title": "Native Range (description)",
+          "type": "string",
+          "x-tier": "core"
+        },
+        "countryDistribution": {
+          "title": "Country Distribution",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-tier": "core"
+        },
+        "introducedRange": {
+          "title": "Introduced Range",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-tier": "standard"
+        },
+        "distributionPattern": {
+          "title": "Global Distribution Pattern",
+          "$ref": "#/$defs/DistributionPattern",
+          "x-tier": "standard"
+        },
+        "biogeographicRealm": {
+          "title": "Biogeographic Realm(s)",
+          "type": "string",
+          "x-tier": "standard"
+        },
+        "elevationRange": {
+          "title": "Elevation Range",
+          "type": "object",
+          "properties": {
+            "min": {
+              "type": "number"
+            },
+            "max": {
+              "type": "number"
+            },
+            "unit": {
+              "type": "string"
+            }
+          },
+          "x-tier": "standard"
+        },
+        "occurrenceCentroid": {
+          "title": "Occurrence Centroid",
+          "type": "object",
+          "properties": {
+            "lat": {
+              "type": "number"
+            },
+            "lon": {
+              "type": "number"
+            }
+          },
+          "x-tier": "deep"
+        },
+        "occurrenceBoundingBox": {
+          "title": "Occurrence Bounding Box",
+          "type": "object",
+          "x-tier": "deep"
+        },
+        "gbifOccurrenceCount": {
+          "title": "GBIF Occurrence Count",
+          "type": "integer",
+          "x-tier": "standard"
+        },
+        "inatObservationCount": {
+          "title": "iNaturalist Observation Count",
+          "type": "integer",
+          "x-tier": "standard"
+        },
+        "rangeExpansionNotes": {
+          "title": "Range Shift / Expansion Notes",
+          "type": "string",
+          "x-tier": "deep"
+        }
+      }
+    },
+    "cultivation": {
+      "type": "object",
+      "title": "Cultivation & Lab",
+      "description": "Cultivability, substrate recipes, environmental parameter ranges by phase, lifecycle timelines, yield, contamination, senescence, strains, and commercial positioning.",
+      "properties": {
+        "cultivable": {
+          "title": "Cultivable",
+          "type": "boolean",
+          "x-tier": "core"
+        },
+        "cultivationDifficulty": {
+          "title": "Cultivation Difficulty",
+          "$ref": "#/$defs/CultivationDifficulty",
+          "x-tier": "core"
+        },
+        "primaryCultivationMethod": {
+          "title": "Primary Cultivation Method",
+          "$ref": "#/$defs/CultivationMethod",
+          "x-tier": "standard"
+        },
+        "agarMediaRecommended": {
+          "title": "Recommended Agar Media",
+          "type": "string",
+          "x-tier": "standard"
+        },
+        "spawnTypes": {
+          "title": "Spawn Types",
+          "type": "string",
+          "x-tier": "standard"
+        },
+        "bulkSubstrates": {
+          "title": "Recommended Bulk Substrates",
+          "type": "string",
+          "x-tier": "standard"
+        },
+        "colonizationTempRange": {
+          "title": "Colonization Temp Range",
+          "type": "object",
+          "properties": {
+            "min": {
+              "type": "number"
+            },
+            "max": {
+              "type": "number"
+            },
+            "unit": {
+              "type": "string"
+            }
+          },
+          "x-tier": "standard"
+        },
+        "fruitingTempRange": {
+          "title": "Lab Fruiting Temp Range",
+          "type": "object",
+          "properties": {
+            "min": {
+              "type": "number"
+            },
+            "max": {
+              "type": "number"
+            },
+            "unit": {
+              "type": "string"
+            }
+          },
+          "x-tier": "standard"
+        },
+        "fruitingHumidityRange": {
+          "title": "Fruiting Humidity (RH)",
+          "type": "object",
+          "properties": {
+            "min": {
+              "type": "number"
+            },
+            "max": {
+              "type": "number"
+            },
+            "unit": {
+              "type": "string"
+            }
+          },
+          "x-tier": "standard"
+        },
+        "fruitingCO2Range": {
+          "title": "Fruiting CO2 Target",
+          "type": "object",
+          "properties": {
+            "min": {
+              "type": "number"
+            },
+            "max": {
+              "type": "number"
+            },
+            "unit": {
+              "type": "string"
+            }
+          },
+          "x-tier": "deep"
+        },
+        "freshAirExchangeRate": {
+          "title": "Fresh Air Exchange Need",
+          "$ref": "#/$defs/FreshAirExchangeRate",
+          "x-tier": "standard"
+        },
+        "lightRequirement": {
+          "title": "Light Requirement",
+          "$ref": "#/$defs/LightRequirement",
+          "x-tier": "standard"
+        },
+        "pinningTriggers": {
+          "title": "Pinning Triggers",
+          "type": "string",
+          "x-tier": "standard"
+        },
+        "totalCycleTime": {
+          "title": "Total Grow Cycle Time",
+          "type": "object",
+          "properties": {
+            "min": {
+              "type": "number"
+            },
+            "max": {
+              "type": "number"
+            },
+            "unit": {
+              "type": "string"
+            }
+          },
+          "x-tier": "standard"
+        },
+        "biologicalEfficiency": {
+          "title": "Biological Efficiency (BE)",
+          "type": "object",
+          "properties": {
+            "min": {
+              "type": "number"
+            },
+            "max": {
+              "type": "number"
+            },
+            "unit": {
+              "type": "string"
+            }
+          },
+          "x-tier": "standard"
+        },
+        "contaminationSusceptibility": {
+          "title": "Contamination Susceptibility",
+          "$ref": "#/$defs/ContaminationSusceptibility",
+          "x-tier": "standard"
+        },
+        "commonContaminants": {
+          "title": "Common Contaminants",
+          "type": "string",
+          "x-tier": "deep"
+        },
+        "senescenceSusceptibility": {
+          "title": "Senescence / Degradation Susceptibility",
+          "$ref": "#/$defs/SenescenceSusceptibility",
+          "x-tier": "standard"
+        },
+        "degradationSymptoms": {
+          "title": "Strain Degradation Symptoms",
+          "type": "string",
+          "x-tier": "deep"
+        },
+        "longTermStorageMethods": {
+          "title": "Long-Term Culture Storage",
+          "type": "string",
+          "x-tier": "standard"
+        },
+        "sclerotiaFormation": {
+          "title": "Forms Sclerotia",
+          "type": "boolean",
+          "x-tier": "standard",
+          "x-safety": true
+        },
+        "recommendedStrains": {
+          "title": "Recommended Strains / Cultivars",
+          "type": "string",
+          "x-tier": "standard",
+          "x-safety": true
+        },
+        "commercialViability": {
+          "title": "Commercial vs Hobby",
+          "$ref": "#/$defs/CommercialViability",
+          "x-tier": "standard"
+        },
+        "logCultivationSuitable": {
+          "title": "Log / Outdoor Cultivation Suitable",
+          "type": "boolean",
+          "x-tier": "deep"
+        },
+        "legalCultivationNote": {
+          "title": "Cultivation Legal Status Note",
+          "type": "string",
+          "x-tier": "standard",
+          "x-safety": true
+        }
+      }
+    },
+    "genetics": {
+      "type": "object",
+      "title": "Genetics & Molecular",
+      "description": "DNA barcodes/markers, genome assemblies, karyology, mating systems, ex-type sequences, intraspecific variation, and toxin/psilocybin biosynthesis gene clusters.",
+      "properties": {
+        "matingSystem": {
+          "title": "Mating System",
+          "$ref": "#/$defs/MatingSystem",
+          "x-tier": "standard"
+        },
+        "matingTypeSystem": {
+          "title": "Mating-Type Locus Architecture",
+          "$ref": "#/$defs/MatingTypeArchitecture",
+          "x-tier": "deep"
+        },
+        "ploidy": {
+          "title": "Ploidy",
+          "$ref": "#/$defs/PloidyState",
+          "x-tier": "standard"
+        },
+        "chromosomeCount": {
+          "title": "Chromosome Count (n)",
+          "type": "integer",
+          "x-tier": "deep"
+        },
+        "itsBarcode": {
+          "title": "ITS Barcode",
+          "type": "object",
+          "x-tier": "core"
+        },
+        "uniteSpeciesHypothesis": {
+          "title": "UNITE Species Hypothesis (SH)",
+          "type": "string",
+          "x-tier": "standard"
+        },
+        "otherMarkers": {
+          "title": "Other Phylogenetic Markers",
+          "type": "string",
+          "x-tier": "deep"
+        },
+        "recommendedBarcodeMarker": {
+          "title": "Recommended ID Marker",
+          "$ref": "#/$defs/RecommendedBarcodeMarker",
+          "x-tier": "standard"
+        },
+        "exTypeSequence": {
+          "title": "Ex-Type Sequence Available",
+          "type": "object",
+          "x-tier": "standard"
+        },
+        "genome": {
+          "title": "Genome Assembly",
+          "type": "object",
+          "x-tier": "standard"
+        },
+        "intraspecificVariation": {
+          "title": "Intraspecific Genetic Variation",
+          "$ref": "#/$defs/IntraspecificVariation",
+          "x-tier": "deep"
+        },
+        "populationStructure": {
+          "title": "Population Structure / Phylogeography",
+          "type": "string",
+          "x-tier": "deep"
+        },
+        "toxinGeneClusters": {
+          "title": "Toxin Biosynthesis Gene Clusters",
+          "type": "string",
+          "x-tier": "deep",
+          "x-safety": true
+        },
+        "psilocybinGeneCluster": {
+          "title": "Psilocybin Biosynthesis Genes",
+          "type": "object",
+          "x-tier": "deep",
+          "x-safety": true
+        },
+        "mlstScheme": {
+          "title": "MLST / Multilocus Scheme",
+          "type": "string",
+          "x-tier": "deep"
+        },
+        "environmentalSequenceOnly": {
+          "title": "Known Only From Environmental Sequences",
+          "type": "boolean",
+          "x-tier": "deep"
+        }
+      }
+    },
+    "culture": {
+      "type": "object",
+      "title": "Ethnomycology & History",
+      "description": "Multilingual vernacular names with provenance, discovery history, folklore, traditional/ritual use, cultural significance, and references in art and media.",
+      "properties": {
+        "vernacularNames": {
+          "title": "Vernacular Names",
+          "type": "string",
+          "x-tier": "core",
+          "x-safety": true
+        },
+        "indigenousNames": {
+          "title": "Indigenous / First-Nations Names",
+          "type": "string",
+          "x-tier": "deep"
+        },
+        "originalDescriber": {
+          "title": "Original Describer(s)",
+          "type": "string",
+          "x-tier": "standard"
+        },
+        "discoveryNarrative": {
+          "title": "Discovery & Description History",
+          "type": "string",
+          "x-tier": "deep"
+        },
+        "historicalFigures": {
+          "title": "Associated Historical Figures",
+          "type": "string",
+          "x-tier": "deep"
+        },
+        "folkloreAndMythology": {
+          "title": "Folklore & Mythology",
+          "type": "string",
+          "x-tier": "deep"
+        },
+        "traditionalUses": {
+          "title": "Traditional / Ethnographic Uses",
+          "type": "string",
+          "x-tier": "standard",
+          "x-safety": true
+        },
+        "notablePoisoningCases": {
+          "title": "Notable Poisonings / Historical Cases",
+          "type": "string",
+          "x-tier": "standard",
+          "x-safety": true
+        },
+        "referencesInCulture": {
+          "title": "References in Art, Literature & Media",
+          "type": "string",
+          "x-tier": "deep"
+        },
+        "culturalSignificance": {
+          "title": "Cultural Significance",
+          "type": "string",
+          "x-tier": "standard"
+        },
+        "popularMisconceptions": {
+          "title": "Popular Misconceptions / Debunked Lore",
+          "type": "string",
+          "x-tier": "deep",
+          "x-safety": true
+        },
+        "culturalSensitivityFlag": {
+          "title": "Cultural Sensitivity Flag",
+          "$ref": "#/$defs/CulturalSensitivityFlag",
+          "x-tier": "deep"
+        }
+      }
+    },
+    "media": {
+      "type": "object",
+      "title": "Media",
+      "description": "Images, microscopy, audio, video, and 3D assets — each independently licensed and credited, with view type, lifecycle stage, and ID verification status.",
+      "properties": {
+        "media": {
+          "title": "Media Assets",
+          "type": "string",
+          "x-tier": "core",
+          "x-safety": true
+        },
+        "primaryImageId": {
+          "title": "Primary Image Reference",
+          "type": "string",
+          "x-tier": "core"
+        },
+        "hasMicroscopy": {
+          "title": "Has Microscopy Media",
+          "type": "boolean",
+          "x-tier": "deep"
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "title": "Provenance & Data Quality",
+      "description": "Cross-cutting per-field source/confidence/verification model, citations, external authority links, record licensing, completeness/quality scoring, contributors, and dispute flags.",
+      "properties": {
+        "fieldProvenance": {
+          "title": "Per-Field Provenance",
+          "type": "string",
+          "x-tier": "core",
+          "x-safety": true
+        },
+        "references": {
+          "title": "Citations & References",
+          "type": "string",
+          "x-tier": "core"
+        },
+        "externalLinks": {
+          "title": "External Authority Links",
+          "type": "string",
+          "x-tier": "core"
+        },
+        "dataCompletenessScore": {
+          "title": "Data Completeness Score",
+          "type": "number",
+          "description": "unit: 0-1",
+          "x-tier": "standard"
+        },
+        "verificationLevel": {
+          "title": "Record Verification Level",
+          "$ref": "#/$defs/RecordVerificationLevel",
+          "x-tier": "core",
+          "x-safety": true
+        },
+        "lastReviewedDate": {
+          "title": "Record Last-Reviewed Date",
+          "type": "string",
+          "format": "date",
+          "x-tier": "standard"
+        },
+        "contributors": {
+          "title": "Contributors",
+          "type": "string",
+          "x-tier": "standard"
+        },
+        "disputeFlags": {
+          "title": "Dispute / Correction Flags",
+          "type": "string",
+          "x-tier": "standard",
+          "x-safety": true
+        },
+        "recordLicense": {
+          "title": "Record License",
+          "$ref": "#/$defs/RecordLicense",
+          "x-tier": "core"
+        },
+        "schemaVersion": {
+          "title": "Schema Version",
+          "type": "string",
+          "x-tier": "deep"
+        }
+      }
+    }
+  },
+  "$defs": {
+    "RecordTier": {
+      "type": "string",
+      "enum": [
+        "stub",
+        "imported",
+        "in-progress",
+        "curated",
+        "featured",
+        "reference-quality"
+      ]
+    },
+    "TaxonRank": {
+      "type": "string",
+      "enum": [
+        "kingdom",
+        "subkingdom",
+        "phylum",
+        "subphylum",
+        "class",
+        "subclass",
+        "superorder",
+        "order",
+        "suborder",
+        "family",
+        "subfamily",
+        "tribe",
+        "subtribe",
+        "genus",
+        "subgenus",
+        "section",
+        "subsection",
+        "series",
+        "species",
+        "subspecies",
+        "variety",
+        "subvariety",
+        "form",
+        "forma_specialis",
+        "aggregate",
+        "species_complex",
+        "clade_unranked"
+      ]
+    },
+    "TaxonomicStatus": {
+      "type": "string",
+      "enum": [
+        "accepted",
+        "synonym",
+        "homotypic_synonym",
+        "heterotypic_synonym",
+        "basionym",
+        "misapplied",
+        "provisional",
+        "doubtful_dubious",
+        "ambiguous",
+        "unplaced",
+        "excluded",
+        "deleted_orphaned"
+      ]
+    },
+    "NomenclaturalCode": {
+      "type": "string",
+      "enum": [
+        "ICN",
+        "ICNP_provisional",
+        "SH_UNITE",
+        "unranked_environmental",
+        "ICZN_misapplied"
+      ]
+    },
+    "NomenclaturalStatus": {
+      "type": "string",
+      "enum": [
+        "legitimate",
+        "illegitimate",
+        "invalid_nom_inval",
+        "nomen_nudum",
+        "nomen_dubium",
+        "nomen_conservandum",
+        "nomen_rejiciendum",
+        "nomen_novum",
+        "nomen_provisorium",
+        "superfluous",
+        "later_homonym",
+        "orthographic_variant",
+        "sanctioned"
+      ]
+    },
+    "SanctioningStatus": {
+      "type": "string",
+      "enum": [
+        "sanctioned_fries",
+        "sanctioned_persoon",
+        "none"
+      ]
+    },
+    "TypeStatus": {
+      "type": "string",
+      "enum": [
+        "holotype",
+        "lectotype",
+        "neotype",
+        "epitype",
+        "isotype",
+        "syntype",
+        "paratype",
+        "topotype",
+        "ex-type_culture",
+        "ex-holotype",
+        "ex-epitype",
+        "ex-neotype",
+        "ex-lectotype",
+        "authentic-strain",
+        "no_type_designated",
+        "type_lost",
+        "type_destroyed",
+        "not-type-derived",
+        "unknown"
+      ]
+    },
+    "SynonymType": {
+      "type": "string",
+      "enum": [
+        "homotypic",
+        "heterotypic",
+        "pro_parte"
+      ]
+    },
+    "InfraspecificRankMarker": {
+      "type": "string",
+      "enum": [
+        "subsp.",
+        "var.",
+        "subvar.",
+        "f.",
+        "f.sp.",
+        "ser.",
+        "sect.",
+        "subg."
+      ]
+    },
+    "EtymologyRoot": {
+      "type": "string",
+      "enum": [
+        "greek",
+        "latin",
+        "eponym",
+        "toponym",
+        "vernacular_derived",
+        "other"
+      ]
+    },
+    "PlacementConfidence": {
+      "type": "string",
+      "enum": [
+        "high",
+        "medium",
+        "low",
+        "contested",
+        "unresolved"
+      ]
+    },
+    "BasidiomeType": {
+      "type": "string",
+      "enum": [
+        "agaricoid",
+        "boletoid",
+        "polyporoid",
+        "hydnoid",
+        "clavarioid",
+        "cantharelloid",
+        "gasteroid",
+        "secotioid",
+        "resupinate",
+        "cyphelloid",
+        "corticioid",
+        "stereoid",
+        "tremelloid",
+        "apothecial",
+        "perithecial",
+        "stromatic",
+        "morchelloid",
+        "helvelloid",
+        "geoglossoid",
+        "pezizoid",
+        "truffle-hypogeous",
+        "puffball",
+        "earthstar",
+        "stinkhorn",
+        "birds-nest",
+        "jelly",
+        "bracket",
+        "other"
+      ]
+    },
+    "GrowthHabit": {
+      "type": "string",
+      "enum": [
+        "solitary",
+        "scattered",
+        "gregarious",
+        "caespitose",
+        "fasciculate",
+        "connate",
+        "imbricate",
+        "effused",
+        "troops",
+        "fairy-ring",
+        "clustered-at-base",
+        "single-on-substrate"
+      ]
+    },
+    "CapShape": {
+      "type": "string",
+      "enum": [
+        "conical",
+        "campanulate",
+        "convex",
+        "plano-convex",
+        "applanate",
+        "plane",
+        "depressed",
+        "infundibuliform",
+        "umbilicate",
+        "umbonate",
+        "papillate",
+        "hemispherical",
+        "parabolic",
+        "ovoid",
+        "ungulate",
+        "flabelliform",
+        "reniform",
+        "irregular",
+        "not-applicable"
+      ]
+    },
+    "SurfaceTexture": {
+      "type": "string",
+      "enum": [
+        "glabrous",
+        "smooth",
+        "viscid",
+        "glutinous",
+        "dry",
+        "velvety",
+        "tomentose",
+        "fibrillose",
+        "squamulose",
+        "squamose",
+        "verrucose",
+        "granulose",
+        "pruinose",
+        "rugose",
+        "reticulate",
+        "areolate",
+        "rimose",
+        "floccose",
+        "strigose",
+        "scabrous",
+        "punctate",
+        "hygrophanous-appearance",
+        "not-applicable"
+      ]
+    },
+    "CapOrnamentation": {
+      "type": "string",
+      "enum": [
+        "none",
+        "universal-veil-warts",
+        "universal-veil-patches",
+        "volval-patches",
+        "fibrillose-scales",
+        "recurved-scales",
+        "appressed-scales",
+        "concentric-scales",
+        "granular-veil",
+        "floccose-veil-remnants",
+        "areolae",
+        "not-applicable"
+      ]
+    },
+    "ColorPrimary": {
+      "type": "string",
+      "enum": [
+        "white",
+        "cream",
+        "ivory",
+        "yellow",
+        "ochre",
+        "orange",
+        "tan",
+        "buff",
+        "brown",
+        "red-brown",
+        "cinnamon",
+        "red",
+        "pink",
+        "salmon",
+        "purple",
+        "violet",
+        "lilac",
+        "blue",
+        "green",
+        "olive",
+        "grey",
+        "black",
+        "multicolored",
+        "variable",
+        "concolorous-with-cap",
+        "not-applicable"
+      ]
+    },
+    "HymenophoreType": {
+      "type": "string",
+      "enum": [
+        "lamellate-gills",
+        "poroid-tubes",
+        "hydnoid-teeth",
+        "lamellate-ridges-false-gills",
+        "veined-wrinkled",
+        "smooth-even",
+        "gasteroid-internal",
+        "labyrinthine",
+        "daedaleoid",
+        "merulioid",
+        "none",
+        "not-applicable"
+      ]
+    },
+    "GillAttachment": {
+      "type": "string",
+      "enum": [
+        "free",
+        "remote",
+        "adnexed",
+        "adnate",
+        "sinuate",
+        "emarginate",
+        "decurrent",
+        "subdecurrent",
+        "deeply-decurrent",
+        "seceding",
+        "collariate",
+        "uncinate",
+        "not-applicable"
+      ]
+    },
+    "GillSpacing": {
+      "type": "string",
+      "enum": [
+        "distant",
+        "subdistant",
+        "close",
+        "crowded",
+        "very-crowded",
+        "not-applicable"
+      ]
+    },
+    "AnnulusPresence": {
+      "type": "string",
+      "enum": [
+        "absent",
+        "present",
+        "present-membranous",
+        "present-fibrillose",
+        "cortina-only",
+        "ring-zone-only",
+        "fugacious-evanescent",
+        "double",
+        "movable",
+        "present-pendant",
+        "not-applicable"
+      ]
+    },
+    "VolvaPresence": {
+      "type": "string",
+      "enum": [
+        "absent",
+        "present",
+        "saccate-cup",
+        "circumscissile-rim",
+        "friable-rings",
+        "floccose-bands",
+        "marginate-bulb",
+        "limbate",
+        "volval-patches-only",
+        "not-applicable"
+      ]
+    },
+    "StipeBaseShape": {
+      "type": "string",
+      "enum": [
+        "equal",
+        "tapered",
+        "clavate",
+        "bulbous",
+        "marginate-bulb",
+        "abruptly-bulbous",
+        "napiform",
+        "rooting-radicating",
+        "pseudorhiza",
+        "attached-to-rhizomorphs",
+        "mycelial-pad",
+        "not-applicable"
+      ]
+    },
+    "BasalMycelium": {
+      "type": "string",
+      "enum": [
+        "none",
+        "white-mycelial-pad",
+        "colored-mycelium",
+        "rhizomorphs",
+        "white-rhizomorphs",
+        "black-rhizomorphs-bootlaces",
+        "tomentose-base",
+        "not-applicable"
+      ]
+    },
+    "LatexColor": {
+      "type": "string",
+      "enum": [
+        "white",
+        "cream",
+        "yellow",
+        "orange",
+        "red",
+        "blood-red",
+        "carrot-orange",
+        "blue",
+        "violet",
+        "watery",
+        "watery-white",
+        "clear",
+        "not-applicable"
+      ]
+    },
+    "SporePrintColor": {
+      "type": "string",
+      "enum": [
+        "white",
+        "cream",
+        "pale-yellow",
+        "yellow",
+        "ochre",
+        "pink",
+        "salmon",
+        "pinkish-buff",
+        "rust-brown",
+        "cinnamon-brown",
+        "clay-brown",
+        "brown",
+        "dark-brown",
+        "purple-brown",
+        "chocolate-brown",
+        "black",
+        "olive",
+        "green",
+        "lilac",
+        "not-applicable",
+        "unknown"
+      ]
+    },
+    "OdorDescriptor": {
+      "type": "string",
+      "enum": [
+        "indistinct",
+        "none",
+        "farinaceous-mealy",
+        "cucumber",
+        "fishy",
+        "spermatic",
+        "aniseed",
+        "almond-marzipan",
+        "fruity",
+        "apricot",
+        "fragrant",
+        "sweet",
+        "sickly_sweet",
+        "honey",
+        "coconut",
+        "maple-syrup-fenugreek",
+        "garlic",
+        "radish-raphanoid",
+        "cabbage",
+        "rubber",
+        "chlorine-bleach",
+        "phenolic",
+        "iodoform-medicinal",
+        "coal-tar",
+        "earthy",
+        "mushroomy",
+        "spicy",
+        "pungent",
+        "foul-fetid",
+        "ammoniacal",
+        "skunk-like",
+        "metallic",
+        "green-corn"
+      ]
+    },
+    "TasteDescriptor": {
+      "type": "string",
+      "enum": [
+        "mild",
+        "pleasant",
+        "nutty",
+        "sweet",
+        "bitter",
+        "very-bitter",
+        "acrid",
+        "peppery-hot",
+        "burning-acrid",
+        "tardily-acrid",
+        "sour",
+        "astringent",
+        "metallic",
+        "unpleasant",
+        "farinaceous",
+        "not-tested"
+      ]
+    },
+    "BruisingColor": {
+      "type": "string",
+      "enum": [
+        "none",
+        "blue",
+        "blue-green",
+        "green",
+        "red",
+        "reddish",
+        "pink",
+        "brown",
+        "black",
+        "yellow",
+        "saffron",
+        "grey",
+        "vinaceous",
+        "not-applicable"
+      ]
+    },
+    "BruisingSpeed": {
+      "type": "string",
+      "enum": [
+        "immediate",
+        "rapid-under-1min",
+        "moderate-1-5min",
+        "slow-over-5min",
+        "none",
+        "not-applicable"
+      ]
+    },
+    "DevelopmentType": {
+      "type": "string",
+      "enum": [
+        "gymnocarpic",
+        "angiocarpic",
+        "hemiangiocarpic",
+        "pseudoangiocarpic",
+        "pileostipitocarpic",
+        "bivelangiocarpic",
+        "metavelangiocarpic",
+        "paravelangiocarpic",
+        "monovelangiocarpic",
+        "not-applicable"
+      ]
+    },
+    "FruitbodyTexture": {
+      "type": "string",
+      "enum": [
+        "fleshy",
+        "leathery",
+        "corky",
+        "woody",
+        "gelatinous",
+        "membranous",
+        "brittle",
+        "cartilaginous",
+        "waxy",
+        "papery",
+        "fibrous-tough"
+      ]
+    },
+    "SporeShape": {
+      "type": "string",
+      "enum": [
+        "globose",
+        "subglobose",
+        "broadly-ellipsoid",
+        "ellipsoid",
+        "ovoid",
+        "obovoid",
+        "amygdaliform",
+        "limoniform",
+        "fusiform",
+        "cylindrical",
+        "allantoid",
+        "reniform",
+        "phaseoliform",
+        "navicular",
+        "tetrahedral",
+        "stellate",
+        "angular",
+        "nodulose",
+        "polygonal",
+        "lacrymoid",
+        "citriform",
+        "boletoid",
+        "other"
+      ]
+    },
+    "SporeOrnamentation": {
+      "type": "string",
+      "enum": [
+        "smooth",
+        "punctate",
+        "verrucose-warts",
+        "spiny-echinulate",
+        "warts-connected-by-ridges",
+        "reticulate",
+        "partially-reticulate",
+        "ridged-costate",
+        "winged-alate",
+        "cristate",
+        "striate",
+        "pitted-foveolate",
+        "nodulose-angular",
+        "verrucose-low",
+        "unknown"
+      ]
+    },
+    "AmyloidReaction": {
+      "type": "string",
+      "enum": [
+        "amyloid",
+        "weakly-amyloid",
+        "inamyloid",
+        "dextrinoid",
+        "weakly-dextrinoid",
+        "mixed",
+        "not-tested",
+        "unknown"
+      ]
+    },
+    "GermPore": {
+      "type": "string",
+      "enum": [
+        "present-distinct",
+        "present-broad",
+        "present-truncate",
+        "present-indistinct",
+        "eccentric",
+        "absent",
+        "unknown"
+      ]
+    },
+    "BasidiaShape": {
+      "type": "string",
+      "enum": [
+        "clavate",
+        "cylindrical",
+        "subcylindrical",
+        "narrowly-clavate",
+        "utriform",
+        "suburniform",
+        "pyriform",
+        "sphaeropedunculate",
+        "ventricose",
+        "unknown"
+      ]
+    },
+    "SterigmataNumber": {
+      "type": "string",
+      "enum": [
+        "1",
+        "2",
+        "2-4",
+        "4",
+        "4-6",
+        "6",
+        "8",
+        "variable",
+        "unknown"
+      ]
+    },
+    "CystidiaPresence": {
+      "type": "string",
+      "enum": [
+        "abundant",
+        "frequent",
+        "scattered",
+        "rare",
+        "absent",
+        "present",
+        "unknown"
+      ]
+    },
+    "CystidiaShape": {
+      "type": "string",
+      "enum": [
+        "clavate",
+        "cylindrical",
+        "fusiform",
+        "fusiform-ventricose",
+        "lageniform",
+        "utriform",
+        "lecythiform-capitate",
+        "capitate",
+        "subcapitate",
+        "ventricose",
+        "mucronate",
+        "rostrate",
+        "flexuous",
+        "sphaeropedunculate",
+        "metuloid",
+        "lamprocystidia",
+        "gloeocystidia",
+        "macrocystidia",
+        "hooked-with-crystals",
+        "versiform",
+        "cystidioles",
+        "unknown"
+      ]
+    },
+    "HyphalSystem": {
+      "type": "string",
+      "enum": [
+        "monomitic",
+        "dimitic",
+        "trimitic",
+        "monomitic-with-gloeohyphae",
+        "dimitic-with-skeletals",
+        "dimitic-with-binding",
+        "amphimitic",
+        "unknown"
+      ]
+    },
+    "ClampConnections": {
+      "type": "string",
+      "enum": [
+        "present-throughout",
+        "present-at-septa",
+        "present-on-basidia-only",
+        "present-medallion-type",
+        "absent",
+        "rare",
+        "unknown"
+      ]
+    },
+    "TramaType": {
+      "type": "string",
+      "enum": [
+        "regular-parallel",
+        "subregular",
+        "irregular-interwoven",
+        "bilateral-divergent",
+        "inverse-convergent",
+        "sarcodimitic",
+        "with-sphaerocytes",
+        "boletoid",
+        "unknown"
+      ]
+    },
+    "PileipellisType": {
+      "type": "string",
+      "enum": [
+        "cutis",
+        "ixocutis",
+        "trichoderm",
+        "ixotrichoderm",
+        "hymeniderm",
+        "epithelium",
+        "palisadoderm",
+        "ixolattice",
+        "cellular",
+        "euderm",
+        "unknown"
+      ]
+    },
+    "SetaePresence": {
+      "type": "string",
+      "enum": [
+        "hymenial-setae-present",
+        "tramal-setae-present",
+        "setal-hyphae-present",
+        "absent",
+        "unknown"
+      ]
+    },
+    "CrystalsPresence": {
+      "type": "string",
+      "enum": [
+        "calcium-oxalate-present",
+        "crystalline-encrustations-present",
+        "acanthocyte-crystals-present",
+        "rhomboid-crystals",
+        "star-crystals",
+        "absent",
+        "unknown"
+      ]
+    },
+    "AscusType": {
+      "type": "string",
+      "enum": [
+        "operculate",
+        "inoperculate",
+        "bitunicate",
+        "unitunicate-thin-walled",
+        "prototunicate",
+        "fissitunicate",
+        "not-applicable",
+        "unknown"
+      ]
+    },
+    "MountingMedium": {
+      "type": "string",
+      "enum": [
+        "water",
+        "KOH-3pct",
+        "KOH-5pct",
+        "KOH-10pct",
+        "ammonia",
+        "Melzers",
+        "Lugol",
+        "Congo-red",
+        "cotton-blue-lactophenol",
+        "cresyl-blue",
+        "phloxine",
+        "ammoniacal-Congo-red",
+        "not-recorded"
+      ]
+    },
+    "ToxicityClass": {
+      "type": "string",
+      "enum": [
+        "nontoxic",
+        "gi_irritant_only",
+        "mildly_poisonous",
+        "poisonous",
+        "deadly_poisonous",
+        "psychoactive_only",
+        "allergenic_only",
+        "unknown"
+      ]
+    },
+    "Toxidrome": {
+      "type": "string",
+      "enum": [
+        "amatoxin_hepatotoxic",
+        "gyromitrin_monomethylhydrazine",
+        "orellanine_nephrotoxic",
+        "muscarinic_cholinergic",
+        "isoxazole_pantherina_muscaria",
+        "psilocybin_hallucinogenic",
+        "coprine_disulfiram_like",
+        "gastrointestinal_irritant",
+        "rhabdomyolysis_tricholoma_equestre",
+        "erythromelalgia_acromelic",
+        "encephalopathy_pleurocybella",
+        "shiitake_dermatitis_flagellate",
+        "hemolytic_paxillus",
+        "immune_hemolytic_paxillus_syndrome",
+        "polyporic_morel_neurologic",
+        "none",
+        "unknown"
+      ]
+    },
+    "OnsetCategory": {
+      "type": "string",
+      "enum": [
+        "rapid_under_2h",
+        "intermediate_2_6h",
+        "delayed_6_24h",
+        "very_delayed_24h_plus",
+        "variable",
+        "unknown"
+      ]
+    },
+    "TargetOrgan": {
+      "type": "string",
+      "enum": [
+        "liver",
+        "kidney",
+        "gastrointestinal",
+        "central_nervous_system",
+        "peripheral_nervous_system",
+        "autonomic_nervous_system",
+        "cardiovascular",
+        "skeletal_muscle",
+        "blood_hematologic",
+        "skin",
+        "respiratory"
+      ]
+    },
+    "ToxinCompoundClass": {
+      "type": "string",
+      "enum": [
+        "amatoxin",
+        "phallotoxin",
+        "virotoxin",
+        "orellanine",
+        "gyromitrin",
+        "muscarine",
+        "ibotenic_acid",
+        "muscimol",
+        "coprine",
+        "illudin",
+        "bolesatine",
+        "lectin",
+        "cyclopeptide",
+        "psilocybin_tryptamine",
+        "other"
+      ]
+    },
+    "Antidote": {
+      "type": "string",
+      "enum": [
+        "silibinin_IV",
+        "milk_thistle_silymarin",
+        "N_acetylcysteine",
+        "penicillin_G_high_dose",
+        "activated_charcoal",
+        "atropine",
+        "pyridoxine_B6",
+        "hemodialysis",
+        "plasmapheresis",
+        "liver_transplant",
+        "supportive_only",
+        "benzodiazepines",
+        "none_known"
+      ]
+    },
+    "ToxinThermolability": {
+      "type": "string",
+      "enum": [
+        "heat_stable",
+        "heat_labile_destroyed_by_cooking",
+        "partially_reduced_by_cooking",
+        "volatile_removed_by_parboiling",
+        "mixed",
+        "unknown"
+      ]
+    },
+    "PsychoactiveStatus": {
+      "type": "string",
+      "enum": [
+        "none",
+        "tryptamine_psychedelic",
+        "isoxazole_deliriant",
+        "muscarinic",
+        "ergoline",
+        "other",
+        "unconfirmed"
+      ]
+    },
+    "MedicinalCompoundClass": {
+      "type": "string",
+      "enum": [
+        "beta_glucan",
+        "triterpenoid",
+        "statin",
+        "alkaloid",
+        "terpene",
+        "polysaccharide_protein_complex",
+        "sterol",
+        "amino_acid_derivative",
+        "phenolic",
+        "nucleoside",
+        "lectin"
+      ]
+    },
+    "MedicinalEvidenceGrade": {
+      "type": "string",
+      "enum": [
+        "traditional_use_only",
+        "in_vitro_only",
+        "preclinical_in_vitro_animal",
+        "early_human_trials",
+        "rct_supported",
+        "approved_drug_or_adjuvant",
+        "insufficient_disputed"
+      ]
+    },
+    "BioaccumulatorFlag": {
+      "type": "string",
+      "enum": [
+        "none_notable",
+        "cadmium_hyperaccumulator",
+        "mercury_accumulator",
+        "lead_accumulator",
+        "arsenic_accumulator",
+        "radiocesium_accumulator",
+        "multi_metal_accumulator",
+        "unknown"
+      ]
+    },
+    "BioaccumElement": {
+      "type": "string",
+      "enum": [
+        "cadmium",
+        "lead",
+        "mercury",
+        "arsenic",
+        "copper",
+        "zinc",
+        "selenium",
+        "radiocesium_Cs137",
+        "radiopotassium_K40",
+        "vanadium"
+      ]
+    },
+    "BioconcentrationFactor": {
+      "type": "string",
+      "enum": [
+        "low",
+        "moderate",
+        "high",
+        "hyperaccumulator"
+      ]
+    },
+    "AllergenProfile": {
+      "type": "string",
+      "enum": [
+        "none_reported",
+        "ingestion_gi_intolerance_idiosyncratic",
+        "shiitake_lentinan_dermatitis",
+        "spore_inhalation_hypersensitivity_pneumonitis",
+        "spore_inhalation_allergic_rhinitis",
+        "contact_dermatitis",
+        "lyophyllum_mushroom_workers_lung",
+        "alcohol_sensitization",
+        "unknown"
+      ]
+    },
+    "BluingReaction": {
+      "type": "string",
+      "enum": [
+        "none",
+        "blue_psilocin_indicative",
+        "blue_variegatic_boletoid",
+        "red_browning",
+        "yellow_staining",
+        "black_staining",
+        "green_staining",
+        "other",
+        "unknown"
+      ]
+    },
+    "MacrochemicalReagent": {
+      "type": "string",
+      "enum": [
+        "KOH",
+        "NH4OH",
+        "FeSO4",
+        "Melzer",
+        "Lugol",
+        "phenol",
+        "aniline",
+        "guaiac",
+        "NaOH",
+        "sulfovanillin",
+        "Schaeffers-reaction"
+      ]
+    },
+    "PigmentClass": {
+      "type": "string",
+      "enum": [
+        "pulvinic_acid",
+        "terphenylquinone",
+        "anthraquinone",
+        "betalain_muscaflavin",
+        "melanin",
+        "carotenoid",
+        "azulene",
+        "styrylpyrone",
+        "betalactam"
+      ]
+    },
+    "LegalScheduleStatus": {
+      "type": "string",
+      "enum": [
+        "unscheduled",
+        "us_schedule_I_psilocybin",
+        "controlled_varies_by_jurisdiction",
+        "decriminalized_local",
+        "legal_medical_research",
+        "unknown"
+      ]
+    },
+    "EdibilityClass": {
+      "type": "string",
+      "enum": [
+        "choice_edible",
+        "edible",
+        "edible_with_caution",
+        "edible_when_cooked",
+        "conditionally_edible",
+        "inedible",
+        "unpalatable",
+        "poisonous",
+        "deadly_poisonous",
+        "psychoactive",
+        "medicinal_only",
+        "allergenic",
+        "mycorrhizal_uncultivated",
+        "unknown",
+        "untested"
+      ]
+    },
+    "EdibilityConfidence": {
+      "type": "string",
+      "enum": [
+        "well_established",
+        "documented",
+        "reported",
+        "anecdotal",
+        "disputed",
+        "unverified"
+      ]
+    },
+    "NoviceSafetyRating": {
+      "type": "string",
+      "enum": [
+        "safe_for_beginners",
+        "intermediate_only",
+        "expert_only",
+        "avoid_no_exceptions"
+      ]
+    },
+    "LookalikeRiskLevel": {
+      "type": "string",
+      "enum": [
+        "none_known",
+        "low",
+        "moderate",
+        "high",
+        "extreme"
+      ]
+    },
+    "PreparationStep": {
+      "type": "string",
+      "enum": [
+        "thorough_cooking",
+        "parboiling",
+        "multiple_boil_drain",
+        "leaching_water",
+        "drying",
+        "fermentation",
+        "peeling",
+        "deveiling",
+        "soaking",
+        "blanching",
+        "none"
+      ]
+    },
+    "AlcoholInteraction": {
+      "type": "string",
+      "enum": [
+        "none_known",
+        "disulfiram_like_coprine",
+        "reported_intolerance",
+        "unknown"
+      ]
+    },
+    "ConfusionDirection": {
+      "type": "string",
+      "enum": [
+        "toxic_mistaken_for_this",
+        "this_mistaken_for_edible",
+        "mutual"
+      ]
+    },
+    "TasteRating": {
+      "type": "string",
+      "enum": [
+        "choice",
+        "excellent",
+        "good",
+        "fair",
+        "mediocre",
+        "poor",
+        "unpalatable",
+        "inedibly_bitter",
+        "not_applicable"
+      ]
+    },
+    "FlavorProfile": {
+      "type": "string",
+      "enum": [
+        "umami",
+        "nutty",
+        "meaty",
+        "earthy",
+        "sweet",
+        "mild",
+        "peppery",
+        "sour",
+        "bitter",
+        "astringent",
+        "seafood_like",
+        "chicken_like",
+        "apricot",
+        "anise",
+        "almond",
+        "garlic",
+        "fruity",
+        "smoky",
+        "metallic"
+      ]
+    },
+    "AromaDescriptor": {
+      "type": "string",
+      "enum": [
+        "mild",
+        "mealy_farinaceous",
+        "anise_licorice",
+        "almond_marzipan",
+        "apricot",
+        "fruity",
+        "fishy",
+        "phenolic_chemical",
+        "iodine",
+        "coal_tar",
+        "spermatic",
+        "fenugreek_maple",
+        "garlic",
+        "radish",
+        "chlorine_bleach",
+        "spicy",
+        "sweet",
+        "sickly_sweet",
+        "earthy",
+        "mushroomy",
+        "foul_putrid",
+        "carbolic",
+        "cucumber"
+      ]
+    },
+    "TextureCooked": {
+      "type": "string",
+      "enum": [
+        "meaty",
+        "chewy",
+        "tender",
+        "silky",
+        "crisp",
+        "slimy",
+        "gelatinous",
+        "creamy",
+        "stringy",
+        "melts",
+        "stays_firm",
+        "becomes_tough"
+      ]
+    },
+    "CulinaryUse": {
+      "type": "string",
+      "enum": [
+        "saute",
+        "grill",
+        "roast",
+        "fry",
+        "stew_braise",
+        "soup_stock",
+        "sauce",
+        "stuffing",
+        "pickling",
+        "raw_salad",
+        "powder_seasoning",
+        "tea_infusion",
+        "tincture",
+        "meat_substitute",
+        "stir_fry",
+        "tempura",
+        "duxelles",
+        "confit"
+      ]
+    },
+    "PreservationMethod": {
+      "type": "string",
+      "enum": [
+        "drying",
+        "freezing",
+        "pickling",
+        "salting",
+        "fermentation",
+        "canning",
+        "oil_preservation",
+        "powdering",
+        "duxelles_freeze",
+        "refrigeration_short_term",
+        "dehydration_then_powder"
+      ]
+    },
+    "CommercialFoodStatus": {
+      "type": "string",
+      "enum": [
+        "widely_cultivated",
+        "commercially_foraged",
+        "specialty_market",
+        "gourmet_premium",
+        "subsistence_local",
+        "not_commercial",
+        "forbidden_for_sale"
+      ]
+    },
+    "TrophicMode": {
+      "type": "string",
+      "enum": [
+        "ectomycorrhizal",
+        "arbuscular_mycorrhizal",
+        "ericoid_mycorrhizal",
+        "orchid_mycorrhizal",
+        "saprotroph",
+        "wood_decay_saprotroph",
+        "litter_saprotroph",
+        "soil_saprotroph",
+        "dung_saprotroph_coprophilous",
+        "biotrophic_parasite",
+        "necrotrophic_parasite",
+        "hemibiotrophic_parasite",
+        "mycoparasite",
+        "entomopathogen",
+        "nematophagous",
+        "endophyte",
+        "lichenized",
+        "epiphyte",
+        "facultative_parasite",
+        "unknown"
+      ]
+    },
+    "DecayType": {
+      "type": "string",
+      "enum": [
+        "white_rot",
+        "brown_rot",
+        "soft_rot",
+        "not_wood_decay",
+        "unknown"
+      ]
+    },
+    "SubstrateType": {
+      "type": "string",
+      "enum": [
+        "soil",
+        "leaf_litter",
+        "humus",
+        "deadwood_logs",
+        "deadwood_branches",
+        "standing_dead_wood",
+        "living_wood",
+        "living_bark",
+        "tree_roots",
+        "buried_wood",
+        "woodchip_mulch",
+        "dung_herbivore",
+        "dung_carnivore",
+        "grass_sward",
+        "moss",
+        "sphagnum",
+        "other_fungi",
+        "insect_host",
+        "other_invertebrate",
+        "mammal_keratin",
+        "lichen",
+        "leaf_surface_living",
+        "needle_litter",
+        "burnt_ground_charcoal",
+        "compost_straw",
+        "seeds_cones_nuts",
+        "fruit",
+        "fern",
+        "peat",
+        "rock_lithic",
+        "freshwater",
+        "marine_substrate",
+        "artificial_manmade",
+        "nest_material"
+      ]
+    },
+    "HostRelationship": {
+      "type": "string",
+      "enum": [
+        "ectomycorrhizal",
+        "arbuscular_mycorrhizal",
+        "ericoid_mycorrhizal",
+        "orchid_mycorrhizal",
+        "biotrophic_parasite",
+        "necrotrophic_parasite",
+        "mycoparasite",
+        "endophyte",
+        "saprotroph_of",
+        "lichen_photobiont",
+        "entomopathogen",
+        "commensal",
+        "unknown"
+      ]
+    },
+    "HostSpecificity": {
+      "type": "string",
+      "enum": [
+        "obligate",
+        "preferential",
+        "facultative",
+        "generalist",
+        "monophagous_single_host",
+        "oligophagous_few_hosts",
+        "host_independent",
+        "unknown"
+      ]
+    },
+    "HostBreadthClass": {
+      "type": "string",
+      "enum": [
+        "angiosperm_only",
+        "gymnosperm_only",
+        "both",
+        "monocot_only",
+        "non_plant",
+        "unknown"
+      ]
+    },
+    "HabitatType": {
+      "type": "string",
+      "enum": [
+        "tropical_moist_forest",
+        "tropical_dry_forest",
+        "temperate_broadleaf_forest",
+        "temperate_coniferous_forest",
+        "mixed_forest",
+        "boreal_taiga",
+        "montane_forest",
+        "cloud_forest",
+        "mangrove",
+        "woodland_savanna",
+        "scrubland_heathland",
+        "unimproved_grassland",
+        "improved_grassland_pasture",
+        "alpine_tundra",
+        "arctic_tundra",
+        "wetland_marsh",
+        "bog_mire",
+        "riparian",
+        "dune_coastal",
+        "desert_arid",
+        "agricultural_land",
+        "urban_parkland",
+        "garden_lawn",
+        "plantation",
+        "cave",
+        "freshwater_aquatic",
+        "marine_coastal",
+        "disturbed_ruderal"
+      ]
+    },
+    "ClimateClass": {
+      "type": "string",
+      "enum": [
+        "tropical",
+        "subtropical",
+        "temperate",
+        "boreal",
+        "montane",
+        "arctic_alpine",
+        "mediterranean",
+        "arid_semiarid",
+        "cosmopolitan",
+        "unknown"
+      ]
+    },
+    "SoilPreference": {
+      "type": "string",
+      "enum": [
+        "calcareous",
+        "acidic",
+        "neutral",
+        "sandy",
+        "clay",
+        "loam",
+        "peat",
+        "chalk",
+        "serpentine",
+        "nutrient_poor_oligotrophic",
+        "nutrient_rich_eutrophic",
+        "disturbed",
+        "saline",
+        "gravelly_rocky",
+        "organic_rich"
+      ]
+    },
+    "MoisturePreference": {
+      "type": "string",
+      "enum": [
+        "xeric_dry",
+        "mesic",
+        "hygrophilous_wet",
+        "aquatic_freshwater",
+        "marine",
+        "riparian",
+        "unknown"
+      ]
+    },
+    "FruitingSeason": {
+      "type": "string",
+      "enum": [
+        "early_spring",
+        "spring",
+        "late_spring",
+        "early_summer",
+        "summer",
+        "late_summer",
+        "early_autumn",
+        "autumn",
+        "late_autumn",
+        "winter",
+        "year_round",
+        "aseasonal"
+      ]
+    },
+    "PhenologyHemisphere": {
+      "type": "string",
+      "enum": [
+        "northern",
+        "southern",
+        "both_recorded",
+        "equatorial_aseasonal"
+      ]
+    },
+    "FruitingTriggers": {
+      "type": "string",
+      "enum": [
+        "autumn_rains",
+        "spring_rains",
+        "monsoon",
+        "temperature_drop",
+        "temperature_shock",
+        "first_frost",
+        "warming_thaw",
+        "fire",
+        "flooding",
+        "host_senescence",
+        "host_death",
+        "drought_break",
+        "diurnal_temp_swing",
+        "humidity_spike"
+      ]
+    },
+    "FruitingPosition": {
+      "type": "string",
+      "enum": [
+        "epigeous_above_ground",
+        "hypogeous_below_ground",
+        "semihypogeous",
+        "on_substrate_surface",
+        "internal_to_host",
+        "aquatic_submerged"
+      ]
+    },
+    "EcologicalRole": {
+      "type": "string",
+      "enum": [
+        "primary_decomposer",
+        "keystone_decomposer",
+        "lignin_degrader",
+        "cellulose_degrader",
+        "nutrient_cycler",
+        "nitrogen_facilitator",
+        "mycorrhizal_network_hub",
+        "primary_succession_pioneer",
+        "soil_aggregation",
+        "carbon_sequestration",
+        "pathogen_population_regulator",
+        "food_source_for_fauna",
+        "habitat_engineer"
+      ]
+    },
+    "IndicatorSpeciesRole": {
+      "type": "string",
+      "enum": [
+        "old_growth_forest_indicator",
+        "ancient_woodland_indicator",
+        "unimproved_grassland_indicator",
+        "ph_indicator",
+        "pollution_sensitive",
+        "disturbance_tolerant_weedy",
+        "ecosystem_health_indicator",
+        "none",
+        "unknown"
+      ]
+    },
+    "IucnStatus": {
+      "type": "string",
+      "enum": [
+        "EX",
+        "EW",
+        "CR",
+        "EN",
+        "VU",
+        "NT",
+        "LC",
+        "DD",
+        "NE",
+        "not_assessed"
+      ]
+    },
+    "Abundance": {
+      "type": "string",
+      "enum": [
+        "very_common",
+        "common",
+        "frequent",
+        "occasional",
+        "uncommon",
+        "rare",
+        "very_rare",
+        "extremely_rare_few_records",
+        "data_deficient"
+      ]
+    },
+    "NativeStatus": {
+      "type": "string",
+      "enum": [
+        "native",
+        "introduced_naturalized",
+        "introduced_casual",
+        "invasive",
+        "cryptogenic_origin_unknown",
+        "cosmopolitan",
+        "unknown"
+      ]
+    },
+    "DistributionPattern": {
+      "type": "string",
+      "enum": [
+        "cosmopolitan",
+        "holarctic",
+        "palearctic_endemic",
+        "nearctic_endemic",
+        "neotropical",
+        "paleotropical",
+        "pantropical",
+        "austral_southern",
+        "amphi_atlantic",
+        "amphi_pacific",
+        "bipolar",
+        "regional_endemic",
+        "narrow_endemic",
+        "disjunct",
+        "unknown"
+      ]
+    },
+    "BiogeographicRealm": {
+      "type": "string",
+      "enum": [
+        "Palearctic",
+        "Nearctic",
+        "Neotropical",
+        "Afrotropical",
+        "Indomalayan",
+        "Australasian",
+        "Oceanian",
+        "Antarctic",
+        "Marine"
+      ]
+    },
+    "CultivationDifficulty": {
+      "type": "string",
+      "enum": [
+        "beginner",
+        "intermediate",
+        "advanced",
+        "expert",
+        "not-cultivable",
+        "experimental"
+      ]
+    },
+    "CultivationMethod": {
+      "type": "string",
+      "enum": [
+        "PF-tek",
+        "monotub",
+        "bulk-substrate",
+        "log-cultivation",
+        "stump-cultivation",
+        "bottle-culture",
+        "bag-culture",
+        "tray-tek",
+        "liquid-culture-only",
+        "outdoor-bed",
+        "wood-chip-bed",
+        "mushroom-bag-block",
+        "none"
+      ]
+    },
+    "AgarMedia": {
+      "type": "string",
+      "enum": [
+        "MEA",
+        "PDA",
+        "PDYA",
+        "DFA",
+        "MYA",
+        "CYM",
+        "OMYA",
+        "V8A",
+        "SDA",
+        "WA",
+        "cornmeal-agar",
+        "compost-extract-agar"
+      ]
+    },
+    "SpawnType": {
+      "type": "string",
+      "enum": [
+        "rye-grain",
+        "wheat-grain",
+        "milo-sorghum",
+        "millet",
+        "wild-bird-seed-WBS",
+        "brown-rice-PF",
+        "popcorn",
+        "oats",
+        "sawdust-spawn",
+        "plug-spawn",
+        "dowel-spawn",
+        "grain-master-spawn",
+        "liquid-culture"
+      ]
+    },
+    "BulkSubstrate": {
+      "type": "string",
+      "enum": [
+        "CVG-coir-vermiculite-gypsum",
+        "coco-coir",
+        "horse-manure",
+        "cow-manure",
+        "straw-pasteurized",
+        "supplemented-hardwood-sawdust",
+        "masters-mix",
+        "soy-hull-pellets",
+        "wood-chips",
+        "compost-phase2",
+        "logs",
+        "sugarcane-bagasse",
+        "cotton-waste",
+        "spent-coffee-grounds"
+      ]
+    },
+    "FreshAirExchangeRate": {
+      "type": "string",
+      "enum": [
+        "very-low",
+        "low",
+        "moderate",
+        "high",
+        "very-high"
+      ]
+    },
+    "LightRequirement": {
+      "type": "string",
+      "enum": [
+        "none",
+        "negligible",
+        "indirect-low",
+        "moderate-required-for-pinning",
+        "high",
+        "photoperiod-required"
+      ]
+    },
+    "PinningTriggers": {
+      "type": "string",
+      "enum": [
+        "increased-FAE",
+        "lowered-CO2",
+        "introduce-light",
+        "temperature-drop",
+        "cold-shock",
+        "RH-increase",
+        "casing-layer",
+        "dunk-soak",
+        "substrate-fully-colonized",
+        "mechanical-disturbance",
+        "time-elapsed",
+        "desiccation-then-rehydrate"
+      ]
+    },
+    "ContaminationSusceptibility": {
+      "type": "string",
+      "enum": [
+        "very-low",
+        "low",
+        "moderate",
+        "high",
+        "very-high"
+      ]
+    },
+    "CommonContaminant": {
+      "type": "string",
+      "enum": [
+        "Trichoderma-green-mold",
+        "Cobweb-Dactylium",
+        "Penicillium",
+        "Aspergillus",
+        "bacterial-wet-spot-Bacillus",
+        "Pseudomonas-bacterial-blotch",
+        "Neurospora-orange",
+        "black-pin-mold-Mucor-Rhizopus",
+        "Verticillium-dry-bubble",
+        "yeast",
+        "Lipstick-mold-Sporendonema"
+      ]
+    },
+    "SenescenceSusceptibility": {
+      "type": "string",
+      "enum": [
+        "low",
+        "moderate",
+        "high",
+        "very-high"
+      ]
+    },
+    "DegradationSymptom": {
+      "type": "string",
+      "enum": [
+        "sectoring",
+        "loss-of-rhizomorphic-growth",
+        "slowed-colonization",
+        "reduced-yield",
+        "fruiting-failure",
+        "increased-aborts",
+        "mutation-sectors",
+        "loss-of-bruising"
+      ]
+    },
+    "StorageMethod": {
+      "type": "string",
+      "enum": [
+        "agar-slant-4C",
+        "sterile-water-storage",
+        "grain-master-frozen",
+        "cryopreservation-LN2-glycerol",
+        "liquid-culture-fridge",
+        "spore-syringe",
+        "sclerotia",
+        "silica-gel",
+        "mineral-oil-overlay",
+        "lyophilization"
+      ]
+    },
+    "CommercialViability": {
+      "type": "string",
+      "enum": [
+        "major-commercial-crop",
+        "minor-commercial",
+        "specialty-gourmet",
+        "medicinal-commercial",
+        "hobby-only",
+        "research-only",
+        "not-cultivated-commercially"
+      ]
+    },
+    "MatingSystem": {
+      "type": "string",
+      "enum": [
+        "homothallic",
+        "heterothallic",
+        "pseudohomothallic_amphithallic",
+        "secondarily-homothallic",
+        "asexual-only_unknown-teleomorph",
+        "unknown"
+      ]
+    },
+    "MatingTypeArchitecture": {
+      "type": "string",
+      "enum": [
+        "bipolar_unifactorial",
+        "tetrapolar_bifactorial",
+        "bipolar-MAT-only",
+        "not-applicable",
+        "unknown"
+      ]
+    },
+    "PloidyState": {
+      "type": "string",
+      "enum": [
+        "haploid (n)",
+        "diploid (2n)",
+        "dikaryotic (n+n)",
+        "polyploid",
+        "aneuploid",
+        "variable_life-stage-dependent",
+        "unknown"
+      ]
+    },
+    "GeneticMarker": {
+      "type": "string",
+      "enum": [
+        "ITS",
+        "ITS1",
+        "ITS2",
+        "LSU-28S",
+        "SSU-18S",
+        "5.8S",
+        "IGS",
+        "RPB1",
+        "RPB2",
+        "TEF1a",
+        "beta-tubulin",
+        "CaM",
+        "ACT",
+        "GAPDH",
+        "MCM7",
+        "mtSSU",
+        "mtLSU",
+        "ATP6",
+        "COI",
+        "whole-genome",
+        "other"
+      ]
+    },
+    "RecommendedBarcodeMarker": {
+      "type": "string",
+      "enum": [
+        "ITS",
+        "ITS+LSU",
+        "TEF1",
+        "RPB2",
+        "TUB2_benA",
+        "CaM",
+        "ITS+TEF1",
+        "multilocus",
+        "unknown"
+      ]
+    },
+    "AssemblyLevel": {
+      "type": "string",
+      "enum": [
+        "Complete Genome",
+        "Chromosome",
+        "Scaffold",
+        "Contig"
+      ]
+    },
+    "IntraspecificVariation": {
+      "type": "string",
+      "enum": [
+        "low_clonal",
+        "moderate",
+        "high",
+        "cryptic-lineages-present",
+        "unknown"
+      ]
+    },
+    "NameUsageStatus": {
+      "type": "string",
+      "enum": [
+        "current",
+        "preferred",
+        "alternative",
+        "obsolete",
+        "dialectal",
+        "archaic",
+        "colloquial",
+        "trade-name",
+        "misapplied"
+      ]
+    },
+    "UseType": {
+      "type": "string",
+      "enum": [
+        "food",
+        "medicine",
+        "ritual_entheogenic",
+        "insecticide",
+        "dye",
+        "tinder_fire",
+        "paper_material",
+        "fermentation",
+        "poison_weapon",
+        "veterinary",
+        "cosmetic",
+        "ornamental_decorative",
+        "spiritual-symbol",
+        "tanning",
+        "other"
+      ]
+    },
+    "PoisoningOutcome": {
+      "type": "string",
+      "enum": [
+        "no-harm",
+        "mild",
+        "moderate",
+        "severe",
+        "fatal",
+        "disputed",
+        "unknown"
+      ]
+    },
+    "MediaReferenceType": {
+      "type": "string",
+      "enum": [
+        "novel",
+        "poem",
+        "short-story",
+        "film",
+        "television",
+        "video-game",
+        "music",
+        "comic_graphic",
+        "painting",
+        "illustration",
+        "sculpture",
+        "photography",
+        "stamp",
+        "currency",
+        "advertising",
+        "folk-tale",
+        "religious-text",
+        "other"
+      ]
+    },
+    "CulturalSensitivityFlag": {
+      "type": "string",
+      "enum": [
+        "none",
+        "indigenous-knowledge-attributed",
+        "sacred-restricted",
+        "attribution-required",
+        "consult-community"
+      ]
+    },
+    "MediaLicense": {
+      "type": "string",
+      "enum": [
+        "CC0-1.0",
+        "CC-BY-4.0",
+        "CC-BY-SA-4.0",
+        "CC-BY-NC-4.0",
+        "CC-BY-NC-SA-4.0",
+        "CC-BY-ND-4.0",
+        "CC-BY-NC-ND-4.0",
+        "CC-BY-3.0",
+        "CC-BY-SA-3.0",
+        "public-domain",
+        "PDM-1.0",
+        "all-rights-reserved",
+        "GFDL",
+        "fair-use",
+        "permission-granted",
+        "unknown"
+      ]
+    },
+    "RecordLicense": {
+      "type": "string",
+      "enum": [
+        "CC0-1.0",
+        "CC-BY-4.0",
+        "CC-BY-SA-4.0",
+        "ODbL-1.0",
+        "PDDL-1.0",
+        "public-domain"
+      ]
+    },
+    "MediaType": {
+      "type": "string",
+      "enum": [
+        "image",
+        "audio",
+        "video",
+        "3d_model",
+        "specimen_scan",
+        "microscopy_image",
+        "spore_print_image",
+        "illustration",
+        "gif_timelapse",
+        "spectrum"
+      ]
+    },
+    "MediaViewType": {
+      "type": "string",
+      "enum": [
+        "in-situ",
+        "studio",
+        "cap-top",
+        "cap-underside-gills",
+        "stipe",
+        "stipe-base",
+        "cross-section",
+        "spore-print",
+        "microscopy-spores",
+        "microscopy-basidia",
+        "microscopy-cystidia",
+        "microscopy-hyphae",
+        "microscopy-pileipellis",
+        "chemical-reaction",
+        "culture-plate",
+        "habitat",
+        "fresh",
+        "dried-specimen",
+        "scale-reference",
+        "illustration",
+        "phylogenetic-tree",
+        "distribution-map",
+        "lookalike-comparison",
+        "other"
+      ]
+    },
+    "LifecycleStage": {
+      "type": "string",
+      "enum": [
+        "primordium",
+        "button",
+        "immature",
+        "mature",
+        "senescent",
+        "decaying",
+        "dried",
+        "mycelium",
+        "sclerotium",
+        "culture",
+        "spore",
+        "teleomorph",
+        "anamorph",
+        "unknown"
+      ]
+    },
+    "MediaVerificationStatus": {
+      "type": "string",
+      "enum": [
+        "unverified",
+        "community-id",
+        "research-grade",
+        "expert-verified",
+        "type-specimen",
+        "dna-confirmed",
+        "disputed",
+        "misidentified-flagged"
+      ]
+    },
+    "ReferenceType": {
+      "type": "string",
+      "enum": [
+        "journal-article",
+        "book",
+        "book-chapter",
+        "field-guide",
+        "monograph",
+        "protologue",
+        "thesis",
+        "dataset",
+        "database-record",
+        "web-page",
+        "preprint",
+        "conference-paper",
+        "personal-communication",
+        "herbarium-label"
+      ]
+    },
+    "ExternalAuthority": {
+      "type": "string",
+      "enum": [
+        "MycoBank",
+        "IndexFungorum",
+        "GBIF",
+        "NCBI-Taxonomy",
+        "GenBank",
+        "iNaturalist",
+        "MushroomObserver",
+        "Wikipedia",
+        "Wikidata",
+        "EOL",
+        "Catalogue-of-Life",
+        "FungalTraits",
+        "UNITE",
+        "BOLD",
+        "MyCoPortal",
+        "FungiDB",
+        "ITIS",
+        "SpeciesFungorum",
+        "IRMNG",
+        "PlutoF",
+        "FungalNames",
+        "other"
+      ]
+    },
+    "LinkRelationship": {
+      "type": "string",
+      "enum": [
+        "exact-match",
+        "current-name",
+        "synonym",
+        "basionym",
+        "occurrence-data",
+        "sequence-data",
+        "observation-data",
+        "type-record",
+        "related",
+        "ambiguous-match"
+      ]
+    },
+    "SourceType": {
+      "type": "string",
+      "enum": [
+        "primary-literature",
+        "peer-reviewed",
+        "field-guide",
+        "authority-database",
+        "expert-assertion",
+        "community-consensus",
+        "machine-inference",
+        "ai-generated-unverified",
+        "personal-observation",
+        "unknown"
+      ]
+    },
+    "ConfidenceLevel": {
+      "type": "string",
+      "enum": [
+        "confirmed",
+        "high",
+        "moderate",
+        "low",
+        "speculative",
+        "disputed",
+        "unknown"
+      ]
+    },
+    "FieldVerificationStatus": {
+      "type": "string",
+      "enum": [
+        "unverified",
+        "auto-imported",
+        "community-reviewed",
+        "expert-verified",
+        "needs-review",
+        "flagged-for-correction",
+        "deprecated"
+      ]
+    },
+    "RecordVerificationLevel": {
+      "type": "string",
+      "enum": [
+        "unverified",
+        "auto-generated",
+        "community-reviewed",
+        "expert-reviewed",
+        "authoritative"
+      ]
+    },
+    "ContributorRole": {
+      "type": "string",
+      "enum": [
+        "author",
+        "editor",
+        "reviewer",
+        "photographer",
+        "translator",
+        "data-importer",
+        "expert-verifier",
+        "moderator"
+      ]
+    },
+    "DisputeStatus": {
+      "type": "string",
+      "enum": [
+        "open",
+        "under-review",
+        "resolved",
+        "wont-fix",
+        "escalated"
+      ]
+    }
+  }
+}

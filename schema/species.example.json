@@ -1,0 +1,586 @@
+{
+  "recordId": "myco:amanita-phalloides",
+  "slug": "amanita-phalloides",
+  "recordTier": "reference-quality",
+  "scientificName": "Amanita phalloides (Vaill. ex Fr.) Link",
+  "canonicalName": "Amanita phalloides",
+  "primaryCommonName": "Death Cap",
+  "taxonRank": "species",
+  "taxonomicStatus": "accepted",
+  "acceptedNameUsageId": "myco:amanita-phalloides",
+  "authorship": "(Vaill. ex Fr.) Link",
+  "basionymAuthorship": "Vaill. ex Fr.",
+  "combinationAuthorship": "Link",
+  "namePublishedInYear": 1833,
+  "nomenclaturalCode": "ICN",
+  "nomenclaturalStatus": "legitimate",
+  "sanctioningStatus": "none",
+  "basionymName": "Agaricus phalloides Vaill. ex Fr.",
+  "synonyms": [
+    {
+      "name": "Amanita viridis",
+      "authorship": "Pers.",
+      "synonymType": "heterotypic",
+      "registryId": "IF:198xxx (format placeholder)"
+    }
+  ],
+  "misappliedNames": [
+    {
+      "name": "Amanita mappa sensu auct. amer.",
+      "appliedBy": "some American authors"
+    }
+  ],
+  "typeStatus": "epitype",
+  "typeLocality": "France",
+  "etymology": "phalloides = 'phallus-like', from the resemblance of the young button to a phallus",
+  "etymologyRootLanguage": "greek",
+  "kingdom": "Fungi",
+  "phylum": "Basidiomycota",
+  "class": "Agaricomycetes",
+  "order": "Agaricales",
+  "family": "Amanitaceae",
+  "genus": "Amanita",
+  "specificEpithet": "phalloides",
+  "intermediateRanks": {
+    "subkingdom": "Dikarya",
+    "subphylum": "Agaricomycotina",
+    "subclass": "Agaricomycetidae",
+    "subgenus": "Amanita subg. Lepidella",
+    "section": "Phalloideae"
+  },
+  "parentNameUsageId": "myco:amanita",
+  "speciesComplex": "Amanita phalloides complex",
+  "crypticSpeciesFlag": false,
+  "phylogeneticClade": "Amanita sect. Phalloideae",
+  "sisterTaxa": [
+    "Amanita virosa",
+    "Amanita verna"
+  ],
+  "placementConfidence": "high",
+  "recentReclassification": "Stable placement in Amanita sect. Phalloideae; the lethal amatoxin-bearing clade",
+  "basidiomeType": "agaricoid",
+  "growthHabit": "scattered",
+  "capDiameter": {
+    "min": 40,
+    "max": 120,
+    "unit": "mm"
+  },
+  "capShape": [
+    "convex",
+    "plane"
+  ],
+  "capColor": [
+    "green",
+    "olive",
+    "yellow"
+  ],
+  "capSurfaceTexture": [
+    "viscid",
+    "glabrous"
+  ],
+  "capSurfaceOrnamentation": "volval-patches",
+  "hymenophoreType": "lamellate-gills",
+  "gillAttachment": "free",
+  "gillSpacing": "crowded",
+  "gillColor": [
+    "white"
+  ],
+  "poreSurfaceColor": [
+    "not-applicable"
+  ],
+  "stipePresent": true,
+  "stipeDimensions": {
+    "length": {
+      "min": 60,
+      "max": 150,
+      "unit": "mm"
+    },
+    "width": {
+      "min": 8,
+      "max": 20,
+      "unit": "mm"
+    }
+  },
+  "stipeColor": [
+    "white"
+  ],
+  "stipeSurfaceTexture": [
+    "fibrillose"
+  ],
+  "annulusPresence": "present-membranous",
+  "cortinaPresence": false,
+  "volvaPresence": "saccate-cup",
+  "stipeBaseShape": "bulbous",
+  "fleshColor": [
+    "white"
+  ],
+  "fleshColorChangeOnCut": "white, unchanging",
+  "latexPresence": false,
+  "latexColorFresh": "not-applicable",
+  "sporePrintColor": "white",
+  "odor": [
+    "honey",
+    "sweet",
+    "sickly_sweet"
+  ],
+  "taste": "not-tested",
+  "bruisingReaction": {
+    "description": "none observed",
+    "color": "none",
+    "speed": "none"
+  },
+  "basidiosporeDimensions": {
+    "length": {
+      "min": 8,
+      "max": 11,
+      "unit": "µm"
+    },
+    "width": {
+      "min": 7,
+      "max": 9,
+      "unit": "µm"
+    },
+    "lengthMean": 9.5,
+    "widthMean": 8
+  },
+  "qRatio": {
+    "range": {
+      "min": 1,
+      "max": 1.25,
+      "unit": ""
+    },
+    "mean": 1.1
+  },
+  "basidiosporeShape": "subglobose",
+  "basidiosporeOrnamentation": "smooth",
+  "basidiosporeReactionMelzer": "amyloid",
+  "basidiosporeGermPore": "absent",
+  "basidiaShape": "clavate",
+  "basidiaSterigmataNumber": "4",
+  "clampConnections": "present-at-septa",
+  "tramaType": "bilateral-divergent",
+  "pileipellisType": "ixocutis",
+  "measurementProtocol": {
+    "mountingMedium": "KOH-3pct",
+    "n": 30,
+    "fromTissue": "from-spore-print",
+    "ornamentationIncluded": "excluded",
+    "apiculusIncluded": "excluded"
+  },
+  "toxicityClass": "deadly_poisonous",
+  "primaryToxidrome": "amatoxin_hepatotoxic",
+  "secondaryToxidromes": [
+    "gastrointestinal_irritant"
+  ],
+  "onsetCategory": "delayed_6_24h",
+  "onsetTimeRange": {
+    "min": 6,
+    "max": 24,
+    "unit": "h"
+  },
+  "toxins": [
+    {
+      "name": "alpha-amanitin",
+      "compoundClass": "amatoxin",
+      "pubchemCid": "2169 (verify)",
+      "concentrationDryWt": {
+        "min": 0.2,
+        "max": 0.4,
+        "unit": "mg/g"
+      },
+      "mechanism": "RNA polymerase II inhibition",
+      "targetOrgan": [
+        "liver",
+        "kidney"
+      ],
+      "heatStable": true,
+      "waterSoluble": true
+    },
+    {
+      "name": "phalloidin",
+      "compoundClass": "phallotoxin",
+      "mechanism": "actin filament stabilization",
+      "targetOrgan": [
+        "liver"
+      ],
+      "heatStable": true
+    }
+  ],
+  "lethalDoseHuman": "~0.1 mg amatoxin/kg; ingestion of ~30-50 g fresh tissue can be fatal for an adult",
+  "targetOrgans": [
+    "liver",
+    "kidney"
+  ],
+  "antidotes": [
+    "silibinin_IV",
+    "N_acetylcysteine",
+    "penicillin_G_high_dose",
+    "activated_charcoal",
+    "liver_transplant"
+  ],
+  "toxinThermolability": "heat_stable",
+  "psychoactiveStatus": "none",
+  "bioaccumulatorFlag": "none_notable",
+  "allergenProfile": [
+    "none_reported"
+  ],
+  "bluingReaction": "none",
+  "macrochemicalReactions": [
+    {
+      "reagent": "KOH",
+      "tissue": "cap_surface",
+      "result": "no-reaction"
+    }
+  ],
+  "legalScheduleStatus": "unscheduled",
+  "edibilityClass": "deadly_poisonous",
+  "edibilityConfidence": "well_established",
+  "edibilityRationale": [
+    "Contains heat-stable amatoxins (alpha-amanitin) causing fatal hepatorenal failure",
+    "Responsible for the majority of fatal mushroom poisonings worldwide"
+  ],
+  "noviceSafetyRating": "avoid_no_exceptions",
+  "deadlyLookalikeRisk": "high",
+  "toxicWhenRaw": true,
+  "preparationRequirement": [],
+  "alcoholInteraction": "none_known",
+  "dangerousLookalikes": [
+    {
+      "species": "Volvariella volvacea (paddy straw mushroom)",
+      "toxicity": "edible",
+      "confusionDirection": "this_mistaken_for_edible",
+      "distinguishingFeatures": [
+        "white spore print (Amanita) vs pink (Volvariella)",
+        "presence of a membranous ring",
+        "amyloid spores"
+      ],
+      "confusionLikelihood": "high",
+      "region": "SE Asian communities"
+    },
+    {
+      "species": "Amanita species edible in some cultures (young button stage)",
+      "toxicity": "unknown",
+      "confusionDirection": "this_mistaken_for_edible",
+      "distinguishingFeatures": [
+        "excavate base to reveal saccate volva",
+        "white gills and white spore print"
+      ],
+      "confusionLikelihood": "high"
+    }
+  ],
+  "keyDistinguishingTests": [
+    "Take a white spore print",
+    "Excavate the stipe base to check for a saccate volva",
+    "Note free white gills and membranous ring",
+    "Amyloid spores in Melzer's reagent"
+  ],
+  "firstTimeTrialAdvice": "Never consume; deadly poisonous with no safe preparation",
+  "tasteRating": "not_applicable",
+  "aromaDescriptors": [
+    "sweet",
+    "sickly_sweet"
+  ],
+  "regionalEdibilityVariation": "Uniformly deadly across its range; no safe regional chemotype or preparation exists",
+  "trophicMode": "ectomycorrhizal",
+  "trophicModeSecondary": [],
+  "decayType": "not_wood_decay",
+  "substrateType": [
+    "soil",
+    "tree_roots"
+  ],
+  "hostAssociations": [
+    {
+      "taxon": "Quercus",
+      "rank": "genus",
+      "relationship": "ectomycorrhizal",
+      "specificity": "preferential"
+    },
+    {
+      "taxon": "Castanea",
+      "rank": "genus",
+      "relationship": "ectomycorrhizal",
+      "specificity": "facultative"
+    },
+    {
+      "taxon": "Pinus",
+      "rank": "genus",
+      "relationship": "ectomycorrhizal",
+      "specificity": "facultative"
+    }
+  ],
+  "hostBreadthClass": "both",
+  "habitatType": [
+    "temperate_broadleaf_forest",
+    "mixed_forest"
+  ],
+  "climateClass": "temperate",
+  "soilPreference": [
+    "acidic",
+    "loam"
+  ],
+  "moisturePreference": "mesic",
+  "fruitingSeason": [
+    "late_summer",
+    "autumn"
+  ],
+  "phenologyHemisphere": "northern",
+  "fruitingTriggers": [
+    "autumn_rains",
+    "temperature_drop"
+  ],
+  "fruitingPosition": "epigeous_above_ground",
+  "ecologicalRole": [
+    "mycorrhizal_network_hub"
+  ],
+  "indicatorSpeciesRole": "none",
+  "iucnStatus": "not_assessed",
+  "abundance": "common",
+  "habitatNotes": "Ectomycorrhizal, predominantly with oaks and other hardwoods, occasionally conifers; widely naturalized outside its native range with planted host trees.",
+  "nativeStatus": "native",
+  "nativeRange": "Native to Europe; introduced and naturalized widely with exotic hosts",
+  "countryDistribution": [
+    "FR",
+    "GB",
+    "DE",
+    "IT",
+    "SE",
+    "US",
+    "CA",
+    "AU",
+    "NZ"
+  ],
+  "introducedRange": [
+    "US",
+    "CA",
+    "AU",
+    "NZ"
+  ],
+  "distributionPattern": "holarctic",
+  "biogeographicRealm": [
+    "Palearctic",
+    "Nearctic"
+  ],
+  "elevationRange": {
+    "min": 0,
+    "max": 1800,
+    "unit": "m"
+  },
+  "gbifOccurrenceCount": 42000,
+  "inatObservationCount": 38000,
+  "rangeExpansionNotes": "Established and spreading in western North America in association with introduced oaks and other hosts.",
+  "cultivable": false,
+  "cultivationDifficulty": "not-cultivable",
+  "primaryCultivationMethod": "none",
+  "cultivable_note": "Ectomycorrhizal; not artificially cultivable",
+  "commercialViability": "not-cultivated-commercially",
+  "sclerotiaFormation": false,
+  "matingSystem": "heterothallic",
+  "matingTypeSystem": "tetrapolar",
+  "ploidy": "dikaryotic (n+n)",
+  "itsBarcode": {
+    "available": true,
+    "accessions": [
+      "GenBank ITS accession (verify before use)"
+    ],
+    "lengthBp": 680
+  },
+  "uniteSpeciesHypothesis": "UNITE SH ID (verify)",
+  "recommendedBarcodeMarker": "ITS",
+  "exTypeSequence": {
+    "available": true,
+    "accessions": [
+      {
+        "marker": "ITS",
+        "accession": "RefSeq NR_ accession (verify)",
+        "typeStatus": "ex-epitype"
+      }
+    ]
+  },
+  "genome": {
+    "sequenced": true,
+    "assemblyAccessions": [
+      "GCA_ assembly accession (verify)"
+    ],
+    "sizeMb": {
+      "min": 30,
+      "max": 40,
+      "unit": "Mb"
+    },
+    "assemblyLevel": "Scaffold"
+  },
+  "intraspecificVariation": "moderate",
+  "populationStructure": "European source populations; introduced North American lineages from multiple introduction events",
+  "toxinGeneClusters": [
+    {
+      "toxin": "alpha-amanitin",
+      "cluster": "MSDIN ribosomal-peptide family + POPB (prolyl oligopeptidase B)",
+      "present": true
+    }
+  ],
+  "psilocybinGeneCluster": {
+    "present": false,
+    "genes": []
+  },
+  "environmentalSequenceOnly": false,
+  "vernacularNames": [
+    {
+      "name": "Death Cap",
+      "langCode": "en",
+      "regionCode": "GB",
+      "isPrimary": true,
+      "usageStatus": "current"
+    },
+    {
+      "name": "Death Cap",
+      "langCode": "en",
+      "regionCode": "US",
+      "usageStatus": "current"
+    },
+    {
+      "name": "Grüner Knollenblätterpilz",
+      "langCode": "de",
+      "usageStatus": "current"
+    },
+    {
+      "name": "Amanite phalloïde",
+      "langCode": "fr",
+      "usageStatus": "current"
+    },
+    {
+      "name": "Oronja verde",
+      "langCode": "es",
+      "usageStatus": "current"
+    }
+  ],
+  "originalDescriber": [
+    {
+      "name": "Elias Magnus Fries",
+      "role": "sanctioning author",
+      "year": 1821
+    },
+    {
+      "name": "Johann Heinrich Friedrich Link",
+      "role": "combining author",
+      "year": 1833
+    }
+  ],
+  "discoveryNarrative": "Recognized as deadly in European folk culture long before formal description; Link transferred it to Amanita in 1833. Its section, Phalloideae, contains the most lethal mushrooms known.",
+  "notablePoisoningCases": [
+    {
+      "caseName": "Pope Clement VII (disputed)",
+      "year": 1534,
+      "summary": "Some historical accounts attribute his death to Amanita phalloides poisoning; the claim is disputed.",
+      "outcome": "fatal",
+      "verified": false
+    }
+  ],
+  "culturalSignificance": "The archetypal deadly mushroom; responsible for the large majority of fatal mushroom poisonings worldwide.",
+  "popularMisconceptions": [
+    {
+      "claim": "Cooking, drying, or parboiling renders it safe to eat",
+      "status": "dangerous false belief",
+      "correction": "Amatoxins are heat-stable; no household preparation detoxifies the mushroom"
+    }
+  ],
+  "culturalSensitivityFlag": "none",
+  "media": [
+    {
+      "mediaId": "med_amaphal_0001",
+      "mediaType": "image",
+      "viewType": "in-situ",
+      "url": "https://media.example.org/amanita-phalloides.jpg (placeholder)",
+      "license": "CC-BY-NC-4.0",
+      "credit": "© Contributor / iNaturalist (CC-BY-NC 4.0)",
+      "verificationStatus": "research-grade",
+      "lifecycleStage": "mature",
+      "isPrimary": true
+    }
+  ],
+  "primaryImageId": "med_amaphal_0001",
+  "hasMicroscopy": false,
+  "fieldProvenance": [
+    {
+      "field": "edibilityClass",
+      "sourceRefId": "ref_benjamin_1995",
+      "sourceType": "primary-literature",
+      "confidence": "confirmed",
+      "verificationStatus": "expert-verified",
+      "reviewedOn": "2026-05-31"
+    },
+    {
+      "field": "toxins",
+      "sourceRefId": "ref_benjamin_1995",
+      "sourceType": "primary-literature",
+      "confidence": "high",
+      "verificationStatus": "expert-verified",
+      "reviewedOn": "2026-05-31"
+    },
+    {
+      "field": "itsBarcode.accessions",
+      "sourceType": "authority-database",
+      "confidence": "low",
+      "verificationStatus": "needs-review",
+      "note": "Accession is a format placeholder; must be reconciled against GenBank before publishing."
+    }
+  ],
+  "references": [
+    {
+      "refId": "ref_benjamin_1995",
+      "type": "book",
+      "title": "Mushrooms: Poisons and Panaceas",
+      "authors": [
+        "Benjamin, D.R."
+      ],
+      "year": 1995,
+      "isPrimary": false
+    }
+  ],
+  "externalLinks": [
+    {
+      "authority": "IndexFungorum",
+      "externalId": "IF:198282 (verify)",
+      "relationship": "exact-match"
+    },
+    {
+      "authority": "GBIF",
+      "externalId": "5240897 (verify)",
+      "relationship": "exact-match"
+    },
+    {
+      "authority": "NCBI-Taxonomy",
+      "externalId": "67723 (verify)",
+      "relationship": "exact-match"
+    },
+    {
+      "authority": "MycoBank",
+      "externalId": "MB#198282 (verify)",
+      "relationship": "exact-match"
+    },
+    {
+      "authority": "iNaturalist",
+      "externalId": "48634 (verify)",
+      "relationship": "observation-data"
+    },
+    {
+      "authority": "Wikidata",
+      "externalId": "Q133795 (verify)",
+      "relationship": "related"
+    }
+  ],
+  "dataCompletenessScore": 0.82,
+  "verificationLevel": "expert-reviewed",
+  "lastReviewedDate": "2026-05-31",
+  "contributors": [
+    {
+      "handle": "mycosci-import",
+      "role": "data-importer"
+    },
+    {
+      "handle": "expert-reviewer",
+      "role": "expert-verifier"
+    }
+  ],
+  "disputeFlags": [],
+  "recordLicense": "CC-BY-SA-4.0",
+  "schemaVersion": "1.0.0"
+}

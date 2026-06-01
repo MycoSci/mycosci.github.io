@@ -1,0 +1,4958 @@
+{
+  "version": "1.0.0",
+  "groups": [
+    {
+      "key": "identity",
+      "label": "Identity & Record",
+      "order": 1,
+      "description": "Stable internal keys, slug, record tier, primary common name, and the canonical accepted scientific name. The minimal anchor every taxon carries."
+    },
+    {
+      "key": "naming",
+      "label": "Naming & Nomenclature",
+      "order": 2,
+      "description": "Authorship, basionym, synonymy, homonymy, type specimen, nomenclatural acts, registration, and etymology. Owns the ICN naming layer."
+    },
+    {
+      "key": "classification",
+      "label": "Classification & Phylogeny",
+      "order": 3,
+      "description": "Ranked classification path (kingdom→infraspecific), parent linkage, species complex, molecular phylogenetic placement, sister taxa, and reclassification history."
+    },
+    {
+      "key": "morphology",
+      "label": "Macroscopic Morphology",
+      "order": 4,
+      "description": "Naked-eye basidiome/ascoma features: cap, hymenophore, stipe, veils, flesh, latex, spore print, sensory, bruising, development. Genus-dependent and nullable."
+    },
+    {
+      "key": "microscopy",
+      "label": "Microscopy & Anatomy",
+      "order": 5,
+      "description": "Spores (dimensions, Q, ornamentation, reactions), basidia, cystidia, hyphal system, tissue layers, asci/ascospores, crystals, and measurement-protocol metadata."
+    },
+    {
+      "key": "chemistry",
+      "label": "Chemistry, Toxins & Medicinal",
+      "order": 6,
+      "description": "Toxin inventory and toxidromes, psychoactive and medicinal compounds, nutrition, bioaccumulation, allergens, pigments, and macrochemical spot tests. Owns compound identity and hazard axis."
+    },
+    {
+      "key": "edibility",
+      "label": "Edibility & Safety",
+      "order": 7,
+      "description": "Safety-first edibility classification, preparation requirements, dangerous lookalikes, sensory/culinary profile, preservation, and consumption cautions. The actionable safety layer."
+    },
+    {
+      "key": "ecology",
+      "label": "Ecology & Habitat",
+      "order": 8,
+      "description": "Trophic mode, substrate/host associations, habitat/biome, climate/soil preference, fruiting phenology, ecological role, and conservation status."
+    },
+    {
+      "key": "distribution",
+      "label": "Distribution & Biogeography",
+      "order": 9,
+      "description": "Native/introduced range, country/region distribution, biogeographic realms, elevation, occurrence-record statistics, and range dynamics."
+    },
+    {
+      "key": "cultivation",
+      "label": "Cultivation & Lab",
+      "order": 10,
+      "description": "Cultivability, substrate recipes, environmental parameter ranges by phase, lifecycle timelines, yield, contamination, senescence, strains, and commercial positioning."
+    },
+    {
+      "key": "genetics",
+      "label": "Genetics & Molecular",
+      "order": 11,
+      "description": "DNA barcodes/markers, genome assemblies, karyology, mating systems, ex-type sequences, intraspecific variation, and toxin/psilocybin biosynthesis gene clusters."
+    },
+    {
+      "key": "culture",
+      "label": "Ethnomycology & History",
+      "order": 12,
+      "description": "Multilingual vernacular names with provenance, discovery history, folklore, traditional/ritual use, cultural significance, and references in art and media."
+    },
+    {
+      "key": "media",
+      "label": "Media",
+      "order": 13,
+      "description": "Images, microscopy, audio, video, and 3D assets — each independently licensed and credited, with view type, lifecycle stage, and ID verification status."
+    },
+    {
+      "key": "provenance",
+      "label": "Provenance & Data Quality",
+      "order": 14,
+      "description": "Cross-cutting per-field source/confidence/verification model, citations, external authority links, record licensing, completeness/quality scoring, contributors, and dispute flags."
+    }
+  ],
+  "fields": [
+    {
+      "key": "recordId",
+      "label": "Record ID",
+      "group": "identity",
+      "type": "string",
+      "tier": "core",
+      "example": "myco:amanita-phalloides",
+      "notes": "Stable internal primary key for the taxon concept; survives renames. Merges acceptedNameId + recordId from source domains.",
+      "sourceHint": "MycoSci internal"
+    },
+    {
+      "key": "slug",
+      "label": "URL Slug",
+      "group": "identity",
+      "type": "string",
+      "tier": "core",
+      "example": "amanita-phalloides",
+      "notes": "Lowercase hyphenated; stable URL component and shard key (first letter).",
+      "sourceHint": "MycoSci internal"
+    },
+    {
+      "key": "recordTier",
+      "label": "Record Curation Tier",
+      "group": "identity",
+      "type": "enum",
+      "enumRef": "RecordTier",
+      "tier": "core",
+      "example": "curated",
+      "notes": "Drives static pre-render vs client-fetch fallback (CLAUDE.md §3). stub/imported → client; curated/featured → pre-rendered.",
+      "sourceHint": "MycoSci internal"
+    },
+    {
+      "key": "scientificName",
+      "label": "Scientific Name (with authorship)",
+      "group": "identity",
+      "type": "string",
+      "tier": "core",
+      "example": "Amanita phalloides (Vaill. ex Fr.) Link",
+      "safetyRelevant": true,
+      "notes": "Canonical accepted name WITH authorship. Identity anchor for all safety records.",
+      "sourceHint": "Index Fungorum / MycoBank"
+    },
+    {
+      "key": "canonicalName",
+      "label": "Canonical Name (no authorship)",
+      "group": "identity",
+      "type": "string",
+      "tier": "core",
+      "example": "Amanita phalloides",
+      "notes": "Name string without authorship for search, joins, and display.",
+      "sourceHint": "Index Fungorum / MycoBank"
+    },
+    {
+      "key": "primaryCommonName",
+      "label": "Primary Common Name",
+      "group": "identity",
+      "type": "string",
+      "tier": "core",
+      "example": "Death Cap",
+      "safetyRelevant": true,
+      "notes": "Single canonical English vernacular for display. Full multilingual set with provenance lives in culture.vernacularNames.",
+      "sourceHint": "GBIF / BMS recommended English names"
+    },
+    {
+      "key": "taxonRank",
+      "label": "Taxonomic Rank",
+      "group": "identity",
+      "type": "enum",
+      "enumRef": "TaxonRank",
+      "tier": "core",
+      "example": "species",
+      "notes": "Rank of THIS record. Historical division/subdivision map to phylum/subphylum.",
+      "sourceHint": "Index Fungorum"
+    },
+    {
+      "key": "taxonomicStatus",
+      "label": "Taxonomic Status",
+      "group": "identity",
+      "type": "enum",
+      "enumRef": "TaxonomicStatus",
+      "tier": "core",
+      "example": "accepted",
+      "safetyRelevant": true,
+      "notes": "Accepted vs synonym/misapplied. A toxic species may be searched under a synonym.",
+      "sourceHint": "Index Fungorum / Species Fungorum"
+    },
+    {
+      "key": "acceptedNameUsageId",
+      "label": "Accepted Name Usage ID",
+      "group": "identity",
+      "type": "string",
+      "tier": "core",
+      "example": "myco:amanita-phalloides",
+      "safetyRelevant": true,
+      "notes": "If this record is a synonym, points to the accepted taxon recordId so synonym searches reach the correct (possibly toxic) species.",
+      "sourceHint": "Index Fungorum / GBIF backbone"
+    },
+    {
+      "key": "authorship",
+      "label": "Full Authorship String",
+      "group": "naming",
+      "type": "string",
+      "tier": "core",
+      "example": "(Vaill. ex Fr.) Link",
+      "notes": "Complete authority including parentheses, ex-author, combining author.",
+      "sourceHint": "Index Fungorum"
+    },
+    {
+      "key": "basionymAuthorship",
+      "label": "Basionym Authorship",
+      "group": "naming",
+      "type": "string",
+      "tier": "standard",
+      "example": "Vaill. ex Fr.",
+      "notes": "Parenthetical author(s) of the basionym.",
+      "sourceHint": "Index Fungorum"
+    },
+    {
+      "key": "combinationAuthorship",
+      "label": "Combination Authorship",
+      "group": "naming",
+      "type": "string",
+      "tier": "standard",
+      "example": "Link",
+      "notes": "Author of the current combination (outside parentheses).",
+      "sourceHint": "Index Fungorum"
+    },
+    {
+      "key": "namePublishedInYear",
+      "label": "Year of Publication",
+      "group": "naming",
+      "type": "integer",
+      "unit": "year",
+      "tier": "core",
+      "example": "1833",
+      "notes": "Year the accepted name was validly published.",
+      "sourceHint": "Index Fungorum / primary literature"
+    },
+    {
+      "key": "nomenclaturalCode",
+      "label": "Governing Nomenclatural Code",
+      "group": "naming",
+      "type": "enum",
+      "enumRef": "NomenclaturalCode",
+      "tier": "standard",
+      "example": "ICN",
+      "notes": "Fungi default to ICN; environmental dark-taxa may use UNITE SH / provisional.",
+      "sourceHint": "ICN / UNITE"
+    },
+    {
+      "key": "nomenclaturalStatus",
+      "label": "Nomenclatural Status",
+      "group": "naming",
+      "type": "enum",
+      "enumRef": "NomenclaturalStatus",
+      "tier": "standard",
+      "example": "legitimate",
+      "notes": "ICN name-level standing, orthogonal to taxonomic acceptance.",
+      "sourceHint": "Index Fungorum / ICN"
+    },
+    {
+      "key": "sanctioningStatus",
+      "label": "Sanctioning Status",
+      "group": "naming",
+      "type": "enum",
+      "enumRef": "SanctioningStatus",
+      "tier": "deep",
+      "example": "none",
+      "notes": "Fries/Persoon sanctioning confers priority under ICN Art. F.7.",
+      "sourceHint": "ICN / Index Fungorum"
+    },
+    {
+      "key": "basionymName",
+      "label": "Basionym",
+      "group": "naming",
+      "type": "string",
+      "tier": "standard",
+      "example": "Agaricus phalloides Vaill. ex Fr.",
+      "notes": "Original name on which the current combination is based.",
+      "sourceHint": "Index Fungorum"
+    },
+    {
+      "key": "synonyms",
+      "label": "Synonyms",
+      "group": "naming",
+      "type": "array<Synonym>",
+      "tier": "standard",
+      "example": "[{name:'Amanita viridis',authorship:'Pers.',synonymType:'heterotypic',registryId:'IF:198xxx'}]",
+      "safetyRelevant": true,
+      "notes": "Each {name, authorship, synonymType, registryId, year}. Searches under any synonym must resolve to the accepted toxic taxon.",
+      "sourceHint": "Index Fungorum / Species Fungorum"
+    },
+    {
+      "key": "misappliedNames",
+      "label": "Misapplied Names",
+      "group": "naming",
+      "type": "array<MisappliedName>",
+      "tier": "deep",
+      "example": "[{name:'Amanita mappa sensu auct. amer.',appliedBy:'American authors'}]",
+      "safetyRelevant": true,
+      "notes": "Names erroneously applied in literature; major source of ID/poisoning confusion.",
+      "sourceHint": "primary literature / monographs"
+    },
+    {
+      "key": "orthographicVariants",
+      "label": "Orthographic Variants",
+      "group": "naming",
+      "type": "array<string>",
+      "tier": "deep",
+      "example": "[\"phalloïdes\",\"phaloides\"]",
+      "notes": "Spelling variants/corrigenda to aid matching.",
+      "sourceHint": "Index Fungorum"
+    },
+    {
+      "key": "typeStatus",
+      "label": "Type Specimen Status",
+      "group": "naming",
+      "type": "enum",
+      "enumRef": "TypeStatus",
+      "tier": "standard",
+      "example": "epitype",
+      "notes": "Kind of name-bearing type. Epitype heavily used in fungi for DNA reference.",
+      "sourceHint": "MycoBank / primary literature"
+    },
+    {
+      "key": "typeSpecimenCitation",
+      "label": "Type Specimen Citation",
+      "group": "naming",
+      "type": "string",
+      "tier": "deep",
+      "example": "Epitype: France, designated 20xx",
+      "notes": "Free-text citation of the type as published.",
+      "sourceHint": "MycoBank / primary literature"
+    },
+    {
+      "key": "typeHerbariumCode",
+      "label": "Type Herbarium (Index Herbariorum)",
+      "group": "naming",
+      "type": "string",
+      "tier": "deep",
+      "example": "K",
+      "notes": "Index Herbariorum acronym holding the type. Physical specimen lives in provenance.",
+      "sourceHint": "Index Herbariorum"
+    },
+    {
+      "key": "typeLocality",
+      "label": "Type Locality",
+      "group": "naming",
+      "type": "string",
+      "tier": "standard",
+      "example": "France",
+      "notes": "Place where the name-bearing type was collected. Coordinates belong to distribution.",
+      "sourceHint": "primary literature / MycoBank"
+    },
+    {
+      "key": "protologueCitation",
+      "label": "Protologue Citation",
+      "group": "naming",
+      "type": "string",
+      "tier": "deep",
+      "example": "Fr., Syst. Mycol. 1: 13 (1821)",
+      "notes": "Bibliographic citation of the original description.",
+      "sourceHint": "Index Fungorum / primary literature"
+    },
+    {
+      "key": "etymology",
+      "label": "Etymology",
+      "group": "naming",
+      "type": "string",
+      "tier": "standard",
+      "example": "phalloides = 'phallus-like', from the young button's resemblance",
+      "notes": "Derivation/meaning of the epithet (and genus where notable).",
+      "sourceHint": "primary literature / etymological references"
+    },
+    {
+      "key": "etymologyRootLanguage",
+      "label": "Etymology Root Language",
+      "group": "naming",
+      "type": "enum",
+      "enumRef": "EtymologyRoot",
+      "tier": "deep",
+      "example": "greek",
+      "notes": "Source of the epithet's derivation.",
+      "sourceHint": "primary literature"
+    },
+    {
+      "key": "anamorphTeleomorphLink",
+      "label": "Anamorph/Teleomorph Link",
+      "group": "naming",
+      "type": "object",
+      "tier": "deep",
+      "example": "{linkedName:'...',relation:'teleomorph'}",
+      "safetyRelevant": true,
+      "notes": "Pre-2011 dual nomenclature linkage; under 1F1N track the suppressed name. Toxin producers often known under the anamorph.",
+      "sourceHint": "MycoBank / primary literature"
+    },
+    {
+      "key": "kingdom",
+      "label": "Kingdom",
+      "group": "classification",
+      "type": "string",
+      "tier": "core",
+      "example": "Fungi",
+      "sourceHint": "Index Fungorum / NCBI"
+    },
+    {
+      "key": "phylum",
+      "label": "Phylum",
+      "group": "classification",
+      "type": "string",
+      "tier": "core",
+      "example": "Basidiomycota",
+      "notes": "Canonical higher-rank home; molecular phylum placement de-duped here.",
+      "sourceHint": "Index Fungorum / NCBI"
+    },
+    {
+      "key": "class",
+      "label": "Class",
+      "group": "classification",
+      "type": "string",
+      "tier": "core",
+      "example": "Agaricomycetes",
+      "sourceHint": "Index Fungorum"
+    },
+    {
+      "key": "order",
+      "label": "Order",
+      "group": "classification",
+      "type": "string",
+      "tier": "core",
+      "example": "Agaricales",
+      "sourceHint": "Index Fungorum"
+    },
+    {
+      "key": "family",
+      "label": "Family",
+      "group": "classification",
+      "type": "string",
+      "tier": "core",
+      "example": "Amanitaceae",
+      "sourceHint": "Index Fungorum"
+    },
+    {
+      "key": "genus",
+      "label": "Genus",
+      "group": "classification",
+      "type": "string",
+      "tier": "core",
+      "example": "Amanita",
+      "sourceHint": "Index Fungorum"
+    },
+    {
+      "key": "specificEpithet",
+      "label": "Specific Epithet",
+      "group": "classification",
+      "type": "string",
+      "tier": "core",
+      "example": "phalloides",
+      "sourceHint": "Index Fungorum"
+    },
+    {
+      "key": "infraspecificEpithet",
+      "label": "Infraspecific Epithet",
+      "group": "classification",
+      "type": "string",
+      "tier": "standard",
+      "example": "alba",
+      "notes": "Epithet for subspecies/variety/form.",
+      "sourceHint": "Index Fungorum"
+    },
+    {
+      "key": "infraspecificRankMarker",
+      "label": "Infraspecific Rank Marker",
+      "group": "classification",
+      "type": "enum",
+      "enumRef": "InfraspecificRankMarker",
+      "tier": "standard",
+      "example": "var.",
+      "sourceHint": "Index Fungorum"
+    },
+    {
+      "key": "intermediateRanks",
+      "label": "Intermediate Ranks",
+      "group": "classification",
+      "type": "object",
+      "tier": "deep",
+      "example": "{subkingdom:'Dikarya',subphylum:'Agaricomycotina',subclass:'Agaricomycetidae',subgenus:'Amanita subg. Lepidella',section:'Phalloideae'}",
+      "notes": "Sparse map of any populated intermediate/infrageneric ranks (subkingdom, subphylum, subclass, superorder, suborder, subfamily, tribe, subgenus, section, series). Keeps the core flat while allowing depth.",
+      "sourceHint": "Index Fungorum / primary literature"
+    },
+    {
+      "key": "classificationPath",
+      "label": "Materialized Classification Path",
+      "group": "classification",
+      "type": "array<RankName>",
+      "tier": "standard",
+      "example": "[{rank:'kingdom',name:'Fungi'},...,{rank:'genus',name:'Amanita'}]",
+      "notes": "Ordered rank→name pairs for breadcrumbs and ancestor queries.",
+      "sourceHint": "derived from Index Fungorum hierarchy"
+    },
+    {
+      "key": "parentNameUsageId",
+      "label": "Parent Taxon ID",
+      "group": "classification",
+      "type": "string",
+      "tier": "core",
+      "example": "myco:amanita",
+      "notes": "Direct parent recordId; enables tree assembly.",
+      "sourceHint": "Index Fungorum / GBIF backbone"
+    },
+    {
+      "key": "speciesComplex",
+      "label": "Species Complex / Aggregate",
+      "group": "classification",
+      "type": "string",
+      "tier": "standard",
+      "example": "Amanita phalloides complex",
+      "safetyRelevant": true,
+      "notes": "Cryptic-species grouping. Matters when toxicity differs across cryptic members.",
+      "sourceHint": "primary literature"
+    },
+    {
+      "key": "crypticSpeciesFlag",
+      "label": "Part of Cryptic Species Group",
+      "group": "classification",
+      "type": "boolean",
+      "tier": "standard",
+      "example": "false",
+      "safetyRelevant": true,
+      "notes": "Morphologically similar but genetically distinct species confused under this name.",
+      "sourceHint": "primary literature"
+    },
+    {
+      "key": "phylogeneticClade",
+      "label": "Phylogenetic Clade",
+      "group": "classification",
+      "type": "string",
+      "tier": "deep",
+      "example": "Amanita sect. Phalloideae",
+      "notes": "Finest-resolution molecular clade/section.",
+      "sourceHint": "primary literature"
+    },
+    {
+      "key": "sisterTaxa",
+      "label": "Sister Taxa / Nearest Relatives",
+      "group": "classification",
+      "type": "array<string>",
+      "tier": "standard",
+      "example": "[\"Amanita virosa\",\"Amanita verna\"]",
+      "safetyRelevant": true,
+      "notes": "Closest relatives by molecular phylogeny; lookalike/safety context.",
+      "sourceHint": "primary literature"
+    },
+    {
+      "key": "placementConfidence",
+      "label": "Classification Confidence",
+      "group": "classification",
+      "type": "enum",
+      "enumRef": "PlacementConfidence",
+      "tier": "standard",
+      "example": "high",
+      "notes": "How settled the placement/acceptance is.",
+      "sourceHint": "MycoSci editorial / phylogenetic literature"
+    },
+    {
+      "key": "recentReclassification",
+      "label": "Recent Reclassification Note",
+      "group": "classification",
+      "type": "string",
+      "tier": "deep",
+      "example": "Stable in Amanita sect. Phalloideae",
+      "safetyRelevant": true,
+      "notes": "Genus transfers/splits that change which safety profile a name maps to.",
+      "sourceHint": "primary literature"
+    },
+    {
+      "key": "basidiomeType",
+      "label": "Sporocarp Type",
+      "group": "morphology",
+      "type": "enum",
+      "enumRef": "BasidiomeType",
+      "tier": "core",
+      "example": "agaricoid",
+      "notes": "Gross form; gates which downstream morphology fields apply.",
+      "sourceHint": "primary literature / field guides"
+    },
+    {
+      "key": "growthHabit",
+      "label": "Growth Habit",
+      "group": "morphology",
+      "type": "enum",
+      "enumRef": "GrowthHabit",
+      "tier": "standard",
+      "example": "solitary",
+      "sourceHint": "field observation / iNaturalist"
+    },
+    {
+      "key": "capDiameter",
+      "label": "Cap Diameter",
+      "group": "morphology",
+      "type": "range",
+      "unit": "mm",
+      "tier": "core",
+      "example": "{min:40,max:120,unit:'mm'}",
+      "sourceHint": "primary literature / field measurements"
+    },
+    {
+      "key": "capShape",
+      "label": "Cap Shape",
+      "group": "morphology",
+      "type": "array<enum>",
+      "enumRef": "CapShape",
+      "tier": "core",
+      "example": "[\"convex\",\"plane\"]",
+      "notes": "Profile(s) across maturity.",
+      "sourceHint": "primary literature / Largent"
+    },
+    {
+      "key": "capColor",
+      "label": "Cap Color (Primary)",
+      "group": "morphology",
+      "type": "array<enum>",
+      "enumRef": "ColorPrimary",
+      "tier": "core",
+      "example": "[\"green\",\"olive\"]",
+      "notes": "Pair with colorChartCode free-text via provenance for precise hue.",
+      "sourceHint": "primary literature / field photos"
+    },
+    {
+      "key": "capSurfaceTexture",
+      "label": "Cap Surface Texture",
+      "group": "morphology",
+      "type": "array<enum>",
+      "enumRef": "SurfaceTexture",
+      "tier": "core",
+      "example": "[\"viscid\",\"glabrous\"]",
+      "sourceHint": "primary literature / field guides"
+    },
+    {
+      "key": "capSurfaceOrnamentation",
+      "label": "Cap Ornamentation",
+      "group": "morphology",
+      "type": "enum",
+      "enumRef": "CapOrnamentation",
+      "tier": "standard",
+      "example": "volval-patches",
+      "safetyRelevant": true,
+      "notes": "Distinguishes Amanita warts vs Lepiota scales.",
+      "sourceHint": "primary literature / field guides"
+    },
+    {
+      "key": "hymenophoreType",
+      "label": "Hymenophore Type",
+      "group": "morphology",
+      "type": "enum",
+      "enumRef": "HymenophoreType",
+      "tier": "core",
+      "example": "lamellate-gills",
+      "notes": "Gates gill vs pore vs tooth subfields.",
+      "sourceHint": "primary literature / field guides"
+    },
+    {
+      "key": "gillAttachment",
+      "label": "Gill Attachment",
+      "group": "morphology",
+      "type": "enum",
+      "enumRef": "GillAttachment",
+      "tier": "core",
+      "example": "free",
+      "safetyRelevant": true,
+      "notes": "Free gills + volva => Amanita.",
+      "sourceHint": "primary literature / Largent"
+    },
+    {
+      "key": "gillSpacing",
+      "label": "Gill Spacing",
+      "group": "morphology",
+      "type": "enum",
+      "enumRef": "GillSpacing",
+      "tier": "standard",
+      "example": "crowded",
+      "sourceHint": "primary literature / field guides"
+    },
+    {
+      "key": "gillColor",
+      "label": "Gill Color",
+      "group": "morphology",
+      "type": "array<enum>",
+      "enumRef": "ColorPrimary",
+      "tier": "core",
+      "example": "[\"white\"]",
+      "safetyRelevant": true,
+      "notes": "Often tracks spore color; Agaricus pink→brown vs Amanita white.",
+      "sourceHint": "primary literature / field guides"
+    },
+    {
+      "key": "poreSurfaceColor",
+      "label": "Pore Surface Color",
+      "group": "morphology",
+      "type": "array<enum>",
+      "enumRef": "ColorPrimary",
+      "tier": "standard",
+      "example": "[\"not-applicable\"]",
+      "safetyRelevant": true,
+      "notes": "Red pores + blue staining is a caution flag (boletes).",
+      "sourceHint": "primary literature / field guides"
+    },
+    {
+      "key": "poreDensity",
+      "label": "Pore Density",
+      "group": "morphology",
+      "type": "range",
+      "unit": "pores/mm",
+      "tier": "standard",
+      "example": "{min:2,max:4,unit:'pores/mm'}",
+      "notes": "Polypore character; null for non-poroid taxa.",
+      "sourceHint": "primary literature"
+    },
+    {
+      "key": "toothLength",
+      "label": "Hydnoid Tooth Length",
+      "group": "morphology",
+      "type": "range",
+      "unit": "mm",
+      "tier": "standard",
+      "example": "{min:2,max:10,unit:'mm'}",
+      "notes": "Hydnoid taxa only.",
+      "sourceHint": "primary literature"
+    },
+    {
+      "key": "stipePresent",
+      "label": "Stipe Present",
+      "group": "morphology",
+      "type": "boolean",
+      "tier": "core",
+      "example": "true",
+      "sourceHint": "primary literature"
+    },
+    {
+      "key": "stipeDimensions",
+      "label": "Stipe Dimensions",
+      "group": "morphology",
+      "type": "object",
+      "tier": "core",
+      "example": "{length:{min:60,max:150,unit:'mm'},width:{min:8,max:20,unit:'mm'}}",
+      "notes": "{length:range, width:range}.",
+      "sourceHint": "primary literature / field measurements"
+    },
+    {
+      "key": "stipeColor",
+      "label": "Stipe Color",
+      "group": "morphology",
+      "type": "array<enum>",
+      "enumRef": "ColorPrimary",
+      "tier": "core",
+      "example": "[\"white\"]",
+      "sourceHint": "primary literature / field guides"
+    },
+    {
+      "key": "stipeSurfaceTexture",
+      "label": "Stipe Surface Texture",
+      "group": "morphology",
+      "type": "array<enum>",
+      "enumRef": "SurfaceTexture",
+      "tier": "standard",
+      "example": "[\"fibrillose\"]",
+      "sourceHint": "primary literature / field guides"
+    },
+    {
+      "key": "annulusPresence",
+      "label": "Annulus (Ring) Present",
+      "group": "morphology",
+      "type": "enum",
+      "enumRef": "AnnulusPresence",
+      "tier": "core",
+      "example": "present-membranous",
+      "safetyRelevant": true,
+      "notes": "Critical safety character (Amanita/Lepiota have rings).",
+      "sourceHint": "primary literature / field guides"
+    },
+    {
+      "key": "cortinaPresence",
+      "label": "Cortina Present",
+      "group": "morphology",
+      "type": "boolean",
+      "tier": "standard",
+      "example": "false",
+      "safetyRelevant": true,
+      "notes": "Defines Cortinarius (orellanine genus).",
+      "sourceHint": "primary literature"
+    },
+    {
+      "key": "volvaPresence",
+      "label": "Volva (Universal Veil Cup) Present",
+      "group": "morphology",
+      "type": "enum",
+      "enumRef": "VolvaPresence",
+      "tier": "core",
+      "example": "saccate-cup",
+      "safetyRelevant": true,
+      "notes": "THE key Amanita safety character — presence demands extreme caution.",
+      "sourceHint": "primary literature / field guides"
+    },
+    {
+      "key": "stipeBaseShape",
+      "label": "Stipe Base Form",
+      "group": "morphology",
+      "type": "enum",
+      "enumRef": "StipeBaseShape",
+      "tier": "standard",
+      "example": "bulbous",
+      "safetyRelevant": true,
+      "notes": "Marginate/abrupt bulb is an Amanita warning sign.",
+      "sourceHint": "primary literature / field guides"
+    },
+    {
+      "key": "basalMycelium",
+      "label": "Basal Mycelium / Rhizomorphs",
+      "group": "morphology",
+      "type": "enum",
+      "enumRef": "BasalMycelium",
+      "tier": "deep",
+      "example": "white-mycelial-pad",
+      "notes": "Black bootlace rhizomorphs typify Armillaria.",
+      "sourceHint": "primary literature / field observation"
+    },
+    {
+      "key": "fleshColor",
+      "label": "Flesh Color",
+      "group": "morphology",
+      "type": "array<enum>",
+      "enumRef": "ColorPrimary",
+      "tier": "core",
+      "example": "[\"white\"]",
+      "sourceHint": "primary literature / field observation"
+    },
+    {
+      "key": "fleshColorChangeOnCut",
+      "label": "Flesh Color Change on Cutting",
+      "group": "morphology",
+      "type": "string",
+      "tier": "core",
+      "example": "white, unchanging",
+      "safetyRelevant": true,
+      "notes": "Oxidation change after sectioning; major bolete safety character.",
+      "sourceHint": "primary literature / field observation"
+    },
+    {
+      "key": "latexPresence",
+      "label": "Latex Present",
+      "group": "morphology",
+      "type": "boolean",
+      "tier": "core",
+      "example": "false",
+      "safetyRelevant": true,
+      "notes": "Defines Lactarius/Lactifluus.",
+      "sourceHint": "primary literature / field observation"
+    },
+    {
+      "key": "latexColorFresh",
+      "label": "Latex Color (Fresh)",
+      "group": "morphology",
+      "type": "enum",
+      "enumRef": "LatexColor",
+      "tier": "standard",
+      "example": "not-applicable",
+      "safetyRelevant": true,
+      "sourceHint": "primary literature"
+    },
+    {
+      "key": "latexColorChange",
+      "label": "Latex Color Change on Exposure",
+      "group": "morphology",
+      "type": "string",
+      "tier": "standard",
+      "example": "n/a",
+      "safetyRelevant": true,
+      "notes": "Major Lactarius diagnostic.",
+      "sourceHint": "primary literature"
+    },
+    {
+      "key": "sporePrintColor",
+      "label": "Spore Print Color",
+      "group": "morphology",
+      "type": "enum",
+      "enumRef": "SporePrintColor",
+      "tier": "core",
+      "example": "white",
+      "safetyRelevant": true,
+      "notes": "Foundational ID/keying character and safety discriminator (white-spored Amanita). Microscopy owns the chart-coded variant.",
+      "sourceHint": "primary literature / field spore-print"
+    },
+    {
+      "key": "odor",
+      "label": "Odor Descriptor",
+      "group": "morphology",
+      "type": "array<enum>",
+      "enumRef": "OdorDescriptor",
+      "tier": "core",
+      "example": "[\"honey\",\"sweet\"]",
+      "safetyRelevant": true,
+      "notes": "Phenolic flags toxic Agaricus; fetid flags Phallaceae.",
+      "sourceHint": "primary literature / field observation"
+    },
+    {
+      "key": "taste",
+      "label": "Taste Descriptor",
+      "group": "morphology",
+      "type": "enum",
+      "enumRef": "TasteDescriptor",
+      "tier": "core",
+      "example": "mild",
+      "safetyRelevant": true,
+      "notes": "Chew-and-spit only. Acrid/bitter signals inedibility. Never swallow; never taste suspected Amanita/Cortinarius.",
+      "sourceHint": "primary literature / field observation"
+    },
+    {
+      "key": "bruisingReaction",
+      "label": "General Bruising / Staining",
+      "group": "morphology",
+      "type": "object",
+      "tier": "core",
+      "example": "{description:'none',color:'none',speed:'none'}",
+      "safetyRelevant": true,
+      "notes": "{description, color(enumRef BruisingColor), speed(enumRef BruisingSpeed)}. Bluing => possible psilocybin.",
+      "sourceHint": "primary literature / field observation"
+    },
+    {
+      "key": "glebaDescription",
+      "label": "Gleba Description (Gasteroid)",
+      "group": "morphology",
+      "type": "object",
+      "tier": "standard",
+      "example": "{description:'n/a',colorAtMaturity:'not-applicable'}",
+      "safetyRelevant": true,
+      "notes": "Cut-young-white test distinguishes puffballs from Amanita eggs.",
+      "sourceHint": "primary literature / field observation"
+    },
+    {
+      "key": "autodigestionDeliquescence",
+      "label": "Autodigestion / Deliquescence",
+      "group": "morphology",
+      "type": "boolean",
+      "tier": "standard",
+      "example": "false",
+      "safetyRelevant": true,
+      "notes": "Inky dissolution at maturity (Coprinus s.l.); coprine context.",
+      "sourceHint": "primary literature"
+    },
+    {
+      "key": "luminescence",
+      "label": "Bioluminescence",
+      "group": "morphology",
+      "type": "boolean",
+      "tier": "deep",
+      "example": "false",
+      "sourceHint": "primary literature"
+    },
+    {
+      "key": "basidiomeDevelopmentType",
+      "label": "Basidiome Development Type",
+      "group": "morphology",
+      "type": "enum",
+      "enumRef": "DevelopmentType",
+      "tier": "deep",
+      "example": "bivelangiocarpic",
+      "notes": "Reijnders/Kuhner ontogeny terminology; expert veil-interpretation character.",
+      "sourceHint": "developmental morphology monographs"
+    },
+    {
+      "key": "fruitingBodyTexture",
+      "label": "Overall Consistency",
+      "group": "morphology",
+      "type": "enum",
+      "enumRef": "FruitbodyTexture",
+      "tier": "standard",
+      "example": "fleshy",
+      "notes": "Separates soft agarics from woody polypores.",
+      "sourceHint": "primary literature / field guides"
+    },
+    {
+      "key": "basidiosporeDimensions",
+      "label": "Basidiospore Dimensions",
+      "group": "microscopy",
+      "type": "object",
+      "tier": "core",
+      "example": "{length:{min:8,max:11,unit:'µm'},width:{min:7,max:9,unit:'µm'},lengthMean:9.5,widthMean:8.0}",
+      "notes": "{length:range, width:range, lengthMean?, widthMean?, extremesNote?}. Apiculus/ornamentation excluded unless protocol notes otherwise.",
+      "sourceHint": "primary literature / original measurement"
+    },
+    {
+      "key": "qRatio",
+      "label": "Q Ratio (length/width)",
+      "group": "microscopy",
+      "type": "object",
+      "tier": "standard",
+      "example": "{range:{min:1.0,max:1.25,unit:''},mean:1.1}",
+      "notes": "{range, mean?}. Shape descriptor (Q≈1 globose).",
+      "sourceHint": "derived from measurements"
+    },
+    {
+      "key": "basidiosporeShape",
+      "label": "Basidiospore Shape",
+      "group": "microscopy",
+      "type": "enum",
+      "enumRef": "SporeShape",
+      "tier": "core",
+      "example": "subglobose",
+      "sourceHint": "primary literature / original observation"
+    },
+    {
+      "key": "basidiosporeOrnamentation",
+      "label": "Spore Ornamentation",
+      "group": "microscopy",
+      "type": "enum",
+      "enumRef": "SporeOrnamentation",
+      "tier": "standard",
+      "example": "smooth",
+      "sourceHint": "primary literature / SEM"
+    },
+    {
+      "key": "basidiosporeReactionMelzer",
+      "label": "Spore Reaction in Melzer's",
+      "group": "microscopy",
+      "type": "enum",
+      "enumRef": "AmyloidReaction",
+      "tier": "core",
+      "example": "amyloid",
+      "safetyRelevant": true,
+      "notes": "Amyloid spores in Amanita sect. Phalloideae are part of toxic-species ID.",
+      "sourceHint": "Melzer's reagent / primary literature"
+    },
+    {
+      "key": "basidiosporeGermPore",
+      "label": "Germ Pore",
+      "group": "microscopy",
+      "type": "enum",
+      "enumRef": "GermPore",
+      "tier": "standard",
+      "example": "absent",
+      "safetyRelevant": true,
+      "notes": "Distinct apical pore diagnostic for psychoactive dark-spored genera (Psilocybe, Panaeolus).",
+      "sourceHint": "primary literature / original microscopy"
+    },
+    {
+      "key": "basidiaShape",
+      "label": "Basidia Shape",
+      "group": "microscopy",
+      "type": "enum",
+      "enumRef": "BasidiaShape",
+      "tier": "standard",
+      "example": "clavate",
+      "sourceHint": "primary literature"
+    },
+    {
+      "key": "basidiaSterigmataNumber",
+      "label": "Sterigmata per Basidium",
+      "group": "microscopy",
+      "type": "enum",
+      "enumRef": "SterigmataNumber",
+      "tier": "standard",
+      "example": "4",
+      "notes": "2- vs 4-spored affects spore size/ploidy.",
+      "sourceHint": "original microscopy"
+    },
+    {
+      "key": "cheilocystidia",
+      "label": "Cheilocystidia",
+      "group": "microscopy",
+      "type": "object",
+      "tier": "standard",
+      "example": "{presence:'rare',shapes:['clavate'],size:{length:{min:20,max:45,unit:'µm'},width:{min:8,max:14,unit:'µm'}}}",
+      "notes": "{presence(enumRef CystidiaPresence), shapes(array enumRef CystidiaShape), size, wallType?}. Gill-edge cystidia; primary species character.",
+      "sourceHint": "original microscopy"
+    },
+    {
+      "key": "pleurocystidia",
+      "label": "Pleurocystidia",
+      "group": "microscopy",
+      "type": "object",
+      "tier": "standard",
+      "example": "{presence:'absent',shapes:[]}",
+      "notes": "Same shape as cheilocystidia. Metuloids diagnostic in Inocybe/Pluteus.",
+      "sourceHint": "original microscopy"
+    },
+    {
+      "key": "hyphalSystem",
+      "label": "Hyphal System",
+      "group": "microscopy",
+      "type": "enum",
+      "enumRef": "HyphalSystem",
+      "tier": "standard",
+      "example": "monomitic",
+      "notes": "Central to polypore taxonomy.",
+      "sourceHint": "primary literature / original microscopy"
+    },
+    {
+      "key": "clampConnections",
+      "label": "Clamp Connections",
+      "group": "microscopy",
+      "type": "enum",
+      "enumRef": "ClampConnections",
+      "tier": "standard",
+      "example": "present-at-septa",
+      "notes": "Core genus-level character.",
+      "sourceHint": "primary literature / original microscopy"
+    },
+    {
+      "key": "tramaType",
+      "label": "Lamellar Trama Type",
+      "group": "microscopy",
+      "type": "enum",
+      "enumRef": "TramaType",
+      "tier": "standard",
+      "example": "bilateral-divergent",
+      "notes": "Bilateral trama (Amanita, Pluteus); with-sphaerocytes defines Russulales.",
+      "sourceHint": "primary literature / original microscopy"
+    },
+    {
+      "key": "pileipellisType",
+      "label": "Pileipellis Type",
+      "group": "microscopy",
+      "type": "enum",
+      "enumRef": "PileipellisType",
+      "tier": "standard",
+      "example": "ixocutis",
+      "notes": "Correlates with cap viscidity (macro). ixo- = gelatinized.",
+      "sourceHint": "primary literature / original microscopy"
+    },
+    {
+      "key": "setaePresence",
+      "label": "Setae / Setal Hyphae",
+      "group": "microscopy",
+      "type": "enum",
+      "enumRef": "SetaePresence",
+      "tier": "deep",
+      "example": "absent",
+      "notes": "Dark pointed setae define Hymenochaetaceae.",
+      "sourceHint": "primary literature"
+    },
+    {
+      "key": "crystalsPresence",
+      "label": "Crystals in Tissue",
+      "group": "microscopy",
+      "type": "enum",
+      "enumRef": "CrystalsPresence",
+      "tier": "deep",
+      "example": "absent",
+      "notes": "Acanthocytes diagnostic for Stropharia; calcium oxalate dissolves in KOH.",
+      "sourceHint": "original microscopy"
+    },
+    {
+      "key": "ascusType",
+      "label": "Ascus Type (Ascomycota)",
+      "group": "microscopy",
+      "type": "enum",
+      "enumRef": "AscusType",
+      "tier": "deep",
+      "example": "not-applicable",
+      "notes": "Operculate (Pezizales) vs inoperculate fundamental for ascomycetes.",
+      "sourceHint": "primary literature"
+    },
+    {
+      "key": "ascosporeFeatures",
+      "label": "Ascospore Features (Ascomycota)",
+      "group": "microscopy",
+      "type": "object",
+      "tier": "deep",
+      "example": "{shape:'not-applicable'}",
+      "notes": "{shape, size, ornamentation}. Muriform/reticulate diagnostic in Morchella/Tuber.",
+      "sourceHint": "original microscopy"
+    },
+    {
+      "key": "measurementProtocol",
+      "label": "Measurement Protocol Metadata",
+      "group": "microscopy",
+      "type": "object",
+      "tier": "standard",
+      "example": "{mountingMedium:'KOH-3pct',n:30,fromTissue:'from-spore-print',ornamentationIncluded:'excluded',apiculusIncluded:'excluded'}",
+      "notes": "{mountingMedium(enumRef MountingMedium), magnification?, n?, numberCollections?, fromTissue?, ornamentationIncluded?, apiculusIncluded?, extremesConvention?, observer?, voucherSpecimenId?}. Mandatory context for reproducible micro-measurements; medium changes measured size.",
+      "sourceHint": "measurement protocol / primary literature"
+    },
+    {
+      "key": "toxicityClass",
+      "label": "Overall Toxicity Class",
+      "group": "chemistry",
+      "type": "enum",
+      "enumRef": "ToxicityClass",
+      "tier": "core",
+      "example": "deadly_poisonous",
+      "safetyRelevant": true,
+      "notes": "Hazard axis, orthogonal to culinary edibility.",
+      "sourceHint": "toxicology literature / NAMA / clinical case series"
+    },
+    {
+      "key": "primaryToxidrome",
+      "label": "Primary Toxidrome",
+      "group": "chemistry",
+      "type": "enum",
+      "enumRef": "Toxidrome",
+      "tier": "core",
+      "example": "amatoxin_hepatotoxic",
+      "safetyRelevant": true,
+      "sourceHint": "Goldfrank's / NAMA / AAPCC"
+    },
+    {
+      "key": "secondaryToxidromes",
+      "label": "Secondary Toxidromes",
+      "group": "chemistry",
+      "type": "array<enum>",
+      "enumRef": "Toxidrome",
+      "tier": "standard",
+      "example": "[\"gastrointestinal_irritant\"]",
+      "safetyRelevant": true,
+      "notes": "Many amatoxin species also cause early GI symptoms.",
+      "sourceHint": "primary clinical literature"
+    },
+    {
+      "key": "onsetCategory",
+      "label": "Symptom Onset Category",
+      "group": "chemistry",
+      "type": "enum",
+      "enumRef": "OnsetCategory",
+      "tier": "core",
+      "example": "delayed_6_24h",
+      "safetyRelevant": true,
+      "notes": "Delayed onset (>6h) is the danger flag (amatoxin/gyromitrin/orellanine).",
+      "sourceHint": "clinical toxicology references"
+    },
+    {
+      "key": "onsetTimeRange",
+      "label": "Symptom Onset Time",
+      "group": "chemistry",
+      "type": "range",
+      "unit": "h",
+      "tier": "standard",
+      "example": "{min:6,max:24,unit:'h'}",
+      "safetyRelevant": true,
+      "sourceHint": "clinical case series"
+    },
+    {
+      "key": "toxins",
+      "label": "Toxin Inventory",
+      "group": "chemistry",
+      "type": "array<Compound>",
+      "tier": "core",
+      "example": "[{name:'alpha-amanitin',compoundClass:'amatoxin',pubchemCid:'2169',concentrationDryWt:{min:0.2,max:0.4,unit:'mg/g'},mechanism:'RNA polymerase II inhibition',targetOrgan:['liver'],heatStable:true,waterSoluble:true}]",
+      "safetyRelevant": true,
+      "notes": "Per-toxin nested objects. CID/CAS realistic placeholders if unverified.",
+      "sourceHint": "PubChem / ChEBI / NPAtlas / primary literature"
+    },
+    {
+      "key": "lethalDoseHuman",
+      "label": "Estimated Human Lethal Dose",
+      "group": "chemistry",
+      "type": "string",
+      "tier": "standard",
+      "example": "~0.1 mg amatoxin/kg; ~50 g fresh A. phalloides can be fatal",
+      "safetyRelevant": true,
+      "notes": "Free-text: mixes mg toxin/kg and fresh tissue mass.",
+      "sourceHint": "clinical toxicology references"
+    },
+    {
+      "key": "targetOrgans",
+      "label": "Target Organs",
+      "group": "chemistry",
+      "type": "array<enum>",
+      "enumRef": "TargetOrgan",
+      "tier": "core",
+      "example": "[\"liver\",\"kidney\"]",
+      "safetyRelevant": true,
+      "sourceHint": "clinical toxicology literature"
+    },
+    {
+      "key": "antidotes",
+      "label": "Antidotes / Treatments",
+      "group": "chemistry",
+      "type": "array<enum>",
+      "enumRef": "Antidote",
+      "tier": "standard",
+      "example": "[\"silibinin_IV\",\"N_acetylcysteine\",\"activated_charcoal\"]",
+      "safetyRelevant": true,
+      "notes": "Educational only; UI must surface a medical-caution Aside.",
+      "sourceHint": "poison-control guidelines"
+    },
+    {
+      "key": "toxinThermolability",
+      "label": "Toxin Cooking Stability",
+      "group": "chemistry",
+      "type": "enum",
+      "enumRef": "ToxinThermolability",
+      "tier": "standard",
+      "example": "heat_stable",
+      "safetyRelevant": true,
+      "notes": "Amatoxins heat_stable; informs edibility prep validity.",
+      "sourceHint": "food chemistry / toxicology"
+    },
+    {
+      "key": "psychoactiveStatus",
+      "label": "Psychoactive Status",
+      "group": "chemistry",
+      "type": "enum",
+      "enumRef": "PsychoactiveStatus",
+      "tier": "core",
+      "example": "none",
+      "safetyRelevant": true,
+      "sourceHint": "primary pharmacology literature"
+    },
+    {
+      "key": "psychoactiveCompounds",
+      "label": "Psychoactive Compound Profile",
+      "group": "chemistry",
+      "type": "array<Compound>",
+      "tier": "standard",
+      "example": "[]",
+      "safetyRelevant": true,
+      "notes": "Per-compound name, percentDryWt range, pubchemCid. psilocybin/psilocin/baeocystin/muscimol/ibotenic_acid.",
+      "sourceHint": "primary HPLC/LC-MS literature"
+    },
+    {
+      "key": "medicinalCompounds",
+      "label": "Medicinal / Bioactive Inventory",
+      "group": "chemistry",
+      "type": "array<Compound>",
+      "tier": "standard",
+      "example": "[]",
+      "notes": "Per-compound name, compoundClass(enumRef MedicinalCompoundClass), concentration, claimedActivity, evidenceGrade.",
+      "sourceHint": "NPAtlas / PubChem / pharmacology reviews"
+    },
+    {
+      "key": "medicinalEvidenceGrade",
+      "label": "Medicinal Claim Evidence Grade",
+      "group": "chemistry",
+      "type": "enum",
+      "enumRef": "MedicinalEvidenceGrade",
+      "tier": "standard",
+      "example": "insufficient_disputed",
+      "safetyRelevant": true,
+      "notes": "Anti-overclaim gate.",
+      "sourceHint": "systematic reviews / regulatory approvals"
+    },
+    {
+      "key": "nutritionalComposition",
+      "label": "Nutritional Composition (per 100g)",
+      "group": "chemistry",
+      "type": "object",
+      "tier": "deep",
+      "example": "{basis:'fresh'}",
+      "notes": "Owned here; Edibility references via provenance. {basis, kcal, protein_g, fat_g, carbohydrate_g, fiber_g, water_g, ash_g}.",
+      "sourceHint": "USDA FoodData Central"
+    },
+    {
+      "key": "bioaccumulatorFlag",
+      "label": "Known Bioaccumulator",
+      "group": "chemistry",
+      "type": "enum",
+      "enumRef": "BioaccumulatorFlag",
+      "tier": "core",
+      "example": "none_notable",
+      "safetyRelevant": true,
+      "notes": "Quick wild-harvest safety flag even when edible.",
+      "sourceHint": "environmental chemistry / food safety"
+    },
+    {
+      "key": "bioaccumulationProfile",
+      "label": "Heavy Metal / Radionuclide Profile",
+      "group": "chemistry",
+      "type": "array<BioaccumEntry>",
+      "tier": "standard",
+      "example": "[]",
+      "safetyRelevant": true,
+      "notes": "Per-element {element(enumRef BioaccumElement), concentration:range, bioconcentrationFactor, notes}.",
+      "sourceHint": "EFSA / radioecology studies"
+    },
+    {
+      "key": "allergenProfile",
+      "label": "Allergen / Hypersensitivity Profile",
+      "group": "chemistry",
+      "type": "array<enum>",
+      "enumRef": "AllergenProfile",
+      "tier": "standard",
+      "example": "[\"none_reported\"]",
+      "safetyRelevant": true,
+      "sourceHint": "allergy/immunology / occupational medicine"
+    },
+    {
+      "key": "bluingReaction",
+      "label": "Bluing / Oxidation Staining",
+      "group": "chemistry",
+      "type": "enum",
+      "enumRef": "BluingReaction",
+      "tier": "standard",
+      "example": "none",
+      "safetyRelevant": true,
+      "notes": "Bluing in Psilocybe = presumptive psilocin; in boletes = variegatic acid (unrelated).",
+      "sourceHint": "mycological / psilocin oxidation chemistry"
+    },
+    {
+      "key": "macrochemicalReactions",
+      "label": "Macrochemical Spot Tests",
+      "group": "chemistry",
+      "type": "array<SpotTest>",
+      "tier": "deep",
+      "example": "[{reagent:'KOH',tissue:'cap_surface',result:'no-reaction'}]",
+      "safetyRelevant": true,
+      "notes": "Per-test {reagent(enumRef MacrochemicalReagent), tissue, result}. Schaeffer cross-reaction separates edible from toxic Agaricus.",
+      "sourceHint": "mycological keys / chemotaxonomy"
+    },
+    {
+      "key": "pigmentChemistry",
+      "label": "Pigment Chemistry",
+      "group": "chemistry",
+      "type": "array<Pigment>",
+      "tier": "deep",
+      "example": "[]",
+      "notes": "Per-pigment {name, pigmentClass(enumRef PigmentClass), color, role}. Underlies bluing/staining.",
+      "sourceHint": "fungal pigment chemistry"
+    },
+    {
+      "key": "legalScheduleStatus",
+      "label": "Controlled-Substance Status",
+      "group": "chemistry",
+      "type": "enum",
+      "enumRef": "LegalScheduleStatus",
+      "tier": "standard",
+      "example": "unscheduled",
+      "safetyRelevant": true,
+      "notes": "Coarse flag; jurisdiction detail in notes.",
+      "sourceHint": "legal/regulatory sources"
+    },
+    {
+      "key": "edibilityClass",
+      "label": "Edibility Classification",
+      "group": "edibility",
+      "type": "enum",
+      "enumRef": "EdibilityClass",
+      "tier": "core",
+      "example": "deadly_poisonous",
+      "safetyRelevant": true,
+      "notes": "Single authoritative classification; pick the most conservative applicable value. Replaces legacy free-text edibility enum.",
+      "sourceHint": "primary literature / regional field guides / NAMA; never auto-classify"
+    },
+    {
+      "key": "edibilityConfidence",
+      "label": "Edibility Confidence",
+      "group": "edibility",
+      "type": "enum",
+      "enumRef": "EdibilityConfidence",
+      "tier": "core",
+      "example": "well_established",
+      "safetyRelevant": true,
+      "notes": "Drives whether a caution Aside is surfaced.",
+      "sourceHint": "literature consensus / expert review"
+    },
+    {
+      "key": "edibilityRationale",
+      "label": "Reason for Classification",
+      "group": "edibility",
+      "type": "array<string>",
+      "tier": "core",
+      "example": "[\"Contains amatoxins (alpha-amanitin) causing fatal hepatorenal failure\"]",
+      "safetyRelevant": true,
+      "sourceHint": "primary literature / toxicology reviews"
+    },
+    {
+      "key": "noviceSafetyRating",
+      "label": "Novice-Safety Rating",
+      "group": "edibility",
+      "type": "enum",
+      "enumRef": "NoviceSafetyRating",
+      "tier": "core",
+      "example": "avoid_no_exceptions",
+      "safetyRelevant": true,
+      "notes": "Forager-skill gate factoring lookalike danger.",
+      "sourceHint": "foraging community consensus"
+    },
+    {
+      "key": "deadlyLookalikeRisk",
+      "label": "Deadly Lookalike Risk Level",
+      "group": "edibility",
+      "type": "enum",
+      "enumRef": "LookalikeRiskLevel",
+      "tier": "core",
+      "example": "high",
+      "safetyRelevant": true,
+      "notes": "Summary flag; detail in dangerousLookalikes.",
+      "sourceHint": "field guides / poisoning case literature"
+    },
+    {
+      "key": "toxicWhenRaw",
+      "label": "Toxic / Irritant When Raw",
+      "group": "edibility",
+      "type": "boolean",
+      "tier": "core",
+      "example": "true",
+      "safetyRelevant": true,
+      "notes": "Note: A. phalloides is deadly cooked OR raw; this flag is for species edible only when cooked.",
+      "sourceHint": "primary literature / field guides"
+    },
+    {
+      "key": "preparationRequirement",
+      "label": "Mandatory Preparation",
+      "group": "edibility",
+      "type": "array<PrepStep>",
+      "tier": "core",
+      "example": "[]",
+      "safetyRelevant": true,
+      "notes": "Ordered {step(enumRef PreparationStep), detail, removesHazard}. Validity gated by chemistry.toxinThermolability.",
+      "sourceHint": "ethnomycology literature / regional teks"
+    },
+    {
+      "key": "alcoholInteraction",
+      "label": "Alcohol Interaction (Coprine-type)",
+      "group": "edibility",
+      "type": "enum",
+      "enumRef": "AlcoholInteraction",
+      "tier": "core",
+      "example": "none_known",
+      "safetyRelevant": true,
+      "notes": "Coprine reaction window up to ~72h.",
+      "sourceHint": "toxicology literature"
+    },
+    {
+      "key": "dangerousLookalikes",
+      "label": "Dangerous Lookalikes",
+      "group": "edibility",
+      "type": "array<Lookalike>",
+      "tier": "core",
+      "example": "[{species:'Volvariella speciosa',toxicity:'edible',confusionDirection:'this_mistaken_for_edible',distinguishingFeatures:['white spore print vs pink','presence of ring'],confusionLikelihood:'moderate'}]",
+      "safetyRelevant": true,
+      "notes": "Per-lookalike {species, toxicity(enumRef EdibilityClass), confusionDirection(enumRef ConfusionDirection), distinguishingFeatures, confusionLikelihood(enumRef LookalikeRiskLevel), region?}.",
+      "sourceHint": "field guides / poisoning case studies"
+    },
+    {
+      "key": "keyDistinguishingTests",
+      "label": "Key Disambiguation Tests",
+      "group": "edibility",
+      "type": "array<string>",
+      "tier": "standard",
+      "example": "[\"Spore print color (white)\",\"Excavate base to check for volva\",\"Amyloid spores in Melzer's\"]",
+      "safetyRelevant": true,
+      "sourceHint": "field guides / identification keys"
+    },
+    {
+      "key": "firstTimeTrialAdvice",
+      "label": "First-Time Trial Advice",
+      "group": "edibility",
+      "type": "string",
+      "tier": "standard",
+      "example": "n/a — deadly poisonous, never consume",
+      "safetyRelevant": true,
+      "sourceHint": "foraging community consensus"
+    },
+    {
+      "key": "individualIdiosyncrasyRisk",
+      "label": "Idiosyncratic Reaction Risk",
+      "group": "edibility",
+      "type": "boolean",
+      "tier": "deep",
+      "example": "false",
+      "safetyRelevant": true,
+      "notes": "Otherwise-edible species causing reactions in some individuals.",
+      "sourceHint": "case-report literature"
+    },
+    {
+      "key": "tasteRating",
+      "label": "Culinary Taste Rating",
+      "group": "edibility",
+      "type": "enum",
+      "enumRef": "TasteRating",
+      "tier": "standard",
+      "example": "not_applicable",
+      "notes": "Gastronomic quality, separate from safety.",
+      "sourceHint": "culinary literature"
+    },
+    {
+      "key": "flavorProfile",
+      "label": "Flavor Profile",
+      "group": "edibility",
+      "type": "array<enum>",
+      "enumRef": "FlavorProfile",
+      "tier": "standard",
+      "example": "[]",
+      "sourceHint": "culinary literature / community tasting"
+    },
+    {
+      "key": "aromaDescriptors",
+      "label": "Aroma / Odor Descriptors",
+      "group": "edibility",
+      "type": "array<enum>",
+      "enumRef": "AromaDescriptor",
+      "tier": "standard",
+      "example": "[\"sweet\",\"sickly_sweet\"]",
+      "notes": "Some double as toxicity signals; sensory-primary.",
+      "sourceHint": "field guides / community"
+    },
+    {
+      "key": "textureCooked",
+      "label": "Texture (cooked)",
+      "group": "edibility",
+      "type": "array<enum>",
+      "enumRef": "TextureCooked",
+      "tier": "standard",
+      "example": "[]",
+      "sourceHint": "culinary literature"
+    },
+    {
+      "key": "culinaryUses",
+      "label": "Culinary Uses",
+      "group": "edibility",
+      "type": "array<enum>",
+      "enumRef": "CulinaryUse",
+      "tier": "standard",
+      "example": "[]",
+      "sourceHint": "culinary literature / ethnomycology"
+    },
+    {
+      "key": "preservationMethods",
+      "label": "Preservation Methods",
+      "group": "edibility",
+      "type": "array<enum>",
+      "enumRef": "PreservationMethod",
+      "tier": "standard",
+      "example": "[]",
+      "sourceHint": "culinary literature / foraging community"
+    },
+    {
+      "key": "commercialFoodStatus",
+      "label": "Commercial Food Status",
+      "group": "edibility",
+      "type": "enum",
+      "enumRef": "CommercialFoodStatus",
+      "tier": "standard",
+      "example": "not_commercial",
+      "sourceHint": "trade data / culinary literature"
+    },
+    {
+      "key": "regionalEdibilityVariation",
+      "label": "Regional / Chemotype Variation",
+      "group": "edibility",
+      "type": "string",
+      "tier": "deep",
+      "example": "Uniformly deadly across its range; no safe regional chemotype",
+      "safetyRelevant": true,
+      "sourceHint": "ethnomycology / regional poisoning literature"
+    },
+    {
+      "key": "specialPopulationCaution",
+      "label": "Special-Population Caution",
+      "group": "edibility",
+      "type": "string",
+      "tier": "deep",
+      "example": "n/a",
+      "safetyRelevant": true,
+      "notes": "Children, pregnancy, immunocompromised advisories.",
+      "sourceHint": "food-safety literature"
+    },
+    {
+      "key": "trophicMode",
+      "label": "Primary Trophic Mode",
+      "group": "ecology",
+      "type": "enum",
+      "enumRef": "TrophicMode",
+      "tier": "core",
+      "example": "ectomycorrhizal",
+      "notes": "Canonical owner; gates cultivability. FungalTraits/FUNGuild aligned.",
+      "sourceHint": "FUNGuild / FungalTraits / primary literature"
+    },
+    {
+      "key": "trophicModeSecondary",
+      "label": "Secondary Trophic Modes",
+      "group": "ecology",
+      "type": "array<enum>",
+      "enumRef": "TrophicMode",
+      "tier": "standard",
+      "example": "[]",
+      "sourceHint": "FungalTraits / FUNGuild"
+    },
+    {
+      "key": "decayType",
+      "label": "Wood Decay Type",
+      "group": "ecology",
+      "type": "enum",
+      "enumRef": "DecayType",
+      "tier": "standard",
+      "example": "not_wood_decay",
+      "sourceHint": "primary literature / FungalTraits"
+    },
+    {
+      "key": "substrateType",
+      "label": "Substrate Type(s)",
+      "group": "ecology",
+      "type": "array<enum>",
+      "enumRef": "SubstrateType",
+      "tier": "core",
+      "example": "[\"soil\",\"tree_roots\"]",
+      "safetyRelevant": true,
+      "notes": "Wild substrate. Lab/induced substrate lives in cultivation.",
+      "sourceHint": "field observation / iNaturalist / FungalTraits"
+    },
+    {
+      "key": "hostAssociations",
+      "label": "Host / Plant Associations",
+      "group": "ecology",
+      "type": "array<HostAssoc>",
+      "tier": "core",
+      "example": "[{taxon:'Quercus',rank:'genus',relationship:'ectomycorrhizal',specificity:'preferential'},{taxon:'Castanea',rank:'genus',relationship:'ectomycorrhizal',specificity:'facultative'}]",
+      "safetyRelevant": true,
+      "notes": "{taxon, rank, relationship(enumRef HostRelationship), specificity(enumRef HostSpecificity)}. Critical foraging ID cue.",
+      "sourceHint": "primary literature / GBIF associations"
+    },
+    {
+      "key": "hostBreadthClass",
+      "label": "Host Breadth (Angio/Gymno)",
+      "group": "ecology",
+      "type": "enum",
+      "enumRef": "HostBreadthClass",
+      "tier": "standard",
+      "example": "both",
+      "safetyRelevant": true,
+      "notes": "Hardwood vs conifer matters for ID and lookalike separation.",
+      "sourceHint": "primary literature / FungalTraits"
+    },
+    {
+      "key": "habitatType",
+      "label": "Habitat Type(s)",
+      "group": "ecology",
+      "type": "array<enum>",
+      "enumRef": "HabitatType",
+      "tier": "core",
+      "example": "[\"temperate_broadleaf_forest\",\"mixed_forest\"]",
+      "sourceHint": "iNaturalist / GBIF / field observation"
+    },
+    {
+      "key": "climateClass",
+      "label": "Coarse Climate Affinity",
+      "group": "ecology",
+      "type": "enum",
+      "enumRef": "ClimateClass",
+      "tier": "standard",
+      "example": "temperate",
+      "sourceHint": "derived from occurrence climate"
+    },
+    {
+      "key": "soilPreference",
+      "label": "Soil Type Preference",
+      "group": "ecology",
+      "type": "array<enum>",
+      "enumRef": "SoilPreference",
+      "tier": "deep",
+      "example": "[\"acidic\",\"loam\"]",
+      "notes": "Wild edaphic preference. Cultivation substrate pH is separate.",
+      "sourceHint": "primary literature / soil ecology"
+    },
+    {
+      "key": "soilPhRange",
+      "label": "Soil pH Range",
+      "group": "ecology",
+      "type": "range",
+      "unit": "pH",
+      "tier": "deep",
+      "example": "{min:4.5,max:7.0,unit:'pH'}",
+      "sourceHint": "primary literature / soil ecology"
+    },
+    {
+      "key": "moisturePreference",
+      "label": "Moisture Preference",
+      "group": "ecology",
+      "type": "enum",
+      "enumRef": "MoisturePreference",
+      "tier": "deep",
+      "example": "mesic",
+      "sourceHint": "primary literature / field observation"
+    },
+    {
+      "key": "fruitingSeason",
+      "label": "Fruiting Season(s)",
+      "group": "ecology",
+      "type": "array<enum>",
+      "enumRef": "FruitingSeason",
+      "tier": "core",
+      "example": "[\"late_summer\",\"autumn\"]",
+      "safetyRelevant": true,
+      "notes": "Hemisphere-normalized; pair with phenologyHemisphere. Top foraging cue.",
+      "sourceHint": "iNaturalist phenology / GBIF date bins"
+    },
+    {
+      "key": "phenologyHemisphere",
+      "label": "Phenology Reference Hemisphere",
+      "group": "ecology",
+      "type": "enum",
+      "enumRef": "PhenologyHemisphere",
+      "tier": "standard",
+      "example": "northern",
+      "sourceHint": "derived from occurrence latitudes"
+    },
+    {
+      "key": "fruitingTriggers",
+      "label": "Fruiting Triggers",
+      "group": "ecology",
+      "type": "array<enum>",
+      "enumRef": "FruitingTriggers",
+      "tier": "deep",
+      "example": "[\"autumn_rains\",\"temperature_drop\"]",
+      "notes": "Wild cues. Lab induction in cultivation.",
+      "sourceHint": "primary literature / field observation"
+    },
+    {
+      "key": "fruitingPosition",
+      "label": "Fruiting Body Position",
+      "group": "ecology",
+      "type": "enum",
+      "enumRef": "FruitingPosition",
+      "tier": "standard",
+      "example": "epigeous_above_ground",
+      "notes": "Truffles hypogeous; affects detection.",
+      "sourceHint": "primary literature / field observation"
+    },
+    {
+      "key": "ecologicalRole",
+      "label": "Ecological Role",
+      "group": "ecology",
+      "type": "array<enum>",
+      "enumRef": "EcologicalRole",
+      "tier": "deep",
+      "example": "[\"mycorrhizal_network_hub\"]",
+      "sourceHint": "ecology literature"
+    },
+    {
+      "key": "indicatorSpeciesRole",
+      "label": "Indicator Species Role",
+      "group": "ecology",
+      "type": "enum",
+      "enumRef": "IndicatorSpeciesRole",
+      "tier": "deep",
+      "example": "none",
+      "sourceHint": "conservation ecology literature"
+    },
+    {
+      "key": "iucnStatus",
+      "label": "IUCN Red List Category",
+      "group": "ecology",
+      "type": "enum",
+      "enumRef": "IucnStatus",
+      "tier": "standard",
+      "example": "not_assessed",
+      "sourceHint": "IUCN Red List"
+    },
+    {
+      "key": "abundance",
+      "label": "Abundance / Commonness",
+      "group": "ecology",
+      "type": "enum",
+      "enumRef": "Abundance",
+      "tier": "standard",
+      "example": "common",
+      "safetyRelevant": true,
+      "notes": "Region-scope via provenance/abundanceByRegion where needed.",
+      "sourceHint": "regional checklists / GBIF counts"
+    },
+    {
+      "key": "legalProtection",
+      "label": "Legal Protection / Harvest Restriction",
+      "group": "ecology",
+      "type": "array<LegalProtection>",
+      "tier": "deep",
+      "example": "[]",
+      "safetyRelevant": true,
+      "notes": "{jurisdiction, protection}. Some countries restrict harvesting.",
+      "sourceHint": "national conservation law / Bern Convention"
+    },
+    {
+      "key": "habitatNotes",
+      "label": "Habitat & Ecology Notes",
+      "group": "ecology",
+      "type": "string",
+      "tier": "standard",
+      "example": "Mycorrhizal with oak and other hardwoods, occasionally conifers; widely naturalized with planted hosts.",
+      "notes": "Replaces legacy free-text habitat field.",
+      "sourceHint": "primary literature / community / field observation"
+    },
+    {
+      "key": "nativeStatus",
+      "label": "Nativeness Status",
+      "group": "distribution",
+      "type": "enum",
+      "enumRef": "NativeStatus",
+      "tier": "standard",
+      "example": "native",
+      "sourceHint": "invasion biology / GBIF / regional checklists"
+    },
+    {
+      "key": "nativeRange",
+      "label": "Native Range (description)",
+      "group": "distribution",
+      "type": "string",
+      "tier": "core",
+      "example": "Native to Europe; introduced widely with exotic hosts",
+      "sourceHint": "GBIF / primary literature / checklists"
+    },
+    {
+      "key": "countryDistribution",
+      "label": "Country Distribution",
+      "group": "distribution",
+      "type": "array<string>",
+      "tier": "core",
+      "example": "[\"FR\",\"GB\",\"DE\",\"US\",\"CA\",\"AU\"]",
+      "notes": "ISO 3166-1 alpha-2 codes of countries with verified records.",
+      "sourceHint": "GBIF country aggregation / checklists"
+    },
+    {
+      "key": "introducedRange",
+      "label": "Introduced Range",
+      "group": "distribution",
+      "type": "array<string>",
+      "tier": "standard",
+      "example": "[\"US\",\"CA\",\"AU\",\"NZ\"]",
+      "notes": "ISO codes where introduced/naturalized (often with exotic hosts).",
+      "sourceHint": "GBIF / invasion biology / checklists"
+    },
+    {
+      "key": "distributionPattern",
+      "label": "Global Distribution Pattern",
+      "group": "distribution",
+      "type": "enum",
+      "enumRef": "DistributionPattern",
+      "tier": "standard",
+      "example": "holarctic",
+      "sourceHint": "primary literature / GBIF range analysis"
+    },
+    {
+      "key": "biogeographicRealm",
+      "label": "Biogeographic Realm(s)",
+      "group": "distribution",
+      "type": "array<enum>",
+      "enumRef": "BiogeographicRealm",
+      "tier": "standard",
+      "example": "[\"Palearctic\",\"Nearctic\"]",
+      "sourceHint": "derived from GBIF occurrences"
+    },
+    {
+      "key": "elevationRange",
+      "label": "Elevation Range",
+      "group": "distribution",
+      "type": "range",
+      "unit": "m",
+      "tier": "standard",
+      "example": "{min:0,max:1800,unit:'m'}",
+      "sourceHint": "GBIF georeferenced occurrences"
+    },
+    {
+      "key": "occurrenceCentroid",
+      "label": "Occurrence Centroid",
+      "group": "distribution",
+      "type": "geo",
+      "tier": "deep",
+      "example": "{lat:47.0,lon:5.0}",
+      "notes": "Mean lat/lon for range maps and climate matching.",
+      "sourceHint": "GBIF occurrence aggregation"
+    },
+    {
+      "key": "occurrenceBoundingBox",
+      "label": "Occurrence Bounding Box",
+      "group": "distribution",
+      "type": "object",
+      "tier": "deep",
+      "example": "{minLat:30,maxLat:62,minLon:-130,maxLon:45}",
+      "sourceHint": "GBIF occurrence aggregation"
+    },
+    {
+      "key": "gbifOccurrenceCount",
+      "label": "GBIF Occurrence Count",
+      "group": "distribution",
+      "type": "integer",
+      "tier": "standard",
+      "example": "42000",
+      "notes": "Documentation richness proxy, not true abundance. Sync timestamp via provenance.",
+      "sourceHint": "GBIF API"
+    },
+    {
+      "key": "inatObservationCount",
+      "label": "iNaturalist Observation Count",
+      "group": "distribution",
+      "type": "integer",
+      "tier": "standard",
+      "example": "38000",
+      "notes": "Encounter/photograph frequency proxy; feeds MycoGram image pool.",
+      "sourceHint": "iNaturalist API"
+    },
+    {
+      "key": "rangeExpansionNotes",
+      "label": "Range Shift / Expansion Notes",
+      "group": "distribution",
+      "type": "string",
+      "tier": "deep",
+      "example": "Established and spreading in North America with introduced oaks and other hosts.",
+      "sourceHint": "primary literature / GBIF time-series"
+    },
+    {
+      "key": "cultivable",
+      "label": "Cultivable",
+      "group": "cultivation",
+      "type": "boolean",
+      "tier": "core",
+      "example": "false",
+      "notes": "Ectomycorrhizal species generally cannot be fruited indoors.",
+      "sourceHint": "community cultivation reports / primary literature"
+    },
+    {
+      "key": "cultivationDifficulty",
+      "label": "Cultivation Difficulty",
+      "group": "cultivation",
+      "type": "enum",
+      "enumRef": "CultivationDifficulty",
+      "tier": "core",
+      "example": "not-cultivable",
+      "sourceHint": "community / cultivation guides"
+    },
+    {
+      "key": "primaryCultivationMethod",
+      "label": "Primary Cultivation Method",
+      "group": "cultivation",
+      "type": "enum",
+      "enumRef": "CultivationMethod",
+      "tier": "standard",
+      "example": "none",
+      "sourceHint": "cultivation guides / community"
+    },
+    {
+      "key": "agarMediaRecommended",
+      "label": "Recommended Agar Media",
+      "group": "cultivation",
+      "type": "array<enum>",
+      "enumRef": "AgarMedia",
+      "tier": "standard",
+      "example": "[]",
+      "sourceHint": "lab protocols / community"
+    },
+    {
+      "key": "spawnTypes",
+      "label": "Spawn Types",
+      "group": "cultivation",
+      "type": "array<enum>",
+      "enumRef": "SpawnType",
+      "tier": "standard",
+      "example": "[]",
+      "sourceHint": "community / commercial suppliers"
+    },
+    {
+      "key": "bulkSubstrates",
+      "label": "Recommended Bulk Substrates",
+      "group": "cultivation",
+      "type": "array<enum>",
+      "enumRef": "BulkSubstrate",
+      "tier": "standard",
+      "example": "[]",
+      "sourceHint": "community / commercial cultivation"
+    },
+    {
+      "key": "colonizationTempRange",
+      "label": "Colonization Temp Range",
+      "group": "cultivation",
+      "type": "range",
+      "unit": "°C",
+      "tier": "standard",
+      "example": "null",
+      "sourceHint": "community / primary literature"
+    },
+    {
+      "key": "fruitingTempRange",
+      "label": "Lab Fruiting Temp Range",
+      "group": "cultivation",
+      "type": "range",
+      "unit": "°C",
+      "tier": "standard",
+      "example": "null",
+      "notes": "Lab/induced; wild fruiting temp lives in ecology.",
+      "sourceHint": "community / primary literature"
+    },
+    {
+      "key": "fruitingHumidityRange",
+      "label": "Fruiting Humidity (RH)",
+      "group": "cultivation",
+      "type": "range",
+      "unit": "% RH",
+      "tier": "standard",
+      "example": "null",
+      "sourceHint": "community / commercial"
+    },
+    {
+      "key": "fruitingCO2Range",
+      "label": "Fruiting CO2 Target",
+      "group": "cultivation",
+      "type": "range",
+      "unit": "ppm",
+      "tier": "deep",
+      "example": "null",
+      "sourceHint": "mushroom science / commercial"
+    },
+    {
+      "key": "freshAirExchangeRate",
+      "label": "Fresh Air Exchange Need",
+      "group": "cultivation",
+      "type": "enum",
+      "enumRef": "FreshAirExchangeRate",
+      "tier": "standard",
+      "example": "null",
+      "sourceHint": "community / commercial"
+    },
+    {
+      "key": "lightRequirement",
+      "label": "Light Requirement",
+      "group": "cultivation",
+      "type": "enum",
+      "enumRef": "LightRequirement",
+      "tier": "standard",
+      "example": "null",
+      "sourceHint": "mushroom science / community"
+    },
+    {
+      "key": "pinningTriggers",
+      "label": "Pinning Triggers",
+      "group": "cultivation",
+      "type": "array<enum>",
+      "enumRef": "PinningTriggers",
+      "tier": "standard",
+      "example": "[]",
+      "sourceHint": "community / mushroom science"
+    },
+    {
+      "key": "totalCycleTime",
+      "label": "Total Grow Cycle Time",
+      "group": "cultivation",
+      "type": "range",
+      "unit": "days",
+      "tier": "standard",
+      "example": "null",
+      "sourceHint": "community / commercial"
+    },
+    {
+      "key": "biologicalEfficiency",
+      "label": "Biological Efficiency (BE)",
+      "group": "cultivation",
+      "type": "range",
+      "unit": "% BE",
+      "tier": "standard",
+      "example": "null",
+      "sourceHint": "mushroom science / commercial"
+    },
+    {
+      "key": "contaminationSusceptibility",
+      "label": "Contamination Susceptibility",
+      "group": "cultivation",
+      "type": "enum",
+      "enumRef": "ContaminationSusceptibility",
+      "tier": "standard",
+      "example": "null",
+      "sourceHint": "community"
+    },
+    {
+      "key": "commonContaminants",
+      "label": "Common Contaminants",
+      "group": "cultivation",
+      "type": "array<enum>",
+      "enumRef": "CommonContaminant",
+      "tier": "deep",
+      "example": "[]",
+      "sourceHint": "community / mushroom pathology"
+    },
+    {
+      "key": "senescenceSusceptibility",
+      "label": "Senescence / Degradation Susceptibility",
+      "group": "cultivation",
+      "type": "enum",
+      "enumRef": "SenescenceSusceptibility",
+      "tier": "standard",
+      "example": "null",
+      "notes": "Differentiator content area for MycoSci gene-science pillar.",
+      "sourceHint": "community / senescence literature"
+    },
+    {
+      "key": "degradationSymptoms",
+      "label": "Strain Degradation Symptoms",
+      "group": "cultivation",
+      "type": "array<enum>",
+      "enumRef": "DegradationSymptom",
+      "tier": "deep",
+      "example": "[]",
+      "sourceHint": "community / primary literature"
+    },
+    {
+      "key": "longTermStorageMethods",
+      "label": "Long-Term Culture Storage",
+      "group": "cultivation",
+      "type": "array<enum>",
+      "enumRef": "StorageMethod",
+      "tier": "standard",
+      "example": "[]",
+      "notes": "Cryo is gold standard to arrest senescence.",
+      "sourceHint": "culture collection protocols / community"
+    },
+    {
+      "key": "sclerotiaFormation",
+      "label": "Forms Sclerotia",
+      "group": "cultivation",
+      "type": "boolean",
+      "tier": "standard",
+      "example": "false",
+      "safetyRelevant": true,
+      "notes": "Psilocybe 'truffles', Wolfiporia. Alternate cultivation product.",
+      "sourceHint": "community / primary literature"
+    },
+    {
+      "key": "recommendedStrains",
+      "label": "Recommended Strains / Cultivars",
+      "group": "cultivation",
+      "type": "array<Strain>",
+      "tier": "standard",
+      "example": "[]",
+      "safetyRelevant": true,
+      "notes": "{name, traits}. For psychoactive species, strain list is safety-relevant.",
+      "sourceHint": "community / commercial suppliers"
+    },
+    {
+      "key": "commercialViability",
+      "label": "Commercial vs Hobby",
+      "group": "cultivation",
+      "type": "enum",
+      "enumRef": "CommercialViability",
+      "tier": "standard",
+      "example": "not-cultivated-commercially",
+      "sourceHint": "commercial industry / FAO"
+    },
+    {
+      "key": "logCultivationSuitable",
+      "label": "Log / Outdoor Cultivation Suitable",
+      "group": "cultivation",
+      "type": "boolean",
+      "tier": "deep",
+      "example": "false",
+      "sourceHint": "community / extension publications"
+    },
+    {
+      "key": "legalCultivationNote",
+      "label": "Cultivation Legal Status Note",
+      "group": "cultivation",
+      "type": "string",
+      "tier": "standard",
+      "example": "n/a",
+      "safetyRelevant": true,
+      "notes": "Flag where growing (esp. psychoactive) is legally controlled.",
+      "sourceHint": "legal references / community"
+    },
+    {
+      "key": "matingSystem",
+      "label": "Mating System",
+      "group": "genetics",
+      "type": "enum",
+      "enumRef": "MatingSystem",
+      "tier": "standard",
+      "example": "heterothallic",
+      "safetyRelevant": false,
+      "notes": "Self-compatibility; affects breeding/cultivation. Canonical owner (cultivation references).",
+      "sourceHint": "primary literature / mating studies"
+    },
+    {
+      "key": "matingTypeSystem",
+      "label": "Mating-Type Locus Architecture",
+      "group": "genetics",
+      "type": "enum",
+      "enumRef": "MatingTypeArchitecture",
+      "tier": "deep",
+      "example": "tetrapolar",
+      "sourceHint": "primary literature / genome annotation"
+    },
+    {
+      "key": "ploidy",
+      "label": "Ploidy",
+      "group": "genetics",
+      "type": "enum",
+      "enumRef": "PloidyState",
+      "tier": "standard",
+      "example": "dikaryotic (n+n)",
+      "notes": "Basidiomycota vegetative phase typically dikaryotic.",
+      "sourceHint": "primary literature / karyology"
+    },
+    {
+      "key": "chromosomeCount",
+      "label": "Chromosome Count (n)",
+      "group": "genetics",
+      "type": "integer",
+      "tier": "deep",
+      "example": "null",
+      "notes": "From PFGE or genome assembly.",
+      "sourceHint": "primary literature / genome assembly"
+    },
+    {
+      "key": "itsBarcode",
+      "label": "ITS Barcode",
+      "group": "genetics",
+      "type": "object",
+      "tier": "core",
+      "example": "{available:true,accessions:['MH488000 (GenBank format placeholder)'],lengthBp:680}",
+      "notes": "{available, accessions[], lengthBp?, refSequenceUrl?}. ITS = formal fungal barcode. Accessions are realistic placeholders unless verified.",
+      "sourceHint": "NCBI/GenBank / UNITE / BOLD"
+    },
+    {
+      "key": "uniteSpeciesHypothesis",
+      "label": "UNITE Species Hypothesis (SH)",
+      "group": "genetics",
+      "type": "string",
+      "tier": "standard",
+      "example": "SH1140371.09FU (format placeholder)",
+      "notes": "DOI-backed SH clustering ITS at a threshold; critical for dark taxa.",
+      "sourceHint": "UNITE / PlutoF"
+    },
+    {
+      "key": "otherMarkers",
+      "label": "Other Phylogenetic Markers",
+      "group": "genetics",
+      "type": "array<MarkerAccession>",
+      "tier": "deep",
+      "example": "[{marker:'LSU',accessions:['MH874000 (placeholder)']},{marker:'RPB2',accessions:[]}]",
+      "notes": "{marker(enumRef GeneticMarker), accessions[]}. LSU/SSU/RPB2/TEF1/TUB2 etc. Accession provenance; biology described here.",
+      "sourceHint": "NCBI/GenBank"
+    },
+    {
+      "key": "recommendedBarcodeMarker",
+      "label": "Recommended ID Marker",
+      "group": "genetics",
+      "type": "enum",
+      "enumRef": "RecommendedBarcodeMarker",
+      "tier": "standard",
+      "example": "ITS",
+      "notes": "Best-practice marker(s) for confident ID in this lineage.",
+      "sourceHint": "primary literature / ISHAM"
+    },
+    {
+      "key": "exTypeSequence",
+      "label": "Ex-Type Sequence Available",
+      "group": "genetics",
+      "type": "object",
+      "tier": "standard",
+      "example": "{available:true,accessions:[{marker:'ITS',accession:'NR_xxxxxx (RefSeq format placeholder)',typeStatus:'ex-epitype'}]}",
+      "notes": "{available, accessions:[{marker, accession, typeStatus(enumRef TypeStatus)}]}. Highest molecular-ID provenance tier.",
+      "sourceHint": "NCBI RefSeq / UNITE / primary literature"
+    },
+    {
+      "key": "genome",
+      "label": "Genome Assembly",
+      "group": "genetics",
+      "type": "object",
+      "tier": "standard",
+      "example": "{sequenced:true,assemblyAccessions:['GCA_xxxxxxxxx.1 (format placeholder)'],sizeMb:{min:30,max:40,unit:'Mb'},assemblyLevel:'Scaffold'}",
+      "notes": "{sequenced, assemblyAccessions[], sizeMb:range?, gcContent?, geneCount?, assemblyLevel(enumRef AssemblyLevel)?, buscoCompleteness?}.",
+      "sourceHint": "NCBI Assembly / JGI MycoCosm / Ensembl Fungi"
+    },
+    {
+      "key": "intraspecificVariation",
+      "label": "Intraspecific Genetic Variation",
+      "group": "genetics",
+      "type": "enum",
+      "enumRef": "IntraspecificVariation",
+      "tier": "deep",
+      "example": "moderate",
+      "sourceHint": "primary literature / population genetics"
+    },
+    {
+      "key": "populationStructure",
+      "label": "Population Structure / Phylogeography",
+      "group": "genetics",
+      "type": "string",
+      "tier": "deep",
+      "example": "European source populations; introduced North American lineages from multiple events.",
+      "sourceHint": "primary literature / population genomics"
+    },
+    {
+      "key": "toxinGeneClusters",
+      "label": "Toxin Biosynthesis Gene Clusters",
+      "group": "genetics",
+      "type": "array<GeneCluster>",
+      "tier": "deep",
+      "example": "[{toxin:'alpha-amanitin',cluster:'MSDIN/POPB',present:true}]",
+      "safetyRelevant": true,
+      "notes": "Molecular basis of toxicity: amatoxin MSDIN+POPB, aflatoxin PKS, etc.",
+      "sourceHint": "primary literature / MIBiG / antiSMASH"
+    },
+    {
+      "key": "psilocybinGeneCluster",
+      "label": "Psilocybin Biosynthesis Genes",
+      "group": "genetics",
+      "type": "object",
+      "tier": "deep",
+      "example": "{present:false,genes:[]}",
+      "safetyRelevant": true,
+      "notes": "{present, genes[]} psiD/psiK/psiM/psiH. Molecular marker of psychoactivity.",
+      "sourceHint": "primary literature / MIBiG"
+    },
+    {
+      "key": "mlstScheme",
+      "label": "MLST / Multilocus Scheme",
+      "group": "genetics",
+      "type": "string",
+      "tier": "deep",
+      "example": "null",
+      "sourceHint": "FusariumMLST / ISHAM-MLST / primary literature"
+    },
+    {
+      "key": "environmentalSequenceOnly",
+      "label": "Known Only From Environmental Sequences",
+      "group": "genetics",
+      "type": "boolean",
+      "tier": "deep",
+      "example": "false",
+      "notes": "'Dark taxon' flag; relevant for SH-based provisional names.",
+      "sourceHint": "UNITE / GlobalFungi / primary literature"
+    },
+    {
+      "key": "vernacularNames",
+      "label": "Vernacular Names",
+      "group": "culture",
+      "type": "array<VernacularName>",
+      "tier": "core",
+      "example": "[{name:'Death Cap',langCode:'en',regionCode:'GB',isPrimary:true,usageStatus:'current'},{name:'Grüner Knollenblätterpilz',langCode:'de',usageStatus:'current'}]",
+      "safetyRelevant": true,
+      "notes": "{name, langCode, regionCode?, script?, isPrimary?, usageStatus(enumRef NameUsageStatus), transliteration?, ipa?, source?}. Owns the provenanced multilingual set; identity.primaryCommonName denormalizes the English preferred.",
+      "sourceHint": "GBIF vernaculars / iNaturalist / Wikidata / ethnobotanical literature"
+    },
+    {
+      "key": "indigenousNames",
+      "label": "Indigenous / First-Nations Names",
+      "group": "culture",
+      "type": "array<IndigenousName>",
+      "tier": "deep",
+      "example": "[]",
+      "notes": "{name, culture, langCode, glossMeaning, source}. Handle with cultural sensitivity; see culturalSensitivityFlag.",
+      "sourceHint": "ethnomycological / linguistic field studies with attribution"
+    },
+    {
+      "key": "originalDescriber",
+      "label": "Original Describer(s)",
+      "group": "culture",
+      "type": "array<Describer>",
+      "tier": "standard",
+      "example": "[{name:'Elias Magnus Fries',role:'sanctioning author',year:1821},{name:'Johann Heinrich Friedrich Link',role:'combining author',year:1833}]",
+      "notes": "Human-readable describers with role; links to historicalFigures.",
+      "sourceHint": "protologue / Index Fungorum / Harvard Index of Botanists"
+    },
+    {
+      "key": "discoveryNarrative",
+      "label": "Discovery & Description History",
+      "group": "culture",
+      "type": "string",
+      "tier": "deep",
+      "example": "Long recognized in European folk culture as deadly before formal description; the section Phalloideae is the most lethal in Amanita.",
+      "sourceHint": "primary literature / history-of-mycology monographs"
+    },
+    {
+      "key": "historicalFigures",
+      "label": "Associated Historical Figures",
+      "group": "culture",
+      "type": "array<HistoricalFigure>",
+      "tier": "deep",
+      "example": "[]",
+      "notes": "{name, role, contribution, era}.",
+      "sourceHint": "history-of-mycology / biographies"
+    },
+    {
+      "key": "folkloreAndMythology",
+      "label": "Folklore & Mythology",
+      "group": "culture",
+      "type": "array<FolkloreEntry>",
+      "tier": "deep",
+      "example": "[]",
+      "notes": "{tradition, motif, summary, region}.",
+      "sourceHint": "folklore studies / ethnomycology"
+    },
+    {
+      "key": "traditionalUses",
+      "label": "Traditional / Ethnographic Uses",
+      "group": "culture",
+      "type": "array<TraditionalUse>",
+      "tier": "standard",
+      "example": "[]",
+      "safetyRelevant": true,
+      "notes": "{useType(enumRef UseType), culture, description, era, evidenceLevel?}. Ritual/medicinal/edible uses are safety-relevant — never read as endorsement.",
+      "sourceHint": "ethnomycology / ethnobotany literature"
+    },
+    {
+      "key": "notablePoisoningCases",
+      "label": "Notable Poisonings / Historical Cases",
+      "group": "culture",
+      "type": "array<PoisoningCase>",
+      "tier": "standard",
+      "example": "[{caseName:'Pope Clement VII (disputed)',year:1534,summary:'Death attributed by some accounts to Amanita phalloides; historically disputed',outcome:'fatal',verified:false}]",
+      "safetyRelevant": true,
+      "notes": "{caseName, year, summary, victims?, outcome(enumRef PoisoningOutcome), verified, references?}. Owns historical/anecdotal framing; chemistry owns mechanism.",
+      "sourceHint": "medical case reports / historical records / poison-control archives"
+    },
+    {
+      "key": "referencesInCulture",
+      "label": "References in Art, Literature & Media",
+      "group": "culture",
+      "type": "array<CultureReference>",
+      "tier": "deep",
+      "example": "[]",
+      "notes": "{work, author, year, mediaType(enumRef MediaReferenceType), context}. Includes art, literature, film, games, stamps.",
+      "sourceHint": "literary/art history / popular-culture databases"
+    },
+    {
+      "key": "culturalSignificance",
+      "label": "Cultural Significance",
+      "group": "culture",
+      "type": "string",
+      "tier": "standard",
+      "example": "The archetypal deadly mushroom; the single most lethal fungus to humans worldwide, responsible for the majority of fatal mushroom poisonings.",
+      "sourceHint": "cultural studies / encyclopedic sources"
+    },
+    {
+      "key": "popularMisconceptions",
+      "label": "Popular Misconceptions / Debunked Lore",
+      "group": "culture",
+      "type": "array<Misconception>",
+      "tier": "deep",
+      "example": "[{claim:'Cooking or drying renders it safe',status:'dangerous false belief',correction:'Amatoxins are heat-stable; no preparation makes it safe'}]",
+      "safetyRelevant": true,
+      "notes": "{claim, status, correction}. Critical for an authoritative dataset.",
+      "sourceHint": "scholarly/skeptical reviews vs primary literature"
+    },
+    {
+      "key": "culturalSensitivityFlag",
+      "label": "Cultural Sensitivity Flag",
+      "group": "culture",
+      "type": "enum",
+      "enumRef": "CulturalSensitivityFlag",
+      "tier": "deep",
+      "example": "none",
+      "notes": "Marks Indigenous/sacred/restricted knowledge requiring careful attribution.",
+      "sourceHint": "editorial / Indigenous data-sovereignty guidelines"
+    },
+    {
+      "key": "media",
+      "label": "Media Assets",
+      "group": "media",
+      "type": "array<MediaAsset>",
+      "tier": "core",
+      "example": "[{mediaId:'med_amaphal_0001',mediaType:'image',viewType:'in-situ',url:'https://example.org/photo.jpg (placeholder)',license:'CC-BY-NC-4.0',credit:'© Contributor / iNaturalist (CC-BY-NC 4.0)',verificationStatus:'research-grade',lifecycleStage:'mature',isPrimary:true}]",
+      "safetyRelevant": true,
+      "notes": "Array of independently-licensed assets. See MediaAsset interface. A misID'd image is a safety hazard. Default license 'unknown' blocks redistribution.",
+      "sourceHint": "iNaturalist / GBIF / MushroomObserver / Wikimedia / community"
+    },
+    {
+      "key": "primaryImageId",
+      "label": "Primary Image Reference",
+      "group": "media",
+      "type": "string",
+      "tier": "core",
+      "example": "med_amaphal_0001",
+      "notes": "FK into media[] for the hero image; denormalized for fast card/feed render.",
+      "sourceHint": "MycoSci internal"
+    },
+    {
+      "key": "hasMicroscopy",
+      "label": "Has Microscopy Media",
+      "group": "media",
+      "type": "boolean",
+      "tier": "deep",
+      "example": "false",
+      "notes": "Facet flag for deep-search index.",
+      "sourceHint": "MycoSci computed"
+    },
+    {
+      "key": "fieldProvenance",
+      "label": "Per-Field Provenance",
+      "group": "provenance",
+      "type": "array<FieldProvenance>",
+      "tier": "core",
+      "example": "[{field:'edibilityClass',sourceRefId:'ref_benjamin_1995',sourceType:'primary-literature',confidence:'confirmed',verificationStatus:'expert-verified',reviewedOn:'2026-05-31'}]",
+      "safetyRelevant": true,
+      "notes": "THE cross-cutting structure: attaches {field(path), sourceRefId, sourceType(enumRef SourceType), confidence(enumRef ConfidenceLevel), verificationStatus(enumRef FieldVerificationStatus), verifiedBy?, reviewedOn?, note?} to any field in any group. Sparse: only present for asserted fields, not every field. ai-generated-unverified flagged distinctly.",
+      "sourceHint": "MycoSci provenance layer (spans all domains)"
+    },
+    {
+      "key": "references",
+      "label": "Citations & References",
+      "group": "provenance",
+      "type": "array<Reference>",
+      "tier": "core",
+      "example": "[{refId:'ref_benjamin_1995',type:'book',title:'Mushrooms: Poisons and Panaceas',authors:['Benjamin, D.R.'],year:1995,isPrimary:false}]",
+      "notes": "Bibliography backing the record. {refId, type(enumRef ReferenceType), doi?, url?, title, authors?, year?, containerTitle?, pages?, isbn?, isPrimary?}. fieldProvenance cites these by refId.",
+      "sourceHint": "primary literature / CrossRef / MycoBank protologue"
+    },
+    {
+      "key": "externalLinks",
+      "label": "External Authority Links",
+      "group": "provenance",
+      "type": "array<ExternalLink>",
+      "tier": "core",
+      "example": "[{authority:'IndexFungorum',externalId:'IF:198282 (format placeholder)',relationship:'exact-match'},{authority:'GBIF',externalId:'5240897 (format placeholder)',relationship:'exact-match'},{authority:'NCBI-Taxonomy',externalId:'67723 (format placeholder)',relationship:'exact-match'},{authority:'MycoBank',externalId:'MB#198282 (format placeholder)'},{authority:'iNaturalist',externalId:'48634 (format placeholder)'},{authority:'Wikidata',externalId:'Q133795 (format placeholder)'}]",
+      "notes": "Canonical cross-references; identity resolution depends on them. {authority(enumRef ExternalAuthority), externalId, url?, relationship(enumRef LinkRelationship)?, lastSynced?}. De-duped from per-domain identifier fields.",
+      "sourceHint": "MycoBank / Index Fungorum / GBIF / NCBI / iNaturalist / Wikidata"
+    },
+    {
+      "key": "dataCompletenessScore",
+      "label": "Data Completeness Score",
+      "group": "provenance",
+      "type": "number",
+      "unit": "0-1",
+      "tier": "standard",
+      "example": "0.78",
+      "notes": "Tier-weighted fraction of expected fields populated; drives curation prompts.",
+      "sourceHint": "MycoSci computed"
+    },
+    {
+      "key": "verificationLevel",
+      "label": "Record Verification Level",
+      "group": "provenance",
+      "type": "enum",
+      "enumRef": "RecordVerificationLevel",
+      "tier": "core",
+      "example": "expert-reviewed",
+      "safetyRelevant": true,
+      "notes": "Record-level trust badge; gates how strongly edibility claims are presented.",
+      "sourceHint": "MycoSci review workflow"
+    },
+    {
+      "key": "lastReviewedDate",
+      "label": "Record Last-Reviewed Date",
+      "group": "provenance",
+      "type": "date",
+      "tier": "standard",
+      "example": "2026-05-31",
+      "sourceHint": "MycoSci review workflow"
+    },
+    {
+      "key": "contributors",
+      "label": "Contributors",
+      "group": "provenance",
+      "type": "array<Contributor>",
+      "tier": "standard",
+      "example": "[{handle:'mycosci-import',role:'data-importer'}]",
+      "notes": "{handle, role(enumRef ContributorRole), contributedOn?}. Supports attribution and leaderboard.",
+      "sourceHint": "MycoSci contributor system"
+    },
+    {
+      "key": "disputeFlags",
+      "label": "Dispute / Correction Flags",
+      "group": "provenance",
+      "type": "array<DisputeFlag>",
+      "tier": "standard",
+      "example": "[]",
+      "safetyRelevant": true,
+      "notes": "{field, reason, status(enumRef DisputeStatus), raisedBy?}. Safety-relevant on edibility; surfaces a caution banner until resolved.",
+      "sourceHint": "MycoSci community / moderation"
+    },
+    {
+      "key": "recordLicense",
+      "label": "Record License",
+      "group": "provenance",
+      "type": "enum",
+      "enumRef": "RecordLicense",
+      "tier": "core",
+      "example": "CC-BY-SA-4.0",
+      "notes": "License of the MycoSci record itself, DISTINCT from per-asset media licenses. The 'open' guarantee.",
+      "sourceHint": "MycoSci policy"
+    },
+    {
+      "key": "schemaVersion",
+      "label": "Schema Version",
+      "group": "provenance",
+      "type": "string",
+      "tier": "deep",
+      "example": "1.0.0",
+      "notes": "For migration safety as stubs enrich.",
+      "sourceHint": "MycoSci system"
+    }
+  ],
+  "enums": [
+    {
+      "name": "RecordTier",
+      "values": [
+        "stub",
+        "imported",
+        "in-progress",
+        "curated",
+        "featured",
+        "reference-quality"
+      ],
+      "notes": "Curation maturity. stub/imported → client-fetch fallback; curated/featured/reference-quality → static pre-render (CLAUDE.md §3)."
+    },
+    {
+      "name": "TaxonRank",
+      "values": [
+        "kingdom",
+        "subkingdom",
+        "phylum",
+        "subphylum",
+        "class",
+        "subclass",
+        "superorder",
+        "order",
+        "suborder",
+        "family",
+        "subfamily",
+        "tribe",
+        "subtribe",
+        "genus",
+        "subgenus",
+        "section",
+        "subsection",
+        "series",
+        "species",
+        "subspecies",
+        "variety",
+        "subvariety",
+        "form",
+        "forma_specialis",
+        "aggregate",
+        "species_complex",
+        "clade_unranked"
+      ]
+    },
+    {
+      "name": "TaxonomicStatus",
+      "values": [
+        "accepted",
+        "synonym",
+        "homotypic_synonym",
+        "heterotypic_synonym",
+        "basionym",
+        "misapplied",
+        "provisional",
+        "doubtful_dubious",
+        "ambiguous",
+        "unplaced",
+        "excluded",
+        "deleted_orphaned"
+      ]
+    },
+    {
+      "name": "NomenclaturalCode",
+      "values": [
+        "ICN",
+        "ICNP_provisional",
+        "SH_UNITE",
+        "unranked_environmental",
+        "ICZN_misapplied"
+      ]
+    },
+    {
+      "name": "NomenclaturalStatus",
+      "values": [
+        "legitimate",
+        "illegitimate",
+        "invalid_nom_inval",
+        "nomen_nudum",
+        "nomen_dubium",
+        "nomen_conservandum",
+        "nomen_rejiciendum",
+        "nomen_novum",
+        "nomen_provisorium",
+        "superfluous",
+        "later_homonym",
+        "orthographic_variant",
+        "sanctioned"
+      ]
+    },
+    {
+      "name": "SanctioningStatus",
+      "values": [
+        "sanctioned_fries",
+        "sanctioned_persoon",
+        "none"
+      ]
+    },
+    {
+      "name": "TypeStatus",
+      "values": [
+        "holotype",
+        "lectotype",
+        "neotype",
+        "epitype",
+        "isotype",
+        "syntype",
+        "paratype",
+        "topotype",
+        "ex-type_culture",
+        "ex-holotype",
+        "ex-epitype",
+        "ex-neotype",
+        "ex-lectotype",
+        "authentic-strain",
+        "no_type_designated",
+        "type_lost",
+        "type_destroyed",
+        "not-type-derived",
+        "unknown"
+      ],
+      "notes": "Name-bearing type categories plus ex-type sequence designations (genetics)."
+    },
+    {
+      "name": "SynonymType",
+      "values": [
+        "homotypic",
+        "heterotypic",
+        "pro_parte"
+      ]
+    },
+    {
+      "name": "InfraspecificRankMarker",
+      "values": [
+        "subsp.",
+        "var.",
+        "subvar.",
+        "f.",
+        "f.sp.",
+        "ser.",
+        "sect.",
+        "subg."
+      ]
+    },
+    {
+      "name": "EtymologyRoot",
+      "values": [
+        "greek",
+        "latin",
+        "eponym",
+        "toponym",
+        "vernacular_derived",
+        "other"
+      ]
+    },
+    {
+      "name": "PlacementConfidence",
+      "values": [
+        "high",
+        "medium",
+        "low",
+        "contested",
+        "unresolved"
+      ]
+    },
+    {
+      "name": "BasidiomeType",
+      "values": [
+        "agaricoid",
+        "boletoid",
+        "polyporoid",
+        "hydnoid",
+        "clavarioid",
+        "cantharelloid",
+        "gasteroid",
+        "secotioid",
+        "resupinate",
+        "cyphelloid",
+        "corticioid",
+        "stereoid",
+        "tremelloid",
+        "apothecial",
+        "perithecial",
+        "stromatic",
+        "morchelloid",
+        "helvelloid",
+        "geoglossoid",
+        "pezizoid",
+        "truffle-hypogeous",
+        "puffball",
+        "earthstar",
+        "stinkhorn",
+        "birds-nest",
+        "jelly",
+        "bracket",
+        "other"
+      ]
+    },
+    {
+      "name": "GrowthHabit",
+      "values": [
+        "solitary",
+        "scattered",
+        "gregarious",
+        "caespitose",
+        "fasciculate",
+        "connate",
+        "imbricate",
+        "effused",
+        "troops",
+        "fairy-ring",
+        "clustered-at-base",
+        "single-on-substrate"
+      ]
+    },
+    {
+      "name": "CapShape",
+      "values": [
+        "conical",
+        "campanulate",
+        "convex",
+        "plano-convex",
+        "applanate",
+        "plane",
+        "depressed",
+        "infundibuliform",
+        "umbilicate",
+        "umbonate",
+        "papillate",
+        "hemispherical",
+        "parabolic",
+        "ovoid",
+        "ungulate",
+        "flabelliform",
+        "reniform",
+        "irregular",
+        "not-applicable"
+      ]
+    },
+    {
+      "name": "SurfaceTexture",
+      "values": [
+        "glabrous",
+        "smooth",
+        "viscid",
+        "glutinous",
+        "dry",
+        "velvety",
+        "tomentose",
+        "fibrillose",
+        "squamulose",
+        "squamose",
+        "verrucose",
+        "granulose",
+        "pruinose",
+        "rugose",
+        "reticulate",
+        "areolate",
+        "rimose",
+        "floccose",
+        "strigose",
+        "scabrous",
+        "punctate",
+        "hygrophanous-appearance",
+        "not-applicable"
+      ],
+      "notes": "Shared across cap and stipe surfaces."
+    },
+    {
+      "name": "CapOrnamentation",
+      "values": [
+        "none",
+        "universal-veil-warts",
+        "universal-veil-patches",
+        "volval-patches",
+        "fibrillose-scales",
+        "recurved-scales",
+        "appressed-scales",
+        "concentric-scales",
+        "granular-veil",
+        "floccose-veil-remnants",
+        "areolae",
+        "not-applicable"
+      ]
+    },
+    {
+      "name": "ColorPrimary",
+      "values": [
+        "white",
+        "cream",
+        "ivory",
+        "yellow",
+        "ochre",
+        "orange",
+        "tan",
+        "buff",
+        "brown",
+        "red-brown",
+        "cinnamon",
+        "red",
+        "pink",
+        "salmon",
+        "purple",
+        "violet",
+        "lilac",
+        "blue",
+        "green",
+        "olive",
+        "grey",
+        "black",
+        "multicolored",
+        "variable",
+        "concolorous-with-cap",
+        "not-applicable"
+      ],
+      "notes": "Base color vocabulary reused across cap/gill/pore/stipe/flesh/tooth. Pair with free-text chart code via provenance."
+    },
+    {
+      "name": "HymenophoreType",
+      "values": [
+        "lamellate-gills",
+        "poroid-tubes",
+        "hydnoid-teeth",
+        "lamellate-ridges-false-gills",
+        "veined-wrinkled",
+        "smooth-even",
+        "gasteroid-internal",
+        "labyrinthine",
+        "daedaleoid",
+        "merulioid",
+        "none",
+        "not-applicable"
+      ]
+    },
+    {
+      "name": "GillAttachment",
+      "values": [
+        "free",
+        "remote",
+        "adnexed",
+        "adnate",
+        "sinuate",
+        "emarginate",
+        "decurrent",
+        "subdecurrent",
+        "deeply-decurrent",
+        "seceding",
+        "collariate",
+        "uncinate",
+        "not-applicable"
+      ]
+    },
+    {
+      "name": "GillSpacing",
+      "values": [
+        "distant",
+        "subdistant",
+        "close",
+        "crowded",
+        "very-crowded",
+        "not-applicable"
+      ]
+    },
+    {
+      "name": "AnnulusPresence",
+      "values": [
+        "absent",
+        "present",
+        "present-membranous",
+        "present-fibrillose",
+        "cortina-only",
+        "ring-zone-only",
+        "fugacious-evanescent",
+        "double",
+        "movable",
+        "present-pendant",
+        "not-applicable"
+      ]
+    },
+    {
+      "name": "VolvaPresence",
+      "values": [
+        "absent",
+        "present",
+        "saccate-cup",
+        "circumscissile-rim",
+        "friable-rings",
+        "floccose-bands",
+        "marginate-bulb",
+        "limbate",
+        "volval-patches-only",
+        "not-applicable"
+      ]
+    },
+    {
+      "name": "StipeBaseShape",
+      "values": [
+        "equal",
+        "tapered",
+        "clavate",
+        "bulbous",
+        "marginate-bulb",
+        "abruptly-bulbous",
+        "napiform",
+        "rooting-radicating",
+        "pseudorhiza",
+        "attached-to-rhizomorphs",
+        "mycelial-pad",
+        "not-applicable"
+      ]
+    },
+    {
+      "name": "BasalMycelium",
+      "values": [
+        "none",
+        "white-mycelial-pad",
+        "colored-mycelium",
+        "rhizomorphs",
+        "white-rhizomorphs",
+        "black-rhizomorphs-bootlaces",
+        "tomentose-base",
+        "not-applicable"
+      ]
+    },
+    {
+      "name": "LatexColor",
+      "values": [
+        "white",
+        "cream",
+        "yellow",
+        "orange",
+        "red",
+        "blood-red",
+        "carrot-orange",
+        "blue",
+        "violet",
+        "watery",
+        "watery-white",
+        "clear",
+        "not-applicable"
+      ]
+    },
+    {
+      "name": "SporePrintColor",
+      "values": [
+        "white",
+        "cream",
+        "pale-yellow",
+        "yellow",
+        "ochre",
+        "pink",
+        "salmon",
+        "pinkish-buff",
+        "rust-brown",
+        "cinnamon-brown",
+        "clay-brown",
+        "brown",
+        "dark-brown",
+        "purple-brown",
+        "chocolate-brown",
+        "black",
+        "olive",
+        "green",
+        "lilac",
+        "not-applicable",
+        "unknown"
+      ]
+    },
+    {
+      "name": "OdorDescriptor",
+      "values": [
+        "indistinct",
+        "none",
+        "farinaceous-mealy",
+        "cucumber",
+        "fishy",
+        "spermatic",
+        "aniseed",
+        "almond-marzipan",
+        "fruity",
+        "apricot",
+        "fragrant",
+        "sweet",
+        "sickly_sweet",
+        "honey",
+        "coconut",
+        "maple-syrup-fenugreek",
+        "garlic",
+        "radish-raphanoid",
+        "cabbage",
+        "rubber",
+        "chlorine-bleach",
+        "phenolic",
+        "iodoform-medicinal",
+        "coal-tar",
+        "earthy",
+        "mushroomy",
+        "spicy",
+        "pungent",
+        "foul-fetid",
+        "ammoniacal",
+        "skunk-like",
+        "metallic",
+        "green-corn"
+      ]
+    },
+    {
+      "name": "TasteDescriptor",
+      "values": [
+        "mild",
+        "pleasant",
+        "nutty",
+        "sweet",
+        "bitter",
+        "very-bitter",
+        "acrid",
+        "peppery-hot",
+        "burning-acrid",
+        "tardily-acrid",
+        "sour",
+        "astringent",
+        "metallic",
+        "unpleasant",
+        "farinaceous",
+        "not-tested"
+      ],
+      "notes": "Chew-and-spit only; never swallow."
+    },
+    {
+      "name": "BruisingColor",
+      "values": [
+        "none",
+        "blue",
+        "blue-green",
+        "green",
+        "red",
+        "reddish",
+        "pink",
+        "brown",
+        "black",
+        "yellow",
+        "saffron",
+        "grey",
+        "vinaceous",
+        "not-applicable"
+      ]
+    },
+    {
+      "name": "BruisingSpeed",
+      "values": [
+        "immediate",
+        "rapid-under-1min",
+        "moderate-1-5min",
+        "slow-over-5min",
+        "none",
+        "not-applicable"
+      ]
+    },
+    {
+      "name": "DevelopmentType",
+      "values": [
+        "gymnocarpic",
+        "angiocarpic",
+        "hemiangiocarpic",
+        "pseudoangiocarpic",
+        "pileostipitocarpic",
+        "bivelangiocarpic",
+        "metavelangiocarpic",
+        "paravelangiocarpic",
+        "monovelangiocarpic",
+        "not-applicable"
+      ]
+    },
+    {
+      "name": "FruitbodyTexture",
+      "values": [
+        "fleshy",
+        "leathery",
+        "corky",
+        "woody",
+        "gelatinous",
+        "membranous",
+        "brittle",
+        "cartilaginous",
+        "waxy",
+        "papery",
+        "fibrous-tough"
+      ]
+    },
+    {
+      "name": "SporeShape",
+      "values": [
+        "globose",
+        "subglobose",
+        "broadly-ellipsoid",
+        "ellipsoid",
+        "ovoid",
+        "obovoid",
+        "amygdaliform",
+        "limoniform",
+        "fusiform",
+        "cylindrical",
+        "allantoid",
+        "reniform",
+        "phaseoliform",
+        "navicular",
+        "tetrahedral",
+        "stellate",
+        "angular",
+        "nodulose",
+        "polygonal",
+        "lacrymoid",
+        "citriform",
+        "boletoid",
+        "other"
+      ]
+    },
+    {
+      "name": "SporeOrnamentation",
+      "values": [
+        "smooth",
+        "punctate",
+        "verrucose-warts",
+        "spiny-echinulate",
+        "warts-connected-by-ridges",
+        "reticulate",
+        "partially-reticulate",
+        "ridged-costate",
+        "winged-alate",
+        "cristate",
+        "striate",
+        "pitted-foveolate",
+        "nodulose-angular",
+        "verrucose-low",
+        "unknown"
+      ]
+    },
+    {
+      "name": "AmyloidReaction",
+      "values": [
+        "amyloid",
+        "weakly-amyloid",
+        "inamyloid",
+        "dextrinoid",
+        "weakly-dextrinoid",
+        "mixed",
+        "not-tested",
+        "unknown"
+      ],
+      "notes": "Melzer's/Lugol reaction; applied at spore-whole, ornamentation, hyphal-wall, and tissue levels."
+    },
+    {
+      "name": "GermPore",
+      "values": [
+        "present-distinct",
+        "present-broad",
+        "present-truncate",
+        "present-indistinct",
+        "eccentric",
+        "absent",
+        "unknown"
+      ]
+    },
+    {
+      "name": "BasidiaShape",
+      "values": [
+        "clavate",
+        "cylindrical",
+        "subcylindrical",
+        "narrowly-clavate",
+        "utriform",
+        "suburniform",
+        "pyriform",
+        "sphaeropedunculate",
+        "ventricose",
+        "unknown"
+      ]
+    },
+    {
+      "name": "SterigmataNumber",
+      "values": [
+        "1",
+        "2",
+        "2-4",
+        "4",
+        "4-6",
+        "6",
+        "8",
+        "variable",
+        "unknown"
+      ]
+    },
+    {
+      "name": "CystidiaPresence",
+      "values": [
+        "abundant",
+        "frequent",
+        "scattered",
+        "rare",
+        "absent",
+        "present",
+        "unknown"
+      ]
+    },
+    {
+      "name": "CystidiaShape",
+      "values": [
+        "clavate",
+        "cylindrical",
+        "fusiform",
+        "fusiform-ventricose",
+        "lageniform",
+        "utriform",
+        "lecythiform-capitate",
+        "capitate",
+        "subcapitate",
+        "ventricose",
+        "mucronate",
+        "rostrate",
+        "flexuous",
+        "sphaeropedunculate",
+        "metuloid",
+        "lamprocystidia",
+        "gloeocystidia",
+        "macrocystidia",
+        "hooked-with-crystals",
+        "versiform",
+        "cystidioles",
+        "unknown"
+      ]
+    },
+    {
+      "name": "HyphalSystem",
+      "values": [
+        "monomitic",
+        "dimitic",
+        "trimitic",
+        "monomitic-with-gloeohyphae",
+        "dimitic-with-skeletals",
+        "dimitic-with-binding",
+        "amphimitic",
+        "unknown"
+      ]
+    },
+    {
+      "name": "ClampConnections",
+      "values": [
+        "present-throughout",
+        "present-at-septa",
+        "present-on-basidia-only",
+        "present-medallion-type",
+        "absent",
+        "rare",
+        "unknown"
+      ]
+    },
+    {
+      "name": "TramaType",
+      "values": [
+        "regular-parallel",
+        "subregular",
+        "irregular-interwoven",
+        "bilateral-divergent",
+        "inverse-convergent",
+        "sarcodimitic",
+        "with-sphaerocytes",
+        "boletoid",
+        "unknown"
+      ]
+    },
+    {
+      "name": "PileipellisType",
+      "values": [
+        "cutis",
+        "ixocutis",
+        "trichoderm",
+        "ixotrichoderm",
+        "hymeniderm",
+        "epithelium",
+        "palisadoderm",
+        "ixolattice",
+        "cellular",
+        "euderm",
+        "unknown"
+      ]
+    },
+    {
+      "name": "SetaePresence",
+      "values": [
+        "hymenial-setae-present",
+        "tramal-setae-present",
+        "setal-hyphae-present",
+        "absent",
+        "unknown"
+      ]
+    },
+    {
+      "name": "CrystalsPresence",
+      "values": [
+        "calcium-oxalate-present",
+        "crystalline-encrustations-present",
+        "acanthocyte-crystals-present",
+        "rhomboid-crystals",
+        "star-crystals",
+        "absent",
+        "unknown"
+      ]
+    },
+    {
+      "name": "AscusType",
+      "values": [
+        "operculate",
+        "inoperculate",
+        "bitunicate",
+        "unitunicate-thin-walled",
+        "prototunicate",
+        "fissitunicate",
+        "not-applicable",
+        "unknown"
+      ]
+    },
+    {
+      "name": "MountingMedium",
+      "values": [
+        "water",
+        "KOH-3pct",
+        "KOH-5pct",
+        "KOH-10pct",
+        "ammonia",
+        "Melzers",
+        "Lugol",
+        "Congo-red",
+        "cotton-blue-lactophenol",
+        "cresyl-blue",
+        "phloxine",
+        "ammoniacal-Congo-red",
+        "not-recorded"
+      ]
+    },
+    {
+      "name": "ToxicityClass",
+      "values": [
+        "nontoxic",
+        "gi_irritant_only",
+        "mildly_poisonous",
+        "poisonous",
+        "deadly_poisonous",
+        "psychoactive_only",
+        "allergenic_only",
+        "unknown"
+      ],
+      "notes": "Hazard axis; keep separate from edibilityClass culinary axis."
+    },
+    {
+      "name": "Toxidrome",
+      "values": [
+        "amatoxin_hepatotoxic",
+        "gyromitrin_monomethylhydrazine",
+        "orellanine_nephrotoxic",
+        "muscarinic_cholinergic",
+        "isoxazole_pantherina_muscaria",
+        "psilocybin_hallucinogenic",
+        "coprine_disulfiram_like",
+        "gastrointestinal_irritant",
+        "rhabdomyolysis_tricholoma_equestre",
+        "erythromelalgia_acromelic",
+        "encephalopathy_pleurocybella",
+        "shiitake_dermatitis_flagellate",
+        "hemolytic_paxillus",
+        "immune_hemolytic_paxillus_syndrome",
+        "polyporic_morel_neurologic",
+        "none",
+        "unknown"
+      ]
+    },
+    {
+      "name": "OnsetCategory",
+      "values": [
+        "rapid_under_2h",
+        "intermediate_2_6h",
+        "delayed_6_24h",
+        "very_delayed_24h_plus",
+        "variable",
+        "unknown"
+      ],
+      "notes": ">6h delayed onset is the danger flag."
+    },
+    {
+      "name": "TargetOrgan",
+      "values": [
+        "liver",
+        "kidney",
+        "gastrointestinal",
+        "central_nervous_system",
+        "peripheral_nervous_system",
+        "autonomic_nervous_system",
+        "cardiovascular",
+        "skeletal_muscle",
+        "blood_hematologic",
+        "skin",
+        "respiratory"
+      ]
+    },
+    {
+      "name": "ToxinCompoundClass",
+      "values": [
+        "amatoxin",
+        "phallotoxin",
+        "virotoxin",
+        "orellanine",
+        "gyromitrin",
+        "muscarine",
+        "ibotenic_acid",
+        "muscimol",
+        "coprine",
+        "illudin",
+        "bolesatine",
+        "lectin",
+        "cyclopeptide",
+        "psilocybin_tryptamine",
+        "other"
+      ]
+    },
+    {
+      "name": "Antidote",
+      "values": [
+        "silibinin_IV",
+        "milk_thistle_silymarin",
+        "N_acetylcysteine",
+        "penicillin_G_high_dose",
+        "activated_charcoal",
+        "atropine",
+        "pyridoxine_B6",
+        "hemodialysis",
+        "plasmapheresis",
+        "liver_transplant",
+        "supportive_only",
+        "benzodiazepines",
+        "none_known"
+      ]
+    },
+    {
+      "name": "ToxinThermolability",
+      "values": [
+        "heat_stable",
+        "heat_labile_destroyed_by_cooking",
+        "partially_reduced_by_cooking",
+        "volatile_removed_by_parboiling",
+        "mixed",
+        "unknown"
+      ]
+    },
+    {
+      "name": "PsychoactiveStatus",
+      "values": [
+        "none",
+        "tryptamine_psychedelic",
+        "isoxazole_deliriant",
+        "muscarinic",
+        "ergoline",
+        "other",
+        "unconfirmed"
+      ]
+    },
+    {
+      "name": "MedicinalCompoundClass",
+      "values": [
+        "beta_glucan",
+        "triterpenoid",
+        "statin",
+        "alkaloid",
+        "terpene",
+        "polysaccharide_protein_complex",
+        "sterol",
+        "amino_acid_derivative",
+        "phenolic",
+        "nucleoside",
+        "lectin"
+      ]
+    },
+    {
+      "name": "MedicinalEvidenceGrade",
+      "values": [
+        "traditional_use_only",
+        "in_vitro_only",
+        "preclinical_in_vitro_animal",
+        "early_human_trials",
+        "rct_supported",
+        "approved_drug_or_adjuvant",
+        "insufficient_disputed"
+      ]
+    },
+    {
+      "name": "BioaccumulatorFlag",
+      "values": [
+        "none_notable",
+        "cadmium_hyperaccumulator",
+        "mercury_accumulator",
+        "lead_accumulator",
+        "arsenic_accumulator",
+        "radiocesium_accumulator",
+        "multi_metal_accumulator",
+        "unknown"
+      ]
+    },
+    {
+      "name": "BioaccumElement",
+      "values": [
+        "cadmium",
+        "lead",
+        "mercury",
+        "arsenic",
+        "copper",
+        "zinc",
+        "selenium",
+        "radiocesium_Cs137",
+        "radiopotassium_K40",
+        "vanadium"
+      ]
+    },
+    {
+      "name": "BioconcentrationFactor",
+      "values": [
+        "low",
+        "moderate",
+        "high",
+        "hyperaccumulator"
+      ]
+    },
+    {
+      "name": "AllergenProfile",
+      "values": [
+        "none_reported",
+        "ingestion_gi_intolerance_idiosyncratic",
+        "shiitake_lentinan_dermatitis",
+        "spore_inhalation_hypersensitivity_pneumonitis",
+        "spore_inhalation_allergic_rhinitis",
+        "contact_dermatitis",
+        "lyophyllum_mushroom_workers_lung",
+        "alcohol_sensitization",
+        "unknown"
+      ]
+    },
+    {
+      "name": "BluingReaction",
+      "values": [
+        "none",
+        "blue_psilocin_indicative",
+        "blue_variegatic_boletoid",
+        "red_browning",
+        "yellow_staining",
+        "black_staining",
+        "green_staining",
+        "other",
+        "unknown"
+      ]
+    },
+    {
+      "name": "MacrochemicalReagent",
+      "values": [
+        "KOH",
+        "NH4OH",
+        "FeSO4",
+        "Melzer",
+        "Lugol",
+        "phenol",
+        "aniline",
+        "guaiac",
+        "NaOH",
+        "sulfovanillin",
+        "Schaeffers-reaction"
+      ],
+      "notes": "Bench spot-test reagents; shared with microscopy."
+    },
+    {
+      "name": "PigmentClass",
+      "values": [
+        "pulvinic_acid",
+        "terphenylquinone",
+        "anthraquinone",
+        "betalain_muscaflavin",
+        "melanin",
+        "carotenoid",
+        "azulene",
+        "styrylpyrone",
+        "betalactam"
+      ]
+    },
+    {
+      "name": "LegalScheduleStatus",
+      "values": [
+        "unscheduled",
+        "us_schedule_I_psilocybin",
+        "controlled_varies_by_jurisdiction",
+        "decriminalized_local",
+        "legal_medical_research",
+        "unknown"
+      ]
+    },
+    {
+      "name": "EdibilityClass",
+      "values": [
+        "choice_edible",
+        "edible",
+        "edible_with_caution",
+        "edible_when_cooked",
+        "conditionally_edible",
+        "inedible",
+        "unpalatable",
+        "poisonous",
+        "deadly_poisonous",
+        "psychoactive",
+        "medicinal_only",
+        "allergenic",
+        "mycorrhizal_uncultivated",
+        "unknown",
+        "untested"
+      ],
+      "notes": "Primary safety classification; pick the most conservative applicable value. Supersedes legacy edible/inedible/toxic/psychoactive/unknown enum."
+    },
+    {
+      "name": "EdibilityConfidence",
+      "values": [
+        "well_established",
+        "documented",
+        "reported",
+        "anecdotal",
+        "disputed",
+        "unverified"
+      ]
+    },
+    {
+      "name": "NoviceSafetyRating",
+      "values": [
+        "safe_for_beginners",
+        "intermediate_only",
+        "expert_only",
+        "avoid_no_exceptions"
+      ]
+    },
+    {
+      "name": "LookalikeRiskLevel",
+      "values": [
+        "none_known",
+        "low",
+        "moderate",
+        "high",
+        "extreme"
+      ],
+      "notes": "Used by deadlyLookalikeRisk and per-lookalike confusionLikelihood (low/moderate/high subset)."
+    },
+    {
+      "name": "PreparationStep",
+      "values": [
+        "thorough_cooking",
+        "parboiling",
+        "multiple_boil_drain",
+        "leaching_water",
+        "drying",
+        "fermentation",
+        "peeling",
+        "deveiling",
+        "soaking",
+        "blanching",
+        "none"
+      ]
+    },
+    {
+      "name": "AlcoholInteraction",
+      "values": [
+        "none_known",
+        "disulfiram_like_coprine",
+        "reported_intolerance",
+        "unknown"
+      ]
+    },
+    {
+      "name": "ConfusionDirection",
+      "values": [
+        "toxic_mistaken_for_this",
+        "this_mistaken_for_edible",
+        "mutual"
+      ]
+    },
+    {
+      "name": "TasteRating",
+      "values": [
+        "choice",
+        "excellent",
+        "good",
+        "fair",
+        "mediocre",
+        "poor",
+        "unpalatable",
+        "inedibly_bitter",
+        "not_applicable"
+      ]
+    },
+    {
+      "name": "FlavorProfile",
+      "values": [
+        "umami",
+        "nutty",
+        "meaty",
+        "earthy",
+        "sweet",
+        "mild",
+        "peppery",
+        "sour",
+        "bitter",
+        "astringent",
+        "seafood_like",
+        "chicken_like",
+        "apricot",
+        "anise",
+        "almond",
+        "garlic",
+        "fruity",
+        "smoky",
+        "metallic"
+      ]
+    },
+    {
+      "name": "AromaDescriptor",
+      "values": [
+        "mild",
+        "mealy_farinaceous",
+        "anise_licorice",
+        "almond_marzipan",
+        "apricot",
+        "fruity",
+        "fishy",
+        "phenolic_chemical",
+        "iodine",
+        "coal_tar",
+        "spermatic",
+        "fenugreek_maple",
+        "garlic",
+        "radish",
+        "chlorine_bleach",
+        "spicy",
+        "sweet",
+        "sickly_sweet",
+        "earthy",
+        "mushroomy",
+        "foul_putrid",
+        "carbolic",
+        "cucumber"
+      ]
+    },
+    {
+      "name": "TextureCooked",
+      "values": [
+        "meaty",
+        "chewy",
+        "tender",
+        "silky",
+        "crisp",
+        "slimy",
+        "gelatinous",
+        "creamy",
+        "stringy",
+        "melts",
+        "stays_firm",
+        "becomes_tough"
+      ]
+    },
+    {
+      "name": "CulinaryUse",
+      "values": [
+        "saute",
+        "grill",
+        "roast",
+        "fry",
+        "stew_braise",
+        "soup_stock",
+        "sauce",
+        "stuffing",
+        "pickling",
+        "raw_salad",
+        "powder_seasoning",
+        "tea_infusion",
+        "tincture",
+        "meat_substitute",
+        "stir_fry",
+        "tempura",
+        "duxelles",
+        "confit"
+      ]
+    },
+    {
+      "name": "PreservationMethod",
+      "values": [
+        "drying",
+        "freezing",
+        "pickling",
+        "salting",
+        "fermentation",
+        "canning",
+        "oil_preservation",
+        "powdering",
+        "duxelles_freeze",
+        "refrigeration_short_term",
+        "dehydration_then_powder"
+      ]
+    },
+    {
+      "name": "CommercialFoodStatus",
+      "values": [
+        "widely_cultivated",
+        "commercially_foraged",
+        "specialty_market",
+        "gourmet_premium",
+        "subsistence_local",
+        "not_commercial",
+        "forbidden_for_sale"
+      ]
+    },
+    {
+      "name": "TrophicMode",
+      "values": [
+        "ectomycorrhizal",
+        "arbuscular_mycorrhizal",
+        "ericoid_mycorrhizal",
+        "orchid_mycorrhizal",
+        "saprotroph",
+        "wood_decay_saprotroph",
+        "litter_saprotroph",
+        "soil_saprotroph",
+        "dung_saprotroph_coprophilous",
+        "biotrophic_parasite",
+        "necrotrophic_parasite",
+        "hemibiotrophic_parasite",
+        "mycoparasite",
+        "entomopathogen",
+        "nematophagous",
+        "endophyte",
+        "lichenized",
+        "epiphyte",
+        "facultative_parasite",
+        "unknown"
+      ],
+      "notes": "Canonical owner; cultivation references for cultivability gating."
+    },
+    {
+      "name": "DecayType",
+      "values": [
+        "white_rot",
+        "brown_rot",
+        "soft_rot",
+        "not_wood_decay",
+        "unknown"
+      ]
+    },
+    {
+      "name": "SubstrateType",
+      "values": [
+        "soil",
+        "leaf_litter",
+        "humus",
+        "deadwood_logs",
+        "deadwood_branches",
+        "standing_dead_wood",
+        "living_wood",
+        "living_bark",
+        "tree_roots",
+        "buried_wood",
+        "woodchip_mulch",
+        "dung_herbivore",
+        "dung_carnivore",
+        "grass_sward",
+        "moss",
+        "sphagnum",
+        "other_fungi",
+        "insect_host",
+        "other_invertebrate",
+        "mammal_keratin",
+        "lichen",
+        "leaf_surface_living",
+        "needle_litter",
+        "burnt_ground_charcoal",
+        "compost_straw",
+        "seeds_cones_nuts",
+        "fruit",
+        "fern",
+        "peat",
+        "rock_lithic",
+        "freshwater",
+        "marine_substrate",
+        "artificial_manmade",
+        "nest_material"
+      ]
+    },
+    {
+      "name": "HostRelationship",
+      "values": [
+        "ectomycorrhizal",
+        "arbuscular_mycorrhizal",
+        "ericoid_mycorrhizal",
+        "orchid_mycorrhizal",
+        "biotrophic_parasite",
+        "necrotrophic_parasite",
+        "mycoparasite",
+        "endophyte",
+        "saprotroph_of",
+        "lichen_photobiont",
+        "entomopathogen",
+        "commensal",
+        "unknown"
+      ]
+    },
+    {
+      "name": "HostSpecificity",
+      "values": [
+        "obligate",
+        "preferential",
+        "facultative",
+        "generalist",
+        "monophagous_single_host",
+        "oligophagous_few_hosts",
+        "host_independent",
+        "unknown"
+      ]
+    },
+    {
+      "name": "HostBreadthClass",
+      "values": [
+        "angiosperm_only",
+        "gymnosperm_only",
+        "both",
+        "monocot_only",
+        "non_plant",
+        "unknown"
+      ]
+    },
+    {
+      "name": "HabitatType",
+      "values": [
+        "tropical_moist_forest",
+        "tropical_dry_forest",
+        "temperate_broadleaf_forest",
+        "temperate_coniferous_forest",
+        "mixed_forest",
+        "boreal_taiga",
+        "montane_forest",
+        "cloud_forest",
+        "mangrove",
+        "woodland_savanna",
+        "scrubland_heathland",
+        "unimproved_grassland",
+        "improved_grassland_pasture",
+        "alpine_tundra",
+        "arctic_tundra",
+        "wetland_marsh",
+        "bog_mire",
+        "riparian",
+        "dune_coastal",
+        "desert_arid",
+        "agricultural_land",
+        "urban_parkland",
+        "garden_lawn",
+        "plantation",
+        "cave",
+        "freshwater_aquatic",
+        "marine_coastal",
+        "disturbed_ruderal"
+      ]
+    },
+    {
+      "name": "ClimateClass",
+      "values": [
+        "tropical",
+        "subtropical",
+        "temperate",
+        "boreal",
+        "montane",
+        "arctic_alpine",
+        "mediterranean",
+        "arid_semiarid",
+        "cosmopolitan",
+        "unknown"
+      ]
+    },
+    {
+      "name": "SoilPreference",
+      "values": [
+        "calcareous",
+        "acidic",
+        "neutral",
+        "sandy",
+        "clay",
+        "loam",
+        "peat",
+        "chalk",
+        "serpentine",
+        "nutrient_poor_oligotrophic",
+        "nutrient_rich_eutrophic",
+        "disturbed",
+        "saline",
+        "gravelly_rocky",
+        "organic_rich"
+      ]
+    },
+    {
+      "name": "MoisturePreference",
+      "values": [
+        "xeric_dry",
+        "mesic",
+        "hygrophilous_wet",
+        "aquatic_freshwater",
+        "marine",
+        "riparian",
+        "unknown"
+      ]
+    },
+    {
+      "name": "FruitingSeason",
+      "values": [
+        "early_spring",
+        "spring",
+        "late_spring",
+        "early_summer",
+        "summer",
+        "late_summer",
+        "early_autumn",
+        "autumn",
+        "late_autumn",
+        "winter",
+        "year_round",
+        "aseasonal"
+      ]
+    },
+    {
+      "name": "PhenologyHemisphere",
+      "values": [
+        "northern",
+        "southern",
+        "both_recorded",
+        "equatorial_aseasonal"
+      ]
+    },
+    {
+      "name": "FruitingTriggers",
+      "values": [
+        "autumn_rains",
+        "spring_rains",
+        "monsoon",
+        "temperature_drop",
+        "temperature_shock",
+        "first_frost",
+        "warming_thaw",
+        "fire",
+        "flooding",
+        "host_senescence",
+        "host_death",
+        "drought_break",
+        "diurnal_temp_swing",
+        "humidity_spike"
+      ]
+    },
+    {
+      "name": "FruitingPosition",
+      "values": [
+        "epigeous_above_ground",
+        "hypogeous_below_ground",
+        "semihypogeous",
+        "on_substrate_surface",
+        "internal_to_host",
+        "aquatic_submerged"
+      ]
+    },
+    {
+      "name": "EcologicalRole",
+      "values": [
+        "primary_decomposer",
+        "keystone_decomposer",
+        "lignin_degrader",
+        "cellulose_degrader",
+        "nutrient_cycler",
+        "nitrogen_facilitator",
+        "mycorrhizal_network_hub",
+        "primary_succession_pioneer",
+        "soil_aggregation",
+        "carbon_sequestration",
+        "pathogen_population_regulator",
+        "food_source_for_fauna",
+        "habitat_engineer"
+      ]
+    },
+    {
+      "name": "IndicatorSpeciesRole",
+      "values": [
+        "old_growth_forest_indicator",
+        "ancient_woodland_indicator",
+        "unimproved_grassland_indicator",
+        "ph_indicator",
+        "pollution_sensitive",
+        "disturbance_tolerant_weedy",
+        "ecosystem_health_indicator",
+        "none",
+        "unknown"
+      ]
+    },
+    {
+      "name": "IucnStatus",
+      "values": [
+        "EX",
+        "EW",
+        "CR",
+        "EN",
+        "VU",
+        "NT",
+        "LC",
+        "DD",
+        "NE",
+        "not_assessed"
+      ]
+    },
+    {
+      "name": "Abundance",
+      "values": [
+        "very_common",
+        "common",
+        "frequent",
+        "occasional",
+        "uncommon",
+        "rare",
+        "very_rare",
+        "extremely_rare_few_records",
+        "data_deficient"
+      ]
+    },
+    {
+      "name": "NativeStatus",
+      "values": [
+        "native",
+        "introduced_naturalized",
+        "introduced_casual",
+        "invasive",
+        "cryptogenic_origin_unknown",
+        "cosmopolitan",
+        "unknown"
+      ]
+    },
+    {
+      "name": "DistributionPattern",
+      "values": [
+        "cosmopolitan",
+        "holarctic",
+        "palearctic_endemic",
+        "nearctic_endemic",
+        "neotropical",
+        "paleotropical",
+        "pantropical",
+        "austral_southern",
+        "amphi_atlantic",
+        "amphi_pacific",
+        "bipolar",
+        "regional_endemic",
+        "narrow_endemic",
+        "disjunct",
+        "unknown"
+      ]
+    },
+    {
+      "name": "BiogeographicRealm",
+      "values": [
+        "Palearctic",
+        "Nearctic",
+        "Neotropical",
+        "Afrotropical",
+        "Indomalayan",
+        "Australasian",
+        "Oceanian",
+        "Antarctic",
+        "Marine"
+      ]
+    },
+    {
+      "name": "CultivationDifficulty",
+      "values": [
+        "beginner",
+        "intermediate",
+        "advanced",
+        "expert",
+        "not-cultivable",
+        "experimental"
+      ]
+    },
+    {
+      "name": "CultivationMethod",
+      "values": [
+        "PF-tek",
+        "monotub",
+        "bulk-substrate",
+        "log-cultivation",
+        "stump-cultivation",
+        "bottle-culture",
+        "bag-culture",
+        "tray-tek",
+        "liquid-culture-only",
+        "outdoor-bed",
+        "wood-chip-bed",
+        "mushroom-bag-block",
+        "none"
+      ]
+    },
+    {
+      "name": "AgarMedia",
+      "values": [
+        "MEA",
+        "PDA",
+        "PDYA",
+        "DFA",
+        "MYA",
+        "CYM",
+        "OMYA",
+        "V8A",
+        "SDA",
+        "WA",
+        "cornmeal-agar",
+        "compost-extract-agar"
+      ]
+    },
+    {
+      "name": "SpawnType",
+      "values": [
+        "rye-grain",
+        "wheat-grain",
+        "milo-sorghum",
+        "millet",
+        "wild-bird-seed-WBS",
+        "brown-rice-PF",
+        "popcorn",
+        "oats",
+        "sawdust-spawn",
+        "plug-spawn",
+        "dowel-spawn",
+        "grain-master-spawn",
+        "liquid-culture"
+      ]
+    },
+    {
+      "name": "BulkSubstrate",
+      "values": [
+        "CVG-coir-vermiculite-gypsum",
+        "coco-coir",
+        "horse-manure",
+        "cow-manure",
+        "straw-pasteurized",
+        "supplemented-hardwood-sawdust",
+        "masters-mix",
+        "soy-hull-pellets",
+        "wood-chips",
+        "compost-phase2",
+        "logs",
+        "sugarcane-bagasse",
+        "cotton-waste",
+        "spent-coffee-grounds"
+      ]
+    },
+    {
+      "name": "FreshAirExchangeRate",
+      "values": [
+        "very-low",
+        "low",
+        "moderate",
+        "high",
+        "very-high"
+      ]
+    },
+    {
+      "name": "LightRequirement",
+      "values": [
+        "none",
+        "negligible",
+        "indirect-low",
+        "moderate-required-for-pinning",
+        "high",
+        "photoperiod-required"
+      ]
+    },
+    {
+      "name": "PinningTriggers",
+      "values": [
+        "increased-FAE",
+        "lowered-CO2",
+        "introduce-light",
+        "temperature-drop",
+        "cold-shock",
+        "RH-increase",
+        "casing-layer",
+        "dunk-soak",
+        "substrate-fully-colonized",
+        "mechanical-disturbance",
+        "time-elapsed",
+        "desiccation-then-rehydrate"
+      ]
+    },
+    {
+      "name": "ContaminationSusceptibility",
+      "values": [
+        "very-low",
+        "low",
+        "moderate",
+        "high",
+        "very-high"
+      ]
+    },
+    {
+      "name": "CommonContaminant",
+      "values": [
+        "Trichoderma-green-mold",
+        "Cobweb-Dactylium",
+        "Penicillium",
+        "Aspergillus",
+        "bacterial-wet-spot-Bacillus",
+        "Pseudomonas-bacterial-blotch",
+        "Neurospora-orange",
+        "black-pin-mold-Mucor-Rhizopus",
+        "Verticillium-dry-bubble",
+        "yeast",
+        "Lipstick-mold-Sporendonema"
+      ]
+    },
+    {
+      "name": "SenescenceSusceptibility",
+      "values": [
+        "low",
+        "moderate",
+        "high",
+        "very-high"
+      ]
+    },
+    {
+      "name": "DegradationSymptom",
+      "values": [
+        "sectoring",
+        "loss-of-rhizomorphic-growth",
+        "slowed-colonization",
+        "reduced-yield",
+        "fruiting-failure",
+        "increased-aborts",
+        "mutation-sectors",
+        "loss-of-bruising"
+      ]
+    },
+    {
+      "name": "StorageMethod",
+      "values": [
+        "agar-slant-4C",
+        "sterile-water-storage",
+        "grain-master-frozen",
+        "cryopreservation-LN2-glycerol",
+        "liquid-culture-fridge",
+        "spore-syringe",
+        "sclerotia",
+        "silica-gel",
+        "mineral-oil-overlay",
+        "lyophilization"
+      ]
+    },
+    {
+      "name": "CommercialViability",
+      "values": [
+        "major-commercial-crop",
+        "minor-commercial",
+        "specialty-gourmet",
+        "medicinal-commercial",
+        "hobby-only",
+        "research-only",
+        "not-cultivated-commercially"
+      ]
+    },
+    {
+      "name": "MatingSystem",
+      "values": [
+        "homothallic",
+        "heterothallic",
+        "pseudohomothallic_amphithallic",
+        "secondarily-homothallic",
+        "asexual-only_unknown-teleomorph",
+        "unknown"
+      ]
+    },
+    {
+      "name": "MatingTypeArchitecture",
+      "values": [
+        "bipolar_unifactorial",
+        "tetrapolar_bifactorial",
+        "bipolar-MAT-only",
+        "not-applicable",
+        "unknown"
+      ]
+    },
+    {
+      "name": "PloidyState",
+      "values": [
+        "haploid (n)",
+        "diploid (2n)",
+        "dikaryotic (n+n)",
+        "polyploid",
+        "aneuploid",
+        "variable_life-stage-dependent",
+        "unknown"
+      ]
+    },
+    {
+      "name": "GeneticMarker",
+      "values": [
+        "ITS",
+        "ITS1",
+        "ITS2",
+        "LSU-28S",
+        "SSU-18S",
+        "5.8S",
+        "IGS",
+        "RPB1",
+        "RPB2",
+        "TEF1a",
+        "beta-tubulin",
+        "CaM",
+        "ACT",
+        "GAPDH",
+        "MCM7",
+        "mtSSU",
+        "mtLSU",
+        "ATP6",
+        "COI",
+        "whole-genome",
+        "other"
+      ]
+    },
+    {
+      "name": "RecommendedBarcodeMarker",
+      "values": [
+        "ITS",
+        "ITS+LSU",
+        "TEF1",
+        "RPB2",
+        "TUB2_benA",
+        "CaM",
+        "ITS+TEF1",
+        "multilocus",
+        "unknown"
+      ]
+    },
+    {
+      "name": "AssemblyLevel",
+      "values": [
+        "Complete Genome",
+        "Chromosome",
+        "Scaffold",
+        "Contig"
+      ]
+    },
+    {
+      "name": "IntraspecificVariation",
+      "values": [
+        "low_clonal",
+        "moderate",
+        "high",
+        "cryptic-lineages-present",
+        "unknown"
+      ]
+    },
+    {
+      "name": "NameUsageStatus",
+      "values": [
+        "current",
+        "preferred",
+        "alternative",
+        "obsolete",
+        "dialectal",
+        "archaic",
+        "colloquial",
+        "trade-name",
+        "misapplied"
+      ]
+    },
+    {
+      "name": "UseType",
+      "values": [
+        "food",
+        "medicine",
+        "ritual_entheogenic",
+        "insecticide",
+        "dye",
+        "tinder_fire",
+        "paper_material",
+        "fermentation",
+        "poison_weapon",
+        "veterinary",
+        "cosmetic",
+        "ornamental_decorative",
+        "spiritual-symbol",
+        "tanning",
+        "other"
+      ]
+    },
+    {
+      "name": "PoisoningOutcome",
+      "values": [
+        "no-harm",
+        "mild",
+        "moderate",
+        "severe",
+        "fatal",
+        "disputed",
+        "unknown"
+      ]
+    },
+    {
+      "name": "MediaReferenceType",
+      "values": [
+        "novel",
+        "poem",
+        "short-story",
+        "film",
+        "television",
+        "video-game",
+        "music",
+        "comic_graphic",
+        "painting",
+        "illustration",
+        "sculpture",
+        "photography",
+        "stamp",
+        "currency",
+        "advertising",
+        "folk-tale",
+        "religious-text",
+        "other"
+      ]
+    },
+    {
+      "name": "CulturalSensitivityFlag",
+      "values": [
+        "none",
+        "indigenous-knowledge-attributed",
+        "sacred-restricted",
+        "attribution-required",
+        "consult-community"
+      ]
+    },
+    {
+      "name": "MediaLicense",
+      "values": [
+        "CC0-1.0",
+        "CC-BY-4.0",
+        "CC-BY-SA-4.0",
+        "CC-BY-NC-4.0",
+        "CC-BY-NC-SA-4.0",
+        "CC-BY-ND-4.0",
+        "CC-BY-NC-ND-4.0",
+        "CC-BY-3.0",
+        "CC-BY-SA-3.0",
+        "public-domain",
+        "PDM-1.0",
+        "all-rights-reserved",
+        "GFDL",
+        "fair-use",
+        "permission-granted",
+        "unknown"
+      ],
+      "notes": "Per-asset. Default 'unknown' blocks redistribution."
+    },
+    {
+      "name": "RecordLicense",
+      "values": [
+        "CC0-1.0",
+        "CC-BY-4.0",
+        "CC-BY-SA-4.0",
+        "ODbL-1.0",
+        "PDDL-1.0",
+        "public-domain"
+      ],
+      "notes": "License of the MycoSci record/dataset itself; only open licenses fit the OSS mission."
+    },
+    {
+      "name": "MediaType",
+      "values": [
+        "image",
+        "audio",
+        "video",
+        "3d_model",
+        "specimen_scan",
+        "microscopy_image",
+        "spore_print_image",
+        "illustration",
+        "gif_timelapse",
+        "spectrum"
+      ]
+    },
+    {
+      "name": "MediaViewType",
+      "values": [
+        "in-situ",
+        "studio",
+        "cap-top",
+        "cap-underside-gills",
+        "stipe",
+        "stipe-base",
+        "cross-section",
+        "spore-print",
+        "microscopy-spores",
+        "microscopy-basidia",
+        "microscopy-cystidia",
+        "microscopy-hyphae",
+        "microscopy-pileipellis",
+        "chemical-reaction",
+        "culture-plate",
+        "habitat",
+        "fresh",
+        "dried-specimen",
+        "scale-reference",
+        "illustration",
+        "phylogenetic-tree",
+        "distribution-map",
+        "lookalike-comparison",
+        "other"
+      ]
+    },
+    {
+      "name": "LifecycleStage",
+      "values": [
+        "primordium",
+        "button",
+        "immature",
+        "mature",
+        "senescent",
+        "decaying",
+        "dried",
+        "mycelium",
+        "sclerotium",
+        "culture",
+        "spore",
+        "teleomorph",
+        "anamorph",
+        "unknown"
+      ]
+    },
+    {
+      "name": "MediaVerificationStatus",
+      "values": [
+        "unverified",
+        "community-id",
+        "research-grade",
+        "expert-verified",
+        "type-specimen",
+        "dna-confirmed",
+        "disputed",
+        "misidentified-flagged"
+      ]
+    },
+    {
+      "name": "ReferenceType",
+      "values": [
+        "journal-article",
+        "book",
+        "book-chapter",
+        "field-guide",
+        "monograph",
+        "protologue",
+        "thesis",
+        "dataset",
+        "database-record",
+        "web-page",
+        "preprint",
+        "conference-paper",
+        "personal-communication",
+        "herbarium-label"
+      ]
+    },
+    {
+      "name": "ExternalAuthority",
+      "values": [
+        "MycoBank",
+        "IndexFungorum",
+        "GBIF",
+        "NCBI-Taxonomy",
+        "GenBank",
+        "iNaturalist",
+        "MushroomObserver",
+        "Wikipedia",
+        "Wikidata",
+        "EOL",
+        "Catalogue-of-Life",
+        "FungalTraits",
+        "UNITE",
+        "BOLD",
+        "MyCoPortal",
+        "FungiDB",
+        "ITIS",
+        "SpeciesFungorum",
+        "IRMNG",
+        "PlutoF",
+        "FungalNames",
+        "other"
+      ]
+    },
+    {
+      "name": "LinkRelationship",
+      "values": [
+        "exact-match",
+        "current-name",
+        "synonym",
+        "basionym",
+        "occurrence-data",
+        "sequence-data",
+        "observation-data",
+        "type-record",
+        "related",
+        "ambiguous-match"
+      ]
+    },
+    {
+      "name": "SourceType",
+      "values": [
+        "primary-literature",
+        "peer-reviewed",
+        "field-guide",
+        "authority-database",
+        "expert-assertion",
+        "community-consensus",
+        "machine-inference",
+        "ai-generated-unverified",
+        "personal-observation",
+        "unknown"
+      ],
+      "notes": "ai-generated-unverified and machine-inference flagged distinctly per anti-fabrication policy."
+    },
+    {
+      "name": "ConfidenceLevel",
+      "values": [
+        "confirmed",
+        "high",
+        "moderate",
+        "low",
+        "speculative",
+        "disputed",
+        "unknown"
+      ]
+    },
+    {
+      "name": "FieldVerificationStatus",
+      "values": [
+        "unverified",
+        "auto-imported",
+        "community-reviewed",
+        "expert-verified",
+        "needs-review",
+        "flagged-for-correction",
+        "deprecated"
+      ]
+    },
+    {
+      "name": "RecordVerificationLevel",
+      "values": [
+        "unverified",
+        "auto-generated",
+        "community-reviewed",
+        "expert-reviewed",
+        "authoritative"
+      ]
+    },
+    {
+      "name": "ContributorRole",
+      "values": [
+        "author",
+        "editor",
+        "reviewer",
+        "photographer",
+        "translator",
+        "data-importer",
+        "expert-verifier",
+        "moderator"
+      ]
+    },
+    {
+      "name": "DisputeStatus",
+      "values": [
+        "open",
+        "under-review",
+        "resolved",
+        "wont-fix",
+        "escalated"
+      ]
+    }
+  ],
+  "designNotes": "TIERING. Three tiers let ~24k stubs enrich without schema churn. CORE = identity + safety only: recordId, slug, recordTier, scientificName, canonicalName, primaryCommonName, taxonRank, taxonomicStatus, acceptedNameUsageId, the seven Linnaean rank strings (kingdom..specificEpithet), parentNameUsageId, plus the safety triad edibilityClass/edibilityConfidence/toxicityClass and the provenance backbone (fieldProvenance, references, externalLinks, verificationLevel, recordLicense). A stub is a valid record carrying only core fields. STANDARD = a good profile (key morphology, ecology, distribution, common sensory/safety). DEEP = expert/rare (microscopy protocol metadata, gene clusters, development ontogeny, folklore detail). Every field is optional except the core identity keys, so a stub and a reference-quality record share one schema/one TS type; enrichment is additive. recordTier is the promotion flag from CLAUDE.md §3: stub/imported render client-side from sharded JSON; curated/featured/reference-quality pre-render via getStaticPaths. No code change to promote — flip recordTier and add fields.\n\nDE-DUPLICATION DECISIONS. (1) Common names: the provenanced multilingual set lives once in culture.vernacularNames; identity.primaryCommonName is a denormalized English display string (fast cards/search) flagged as derived. (2) Identifiers: all external DB IDs (MycoBank, IndexFungorum, GBIF, NCBI, iNaturalist, Wikidata, UNITE, BOLD, etc.) collapse into one provenance.externalLinks[] array — taxonomy/ecology/genetics no longer each carry their own ID fields. The only molecular IDs kept in genetics are sequence/assembly accessions (itsBarcode, otherMarkers, exTypeSequence, genome), because those are sequence records, not taxon-concept IDs. (3) Spore-print color: macroscopic field color owned by morphology.sporePrintColor; microscopy keeps only the chart-coded/individual-spore reactions. (4) Trophic mode: canonical owner ecology.trophicMode; cultivation reads it for cultivability gating (cultivation.cultivable) rather than re-storing it. (5) Toxin identity owned by chemistry.toxins[]; edibility carries only the actionable classification + rationale and cross-references via fieldProvenance. (6) Mating system canonical in genetics; cultivation references it. (7) Phylum: one classification.phylum (molecular placement folded in). (8) Nutrition raw composition owned by chemistry; edibility references. (9) Spot-test reagent vocab (MacrochemicalReagent) shared by chemistry + microscopy as one enum.\n\nPROVENANCE / CONFIDENCE MODEL. Rather than bloat every field with source/confidence wrappers, provenance is a single sparse array fieldProvenance[] keyed by dotted field path. Only asserted, non-trivial, or safety-relevant fields get an entry; the rest inherit the record-level verificationLevel. Each entry carries sourceRefId (FK into references[] or externalLinks), sourceType, confidence, verificationStatus, verifiedBy, reviewedOn, and an optional note. This makes per-claim citation badges and 'low/disputed' caution banners possible without doubling the field count, and keeps stub JSON tiny (a stub may have zero or one provenance entries). SourceType deliberately includes ai-generated-unverified and machine-inference as distinct flags so the anti-fabrication policy (CLAUDE.md §9) is enforceable in data: any field whose only provenance is ai-generated-unverified must not be presented as fact, and safety fields (edibility/toxicity) require a primary-literature/peer-reviewed/authority-database source before verificationLevel can exceed community-reviewed.\n\nUNITS & RANGES. All quantitative values use a NumericRange {min, max, unit} object; a single value sets min === max. Dimensionless values (Q ratio) use unit ''. Composite measurements nest ranges (stipeDimensions.length/width, basidiosporeDimensions). Units are stored explicitly per value (never implied globally) so mm/µm/°C/%RH/ppm/mg-g/Mb coexist safely and a UI can convert. Enums are centralized once (enums[]) and referenced by enumRef; multi-valued descriptive fields (capColor, odor, cystidia shapes) are arrays of the enum because real taxa span several values. Genus-dependence is handled by making nearly everything nullable plus 'not-applicable' enum members — a polypore simply omits gill fields; an ascomycete omits basidiospore fields and populates ascus fields.\n\nSTATIC-SITE FIT. The record is plain JSON with no runtime dependencies, ideal for sharded public/data/species/{first-letter}.json fetched client-side for the long tail, and for getStaticPaths pre-render of curated taxa. Core fields are small enough that a shard of thousands of stubs stays well under the ~200KB target; deep arrays (media, toxins, microscopy, provenance) only materialize on curated records, so build cost scales with curated content, not catalog size. Search-index builders read the same canonical record (Pagefind over pre-rendered curated pages; MiniSearch/Orama over the flat stub fields: canonicalName, vernacularNames, taxonomy path, edibilityClass, habitatType, trophicMode). Safety-relevant fields are explicitly flagged so the UI can always surface a caution Aside for toxic/psychoactive/disputed taxa and never auto-present an unsourced edibility claim. This schema replaces the legacy src/content.config.ts flat string fields (habitat/distribution become structured ecology/distribution groups; the 5-value edibility enum is superseded by EdibilityClass with the conservative-value rule)."
+}
