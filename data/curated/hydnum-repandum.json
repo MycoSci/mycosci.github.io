@@ -1,0 +1,82 @@
+{
+  "slug": "hydnum-repandum",
+  "authorship": "L.",
+  "year": 1753,
+  "edibility": "edible",
+  "preparation": "cook",
+  "edibilityNotes": "A well-regarded edible recognized by the soft spines (teeth) on the cap underside rather than gills or pores, which separates it from all deadly gilled mushrooms (e.g. Amanita). Older or large specimens can be bitter; cook thoroughly, and parboil older fruitbodies if bitterness persists. It has no deadly lookalikes. The only toothed look-alikes to be aware of are other spine-bearing fungi: bitter/acrid Sarcodon species and woody Hydnellum species, which are unpalatable or inedible rather than poisonous. Always cook before eating and confirm the toothed hymenophore.",
+  "description": "Hydnum repandum, the hedgehog or sweet tooth mushroom, is an edible ectomycorrhizal fungus recognized by the soft spines (teeth) lining the underside of its buff to pale-orange cap instead of gills or pores. The toothed hymenophore distinguishes it from deadly gilled mushrooms, making it a relatively safe choice for foragers who confirm the teeth.",
+  "distribution": "Widespread across the temperate Northern Hemisphere, including Europe and North America.",
+  "capColor": [
+    "buff",
+    "pale orange",
+    "cream",
+    "tan",
+    "yellowish-orange"
+  ],
+  "sporePrintColor": "white",
+  "fruitingSeason": [
+    "summer",
+    "autumn"
+  ],
+  "habitat": [
+    "coniferous forest",
+    "deciduous forest",
+    "mixed woodland",
+    "mossy ground under trees"
+  ],
+  "substrate": [
+    "soil",
+    "forest floor litter"
+  ],
+  "trophicMode": "ectomycorrhizal",
+  "vernacularNames": [
+    {
+      "lang": "en",
+      "name": "Hedgehog mushroom"
+    },
+    {
+      "lang": "en",
+      "name": "Sweet tooth"
+    },
+    {
+      "lang": "en",
+      "name": "Wood hedgehog"
+    },
+    {
+      "lang": "fr",
+      "name": "Pied de mouton"
+    }
+  ],
+  "dangerousLookalikes": [
+    {
+      "name": "Sarcodon spp. (e.g. Sarcodon scabrosus, S. squamosus)",
+      "note": "Also toothed/spine-bearing, but typically larger with a scaly cap and a bitter or acrid taste; not deadly but unpalatable and can cause gastrointestinal upset. Distinguished by taste, scaly cap, and tougher flesh."
+    },
+    {
+      "name": "Hydnellum spp.",
+      "note": "Toothed fungi with tough, woody, often zonate flesh; inedible due to texture and bitterness rather than toxic. Distinguished by their corky/woody consistency."
+    },
+    {
+      "name": "Hydnum rufescens",
+      "note": "A closely related, edible toothed fungus that is smaller and more orange-brown; not dangerous, a benign edible relative often treated as a close ally.",
+      "slug": "hydnum-rufescens"
+    },
+    {
+      "name": "Hydnum umbilicatum",
+      "note": "Another edible Hydnum with a smaller, often umbilicate (navel-depressed) cap and slender stipe; harmless and also edible.",
+      "slug": "hydnum-umbilicatum"
+    }
+  ],
+  "references": [
+    {
+      "title": "Hydnum repandum - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Hydnum_repandum"
+    },
+    {
+      "title": "Hydnum repandum - GBIF",
+      "url": "https://www.gbif.org/species/2520818"
+    }
+  ],
+  "lastReviewed": "2026-05-31"
+}

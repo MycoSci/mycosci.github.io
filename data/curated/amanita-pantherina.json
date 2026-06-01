@@ -1,0 +1,76 @@
+{
+  "slug": "amanita-pantherina",
+  "edibility": "toxic",
+  "description": "Amanita pantherina, the Panther Cap, is a toxic and psychoactive mushroom of Europe and Asia recognized by its brown cap dotted with white warts, a ring on the stem, and concentric hoop-like volval rings at the swollen base. It contains the isoxazole compounds ibotenic acid and muscimol — the same toxins as the fly agaric (A. muscaria) — typically at higher and more variable concentrations.",
+  "edibilityNotes": "Toxic and psychoactive — not edible. Contains ibotenic acid and muscimol, producing \"pantherina syndrome\": confusion, agitation, ataxia, delirium, drowsiness, and sometimes seizures or coma. Toxin levels are higher and more erratic than in A. muscaria, making poisoning more severe; fatalities are rare but reported. The principal real-world danger is mistaking the panther cap for the edible Blusher (Amanita rubescens) or for Amanita excelsa/spissa. It can also be confused with the fly agaric (A. muscaria), which shares the same toxins.",
+  "preparation": "none",
+  "authorship": "(DC.) Krombh.",
+  "vernacularNames": [
+    {
+      "lang": "en",
+      "name": "Panther Cap"
+    },
+    {
+      "lang": "en",
+      "name": "Panther Amanita"
+    },
+    {
+      "lang": "de",
+      "name": "Pantherpilz"
+    }
+  ],
+  "capColor": [
+    "brown",
+    "tan",
+    "grayish-brown"
+  ],
+  "sporePrintColor": "white",
+  "trophicMode": "ectomycorrhizal",
+  "habitat": [
+    "deciduous woodland",
+    "coniferous woodland",
+    "mixed forest"
+  ],
+  "hosts": [
+    "beech",
+    "oak",
+    "pine"
+  ],
+  "fruitingSeason": [
+    "summer",
+    "autumn"
+  ],
+  "distribution": "Widespread across Europe and Asia; closely related forms are reported in North America and elsewhere.",
+  "notableCompounds": [
+    "ibotenic acid",
+    "muscimol"
+  ],
+  "dangerousLookalikes": [
+    {
+      "name": "Amanita rubescens",
+      "slug": "amanita-rubescens",
+      "note": "The Blusher; edible only when thoroughly cooked. Flesh bruises and stains pinkish-red where cut or damaged, and it lacks the sharp concentric basal volval rings of A. pantherina. Foragers seeking the Blusher risk taking the toxic panther cap instead."
+    },
+    {
+      "name": "Amanita excelsa",
+      "slug": "amanita-excelsa",
+      "note": "Grey-brown European species (and its variety spissa), considered edible by some. Distinguished by greyish warts, a grooved ring, and a stem base lacking the sharp hoop-like marginal volval rings of A. pantherina; flesh does not redden as in the Blusher."
+    },
+    {
+      "name": "Amanita muscaria",
+      "slug": "amanita-muscaria",
+      "note": "The Fly Agaric; toxic and psychoactive, sharing the same isoxazole toxins. Typically red to orange cap (can fade to yellowish or brown), distinguishing it, but brown forms can be confused with A. pantherina."
+    }
+  ],
+  "references": [
+    {
+      "title": "Amanita pantherina - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Amanita_pantherina"
+    },
+    {
+      "title": "Amanita pantherina - GBIF",
+      "url": "https://www.gbif.org/species/search?q=Amanita%20pantherina"
+    }
+  ],
+  "lastReviewed": "2026-05-31"
+}

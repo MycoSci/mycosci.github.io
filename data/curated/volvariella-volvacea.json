@@ -1,0 +1,69 @@
+{
+  "slug": "volvariella-volvacea",
+  "edibility": "edible",
+  "preparation": "cook",
+  "description": "Volvariella volvacea, the paddy straw mushroom, is a warm-climate species widely cultivated across Southeast and East Asia on rice straw and other plant substrates. It is harvested mostly in its young, egg-like button stage, enclosed in a sac-like volva, and is a major commercial mushroom in tropical regions.",
+  "edibilityNotes": "Edible and popular when cooked; harvested young in the volva-enclosed \"egg\" stage. CRITICAL SAFETY WARNING: in its button stage the paddy straw mushroom, enclosed in a basal volva, closely resembles the unexpanded \"egg\" stage of deadly Amanita species (death cap Amanita phalloides, destroying angels Amanita virosa / A. bisporigera), and such confusion has caused fatal poisonings. Distinguishing features: Volvariella has a PINK to salmon spore print and pink mature gills and NO stem ring (annulus), whereas deadly Amanita have a WHITE spore print, white gills, and usually a ring. Spore print and gill colour are not visible in the unopened button, so wild buttons should never be eaten. Best practice is to rely only on cultivated material; do not gather wild specimens unless an expert confirms identity.",
+  "vernacularNames": [
+    {
+      "lang": "en",
+      "name": "Paddy straw mushroom"
+    },
+    {
+      "lang": "en",
+      "name": "Straw mushroom"
+    }
+  ],
+  "capColor": [
+    "grey",
+    "brown",
+    "greyish-brown",
+    "blackish"
+  ],
+  "sporePrintColor": "pink",
+  "trophicMode": "saprotroph",
+  "substrate": [
+    "rice straw",
+    "plant litter",
+    "compost",
+    "cotton waste"
+  ],
+  "habitat": [
+    "cultivated beds",
+    "decaying straw",
+    "tropical and subtropical regions"
+  ],
+  "distribution": "Native to and cultivated throughout tropical and subtropical Asia, and grown commercially in warm regions worldwide.",
+  "fruitingSeason": [
+    "summer",
+    "year-round"
+  ],
+  "dangerousLookalikes": [
+    {
+      "name": "Amanita phalloides",
+      "slug": "amanita-phalloides",
+      "note": "Death cap; deadly. Has a WHITE spore print, white gills, and a ring (annulus) on the stem. The button/egg stage and volva resemble young Volvariella, but Volvariella has a pink spore print, pink mature gills, and no ring. These features are not visible in the unopened button, so wild buttons must never be eaten."
+    },
+    {
+      "name": "Amanita virosa",
+      "slug": "amanita-virosa",
+      "note": "Destroying angel; deadly. White overall with a white spore print, white gills, and a stem ring. Distinguished from paddy straw by Volvariella's pink spore print and gills and the absence of a ring."
+    },
+    {
+      "name": "Amanita bisporigera",
+      "slug": "amanita-bisporigera",
+      "note": "Destroying angel (North American); deadly. All white with a white spore print, white gills, a stem ring, and a basal volva that can mimic a young Volvariella egg. Lacks the pink spores/gills of paddy straw."
+    }
+  ],
+  "references": [
+    {
+      "title": "Volvariella volvacea - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Volvariella_volvacea"
+    },
+    {
+      "title": "Volvariella volvacea - GBIF",
+      "url": "https://www.gbif.org/species/search?q=Volvariella%20volvacea"
+    }
+  ],
+  "lastReviewed": "2026-05-31"
+}

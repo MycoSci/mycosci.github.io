@@ -1,0 +1,63 @@
+{
+  "slug": "calvatia-gigantea",
+  "edibility": "edible",
+  "preparation": "cook",
+  "description": "The Giant Puffball is a large, often soccer-ball-sized, smooth white spherical fungus that grows in meadows, pastures, and woodland edges. When young its interior is pure white and homogeneous, and it darkens to olive-brown as the powdery spore mass (gleba) matures. It is one of the largest fruiting bodies among fungi, sometimes reaching 50 cm or more across.",
+  "edibilityNotes": "Edible only when young, with a firm, pure-white, completely homogeneous interior; it should be cooked. CRITICAL SAFETY: before eating ANY puffball, cut it vertically top to bottom. A true Giant Puffball shows uniform white flesh with no internal structure. If you see the silhouette of a developing capped, gilled mushroom inside, it is the egg/button stage of an Amanita (potentially the deadly Amanita phalloides, A. virosa, or A. ocreata) and must be discarded. If the cut interior shows any yellowing, gill-like patterning, or a tough/rooted central column, do not eat it. Once the interior begins to yellow, discolor, or turn olive-brown (spores maturing), it is no longer edible and may cause gastrointestinal upset.",
+  "capColor": [
+    "white",
+    "cream",
+    "off-white"
+  ],
+  "sporePrintColor": "olive-brown",
+  "habitat": [
+    "meadows",
+    "pastures",
+    "grassland",
+    "woodland edges",
+    "fields"
+  ],
+  "distribution": "Widespread across temperate regions of the Northern Hemisphere, including North America and Europe.",
+  "fruitingSeason": [
+    "summer",
+    "autumn"
+  ],
+  "trophicMode": "saprotroph",
+  "substrate": [
+    "soil",
+    "grassland soil"
+  ],
+  "vernacularNames": [
+    {
+      "lang": "en",
+      "name": "Giant Puffball"
+    }
+  ],
+  "dangerousLookalikes": [
+    {
+      "name": "Amanita button/egg stage (e.g. Amanita phalloides, A. virosa, A. ocreata)",
+      "note": "Young egg-stage Amanita species can superficially resemble a small white puffball, but cutting them vertically reveals the silhouette of a developing cap, gills, and stem inside. Several of these Amanitas are deadly (amatoxin poisoning). Always slice every puffball top-to-bottom to confirm uniform, structureless white flesh.",
+      "slug": "amanita-phalloides"
+    },
+    {
+      "name": "Pigskin / earthball (Scleroderma species)",
+      "note": "Earthballs can look puffball-like but have a thick, firm rind and a flesh that is purplish-black to dark even when young (not pure white and homogeneous). They are toxic and cause gastrointestinal poisoning; the dark interior at the cut distinguishes them from an edible young Calvatia.",
+      "slug": "scleroderma-citrinum"
+    },
+    {
+      "name": "Other Calvatia and Lycoperdon puffballs",
+      "note": "Smaller true puffballs are also edible only when the interior is pure white and homogeneous; the same vertical-cut test applies to rule out Amanita buttons and to confirm immature, undiscolored gleba."
+    }
+  ],
+  "references": [
+    {
+      "title": "Calvatia gigantea - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Calvatia_gigantea"
+    },
+    {
+      "title": "Calvatia gigantea - GBIF",
+      "url": "https://www.gbif.org/species/2593824"
+    }
+  ],
+  "lastReviewed": "2026-05-31"
+}

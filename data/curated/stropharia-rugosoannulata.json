@@ -1,0 +1,78 @@
+{
+  "slug": "stropharia-rugosoannulata",
+  "authorship": "Farl. ex Murrill",
+  "year": 1922,
+  "vernacularNames": [
+    {
+      "lang": "en",
+      "name": "Wine Cap"
+    },
+    {
+      "lang": "en",
+      "name": "King Stropharia"
+    },
+    {
+      "lang": "en",
+      "name": "Garden Giant"
+    },
+    {
+      "lang": "en",
+      "name": "Burgundy Mushroom"
+    }
+  ],
+  "description": "Stropharia rugosoannulata is a large, robust agaric with a wine-red to reddish-brown cap, gills that mature from pale gray to dark purple-brown, and a distinctive thick, wrinkled (rugose), star-fissured ring on the stem. A vigorous wood-chip saprotroph, it is widely cultivated outdoors as a beginner-friendly edible crop.",
+  "edibility": "edible",
+  "preparation": "cook",
+  "edibilityNotes": "A choice edible that must be thoroughly cooked; raw or undercooked specimens can cause gastrointestinal upset, and some individuals report sensitivity, so try a small portion first. Confirm the dark purple-brown to blackish spore print and the thick, wrinkled, star-fissured ring before eating. The greatest risk to foragers is misidentification: reddish-brown, ringless or cortina-bearing species in genera such as Cortinarius, Galerina, and Pholiotina can superficially resemble it but produce a rust-brown spore print (not purple-brown to black) and may be deadly poisonous (amatoxins/orellanine). Never rely on cap color alone; always verify the spore print color and the rugose, star-shaped ring.",
+  "capColor": [
+    "wine-red",
+    "reddish-brown",
+    "brown",
+    "tan"
+  ],
+  "sporePrintColor": "dark purple-brown to blackish",
+  "trophicMode": "saprotroph",
+  "substrate": [
+    "wood chips",
+    "straw",
+    "hardwood mulch",
+    "decaying plant debris"
+  ],
+  "habitat": [
+    "wood-chip beds",
+    "mulched gardens",
+    "cultivated soil",
+    "disturbed ground",
+    "forest edges"
+  ],
+  "fruitingSeason": [
+    "summer",
+    "autumn"
+  ],
+  "distribution": "Found in temperate regions of the Northern Hemisphere and now widely distributed and cultivated worldwide.",
+  "dangerousLookalikes": [
+    {
+      "name": "Cortinarius species (webcaps)",
+      "note": "Some toxic webcaps, including deadly orellanine-containing species, can be reddish-brown, but they have a cobweb-like cortina rather than a thick rugose ring, produce a rust-brown spore print (not purple-brown to black), and grow as mycorrhizal partners with trees rather than on wood chips."
+    },
+    {
+      "name": "Galerina marginata (deadly galerina)",
+      "note": "A deadly amatoxin-containing species that fruits on wood and can have a brownish cap and a ring zone, but it is far smaller, has a rust-brown spore print rather than purple-brown to black, and lacks the thick star-fissured rugose ring. Confusion is most likely with young or small Stropharia."
+    },
+    {
+      "name": "Agaricus species",
+      "note": "Some Agaricus share a ring and dark gills, but they produce a chocolate-brown spore print, lack the wine-red cap and star-fissured rugose ring, and have free gills with a pink young gill stage; a few Agaricus (e.g. yellow-staining group) cause GI upset."
+    },
+    {
+      "name": "Pholiotina / Conocybe species",
+      "note": "Small brown ringed LBM-type mushrooms that can occur in mulch and lawns; some (e.g. Pholiotina rugosa) contain deadly amatoxins. They are much smaller, slender, and have a rust-brown spore print, unlike the large robust Stropharia with purple-brown to black spores."
+    }
+  ],
+  "references": [
+    {
+      "title": "Stropharia rugosoannulata - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Stropharia_rugosoannulata"
+    }
+  ],
+  "lastReviewed": "2026-05-31"
+}

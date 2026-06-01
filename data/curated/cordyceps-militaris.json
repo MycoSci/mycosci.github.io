@@ -1,0 +1,63 @@
+{
+  "slug": "cordyceps-militaris",
+  "authorship": "(L.) Fr.",
+  "year": 1818,
+  "description": "Cordyceps militaris is a bright orange, club-shaped entomopathogenic fungus that parasitizes the buried larvae and pupae of insects (notably moths and butterflies), erecting its fruitbody above the soil or leaf litter. It is widely cultivated on grain and other media as a source of the nucleoside cordycepin, and is distinct from the Himalayan Ophiocordyceps sinensis. It is used in medicinal contexts rather than as a culinary mushroom.",
+  "vernacularNames": [
+    {
+      "lang": "en",
+      "name": "Scarlet caterpillar club"
+    },
+    {
+      "lang": "en",
+      "name": "Scarlet caterpillarclub"
+    },
+    {
+      "lang": "en",
+      "name": "Orange caterpillar fungus"
+    }
+  ],
+  "capColor": [
+    "orange",
+    "red"
+  ],
+  "edibility": "inedible",
+  "edibilityNotes": "Not consumed as a food mushroom; the fruitbody is small and tough and is not eaten in the culinary sense. It is used medicinally as an extract, powder, tincture, or tea, and is not known to be toxic in normal preparations. It has no known deadly lookalikes: as a distinctive orange insect-parasitizing club it is unlikely to be confused with toxic gilled mushrooms. The main confusion is commercial/identity rather than safety, chiefly with Ophiocordyceps sinensis and other small orange Cordyceps species, which is an identification (not poisoning) concern. As with any fungus, do not forage and consume wild specimens without expert confirmation.",
+  "preparation": "special",
+  "trophicMode": "parasite",
+  "substrate": [
+    "insect larvae",
+    "insect pupae",
+    "buried lepidopteran pupae"
+  ],
+  "hosts": [
+    "Lepidoptera larvae",
+    "Lepidoptera pupae"
+  ],
+  "habitat": [
+    "woodland",
+    "leaf litter",
+    "soil",
+    "grassland"
+  ],
+  "fruitingSeason": [
+    "summer",
+    "autumn"
+  ],
+  "distribution": "Cosmopolitan, occurring throughout North America, Europe, and Asia.",
+  "notableCompounds": [
+    "cordycepin (3'-deoxyadenosine)"
+  ],
+  "dangerousLookalikes": [],
+  "references": [
+    {
+      "title": "Cordyceps militaris - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Cordyceps_militaris"
+    },
+    {
+      "title": "Cordyceps militaris - GBIF",
+      "url": "https://www.gbif.org/species/3265932"
+    }
+  ],
+  "lastReviewed": "2026-05-31"
+}

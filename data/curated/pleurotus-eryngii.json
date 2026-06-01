@@ -1,0 +1,80 @@
+{
+  "slug": "pleurotus-eryngii",
+  "description": "Pleurotus eryngii, the king oyster or king trumpet mushroom, is a choice edible widely cultivated for its thick, meaty white stem and small tan to brown cap. In the wild it grows in association with the roots and decaying tissue of plants in the family Apiaceae, especially Eryngium (sea hollies), giving the species its name.",
+  "authorship": "(DC.) Quel.",
+  "year": 1872,
+  "vernacularNames": [
+    {
+      "lang": "en",
+      "name": "King oyster mushroom"
+    },
+    {
+      "lang": "en",
+      "name": "King trumpet mushroom"
+    },
+    {
+      "lang": "en",
+      "name": "French horn mushroom"
+    },
+    {
+      "lang": "it",
+      "name": "Cardoncello"
+    },
+    {
+      "lang": "ja",
+      "name": "Eringi"
+    }
+  ],
+  "capColor": [
+    "tan",
+    "brown",
+    "grayish-brown",
+    "white"
+  ],
+  "sporePrintColor": "white to pale lilac-gray",
+  "edibility": "edible",
+  "preparation": "cook",
+  "edibilityNotes": "A choice, safe edible that should be cooked before eating; the firm flesh holds its texture well when sauteed, roasted, or grilled. There are no deadly lookalikes within Pleurotus itself, but inexperienced foragers should be aware that the toxic jack-o'-lantern (Omphalotus olearius / O. illudens) is sometimes mistaken for oyster-type mushrooms and causes severe gastrointestinal poisoning. Always confirm identification by the decurrent gills, thick central-to-eccentric white stem, and white-to-pale spore print before eating any wild-collected specimen.",
+  "trophicMode": "saprotroph",
+  "habitat": [
+    "grasslands",
+    "steppe",
+    "Mediterranean scrub",
+    "roadsides and disturbed ground where Apiaceae host plants grow"
+  ],
+  "substrate": [
+    "dead roots and stem bases of Apiaceae",
+    "decaying herbaceous plant tissue"
+  ],
+  "hosts": [
+    "Eryngium",
+    "Ferula",
+    "other Apiaceae"
+  ],
+  "fruitingSeason": [
+    "spring",
+    "autumn"
+  ],
+  "distribution": "Native to Mediterranean Europe, the Middle East, North Africa, and parts of Central Asia, and now cultivated commercially worldwide.",
+  "dangerousLookalikes": [
+    {
+      "name": "Omphalotus olearius",
+      "note": "The toxic jack-o'-lantern has bright orange coloration throughout, true (non-forking) decurrent gills, and grows in clustered tufts on wood or buried roots; it lacks the king oyster's pale meaty stem and tan cap. Causes severe gastrointestinal illness (not deadly, but serious). Omphalotus illudens is the comparable North American species."
+    },
+    {
+      "name": "Pleurotus ostreatus",
+      "note": "The closely related, also-edible oyster mushroom; distinguished by its broader fan-shaped cap and short or nearly absent lateral stem versus the king oyster's long thick central stem. Not dangerous."
+    }
+  ],
+  "references": [
+    {
+      "title": "Pleurotus eryngii - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Pleurotus_eryngii"
+    },
+    {
+      "title": "Pleurotus eryngii - GBIF",
+      "url": "https://www.gbif.org/species/2530972"
+    }
+  ],
+  "lastReviewed": "2026-05-31"
+}

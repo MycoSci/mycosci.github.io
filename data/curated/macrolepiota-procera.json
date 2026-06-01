@@ -1,0 +1,85 @@
+{
+  "slug": "macrolepiota-procera",
+  "edibility": "edible",
+  "preparation": "cook",
+  "description": "Macrolepiota procera, the Parasol Mushroom, is a large, choice edible mushroom with a tall stem bearing a distinctive snakeskin (brownish, banded) pattern and a movable double ring. It has a broad, scaly cap, white spore print, free gills, and no volva, and typically grows solitary or in groups in grassy clearings, pastures, and forest edges.",
+  "authorship": "(Scop.) Singer",
+  "year": 1948,
+  "vernacularNames": [
+    {
+      "lang": "en",
+      "name": "Parasol Mushroom"
+    },
+    {
+      "lang": "de",
+      "name": "Parasolpilz"
+    },
+    {
+      "lang": "fr",
+      "name": "Lépiote élevée"
+    }
+  ],
+  "capColor": [
+    "brown",
+    "tan",
+    "grayish-brown",
+    "cream"
+  ],
+  "sporePrintColor": "white",
+  "trophicMode": "saprotroph",
+  "habitat": [
+    "grasslands",
+    "pastures",
+    "forest edges",
+    "clearings",
+    "meadows"
+  ],
+  "substrate": [
+    "soil",
+    "leaf litter"
+  ],
+  "fruitingSeason": [
+    "summer",
+    "autumn"
+  ],
+  "distribution": "Widespread in temperate regions of Europe, North America, and Asia, and reported from other temperate areas worldwide.",
+  "edibilityNotes": "A choice edible, but eat only the caps thoroughly cooked and discard the tough, fibrous stem; never eat raw. CRITICAL: confirm a white spore print and the complete absence of a volva before eating. The green-spored parasol (Chlorophyllum molybdites) is a common cause of serious gastrointestinal poisoning and has a GREEN spore print. More dangerously, young, unexpanded parasols can be confused with DEADLY Amanita species (e.g., the death cap and destroying angels), which have a VOLVA (cup or bulb at the stem base), often a smooth (non-snakeskin) stem, and may give a white spore print. Always check the stem base for a volva and take a spore print.",
+  "dangerousLookalikes": [
+    {
+      "name": "Chlorophyllum molybdites",
+      "slug": "chlorophyllum-molybdites",
+      "note": "Green-spored parasol; one of the most common causes of mushroom poisoning in North America (severe GI distress, not deadly). Distinguished by a GREEN spore print (vs. white in M. procera) and gills that age greenish; lacks the strongly snakeskin-banded stem. Always take a spore print."
+    },
+    {
+      "name": "Amanita species (young/button stage)",
+      "note": "DEADLY Amanitas (death cap A. phalloides, destroying angels A. bisporigera/virosa) can resemble young unexpanded parasols. Amanitas have a VOLVA (membranous cup or bulb at the stem base) and a smooth (not snakeskin-patterned) stem. Always dig up the full stem base and check for a volva."
+    },
+    {
+      "name": "Chlorophyllum brunneum",
+      "slug": "chlorophyllum-brunneum",
+      "note": "Shaggy parasol relative with an abrupt-bulbous stem base and a typically single (not movable double) ring; can cause gastrointestinal upset in some people."
+    },
+    {
+      "name": "Chlorophyllum rhacodes",
+      "slug": "chlorophyllum-rhacodes",
+      "note": "Shaggy parasol; flesh reddens/bruises when cut and the stem lacks the snakeskin banding of M. procera. Generally edible when cooked but causes GI upset in some individuals; confirm white spore print."
+    }
+  ],
+  "references": [
+    {
+      "title": "Macrolepiota procera - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Macrolepiota_procera"
+    },
+    {
+      "title": "Macrolepiota procera - MycoBank",
+      "url": "https://www.mycobank.org/"
+    },
+    {
+      "title": "Macrolepiota procera - GBIF"
+    },
+    {
+      "title": "Macrolepiota procera - Index Fungorum"
+    }
+  ],
+  "lastReviewed": "2026-05-31"
+}

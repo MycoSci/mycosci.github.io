@@ -1,0 +1,78 @@
+{
+  "slug": "craterellus-cornucopioides",
+  "description": "Craterellus cornucopioides, the black trumpet or horn of plenty, is a choice edible mushroom forming a dark grey to brownish-black, hollow trumpet- or funnel-shaped fruitbody. It lacks true gills, instead bearing a smooth to faintly wrinkled outer (hymenial) surface, and grows in troops on the ground in deciduous woodland.",
+  "authorship": "(L.) Pers.",
+  "year": 1825,
+  "vernacularNames": [
+    {
+      "lang": "en",
+      "name": "Black Trumpet"
+    },
+    {
+      "lang": "en",
+      "name": "Horn of Plenty"
+    },
+    {
+      "lang": "en",
+      "name": "Trumpet of the Dead"
+    },
+    {
+      "lang": "fr",
+      "name": "Trompette de la mort"
+    },
+    {
+      "lang": "de",
+      "name": "Herbsttrompete"
+    }
+  ],
+  "capColor": [
+    "grey",
+    "black",
+    "brown",
+    "dark grey"
+  ],
+  "sporePrintColor": "white to cream (pale buff)",
+  "edibility": "edible",
+  "preparation": "cook",
+  "edibilityNotes": "A choice edible, highly regarded and especially prized when dried, which intensifies its aroma. Cook before eating as with most wild mushrooms. It has no known deadly lookalikes: the funnel shape, lack of true gills, and hollow trumpet body make it distinctive, though it is easily overlooked against dark leaf litter. As always, only eat foraged mushrooms identified with certainty.",
+  "trophicMode": "ectomycorrhizal",
+  "habitat": [
+    "deciduous woodland",
+    "hardwood forest",
+    "mossy ground in leaf litter"
+  ],
+  "substrate": [
+    "soil",
+    "leaf litter"
+  ],
+  "hosts": [
+    "Fagus (beech)",
+    "Quercus (oak)"
+  ],
+  "fruitingSeason": [
+    "summer",
+    "autumn"
+  ],
+  "distribution": "Widespread across Europe, North America, and Asia, occurring in temperate hardwood forests of the Northern Hemisphere.",
+  "dangerousLookalikes": [
+    {
+      "name": "Craterellus cinereus",
+      "note": "Closely related and similar dark trumpet form; edible, not dangerous. Listed only because it can be confused with the black trumpet, not because it poses a toxicity risk."
+    },
+    {
+      "name": "Pseudocraterellus undulatus",
+      "note": "A smaller, similar greyish trumpet/chanterelle relative; edible, not dangerous. No deadly toxic species closely resembles the dark hollow trumpet form."
+    }
+  ],
+  "references": [
+    {
+      "title": "Craterellus cornucopioides - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Craterellus_cornucopioides"
+    },
+    {
+      "title": "Craterellus cornucopioides - GBIF",
+      "url": "https://www.gbif.org/species/5239992"
+    }
+  ],
+  "lastReviewed": "2026-05-31"
+}

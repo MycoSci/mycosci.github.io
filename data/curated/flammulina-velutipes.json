@@ -1,0 +1,77 @@
+{
+  "slug": "flammulina-velutipes",
+  "edibility": "edible",
+  "preparation": "cook",
+  "description": "Flammulina velutipes, the velvet shank or enoki, is a cold-weather wood-rotting agaric with an orange-brown sticky cap and a distinctive dark, velvety stem. The wild form fruits in clusters on dead hardwood during late autumn and winter, while the cultivated form is blanched, slender, and long-stemmed from being grown in low light and high carbon dioxide.",
+  "edibilityNotes": "A good edible that should always be cooked, and the tough stems are often discarded. CRITICAL: the wild winter form closely resembles the DEADLY Galerina marginata, which also grows in clusters on wood in cold weather and contains lethal amatoxins. The decisive separation is the spore print: Flammulina is WHITE, Galerina is RUST-BROWN, and Galerina also has a ring/ring zone on the stem. Never collect wild winter wood mushrooms without expert microscopic/spore-print confirmation; the safest source is cultivated enoki. Some people report mild gastric upset from undercooked or raw material.",
+  "capColor": [
+    "orange",
+    "orange-brown",
+    "yellow-brown",
+    "reddish-brown"
+  ],
+  "sporePrintColor": "white",
+  "trophicMode": "saprotroph",
+  "substrate": [
+    "dead hardwood",
+    "logs",
+    "stumps",
+    "standing dead trunks"
+  ],
+  "habitat": [
+    "deciduous woodland",
+    "parks",
+    "urban trees"
+  ],
+  "hosts": [
+    "Ulmus",
+    "Salix",
+    "Fagus",
+    "Populus"
+  ],
+  "fruitingSeason": [
+    "autumn",
+    "winter"
+  ],
+  "distribution": "Widespread across temperate regions of the Northern Hemisphere, including Europe, Asia, and North America.",
+  "vernacularNames": [
+    {
+      "lang": "en",
+      "name": "Velvet shank"
+    },
+    {
+      "lang": "en",
+      "name": "Enoki"
+    },
+    {
+      "lang": "ja",
+      "name": "Enokitake"
+    },
+    {
+      "lang": "en",
+      "name": "Winter mushroom"
+    }
+  ],
+  "dangerousLookalikes": [
+    {
+      "name": "Galerina marginata",
+      "note": "DEADLY POISONOUS (amatoxins). Also clusters on wood in cold weather, but has a rust-brown spore print (vs. white in Flammulina), a ring or ring zone on the stem, and brownish gills. Flammulina has a white spore print, no ring, and a velvety dark stem base. Spore print is the decisive test.",
+      "slug": "galerina-marginata"
+    },
+    {
+      "name": "Hypholoma fasciculare",
+      "note": "Sulphur tuft. Toxic (causes gastrointestinal illness). Clusters on wood like Flammulina, but is greenish-yellow with a purple-brown to olive spore print and intensely bitter taste; gills become green-tinged. Not deadly, but a common cluster-on-wood confusion.",
+      "slug": "hypholoma-fasciculare"
+    }
+  ],
+  "references": [
+    {
+      "title": "Flammulina velutipes - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Flammulina_velutipes"
+    },
+    {
+      "title": "Flammulina velutipes - GBIF"
+    }
+  ],
+  "lastReviewed": "2026-05-31"
+}
