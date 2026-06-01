@@ -3,7 +3,7 @@ import { glob } from 'astro/loaders';
 
 // Schema for mushroom species documentation (existing MDX content)
 const docs = defineCollection({
-  loader: glob({ pattern: "**/*.mdx", base: "./src/content/docs" }),
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/docs" }),
   schema: z.object({
     title: z.string(),
     description: z.string().optional(),

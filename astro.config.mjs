@@ -10,9 +10,6 @@ export default defineConfig({
     tailwind(),
   ],
   vite: {
-    ssr: {
-      noExternal: ['graphql-request'],
-    },
     resolve: {
       alias: {
         // Redirect Starlight component imports to our replacements

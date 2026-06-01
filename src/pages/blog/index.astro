@@ -1,178 +1,43 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getPosts } from '../../lib/wordpress';
+import { getCollection } from 'astro:content';
 
-let posts = [];
-let error = null;
+const posts = (await getCollection('docs'))
+  .filter((d) => d.id.startsWith('blog/') && !d.id.startsWith('blog/authors') && d.id !== 'blog/index')
+  .sort((a, b) => +(b.data.pubDate ?? 0) - +(a.data.pubDate ?? 0));
 
-try {
-  posts = await getPosts(20);
-} catch (e) {
-  error = e instanceof Error ? e.message : 'Failed to load posts';
-}
-
-function formatDate(dateString: string) {
-  return new Date(dateString).toLocaleDateString('en-US', {
-    month: 'short',
-    day: 'numeric',
-    year: 'numeric'
-  }).toUpperCase();
-}
-
-function formatFullDate(dateString: string) {
-  return new Date(dateString).toLocaleDateString('en-US', {
-    weekday: 'long',
-    month: 'long',
-    day: 'numeric',
-    year: 'numeric'
-  });
-}
-
-function stripHtml(html: string) {
-  return html.replace(/<[^>]*>/g, '').trim();
-}
-
-function getExcerpt(html: string, length: number = 160) {
-  const text = stripHtml(html);
-  if (text.length <= length) return text;
-  return text.substring(0, length).replace(/\s+\S*$/, '') + '...';
-}
-
-function estimateReadTime(html: string) {
-  const text = stripHtml(html);
-  const words = text.split(/\s+/).length;
-  const minutes = Math.ceil(words / 200);
-  return `${minutes} min read`;
-}
-
-const featuredPost = posts[0];
-const otherPosts = posts.slice(1);
+const slugOf = (id: string) => id.replace(/^blog\//, '');
+const fmt = (d: Date | undefined) =>
+  d ? new Date(d).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }).toUpperCase() : '';
 ---
 
-<BaseLayout title="Blog | MycoSci">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
-    <!-- Header -->
-    <div class="mb-12">
-      <span class="label text-bio-500">FIELD NOTES</span>
-      <h1 class="text-3xl sm:text-4xl font-bold text-lab-100 mt-2">Research Blog</h1>
-      <p class="text-lab-400 mt-2 max-w-2xl">
-        Cultivation experiments, field observations, species profiles, and lab notes from the MycoSci research team.
-      </p>
+<BaseLayout title="Field Notes | MycoSci">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-10">
+    <div class="border-b border-lab-800 pb-8 mb-8">
+      <span class="label text-bio-500">// Field Notes</span>
+      <h1 class="text-3xl sm:text-4xl font-semibold text-lab-100 mt-2 tracking-tight">Field Notes</h1>
+      <p class="text-lab-400 mt-2 max-w-2xl">Essays and notes on mycology, cultivation, and the science of fungi.</p>
     </div>
 
-    {error && (
-      <div class="card p-4 border-spore-500/50 bg-spore-500/10 mb-8">
-        <p class="text-spore-400 text-sm">{error}</p>
-      </div>
-    )}
-
-    {posts.length > 0 ? (
-      <>
-        <!-- Featured Post -->
-        {featuredPost && (
-          <a href={`/blog/${featuredPost.slug}`} class="card card-hover overflow-hidden group block mb-12">
-            <div class="grid md:grid-cols-2">
-              <div class="aspect-video md:aspect-auto bg-lab-800 flex items-center justify-center">
-                {featuredPost.featuredImage?.node?.sourceUrl ? (
-                  <img
-                    src={featuredPost.featuredImage.node.sourceUrl}
-                    alt={featuredPost.title}
-                    class="w-full h-full object-cover"
-                  />
-                ) : (
-                  <div class="text-center p-8">
-                    <span class="text-6xl opacity-20 block mb-2">🍄</span>
-                    <span class="text-xs text-lab-600 font-mono">NO IMAGE</span>
-                  </div>
-                )}
-              </div>
-              <div class="p-6 md:p-8 flex flex-col justify-center">
-                <div class="flex items-center gap-3 mb-3">
-                  <span class="badge badge-bio">Latest</span>
-                  <span class="text-2xs font-mono text-lab-500">{formatDate(featuredPost.date)}</span>
-                </div>
-                <h2 class="text-2xl md:text-3xl font-bold text-lab-100 group-hover:text-bio-400 transition-colors mb-3">
-                  {featuredPost.title}
-                </h2>
-                <p class="text-lab-400 mb-4 line-clamp-3">
-                  {getExcerpt(featuredPost.excerpt || featuredPost.content, 200)}
-                </p>
-                <div class="flex items-center justify-between">
-                  {featuredPost.author?.node && (
-                    <div class="flex items-center gap-2">
-                      {featuredPost.author.node.avatar?.url && (
-                        <img src={featuredPost.author.node.avatar.url} alt="" class="w-8 h-8 rounded-full bg-lab-700" />
-                      )}
-                      <div>
-                        <span class="text-sm text-lab-300 block">{featuredPost.author.node.name}</span>
-                        <span class="text-2xs text-lab-600">{estimateReadTime(featuredPost.content)}</span>
-                      </div>
-                    </div>
-                  )}
-                  <span class="text-bio-400 text-sm flex items-center gap-1">
-                    Read more
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                    </svg>
-                  </span>
-                </div>
-              </div>
+    {posts.length === 0 ? (
+      <p class="text-lab-500 font-mono text-sm">No notes published yet.</p>
+    ) : (
+      <div class="border-t border-lab-800">
+        {posts.map((post) => (
+          <a href={`/blog/${slugOf(post.id)}`} class="group block border-b border-lab-800 py-6 hover:bg-lab-900 -mx-4 px-4 transition-colors">
+            <div class="flex items-center gap-3 text-2xs font-mono uppercase tracking-wider text-lab-500 mb-2">
+              <span>{fmt(post.data.pubDate)}</span>
+              {post.data.author && <><span class="text-lab-700">/</span><span>{post.data.author}</span></>}
             </div>
+            <h2 class="text-xl font-semibold text-lab-100 group-hover:text-bio-400 transition-colors">{post.data.title}</h2>
+            {post.data.description && <p class="text-sm text-lab-400 mt-1.5 leading-relaxed">{post.data.description}</p>}
+            {post.data.tags?.length && (
+              <div class="flex flex-wrap gap-2 mt-3">
+                {post.data.tags.map((t) => <span class="badge border-lab-700 text-lab-500">{t}</span>)}
+              </div>
+            )}
           </a>
-        )}
-
-        <!-- Other Posts Grid -->
-        {otherPosts.length > 0 && (
-          <>
-            <h2 class="text-xl font-semibold text-lab-100 mb-6">More Posts</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {otherPosts.map((post) => (
-                <a href={`/blog/${post.slug}`} class="card card-hover overflow-hidden group flex flex-col">
-                  <div class="aspect-video bg-lab-800 flex items-center justify-center flex-shrink-0">
-                    {post.featuredImage?.node?.sourceUrl ? (
-                      <img src={post.featuredImage.node.sourceUrl} alt={post.title} class="w-full h-full object-cover" />
-                    ) : (
-                      <span class="text-4xl opacity-20">🍄</span>
-                    )}
-                  </div>
-                  <div class="p-5 flex-1 flex flex-col">
-                    <div class="flex items-center gap-2 mb-2">
-                      <span class="text-2xs font-mono text-lab-500">{formatDate(post.date)}</span>
-                      <span class="text-lab-700">•</span>
-                      <span class="text-2xs text-lab-600">{estimateReadTime(post.content)}</span>
-                    </div>
-                    <h3 class="text-lg font-semibold text-lab-100 group-hover:text-bio-400 transition-colors mb-2 line-clamp-2">
-                      {post.title}
-                    </h3>
-                    <p class="text-sm text-lab-500 line-clamp-2 flex-1">{getExcerpt(post.excerpt || post.content)}</p>
-                    {post.author?.node && (
-                      <div class="flex items-center gap-2 mt-4 pt-4 border-t border-lab-800">
-                        {post.author.node.avatar?.url && (
-                          <img src={post.author.node.avatar.url} alt="" class="w-6 h-6 rounded-full bg-lab-700" />
-                        )}
-                        <span class="text-xs text-lab-500">{post.author.node.name}</span>
-                      </div>
-                    )}
-                  </div>
-                </a>
-              ))}
-            </div>
-          </>
-        )}
-      </>
-    ) : !error && (
-      <div class="card p-16 text-center">
-        <div class="w-16 h-16 rounded-full bg-lab-800 flex items-center justify-center mx-auto mb-6">
-          <span class="text-3xl">📝</span>
-        </div>
-        <h2 class="text-xl font-semibold text-lab-100 mb-2">No Posts Yet</h2>
-        <p class="text-lab-400 mb-6 max-w-md mx-auto">
-          The research blog is coming soon. We're working on our first posts about cultivation techniques, field observations, and species profiles.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-3 justify-center">
-          <a href="/" class="btn btn-secondary">Back to Home</a>
-          <a href="/database" class="btn btn-primary">Explore Database</a>
-        </div>
+        ))}
       </div>
     )}
   </div>

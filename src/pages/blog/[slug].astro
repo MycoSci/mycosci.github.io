@@ -1,194 +1,42 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getPostBySlug, getPosts } from '../../lib/wordpress';
+import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
-  const posts = await getPosts(100);
-  return posts.map((post) => ({
-    params: { slug: post.slug },
-  }));
+  const posts = (await getCollection('docs'))
+    .filter((d) => d.id.startsWith('blog/') && !d.id.startsWith('blog/authors') && d.id !== 'blog/index');
+  return posts.map((post) => ({ params: { slug: post.id.replace(/^blog\//, '') }, props: { post } }));
 }
 
-const { slug } = Astro.params;
-let post = null;
-let error = null;
-
-try {
-  post = await getPostBySlug(slug as string);
-} catch (e) {
-  error = e instanceof Error ? e.message : 'Failed to load post';
-}
-
-function formatDate(dateString: string) {
-  return new Date(dateString).toLocaleDateString('en-US', {
-    weekday: 'long',
-    month: 'long',
-    day: 'numeric',
-    year: 'numeric'
-  });
-}
-
-function stripHtml(html: string) {
-  return html.replace(/<[^>]*>/g, '').trim();
-}
-
-function estimateReadTime(html: string) {
-  const text = stripHtml(html);
-  const words = text.split(/\s+/).length;
-  const minutes = Math.ceil(words / 200);
-  return `${minutes} min read`;
-}
+const { post } = Astro.props;
+const { Content } = await render(post);
+const fmt = (d: Date | undefined) =>
+  d ? new Date(d).toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' }) : '';
 ---
 
-<BaseLayout title={post ? `${post.title} | MycoSci` : 'Post | MycoSci'}>
-  <article class="max-w-3xl mx-auto px-4 sm:px-6 py-12">
-    <!-- Back link -->
-    <a href="/blog" class="inline-flex items-center gap-2 text-sm text-lab-500 hover:text-bio-400 transition-colors mb-8 group">
-      <svg class="w-4 h-4 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-      </svg>
-      Back to Blog
-    </a>
+<BaseLayout title={`${post.data.title} | MycoSci`} description={post.data.description}>
+  <article class="max-w-3xl mx-auto px-4 sm:px-6 py-10">
+    <nav class="text-2xs font-mono uppercase tracking-wider text-lab-500 mb-8">
+      <a href="/blog" class="hover:text-bio-400 transition-colors">← Field Notes</a>
+    </nav>
 
-    {error && (
-      <div class="card p-4 border-spore-500/50 bg-spore-500/10 mb-8">
-        <p class="text-spore-400 text-sm">{error}</p>
+    <header class="border-b border-lab-800 pb-8 mb-8">
+      <div class="flex items-center gap-3 text-2xs font-mono uppercase tracking-wider text-lab-500 mb-3">
+        <span>{fmt(post.data.pubDate)}</span>
+        {post.data.author && <><span class="text-lab-700">/</span><span>{post.data.author}</span></>}
       </div>
-    )}
+      <h1 class="text-3xl sm:text-4xl font-semibold text-lab-100 tracking-tight">{post.data.title}</h1>
+      {post.data.description && <p class="text-lab-400 mt-3 text-lg">{post.data.description}</p>}
+    </header>
 
-    {post ? (
-      <>
-        <!-- Header -->
-        <header class="mb-8">
-          <span class="label text-bio-500">FIELD NOTES</span>
-          <h1 class="text-3xl sm:text-4xl font-bold text-lab-100 mt-2 mb-4 leading-tight">{post.title}</h1>
-
-          <div class="flex flex-wrap items-center gap-4 text-sm text-lab-500">
-            {post.author?.node && (
-              <div class="flex items-center gap-2">
-                {post.author.node.avatar?.url && (
-                  <img src={post.author.node.avatar.url} alt="" class="w-10 h-10 rounded-full bg-lab-700" />
-                )}
-                <div>
-                  <span class="text-lab-300 block">{post.author.node.name}</span>
-                  <span class="text-xs text-lab-600">Author</span>
-                </div>
-              </div>
-            )}
-            <div class="hidden sm:block h-8 w-px bg-lab-800"></div>
-            <div class="flex items-center gap-1">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-              </svg>
-              <span>{formatDate(post.date)}</span>
-            </div>
-            <div class="flex items-center gap-1">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              <span>{estimateReadTime(post.content)}</span>
-            </div>
-          </div>
-        </header>
-
-        <!-- Featured image -->
-        {post.featuredImage?.node?.sourceUrl && (
-          <div class="rounded-lg overflow-hidden mb-10 bg-lab-800">
-            <img
-              src={post.featuredImage.node.sourceUrl}
-              alt={post.featuredImage.node.altText || post.title}
-              class="w-full"
-            />
-            {post.featuredImage.node.caption && (
-              <p class="text-xs text-lab-600 text-center py-2 px-4">{post.featuredImage.node.caption}</p>
-            )}
-          </div>
-        )}
-
-        <!-- Content -->
-        <div class="prose prose-invert prose-lg max-w-none
-          prose-headings:text-lab-100 prose-headings:font-semibold
-          prose-p:text-lab-300 prose-p:leading-relaxed
-          prose-a:text-bio-400 prose-a:no-underline hover:prose-a:underline
-          prose-strong:text-lab-100
-          prose-code:text-bio-400 prose-code:bg-lab-800 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-code:before:content-none prose-code:after:content-none
-          prose-pre:bg-lab-900 prose-pre:border prose-pre:border-lab-800
-          prose-blockquote:border-bio-600 prose-blockquote:text-lab-400 prose-blockquote:bg-lab-900/50 prose-blockquote:py-1 prose-blockquote:px-4 prose-blockquote:rounded-r
-          prose-img:rounded-lg
-          prose-hr:border-lab-800
-          prose-li:text-lab-300
-          prose-ul:text-lab-300
-          prose-ol:text-lab-300
-          prose-th:text-lab-200 prose-td:text-lab-400
-          prose-figure:my-8"
-          set:html={post.content}
-        />
-
-        <!-- Footer -->
-        <footer class="mt-12 pt-8 border-t border-lab-800">
-          <!-- Share -->
-          <div class="flex items-center justify-between mb-8">
-            <span class="text-sm text-lab-500">Share this post</span>
-            <div class="flex gap-2">
-              <button
-                onclick={`navigator.clipboard.writeText(window.location.href); this.textContent = 'Copied!'; setTimeout(() => this.textContent = 'Copy Link', 2000)`}
-                class="btn btn-ghost text-xs"
-              >
-                Copy Link
-              </button>
-            </div>
-          </div>
-
-          <!-- Author bio -->
-          {post.author?.node && (
-            <div class="card p-6 bg-lab-900/50">
-              <div class="flex gap-4">
-                {post.author.node.avatar?.url && (
-                  <img src={post.author.node.avatar.url} alt="" class="w-16 h-16 rounded-full bg-lab-700 flex-shrink-0" />
-                )}
-                <div>
-                  <span class="text-2xs text-lab-600 font-mono uppercase">Written by</span>
-                  <h3 class="font-semibold text-lab-100 mt-1">{post.author.node.name}</h3>
-                  {post.author.node.description && (
-                    <p class="text-sm text-lab-400 mt-2">{post.author.node.description}</p>
-                  )}
-                </div>
-              </div>
-            </div>
-          )}
-
-          <!-- Navigation -->
-          <div class="mt-8 flex justify-center">
-            <a href="/blog" class="btn btn-secondary">
-              <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-              </svg>
-              All Posts
-            </a>
-          </div>
-        </footer>
-      </>
-    ) : !error && (
-      <div class="card p-12 text-center">
-        <span class="text-5xl opacity-30 block mb-4">🔍</span>
-        <h2 class="text-xl font-semibold text-lab-100 mb-2">Post Not Found</h2>
-        <p class="text-lab-400 mb-6">The post you're looking for doesn't exist or has been removed.</p>
-        <a href="/blog" class="btn btn-primary">
-          Browse All Posts
-        </a>
-      </div>
-    )}
+    <div class="prose prose-invert max-w-none
+      prose-headings:text-lab-100 prose-headings:font-semibold
+      prose-p:text-lab-300 prose-p:leading-relaxed
+      prose-a:text-bio-400 prose-a:no-underline hover:prose-a:underline
+      prose-strong:text-lab-100 prose-li:text-lab-300
+      prose-blockquote:border-bio-600 prose-blockquote:text-lab-400
+      prose-code:text-bio-400 prose-img:border prose-img:border-lab-800">
+      <Content />
+    </div>
   </article>
 </BaseLayout>
-
-<style>
-  .prose :where(h2):not(:where([class~="not-prose"] *)) {
-    @apply mt-12 mb-4;
-  }
-  .prose :where(h3):not(:where([class~="not-prose"] *)) {
-    @apply mt-8 mb-3;
-  }
-  .prose :where(p):not(:where([class~="not-prose"] *)) {
-    @apply mb-6;
-  }
-</style>
