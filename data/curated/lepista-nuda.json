@@ -1,0 +1,83 @@
+{
+  "slug": "lepista-nuda",
+  "edibility": "edible",
+  "preparation": "cook",
+  "description": "The Wood Blewit (Lepista nuda, also placed in Clitocybe/Collybia and historically in Tricholoma) is a medium-to-large agaric recognizable by its lilac to violet-blue coloration when young. The cap is smooth, domed becoming flattened, about 5-15 cm across, lilac-tinged fading to tan or buff-brown with age and drying. The crowded, sinuate gills and the fibrous, often bulbous-based stem share the violet hue when fresh. The flesh is thick with a distinctive sweetish, fruity-perfumed odour often likened to frozen orange juice. It is a late-season mushroom, fruiting from autumn into winter and tolerant of light frost, typically in troops or arcs/rings in leaf litter, compost, and humus-rich ground in both deciduous and coniferous woodland as well as gardens and hedgerows. Crucially for identification, the spore print is pale pinkish to pinkish-buff. A popular edible that must be cooked thoroughly, it has toxic lilac/purple lookalikes among the Cortinarius webcaps (separated chiefly by rusty-brown spore print and a cortina) and can be confused, when old or faded, with small white muscarine-containing Clitocybe.",
+  "edibilityNotes": "Edible and well regarded, but ONLY after thorough cooking (at least about 15-20 minutes). Raw or undercooked specimens contain heat-labile compounds that cause gastrointestinal upset; never eat raw. A minority of people experience indigestion or allergic reaction even when it is properly cooked, so eat only a small amount the first time and avoid alcohol with an unfamiliar batch. Always confirm the pale pinkish to pinkish-buff spore print, the lack of a cortina, and the lack of a white spore print before eating: rusty-brown spores with a cobwebby cortina indicate a Cortinarius webcap (some contain the deadly nephrotoxin orellanine), and a white spore print on a small pale specimen may indicate a muscarine-containing Clitocybe.",
+  "vernacularNames": [
+    {
+      "lang": "en",
+      "name": "Wood Blewit"
+    },
+    {
+      "lang": "en",
+      "name": "Blewit"
+    },
+    {
+      "lang": "fr",
+      "name": "Pied bleu"
+    }
+  ],
+  "capColor": [
+    "lilac",
+    "violet",
+    "purple",
+    "tan",
+    "buff",
+    "brown"
+  ],
+  "sporePrintColor": "pale pink to pinkish-buff",
+  "trophicMode": "saprotroph",
+  "substrate": [
+    "leaf litter",
+    "compost",
+    "humus",
+    "woodland debris"
+  ],
+  "habitat": [
+    "deciduous woodland",
+    "coniferous woodland",
+    "hedgerows",
+    "gardens",
+    "compost heaps"
+  ],
+  "fruitingSeason": [
+    "autumn",
+    "winter"
+  ],
+  "distribution": "Widespread across temperate regions of the Northern Hemisphere, including Europe and North America; also introduced and naturalized in parts of Australia.",
+  "dangerousLookalikes": [
+    {
+      "name": "Cortinarius webcaps (purple/lilac species)",
+      "note": "DEADLY potential. Several purple/violet Cortinarius species resemble young blewits but have a RUSTY-BROWN spore print (vs. pale pink in Lepista nuda) and a cortina (cobweb-like partial veil) that leaves rusty fibres on the stem. Members of the orellanine-containing group (e.g. the C. rubellus / C. orellanus complex) cause delayed, often fatal kidney failure with onset days after ingestion. Spore print colour plus the cortina are the decisive separators."
+    },
+    {
+      "name": "Violet webcap (Cortinarius violaceus)",
+      "slug": "cortinarius-violaceus",
+      "note": "Deep violet throughout with a dry, scaly cap, a cortina, and a rusty-brown spore print. Not in the deadly orellanine group but not recommended for eating; the rusty spores and cortina distinguish it from the pink-spored, cortina-free blewit."
+    },
+    {
+      "name": "Ivory/fool's funnel (Clitocybe rivulosa / C. dealbata)",
+      "note": "Small white-to-buff funnel mushrooms that can be confused with old or faded blewits, especially in grass and on lawns. They contain dangerous amounts of muscarine (sweating, salivation, tearing within ~15-30 min; deaths recorded) and give a WHITE spore print rather than pinkish-buff. Size, lack of lilac tones, and white spores separate them."
+    },
+    {
+      "name": "Lilac fibrecap (Inocybe geophylla var. lilacina)",
+      "note": "A small lilac mushroom, much smaller than a blewit, with a conical/umbonate cap, dull clay-brown spore print, and toxic muscarine. Size and brown spores separate it."
+    }
+  ],
+  "references": [
+    {
+      "title": "Lepista nuda (Collybia/Clitocybe nuda) - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Clitocybe_nuda"
+    },
+    {
+      "title": "Lepista (Clitocybe) nuda, Wood Blewit identification - First Nature",
+      "url": "https://www.first-nature.com/fungi/lepista-nuda.php"
+    },
+    {
+      "title": "Identifying Wood Blewits from Cortinarius Look-a-likes - Central Texas Mycological Society",
+      "url": "https://www.centraltexasmycology.org/blog/2021/1/26/identifying-blewits-an-cortinarius-look-a-like"
+    }
+  ],
+  "lastReviewed": "2026-05-31"
+}

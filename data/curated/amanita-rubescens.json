@@ -1,0 +1,89 @@
+{
+  "slug": "amanita-rubescens",
+  "edibility": "edible",
+  "preparation": "cook",
+  "authorship": "(Pers.) Gray",
+  "year": 1797,
+  "description": "Amanita rubescens, commonly known as The Blusher, is a medium to large agaric named for its diagnostic tendency to stain pinkish to reddish (\"blush\") where the flesh and surfaces are cut, bruised, or eaten by insects. The cap is 5-15 cm across, reddish-brown to pinkish-brown, often dusted with grayish, pinkish, or off-white wart-like patches (remnants of the universal veil). Gills are crowded, white, often becoming reddish-spotted with age. The stem bears a prominent pendulous, finely striate ring and swells into a bulbous base (without a free-rimmed sac-like volva), with veil remnants forming concentric ridges or warts on the bulb. The flesh is white, reddening on exposure, especially toward the stem base where it is frequently tunneled by larvae. It is a widespread ectomycorrhizal species of temperate Northern Hemisphere forests. The Blusher is edible only after thorough cooking: it contains a heat-labile hemolytic protein (hemolysin) that makes it toxic when raw or undercooked. Because it is an Amanita and closely resembles the toxic panther cap (Amanita pantherina), it is strictly an experts-only mushroom. Novices should never eat any Amanita.",
+  "edibilityNotes": "Edible ONLY when thoroughly cooked. Raw or undercooked flesh contains a heat-labile hemolytic protein (hemolysin) that is toxic and, in quantity, can cause hemolysis/anemia; this toxin is destroyed by adequate heat. Strictly an experts-only mushroom because of its close resemblance to toxic Amanita species, above all the panther cap. Beginners should not eat any Amanita.",
+  "vernacularNames": [
+    {
+      "lang": "en",
+      "name": "The Blusher"
+    },
+    {
+      "lang": "de",
+      "name": "Perlpilz"
+    },
+    {
+      "lang": "fr",
+      "name": "Amanite rougissante"
+    }
+  ],
+  "capColor": [
+    "reddish-brown",
+    "pinkish-brown",
+    "brown"
+  ],
+  "sporePrintColor": "white",
+  "trophicMode": "ectomycorrhizal",
+  "habitat": [
+    "deciduous woodland",
+    "coniferous woodland",
+    "mixed forest"
+  ],
+  "substrate": [
+    "soil"
+  ],
+  "hosts": [
+    "oak",
+    "beech",
+    "pine",
+    "spruce",
+    "birch"
+  ],
+  "distribution": "Widespread across temperate regions of the Northern Hemisphere, common in Europe and Asia, and present in North America (though some North American material represents distinct, related taxa such as A. novinupta in the west).",
+  "fruitingSeason": [
+    "summer",
+    "autumn"
+  ],
+  "notableCompounds": [
+    "hemolysin (heat-labile hemolytic protein)"
+  ],
+  "dangerousLookalikes": [
+    {
+      "name": "Amanita pantherina",
+      "slug": "amanita-pantherina",
+      "note": "The panther cap is toxic (isoxazole toxins ibotenic acid and muscimol). It has a brown cap with pure white warts, white flesh that does NOT redden when injured, a smooth (non- or only faintly striate) ring, and a basal bulb with one or two distinct free-rimmed hoop-like volval ridges. The absence of pink/red blushing when cut or bruised is the key separator from The Blusher; do not rely on a single feature."
+    },
+    {
+      "name": "Amanita excelsa",
+      "slug": "amanita-excelsa",
+      "note": "The grey-spotted amanita (incl. var. spissa) is similar in stature with greyish warts and a striate ring, but its flesh does not redden/blush. Lack of the pink stain helps separate it from A. rubescens, though distinguishing it from the panther cap requires care."
+    },
+    {
+      "name": "Amanita muscaria",
+      "slug": "amanita-muscaria",
+      "note": "The fly agaric is toxic (isoxazole toxins). Typically a brighter red to orange cap with white warts and white flesh that does not blush; colour and non-reddening flesh separate it from the dull reddish-brown blusher."
+    }
+  ],
+  "references": [
+    {
+      "title": "Amanita rubescens - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Amanita_rubescens"
+    },
+    {
+      "title": "Amanita pantherina - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Amanita_pantherina"
+    },
+    {
+      "title": "Amanita rubescens (Pers.) Gray - GBIF",
+      "url": "https://www.gbif.org/species/3329063"
+    },
+    {
+      "title": "Amanita rubescens - Index Fungorum",
+      "url": "https://www.indexfungorum.org/names/NamesRecord.asp?RecordID=172799"
+    }
+  ],
+  "lastReviewed": "2026-05-31"
+}

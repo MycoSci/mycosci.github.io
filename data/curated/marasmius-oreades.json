@@ -1,0 +1,79 @@
+{
+  "slug": "marasmius-oreades",
+  "edibility": "edible",
+  "preparation": "cook",
+  "description": "Marasmius oreades, the Fairy Ring Champignon (also called Scotch Bonnet or Mousseron), is a small, tough-fleshed agaric that grows gregariously in rings and arcs across lawns, pastures, and other short grassland. The cap is 1-5 cm across, bell-shaped to broadly convex with a low central umbo, smooth, and tan to buff or pale cream — hygrophanous, darkening and appearing more brownish when moist and drying paler. A hallmark is its marasmioid resilience: fruitbodies shrivel in drought and revive to release spores when rehydrated. The gills are notably broad, pale whitish to cream, and widely spaced (distant), and are free to nearly free from the stem. The stem is slender, tough, pliable and wiry, whitish to pale buff, and does not snap cleanly. The spore print is white to whitish/cream. It has a pleasant odor, sometimes described as sweet or with a hint of hydrogen cyanide (HCN / bitter-almond) when cut or crushed. A classic edible prized for soups and sauces, but typically only the caps are used because the wiry stems are too tough and fibrous; cook before eating. The overriding caution is identification: M. oreades shares lawns and grassland with several small whitish mushrooms that are dangerously toxic — especially muscarine-containing Clitocybe (e.g., C. rivulosa / C. dealbata), which have crowded, decurrent white gills (versus the distant, free, broad gills of M. oreades). Beginners must learn these distinctions before eating.",
+  "edibilityNotes": "Edible and well regarded, but cook before eating and use mainly the caps — the wiry stems are too tough. The serious risk is misidentification: M. oreades fruits in the same lawns and grassland as toxic look-alikes. Most important is the muscarine-containing \"lawn/sweating\" Clitocybe group (Clitocybe rivulosa / C. dealbata), which causes rapid-onset muscarinic (SLUDGE-type, profuse sweating/salivation) poisoning. Key separating features of M. oreades: broad, widely spaced (distant) pale gills that are free to nearly free; a tough, pliable stem that does not snap; a hygrophanous tan cap with a low umbo; and the ability to revive after drying. Toxic lawn Clitocybe instead have crowded, decurrent white gills and a flatter, often chalky-white cap. Other small whitish grassland fungi (including some deadly amatoxin-containing Lepiota/dapperlings and muscarine-containing white Inocybe fibrecaps) can also occur nearby. Never eat any small white/tan lawn mushroom unless every feature matches M. oreades and the muscarine and amatoxin look-alikes are confidently excluded.",
+  "vernacularNames": [
+    {
+      "lang": "en",
+      "name": "Fairy Ring Champignon"
+    },
+    {
+      "lang": "en",
+      "name": "Fairy Ring Mushroom"
+    },
+    {
+      "lang": "en",
+      "name": "Scotch Bonnet"
+    },
+    {
+      "lang": "fr",
+      "name": "Mousseron"
+    }
+  ],
+  "capColor": [
+    "tan",
+    "buff",
+    "cream",
+    "pale brown",
+    "whitish"
+  ],
+  "sporePrintColor": "white",
+  "trophicMode": "saprotroph",
+  "habitat": [
+    "lawns",
+    "grassland",
+    "pastures",
+    "meadows",
+    "parks",
+    "roadside verges"
+  ],
+  "substrate": [
+    "soil",
+    "grass thatch",
+    "grass roots"
+  ],
+  "distribution": "Widespread and common across the temperate Northern Hemisphere, including Europe and North America; reported widely in grassy habitats in many temperate regions worldwide.",
+  "fruitingSeason": [
+    "spring",
+    "summer",
+    "autumn"
+  ],
+  "dangerousLookalikes": [
+    {
+      "name": "Clitocybe rivulosa",
+      "slug": "clitocybe-rivulosa",
+      "note": "Toxic lawn species containing muscarine. Grows in the same grass, often in rings. Distinguished by crowded, decurrent white gills (vs. M. oreades' broad, distant, free gills) and a flatter, chalky whitish, sometimes faintly zoned cap. Causes muscarinic (SLUDGE/profuse sweating) poisoning."
+    },
+    {
+      "name": "Clitocybe dealbata",
+      "note": "Closely allied muscarine-containing lawn Clitocybe, often treated together with C. rivulosa (and sometimes considered synonymous). Crowded decurrent gills and a white cap; toxic. A primary cause of confusion for fairy-ring foragers."
+    },
+    {
+      "name": "Lepiota species (small white dapperlings)",
+      "note": "Some small grassland Lepiota (e.g. members of the L. brunneoincarnata / L. helveola group) contain deadly amatoxins. Differ from M. oreades in having a stem ring and finely scaly caps; can occur in grassy/disturbed ground."
+    },
+    {
+      "name": "Inocybe species (white fibrecaps)",
+      "note": "Several small whitish Inocybe contain muscarine and occur in grass and at grassy woodland edges. Differ by radially fibrous/silky caps, an earthy or spermatic smell, and a dull brown (not white) spore print."
+    }
+  ],
+  "references": [
+    {
+      "title": "Marasmius oreades — Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Marasmius_oreades"
+    }
+  ],
+  "lastReviewed": "2026-05-31"
+}

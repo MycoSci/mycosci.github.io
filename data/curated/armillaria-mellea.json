@@ -1,0 +1,78 @@
+{
+  "slug": "armillaria-mellea",
+  "edibility": "edible",
+  "preparation": "cook",
+  "edibilityNotes": "Edible ONLY when thoroughly cooked. Raw or undercooked specimens are toxic and commonly cause gastrointestinal upset (nausea, vomiting, diarrhea). Even when fully cooked, a notable minority of people experience GI distress, so first-time eaters should try only a small, well-cooked portion and wait at least 24 hours before eating more. Discard the tough, fibrous stems and eat only the caps. CRITICAL: positively distinguish from the deadly amatoxin-containing Galerina marginata (rusty-brown spore print, ring, grows clustered on wood) and the toxic Hypholoma fasciculare (purple-brown spore print, bitter taste, sulphur-yellow gills), both of which also grow in clusters on wood. Always confirm a WHITE spore print before consuming.",
+  "description": "Armillaria mellea, the Honey Fungus, is an aggressive parasitic and saprotrophic root-rot pathogen of trees and woody plants, and one of the most economically damaging forest and orchard pathogens worldwide. It fruits in dense, honey-colored to tawny-brown clusters at the base of living trunks, on stumps, and over buried roots, typically in autumn. Caps are 3-15 cm, convex becoming flattened, honey-yellow to reddish-brown, often with fine dark fibrillose scales concentrated toward the center; the flesh is white. Gills are whitish, becoming pinkish to rust-stained with age, attached to slightly decurrent. The stem bears a prominent persistent whitish to yellowish cottony ring. The spore print is white. Underground and beneath bark the fungus produces tough black shoestring-like rhizomorphs (\"bootlaces\") that spread infection from host to host, and its mycelium is bioluminescent, producing the faint green glow known as foxfire. It is edible only after thorough cooking; raw or undercooked material is toxic.",
+  "vernacularNames": [
+    {
+      "lang": "en",
+      "name": "Honey Fungus"
+    },
+    {
+      "lang": "en",
+      "name": "Honey Mushroom"
+    },
+    {
+      "lang": "en",
+      "name": "Bootlace Fungus"
+    }
+  ],
+  "capColor": [
+    "honey-yellow",
+    "tawny brown",
+    "reddish-brown"
+  ],
+  "sporePrintColor": "white",
+  "trophicMode": "parasite",
+  "substrate": [
+    "living tree roots and trunks",
+    "stumps",
+    "buried roots",
+    "dead wood"
+  ],
+  "habitat": [
+    "forests",
+    "woodlands",
+    "parks",
+    "gardens",
+    "orchards"
+  ],
+  "hosts": [
+    "hardwoods",
+    "conifers",
+    "oak",
+    "a wide range of woody trees and shrubs"
+  ],
+  "distribution": "Widespread across the temperate Northern Hemisphere, including Europe, North America, and Asia. The name Armillaria mellea has historically been applied broadly; molecular work has split the older \"honey fungus\" species complex into several distinct species, so some regional records may refer to closely related Armillaria taxa.",
+  "fruitingSeason": [
+    "autumn"
+  ],
+  "dangerousLookalikes": [
+    {
+      "name": "Galerina marginata",
+      "slug": "galerina-marginata",
+      "note": "DEADLY. Contains amatoxins (the same class of toxins as the death cap). Also grows in clusters on wood. Distinguished by a rusty-brown to ochre spore print (vs. white in Armillaria), smaller size, smooth (non-scaly) brown to honey-brown cap, and a thinner stem. Confirming a white spore print is essential before eating any honey fungus."
+    },
+    {
+      "name": "Hypholoma fasciculare",
+      "slug": "hypholoma-fasciculare",
+      "note": "Toxic (severe GI upset). Sulphur Tuft. Clusters on stumps and wood. Distinguished by sulphur-yellow to greenish-yellow gills, a purple-brown to blackish spore print, intensely bitter taste, lack of a true ring, and absence of dark cap scales."
+    },
+    {
+      "name": "Pholiota species",
+      "note": "Some Pholiota also cluster on wood with scaly caps and superficially resemble honey fungus; they typically have brown to rusty-brown spore prints rather than white, and many are slimy/viscid when moist."
+    }
+  ],
+  "references": [
+    {
+      "title": "Armillaria mellea - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Armillaria_mellea"
+    },
+    {
+      "title": "Armillaria - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Armillaria"
+    }
+  ],
+  "lastReviewed": "2026-05-31"
+}

@@ -1,0 +1,81 @@
+{
+  "slug": "phallus-impudicus",
+  "edibility": "edible",
+  "preparation": "special",
+  "authorship": "L.",
+  "year": 1753,
+  "description": "Phallus impudicus, the Common Stinkhorn, is a widespread saprotrophic fungus famous for its rapid, phallic fruiting body and the powerful, fetid odor it emits at maturity. The fungus first appears as a partly buried whitish to off-white \"egg\" 4-6 cm across, attached to the soil by a white mycelial cord (rhizomorph). From this egg the fruiting body erupts rapidly, the spongy white stalk (receptacle) elongating to 10-25 cm in a matter of hours. The stalk is capped with a thimble-like, ridged/honeycombed cap coated in a slimy, olive-green to brown spore mass called the gleba. The gleba smells strongly of carrion/rotting flesh, attracting flies and other insects that feed on it and disperse the spores; once the slime is removed by insects the underlying white cap is exposed. It is a common species of woodlands, gardens, hedgerows, mulched beds, and wood-debris-rich soils across Europe, North America, and beyond, fruiting mainly in summer and autumn.\n\nEDIBILITY AND SAFETY: Only the immature \"egg\" stage is eaten, and only as a regional novelty. When sliced, the egg reveals a firm white outer skin, a thick gelatinous (jelly-like) layer, and a darker olive-green embryonic gleba/stalk in the center. The crisp inner core is sometimes eaten raw (reportedly radish-like) or cooked; the gelatinous layer is typically peeled away. The mature stinkhorn, with its slimy gleba, is not eaten. CRITICAL CUT TEST: an unopened stinkhorn egg can superficially resemble the egg/button (volva-enclosed young fruiting body) of a deadly Amanita such as the Death Cap (Amanita phalloides) or Destroying Angel (Amanita virosa). ALWAYS slice any white \"egg\" vertically from top to bottom before considering it: a stinkhorn egg shows a gelatinous layer surrounding an undifferentiated olive embryonic structure, whereas an Amanita button shows a clearly differentiated, developing gilled mushroom (cap, gills, stem) in cross-section. If a young gilled mushroom is visible inside, discard it — it is not a stinkhorn. When in doubt, do not eat.",
+  "edibilityNotes": "Edible only at the immature white \"egg\" stage, and only as a regional novelty; the crisp inner core is eaten raw (radish-like flavor) or cooked, with the gelatinous outer layer peeled away. The mature stalk with its foul-smelling olive gleba is not consumed. SAFETY-CRITICAL: an unopened white stinkhorn egg can resemble the button of a deadly Amanita (Death Cap, Destroying Angel). Always slice the egg vertically before eating — a stinkhorn shows a gelatinous layer around an olive embryonic gleba with no gills, while an Amanita button reveals a developing gilled mushroom inside. If any gill structure is present, discard it. If uncertain, do not eat.",
+  "trophicMode": "saprotroph",
+  "vernacularNames": [
+    {
+      "lang": "en",
+      "name": "Common Stinkhorn"
+    },
+    {
+      "lang": "de",
+      "name": "Gemeine Stinkmorchel"
+    },
+    {
+      "lang": "nl",
+      "name": "Grote stinkzwam"
+    }
+  ],
+  "capColor": [
+    "white",
+    "olive-green",
+    "brown"
+  ],
+  "sporePrintColor": "olive-green to brown (gleba)",
+  "habitat": [
+    "woodland",
+    "gardens",
+    "hedgerows",
+    "mulched beds",
+    "wood-debris-rich soils"
+  ],
+  "substrate": [
+    "soil",
+    "decaying wood",
+    "leaf litter",
+    "woody debris"
+  ],
+  "distribution": "Widespread across Europe and North America, and reported from other temperate regions of the world.",
+  "fruitingSeason": [
+    "summer",
+    "autumn"
+  ],
+  "dangerousLookalikes": [
+    {
+      "name": "Amanita phalloides (Death Cap)",
+      "slug": "amanita-phalloides",
+      "note": "The deadly Death Cap emerges from a white volval egg/button that can resemble a stinkhorn egg. Slice vertically: an Amanita button reveals a developing gilled mushroom (cap, gills, stem), whereas a stinkhorn egg shows a gelatinous layer around an undifferentiated olive embryonic gleba with no gills."
+    },
+    {
+      "name": "Amanita virosa (Destroying Angel)",
+      "slug": "amanita-virosa",
+      "note": "Another deadly white Amanita whose young volva-enclosed button can be mistaken for a stinkhorn egg. The vertical cut test distinguishes them: gilled mushroom inside = Amanita (discard); gelatinous olive embryo with no gills = stinkhorn."
+    },
+    {
+      "name": "Mutinus caninus (Dog Stinkhorn)",
+      "slug": "mutinus-caninus",
+      "note": "A related, smaller and more slender stinkhorn that also arises from an egg; harmless but distinguished by its narrower orange-tipped stalk and weaker odor."
+    },
+    {
+      "name": "Phallus hadriani (Dune Stinkhorn)",
+      "slug": "phallus-hadriani",
+      "note": "A very similar stinkhorn arising from a pinkish/purple-tinged egg, typically in dunes and sandy soils; also edible at the egg stage and not dangerous, but worth distinguishing for accurate ID."
+    }
+  ],
+  "references": [
+    {
+      "title": "Phallus impudicus - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Phallus_impudicus"
+    },
+    {
+      "title": "Phallus impudicus, Stinkhorn fungus - First Nature",
+      "url": "https://www.first-nature.com/fungi/phallus-impudicus.php"
+    }
+  ],
+  "lastReviewed": "2026-05-31"
+}

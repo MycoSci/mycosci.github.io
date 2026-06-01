@@ -1,0 +1,71 @@
+{
+  "slug": "leccinum-scabrum",
+  "edibility": "edible",
+  "preparation": "cook",
+  "authorship": "(Bull.) Gray",
+  "year": 1821,
+  "description": "Leccinum scabrum (Brown Birch Bolete) is a birch-associated ectomycorrhizal bolete with a tan to grey-brown cap, whitish pores, and a pale stem covered in dark scabers. The soft flesh may darken on cutting and turns blackish on cooking. Edible only when thoroughly cooked; of modest culinary quality.",
+  "edibilityNotes": "Edible ONLY when thoroughly cooked. Raw or undercooked boletes of this group can cause gastrointestinal upset, so always cook well before eating. The flesh is soft and mild; older specimens become spongy and waterlogged and are best discarded or used only for drying. Within the scaber-stalk (Leccinum) complex, several segregate species are difficult to separate; L. scabrum itself is regarded as a safe edible but is unremarkable in flavour. As with any wild fungus, identify with certainty and eat only a small portion when trying a species for the first time.",
+  "vernacularNames": [
+    {
+      "lang": "en",
+      "name": "Brown Birch Bolete"
+    },
+    {
+      "lang": "en",
+      "name": "Birch Bolete"
+    },
+    {
+      "lang": "en",
+      "name": "Rough-stemmed Bolete"
+    },
+    {
+      "lang": "en",
+      "name": "Brown Birch Scaber Stalk"
+    }
+  ],
+  "capColor": [
+    "brown",
+    "grey-brown",
+    "tan",
+    "greyish"
+  ],
+  "sporePrintColor": "snuff-brown to ochre-brown (olive-toned)",
+  "trophicMode": "ectomycorrhizal",
+  "hosts": [
+    "Betula (birch)"
+  ],
+  "habitat": [
+    "birch woodland",
+    "heaths",
+    "parks and gardens with birch",
+    "damp birch-dominated ground",
+    "urban plantings of ornamental birch"
+  ],
+  "substrate": [
+    "soil"
+  ],
+  "distribution": "Widespread across the temperate Northern Hemisphere, including Europe, the Himalayas, northern Asia, and North America, wherever birch occurs; also introduced with planted birch in parts of the Southern Hemisphere (notably Australia and New Zealand).",
+  "fruitingSeason": [
+    "summer",
+    "autumn"
+  ],
+  "dangerousLookalikes": [
+    {
+      "name": "Other Leccinum scaber-stalks (e.g. Leccinum variicolor, Leccinum holopus, Leccinum oxydabile)",
+      "note": "Closely related birch-associated scaber stalks, also edible-when-cooked, separated by cap colour, flesh staining (e.g. blue-green stipe base in L. variicolor) and habitat. Not dangerous, but the group is a complex rather than a single clean species; all require thorough cooking."
+    },
+    {
+      "name": "Tylopilus felleus (Bitter Bolete)",
+      "slug": "tylopilus-felleus",
+      "note": "Superficially bolete-like with a brown cap, but has a coarse dark net (reticulation) on the stem rather than discrete scabers, pores that flush pinkish with age, and an intensely bitter taste that ruins a dish. Not deadly but renders food inedible."
+    }
+  ],
+  "references": [
+    {
+      "title": "Leccinum scabrum - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Leccinum_scabrum"
+    }
+  ],
+  "lastReviewed": "2026-05-31"
+}

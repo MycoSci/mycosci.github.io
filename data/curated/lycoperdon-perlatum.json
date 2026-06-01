@@ -1,0 +1,82 @@
+{
+  "slug": "lycoperdon-perlatum",
+  "edibility": "edible",
+  "preparation": "cook",
+  "description": "Lycoperdon perlatum, the common puffball or gem-studded puffball, is a widespread saprotrophic fungus in the family Agaricaceae. The fruiting body is whitish to pale grey-brown, pear-shaped to top-shaped, typically 1.5-6 cm wide and 3-7 cm tall, with a rounded head tapering to a sterile stem-like base. The outer surface is covered in detachable conical spines (warts) interspersed with smaller granular warts; when the spines fall away they leave a net-like pattern of pale scars. At maturity a pore opens at the apex through which the spores are released, often in puffs when struck by raindrops or pressure. The interior (gleba) is pure white and firm-fleshy when young, turning yellowish, then olive-brown and powdery as the spores mature. It is edible only in the young stage while the gleba is uniformly white; it must be cooked and should never be eaten once any yellowing or browning has begun.",
+  "edibilityNotes": "Edible ONLY when young and the interior is pure white, firm, and completely homogeneous; it must be cooked before eating. Once the gleba shows any yellow, olive, or brown discoloration it is past edibility and should be discarded (spore maturation has begun). CRITICAL CUT-TEST: before eating any small white puffball-like fungus, slice it vertically from top to bottom. A true puffball shows a uniform, soft, pure-white interior with no internal structure. (1) If the cut reveals the silhouette of a developing cap, gills, and stem, it is the immature \"button\"/\"egg\" stage of an Amanita (potentially the deadly Amanita phalloides or A. virosa) and must NOT be eaten. (2) If the interior is firm and dark (purplish-black to greyish), often marbled, it is a Scleroderma earthball, which is toxic. Discard any specimen that is not uniformly soft and pure white inside. Note: unlike many gilled edibles, puffballs carry no coprine/alcohol-reaction or muscarine concerns — the sole serious hazards are the Amanita-egg and earthball confusions identified by the cut test.",
+  "vernacularNames": [
+    {
+      "lang": "en",
+      "name": "Common puffball"
+    },
+    {
+      "lang": "en",
+      "name": "Gem-studded puffball"
+    },
+    {
+      "lang": "en",
+      "name": "Warted puffball"
+    },
+    {
+      "lang": "en",
+      "name": "Devil's snuff-box"
+    }
+  ],
+  "capColor": [
+    "white",
+    "grey",
+    "brown",
+    "cream"
+  ],
+  "sporePrintColor": "olive-brown",
+  "trophicMode": "saprotroph",
+  "habitat": [
+    "woodland",
+    "coniferous forest",
+    "deciduous forest",
+    "grassland",
+    "roadsides",
+    "clearings"
+  ],
+  "substrate": [
+    "soil",
+    "leaf litter",
+    "humus",
+    "woody debris"
+  ],
+  "distribution": "Cosmopolitan and very common; nearly worldwide, including North America (Alaska to Mexico), Europe, Asia, Africa, Australia, New Zealand, and South America. Most abundant in temperate regions of the Northern Hemisphere.",
+  "fruitingSeason": [
+    "summer",
+    "autumn"
+  ],
+  "dangerousLookalikes": [
+    {
+      "name": "Amanita phalloides (death cap) button/egg stage",
+      "slug": "amanita-phalloides",
+      "note": "An immature Amanita egg can superficially resemble a small white puffball. A vertical cut reveals the outline of a developing cap, gills, and stem inside; a true puffball is uniformly white and structureless throughout. Amanita phalloides is deadly poisonous (amatoxins). Always cut-test."
+    },
+    {
+      "name": "Amanita virosa (destroying angel) button/egg stage",
+      "slug": "amanita-virosa",
+      "note": "Like the death cap, the immature egg can be mistaken for a puffball. A vertical cut shows an internal capped, gilled silhouette. Deadly poisonous (amatoxins)."
+    },
+    {
+      "name": "Scleroderma citrinum (common earthball)",
+      "slug": "scleroderma-citrinum",
+      "note": "Earthballs are firmer with a thick tough rind and a dark purplish-black to grey, often marbled, interior that develops much earlier than a puffball's, lacking the soft white homogeneous gleba and conical spines of a young Lycoperdon. They break apart rather than releasing spores through an apical pore. Toxic, causing gastrointestinal poisoning."
+    }
+  ],
+  "references": [
+    {
+      "title": "Lycoperdon perlatum - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Lycoperdon_perlatum"
+    },
+    {
+      "title": "Scleroderma citrinum - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Scleroderma_citrinum"
+    }
+  ],
+  "authorship": "Pers.",
+  "year": 1796,
+  "lastReviewed": "2026-05-31"
+}

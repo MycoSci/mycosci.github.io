@@ -1,0 +1,74 @@
+{
+  "slug": "coprinopsis-atramentaria",
+  "edibility": "edible",
+  "preparation": "cook",
+  "edibilityNotes": "Considered edible when young and thoroughly cooked, BUT it contains coprine, which produces a disulfiram-like (Antabuse) reaction when combined with alcohol. After eating this mushroom, consuming alcohol blocks acetaldehyde metabolism (the active metabolite inhibits acetaldehyde/aldehyde dehydrogenase), causing facial flushing/reddening, nausea, vomiting, malaise, palpitations, headache, and tingling in the limbs. Symptoms can begin within about 5-10 minutes of drinking and the sensitivity can persist for several days (reported up to roughly 3-5 days) after the meal. For this reason it is also called Tippler's Bane. DO NOT consume alcohol in the days surrounding a meal of this species. Only collect young, firm specimens before the gills begin to deliquesce (auto-digest) into black ink; old, blackening, liquefying caps are not suitable for the table. Many cautious foragers avoid this species entirely because of the alcohol interaction. Note: the coprine/alcohol reaction is associated with eating the cooked mushroom; there is no well-established separate 'raw toxicity' beyond the general rule to cook wild mushrooms thoroughly.",
+  "description": "Coprinopsis atramentaria, the Common Inkcap or Tippler's Bane, is a widespread agaric that grows in dense clusters from buried wood, at the base of trees and stumps, and on disturbed or rich ground, in grassland, lawns, meadows, gardens, and along paths and roadsides. The egg-shaped to bell-shaped grey to grey-brown cap is often radially grooved or splitting, and expands and then liquefies (deliquesces) from the margin inward, the crowded gills auto-digesting into a black, inky fluid as the spores mature. The pale stem is hollow and fibrous. It is a saprotroph on dead and buried wood. Though edible when young and well cooked, it is best known for its coprine content, which produces a disulfiram-like reaction with alcohol.",
+  "vernacularNames": [
+    {
+      "lang": "en",
+      "name": "Common Inkcap"
+    },
+    {
+      "lang": "en",
+      "name": "Inky Cap"
+    },
+    {
+      "lang": "en",
+      "name": "Tippler's Bane"
+    }
+  ],
+  "capColor": [
+    "grey",
+    "grey-brown",
+    "brown"
+  ],
+  "sporePrintColor": "black",
+  "trophicMode": "saprotroph",
+  "substrate": [
+    "dead wood",
+    "buried wood",
+    "soil",
+    "disturbed ground"
+  ],
+  "habitat": [
+    "base of trees and stumps",
+    "grassland and meadows",
+    "lawns and grassy areas",
+    "gardens",
+    "disturbed ground",
+    "roadsides and paths"
+  ],
+  "distribution": "Widespread and common throughout the temperate Northern Hemisphere (Europe, Asia, and North America), and also recorded in other regions such as South Africa and Australia.",
+  "fruitingSeason": [
+    "spring",
+    "summer",
+    "autumn"
+  ],
+  "notableCompounds": [
+    "coprine"
+  ],
+  "dangerousLookalikes": [
+    {
+      "name": "Coprinopsis variegata",
+      "note": "A related inkcap with a cap covered in pale, felty veil patches/scales; also contains coprine and shares the alcohol interaction, so mistaking it does not change the safety advice."
+    },
+    {
+      "name": "Coprinellus micaceus",
+      "slug": "coprinellus-micaceus",
+      "note": "Mica Cap - smaller, more tawny/ochre cap dusted with glistening mica-like granules when young, growing in similar clustered habitats. A deliquescing inkcap that is easily confused; generally regarded as edible, though caution with alcohol is still advised when inkcaps cannot be told apart confidently."
+    }
+  ],
+  "references": [
+    {
+      "title": "Coprinopsis atramentaria - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Coprinopsis_atramentaria"
+    },
+    {
+      "title": "Coprine - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Coprine"
+    }
+  ],
+  "authorship": "(Bull.) Redhead, Vilgalys & Moncalvo",
+  "lastReviewed": "2026-05-31"
+}

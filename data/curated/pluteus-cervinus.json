@@ -1,0 +1,74 @@
+{
+  "slug": "pluteus-cervinus",
+  "authorship": "(Schaeff.) P. Kumm.",
+  "year": 1871,
+  "edibility": "edible",
+  "preparation": "cook",
+  "edibilityNotes": "A recognised edible but a poor-quality one: soft-textured, with a mild, sometimes radish-like or earthy flavour, and it does not preserve well. Cook before eating, as with most gilled mushrooms; a small number of reports describe gastric upset, so it is not recommended for the table. There is no well-documented specific raw-toxicity syndrome for this species beyond the general advice to cook wild mushrooms. The dominant safety concern is correct identification: it must be separated from soil-dwelling, pink-spored Entoloma species, several of which are toxic. The combination of a wood-growing habit, truly free gills that mature pink, a salmon-pink (pinkish-brown) spore print, and the complete absence of both a ring and a volva confirms Pluteus rather than Entoloma (which grows from soil/ground and has attached gills). No coprine/alcohol (inkcap) reaction, no puffball or Amanita-egg cut-test, and no muscarine concern apply to this species; those checks belong to other groups and are not relevant here.",
+  "description": "Pluteus cervinus, the deer shield or fawn mushroom, is a common saprotrophic agaric that fruits on dead and decaying hardwood, including logs, stumps, buried wood, roots, sawdust, and other woody debris. The cap is typically 4-12 cm across, convex becoming flattened, and ranges from grey-brown to dark brown, often with a radially fibrillose or streaky surface and a slightly darker centre. The gills are crowded and truly free from the stem; they start white or pale and mature to a distinctive pink as the spores ripen. The stem is whitish to greyish, fibrillose, and lacks both a ring (partial veil) and a volva (cup at the base). The spore print is salmon-pink to pinkish-brown. Microscopically, the genus Pluteus is characterised by inverse (convergent) hymenophoral trama and prominent cystidia; P. cervinus typically bears thick-walled pleurocystidia with apical hooks or horns. It is one of the few common pink-spored mushrooms that grows directly on wood, which is the key field separator from the soil-dwelling, pink-spored Entoloma.",
+  "vernacularNames": [
+    {
+      "lang": "en",
+      "name": "Deer Shield"
+    },
+    {
+      "lang": "en",
+      "name": "Fawn Mushroom"
+    },
+    {
+      "lang": "en",
+      "name": "Deer Mushroom"
+    }
+  ],
+  "capColor": [
+    "brown",
+    "grey-brown",
+    "dark brown"
+  ],
+  "sporePrintColor": "salmon-pink to pinkish-brown",
+  "trophicMode": "saprotroph",
+  "substrate": [
+    "dead hardwood",
+    "logs and stumps",
+    "buried wood",
+    "roots",
+    "sawdust",
+    "woody debris"
+  ],
+  "habitat": [
+    "deciduous and mixed woodland",
+    "on dead wood",
+    "on woody debris and wood chips"
+  ],
+  "fruitingSeason": [
+    "spring",
+    "summer",
+    "autumn"
+  ],
+  "distribution": "Widespread and common in Europe and eastern North America; rare and possibly introduced in western North America. Broadly distributed across the temperate Northern Hemisphere.",
+  "dangerousLookalikes": [
+    {
+      "name": "Entoloma species",
+      "note": "Several pink-spored Entoloma species are toxic. Unlike Pluteus cervinus, Entoloma grow from soil/ground (not on wood) and have gills that are attached (adnate to sinuate) rather than free, with angular spores. The wood habitat plus truly free gills distinguish Pluteus. This is the primary dangerous confusion for this species."
+    },
+    {
+      "name": "Volvariella / Volvopluteus species",
+      "note": "Also pink-spored with free gills, but these arise from a distinct cup-like volva at the stem base, which Pluteus entirely lacks. Check the stem base before eating any pink-spored, free-gilled mushroom."
+    },
+    {
+      "name": "Other Pluteus species",
+      "note": "Numerous similar wood-growing Pluteus species exist; most require microscopy (cystidia shape) for confident separation. Not a poisoning risk in itself, but it undermines a confident species-level edibility call."
+    }
+  ],
+  "references": [
+    {
+      "title": "Pluteus cervinus - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Pluteus_cervinus"
+    },
+    {
+      "title": "Pluteus cervinus, Deer Shield mushroom - First Nature",
+      "url": "https://www.first-nature.com/fungi/pluteus-cervinus.php"
+    }
+  ],
+  "lastReviewed": "2026-05-31"
+}

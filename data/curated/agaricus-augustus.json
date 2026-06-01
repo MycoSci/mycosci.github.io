@@ -1,0 +1,65 @@
+{
+  "slug": "agaricus-augustus",
+  "edibility": "edible",
+  "preparation": "cook",
+  "description": "Agaricus augustus, commonly called The Prince, is a large, handsome member of the Agaricaceae and one of the choicest edible Agaricus species. The cap is robust (often 10-20 cm, sometimes larger) and densely covered with fine brownish to golden-brown fibrillose scales over a pale ground, giving an overall tan to ochre-brown appearance; it expands from hemispherical to broadly convex or nearly flat. The crowded gills begin pale pinkish-grey and mature through pink to a deep chocolate-brown, never remaining white. The stout stem bears a large, conspicuous, pendant white ring and the surface below the ring is often somewhat shaggy or scaly. The flesh is firm and white and may slowly stain a faint yellow where handled, but does NOT flash bright chrome-yellow at the stem base. A defining feature is the strong, pleasant smell of almonds or marzipan (anise/benzaldehyde-like). The spore print is dark chocolate-brown. It is a saprotrophic, ground-dwelling fungus fruiting in summer and autumn, frequently near conifers, along paths, in woodland edges, hedgerows, gardens and disturbed ground across temperate regions of the Northern Hemisphere, and introduced elsewhere.\n\nEdibility and safety: The Prince is a highly regarded edible and should always be cooked thoroughly; never eaten raw. The single most important safety task is distinguishing it from toxic, phenolic Agaricus species, above all the Yellow Stainer (Agaricus xanthodermus), which stains an instant, vivid chrome-yellow when the flesh is cut or scratched - most reliably at the very base of the stem - and smells unpleasant of phenol/ink/iodine rather than almond. These species cause gastrointestinal upset (cramping, vomiting, diarrhoea) in many people. Always cut the stem base to check for bright-yellow staining and confirm the almond odour before eating. As with any pale or partly white mushroom, beginners must also rule out deadly white Amanita species, which differ by having a WHITE spore print, free white gills that never turn brown, and a membranous sac-like volva at the swollen stem base - features never present in Agaricus. When in doubt, do not eat. Some foragers report mild gastrointestinal sensitivity to large quantities even of correctly identified Agaricus, and individual reactions vary, so try a small portion first.",
+  "edibilityNotes": "Choice edible but must be cooked, never eaten raw. Critical: cut the stem base and reject any specimen that flashes bright chrome-yellow (Yellow Stainer A. xanthodermus and other phenolic Agaricus such as A. moelleri, toxic) or that smells of phenol/ink rather than almonds. Rule out deadly white Amanita (white spore print + sac-like volva). Eat a small portion first; individual sensitivity varies.",
+  "vernacularNames": [
+    {
+      "lang": "en",
+      "name": "The Prince"
+    }
+  ],
+  "capColor": [
+    "brown",
+    "golden-brown",
+    "tan",
+    "ochre"
+  ],
+  "sporePrintColor": "chocolate-brown",
+  "trophicMode": "saprotroph",
+  "habitat": [
+    "woodland edges",
+    "conifer woodland",
+    "paths and tracksides",
+    "hedgerows",
+    "gardens",
+    "disturbed ground"
+  ],
+  "substrate": [
+    "soil",
+    "leaf litter"
+  ],
+  "fruitingSeason": [
+    "summer",
+    "autumn"
+  ],
+  "distribution": "Widespread across temperate regions of the Northern Hemisphere (Europe, North America, Asia, North Africa) and introduced to other temperate areas.",
+  "dangerousLookalikes": [
+    {
+      "name": "Agaricus xanthodermus",
+      "slug": "agaricus-xanthodermus",
+      "note": "The Yellow Stainer (toxic). Stains an instant bright chrome-yellow when cut, most strongly at the stem base, and smells of phenol/ink/iodine rather than almonds. Causes gastrointestinal illness. This is the key dangerous confusion."
+    },
+    {
+      "name": "Agaricus moelleri",
+      "slug": "agaricus-moelleri",
+      "note": "Inky / Dark-scaled Mushroom (toxic; also known as A. praeclaresquamosus). Greyish fibrillose-scaly cap, stains chrome-yellow especially at the stem base, and has an unpleasant phenolic/ink odour rather than almonds. Causes gastrointestinal upset like the Yellow Stainer."
+    },
+    {
+      "name": "Amanita (deadly white species)",
+      "note": "Deadly white Amanitas (e.g. Destroying Angel, Amanita virosa/bisporigera) can be confused with any pale Agaricus. They have a WHITE spore print, free gills that stay white (never turning pink then chocolate-brown), and a membranous sac-like volva at the swollen stem base. Always check spore-print colour and excavate the stem base."
+    }
+  ],
+  "references": [
+    {
+      "title": "Agaricus augustus - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Agaricus_augustus"
+    },
+    {
+      "title": "Agaricus xanthodermus - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Agaricus_xanthodermus"
+    }
+  ],
+  "lastReviewed": "2026-05-31"
+}
