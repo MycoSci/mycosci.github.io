@@ -1,0 +1,69 @@
+{
+  "slug": "amanita-virosa",
+  "description": "Amanita virosa, the European Destroying Angel, is a pure-white woodland mushroom and one of the most poisonous fungi known. Like its relatives in the death-cap group it contains amatoxins that cause delayed, often fatal liver and kidney failure.",
+  "vernacularNames": [
+    {
+      "lang": "en",
+      "name": "Destroying Angel"
+    },
+    {
+      "lang": "en",
+      "name": "European Destroying Angel"
+    }
+  ],
+  "edibility": "deadly",
+  "edibilityNotes": "Deadly poisonous; contains amatoxins (alpha-amanitin and related cyclic peptides). DELAYED, CUMULATIVE ONSET: symptoms are dangerously delayed, typically appearing 6-24 hours after ingestion (gastrointestinal phase of vomiting and diarrhea), often followed by a deceptive 'false recovery' period of 1-2 days before progressive, potentially irreversible liver and kidney failure. By the time symptoms appear, toxin is already absorbed and liver damage may be underway. A single fruiting body can be lethal. No safe preparation exists: cooking, drying, freezing, or parboiling does NOT destroy the toxins. Seek emergency medical care immediately on any suspicion of ingestion, even if the person currently feels well.",
+  "preparation": "none",
+  "notableCompounds": [
+    "alpha-amanitin",
+    "beta-amanitin",
+    "phallotoxins"
+  ],
+  "capColor": [
+    "white"
+  ],
+  "sporePrintColor": "white",
+  "trophicMode": "ectomycorrhizal",
+  "habitat": [
+    "coniferous forest",
+    "deciduous forest",
+    "mixed woodland"
+  ],
+  "substrate": [
+    "soil"
+  ],
+  "distribution": "Widespread across temperate and boreal Europe; closely allied destroying-angel taxa (e.g. A. bisporigera, A. ocreata in North America) occur in Asia and the Americas.",
+  "fruitingSeason": [
+    "summer",
+    "autumn"
+  ],
+  "dangerousLookalikes": [
+    {
+      "name": "Agaricus species (white edible mushrooms, e.g. horse and field mushrooms)",
+      "note": "Edible Agaricus species have pink-to-chocolate-brown gills that darken with age and a brown spore print, and lack a volva. Amanita virosa has persistent white (free) gills, a white spore print, and a distinctive sac-like basal volva. Always check the base of the stem for a volva.",
+      "slug": "agaricus-arvensis"
+    },
+    {
+      "name": "Edible puffballs (immature button stage)",
+      "note": "At the immature 'egg' stage the volva-enclosed Amanita button can resemble a small puffball. Cutting it vertically reveals the silhouette of a developing capped, gilled mushroom inside; a true puffball is uniformly solid white flesh throughout with no internal structure.",
+      "slug": "lycoperdon-perlatum"
+    },
+    {
+      "name": "Amanita phalloides (Death Cap)",
+      "note": "Another deadly amatoxin-containing Amanita, distinguished by its greenish to olive- or yellow-tinged cap, whereas A. virosa is pure white. Both are lethal, so this distinction matters only for identification, not for safety.",
+      "slug": "amanita-phalloides"
+    },
+    {
+      "name": "Volvariella / Volvopluteus species (volvate edible mushrooms)",
+      "note": "Some edible volvate species also have a basal volva, but they produce a PINK to salmon spore print and pinkish mature gills, versus the white gills and white spore print of A. virosa. A spore print is essential when a volva is present.",
+      "slug": "volvopluteus-gloiocephalus"
+    }
+  ],
+  "references": [
+    {
+      "title": "Amanita virosa - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Amanita_virosa"
+    }
+  ],
+  "lastReviewed": "2026-05-31"
+}

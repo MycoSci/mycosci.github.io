@@ -1,0 +1,60 @@
+{
+  "slug": "gyromitra-esculenta",
+  "edibility": "deadly",
+  "description": "Gyromitra esculenta, the false morel, is an ascomycete with a reddish-brown, brain-like wrinkled cap atop a pale stalk. Despite the epithet \"esculenta\" (meaning edible) and its traditional consumption in parts of Scandinavia and Eastern Europe after special processing, it contains gyromitrin and can be deadly.",
+  "edibilityNotes": "Contains gyromitrin, which is hydrolyzed in the body to monomethylhydrazine (MMH), a hepatotoxic, neurotoxic, and carcinogenic compound. Onset of symptoms is DELAYED, typically 6-12 hours after ingestion: vomiting, diarrhea, abdominal pain, and vertigo, progressing in severe cases to liver failure, seizures, hemolysis, methemoglobinemia, coma, and death. Toxin content is variable and there is no reliable safe dose. The toxin is volatile and only partly removed by parboiling and drying; poisoning has occurred even after such processing and from inhaling cooking vapors. Treated here as DEADLY and not recommended for consumption under any preparation.",
+  "preparation": "special",
+  "notableCompounds": [
+    "gyromitrin",
+    "monomethylhydrazine"
+  ],
+  "capColor": [
+    "reddish-brown",
+    "brown",
+    "chestnut",
+    "dark brown"
+  ],
+  "trophicMode": "saprotroph",
+  "habitat": [
+    "coniferous forest",
+    "sandy soil",
+    "disturbed ground"
+  ],
+  "substrate": [
+    "soil",
+    "woody debris"
+  ],
+  "distribution": "Widespread across the temperate Northern Hemisphere, including North America and Eurasia, especially in coniferous forests.",
+  "fruitingSeason": [
+    "spring"
+  ],
+  "vernacularNames": [
+    {
+      "lang": "en",
+      "name": "False morel"
+    },
+    {
+      "lang": "en",
+      "name": "Brain mushroom"
+    }
+  ],
+  "authorship": "(Pers.) Fr.",
+  "dangerousLookalikes": [
+    {
+      "name": "True morels (Morchella spp.)",
+      "note": "The critical confusion: edible true morels have a honeycomb/pitted cap that is HOLLOW inside and continuous with a single hollow stem. Gyromitra esculenta has a solid, irregularly wrinkled/brain-like cap with chambered or stuffed (cotton-like) internal flesh, never a clean hollow cavity. Cut any \"morel\" lengthwise before eating; a non-hollow, cotton-stuffed interior indicates a dangerous false morel.",
+      "slug": "morchella-esculenta"
+    },
+    {
+      "name": "Other Gyromitra and false morels (e.g. Gyromitra gigas / Gyromitra montana group)",
+      "note": "Other brain-like or saddle-shaped Gyromitra and related Discina/Helvella species are easily confused with G. esculenta and several also contain gyromitrin or have uncertain toxicity. Do not rely on species-level distinction in the field; treat all brain-shaped false morels as potentially toxic."
+    }
+  ],
+  "references": [
+    {
+      "title": "Gyromitra esculenta - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Gyromitra_esculenta"
+    }
+  ],
+  "lastReviewed": "2026-05-31"
+}

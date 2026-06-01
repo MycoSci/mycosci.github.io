@@ -1,0 +1,76 @@
+{
+  "slug": "coprinus-comatus",
+  "authorship": "(O.F. Müll.) Pers.",
+  "year": 1797,
+  "vernacularNames": [
+    {
+      "lang": "en",
+      "name": "Shaggy Mane"
+    },
+    {
+      "lang": "en",
+      "name": "Lawyer's Wig"
+    },
+    {
+      "lang": "en",
+      "name": "Shaggy Ink Cap"
+    }
+  ],
+  "description": "Coprinus comatus is a common saprotrophic mushroom recognized by its tall, white, shaggy-scaled cylindrical cap that auto-digests (deliquesces) from the margin upward into a black inky liquid as it matures. It is widely regarded as a good edible when young and still white, but deteriorates rapidly after picking.",
+  "edibility": "edible",
+  "preparation": "cook",
+  "edibilityNotes": "Considered a good edible when collected young, firm, and still white inside, with no black liquefaction; always cook before eating. The mushroom deliquesces quickly, dissolving into black ink within hours of picking, so it must be cooked soon after collection and old or blackening specimens discarded. There are anecdotal reports of mild gastrointestinal upset in some individuals, so try a small portion when eating it for the first time. Note: the alcohol/disulfiram-like (coprine) reaction is associated with Coprinopsis atramentaria, NOT C. comatus; correctly identified shaggy mane is generally regarded as safe with alcohol, but the practical danger is misidentification, so be certain of the ID.",
+  "capColor": [
+    "white",
+    "cream",
+    "brown (at scale tips and disc)"
+  ],
+  "sporePrintColor": "black",
+  "trophicMode": "saprotroph",
+  "habitat": [
+    "lawns",
+    "grassland",
+    "roadsides",
+    "disturbed ground",
+    "woodchips",
+    "gardens"
+  ],
+  "substrate": [
+    "soil",
+    "rich disturbed soil",
+    "grassy ground"
+  ],
+  "fruitingSeason": [
+    "summer",
+    "autumn"
+  ],
+  "distribution": "Widespread and common throughout temperate regions of the Northern Hemisphere, including North America, Europe, and Asia, and introduced elsewhere.",
+  "dangerousLookalikes": [
+    {
+      "name": "Coprinopsis atramentaria",
+      "note": "Common inkcap / tippler's bane. Smaller, smooth grey-brown cap lacking the tall shaggy white scales; typically clustered from buried wood rather than solitary in grass. Contains coprine and causes a disulfiram-like reaction (flushing, nausea, palpitations, headache) when consumed with alcohol, even up to a day or two later. Distinguish by the absence of shaggy upturned scales and the squatter, smoother, more bell-shaped grey cap.",
+      "slug": "coprinopsis-atramentaria"
+    },
+    {
+      "name": "Chlorophyllum molybdites",
+      "note": "Green-spored parasol, the most common cause of mushroom poisoning in North America. A young, unexpanded shaggy mane could be confused by a beginner with a young parasol, but C. molybdites has a brownish-scaled cap on a broader expanded form, a persistent ring on the stem, does NOT deliquesce into ink, and crucially yields a GREEN spore print (vs. C. comatus's black). Causes severe vomiting and diarrhea. Always take a spore print if unsure.",
+      "slug": "chlorophyllum-molybdites"
+    },
+    {
+      "name": "Amanita species (young button stage)",
+      "note": "In the very young 'button' stage, any white club-shaped mushroom emerging from grass or soil could superficially resemble an immature shaggy mane. Deadly Amanita buttons (e.g., destroying angels) have a universal veil/volva (sac or cup at the base), white gills and a white spore print, and do NOT have the tall shaggy scales or the black deliquescing flesh of C. comatus. Always slice young specimens lengthwise to check for an enclosed embryonic gilled mushroom and a basal volva; never eat unexpanded white buttons without confirming ID.",
+      "slug": "amanita-bisporigera"
+    }
+  ],
+  "references": [
+    {
+      "title": "Coprinus comatus - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Coprinus_comatus"
+    },
+    {
+      "title": "Coprinus comatus - GBIF",
+      "url": "https://www.gbif.org/species/2526681"
+    }
+  ],
+  "lastReviewed": "2026-05-31"
+}

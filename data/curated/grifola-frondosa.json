@@ -1,0 +1,95 @@
+{
+  "slug": "grifola-frondosa",
+  "edibility": "edible",
+  "preparation": "cook",
+  "edibilityNotes": "Choice edible, widely foraged. Must be thoroughly cooked; raw or undercooked specimens can cause gastrointestinal upset. Harvest only young, fresh, tender fruitbodies, as older specimens become tough and may host insects. As with all wild mushrooms, some people experience idiosyncratic GI reactions, so try a small portion first. Positive identification is required before eating any wild mushroom.",
+  "description": "Grifola frondosa, known as maitake or hen of the woods, is a polypore that forms a large rosette of overlapping gray-brown spoon-shaped caps arising from a branched white stalk base. It is a prized choice edible studied for its beta-glucans, and it fruits at the base of hardwoods, especially oaks.",
+  "vernacularNames": [
+    {
+      "lang": "en",
+      "name": "Maitake"
+    },
+    {
+      "lang": "en",
+      "name": "Hen of the woods"
+    },
+    {
+      "lang": "en",
+      "name": "Ram's head"
+    },
+    {
+      "lang": "en",
+      "name": "Sheep's head"
+    },
+    {
+      "lang": "ja",
+      "name": "舞茸 (maitake)"
+    }
+  ],
+  "capColor": [
+    "gray",
+    "grayish-brown",
+    "brown",
+    "tan"
+  ],
+  "sporePrintColor": "white",
+  "trophicMode": "parasite",
+  "habitat": [
+    "base of hardwood trees",
+    "deciduous forests"
+  ],
+  "substrate": [
+    "living tree base",
+    "stumps",
+    "roots",
+    "hardwood"
+  ],
+  "hosts": [
+    "Quercus",
+    "oak",
+    "Castanea",
+    "Ulmus",
+    "Acer"
+  ],
+  "fruitingSeason": [
+    "autumn"
+  ],
+  "distribution": "Widely distributed in the temperate deciduous forests of the Northern Hemisphere, including eastern North America, Europe, and East Asia (notably Japan and China).",
+  "notableCompounds": [
+    "beta-glucans"
+  ],
+  "dangerousLookalikes": [
+    {
+      "name": "Meripilus sumstinei (black-staining polypore)",
+      "note": "Similar large rosette of overlapping caps at hardwood bases, but its flesh bruises and stains blackish when handled or cut, and caps are typically larger and more fan-shaped. Edible only when young and generally regarded as inferior and tougher; the black-staining reaction is the key separator from maitake.",
+      "slug": "meripilus-sumstinei"
+    },
+    {
+      "name": "Bondarzewia berkeleyi (Berkeley's polypore)",
+      "note": "Forms large overlapping cream to tan caps at oak bases, but caps are much thicker, larger, and tougher with a corky texture; pores are much larger (visible to the naked eye) and it does not form the same dense thin-fronded rosette.",
+      "slug": "bondarzewia-berkeleyi"
+    },
+    {
+      "name": "Laetiporus sulphureus (chicken of the woods)",
+      "note": "Also a hardwood polypore, but bright orange and yellow rather than gray-brown, with broad shelving overlapping brackets rather than a gray rosette of small spoon-shaped caps.",
+      "slug": "laetiporus-sulphureus"
+    }
+  ],
+  "authorship": "(Dicks.) Gray",
+  "year": 1821,
+  "references": [
+    {
+      "title": "Grifola frondosa - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Grifola_frondosa"
+    },
+    {
+      "title": "Grifola frondosa - GBIF",
+      "url": "https://www.gbif.org/species/2536965"
+    },
+    {
+      "title": "Grifola frondosa - MycoBank",
+      "url": "https://www.mycobank.org/page/Name%20details%20page/name/Grifola%20frondosa"
+    }
+  ],
+  "lastReviewed": "2026-05-31"
+}

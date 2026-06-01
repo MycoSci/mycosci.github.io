@@ -1,0 +1,71 @@
+{
+  "slug": "cortinarius-orellanus",
+  "edibility": "deadly",
+  "edibilityNotes": "Deadly poisonous. Contains orellanine, a nephrotoxin that causes delayed kidney failure. Onset is dangerously deceptive: there are typically no or only minor early symptoms, with renal failure developing days to weeks (commonly 2-3 weeks, with a reported range of about 2 days to 3 weeks) after ingestion, by which time damage is often irreversible and may require dialysis or kidney transplant. Cooking, drying, and freezing do NOT destroy the toxin. Never eat any Cortinarius (webcap).",
+  "preparation": "not-applicable",
+  "description": "Cortinarius orellanus, the Fool's Webcap, is a deadly orange-brown webcap whose toxin orellanine causes severe, delayed kidney failure days to weeks after ingestion. The mushroom has a tawny to rusty orange-brown cap, widely spaced rusty-coloured gills, and a cortina (cobweb-like partial veil) typical of the genus. Because early symptoms are absent or mild, poisoning is frequently recognised only after irreversible renal damage has occurred.",
+  "authorship": "Fr.",
+  "year": 1838,
+  "vernacularNames": [
+    {
+      "lang": "en",
+      "name": "Fool's Webcap"
+    },
+    {
+      "lang": "de",
+      "name": "Orangefuchsiger Raukopf"
+    }
+  ],
+  "capColor": [
+    "orange-brown",
+    "tawny",
+    "rusty brown"
+  ],
+  "sporePrintColor": "rusty brown",
+  "trophicMode": "ectomycorrhizal",
+  "habitat": [
+    "deciduous woodland",
+    "broadleaf forest"
+  ],
+  "hosts": [
+    "Quercus",
+    "Fagus",
+    "Betula",
+    "Castanea"
+  ],
+  "distribution": "Found in Europe, growing in deciduous woodland associated with broadleaf trees such as oak, beech, and birch.",
+  "fruitingSeason": [
+    "summer",
+    "autumn"
+  ],
+  "notableCompounds": [
+    "orellanine"
+  ],
+  "dangerousLookalikes": [
+    {
+      "name": "Chanterelle (Cantharellus cibarius)",
+      "note": "Edible chanterelles are sometimes confused with the orange-brown cap; chanterelles have blunt false gills (forking ridges) running down the stem, no cortina, a pale to yellowish spore print, and a fruity apricot smell, whereas C. orellanus has true gills, a cobweb cortina, and a rusty-brown spore print.",
+      "slug": "cantharellus-cibarius"
+    },
+    {
+      "name": "Cortinarius rubellus (deadly webcap)",
+      "note": "Another deadly orellanine-containing webcap, similarly toxic; differs by its more conical/umbonate cap and association with conifers, but both are deadly and should be avoided.",
+      "slug": "cortinarius-rubellus"
+    },
+    {
+      "name": "Other Cortinarius (webcap) species",
+      "note": "Many webcaps look broadly similar with rusty-brown spores and a cortina; because deadly orellanine-containers are nearly impossible to separate reliably in the field, no Cortinarius should be eaten."
+    }
+  ],
+  "references": [
+    {
+      "title": "Cortinarius orellanus - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Cortinarius_orellanus"
+    },
+    {
+      "title": "Cortinarius orellanus - GBIF",
+      "url": "https://www.gbif.org/species/5243884"
+    }
+  ],
+  "lastReviewed": "2026-05-31"
+}

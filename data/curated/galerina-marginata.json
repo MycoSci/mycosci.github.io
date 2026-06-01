@@ -1,0 +1,88 @@
+{
+  "slug": "galerina-marginata",
+  "edibility": "deadly",
+  "description": "Galerina marginata is a small, rusty-brown, wood-rotting mushroom commonly known as the Funeral Bell or Deadly Galerina. It is a classic \"little brown mushroom\" (LBM) that fruits in clusters on decaying conifer and hardwood logs, and it contains the same amatoxins responsible for fatalities from the death cap (Amanita phalloides).",
+  "edibilityNotes": "Deadly poisonous. Contains amatoxins (chiefly alpha- and beta-amanitin), heat-stable cyclopeptide toxins also found in the death cap. Onset is dangerously delayed and the course is biphasic: gastrointestinal distress (vomiting, watery diarrhea, cramping) typically begins about 6 to 24 hours after ingestion, often followed by a deceptive apparent recovery, then progressive liver and kidney failure that can be fatal. Cooking, drying, and freezing do NOT destroy the toxins, and there is no reliable field test. Never eat any small brown mushroom growing on wood without expert confirmation.",
+  "preparation": "not-applicable",
+  "vernacularNames": [
+    {
+      "lang": "en",
+      "name": "Funeral Bell"
+    },
+    {
+      "lang": "en",
+      "name": "Deadly Galerina"
+    },
+    {
+      "lang": "en",
+      "name": "Autumn Skullcap"
+    },
+    {
+      "lang": "en",
+      "name": "Deadly Skullcap"
+    }
+  ],
+  "authorship": "(Batsch) Kühner",
+  "year": 1935,
+  "capColor": [
+    "brown",
+    "tan",
+    "ochre",
+    "rusty-brown",
+    "yellow-brown"
+  ],
+  "sporePrintColor": "rusty-brown",
+  "trophicMode": "saprotroph",
+  "habitat": [
+    "decaying wood",
+    "conifer logs",
+    "hardwood logs",
+    "woodland"
+  ],
+  "substrate": [
+    "dead wood",
+    "rotting logs",
+    "stumps",
+    "buried wood"
+  ],
+  "fruitingSeason": [
+    "summer",
+    "autumn"
+  ],
+  "distribution": "Widespread across the temperate Northern Hemisphere, including North America, Europe, and Asia, with records also reported from Australia.",
+  "notableCompounds": [
+    "alpha-amanitin",
+    "beta-amanitin",
+    "amatoxins"
+  ],
+  "dangerousLookalikes": [
+    {
+      "name": "Kuehneromyces mutabilis",
+      "note": "The edible Sheathed Woodtuft also grows in clusters on dead wood and looks very similar. It is best separated by a scaly/scurfy lower stem below the ring, whereas Galerina marginata has a smoother, silky-fibrillose stem. Because the overlap is close and the consequence of error is death, beginners should avoid collecting either.",
+      "slug": "kuehneromyces-mutabilis"
+    },
+    {
+      "name": "Psilocybe species (wood-rotting)",
+      "note": "Wood-inhabiting Psilocybe sought for psilocybin grow in the same habitat and can superficially resemble Galerina; fatal misidentifications have occurred among foragers. Galerina has a rusty-brown spore print (Psilocybe spore prints are purple-brown to blackish-purple) and does not bruise blue, whereas blue bruising is common in psilocybin-active species."
+    },
+    {
+      "name": "Pholiota species",
+      "note": "Some small Pholiota also fruit in brownish wood clusters and can be confused among LBMs. Spore print color and microscopy separate them; they are not deadly but contribute to identification confusion."
+    },
+    {
+      "name": "Hypholoma (Naematoloma) species",
+      "note": "Wood-clustering Hypholoma such as H. fasciculare (Sulphur Tuft, toxic) and H. capnoides (edible) occur in the same logs and clusters; they typically have purple-brown to greenish-tinged spore deposits rather than the rusty-brown of Galerina, and a yellower or greenish cast to the gills/flesh."
+    }
+  ],
+  "references": [
+    {
+      "title": "Galerina marginata - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Galerina_marginata"
+    },
+    {
+      "title": "Galerina marginata - GBIF",
+      "url": "https://www.gbif.org/species/7641483"
+    }
+  ],
+  "lastReviewed": "2026-05-31"
+}

@@ -1,0 +1,84 @@
+{
+  "slug": "chlorophyllum-molybdites",
+  "edibility": "toxic",
+  "description": "Chlorophyllum molybdites, the green-spored parasol, is a large white lawn mushroom whose mature gills and spore print turn dull green. It is the most commonly ingested poisonous mushroom in North America, causing severe gastrointestinal illness, which has earned it the nickname \"the vomiter.\"",
+  "edibilityNotes": "Toxic, causing severe but generally non-fatal gastrointestinal illness (violent vomiting, diarrhea, abdominal cramps) typically beginning 1-3 hours after ingestion. It does NOT contain amatoxins or other delayed-onset deadly toxins; however, dehydration can become dangerous, especially in children and the elderly, and severe cases may require hospitalization for fluids. The toxin is not reliably destroyed by cooking. The single most reliable safeguard is the green spore print at maturity, which no edible parasol shares.",
+  "preparation": "none",
+  "vernacularNames": [
+    {
+      "lang": "en",
+      "name": "Green-spored parasol"
+    },
+    {
+      "lang": "en",
+      "name": "Green-spored lepiota"
+    },
+    {
+      "lang": "en",
+      "name": "False parasol"
+    },
+    {
+      "lang": "en",
+      "name": "Vomiter"
+    }
+  ],
+  "capColor": [
+    "white",
+    "cream",
+    "tan",
+    "brownish"
+  ],
+  "sporePrintColor": "green (greyish-green to olive at maturity)",
+  "trophicMode": "saprotroph",
+  "habitat": [
+    "lawns",
+    "grassland",
+    "pastures",
+    "parks",
+    "gardens"
+  ],
+  "substrate": [
+    "soil",
+    "grass",
+    "rich organic ground"
+  ],
+  "fruitingSeason": [
+    "summer",
+    "autumn"
+  ],
+  "distribution": "Widespread in warm temperate, subtropical, and tropical regions worldwide, and common across the southern and eastern United States, often fruiting in fairy rings on lawns after rain.",
+  "dangerousLookalikes": [
+    {
+      "name": "Macrolepiota procera (parasol mushroom)",
+      "slug": "macrolepiota-procera",
+      "note": "An edible parasol; distinguished by a WHITE (not green) spore print, snakeskin-patterned scaly stem, and typically taller, more slender stature. Always check the spore print before eating any parasol."
+    },
+    {
+      "name": "Chlorophyllum rhacodes (shaggy parasol)",
+      "slug": "chlorophyllum-rhacodes",
+      "note": "Generally edible (can cause GI upset in some people), with a white spore print and flesh that bruises reddish/orange when cut; C. molybdites has a green spore print and lacks the same strong reddish staining."
+    },
+    {
+      "name": "Chlorophyllum brunneum (shaggy parasol)",
+      "slug": "chlorophyllum-brunneum",
+      "note": "Edible relative with a white spore print and a thick, abrupt basal bulb; separated from C. molybdites by spore color (white vs green)."
+    },
+    {
+      "name": "Leucoagaricus/Leucocoprinus and other white-spored parasols",
+      "note": "Several smaller edible white-spored lepiotoid mushrooms can resemble young C. molybdites before its gills green up; rely on a mature green spore print rather than cap appearance."
+    }
+  ],
+  "references": [
+    {
+      "title": "Chlorophyllum molybdites - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Chlorophyllum_molybdites"
+    },
+    {
+      "title": "Chlorophyllum molybdites - GBIF",
+      "url": "https://www.gbif.org/species/7888061"
+    }
+  ],
+  "authorship": "(G. Mey.) Massee",
+  "year": 1898,
+  "lastReviewed": "2026-05-31"
+}

@@ -1,0 +1,71 @@
+{
+  "slug": "laetiporus-sulphureus",
+  "edibility": "edible",
+  "preparation": "cook",
+  "edibilityNotes": "Edible and considered choice ONLY when young, tender, and thoroughly cooked; the meaty texture earns the name \"chicken of the woods.\" A significant minority of people experience adverse reactions even from well-cooked hardwood specimens: gastrointestinal upset (nausea, vomiting, cramps), dizziness, and swelling of the lips/face. Reactions appear idiosyncratic, so always cook thoroughly and eat only a small amount the first time, then wait before eating more. AVOID specimens growing on conifers, yew (Taxus, which is itself highly toxic), eucalyptus, or black locust (Robinia) — these are more strongly associated with poisonings, and conifer-growing chicken-of-the-woods are now recognized as separate species (e.g. Laetiporus conifericola/huroniensis) that should not be eaten. Do not eat older, tough, or insect-infested brackets.",
+  "description": "Laetiporus sulphureus, known as chicken of the woods or sulphur shelf, is a bright orange-and-yellow bracket fungus that fruits in overlapping tiers on hardwoods, especially oak. It has no gills; the underside is a sulphur-yellow pore surface. Young, well-cooked specimens are prized as an edible with a chicken-like texture, though a notable minority of people react badly to it.",
+  "authorship": "(Bull.) Murrill",
+  "vernacularNames": [
+    {
+      "lang": "en",
+      "name": "Chicken of the Woods"
+    },
+    {
+      "lang": "en",
+      "name": "Sulphur Shelf"
+    },
+    {
+      "lang": "en",
+      "name": "Sulphur Polypore"
+    }
+  ],
+  "capColor": [
+    "orange",
+    "yellow",
+    "salmon"
+  ],
+  "sporePrintColor": "white",
+  "trophicMode": "parasite",
+  "habitat": [
+    "hardwood forests",
+    "parkland",
+    "on living and dead trees"
+  ],
+  "substrate": [
+    "dead wood",
+    "living tree trunks",
+    "stumps"
+  ],
+  "hosts": [
+    "Quercus (oak)",
+    "other hardwoods"
+  ],
+  "fruitingSeason": [
+    "summer",
+    "autumn"
+  ],
+  "distribution": "Widespread across temperate regions of the Northern Hemisphere, notably Europe and eastern North America. In North America the broader complex has been split into several segregate species, and true L. sulphureus is best applied to hardwood-growing, yellow-pored material.",
+  "dangerousLookalikes": [
+    {
+      "name": "Omphalotus illudens (eastern jack-o'-lantern)",
+      "note": "Bright orange and grows on/near hardwood, but it is a GILLED mushroom (true decurrent gills, not pores), forms clustered stemmed caps rather than shelving brackets, and is toxic (causes severe GI illness). Always confirm a yellow PORE surface and shelf form, not gills.",
+      "slug": "omphalotus-illudens"
+    },
+    {
+      "name": "Conifer-growing Laetiporus (e.g. L. conifericola, L. huroniensis)",
+      "note": "Look nearly identical to chicken of the woods but grow on conifers. These are now treated as distinct species and are more frequently linked to poisonings; do not eat brackets fruiting on conifers, yew, or eucalyptus.",
+      "slug": "laetiporus-conifericola"
+    },
+    {
+      "name": "Laetiporus cincinnatus",
+      "note": "Not dangerous — an edible relative. Forms rosettes at the base of oaks with a white to pale cream (not sulphur-yellow) pore surface. Listed to distinguish it, not as a hazard."
+    }
+  ],
+  "references": [
+    {
+      "title": "Laetiporus sulphureus - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Laetiporus_sulphureus"
+    }
+  ],
+  "lastReviewed": "2026-05-31"
+}

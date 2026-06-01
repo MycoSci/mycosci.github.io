@@ -1,0 +1,80 @@
+{
+  "slug": "paxillus-involutus",
+  "edibility": "deadly",
+  "edibilityNotes": "DEADLY. Paxillus involutus causes Paxillus syndrome, a cumulative, immune-mediated (autoimmune) hemolytic anemia. Sensitization builds over repeated meals, so the reaction can appear unpredictably after months or years of eating it without any prior symptoms. Cooking does NOT make it safe. Once an episode is triggered, gastrointestinal symptoms (vomiting, diarrhea, abdominal pain) typically begin within 1-3 hours and can progress to massive intravascular hemolysis, acute kidney failure, shock, and death. It was historically eaten in parts of Europe after parboiling; that practice is now considered dangerous and the mushroom should never be consumed.",
+  "description": "The Brown Roll-rim, a medium to large brown gilled mushroom with a strongly inrolled, felty cap margin and decurrent gills that bruise dark brown when handled. Once treated as edible after cooking, it is now recognized as deadly because of Paxillus syndrome, a cumulative immune-mediated hemolytic reaction that can strike after years of uneventful consumption.",
+  "vernacularNames": [
+    {
+      "lang": "en",
+      "name": "Brown Roll-rim"
+    },
+    {
+      "lang": "en",
+      "name": "Common Roll-rim"
+    },
+    {
+      "lang": "de",
+      "name": "Kahler Krempling"
+    }
+  ],
+  "authorship": "(Batsch) Fr.",
+  "year": 1838,
+  "capColor": [
+    "brown",
+    "yellowish-brown",
+    "olive-brown",
+    "rust-brown"
+  ],
+  "sporePrintColor": "brown",
+  "trophicMode": "ectomycorrhizal",
+  "hosts": [
+    "Betula (birch)",
+    "Pinus",
+    "Picea",
+    "Quercus",
+    "Populus"
+  ],
+  "habitat": [
+    "deciduous woodland",
+    "coniferous woodland",
+    "mixed woodland",
+    "parks",
+    "heathland"
+  ],
+  "substrate": [
+    "soil",
+    "leaf litter"
+  ],
+  "distribution": "Widespread across the temperate Northern Hemisphere (Europe, Asia, and North America), and introduced elsewhere with planted trees, including Australia and South America.",
+  "fruitingSeason": [
+    "summer",
+    "autumn"
+  ],
+  "preparation": "none",
+  "dangerousLookalikes": [
+    {
+      "name": "Paxillus rubicundulus",
+      "note": "Another roll-rim with similar form and also considered unsafe; associated with alder (Alnus) and has a more scaly/squamulose cap."
+    },
+    {
+      "name": "Tapinella atrotomentosa (Velvet Roll-rim)",
+      "note": "Grows on conifer wood/stumps and has a thick dark velvety stipe; distinguished by its lignicolous habit and dark felty stalk. Not recommended for eating.",
+      "slug": "tapinella-atrotomentosa"
+    },
+    {
+      "name": "Lactarius species (milkcaps)",
+      "note": "Some brown Lactarius have decurrent gills and similar coloration but exude milky latex when the gills are cut, which Paxillus never does."
+    }
+  ],
+  "references": [
+    {
+      "title": "Paxillus involutus - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Paxillus_involutus"
+    },
+    {
+      "title": "Paxillus involutus - GBIF",
+      "url": "https://www.gbif.org/species/2528412"
+    }
+  ],
+  "lastReviewed": "2026-05-31"
+}

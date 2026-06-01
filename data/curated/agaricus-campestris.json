@@ -1,0 +1,64 @@
+{
+  "slug": "agaricus-campestris",
+  "edibility": "edible",
+  "preparation": "cook",
+  "description": "Agaricus campestris, the field or meadow mushroom, is a common edible agaric of grasslands worldwide. Its cap is white, the gills are bright pink when young and mature through red to chocolate-brown, and it produces a dark brown spore print. It is closely related to the cultivated button mushroom (Agaricus bisporus).",
+  "edibilityNotes": "A choice edible that should always be cooked before eating. The critical danger is misidentifying a young, button-stage destroying angel or death cap (Amanita) as a field mushroom: these are DEADLY due to amatoxins, which cause delayed gastrointestinal symptoms 6-24+ hours after the meal followed by apparent recovery and then fatal liver and kidney failure. Amanita species have WHITE gills that never turn pink or brown, a white spore print, and a membranous cup (volva) at a swollen base often hidden below the soil line. Always dig up the entire base to check for a volva, confirm pink-to-brown gills and a dark brown spore print, and avoid any all-white-gilled specimen. Also distinguish the toxic Agaricus xanthodermus (yellow stainer), which bruises chrome-yellow (most strongly at the stem base when cut) and smells unpleasantly phenolic/of ink or carbolic; A. campestris does not stain strongly yellow and smells pleasantly mushroomy. Note that pink-gilled buttons can resemble young Amanita whose gills have not yet been exposed, so spore print and volva checks are essential.",
+  "capColor": [
+    "white",
+    "off-white",
+    "pale brown"
+  ],
+  "sporePrintColor": "dark brown",
+  "trophicMode": "saprotroph",
+  "substrate": [
+    "soil",
+    "grassland turf"
+  ],
+  "habitat": [
+    "grassland",
+    "meadows",
+    "pastures",
+    "lawns"
+  ],
+  "distribution": "Widespread and common across temperate regions worldwide, including Europe, North America, and Asia, with introduced ranges elsewhere.",
+  "fruitingSeason": [
+    "summer",
+    "autumn"
+  ],
+  "vernacularNames": [
+    {
+      "lang": "en",
+      "name": "Field Mushroom"
+    },
+    {
+      "lang": "en",
+      "name": "Meadow Mushroom"
+    }
+  ],
+  "authorship": "L.",
+  "year": 1753,
+  "dangerousLookalikes": [
+    {
+      "name": "Destroying angel / death cap (Amanita virosa, A. phalloides and allies)",
+      "note": "DEADLY (amatoxins; delayed-onset liver/kidney failure). Distinguished by white gills that never turn pink or brown, a white spore print, and a membranous cup (volva) at a swollen base; young button-stage specimens are the most dangerous because they superficially resemble a field mushroom. Field mushrooms have pink-to-brown gills, a dark brown spore print, and no volva.",
+      "slug": "amanita-virosa"
+    },
+    {
+      "name": "Agaricus xanthodermus (yellow stainer)",
+      "note": "Toxic, causes gastrointestinal upset in many people. Bruises bright chrome-yellow, especially at the stem base when cut, and smells unpleasantly phenolic/of ink or carbolic; A. campestris does not stain strongly yellow and smells pleasantly mushroomy.",
+      "slug": "agaricus-xanthodermus"
+    }
+  ],
+  "references": [
+    {
+      "title": "Agaricus campestris - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Agaricus_campestris"
+    },
+    {
+      "title": "Agaricus campestris - GBIF",
+      "url": "https://www.gbif.org/species/5243958"
+    }
+  ],
+  "lastReviewed": "2026-05-31"
+}
