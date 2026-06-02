@@ -12,7 +12,7 @@ export default {
           200: '#d2d1ca',
           300: '#b0afa6',
           400: '#88877e', // secondary text
-          500: '#65645c', // muted text / labels
+          500: '#7c7b73', // muted text / labels (>= 4.5:1 on lab-950 for WCAG AA)
           600: '#4a4a44',
           700: '#33332e', // hairline rules on dark
           800: '#242420', // surface borders / raised edges
