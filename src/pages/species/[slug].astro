@@ -88,20 +88,19 @@ const hasEnrichment =
           <div class="prose prose-invert max-w-none prose-headings:text-lab-100 prose-headings:font-semibold prose-p:text-lab-300 prose-a:text-bio-400 prose-a:no-underline hover:prose-a:underline prose-strong:text-lab-100 prose-li:text-lab-300 prose-code:text-bio-400 prose-img:border prose-img:border-lab-800">
             <Content />
           </div>
-        ) : rec.description ? (
-          <p class="text-lab-300 leading-relaxed text-lg">{rec.description}</p>
         ) : (
-          <div class="space-y-4">
-            <p class="text-lab-400 leading-relaxed">
-              <span class="italic text-lab-200">{rec.accepted}</span>
-              {rec.genus && rec.family && <> is a fungus in the genus <span class="italic">{rec.genus}</span>, family {rec.family}.</>}
-              {' '}Verified taxonomy is in place; a sourced profile hasn't been written yet.
-            </p>
-            <div class="border border-lab-800 p-5">
-              <span class="label">// Contribute</span>
-              <p class="text-sm text-lab-400 mt-2">Know this species? Help write its profile — every entry is open source.</p>
-              <a href="https://github.com/MycoSci" class="btn btn-secondary mt-4">Edit on GitHub</a>
-            </div>
+          <div class="space-y-5">
+            {rec.description && <p class="text-lab-300 leading-relaxed text-lg">{rec.description}</p>}
+            {rec.tier !== 'curated' && (
+              <div class="border border-lab-800 p-5">
+                <span class="label">// Contribute</span>
+                <p class="text-sm text-lab-400 mt-2">
+                  Verified taxonomy is in place. Help add a sourced profile — morphology, ecology,
+                  edibility, look-alikes. Every entry is open source.
+                </p>
+                <a href="https://github.com/MycoSci" class="btn btn-secondary mt-4">Edit on GitHub</a>
+              </div>
+            )}
           </div>
         )}
 

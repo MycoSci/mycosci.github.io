@@ -191,6 +191,27 @@ for (const rec of records) {
   }
 }
 
+// Baseline description for every taxon that lacks one — a plain restatement of its
+// verified taxonomy (no fabrication). Curated/enriched descriptions are preserved.
+const baselineDescription = (r) => {
+  const ranks = [];
+  if (r.genus) ranks.push(`genus ${r.genus}`);
+  if (r.family) ranks.push(`family ${r.family}`);
+  if (r.order) ranks.push(`order ${r.order}`);
+  if (r.class) ranks.push(`class ${r.class}`);
+  if (r.phylum) ranks.push(`phylum ${r.phylum}`);
+  const tail = ranks.length ? ` in the ${ranks.join(', ')}` : '';
+  return `${r.accepted} is a species of fungus${tail}.`;
+};
+let baselined = 0;
+for (const rec of records) {
+  if (!rec.description) {
+    rec.description = baselineDescription(rec);
+    rec.descriptionAuto = true; // flag: auto-generated from taxonomy, not curated prose
+    baselined++;
+  }
+}
+
 writeFileSync(join(ROOT, 'data/species.json'), JSON.stringify(records));
 
 // --- report ---
@@ -205,5 +226,6 @@ console.log(`  unresolved       : ${records.length - resolved}`);
 console.log(`  curated tier     : ${curated}`);
 console.log(`synonyms collapsed : ${synonyms}`);
 console.log(`curated overrides  : ${overridden} (+${reciprocated} reciprocal lookalikes)`);
+console.log(`baseline descriptions added : ${baselined}`);
 console.log(`blank family       : ${blankFamily}`);
 console.log(`-> data/species.json (${(JSON.stringify(records).length / 1e6).toFixed(1)} MB)`);
