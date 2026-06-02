@@ -1,11 +1,15 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import speciesData from '../../data/species.json';
 
-// Figures are derived from the consolidated dataset (data/species.json).
-// TODO(phase-2): import these from the canonical data object instead of hardcoding.
+// Figures derived live from the canonical dataset so they never drift.
+const taxa = speciesData as { unresolved?: boolean; synonyms: string[] }[];
+const accepted = taxa.filter((t) => !t.unresolved).length;
+const synonyms = taxa.reduce((n, t) => n + (t.synonyms?.length || 0), 0);
+
 const stats = [
-  { value: '21,599', label: 'Accepted Taxa' },
-  { value: '68,947', label: 'Synonyms Mapped' },
+  { value: accepted.toLocaleString(), label: 'Accepted Taxa' },
+  { value: synonyms.toLocaleString(), label: 'Synonyms Mapped' },
   { value: '100%', label: 'Open Source' },
   { value: 'Static', label: 'Free JSON API' },
 ];
@@ -73,7 +77,8 @@ const pillars = [
         <input
           type="search"
           name="q"
-          placeholder="Search 21,599 taxa — e.g. Amanita muscaria"
+          aria-label="Search the species catalog"
+          placeholder={`Search ${accepted.toLocaleString()} taxa — e.g. Amanita muscaria`}
           class="flex-1 bg-transparent px-3 py-3 text-sm font-mono text-lab-100 placeholder:text-lab-500 focus:outline-none"
         />
         <button type="submit" class="btn btn-primary px-5">Search</button>

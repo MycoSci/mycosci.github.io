@@ -178,7 +178,13 @@ for (const rec of records) {
     if (!other) continue;
     other.dangerousLookalikes ??= [];
     if (!other.dangerousLookalikes.some((x) => x.slug === rec.slug)) {
-      other.dangerousLookalikes.push({ slug: rec.slug, name: rec.accepted, note: la.note });
+      // Don't copy A's note verbatim — written from A's page it reads wrong on B's.
+      // Use a neutral, perspective-correct pointer that names A and its edibility.
+      other.dangerousLookalikes.push({
+        slug: rec.slug,
+        name: rec.accepted,
+        note: `Confusable with ${rec.accepted} (${rec.edibility}). See its profile for how to tell them apart.`,
+      });
       if (other.tier !== 'curated') other.tier = 'curated';
       reciprocated++;
     }
