@@ -150,6 +150,14 @@ const phylaList = [...new Set(data.map((r) => r.phylum).filter(Boolean))].sort()
     const top = scored.slice(0, 120);
     statusEl.textContent = scored.length.toLocaleString() + (phylum && !q ? ' in ' + phylum : ' matches');
 
+    if (scored.length === 0) {
+      resultsEl.innerHTML = `<div class="border border-lab-800 p-10 text-center">
+        <span class="label">// No matches</span>
+        <p class="text-sm text-lab-400 mt-2">Nothing found${phylum ? ' in ' + esc(phylum) : ''} for "<span class="text-lab-200">${esc(query.trim())}</span>". Try a genus, common name, family, or synonym.</p>
+      </div>`;
+      return;
+    }
+
     resultsEl.innerHTML = `
       <h2 class="label mb-4">// ${scored.length.toLocaleString()} result${scored.length === 1 ? '' : 's'}${scored.length > 120 ? ' · showing 120' : ''}</h2>
       <div class="border-t border-l border-lab-800 grid sm:grid-cols-2 lg:grid-cols-3">
