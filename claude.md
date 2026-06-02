@@ -94,11 +94,13 @@ mycosci.github.io/
 │   └── styles/global.css
 ├── data/
 │   ├── species.json              # CANONICAL consolidated catalog (generated, committed)
-│   ├── curated/{slug}.json       # per-species enrichment overrides
+│   ├── curated/{slug}.json       # per-species hand/agent enrichment overrides (win over everything)
+│   ├── gbif.json                 # GBIF Backbone overlay: authorship/year/gbifKey/vernacular (generated)
 │   ├── taxonomy.csv, species.csv # raw sources (species.xlsx is corrupt — ignored)
 │   └── csv_pop.py, test.py       # original Python ingestion (superseded by scripts/, kept for provenance)
 ├── scripts/
-│   ├── build-data.mjs            # CSV + overrides -> data/species.json
+│   ├── build-data.mjs            # CSV + gbif overlay + curated overrides -> data/species.json (+ baseline descriptions)
+│   ├── build-gbif.mjs            # fetch GBIF Backbone -> data/gbif.json (resumable; run manually, not in CI)
 │   └── build-api.mjs             # data/species.json -> public/species + public/api (gitignored)
 ├── schema/                       # species.schema.json, species-model.json, types, example
 ├── docs/SPECIES-DATA-MODEL.md    # the full 244-field data model spec
@@ -115,7 +117,9 @@ mycosci.github.io/
 
 Species are **data**, not MDX. Each record's shape lives in `src/lib/species.ts` (the phase-1 subset) and the full target model in `docs/SPECIES-DATA-MODEL.md` + `schema/`. Core fields: `slug`, `accepted` (binomial), the six ranks, `commonName`, `edibility`, `synonyms[]`, `tier`, `sources[]`. Enrichment fields (authorship, registry IDs, vernacular names, ecology, morphology, `dangerousLookalikes`, …) are optional and added via `data/curated/{slug}.json` overrides.
 
-**To enrich a species:** add/edit `data/curated/{slug}.json` (a partial record), then `npm run data`. Don't hand-edit `data/species.json` (it's generated). Safety rules are enforced in `scripts/build-data.mjs` and `src/lib/species.ts`: edibility defaults to `unknown` → rendered "treat as inedible"; never auto-classify edible; `dangerousLookalikes` are made reciprocal at build time; never fabricate registry IDs / accessions (omit them).
+**Baseline fill:** every taxon gets a factual `description` auto-generated from its verified taxonomy (flagged `descriptionAuto`), and resolved taxa get authorship/year/`registry.gbif`/vernacular from the GBIF overlay. So no page is an empty stub. Merge precedence (low→high): taxonomy.csv → species.csv → **gbif.json** → **curated/{slug}.json** → curated MDX body. Hand/agent-curated values always win.
+
+**To enrich a species:** add/edit `data/curated/{slug}.json` (a partial record), then `npm run data`. To refresh GBIF data, run `node scripts/build-gbif.mjs` (resumable; writes `data/gbif.json`). Don't hand-edit `data/species.json` (it's generated). Safety rules enforced in `scripts/build-data.mjs` and `src/lib/species.ts`: edibility defaults to `unknown` → rendered "treat as inedible"; never auto-classify edible; `dangerousLookalikes` are made reciprocal at build time; never fabricate registry IDs / accessions (omit them — the only IDs in the data are real GBIF keys).
 
 ### Editorial docs — `src/content/docs/` (MDX/MD collection)
 
