@@ -147,6 +147,31 @@ for (const rec of records) {
 
 const bySlug = new Map(records.map((r) => [r.slug, r]));
 
+// 3.5) GBIF overlay — fills authorship/year/registry.gbif/vernacular from the GBIF Backbone
+// (data/gbif.json, built by scripts/build-gbif.mjs). Runs BEFORE curated overrides so any
+// hand-curated value always wins. Partial gbif.json is fine — it fills whatever it has.
+if (existsSync(join(ROOT, 'data/gbif.json'))) {
+  const gbif = JSON.parse(readFileSync(join(ROOT, 'data/gbif.json'), 'utf8'));
+  let gbifFilled = 0;
+  for (const rec of records) {
+    const g = gbif[rec.slug];
+    if (!g || g.error || !g.gbifKey) continue;
+    let touched = false;
+    if (g.authorship && !rec.authorship) { rec.authorship = g.authorship; touched = true; }
+    if (g.year && !rec.year) { rec.year = g.year; touched = true; }
+    rec.registry ??= {};
+    if (!rec.registry.gbif) { rec.registry.gbif = String(g.gbifKey); touched = true; }
+    if (g.vernacular?.length) {
+      if (!rec.commonName) rec.commonName = g.vernacular[0];
+      if (!rec.vernacularNames?.length) rec.vernacularNames = g.vernacular.map((n) => ({ name: n, lang: 'en' }));
+      touched = true;
+    }
+    if (touched && !rec.sources.includes('gbif')) { rec.sources.push('gbif'); rec.sources.sort(); }
+    if (touched) gbifFilled++;
+  }
+  console.log(`gbif overlay filled : ${gbifFilled}`);
+}
+
 // 4) curated overrides — per-species enrichment merged in by slug (data/curated/*.json).
 // This is how phase-1+ data lands without touching the raw CSVs. Each file is a partial
 // SpeciesRecord; non-empty keys win, the taxon is promoted to curated, and provenance is noted.
