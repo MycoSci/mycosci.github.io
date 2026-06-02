@@ -1,8 +1,6 @@
 ---
 title: Getting Started with MycoSci
 description: How to use and navigate MycoSci’s mushroom documentation and resources.
-sidebar:
-  order: 1
 ---
 
 Welcome to **MycoSci**, your free, open-source hub dedicated to the science, cultivation, and exploration of mushrooms. Whether you're a seasoned mycologist, a passionate cultivator, or simply fungi-curious, you've come to the right place.

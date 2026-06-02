@@ -1,8 +1,6 @@
 ---
 title: How to Contribute
 description: Guidelines and instructions for contributing to MycoSci documentation.
-sidebar:
-  order: 2
 ---
 
 Welcome to **MycoSci**, and thank you for your interest in contributing! As an open-source and community-powered resource, your contributions help make MycoSci better for everyone interested in mushrooms---from curious beginners to expert mycologists.
