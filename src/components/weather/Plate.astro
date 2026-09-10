@@ -5,9 +5,15 @@
  * Two failure modes are handled explicitly rather than left to chance:
  *
  *   1. A species the standing measurement marks publish_as_foraging_map=false
- *      gets no plate at all — it gets a statement of what was withheld and why.
- *      Lobster's best real record ever scored 0.195; a lobster map can say
- *      "better here than there" and must not say "go here".
+ *      still gets its plate — an empty map is a true statement about the
+ *      ground, and withholding a species is its own kind of dishonesty. What
+ *      it does NOT get is silence about what the map means. Lobster's best
+ *      real record ever scored 0.195 and it never enters a band, so a blank
+ *      lobster plate on its own would read as "no lobster in Oregon today"
+ *      when what the model is saying is "this species never reaches the score
+ *      this map paints at". The statement rides with the picture: a banner
+ *      above it on a headline page, a badge in its caption everywhere.
+ *      (Settled 2026-09-10, at the owner's direction.)
  *   2. The image now lives on a host we control rather than in the same commit
  *      as the page, so it can be absent. The URL is content-addressed by run
  *      date and digest, so a stale origin can only 404 — but a 404 must look
@@ -25,7 +31,8 @@ import {
 interface Props {
   species: ManifestSpecies;
   run: RunRecord;
-  /** Withheld species get a notice instead of a plate on a headline page. */
+  /** A headline page carries the withholding statement above the plate; a page
+   *  that already states it above (the species page) passes false. */
   headline?: boolean;
 }
 const { species, run, headline = true } = Astro.props;
@@ -45,86 +52,88 @@ const alt =
   `is ${maxScore.toFixed(2)}.`;
 ---
 
-{
-  withheld && headline ? (
-    <div class="border-l-2 border-spore-600 bg-spore-600/5 px-5 py-5">
-      <p class="font-mono text-2xs uppercase tracking-wider text-spore-400">
-        Rendered · not published as a foraging map
-      </p>
-      <h3 class="text-lg font-semibold text-lab-100 mt-2">{name}</h3>
-      <p class="text-sm text-lab-300 mt-3 leading-relaxed">
-        The run produced a map for this species and the standing measurement says not to present
-        it as one. {sentenceCase(withheld.note)}
-      </p>
-    </div>
-  ) : (
-    <figure class="border border-lab-800 bg-lab-900">
-      <div class="relative bg-lab-950" data-plate>
-        {img.url ? (
-          <a href={img.url} class="block">
-            <img
-              src={img.url}
-              alt={alt}
-              width={1456}
-              height={1092}
-              loading="lazy"
-              decoding="async"
-              class="w-full h-auto block"
-              onerror="this.closest('[data-plate]').setAttribute('data-plate-failed','');"
-            />
-          </a>
-        ) : null}
-
-        <div class="plate-fallback px-5 py-8 text-center" data-has-image={img.url ? '' : null}>
-          <p class="font-mono text-2xs uppercase tracking-wider text-spore-400">
-            Map image unavailable
+<figure class="border border-lab-800 bg-lab-900">
+  {
+    withheld && headline && (
+      <div class="border-b border-spore-600/40 bg-spore-600/5 px-5 py-4">
+        <p class="font-mono text-2xs uppercase tracking-wider text-spore-400">
+          Rendered · not a foraging map
+        </p>
+        <p class="text-sm text-lab-300 mt-2 leading-relaxed">
+          The model scores this species and the standing measurement says not to read the
+          result as somewhere to go. {sentenceCase(withheld.note)}
+        </p>
+        {typeof withheld.max_observed_score === 'number' && (
+          <p class="text-sm text-lab-400 mt-2 leading-relaxed">
+            The highest score any real record of this species has ever reached is{' '}
+            <span class="font-mono text-lab-200">{withheld.max_observed_score.toFixed(3)}</span>, and
+            no band was ever resolved above it. Read the colours below as ranking ground against
+            ground — never as a claim that this species is findable, or absent, at any given score.
           </p>
-          <p class="text-sm text-lab-300 mt-3 max-w-xl mx-auto leading-relaxed">
-            The run for <span class="font-mono text-lab-100">{run.as_of_date}</span> recorded a
-            map for {name}, but it did not load from the map origin.
-            {img.note}
-          </p>
-          {img.image?.published_sha256 && (
-            <p class="font-mono text-2xs text-lab-500 mt-3 break-all">
-              expected sha256 {img.image.published_sha256.slice(0, 24)}…
-            </p>
-          )}
-          <p class="text-xs text-lab-500 mt-3">
-            The numbers on this page come from the run record and are unaffected.
-          </p>
-        </div>
+        )}
       </div>
+    )
+  }
 
-      <figcaption class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 px-5 py-3 border-t border-lab-800">
-        <span class="text-sm text-lab-100">
-          <b>{name}</b>{' '}
-          <i class="text-lab-400">{species.scientific_name}</i>
-          {withheld && (
-            <span class="badge badge-spore ml-2">not a foraging map</span>
-          )}
-        </span>
-        <span class="font-mono text-2xs text-lab-500 tabular-nums whitespace-nowrap">
-          {paintedPct.toFixed(1)}% of assessed ground painted · peak {maxScore.toFixed(2)}
-        </span>
-      </figcaption>
+  <div class="relative bg-lab-950" data-plate>
+    {img.url ? (
+      <a href={img.url} class="block">
+        <img
+          src={img.url}
+          alt={alt}
+          width={1456}
+          height={1092}
+          loading="lazy"
+          decoding="async"
+          class="w-full h-auto block"
+          onerror="this.closest('[data-plate]').setAttribute('data-plate-failed','');"
+        />
+      </a>
+    ) : null}
 
-      {img.url && (
-        <p class="px-5 pb-4 text-xs text-lab-500">
-          <a href={img.url} class="text-bio-400 hover:text-bio-300">
-            Open the full-size image
-          </a>{' '}
-          — 1456 pixels across, with place names and its own legend.
-          {img.state === 'unverified' && (
-            <span class="text-spore-400">
-              {' '}
-              Its arrival on the map origin was never confirmed.
-            </span>
-          )}
+    <div class="plate-fallback px-5 py-8 text-center" data-has-image={img.url ? '' : null}>
+      <p class="font-mono text-2xs uppercase tracking-wider text-spore-400">
+        Map image unavailable
+      </p>
+      <p class="text-sm text-lab-300 mt-3 max-w-xl mx-auto leading-relaxed">
+        The run for <span class="font-mono text-lab-100">{run.as_of_date}</span> recorded a
+        map for {name}, but it did not load from the map origin.
+        {img.note}
+      </p>
+      {img.image?.published_sha256 && (
+        <p class="font-mono text-2xs text-lab-500 mt-3 break-all">
+          expected sha256 {img.image.published_sha256.slice(0, 24)}…
         </p>
       )}
-    </figure>
-  )
-}
+      <p class="text-xs text-lab-500 mt-3">
+        The numbers on this page come from the run record and are unaffected.
+      </p>
+    </div>
+  </div>
+
+  <figcaption class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 px-5 py-3 border-t border-lab-800">
+    <span class="text-sm text-lab-100">
+      <b>{name}</b>{' '}
+      <i class="text-lab-400">{species.scientific_name}</i>
+      {withheld && <span class="badge badge-spore ml-2">not a foraging map</span>}
+    </span>
+    <span class="font-mono text-2xs text-lab-500 tabular-nums whitespace-nowrap">
+      {paintedPct.toFixed(1)}% of assessed ground painted · peak {maxScore.toFixed(2)}
+    </span>
+  </figcaption>
+
+  {img.url && (
+    <p class="px-5 pb-4 text-xs text-lab-500">
+      <a href={img.url} class="text-bio-400 hover:text-bio-300">
+        Open the full-size image
+      </a>{' '}
+      — 1456 pixels across, with place names and its own legend.
+      {img.state === 'unverified' && (
+        <span class="text-spore-400"> Its arrival on the map origin was never confirmed.</span>
+      )}
+    </p>
+  )}
+</figure>
 
 <style>
   /* The fallback is inert while an image is expected, and takes over the frame

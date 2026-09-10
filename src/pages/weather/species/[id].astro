@@ -138,7 +138,7 @@ const catalogHref = catalogUrl(profile);
     {
       todaySp && run ? (
         <>
-          <Plate species={todaySp} run={run} />
+          <Plate species={todaySp} run={run} headline={false} />
           <div class="mt-6">
             <Legend bands={manifestBands(run.manifest, id)} />
           </div>
