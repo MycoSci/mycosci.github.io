@@ -16,9 +16,12 @@ import {
   currentRun,
   evidentialStatus,
   fmtDate,
+  headlineClaim,
+  lookAlikeCoverage,
   manifestBands,
   profiles,
   speciesWithBareLookAlikes,
+  validationGenerated,
 } from '../../lib/weather';
 
 const run = currentRun;
@@ -37,53 +40,26 @@ const pageBands =
     ? perSpeciesBands[0]
     : null;
 
-// The measured-species sentence, derived rather than written. A hand-written
-// "for chanterelle, a record is several times more likely…" stays on the page
-// after the species stops being measured, which is the kind of quiet lie this
-// section exists not to tell.
-const measured = Object.values(profiles).filter(
-  (p) => evidentialStatus(p.id).kind === 'measured'
-);
-let claimsEvidence: string;
-if (measured.length) {
-  const best = measured.reduce((a, b) =>
-    (evidentialStatus(b.id).topBand?.enrichment ?? 0) >
-    (evidentialStatus(a.id).topBand?.enrichment ?? 0)
-      ? b
-      : a
-  );
-  const st = evidentialStatus(best.id);
-  const ratio = st.topBand?.enrichment ?? 0;
-  const floor = Number(st.topBand?.min ?? 0);
-  claimsEvidence =
-    'Where that has been measured against real occurrence records, it holds up: for ' +
-    `${(best.common_name ?? best.id).toLowerCase()}, a genuine record is about ` +
-    `${ratio.toFixed(1)} times more likely to sit on ground scoring ${floor.toFixed(2)} or ` +
-    'better than on a place people searched just as hard and recorded a different fungus.';
-  const todayMax = Math.max(0, ...speciesRows.map((s) => s.max_score ?? 0));
-  if (floor && todayMax < floor) {
-    claimsEvidence +=
-      ` Nothing on today's map reaches ${floor.toFixed(2)} — the highest score anywhere in ` +
-      `Oregon is ${todayMax.toFixed(2)} — so that is a statement about the model, not about ` +
-      'the ground you are looking at.';
-  }
-} else {
-  claimsEvidence =
-    'None of that has been measured against real occurrence records yet, so treat the whole ' +
-    'map as a hypothesis.';
-}
+// The headline: the measured claim, derived rather than written. A hand-typed
+// "chanterelles turn up 4× as often" stays on the page long after the species
+// stops being back-tested, which is the kind of quiet lie this section exists
+// not to tell. Where nothing has been back-tested, `claim` is null and the page
+// says so instead of inventing a number.
+const claim = headlineClaim(run ?? undefined);
+const coverage = lookAlikeCoverage();
 
 const allProfiles = Object.values(profiles);
 const nMissing = allProfiles.length - inRun.size;
+const nBackTested = allProfiles.filter((p) => evidentialStatus(p.id).kind === 'measured').length;
 
 const bareLookAlikes = speciesWithBareLookAlikes();
 
 const title = run
-  ? `Fruiting weather — Oregon, as of ${run.as_of_date} | MycoSci`
+  ? `Where to look — Oregon fruiting map, ${run.as_of_date} | MycoSci`
   : 'Fruiting weather | MycoSci';
 const description = run
-  ? `Where mushrooms were likely fruiting in Oregon, from the weather up to ${run.as_of_date}. An enrichment map, not a probability.`
-  : 'Daily fruiting-likelihood maps for Oregon, built from weather archives.';
+  ? `A foraging map for Oregon: where the weather up to ${run.as_of_date} matches the pattern that precedes fruiting, ranked against the ground real records actually sit on.`
+  : 'Daily fruiting maps for Oregon, built from weather archives.';
 ---
 
 <BaseLayout title={title} description={description}>
@@ -117,40 +93,121 @@ const description = run
 
           <Freshness run={run} />
 
-          {/* The day's report */}
+          {/* ---------------------------------------------------------------
+              The claim, and the number behind it.
+
+              This is the product, so it leads. The qualifier — that it is a
+              ratio against ground people actually searched, not a percentage
+              — rides along with the number in a line rather than standing as
+              a panel of its own. Every figure is derived from the standing
+              band analysis and from this run; nothing is typed in.
+          ---------------------------------------------------------------- */}
           <section class="mt-12">
-            <h2 class="label mb-4">// The report</h2>
-            <div class="card p-6">
-              <p class="text-2xs font-mono uppercase tracking-wider text-lab-500">
-                What moved since the last run
-              </p>
-              <p class="text-sm text-lab-300 mt-2.5 leading-relaxed">
-                {report!.comparison.sentence}
-              </p>
-              <ul class="mt-5 space-y-3 border-t border-lab-800 pt-5">
-                {report!.movements.map((mv) => (
-                  <li class="text-sm text-lab-300 leading-relaxed">
-                    <span class="inline-block w-1.5 h-1.5 bg-bio-400 mr-2.5 align-middle" />
-                    {mv.sentence}
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <h2 class="label mb-4">// What the colours are worth</h2>
+            {claim ? (
+              <div class="border border-lab-800 bg-lab-900">
+                <div class="flex flex-col sm:flex-row sm:items-stretch">
+                  <div class="flex items-center justify-center shrink-0 px-6 py-5 sm:py-6 border-b sm:border-b-0 sm:border-r border-lab-800 bg-lab-950">
+                    <span class="font-mono text-4xl sm:text-5xl text-bio-400 tabular-nums leading-none">
+                      {claim.top.enrichment.toFixed(1)}×
+                    </span>
+                  </div>
+                  <div class="p-6">
+                    <p class="text-base sm:text-lg text-lab-100 leading-relaxed">
+                      Ground scoring{' '}
+                      <span class="font-mono text-bio-400 tabular-nums">
+                        {Number(claim.top.min).toFixed(2)}
+                      </span>{' '}
+                      or better has turned up {claim.speciesName} about{' '}
+                      <strong>{claim.top.enrichment.toFixed(1)} times as often</strong> as ordinary
+                      ground people search.
+                    </p>
+                    <p class="text-sm text-lab-400 mt-3 leading-relaxed">
+                      Measured against {claim.nObs} real occurrence records and {claim.nControl}{' '}
+                      effort-matched controls — places somebody went, searched in the same season,
+                      and recorded a different fungus. So it is a ratio against ground people
+                      actually search, not a percentage chance of finding one: nobody records the
+                      days they looked and found nothing, so no percentage exists in this data.
+                    </p>
+                  </div>
+                </div>
+
+                {typeof claim.todayMax === 'number' && (
+                  <div class="border-t border-lab-800 px-6 py-4">
+                    <p class="font-mono text-2xs uppercase tracking-wider text-lab-500">
+                      On today's map
+                    </p>
+                    <p class="text-sm text-lab-300 mt-2 leading-relaxed">
+                      {claim.speciesName.charAt(0).toUpperCase() + claim.speciesName.slice(1)}'s
+                      brightest ground anywhere in Oregon scores{' '}
+                      <span class="font-mono text-lab-100 tabular-nums">
+                        {claim.todayMax.toFixed(2)}
+                      </span>
+                      {claim.todayBand ? (
+                        claim.todayBand.min === claim.top.min ? (
+                          <> — inside the {claim.top.enrichment.toFixed(1)}× band.</>
+                        ) : (
+                          <>
+                            {' '}— inside the {claim.todayBand.enrichment.toFixed(1)}× band, below
+                            the {claim.top.enrichment.toFixed(1)}× one. Nowhere in the state
+                            reaches the top band on this run.
+                          </>
+                        )
+                      ) : (
+                        <>
+                          {' '}— below every measured band. Nothing on today's map is on ground the
+                          back-test found enriched.
+                        </>
+                      )}
+                    </p>
+                  </div>
+                )}
+
+                <div class="border-t border-lab-800 px-6 py-4">
+                  <p class="text-sm text-lab-400 leading-relaxed">
+                    {nBackTested === 1
+                      ? `That number belongs to one species. The other ${allProfiles.length - nBackTested} are mapped by the same model and scored the same way, but nobody has back-tested how well their scores rank ground yet — so read their maps as the model's best answer, not as a measured one.`
+                      : `${nBackTested} of the ${allProfiles.length} species here have been back-tested this way; the rest are mapped by the same model but their ranking has not been checked against real records yet.`}{' '}
+                    <a href="/weather/limits" class="text-bio-400 hover:text-bio-300">Which is
+                    which</a>. Standing band analysis dated {validationGenerated || 'unknown'}; none of it
+                    was used to colour the maps below.
+                  </p>
+                </div>
+              </div>
+            ) : (
+              <div class="border border-lab-800 bg-lab-900 p-6">
+                <p class="text-sm text-lab-300 leading-relaxed">
+                  No species here has been back-tested against real occurrence records yet, so
+                  there is no measured ratio to lead with. Every map below is the model's own
+                  output — a hypothesis about where to look, with nothing standing behind its
+                  ranking.
+                </p>
+              </div>
+            )}
 
             <div class="grid md:grid-cols-2 gap-px bg-lab-800 border border-lab-800 mt-6">
               <div class="bg-lab-950 p-6">
-                <h3 class="text-base font-semibold text-lab-100">What the weather layer knew</h3>
-                <ul class="mt-3 space-y-2">
-                  {report!.weatherLayer.map((line) => (
-                    <li class="text-sm text-lab-400 leading-relaxed">{line}</li>
-                  ))}
-                </ul>
+                <h3 class="text-base font-semibold text-lab-100">What brighter ground means</h3>
+                <p class="text-sm text-lab-400 mt-3 leading-relaxed">
+                  The weather over the past few weeks matches the pattern that precedes fruiting
+                  for this species: a soaking that wet the soil to field capacity, a stretch of
+                  sustained moisture long enough for the mycelium to incubate, and a temperature
+                  now inside the species' fruiting range — in forest the species actually
+                  associates with.{' '}
+                  <a href="/weather/method" class="text-bio-400 hover:text-bio-300">How the
+                  score is built</a>.
+                </p>
               </div>
               <div class="bg-lab-950 p-6">
-                <h3 class="text-base font-semibold text-spore-400">
-                  What this report cannot tell you
-                </h3>
-                <p class="text-sm text-lab-400 mt-3 leading-relaxed">{report!.cannotSay}</p>
+                <h3 class="text-base font-semibold text-lab-100">What it does not know</h3>
+                <p class="text-sm text-lab-400 mt-3 leading-relaxed">
+                  Whether there is mycelium under a given hillside, whether the stand was logged,
+                  whether somebody picked it out yesterday, or whether the ground is private or
+                  closed. And {report!.unassessedSentence.toLowerCase()} of the map has no
+                  land-cover measurement, so it is never assessed and never painted.{' '}
+                  <a href="/weather/limits" class="text-bio-400 hover:text-bio-300">The full
+                  list</a>.
+                </p>
               </div>
             </div>
           </section>
@@ -178,74 +235,57 @@ const description = run
             {!bandsAttached && (
               <div class="border-l-2 border-lab-600 bg-lab-900 px-4 py-4 mt-6">
                 <p class="font-mono text-2xs uppercase tracking-wider text-lab-400">
-                  This run carries no calibrated bands
+                  No band names on today's images
                 </p>
                 <p class="text-sm text-lab-300 mt-2 leading-relaxed">
-                  The renderer emitted <span class="font-mono text-lab-100">score_bands: null</span>
-                  for this run, so there are no measured cut points to attach names like
-                  <em> possible</em> or <em>prime</em> to. You are looking at a raw score ramp and
-                  nothing else. Every species' standing evidential status is on its own page, dated
-                  separately, and none of it was used to label this map.
+                  This run emitted <span class="font-mono text-lab-100">score_bands: null</span>,
+                  so the images ship with a raw score ramp and no <em>possible</em> or{' '}
+                  <em>prime</em> labels printed on them. The measured cut points are above and on
+                  each species page, dated separately — read the scores off the ramp and compare
+                  them yourself.
                 </p>
               </div>
             )}
           </section>
 
-          {/* Claims / limits pair */}
-          <section class="grid md:grid-cols-2 gap-px bg-lab-800 border border-lab-800 mt-12">
-            <div class="bg-lab-950 p-6">
-              <h2 class="text-lg font-semibold text-lab-100">What this map claims</h2>
-              <p class="text-sm text-lab-400 mt-3 leading-relaxed">
-                Brighter ground is ground where the weather over the past few weeks matches the
-                pattern that precedes fruiting for this species: a soaking that wet the soil to
-                field capacity, a stretch of sustained moisture long enough for the mycelium to
-                incubate, and a temperature now inside the species' fruiting range — in forest the
-                species actually associates with.
-              </p>
-              <p class="text-sm text-lab-400 mt-3 leading-relaxed">
-                {claimsEvidence}{' '}
-                <a href="/weather/method" class="text-bio-400 hover:text-bio-300">
-                  How the score is built
-                </a>
-                .
-              </p>
-            </div>
-            <div class="bg-lab-950 p-6">
-              <h2 class="text-lg font-semibold text-spore-400">What it does not</h2>
-              <p class="text-sm text-lab-400 mt-3 leading-relaxed">
-                <strong class="text-lab-200">It is not a probability.</strong> The measurement
-                behind the colours compares real records against places people also searched. It
-                can say <em>more likely than there</em>. It cannot say <em>likely</em>, because
-                nobody records the days they went out and found nothing, so the denominator a
-                percentage needs does not exist in this data.
-              </p>
-              <p class="text-sm text-lab-400 mt-3 leading-relaxed">
-                <strong class="text-lab-200">It is not everywhere.</strong>{' '}
-                {report!.unassessedSentence} of the map has no land-cover measurement, so it is
-                never assessed and never painted.
-              </p>
-              <p class="text-sm text-lab-400 mt-3 leading-relaxed">
-                <strong class="text-lab-200">It is a weather model, not a mushroom.</strong> Bright
-                ground with no host trees, no duff and no mycelium produces nothing.{' '}
-                <a href="/weather/limits" class="text-bio-400 hover:text-bio-300">
-                  The full list
-                </a>
-                .
-              </p>
-            </div>
-          </section>
-
-          {/* Safety */}
-          <div class="border-l-2 border-red-500 bg-red-500/10 px-4 py-4 mt-12">
+          {/* --------------------------------------------------------------
+              Safety. ONE caveat, stated once, and then the thing that
+              actually protects a reader: what each species is confused with
+              and how the sources say to separate them.
+          --------------------------------------------------------------- */}
+          <div class="border-l-2 border-red-500 bg-red-500/10 px-5 py-5 mt-12">
             <p class="font-mono text-2xs uppercase tracking-wider text-red-400">Safety · read this</p>
-            <p class="text-sm text-lab-300 mt-2 leading-relaxed">
-              <strong>This section predicts where fruiting is likely. It does not identify
-              mushrooms.</strong> Nothing here tells you that a mushroom in your hand is safe to
-              eat. Several species mapped here have look-alikes that will make you ill, and one
-              common Oregon look-alike is harmless until you drink alcohol within a day or two of
-              eating it. Identify with a field guide, a spore print and, where you can, a person
-              who already knows the species — then eat.
+            <p class="text-base text-lab-100 mt-2 leading-relaxed">
+              <strong>This map tells you where to look. It cannot tell you what you are
+              holding.</strong>
             </p>
+            <p class="text-sm text-lab-300 mt-3 leading-relaxed">
+              Nothing on this site says a mushroom is safe to eat. Some species mapped here have
+              look-alikes that will put you in hospital, and one common Oregon look-alike causes
+              flushing, nausea and palpitations — but only if you drink alcohol within a day or
+              two of eating it. Identify with a key, a spore print and, where you can, somebody
+              who already knows the species.
+            </p>
+            {coverage.researched.length > 0 && (
+              <p class="text-sm text-lab-300 mt-3 leading-relaxed">
+                {coverage.researched.length} of the {coverage.total} species here carry a
+                look-alike section written from {coverage.sourcesMin}–{coverage.sourcesMax}{' '}
+                independent sources each — what it is confused with, how the sources say to tell
+                them apart, and where the sources disagree with each other. Read the one for what
+                you are after:{' '}
+                {coverage.researched.map((p, i) => (
+                  <>
+                    {i > 0 && <span class="text-lab-600"> · </span>}
+                    <a
+                      href={`/weather/species/${p.id}#look-alikes`}
+                      class="text-bio-400 hover:text-bio-300"
+                    >
+                      {p.common_name ?? p.id}
+                    </a>
+                  </>
+                ))}
+              </p>
+            )}
           </div>
 
           {bareLookAlikes.length > 0 && (
@@ -254,14 +294,45 @@ const description = run
                 Known gap in this data
               </p>
               <p class="text-sm text-lab-300 mt-2 leading-relaxed">
-                {bareLookAlikes.length} of the species profiles record their look-alikes as bare
-                identifiers with no description, no symptoms and no way to tell the two apart:{' '}
-                {bareLookAlikes.map((s) => s.name).join(', ')}. Those entries are shown on the
-                species pages marked as incomplete rather than dressed up as guidance. Do not treat
-                them as a check you have performed.
+                {bareLookAlikes.length} of the species profiles still record a look-alike as a bare
+                identifier — a name, with no description and no way to tell the two apart:{' '}
+                {bareLookAlikes.map((s) => s.name).join(', ')}. Those are marked as incomplete on
+                the species pages rather than dressed up as guidance. Use a regional field guide
+                for them.
               </p>
             </div>
           )}
+
+          {/* The day's report */}
+          <section class="mt-12">
+            <h2 class="label mb-4">// What moved since the last run</h2>
+            <div class="card p-6">
+              <p class="text-sm text-lab-300 leading-relaxed">{report!.comparison.sentence}</p>
+              <ul class="mt-5 space-y-3 border-t border-lab-800 pt-5">
+                {report!.movements.map((mv) => (
+                  <li class="text-sm text-lab-300 leading-relaxed">
+                    <span class="inline-block w-1.5 h-1.5 bg-bio-400 mr-2.5 align-middle" />
+                    {mv.sentence}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-px bg-lab-800 border border-lab-800 mt-6">
+              <div class="bg-lab-950 p-6">
+                <h3 class="text-base font-semibold text-lab-100">What the weather layer knew</h3>
+                <ul class="mt-3 space-y-2">
+                  {report!.weatherLayer.map((line) => (
+                    <li class="text-sm text-lab-400 leading-relaxed">{line}</li>
+                  ))}
+                </ul>
+              </div>
+              <div class="bg-lab-950 p-6">
+                <h3 class="text-base font-semibold text-lab-100">What this report leaves out</h3>
+                <p class="text-sm text-lab-400 mt-3 leading-relaxed">{report!.cannotSay}</p>
+              </div>
+            </div>
+          </section>
 
           {/* Warnings the run itself flagged */}
           {(report!.warnings.length > 0 || report!.publishNotes.length > 0) && (
@@ -280,12 +351,13 @@ const description = run
 
           {/* Roster */}
           <section class="mt-12">
-            <h2 class="label mb-4">// How well each species is known</h2>
+            <h2 class="label mb-4">// Every species, and how far each has been checked</h2>
             <p class="text-sm text-lab-400 max-w-3xl leading-relaxed mb-2">
-              These species are not equally trustworthy, and the difference is large enough that it
-              belongs on the front page. The bar on the left of each row is solid where the species
-              has been measured against real occurrence records, broken where it has not. Species
-              in today's run come first.
+              Every species here gets the same model and the same map. What differs is whether
+              anybody has back-tested how well its scores rank ground against real records — and
+              that difference is large enough to belong on the front page. The bar on the left of
+              each row is solid where a species has been back-tested and broken where it has not.
+              Species in today's run come first.
             </p>
             <p class="text-sm text-lab-400 max-w-3xl leading-relaxed mb-6">
               {nMissing

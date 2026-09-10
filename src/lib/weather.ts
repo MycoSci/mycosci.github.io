@@ -6,17 +6,26 @@
  * scripts/publish-weather.mjs did to it. Nothing here recomputes a score,
  * derives a threshold, or fills a gap the data left.
  *
- * Four rules are load-bearing and were expensive to learn:
+ * This section is a foraging map. That is what it is for, and the pages say so.
+ * What follows are the rules that keep it a HONEST foraging map; none of them
+ * is a licence to disown the thing.
  *
  *   1. as_of_date is the freshness claim, never target_date. A morning run
  *      lands 14–38 hours behind real time and the page must say so.
  *   2. A run with publishable=false is not published. The publish script
  *      refuses it; nothing downstream may paper over that.
- *   3. Bands are enrichment — a likelihood ratio against effort-matched
- *      controls — never a probability. No percentage describes a chance of
- *      finding a mushroom anywhere on this site, at any sample size.
+ *   3. Bands are enrichment — how much more often real records sit on ground
+ *      like this than on effort-matched control ground. Lead with that number,
+ *      because it is the measured claim and it is the one a forager wants.
+ *      Attach the qualifier to it in a line, not in a standing panel: it is a
+ *      ratio against ground people actually searched, so it never becomes a
+ *      percentage chance of finding a mushroom, at any sample size.
  *   4. Nothing in the score ramp is ever green. The OpenStreetMap base map
  *      draws forest in green and readers were reading forest as signal.
+ *   5. Exactly one hard caveat is repeated on this site: it does not identify
+ *      mushrooms. That is the one where being wrong hurts somebody. Everything
+ *      else earns its place by being useful, and look-alike copy that says how
+ *      to tell two species apart protects a reader better than a disclaimer.
  */
 
 // ---------------------------------------------------------------------------
@@ -181,6 +190,34 @@ export interface SpeciesProfile {
   edibility?: string;
   special_notes?: string;
   taxonomy?: Record<string, any>;
+  research?: ProfileResearch;
+}
+
+/**
+ * The sourced review behind a profile's look-alike prose.
+ *
+ * `conflicts` and `gaps` are the valuable half and must be rendered AS
+ * conflicts and gaps. Two of them — whether parboiling detoxifies Gyromitra,
+ * and what the angel-wings toxin actually is — are genuinely unresolved in the
+ * literature, and flattening either into a confident sentence would be the
+ * most dangerous thing this site could do.
+ */
+export interface ProfileResearch {
+  reviewed?: string;
+  method?: string;
+  independent_source_count?: number;
+  confidence?: string;
+  sources?: Array<{
+    title?: string;
+    authors?: string;
+    publication?: string;
+    year?: number;
+    url?: string;
+    supports?: string;
+  }>;
+  conflicts?: string[];
+  gaps?: string[];
+  proposed_changes?: string[];
 }
 
 export interface BandEntry {
@@ -264,13 +301,19 @@ export interface EvidentialStatus {
 }
 
 /**
- * How much is actually known about this species' map.
+ * How far this species' map has been checked.
  *
- * Three states, and the difference between the last two matters:
- *   measured   — a band analysis resolved against effort-matched controls.
- *   unmeasured — the analysis could not resolve, usually for want of records.
+ * The wording here is load-bearing and was got wrong once. "Not measured" read
+ * as "we know nothing about this species", which is not what it means. Every
+ * species on this site gets the model's real output; what varies is whether
+ * anybody has yet BACK-TESTED that output — checked how well its scores rank
+ * ground against real occurrence records. Three states:
+ *
+ *   measured   — back-tested against effort-matched controls; carries a ratio.
+ *   unmeasured — not back-tested yet, usually for want of enough records.
  *                NOT a finding that the model failed there.
- *   excluded   — held out of validation for a known, stated reason.
+ *   excluded   — the back-test is blocked by the RECORDS (their coordinates are
+ *                deliberately scrambled), not by anything about the map.
  */
 export function evidentialStatus(id: string): EvidentialStatus {
   const profile = profiles[id];
@@ -278,7 +321,7 @@ export function evidentialStatus(id: string): EvidentialStatus {
   if (tax.validation_excluded) {
     return {
       kind: 'excluded',
-      label: 'Excluded from validation',
+      label: 'Back-test blocked',
       short: '',
       detail: tax.validation_note ?? '',
     };
@@ -288,12 +331,13 @@ export function evidentialStatus(id: string): EvidentialStatus {
   if (!entry) {
     return {
       kind: 'unmeasured',
-      label: 'Not measured',
+      label: 'Not back-tested',
       short: '',
       detail:
-        'This species has no entry in the standing band analysis, so nothing is known ' +
-        'about how its scores line up against real records. That is a missing ' +
-        'measurement, not a failed one.',
+        'The map for this species is the model’s real output, scored the same way as every ' +
+        'other map here. What has not happened yet is the back-test: nobody has checked how ' +
+        'well those scores rank ground against real occurrence records, because this species ' +
+        'has no entry in the standing band analysis. Untested, not failed.',
     };
   }
 
@@ -305,19 +349,32 @@ export function evidentialStatus(id: string): EvidentialStatus {
     );
     return {
       kind: 'measured',
-      label: 'Measured',
-      short: top ? `${top.enrichment.toFixed(1)}× at score ${top.min.toFixed(2)}+` : 'Measured',
+      label: 'Back-tested',
+      short: top ? `${top.enrichment.toFixed(1)}× at score ${top.min.toFixed(2)}+` : 'Back-tested',
       detail: entry.note ?? '',
       entry,
       topBand: top,
     };
   }
 
-  return { kind: 'unmeasured', label: 'Not measured', short: '', detail: entry.note ?? '', entry };
+  return {
+    kind: 'unmeasured',
+    label: 'Not back-tested',
+    short: '',
+    detail: entry.note ?? '',
+    entry,
+  };
 }
 
-/** The standing record's own refusal to publish a species as a foraging map. */
-export function withheldAsForagingMap(id: string): ValidationEntry | null {
+/**
+ * Species whose ranking the standing record will not yet stand behind.
+ *
+ * This is NOT a statement that the map should not be used for foraging — the
+ * whole section is a foraging map, and withholding a species would only hide
+ * that its ranking is untested. It is the flag for "the model drew this, and
+ * the back-test that would tell you how well it ranks has not run".
+ */
+export function notBackTested(id: string): ValidationEntry | null {
   const entry = validationBySpecies[id];
   if (!entry || entry.publish_as_foraging_map) return null;
   return entry;
@@ -340,6 +397,119 @@ export function manifestBands(manifest: Manifest, id: string): BandEntry[] | nul
     return Array.isArray(entry.bands) && entry.bands.length ? entry.bands : null;
   }
   return null;
+}
+
+/** The band a score falls in, or null if it clears none of them. */
+export function bandFor(bands: BandEntry[] | null | undefined, score: number): BandEntry | null {
+  if (!bands?.length) return null;
+  let best: BandEntry | null = null;
+  for (const b of bands) {
+    if (score >= Number(b.min) && (!best || Number(b.min) > Number(best.min))) best = b;
+  }
+  return best;
+}
+
+// ---------------------------------------------------------------------------
+// The headline claim
+// ---------------------------------------------------------------------------
+
+/**
+ * The measured claim, which is the product.
+ *
+ * This section exists to say where to go looking, and the strongest true form
+ * of that is the enrichment ratio: ground in the top band has turned up this
+ * species N times as often as ground people searched just as hard. That number
+ * used to be buried under a paragraph explaining why it is not a percentage.
+ * It leads now, and the qualifier rides along with it in one line.
+ *
+ * Everything here is derived — the species chosen, the ratio, the floor, the
+ * band today's peak actually falls in. Nothing is written into the page, so
+ * when a second species gets back-tested the headline moves on its own, and
+ * when none is, the page says that instead of inventing a number.
+ */
+export interface HeadlineClaim {
+  speciesId: string;
+  speciesName: string;
+  /** The best-enriched band of the best-enriched back-tested species. */
+  top: BandEntry;
+  /** Every band that species carries, low to high. */
+  bands: BandEntry[];
+  nObs?: number;
+  nControl?: number;
+  /** That species' peak score in the current run, when it was rendered. */
+  todayMax?: number;
+  /** The band today's peak falls in — may be a lower band, or none at all. */
+  todayBand?: BandEntry | null;
+}
+
+export function headlineClaim(run?: RunRecord): HeadlineClaim | null {
+  const candidates = Object.values(profiles)
+    .map((p) => ({ p, st: evidentialStatus(p.id) }))
+    .filter((x) => x.st.kind === 'measured' && x.st.topBand);
+  if (!candidates.length) return null;
+
+  const best = candidates.reduce((a, b) =>
+    (b.st.topBand!.enrichment ?? 0) > (a.st.topBand!.enrichment ?? 0) ? b : a
+  );
+  const entry = best.st.entry;
+  const bands = [...(entry?.bands ?? [])].sort((a, b) => Number(a.min) - Number(b.min));
+  const sp = run?.manifest.species?.find((s) => s.id === best.p.id);
+  const todayMax = sp?.max_score;
+
+  return {
+    speciesId: best.p.id,
+    speciesName: (best.p.common_name ?? best.p.id).toLowerCase(),
+    top: best.st.topBand!,
+    bands,
+    nObs: entry?.n_obs,
+    nControl: entry?.n_control,
+    todayMax,
+    todayBand: typeof todayMax === 'number' ? bandFor(bands, todayMax) : undefined,
+  };
+}
+
+// ---------------------------------------------------------------------------
+// Look-alike coverage
+// ---------------------------------------------------------------------------
+
+/**
+ * How much sourced look-alike material this dataset actually carries.
+ *
+ * Counted rather than claimed, so the safety panel on the front page cannot
+ * promise nine researched profiles after somebody deletes one.
+ */
+export interface LookAlikeCoverage {
+  /** Profiles carrying a research block with citations. */
+  researched: SpeciesProfile[];
+  /**
+   * Fewest and most independent sources behind any one of those reviews.
+   *
+   * A RANGE, not a sum. Adding the per-profile counts gives a bigger number
+   * that quietly claims that many distinct works, when the same monograph is
+   * cited by four profiles. "five to twelve sources each" is what is true.
+   */
+  sourcesMin: number;
+  sourcesMax: number;
+  /** Profiles carrying at least one described (non-bare) look-alike. */
+  described: number;
+  total: number;
+}
+
+export function lookAlikeCoverage(): LookAlikeCoverage {
+  const all = Object.values(profiles);
+  const researched = all.filter((p) => p.research?.sources?.length);
+  const counts = researched
+    .map((p) => Number(p.research?.independent_source_count) || p.research!.sources!.length)
+    .filter((n) => n > 0);
+  return {
+    researched: researched.sort((a, b) =>
+      (a.common_name ?? a.id).localeCompare(b.common_name ?? b.id)
+    ),
+    sourcesMin: counts.length ? Math.min(...counts) : 0,
+    sourcesMax: counts.length ? Math.max(...counts) : 0,
+    described: all.filter((p) => (p.look_alikes ?? []).some((l) => !lookAlike(l).bare)).length,
+    total: all.length,
+  };
 }
 
 // ---------------------------------------------------------------------------
@@ -592,10 +762,12 @@ export function buildReport(run: RunRecord): WeatherReport {
   const fresh = w.freshness ?? {};
   const weatherLayer: string[] = [];
   if (w.source) {
+    // The archive endpoint records an empty model name, so the old sentence
+    // read "using the  model". Say what is there and nothing else.
     weatherLayer.push(
-      `Read from ${w.source} using the ${w.model} model, ${w.grid_points ?? '—'} grid ` +
-        `points at ${w.step_degrees ?? '—'}° spacing, each carrying ` +
-        `${fmtRange(fresh.min_days, fresh.max_days, 'days')} of hourly history.`
+      `Read from ${w.source}${w.model ? ` using the ${w.model} model` : ''}, ` +
+        `${w.grid_points ?? '—'} grid points at ${w.step_degrees ?? '—'}° spacing, each ` +
+        `carrying ${fmtRange(fresh.min_days, fresh.max_days, 'days')} of hourly history.`
     );
   }
   if (w.model_verification?.agrees === true) {
@@ -648,15 +820,16 @@ export function buildReport(run: RunRecord): WeatherReport {
     comparison,
     movements,
     weatherLayer,
+    // Was omitted from this object while the page read it, so /weather shipped
+    // "It is not everywhere.   of the map has no land-cover measurement" —
+    // a sentence with its subject silently missing. Caught 2026-09-10.
+    unassessedSentence,
     cannotSay:
-      'How much rain fell, where it fell, and whether soil moisture crossed any ' +
-      'threshold. The manifest this report is built from carries the score ' +
-      'distributions and the provenance of the weather fetch — it does not carry the ' +
-      'weather values themselves, and it has no regional breakdown of any kind. A ' +
-      'sentence like “the coast took 24 mm over three days” would be written from ' +
-      'imagination rather than from the run, so this report does not write one. Adding ' +
-      'per-region precipitation and soil-moisture summaries to the manifest is what ' +
-      'would make it possible.',
+      'Rainfall totals, and anything by region. The manifest carries the score ' +
+      'distributions and the provenance of the weather fetch, not the weather values ' +
+      'themselves, so “the coast took 24 mm over three days” would be invented rather ' +
+      'than read. Adding per-region precipitation and soil-moisture summaries to the ' +
+      'manifest is what would let this report say it.',
     warnings: m.warnings ?? [],
     publishNotes: run.publish_notes ?? [],
   };
@@ -717,6 +890,75 @@ export function lookAlike(raw: string): LookAlike {
   return { text: s.replace(/_/g, ' '), bare: true };
 }
 
+/**
+ * A look-alike entry broken into a name and its paragraphs.
+ *
+ * The researched entries are several hundred words with real structure — a
+ * lead naming the organism, then blocks on the toxin, the course and the field
+ * separation, written as newline-separated sub-paragraphs. Rendering that as
+ * one grey slab wastes the only content on this site that can keep somebody
+ * out of hospital, so it is split for reading.
+ *
+ * The lead is only lifted when the text plainly offers one: a short fragment
+ * before an em dash, carrying no sentence punctuation. Everything else is left
+ * exactly as written. Nothing is added, dropped or reworded — an entry that
+ * says the sources disagree must still say so after this function.
+ */
+export interface LookAlikeParts {
+  lead: string | null;
+  paragraphs: string[];
+  bare: boolean;
+}
+
+export function lookAlikeParts(raw: string): LookAlikeParts {
+  const { text, bare } = lookAlike(raw);
+  const blocks = text
+    .split('\n')
+    .map((t) => t.trim())
+    .filter(Boolean);
+  if (bare || !blocks.length) return { lead: null, paragraphs: blocks, bare };
+
+  const first = blocks[0];
+  const cut = first.indexOf(' — ');
+  const head = cut > 0 ? first.slice(0, cut) : '';
+  // A lead is a name, not a sentence. Colons and sentence breaks disqualify it;
+  // the abbreviated binomials these entries are full of ("V. conica",
+  // "T. kauffmanii") must not, which is why the test looks for a capital after
+  // the full stop rather than for a full stop at all.
+  if (cut > 0 && cut <= 100 && !head.includes(':') && !/\.\s+[A-Z]/.test(head)) {
+    // The remainder continued a sentence the lead began ("… — the serious
+    // one."), so it needs its capital back now the lead is a heading.
+    const rest = sentenceCase(first.slice(cut + 3).trim());
+    return {
+      lead: first.slice(0, cut).trim(),
+      paragraphs: [rest, ...blocks.slice(1)].filter(Boolean),
+      bare,
+    };
+  }
+  return { lead: null, paragraphs: blocks, bare };
+}
+
+/**
+ * Turn the dataset's internal cross-references into page ones.
+ *
+ * The look-alike prose was written for the JSON and points at sibling fields —
+ * "see research.conflicts". Those sections are now rendered on the same page
+ * under headings of their own, so the field name is jargon pointing at
+ * something the reader can see. Only the POINTER is rewritten, and only when
+ * the section it names is actually on the page; not one word of a claim is
+ * touched.
+ */
+export function resolveResearchRefs(text: string, research?: ProfileResearch | null): string {
+  let out = text;
+  if (research?.conflicts?.length) {
+    out = out.replace(/research\.conflicts/g, '\u201cWhere the sources disagree\u201d below');
+  }
+  if (research?.gaps?.length) {
+    out = out.replace(/research\.gaps/g, '\u201cWhat the review could not establish\u201d below');
+  }
+  return out;
+}
+
 export function bareLookAlikes(profile: SpeciesProfile): string[] {
   return (profile.look_alikes ?? []).map(lookAlike).filter((l) => l.bare).map((l) => l.text);
 }
@@ -732,6 +974,26 @@ export function speciesWithBareLookAlikes(): Array<{ id: string; name: string; b
 // ---------------------------------------------------------------------------
 // Misc presentation
 // ---------------------------------------------------------------------------
+
+/**
+ * A validation note, with the leading verdict token dropped.
+ *
+ * The record writes its notes as "NOT MEASURED: 46 observations against 80
+ * controls is below the 100-point floor…". The page now says "ranking not
+ * back-tested" in its own words immediately above, so the shouted prefix
+ * arrives as a second, louder denial of something already said — which is
+ * exactly the pile-up this rewrite removes. Only the label is dropped; every
+ * word of the record's actual reasoning is kept verbatim.
+ */
+export function noteBody(text?: string): string {
+  return sentenceCase(
+    (text ?? '')
+      .replace(/^\s*NOT MEASURED\s*[:\u2014-]\s*/i, '')
+      // The record types its dashes as "--"; render them as dashes.
+      .replace(/ -- /g, ' \u2014 ')
+      .trim()
+  );
+}
 
 /** Capitalise a fragment lifted out of a JSON note so it reads as prose. */
 export function sentenceCase(text?: string): string {

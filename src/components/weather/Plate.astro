@@ -1,19 +1,19 @@
 ---
 /**
- * One map, with whatever the record says about whether it should be one.
+ * One map, with what is and is not known about how well it ranks.
  *
  * Two failure modes are handled explicitly rather than left to chance:
  *
- *   1. A species the standing measurement marks publish_as_foraging_map=false
- *      still gets its plate — an empty map is a true statement about the
- *      ground, and withholding a species is its own kind of dishonesty. What
- *      it does NOT get is silence about what the map means. Lobster's best
- *      real record ever scored 0.195 and it never enters a band, so a blank
- *      lobster plate on its own would read as "no lobster in Oregon today"
- *      when what the model is saying is "this species never reaches the score
- *      this map paints at". The statement rides with the picture: a banner
- *      above it on a headline page, a badge in its caption everywhere.
- *      (Settled 2026-09-10, at the owner's direction.)
+ *   1. A species whose ranking has not been back-tested still gets its plate,
+ *      and it is still a foraging map — that is what this section is. What it
+ *      gets alongside is the state of the evidence, stated plainly rather than
+ *      implied. Lobster's best real record ever sat on ground scoring 0.195,
+ *      well under what today's lobster map paints, so a lobster plate with no
+ *      note would let a reader take its brightest ground for a tested result.
+ *      The statement rides with the picture: a note above it on a headline
+ *      page, a badge in its caption everywhere. (Settled 2026-09-10, at the
+ *      owner's direction; reworded 2026-09-10 after the first version spent
+ *      the space disowning the map instead of describing it.)
  *   2. The image now lives on a host we control rather than in the same commit
  *      as the page, so it can be absent. The URL is content-addressed by run
  *      date and digest, so a stale origin can only 404 — but a 404 must look
@@ -22,8 +22,8 @@
  */
 import {
   imageState,
-  withheldAsForagingMap,
-  sentenceCase,
+  noteBody,
+  notBackTested,
   type ManifestSpecies,
   type RunRecord,
 } from '../../lib/weather';
@@ -31,14 +31,25 @@ import {
 interface Props {
   species: ManifestSpecies;
   run: RunRecord;
-  /** A headline page carries the withholding statement above the plate; a page
-   *  that already states it above (the species page) passes false. */
+  /** A headline page carries the evidence note above the plate; a page that
+   *  already states it above (the species page) passes false. */
   headline?: boolean;
 }
 const { species, run, headline = true } = Astro.props;
 
-const withheld = withheldAsForagingMap(species.id);
+const untested = notBackTested(species.id);
 const img = imageState(run, species.id);
+
+// The record's "highest score any real record ever sat on" is only worth
+// saying when this run paints ground above it — that is the case where a
+// reader could take an untested bright patch for a proven one. Where the
+// ceiling sits above today's peak (morel: 0.812 against a 0.62 map) the same
+// sentence is just noise, so it is not printed.
+const recordCeiling =
+  typeof untested?.max_observed_score === 'number' &&
+  (species.max_score ?? 0) > untested.max_observed_score
+    ? untested.max_observed_score
+    : null;
 
 const assessed = species.pixels_assessed || 1;
 const painted = species.pixels_painted ?? 0;
@@ -54,21 +65,22 @@ const alt =
 
 <figure class="border border-lab-800 bg-lab-900">
   {
-    withheld && headline && (
+    untested && headline && (
       <div class="border-b border-spore-600/40 bg-spore-600/5 px-5 py-4">
         <p class="font-mono text-2xs uppercase tracking-wider text-spore-400">
-          Rendered · not a foraging map
+          Ranking not back-tested
         </p>
         <p class="text-sm text-lab-300 mt-2 leading-relaxed">
-          The model scores this species and the standing measurement says not to read the
-          result as somewhere to go. {sentenceCase(withheld.note)}
+          This is the model's real output for {name}, scored the same way as every other map
+          here. What has not happened is the check: nobody has measured yet how well these
+          scores rank ground against real records. {noteBody(untested.note)}
         </p>
-        {typeof withheld.max_observed_score === 'number' && (
+        {recordCeiling !== null && (
           <p class="text-sm text-lab-400 mt-2 leading-relaxed">
-            The highest score any real record of this species has ever reached is{' '}
-            <span class="font-mono text-lab-200">{withheld.max_observed_score.toFixed(3)}</span>, and
-            no band was ever resolved above it. Read the colours below as ranking ground against
-            ground — never as a claim that this species is findable, or absent, at any given score.
+            Worth knowing while you read it: no real record of this species has ever sat on
+            ground scoring above{' '}
+            <span class="font-mono text-lab-200">{recordCeiling.toFixed(3)}</span>, and this map
+            paints brighter than that. Treat its brightest ground as a lead, not a result.
           </p>
         )}
       </div>
@@ -115,7 +127,7 @@ const alt =
     <span class="text-sm text-lab-100">
       <b>{name}</b>{' '}
       <i class="text-lab-400">{species.scientific_name}</i>
-      {withheld && <span class="badge badge-spore ml-2">not a foraging map</span>}
+      {untested && <span class="badge badge-spore ml-2">not back-tested</span>}
     </span>
     <span class="font-mono text-2xs text-lab-500 tabular-nums whitespace-nowrap">
       {paintedPct.toFixed(1)}% of assessed ground painted · peak {maxScore.toFixed(2)}

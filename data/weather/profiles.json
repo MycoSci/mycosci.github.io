@@ -1,6 +1,6 @@
 {
   "snapshot_of": "sandbox/mycomap/species/*.json",
-  "taken_at": "2026-09-10T17:22:32.190Z",
+  "taken_at": "2026-09-10T17:37:44.394Z",
   "profiles": {
     "craterellus_calicornucopioides": {
       "id": "craterellus_calicornucopioides",
@@ -1021,8 +1021,103 @@
         "notes": "Nearly year-round in mild climates. Fruits after temperature drops and rain. One of the most cold-tolerant edible species."
       },
       "look_alikes": [
-        "angel_wings"
+        "Pleurocybella porrigens (Angel Wings) — the confusion the profile already named, and the one that has killed people. 555 GBIF records in the mapped box, so it is common here. In autumn 2004 in Japan it caused an outbreak of acute encephalopathy; NAMA records '59 people in 9 prefectures of Japan were sickened ... Seventeen died'. THE RISK FACTOR IS KIDNEY DISEASE, AND THE JAPANESE GOVERNMENT'S OWN FOOD SAFETY COMMISSION PUTS IT AT ITS STRONGEST: the 2004 event was 'an outbreak of encephalopathy exclusive to patients with chronic renal failure treated on hemodialysis'. NAMA gives the average victim age as 70. Onset was extraordinarily delayed — NAMA says 'Symptoms would appear 13 to 18 days after eating the mushrooms', the UBC Beaty Museum gives a range of 'one to 31 days' — followed by 'difficulty moving or some level of paralysis, muscle spasms, and later, convulsions'. Sources disagree on both the death toll and the toxin; see research.conflicts, and note that no source claims the cause is settled.\n  THE SEPARATION IS SUBSTANCE FIRST, SUBSTRATE SECOND. Angel wings are physically slighter: Beaty describes them as 'white to ivory, thin-fleshed and translucent' with a stem 'Virtually absent', against oyster flesh the PNW Key Council measures at 'to 1 cm or 2 cm thick, firm, somewhat fibrous'. Beaty: 'Oyster mushrooms are rarely pure white, and they are thicker and fleshier than angel wings.' The substrate rule — angel wings on conifer, oysters on hardwood — is real (Burke: 'Found on conifer (especially hemlock) logs and stumps throughout the PNW') BUT IS WEAKER HERE THAN ELSEWHERE, because the commonest oyster in this region also fruits on conifers. See research.conflicts. Thin, translucent and pure white is the more dependable read than the log it is standing on.",
+        "Crepidotus species — named by both the PNW Key Council and the UBC Beaty Museum: 'Crepidotus species, which are common and look somewhat similar ... have brown spores'; Beaty adds 'usually smaller, thin-fleshed'. Two checks separate them. Spore print: Crepidotus drops brown, an oyster does not. Size: Crepidotus mollis is 1-5(8) cm across where an oyster cap runs 5-25 cm. Note the spore-print check is only decisive in this direction — see the conflict recorded about oyster print colour.",
+        "Lentinellus ursinus and L. montanus — oyster-shaped and on wood, separated by the GILL EDGE and the taste. The PNW Key Council gives L. ursinus gills as 'coarsely toothed' and the taste as 'strongly peppery, (sometimes develops slowly after chewing), or bitter'; MykoWeb rates it 'Inedible, unpleasant taste'. An oyster's gill edges are smooth. Worth knowing that in this region these are largely CONIFER mushrooms — the Key Council has L. ursinus 'on logs and stumps, mostly of conifers in the Pacific Northwest' — so they occupy the same ambiguous ground as angel wings.",
+        "Hohenbuehelia species — named by the UBC Beaty Museum, distinguished by 'a gelatinous layer under the cap surface' and a shape that 'may be shoehorn or funnel shaped'. A rubbery layer in section is the tell.",
+        "Omphalotus olivascens (Western Jack-o'-Lantern) — RECORDED WITH ITS SUPPORT STATED HONESTLY, BECAUSE IT IS THINNER THAN IT LOOKS. The UBC Beaty Museum does name jack-o'-lantern among the species similar to oysters, separated because it is 'orange or olive to ochre in colour rather than white or beige'. But that is the ONLY source found framing it as an oyster confusion; MykoWeb, Kuo and OSU Extension all treat it as a CHANTERELLE look-alike and none of them mentions Pleurotus. Two further caveats against leaning on it: Omphalotus has a substantial central to off-central stem, which oysters lack, and it grows on HARDWOOD, so substrate does not separate it from an oyster the way it does from angel wings. And the range caveat from the chanterelle profile applies — GBIF returns zero O. olivascens records in the Oregon-Washington box against 10,645 in California.",
+        "NOT ASSERTED, recorded as an open question: because oysters are collected off dead wood, the obvious worry is a deadly wood-rotting Galerina in the same place. NO SOURCE CONSULTED NAMES GALERINA AS AN OYSTER LOOK-ALIKE — three authorities on Galerina marginata were checked and all name Armillaria and Kuehneromyces instead. This profile therefore claims no such confusion. The characters that would separate them are not subtle: Galerina has a ring, a central stem and a rusty-brown spore print. Recorded as an absence in the literature, not as reassurance."
       ],
+      "research": {
+        "reviewed": "2026-09-10",
+        "method": "Open-web source review, with regional sources preferred over eastern and European ones because the provenance of this profile's habitat list was itself in question. GBIF counts from the public API on 2026-09-10 over the mapped box (lat 42-49, lon -125 to -116.5).",
+        "independent_source_count": 9,
+        "confidence": "moderate to good on look-alikes; the important result on this profile is not a look-alike at all but the finding that its species identity and its host list are both probably wrong for this region. Both are recorded below as proposals rather than edits.",
+        "sources": [
+          {
+            "title": "Pleurocybella porrigens toxin unmasked?",
+            "authors": "Beug, M. W.",
+            "publication": "North American Mycological Association",
+            "url": "https://namyco.org/interests/toxicology/pleurocybella-porrigens-toxin-unmasked/",
+            "supports": "The 2004 Japanese outbreak — 59 sickened across 9 prefectures, seventeen dead of acute encephalopathy — the kidney-disease risk factor, the average victim age of 70, and the candidate toxin pleurocybellaziridine."
+          },
+          {
+            "title": "Mushrooms Up! — Pleurocybella porrigens, Pleurotus pulmonarius",
+            "publication": "UBC Beaty Biodiversity Museum",
+            "url": "https://explore.beatymuseum.ubc.ca/mushroomsup/P_porrigens.html",
+            "supports": "The one-to-31-day onset range and neurological symptoms; the conifer substrate and thin translucent flesh of angel wings; the oyster spore print 'White to pale pink, or pale buff'; the host list alder, cottonwood/aspen and willow; and the Crepidotus, Hohenbuehelia and Omphalotus separations."
+          },
+          {
+            "title": "Pleurocybella porrigens; Pleurotus ostreatus; Pleurotus pulmonarius; Pleurotus populinus",
+            "publication": "Burke Museum Herbarium, University of Washington",
+            "url": "https://burkeherbarium.org/imagecollection/taxon.php?Taxon=Pleurocybella%20porrigens",
+            "supports": "That angel wings are 'Found on conifer (especially hemlock) logs and stumps throughout the PNW'; that PNW P. ostreatus substrate is 'Hardwoods, primarily alder and maple'; that P. pulmonarius is on 'Conifer wood'; and that P. populinus is on 'Hardwoods, particularly Populus'. A Washington state university herbarium — the right kind of source for a regional host list."
+          },
+          {
+            "title": "PLEUROTOID species in the Pacific Northwest (regional key)",
+            "authors": "Gibson, I. (MatchMaker)",
+            "publication": "Pacific Northwest Key Council / South Vancouver Island Mycological Society",
+            "url": "https://www.svims.ca/council/Pleuro.htm",
+            "supports": "The species-complex finding: 'Vilgalys et al. (1993) established the presence of Pleurotus populinus and P. pulmonarius in the Pacific Northwest', that PNW P. ostreatus records predate that split, and that 'collections will usually be best identified as Pleurotus ostreatus complex'. Also that P. pulmonarius fruits 'mainly on conifers in western US'."
+          },
+          {
+            "title": "Encephalopathy induced by Sugihiratake mushroom (Pleurocybella porrigens): the cyanide/thiocyanate hypothesis",
+            "authors": "Akiyama, H.; et al., National Institute of Health Sciences, Japan",
+            "publication": "Food Safety (Food Safety Commission, Cabinet Office, Government of Japan) 3(1):16-29; and Journal of Health Science 52(1):73-77",
+            "year": 2015,
+            "url": "https://www.jstage.jst.go.jp/article/foodsafetyfscj/3/1/3_2014036/_article",
+            "supports": "The strongest statement of the risk factor — the outbreak was 'an outbreak of encephalopathy exclusive to patients with chronic renal failure treated on hemodialysis' — the competing cyanide/thiocyanate toxin hypothesis, and the explicit disclaimer that 'The exact etiology ... remains unclear'. A national health authority."
+          },
+          {
+            "title": "Chemical studies on the Sugihiratake mushroom",
+            "authors": "Kawagishi, H.",
+            "publication": "Proceedings of the Japan Academy, Series B, 99(7)",
+            "year": 2023,
+            "url": "https://www.jstage.jst.go.jp/article/pjab/99/7/99_PJA9907B-01/_html/-char/en",
+            "supports": "The competing hypothesis: pleurocybelline, a P. porrigens lectin and pleurocybellaziridine 'are potentially responsible for the onset of the disease', with pleurocybellaziridine toxic to oligodendrocytes."
+          },
+          {
+            "title": "LENTINELLUS and PLEUROTOID species in the Pacific Northwest (regional keys)",
+            "authors": "Gibson, I. (MatchMaker)",
+            "publication": "Pacific Northwest Key Council",
+            "url": "https://www.svims.ca/council/Lentin.htm",
+            "supports": "Lentinellus ursinus' 'coarsely toothed' gills and 'strongly peppery' taste, and that it grows 'mostly of conifers in the Pacific Northwest'; the Crepidotus brown-spore separation; and the oyster flesh thickness of 'to 1 cm or 2 cm thick'."
+          },
+          {
+            "title": "Fagus grandifolia species account; Landscape Plants database",
+            "publication": "USDA Forest Service Fire Effects Information System; Oregon State University Department of Horticulture",
+            "url": "https://www.fs.usda.gov/database/feis/plants/tree/faggra/all.html",
+            "supports": "That beech is not native to the Pacific Northwest. FEIS gives a range from Nova Scotia to Texas and Florida with no western component; OSU's Landscape Plants records 'Native to (or naturalized in) Oregon: No' for both Fagus grandifolia and F. sylvatica."
+          },
+          {
+            "title": "GBIF occurrence API",
+            "publication": "Global Biodiversity Information Facility",
+            "url": "https://api.gbif.org/v1/occurrence/search",
+            "supports": "The regional species mix inside the mapped box: Pleurotus pulmonarius 720, P. ostreatus 511, P. dryinus 220, P. populinus 65; Pleurocybella porrigens 555; Omphalotus olivascens 0. Also that PNW Fagus grandifolia records are arboretum and botanical-garden specimens."
+          }
+        ],
+        "conflicts": [
+          "HOW MANY DIED IN 2004. Three sources say seventeen (NAMA/Beug, Kawagishi 2023, E-Flora BC). The UBC Beaty Museum says '59 people showed symptoms of damage to the brain and 19 died'. Recorded rather than averaged; 'seventeen to nineteen' is the honest phrasing.",
+          "WAS A TOXIN EVER IDENTIFIED? NO — TWO PEER-REVIEWED HYPOTHESES COMPETE AND BOTH GROUPS SAY THE CAUSE IS UNRESOLVED. Hypothesis one, from Kawagishi's group (Proc. Jpn. Acad. Ser. B, 2023): 'Three compounds, pleurocybelline (PC), a Pleurocybella porrigens lectin (PPL), and pleurocybellaziridine (PA), in the mushroom are potentially responsible for the onset of the disease.' Hypothesis two, from Akiyama's group at Japan's National Institute of Health Sciences and the Food Safety Commission: 'This is the first experimental report to suggest that acute encephalopathy ... is associated with intoxication of cyanide and thiocyanate.' BOTH PAPERS DISCLAIM CLOSURE — the Food Safety Commission states 'The exact etiology of encephalopathy associated with Sugihiratake intake remains unclear', and Akiyama 2006 that the association 'is still currently controversial'. Any source presenting the toxin as settled is ahead of the literature.",
+          "THE CONIFER RULE FOR ANGEL WINGS IS WEAKER HERE THAN THE FIELD GUIDES SUGGEST, AND THIS MATTERS FOR SAFETY. The standard separation is angel wings on conifer, oysters on hardwood. But Burke gives P. pulmonarius' substrate as 'Conifer wood', the PNW Key Council has it 'fruiting mainly on conifers in western US', and the same key has P. ostreatus itself 'less often on conifers (pine and true fir)'. Since P. pulmonarius is the most-recorded oyster in this region, a white oyster-shaped mushroom on a conifer log here may be either thing. Flesh thickness and translucency carry more weight than substrate in this region.",
+          "OYSTER SPORE PRINT COLOUR. MykoWeb says 'Spore print white'; the PNW Key Council says 'lilac to lilac-gray, to light purplish vinaceous'; Kuo spans both with 'White to faintly yellowish, or lilac'; the Beaty Museum gives 'White to pale pink, or pale buff'. Angel wings' print is white. So a genuinely LILAC print is evidence FOR oyster, but a WHITE print does not rule oyster out — which means the spore print cannot be used to exclude angel wings, only to exclude brown-spored Crepidotus.",
+          "IS THE PNW OYSTER EVEN PLEUROTUS OSTREATUS? Burke Museum lists P. ostreatus as a real PNW taxon on alder and maple. The PNW Key Council says PNW records largely predate the 1993 molecular work and that collections 'will usually be best identified as Pleurotus ostreatus complex', citing Vilgalys et al. (1993) for establishing P. populinus and P. pulmonarius here. GBIF records P. pulmonarius more often in the mapped box than P. ostreatus (720 against 511). Both sources are regional and reputable. The defensible position is that 'PNW oyster' is a species complex with at least two substrate regimes — hardwood for ostreatus and populinus, conifer for pulmonarius — not one species on one host list.",
+          "IS OMPHALOTUS AN OYSTER LOOK-ALIKE AT ALL? The UBC Beaty Museum lists it among species similar to Pleurotus. MykoWeb, Kuo and OSU Extension all treat it purely as a CHANTERELLE confusion and none mentions Pleurotus. One source for, three silent. Kept in the list with its support stated rather than dropped or asserted."
+        ],
+        "gaps": [
+          "NO SOURCE FOUND naming Lentinellus as an oyster look-alike in a regional treatment; the Beaty page does not mention it. The jagged-gill-edge character often quoted for it is not asserted here.",
+          "NO SOURCE FOUND naming Galerina as an oyster look-alike.",
+          "No peer-reviewed clinical source for the 2004 outbreak was read directly; the account here rests on NAMA and a university museum. The primary literature exists and would strengthen this.",
+          "No source found giving an elevation bound for any PNW oyster."
+        ],
+        "proposed_changes": [
+          "*** REMOVE 'beech' FROM THE ASSOCIATION LIST — PROPOSED, NOT DONE. *** This is the clearest provenance error remaining in the dataset and it is the one the brief pointed at, though not in the file it expected: lobster.json's beech entry was already cleaned out, and the surviving beech entries are HERE and in hedgehog.json. Fagus is not native to the Pacific Northwest — FEIS gives American beech a range from Nova Scotia to Texas with no western component, OSU records it as not native or naturalized in Oregon, and the nine GBIF records in the whole PNW box are arboretum and botanical-garden specimens. No regional source names beech as a PNW oyster host. PRACTICAL IMPACT IS SMALL: internal/terrain emits 'beech' only for its eastern fallback region and for FIA forest-type 600 (Maple/Beech/Birch, an eastern type), so inside this map's box the token is inert rather than actively inflating scores. It is dead weight that documents where the list came from. NOT REMOVED because Association is read by the scorer via TreeCoverResult.HostScore.",
+          "'birch' IS ALSO UNSUPPORTED, BUT LESS CLEARLY WRONG — PROPOSED, NOT DONE. Unlike beech, birch does grow in parts of the region, and internal/terrain does emit 'birch' for FIA forest-type 700 (Aspen/Birch), which is plausible in the interior PNW — so this token CAN match here. But no regional source consulted names birch as a PNW oyster host: it appears in neither Burke's nor the PNW Key Council's substrate lists, and it is a standard EASTERN and European oyster host. So this is a live path to a host match on an association nobody has evidenced regionally. Worth measuring.",
+          "CONSIDER ADDING alder AND willow — PROPOSED, NOT DONE. Burke gives PNW P. ostreatus substrate as 'Hardwoods, primarily alder and maple' and Beaty gives 'alder (Alnus sp.), cottonwood and aspen (Populus spp.), and willow (Salix sp.)'. The profile currently lists hardwood, deciduous, beech, oak, maple, poplar, birch — so it HAS maple and poplar but is MISSING alder, which two independent regional sources put first. Red alder is one of the commonest hardwoods in western Oregon and Washington, so this may be a real loss of predictive signal rather than a cosmetic omission. Proposed for measurement, not hand-edited.",
+          "TAXONOMY QUESTION FOR A HUMAN. If the PNW oyster is best treated as the Pleurotus ostreatus COMPLEX, this profile is modelling a mixture as a single species with a single host list and a single set of temperature bounds, while its two commonest members differ on the most basic habitat axis there is — hardwood versus conifer. That is a modelling decision, not a data-entry fix, and it is above the pay grade of a literature review. Flagged.",
+          "NO MODELLED PARAMETER WAS TOUCHED. fruiting_conditions, association and substrate are exactly as found, including 'beech' and 'birch'."
+        ]
+      },
       "edibility": "choice"
     },
     "gomphus_clavatus": {

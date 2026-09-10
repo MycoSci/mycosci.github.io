@@ -1,16 +1,23 @@
 ---
 /**
- * /weather/limits — what it can't tell you.
+ * /weather/limits — what this map can and cannot tell you.
  *
- * The honest list, in the order the mistakes actually get made. The spread
- * between the best- and worst-evidenced species is stated from the validation
- * record rather than from memory, so it cannot go stale on the page.
+ * The order matters and was got wrong once. This page used to open by denying
+ * that the map is a probability, which meant the first thing a forager read
+ * was a disowning. It opens now with the measured claim, because that is the
+ * thing that is true and useful, and the qualifier follows it in one section
+ * rather than standing over the whole page.
+ *
+ * The spread between the best- and worst-evidenced species is read from the
+ * validation record rather than written, so it cannot go stale here.
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import SpeciesRoster from '../../components/weather/SpeciesRoster.astro';
 import {
   currentRun,
   evidentialStatus,
+  headlineClaim,
+  lookAlikeCoverage,
   profiles,
   speciesWithBareLookAlikes,
   validationCaveat,
@@ -18,6 +25,8 @@ import {
 } from '../../lib/weather';
 
 const run = currentRun;
+const claim = headlineClaim(run ?? undefined);
+const coverage = lookAlikeCoverage();
 
 // The spread, stated from the record rather than from memory.
 const statuses = Object.values(profiles).map((p) => ({ p, s: evidentialStatus(p.id) }));
@@ -43,41 +52,110 @@ if (best) {
 }
 if (excluded.length) {
   parts.push(
-    `${excluded[0].p.common_name ?? excluded[0].p.id} was pulled out of validation entirely ` +
-      'because almost every record of it carries a deliberately displaced location'
+    `${excluded[0].p.common_name ?? excluded[0].p.id} cannot be back-tested at all, because ` +
+      'almost every record of it carries a deliberately displaced location'
   );
 }
 if (worst) {
   parts.push(
-    `${worst.p.common_name ?? worst.p.id} has never scored above ` +
-      `${(worst.s.entry!.max_observed_score ?? 0).toFixed(3)} on its own best real record`
+    `no real record of ${worst.p.common_name ?? worst.p.id} has ever sat on ground scoring above ` +
+      `${(worst.s.entry!.max_observed_score ?? 0).toFixed(3)}`
   );
 }
 const spread = parts.length
   ? parts.join('; ') + '.'
-  : 'Nothing has been measured yet, so no species here is better evidenced than any other.';
+  : 'Nothing has been back-tested yet, so no species here is better evidenced than any other.';
 
 const bare = speciesWithBareLookAlikes();
 const totalBare = bare.reduce((n, b) => n + b.bare.length, 0);
 ---
 
 <BaseLayout
-  title="What the fruiting map can't tell you | MycoSci"
-  description="Why the map is an enrichment ratio and never a probability, and which species are actually measured."
+  title="What the fruiting map can and can't tell you | MycoSci"
+  description="The measured claim behind the colours, the one thing this map cannot do, and which species have actually been back-tested."
 >
   <div class="max-w-3xl mx-auto px-4 sm:px-6 py-10">
     <div class="border-b border-lab-800 pb-8 mb-10">
       <a href="/weather" class="label text-bio-500 hover:text-bio-400">// Fruiting weather</a>
       <h1 class="text-3xl sm:text-4xl font-semibold text-lab-100 mt-2 tracking-tight">
-        What it can't tell you
+        What it can and can't tell you
       </h1>
       <p class="text-lab-400 mt-3 leading-relaxed">
-        The honest list, in the order the mistakes actually get made.
+        The measured claim first, then the honest list — in the order the mistakes actually get
+        made.
       </p>
     </div>
 
     <div class="prose prose-invert prose-sm max-w-none prose-headings:font-semibold prose-headings:text-lab-100 prose-p:text-lab-400 prose-li:text-lab-400 prose-strong:text-lab-200 prose-a:text-bio-400 prose-a:no-underline hover:prose-a:text-bio-300">
-      <h2>It is not a probability, and it never will be</h2>
+      <h2>What it can tell you</h2>
+      {
+        claim ? (
+          <>
+            <p>
+              This is a foraging map, and it makes one measured claim. Ground scoring{' '}
+              <strong>{Number(claim.top.min).toFixed(2)} or better</strong> has turned up{' '}
+              {claim.speciesName} about <strong>{claim.top.enrichment.toFixed(1)} times as often</strong>{' '}
+              as ordinary ground people search — measured across {claim.nObs} real occurrence
+              records against {claim.nControl} effort-matched controls.
+            </p>
+            <ul>
+              {claim.bands.map((b) => (
+                <li>
+                  <strong>{b.enrichment.toFixed(1)}×</strong> — {b.meaning}
+                </li>
+              ))}
+            </ul>
+            <p>
+              That is a real, checkable statement about where to spend a morning, and it is the
+              product. Everything below is the fine print on it.
+            </p>
+          </>
+        ) : (
+          <p>
+            No species here has been back-tested against real occurrence records yet, so there is
+            no measured ratio to quote. Every map is the model's own output — a hypothesis about
+            where to look, with nothing yet standing behind its ranking.
+          </p>
+        )
+      }
+
+      <h2>It does not identify mushrooms</h2>
+      <p>
+        This is the one hard limit, and it is the one where being wrong hurts somebody. A map is
+        about ground. What is in your hand is a different question and this site does not answer
+        it. Some species mapped here have look-alikes that will put you in hospital, and at least
+        one common Oregon look-alike causes flushing, nausea and palpitations — but only if you
+        drink alcohol within a day or two of eating it. Use a key, take a spore print, and check
+        with somebody who already knows the species.
+      </p>
+      {
+        coverage.researched.length > 0 && (
+          <p>
+            What this section does carry is the content that a disclaimer cannot replace.{' '}
+            {coverage.researched.length} of the {coverage.total} species profiles carry a
+            look-alike review written from {coverage.sourcesMin}–{coverage.sourcesMax} independent
+            sources each — what it is confused with, how the sources say to tell them apart, and,
+            where reputable sources contradict each other, the contradiction left standing rather
+            than resolved:{' '}
+            {coverage.researched.map((p, i) => (
+              <>{i > 0 ? ', ' : ''}<a href={`/weather/species/${p.id}#look-alikes`}>{p.common_name ?? p.id}</a></>
+            ))}
+          </p>
+        )
+      }
+      {
+        bare.length > 0 && (
+          <p>
+            <strong>And some of the look-alike data is still incomplete.</strong> {totalBare}{' '}
+            entries across {bare.length} species are recorded as bare identifiers — a name, with
+            no description, no symptoms and no way to tell the two apart:{' '}
+            {bare.map((b) => b.name).join(', ')}. Those are shown marked as incomplete rather than
+            dressed up as guidance. Do not use this section as a look-alike check for them.
+          </p>
+        )
+      }
+
+      <h2>It is a ratio, not a percentage</h2>
       {validationCaveat && <p>{validationCaveat}</p>}
       <p>
         Put plainly: to say “there is a 40% chance of finding chanterelles here today” you need to
@@ -87,31 +165,19 @@ const totalBare = bare.reduce((n, b) => n + b.bare.length, 0);
         searched just as hard — and that is the statement this section makes. More sample size does
         not fix it. It is not a precision problem; the number simply is not in the data.
       </p>
-
-      <h2>It does not identify mushrooms</h2>
       <p>
-        Nothing here can tell you what is in your hand. Several species mapped here have look-alikes
-        that will make you ill, and at least one common Oregon look-alike is harmless until you
-        drink alcohol within a day or two of eating it. Use a key, take a spore print, and check
-        with somebody who already knows the species.
+        Which is worth being clear about in both directions. It means the ratio
+        {claim ? ` — ${claim.top.enrichment.toFixed(1)}× — ` : ' '}is not a promise of mushrooms.
+        It also means the comparison is against ground people <em>actually search</em>, not
+        against random wilderness — so it is a harder test than it sounds, and passing it is worth
+        something.
       </p>
-      {
-        bare.length > 0 && (
-          <p>
-            <strong>And the look-alike data is incomplete.</strong> {totalBare} look-alike entries
-            across {bare.length} species are recorded as bare identifiers — a name, with no
-            description, no symptoms and no way to tell the two apart:{' '}
-            {bare.map((b) => b.name).join(', ')}. Those are shown marked as incomplete rather than
-            dressed up as guidance, but incomplete is what they are. Do not use this section as a
-            look-alike check for those species.
-          </p>
-        )
-      }
 
-      <h2>Species are not equally trustworthy</h2>
+      <h2>Species have not been checked equally</h2>
       <p>
-        The gap between the best-measured species here and the worst is not a matter of degree.{' '}
-        {spread} They all produce a map that looks equally confident. They are not.
+        Every species here gets the same model and the same map. The difference is the back-test,
+        and it is not a matter of degree. {spread} They all produce a map that looks equally
+        confident. They have not all been checked.
       </p>
     </div>
 
@@ -124,12 +190,13 @@ const totalBare = bare.reduce((n, b) => n + b.bare.length, 0);
     </p>
 
     <div class="prose prose-invert prose-sm max-w-none mt-10 prose-headings:font-semibold prose-headings:text-lab-100 prose-p:text-lab-400 prose-li:text-lab-400 prose-strong:text-lab-200 prose-a:text-bio-400 prose-a:no-underline hover:prose-a:text-bio-300">
-      <h2>Obscured coordinates</h2>
+      <h2>One species can't be back-tested, because its records are scrambled</h2>
       <p>
-        iNaturalist automatically scrambles the location of species that get poached, and matsutake
-        is one of them. Validating against scrambled records measures the scrambling, not the model.
-        This is a good policy that makes a particular kind of measurement impossible, and the right
-        response is to say so rather than to publish a number produced from ruined data.
+        iNaturalist automatically displaces the location of species that get poached, and matsutake
+        is one of them. That is a statement about the records, not about the map: a back-test run
+        on scrambled coordinates measures the scrambling. The map is still the model's real output
+        for matsutake; there is simply no way yet to say how well it ranks, and publishing a number
+        produced from ruined data would be worse than saying so.
       </p>
 
       <h2>A weather model has no mycelium in it</h2>

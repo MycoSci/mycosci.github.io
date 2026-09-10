@@ -114,9 +114,11 @@ const bandsAttached = run?.manifest.score_bands != null;
       </p>
       {validationMethod && <p class="!text-lab-500 !text-xs">{validationMethod}</p>}
       <p>
-        The result is an <strong>enrichment ratio</strong> — how much more likely a real record is
-        to sit on given ground than an effort-matched control is. It is a comparison, not a chance.{' '}
-        <a href="/weather/limits">Why it can never be a percentage</a>.
+        The result is an <strong>enrichment ratio</strong> — how much more often real records sit
+        on given ground than effort-matched controls do. That is the number this section leads
+        with, and it is the useful one: it compares against ground people actually search rather
+        than against random wilderness.{' '}
+        <a href="/weather/limits">What it can and can't tell you</a>.
       </p>
 
       <h2>Bands</h2>

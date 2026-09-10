@@ -21,7 +21,9 @@ const fresh = w.freshness ?? {};
 
 const rows: Array<[string, string]> = [
   ['Weather source', w.source ?? '—'],
-  ['Weather model', w.model ?? '—'],
+  // The archive endpoint reports no model name; an empty cell looked like a
+  // rendering bug rather than a fact about the source.
+  ['Weather model', w.model || 'none named by this endpoint'],
   ['Grid points read', `${w.grid_points ?? '—'} at ${w.step_degrees ?? '—'}° spacing`],
   ['History per point', fmtRange(fresh.min_days, fresh.max_days, 'days')],
   ['Forecast hours scored', String(w.allow_forecast_hours ?? 0)],

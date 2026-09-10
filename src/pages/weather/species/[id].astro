@@ -1,10 +1,17 @@
 ---
 /**
- * /weather/species/<id> — one species, and how much its map is actually worth.
+ * /weather/species/<id> — one species: its map, how far that map has been
+ * checked, and what it gets confused with.
  *
- * The evidential section comes first, above the model's own parameters,
- * because "measured" and "not measured" is the single largest difference
- * between two maps that look identical.
+ * Two things earn their place here over the model's own parameters. The first
+ * is the back-test, because "checked against real records" and "not checked
+ * yet" is the single largest difference between two maps that look identical.
+ * The second is the look-alike material, which is the only safety content on
+ * this site a reader can actually act on: nine of these profiles carry a
+ * sourced review, and where that review found the literature in genuine
+ * disagreement — the Gyromitra parboiling question, the angel-wings toxin —
+ * the disagreement is rendered AS a disagreement. Flattening either into a
+ * confident sentence is the most dangerous thing this page could do.
  */
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Legend from '../../../components/weather/Legend.astro';
@@ -13,13 +20,14 @@ import {
   catalogUrl,
   currentRun,
   evidentialStatus,
-  lookAlike,
+  lookAlikeParts,
   manifestBands,
+  resolveResearchRefs,
   prettyField,
+  noteBody,
+  notBackTested,
   profiles,
-  sentenceCase,
   validationGenerated,
-  withheldAsForagingMap,
 } from '../../../lib/weather';
 
 export function getStaticPaths() {
@@ -33,11 +41,11 @@ const entry = status.entry;
 const run = currentRun;
 const todaySp = run?.manifest.species?.find((s) => s.id === id);
 
-// A species the standing measurement refuses to publish as a foraging map is
-// refused whether or not today's run happened to render it. Showing that only
-// on the days a map exists would let the reader meet the species on a quiet day
-// and never learn the map is not for choosing where to go.
-const withheld = withheldAsForagingMap(id);
+// The state of the evidence is stated whether or not today's run happened to
+// render this species. Showing it only on the days a map exists would let a
+// reader meet the species on a quiet day and never learn its ranking is
+// untested.
+const untested = notBackTested(id);
 
 const cond = profile.fruiting_conditions ?? {};
 const season = profile.season ?? {};
@@ -55,8 +63,17 @@ const calDetail = (
   .map(([k, lead]) => ({ lead, text: typeof cal[k] === 'string' ? cal[k].trim() : '' }))
   .filter((d) => d.text);
 
-const looks = (profile.look_alikes ?? []).map(lookAlike);
+// The sourced review behind the look-alike prose, where one exists. Conflicts
+// and gaps are rendered as conflicts and gaps; nothing here is summarised into
+// a verdict the sources did not reach.
+const research = profile.research ?? null;
+const ref = (t?: string) => resolveResearchRefs(t ?? '', research);
+
+const looks = (profile.look_alikes ?? []).map((raw) => lookAlikeParts(ref(raw)));
 const anyBare = looks.some((l) => l.bare);
+const sources = (research?.sources ?? []).map((src) => ({ ...src, supports: ref(src.supports) }));
+const conflicts = (research?.conflicts ?? []).map((c) => ref(c));
+const gaps = (research?.gaps ?? []).map((g) => ref(g));
 
 const conditions: Array<[string, string]> = [
   [
@@ -83,7 +100,7 @@ const catalogHref = catalogUrl(profile);
 
 <BaseLayout
   title={`${name} — fruiting weather | MycoSci`}
-  description={`Predicted fruiting for ${name} in Oregon, and how well that prediction has actually been measured.`}
+  description={`Where to look for ${name} in Oregon today, how far that prediction has been checked, and what it gets confused with.`}
 >
   <div class="max-w-4xl mx-auto px-4 sm:px-6 py-10">
     <!-- Header -->
@@ -101,33 +118,42 @@ const catalogHref = catalogUrl(profile);
         <i>{profile.scientific_name}</i> · {(profile.substrate ?? '').replace(/_/g, ' ')} ·
         considered {edibility || 'unrated'} where correctly identified
       </p>
-      {
-        catalogHref && (
+      <div class="flex flex-wrap gap-x-6 gap-y-2 mt-3">
+        {looks.length > 0 && (
+          <a
+            href="#look-alikes"
+            class="font-mono text-2xs uppercase tracking-wider text-bio-400 hover:text-bio-300"
+          >
+            Look-alikes and how to separate them ↓
+          </a>
+        )}
+        {catalogHref && (
           <a
             href={catalogHref}
-            class="inline-block mt-3 font-mono text-2xs uppercase tracking-wider text-bio-400 hover:text-bio-300"
+            class="font-mono text-2xs uppercase tracking-wider text-bio-400 hover:text-bio-300"
           >
             Taxonomy, morphology and edibility in the catalog →
           </a>
-        )
-      }
+        )}
+      </div>
     </div>
 
     <!-- Publication status: stated before any map, on every day. -->
     {
-      withheld && (
+      untested && (
         <div class="border-l-2 border-spore-600 bg-spore-600/5 px-4 py-4 mb-8">
           <p class="font-mono text-2xs uppercase tracking-wider text-spore-400">
-            Not published as a foraging map
+            Ranking not back-tested
           </p>
           <p class="text-sm text-lab-300 mt-2 leading-relaxed">
-            The model scores this species and the standing measurement says not to present the
-            result as somewhere to go. {sentenceCase(withheld.note)}
+            The map below is the model's real output for {name}, scored the same way as every
+            other map in this section. What has not happened is the check on how well those
+            scores rank ground against real occurrence records. {noteBody(untested.note)}
           </p>
-          {typeof withheld.max_observed_score === 'number' && (
+          {typeof untested.max_observed_score === 'number' && (
             <p class="text-sm text-lab-400 mt-2 leading-relaxed">
-              The highest score any real record of this species has ever reached is{' '}
-              <span class="font-mono text-lab-200">{withheld.max_observed_score.toFixed(3)}</span>.
+              For scale: the highest score any real record of this species has ever sat on is{' '}
+              <span class="font-mono text-lab-200">{untested.max_observed_score.toFixed(3)}</span>{typeof todaySp?.max_score === 'number' ? `, and today's map for it peaks at ${todaySp.max_score.toFixed(3)}.` : '.'}
             </p>
           )}
         </div>
@@ -159,10 +185,10 @@ const catalogHref = catalogUrl(profile);
 
     <!-- Evidential status -->
     <section class="mt-12">
-      <h2 class="label mb-4">// How much this map is worth</h2>
+      <h2 class="label mb-4">// How far this map has been checked</h2>
       <div class="card p-6">
         <p class="text-sm text-lab-300 leading-relaxed">
-          <strong class="text-lab-100">{status.label}.</strong> {sentenceCase(status.detail)}
+          <strong class="text-lab-100">{status.label}.</strong> {noteBody(status.detail)}
         </p>
       </div>
 
@@ -209,42 +235,39 @@ const catalogHref = catalogUrl(profile);
               ))}
             </ul>
             <p class="text-sm text-lab-400 mt-5 leading-relaxed">
-              Those multipliers are <strong class="text-lab-200">enrichment ratios, not
-              chances</strong>. A ratio of{' '}
-              {Math.max(...entry.bands.map((b) => b.enrichment)).toFixed(1)}× means a real
-              occurrence record is that many times more likely to sit on such ground than a place
-              somebody searched just as hard and recorded a different fungus. It does not mean you
-              will find mushrooms that many times more often, and it does not convert into a
-              percentage. <strong class="text-lab-200">No percentage is available at any sample
-              size</strong>, because the days people searched and found nothing are not recorded
-              anywhere.
+              Each multiplier compares real records against effort-matched controls — places
+              somebody searched in the same season and recorded a different fungus — so it is a
+              ratio against ground people search, not a percentage chance of finding one. No
+              percentage exists in this data at any sample size, because the days people looked
+              and found nothing are recorded nowhere.
             </p>
             <p class="text-xs text-lab-500 mt-3 leading-relaxed">
-              These cut points were <strong>not</strong> attached to the current run, and no band
-              name appears on the map above. They are the standing measurement for this species,
-              dated {validationGenerated || 'unknown'}.
+              These cut points are the standing measurement for this species, dated{' '}
+              {validationGenerated || 'unknown'}. They were not attached to the current run, so no
+              band name is printed on the map above — read the scores off the ramp and compare
+              them against the figures here.
             </p>
           </div>
         ) : status.kind === 'excluded' ? (
           <div class="mt-8">
-            <h3 class="text-lg font-semibold text-lab-100">Why it is excluded</h3>
-            <p class="text-sm text-lab-400 mt-3 leading-relaxed">{status.detail}</p>
+            <h3 class="text-lg font-semibold text-lab-100">What that blocks, and what it doesn't</h3>
             <p class="text-sm text-lab-400 mt-3 leading-relaxed">
-              Until that is fixed there is no measurement for this species at all. The map above is
-              the model's opinion with nothing standing behind it.
+              Note what that is a statement about. It is about the <em>records</em>, whose
+              coordinates are deliberately scrambled before anyone can read them; it is not a
+              finding about the map. The map above is the model's real output, ranked the same way
+              as every other map here. Nobody can yet say how well that ranking holds up, because
+              the data that would test it has been blurred for good reasons.
             </p>
           </div>
         ) : (
           <div class="mt-8">
-            <h3 class="text-lg font-semibold text-lab-100">Why there is no measurement</h3>
+            <h3 class="text-lg font-semibold text-lab-100">Why there is no ratio yet</h3>
             <p class="text-sm text-lab-400 mt-3 leading-relaxed">
-              {status.detail || 'No band analysis exists for this species.'}
-            </p>
-            <p class="text-sm text-lab-400 mt-3 leading-relaxed">
-              <strong class="text-lab-200">Read this as missing, not as failed.</strong> An
-              analysis that could not resolve is not the same as one that resolved badly, and
-              treating the two the same would quietly convert an absence of evidence into evidence
-              of absence.
+              <strong class="text-lab-200">Untested, not failed.</strong> An analysis that could
+              not resolve is not the same as one that resolved badly, and treating the two alike
+              would convert an absence of evidence into evidence of absence. The map is the
+              model's real answer for this species; what is missing is the number that would tell
+              you how much to trust its ranking.
             </p>
           </div>
         )
@@ -320,45 +343,158 @@ const catalogHref = catalogUrl(profile);
       {season.notes && <p class="text-sm text-lab-400 mt-5 leading-relaxed">{season.notes}</p>}
     </section>
 
-    <!-- Look-alikes -->
+    <!-- ----------------------------------------------------------------
+         Look-alikes.
+
+         The one hard caveat on this site lives here, as a line rather than
+         a panel: a map cannot tell you what is in your hand. Everything
+         under it is the useful half — what the sources actually say about
+         each confusion and how they say to separate it — which protects a
+         reader in a way a disclaimer cannot.
+    ----------------------------------------------------------------- -->
     {
       looks.length > 0 && (
-        <section class="mt-12">
-          <h2 class="label mb-4">// Look-alikes</h2>
-          <div class="border-l-2 border-red-500 bg-red-500/10 px-4 py-4">
-            <p class="font-mono text-2xs uppercase tracking-wider text-red-400">
-              This is not an identification check
-            </p>
-            <p class="text-sm text-lab-300 mt-2 leading-relaxed">
-              This site cannot tell you what you are holding. These are the confusions recorded in
-              this species' profile — a starting point for identification, never a substitute for
-              one.
+        <section class="mt-12" id="look-alikes">
+          <h2 class="label mb-4">// Look-alikes, and how to separate them</h2>
+          <div class="border-l-2 border-red-500 bg-red-500/10 px-4 py-3">
+            <p class="text-sm text-lab-100 leading-relaxed">
+              <strong>This site does not identify mushrooms.</strong> What follows is what the
+              sources say about the confusions people actually make with {name} — read it with a
+              key in your hand, not instead of one.
             </p>
           </div>
-          <ul class="mt-5 space-y-3">
+
+          <ul class="mt-6 space-y-5">
             {looks.map((l) => (
               <li
                 class:list={[
-                  'text-sm leading-relaxed border-l-2 pl-4 py-1',
-                  l.bare ? 'border-spore-600 text-lab-400' : 'border-lab-700 text-lab-300',
+                  'border-l-2 pl-4 py-1',
+                  l.bare ? 'border-spore-600' : 'border-lab-700',
                 ]}
               >
-                {l.text}
+                {l.lead && (
+                  <p class="text-base font-semibold text-lab-100 leading-snug">{l.lead}</p>
+                )}
+                {l.paragraphs.map((para, i) => (
+                  <p
+                    class:list={[
+                      'text-sm leading-relaxed',
+                      l.bare ? 'text-lab-400' : 'text-lab-300',
+                      l.lead || i > 0 ? 'mt-2' : '',
+                    ]}
+                  >
+                    {para}
+                  </p>
+                ))}
                 {l.bare && (
-                  <span class="block font-mono text-2xs uppercase tracking-wider text-spore-400 mt-1.5">
+                  <span class="block font-mono text-2xs uppercase tracking-wider text-spore-400 mt-2">
                     Identifier only — no description, symptoms or distinguishing feature recorded
                   </span>
                 )}
               </li>
             ))}
           </ul>
+
           {anyBare && (
-            <p class="text-sm text-lab-400 mt-4 leading-relaxed">
-              An entry marked <em>identifier only</em> is a name this dataset has not yet described.
-              It tells you a confusion exists and nothing about how to resolve it, and inventing the
-              missing detail here would be putting words about edibility into a dataset that never
-              said them. Use a regional field guide for these.
+            <p class="text-sm text-lab-400 mt-5 leading-relaxed">
+              An entry marked <em>identifier only</em> is a name this dataset has not yet
+              described. It tells you a confusion exists and nothing about how to resolve it, and
+              inventing the missing detail here would be putting words about edibility into a
+              dataset that never said them. Use a regional field guide for those.
             </p>
+          )}
+
+          {research && (
+            <div class="mt-8 border-t border-lab-800 pt-6">
+              <p class="font-mono text-2xs uppercase tracking-wider text-lab-500">
+                Where this came from
+              </p>
+              <p class="text-sm text-lab-400 mt-2 leading-relaxed">
+                Reviewed {research.reviewed ?? 'undated'} against {research.independent_source_count ?? sources.length}{' '}
+                independent sources.
+                {research.confidence && (
+                  <>
+                    {' '}
+                    <strong class="text-lab-200">Confidence:</strong> {research.confidence}
+                  </>
+                )}
+              </p>
+
+              {conflicts.length > 0 && (
+                <div class="mt-6">
+                  <h3 class="text-lg font-semibold text-spore-400">
+                    Where the sources disagree
+                  </h3>
+                  <p class="text-sm text-lab-400 mt-2 leading-relaxed">
+                    {conflicts.length === 1 ? 'This is' : 'These are'} recorded unresolved, on
+                    purpose. Reputable sources contradict each other here, and picking a winner
+                    would hand you a confidence the literature does not have.
+                  </p>
+                  <ul class="mt-4 space-y-4">
+                    {conflicts.map((c) => (
+                      <li class="border-l-2 border-spore-600 pl-4 text-sm text-lab-300 leading-relaxed">
+                        {c}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {gaps.length > 0 && (
+                <div class="mt-8">
+                  <h3 class="text-lg font-semibold text-lab-100">What the review could not establish</h3>
+                  <p class="text-sm text-lab-400 mt-2 leading-relaxed">
+                    Absences in the written record, listed so nobody reads a short look-alike list
+                    as evidence that few confusions exist.
+                  </p>
+                  <ul class="mt-4 space-y-3">
+                    {gaps.map((g) => (
+                      <li class="border-l-2 border-lab-700 pl-4 text-sm text-lab-400 leading-relaxed">
+                        {g}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {sources.length > 0 && (
+                <details class="mt-8 card p-6">
+                  <summary class="cursor-pointer font-mono text-2xs uppercase tracking-wider text-bio-400 hover:text-bio-300">
+                    The {sources.length} sources, and what each one supports
+                  </summary>
+                  <ol class="mt-5 space-y-4">
+                    {sources.map((src) => (
+                      <li class="border-l-2 border-lab-700 pl-4">
+                        <p class="text-sm text-lab-200 leading-snug">
+                          {src.url ? (
+                            <a
+                              href={src.url}
+                              rel="nofollow noopener"
+                              class="text-bio-400 hover:text-bio-300"
+                            >
+                              {src.title ?? src.publication ?? src.url}
+                            </a>
+                          ) : (
+                            src.title ?? src.publication
+                          )}
+                        </p>
+                        <p class="text-2xs font-mono text-lab-500 mt-1">
+                          {[src.authors, src.publication, src.year].filter(Boolean).join(' · ')}
+                        </p>
+                        {src.supports && (
+                          <p class="text-sm text-lab-400 mt-2 leading-relaxed">{src.supports}</p>
+                        )}
+                      </li>
+                    ))}
+                  </ol>
+                  {research.method && (
+                    <p class="text-xs text-lab-500 mt-6 leading-relaxed border-t border-lab-800 pt-4">
+                      <strong class="text-lab-400">Method.</strong> {research.method}
+                    </p>
+                  )}
+                </details>
+              )}
+            </div>
           )}
         </section>
       )
