@@ -6,6 +6,8 @@
     "dev": "astro dev",
     "start": "astro dev",
     "data": "node scripts/build-data.mjs && node scripts/build-api.mjs",
+    "weather": "node scripts/publish-weather.mjs",
+    "weather:local": "mkdir -p public/maps && cp -R .weather-out/. public/maps/ && echo \"staged .weather-out -> public/maps (set PUBLIC_MAPS_BASE_URL=/maps for local dev)\"",
     "prebuild": "npm run data",
     "build": "astro build",
     "preview": "astro preview",

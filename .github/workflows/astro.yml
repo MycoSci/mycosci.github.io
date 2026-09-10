@@ -35,6 +35,13 @@ jobs:
       - name: Build Site
         # `npm run build` runs the prebuild data step (CSV -> data/species.json + static JSON API)
         # then the Astro static build (HTML + per-species .json for the whole catalog).
+        #
+        # PUBLIC_MAPS_BASE_URL is where /weather points its map images. They are served
+        # from an origin we run, not from this repo — no map PNG is ever committed here.
+        # Set the repository variable MAPS_BASE_URL to move every image at once; the
+        # fallback keeps the build deterministic if it is unset.
+        env:
+          PUBLIC_MAPS_BASE_URL: ${{ vars.MAPS_BASE_URL || 'https://maps.mycosci.com' }}
         run: |
           npm run build
           touch dist/.nojekyll

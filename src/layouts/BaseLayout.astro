@@ -13,6 +13,7 @@ const {
 
 const navItems = [
   { href: '/database', label: 'Catalog' },
+  { href: '/weather', label: 'Weather' },
   { href: '/docs', label: 'Teks' },
   { href: '/api', label: 'API' },
   { href: '/about', label: 'About' },
@@ -117,6 +118,7 @@ const canonical = new URL(currentPath, Astro.site ?? 'https://mycosci.github.io'
             <ul class="space-y-2.5">
               <li><a href="/docs" class="text-sm text-lab-400 hover:text-bio-400 transition-colors">Cultivation Teks</a></li>
               <li><a href="/docs" class="text-sm text-lab-400 hover:text-bio-400 transition-colors">Lab Methods</a></li>
+              <li><a href="/weather" class="text-sm text-lab-400 hover:text-bio-400 transition-colors">Fruiting Weather</a></li>
               <li><a href="/blog" class="text-sm text-lab-400 hover:text-bio-400 transition-colors">Field Notes</a></li>
             </ul>
           </div>

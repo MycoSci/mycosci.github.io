@@ -1,0 +1,152 @@
+---
+/**
+ * /weather/method — how the map is made.
+ *
+ * The figures in the prose are read from the current run rather than typed in,
+ * so a changed grid or a changed land-cover coverage moves the sentence.
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Legend from '../../components/weather/Legend.astro';
+import { PAINT_FLOOR, currentRun, validationMethod } from '../../lib/weather';
+
+const run = currentRun;
+const w = run?.manifest.weather ?? {};
+const t = run?.manifest.terrain ?? {};
+const fresh = w.freshness ?? {};
+const bandsAttached = run?.manifest.score_bands != null;
+---
+
+<BaseLayout
+  title="How the fruiting map is made | MycoSci"
+  description="The fruiting-timeline model, its inputs, and why nothing on the map is green."
+>
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 py-10">
+    <div class="border-b border-lab-800 pb-8 mb-10">
+      <a href="/weather" class="label text-bio-500 hover:text-bio-400">// Fruiting weather</a>
+      <h1 class="text-3xl sm:text-4xl font-semibold text-lab-100 mt-2 tracking-tight">
+        How the map is made
+      </h1>
+      <p class="text-lab-400 mt-3 leading-relaxed">
+        Weather in, colour out. There is no step in here where anybody looked at a forest and had
+        an opinion about it.
+      </p>
+    </div>
+
+    <div class="prose prose-invert prose-sm max-w-none prose-headings:font-semibold prose-headings:text-lab-100 prose-p:text-lab-400 prose-li:text-lab-400 prose-strong:text-lab-200 prose-a:text-bio-400 prose-a:no-underline hover:prose-a:text-bio-300">
+      <h2>Fruiting is a timeline, not a forecast</h2>
+      <p>
+        The naive version of this map asks “is it wet and cool right now?” That is physically
+        wrong. A mushroom is the last event in a sequence that started weeks earlier:
+      </p>
+      <ul>
+        <li>
+          <strong>Wet-up.</strong> A soaking rain brings the soil to field capacity. This starts the
+          clock. It is not the fruiting day.
+        </li>
+        <li>
+          <strong>Incubation.</strong> The mycelium grows underground for one to four weeks,
+          depending on species, while the soil stays wet enough. If it dries out, the pins abort and
+          nothing surfaces.
+        </li>
+        <li>
+          <strong>Fruiting.</strong> Sustained moisture plus the right temperature, and mushrooms
+          appear — often on a dry, pleasant day, days after the rain that caused them.
+        </li>
+      </ul>
+      <p>
+        That last detail is why the naive model fails: the forager photographs the mushroom on the
+        nice day, and a model reading that day's rainfall sees a dry afternoon and scores it zero.
+      </p>
+
+      <h2>What goes in</h2>
+      <p>
+        {w.grid_points ?? '—'} weather points across Oregon at {w.step_degrees ?? '—'}° spacing,
+        each carrying about {fresh.max_days ?? '—'} days of hourly history from the{' '}
+        {w.source ?? '—'} using the {w.model ?? '—'} model: temperature, humidity, precipitation,
+        soil temperature, soil moisture at two depths, and reference evapotranspiration. Elevation
+        comes from a USGS digital elevation model, land cover from NLCD, and the base map from
+        OpenStreetMap.
+      </p>
+      <p>
+        Each run verifies that the weather endpoint is still serving the model it claims before it
+        renders anything. If that check fails, the run fails: the check hits the same endpoint the
+        whole map is built from, so if it cannot run, the map cannot either.
+      </p>
+
+      <h2>What comes out</h2>
+      <p>
+        Every pixel gets a score between 0 and 1. A pixel is painted only if it clears{' '}
+        {PAINT_FLOOR}; below that you are looking at bare base map. A pixel is <em>assessed</em>{' '}
+        only where land cover is known — currently{' '}
+        {(t.land_cover_coverage_pct ?? 0).toFixed(1)}% of the state — so the remainder is never
+        judged at all and is left blank rather than guessed.
+      </p>
+
+      <h2>The colours, and the green problem</h2>
+      <p>
+        This map used to ramp from dark red through orange and yellow to green, with pure green as
+        its top score. It was drawn over an OpenStreetMap base map on which every national forest is
+        a solid pale green. Readers looked at Deschutes National Forest — scored flat zero, painted
+        nothing at all — saw a green blob, and called it a hotspot. The map's brightest colour and
+        its commonest background colour were the same hue.
+      </p>
+      <p>
+        The ramp now runs lavender → blue-purple → magenta → orange → yellow and contains no green
+        anywhere, and neither does this section.{' '}
+        <strong>Nothing green on any image here came from the model.</strong>
+      </p>
+    </div>
+
+    <div class="my-8">
+      <Legend
+        caption="The ramp is stretched at the low end — positions are the square root of the score — because the interesting range of a fruiting score is bunched down there. The legend printed on each image is drawn by the same function, so you can hold one against the other."
+      />
+    </div>
+
+    <div class="prose prose-invert prose-sm max-w-none prose-headings:font-semibold prose-headings:text-lab-100 prose-p:text-lab-400 prose-li:text-lab-400 prose-strong:text-lab-200 prose-a:text-bio-400 prose-a:no-underline hover:prose-a:text-bio-300">
+      <h2>How it is checked</h2>
+      <p>
+        Scores are compared against real occurrence records from iNaturalist and GBIF, and against
+        <em> effort-matched controls</em>: places where somebody recorded a different fungus in the
+        same season. That control set is the important part. Comparing records against random Oregon
+        coordinates would mostly measure where people go, not where mushrooms are, and the model
+        would score well by learning the road network.
+      </p>
+      {validationMethod && <p class="!text-lab-500 !text-xs">{validationMethod}</p>}
+      <p>
+        The result is an <strong>enrichment ratio</strong> — how much more likely a real record is
+        to sit on given ground than an effort-matched control is. It is a comparison, not a chance.{' '}
+        <a href="/weather/limits">Why it can never be a percentage</a>.
+      </p>
+
+      <h2>Bands</h2>
+      <p>
+        Where the measurement resolves, it produces cut points, and the run can carry them in its
+        manifest. Where it does not, the renderer emits{' '}
+        <code class="font-mono text-bio-400">score_bands: null</code> and the map ships with a raw
+        ramp and no band names at all. This section follows that literally: with no bands in the
+        manifest, no band name appears anywhere near a map, because a name for a band nobody
+        measured is a guess wearing a label.
+      </p>
+      <p>The current run {bandsAttached ? 'carries calibrated bands.' : 'carries none.'}</p>
+
+      <h2>How it reaches this page</h2>
+      <p>
+        The pipeline writes a run directory containing the rendered PNGs and a{' '}
+        <code class="font-mono text-bio-400">manifest.json</code> — score distributions, land-cover
+        coverage, weather provenance, code revision, a SHA-256 per image, and a{' '}
+        <code class="font-mono text-bio-400">publishable</code> flag. A publish step verifies each
+        image against its manifest digest, converts it to a 256-colour PNG for delivery, ships it to
+        the map origin, and commits the numbers here. A run marked{' '}
+        <code class="font-mono text-bio-400">publishable: false</code> is refused outright: the
+        pipeline exits non-zero rather than emit a degraded map, and this site does not paper over
+        that by showing an older run under a newer date.
+      </p>
+      <p>
+        The images are served from a host we run, addressed by run date and image digest. That means
+        an origin which has not yet received today's render can only fail to load — it can never
+        serve yesterday's map under today's date.
+      </p>
+    </div>
+  </div>
+</BaseLayout>

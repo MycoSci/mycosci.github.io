@@ -1,0 +1,307 @@
+---
+/**
+ * /weather — today's fruiting report.
+ *
+ * The whole page is assembled from one run record. If there is no publishable
+ * run, the page says so rather than showing the last one under today's date.
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Freshness from '../../components/weather/Freshness.astro';
+import Legend from '../../components/weather/Legend.astro';
+import Plate from '../../components/weather/Plate.astro';
+import Provenance from '../../components/weather/Provenance.astro';
+import SpeciesRoster from '../../components/weather/SpeciesRoster.astro';
+import {
+  buildReport,
+  currentRun,
+  evidentialStatus,
+  fmtDate,
+  manifestBands,
+  profiles,
+  speciesWithBareLookAlikes,
+} from '../../lib/weather';
+
+const run = currentRun;
+const report = run ? buildReport(run) : null;
+const speciesRows = run?.manifest.species ?? [];
+const inRun = new Set(speciesRows.map((s) => s.id));
+const bandsAttached = run?.manifest.score_bands != null;
+
+// One legend serves the page, so it may only carry band names when every
+// species on the page was measured to the same cut points. Mixed runs get the
+// raw ramp; per-species bands live on the species pages.
+const perSpeciesBands = run ? speciesRows.map((s) => manifestBands(run.manifest, s.id)) : [];
+const pageBands =
+  perSpeciesBands.length &&
+  perSpeciesBands.every((b) => JSON.stringify(b) === JSON.stringify(perSpeciesBands[0]))
+    ? perSpeciesBands[0]
+    : null;
+
+// The measured-species sentence, derived rather than written. A hand-written
+// "for chanterelle, a record is several times more likely…" stays on the page
+// after the species stops being measured, which is the kind of quiet lie this
+// section exists not to tell.
+const measured = Object.values(profiles).filter(
+  (p) => evidentialStatus(p.id).kind === 'measured'
+);
+let claimsEvidence: string;
+if (measured.length) {
+  const best = measured.reduce((a, b) =>
+    (evidentialStatus(b.id).topBand?.enrichment ?? 0) >
+    (evidentialStatus(a.id).topBand?.enrichment ?? 0)
+      ? b
+      : a
+  );
+  const st = evidentialStatus(best.id);
+  const ratio = st.topBand?.enrichment ?? 0;
+  const floor = Number(st.topBand?.min ?? 0);
+  claimsEvidence =
+    'Where that has been measured against real occurrence records, it holds up: for ' +
+    `${(best.common_name ?? best.id).toLowerCase()}, a genuine record is about ` +
+    `${ratio.toFixed(1)} times more likely to sit on ground scoring ${floor.toFixed(2)} or ` +
+    'better than on a place people searched just as hard and recorded a different fungus.';
+  const todayMax = Math.max(0, ...speciesRows.map((s) => s.max_score ?? 0));
+  if (floor && todayMax < floor) {
+    claimsEvidence +=
+      ` Nothing on today's map reaches ${floor.toFixed(2)} — the highest score anywhere in ` +
+      `Oregon is ${todayMax.toFixed(2)} — so that is a statement about the model, not about ` +
+      'the ground you are looking at.';
+  }
+} else {
+  claimsEvidence =
+    'None of that has been measured against real occurrence records yet, so treat the whole ' +
+    'map as a hypothesis.';
+}
+
+const allProfiles = Object.values(profiles);
+const nMissing = allProfiles.length - inRun.size;
+
+const bareLookAlikes = speciesWithBareLookAlikes();
+
+const title = run
+  ? `Fruiting weather — Oregon, as of ${run.as_of_date} | MycoSci`
+  : 'Fruiting weather | MycoSci';
+const description = run
+  ? `Where mushrooms were likely fruiting in Oregon, from the weather up to ${run.as_of_date}. An enrichment map, not a probability.`
+  : 'Daily fruiting-likelihood maps for Oregon, built from weather archives.';
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 py-10">
+    {
+      !run ? (
+        <div class="border-l-2 border-spore-600 bg-spore-600/5 px-5 py-5">
+          <p class="font-mono text-2xs uppercase tracking-wider text-spore-400">No run published</p>
+          <h1 class="text-2xl font-semibold text-lab-100 mt-2">There is no map to show.</h1>
+          <p class="text-sm text-lab-300 mt-3 leading-relaxed max-w-2xl">
+            The pipeline exits without emitting a map rather than publish a degraded one, and this
+            page will not paper over that by showing an older run under today's date.
+          </p>
+        </div>
+      ) : (
+        <>
+          {/* Header */}
+          <div class="border-b border-lab-800 pb-8 mb-8">
+            <div class="flex flex-wrap items-center gap-3">
+              <span class="label text-bio-500">// Fruiting weather</span>
+              <span class="badge badge-bio">Oregon</span>
+              <span class="label">
+                Weather as of <span class="text-lab-300">{run.as_of_date}</span>
+              </span>
+            </div>
+            <h1 class="text-3xl sm:text-4xl font-semibold text-lab-100 mt-2 tracking-tight">
+              {fmtDate(run.as_of_date)}
+            </h1>
+            <p class="text-lab-400 mt-3 max-w-3xl leading-relaxed">{report!.lede}</p>
+          </div>
+
+          <Freshness run={run} />
+
+          {/* The day's report */}
+          <section class="mt-12">
+            <h2 class="label mb-4">// The report</h2>
+            <div class="card p-6">
+              <p class="text-2xs font-mono uppercase tracking-wider text-lab-500">
+                What moved since the last run
+              </p>
+              <p class="text-sm text-lab-300 mt-2.5 leading-relaxed">
+                {report!.comparison.sentence}
+              </p>
+              <ul class="mt-5 space-y-3 border-t border-lab-800 pt-5">
+                {report!.movements.map((mv) => (
+                  <li class="text-sm text-lab-300 leading-relaxed">
+                    <span class="inline-block w-1.5 h-1.5 bg-bio-400 mr-2.5 align-middle" />
+                    {mv.sentence}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-px bg-lab-800 border border-lab-800 mt-6">
+              <div class="bg-lab-950 p-6">
+                <h3 class="text-base font-semibold text-lab-100">What the weather layer knew</h3>
+                <ul class="mt-3 space-y-2">
+                  {report!.weatherLayer.map((line) => (
+                    <li class="text-sm text-lab-400 leading-relaxed">{line}</li>
+                  ))}
+                </ul>
+              </div>
+              <div class="bg-lab-950 p-6">
+                <h3 class="text-base font-semibold text-spore-400">
+                  What this report cannot tell you
+                </h3>
+                <p class="text-sm text-lab-400 mt-3 leading-relaxed">{report!.cannotSay}</p>
+              </div>
+            </div>
+          </section>
+
+          {/* Maps */}
+          <section class="mt-12">
+            <h2 class="label mb-4">// Maps</h2>
+            <div class="space-y-6">
+              {speciesRows.length ? (
+                speciesRows.map((sp) => <Plate species={sp} run={run} />)
+              ) : (
+                <div class="card p-6">
+                  <h3 class="text-base font-semibold text-lab-100">No species rendered</h3>
+                  <p class="text-sm text-lab-400 mt-2 leading-relaxed">
+                    The run completed but painted nothing. That is a real answer, not a failure.
+                  </p>
+                </div>
+              )}
+            </div>
+
+            <div class="mt-6">
+              <Legend bands={pageBands} />
+            </div>
+
+            {!bandsAttached && (
+              <div class="border-l-2 border-lab-600 bg-lab-900 px-4 py-4 mt-6">
+                <p class="font-mono text-2xs uppercase tracking-wider text-lab-400">
+                  This run carries no calibrated bands
+                </p>
+                <p class="text-sm text-lab-300 mt-2 leading-relaxed">
+                  The renderer emitted <span class="font-mono text-lab-100">score_bands: null</span>
+                  for this run, so there are no measured cut points to attach names like
+                  <em> possible</em> or <em>prime</em> to. You are looking at a raw score ramp and
+                  nothing else. Every species' standing evidential status is on its own page, dated
+                  separately, and none of it was used to label this map.
+                </p>
+              </div>
+            )}
+          </section>
+
+          {/* Claims / limits pair */}
+          <section class="grid md:grid-cols-2 gap-px bg-lab-800 border border-lab-800 mt-12">
+            <div class="bg-lab-950 p-6">
+              <h2 class="text-lg font-semibold text-lab-100">What this map claims</h2>
+              <p class="text-sm text-lab-400 mt-3 leading-relaxed">
+                Brighter ground is ground where the weather over the past few weeks matches the
+                pattern that precedes fruiting for this species: a soaking that wet the soil to
+                field capacity, a stretch of sustained moisture long enough for the mycelium to
+                incubate, and a temperature now inside the species' fruiting range — in forest the
+                species actually associates with.
+              </p>
+              <p class="text-sm text-lab-400 mt-3 leading-relaxed">
+                {claimsEvidence}{' '}
+                <a href="/weather/method" class="text-bio-400 hover:text-bio-300">
+                  How the score is built
+                </a>
+                .
+              </p>
+            </div>
+            <div class="bg-lab-950 p-6">
+              <h2 class="text-lg font-semibold text-spore-400">What it does not</h2>
+              <p class="text-sm text-lab-400 mt-3 leading-relaxed">
+                <strong class="text-lab-200">It is not a probability.</strong> The measurement
+                behind the colours compares real records against places people also searched. It
+                can say <em>more likely than there</em>. It cannot say <em>likely</em>, because
+                nobody records the days they went out and found nothing, so the denominator a
+                percentage needs does not exist in this data.
+              </p>
+              <p class="text-sm text-lab-400 mt-3 leading-relaxed">
+                <strong class="text-lab-200">It is not everywhere.</strong>{' '}
+                {report!.unassessedSentence} of the map has no land-cover measurement, so it is
+                never assessed and never painted.
+              </p>
+              <p class="text-sm text-lab-400 mt-3 leading-relaxed">
+                <strong class="text-lab-200">It is a weather model, not a mushroom.</strong> Bright
+                ground with no host trees, no duff and no mycelium produces nothing.{' '}
+                <a href="/weather/limits" class="text-bio-400 hover:text-bio-300">
+                  The full list
+                </a>
+                .
+              </p>
+            </div>
+          </section>
+
+          {/* Safety */}
+          <div class="border-l-2 border-red-500 bg-red-500/10 px-4 py-4 mt-12">
+            <p class="font-mono text-2xs uppercase tracking-wider text-red-400">Safety · read this</p>
+            <p class="text-sm text-lab-300 mt-2 leading-relaxed">
+              <strong>This section predicts where fruiting is likely. It does not identify
+              mushrooms.</strong> Nothing here tells you that a mushroom in your hand is safe to
+              eat. Several species mapped here have look-alikes that will make you ill, and one
+              common Oregon look-alike is harmless until you drink alcohol within a day or two of
+              eating it. Identify with a field guide, a spore print and, where you can, a person
+              who already knows the species — then eat.
+            </p>
+          </div>
+
+          {bareLookAlikes.length > 0 && (
+            <div class="border-l-2 border-spore-600 bg-spore-600/5 px-4 py-4 mt-4">
+              <p class="font-mono text-2xs uppercase tracking-wider text-spore-400">
+                Known gap in this data
+              </p>
+              <p class="text-sm text-lab-300 mt-2 leading-relaxed">
+                {bareLookAlikes.length} of the species profiles record their look-alikes as bare
+                identifiers with no description, no symptoms and no way to tell the two apart:{' '}
+                {bareLookAlikes.map((s) => s.name).join(', ')}. Those entries are shown on the
+                species pages marked as incomplete rather than dressed up as guidance. Do not treat
+                them as a check you have performed.
+              </p>
+            </div>
+          )}
+
+          {/* Warnings the run itself flagged */}
+          {(report!.warnings.length > 0 || report!.publishNotes.length > 0) && (
+            <section class="mt-12">
+              <h2 class="label mb-4">// Flagged on this run</h2>
+              <ul class="card p-6 space-y-2">
+                {[...report!.warnings, ...report!.publishNotes].map((wn) => (
+                  <li class="text-sm text-lab-400 leading-relaxed flex gap-3">
+                    <span class="text-spore-500 font-mono text-2xs mt-1 shrink-0">!</span>
+                    <span>{wn}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+
+          {/* Roster */}
+          <section class="mt-12">
+            <h2 class="label mb-4">// How well each species is known</h2>
+            <p class="text-sm text-lab-400 max-w-3xl leading-relaxed mb-2">
+              These species are not equally trustworthy, and the difference is large enough that it
+              belongs on the front page. The bar on the left of each row is solid where the species
+              has been measured against real occurrence records, broken where it has not. Species
+              in today's run come first.
+            </p>
+            <p class="text-sm text-lab-400 max-w-3xl leading-relaxed mb-6">
+              {nMissing
+                ? `${nMissing} of the ${allProfiles.length} species this model carries were not rendered for ${run.target_date}. A species missing from a day's run says nothing about whether it is fruiting; it says the run did not cover it.`
+                : 'Every species this model carries was rendered for this run.'}
+            </p>
+            <SpeciesRoster inRun={inRun} />
+          </section>
+
+          {/* Provenance */}
+          <section class="mt-12">
+            <h2 class="label mb-4">// Where this run came from</h2>
+            <Provenance run={run} />
+          </section>
+        </>
+      )
+    }
+  </div>
+</BaseLayout>

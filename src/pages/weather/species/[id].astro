@@ -1,0 +1,381 @@
+---
+/**
+ * /weather/species/<id> — one species, and how much its map is actually worth.
+ *
+ * The evidential section comes first, above the model's own parameters,
+ * because "measured" and "not measured" is the single largest difference
+ * between two maps that look identical.
+ */
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Legend from '../../../components/weather/Legend.astro';
+import Plate from '../../../components/weather/Plate.astro';
+import {
+  catalogUrl,
+  currentRun,
+  evidentialStatus,
+  lookAlike,
+  manifestBands,
+  prettyField,
+  profiles,
+  sentenceCase,
+  validationGenerated,
+  withheldAsForagingMap,
+} from '../../../lib/weather';
+
+export function getStaticPaths() {
+  return Object.values(profiles).map((p) => ({ params: { id: p.id }, props: { profile: p } }));
+}
+
+const { profile } = Astro.props;
+const id = profile.id;
+const status = evidentialStatus(id);
+const entry = status.entry;
+const run = currentRun;
+const todaySp = run?.manifest.species?.find((s) => s.id === id);
+
+// A species the standing measurement refuses to publish as a foraging map is
+// refused whether or not today's run happened to render it. Showing that only
+// on the days a map exists would let the reader meet the species on a quiet day
+// and never learn the map is not for choosing where to go.
+const withheld = withheldAsForagingMap(id);
+
+const cond = profile.fruiting_conditions ?? {};
+const season = profile.season ?? {};
+const cal = profile.calibration ?? {};
+const fitted = (cal.fitted ?? []).filter((x: unknown) => typeof x === 'string') as string[];
+const unfitted = (cal.unfitted ?? []).filter((x: unknown) => typeof x === 'string') as string[];
+const calDetail = (
+  [
+    ['rule', ''],
+    ['evidence', 'Evidence.'],
+    ['caveat', 'Caveat.'],
+    ['was', 'Previously.'],
+  ] as const
+)
+  .map(([k, lead]) => ({ lead, text: typeof cal[k] === 'string' ? cal[k].trim() : '' }))
+  .filter((d) => d.text);
+
+const looks = (profile.look_alikes ?? []).map(lookAlike);
+const anyBare = looks.some((l) => l.bare);
+
+const conditions: Array<[string, string]> = [
+  [
+    'Fruiting temperature',
+    `${cond.air_temp_min_f ?? '—'}–${cond.air_temp_max_f ?? '—'}°F air, optimum ${cond.air_temp_optimal_f ?? '—'}°F`,
+  ],
+  ['Soil temperature', `${cond.soil_temp_min_f ?? '—'}–${cond.soil_temp_max_f ?? '—'}°F`],
+  [
+    'Incubation after wet-up',
+    `${cond.incubation_days_min ?? '—'}–${cond.incubation_days_max ?? '—'} days`,
+  ],
+  ['Temperature trigger', String(cond.temp_trend_trigger ?? '—')],
+  ['Elevation', `${cond.elevation_min_ft ?? '—'}–${cond.elevation_max_ft ?? '—'} ft`],
+  [
+    'Associates with',
+    (profile.association ?? []).map((a: string) => a.replace(/_/g, ' ')).join(', ') || '—',
+  ],
+];
+
+const name = profile.common_name ?? id;
+const edibility = (profile.edibility ?? '').replace(/_/g, ' ');
+const catalogHref = catalogUrl(profile);
+---
+
+<BaseLayout
+  title={`${name} — fruiting weather | MycoSci`}
+  description={`Predicted fruiting for ${name} in Oregon, and how well that prediction has actually been measured.`}
+>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-10">
+    <!-- Header -->
+    <div class="border-b border-lab-800 pb-8 mb-8">
+      <div class="flex flex-wrap items-center gap-3">
+        <a href="/weather" class="label text-bio-500 hover:text-bio-400">// Fruiting weather</a>
+        <span
+          class:list={['badge', status.kind === 'measured' ? 'badge-bio' : 'badge']}
+        >
+          {status.label}
+        </span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-semibold text-lab-100 mt-2 tracking-tight">{name}</h1>
+      <p class="text-lab-400 mt-3 leading-relaxed">
+        <i>{profile.scientific_name}</i> · {(profile.substrate ?? '').replace(/_/g, ' ')} ·
+        considered {edibility || 'unrated'} where correctly identified
+      </p>
+      {
+        catalogHref && (
+          <a
+            href={catalogHref}
+            class="inline-block mt-3 font-mono text-2xs uppercase tracking-wider text-bio-400 hover:text-bio-300"
+          >
+            Taxonomy, morphology and edibility in the catalog →
+          </a>
+        )
+      }
+    </div>
+
+    <!-- Publication status: stated before any map, on every day. -->
+    {
+      withheld && (
+        <div class="border-l-2 border-spore-600 bg-spore-600/5 px-4 py-4 mb-8">
+          <p class="font-mono text-2xs uppercase tracking-wider text-spore-400">
+            Not published as a foraging map
+          </p>
+          <p class="text-sm text-lab-300 mt-2 leading-relaxed">
+            The model scores this species and the standing measurement says not to present the
+            result as somewhere to go. {sentenceCase(withheld.note)}
+          </p>
+          {typeof withheld.max_observed_score === 'number' && (
+            <p class="text-sm text-lab-400 mt-2 leading-relaxed">
+              The highest score any real record of this species has ever reached is{' '}
+              <span class="font-mono text-lab-200">{withheld.max_observed_score.toFixed(3)}</span>.
+            </p>
+          )}
+        </div>
+      )
+    }
+
+    <!-- Today's plate -->
+    {
+      todaySp && run ? (
+        <>
+          <Plate species={todaySp} run={run} />
+          <div class="mt-6">
+            <Legend bands={manifestBands(run.manifest, id)} />
+          </div>
+        </>
+      ) : (
+        <div class="border-l-2 border-lab-600 bg-lab-900 px-4 py-4">
+          <p class="font-mono text-2xs uppercase tracking-wider text-lab-400">
+            Not in the current run
+          </p>
+          <p class="text-sm text-lab-300 mt-2 leading-relaxed">
+            The run for {run?.target_date ?? 'the current day'} did not render this species, so
+            there is no map for it today. That is a gap in coverage, not a statement about
+            fruiting.
+          </p>
+        </div>
+      )
+    }
+
+    <!-- Evidential status -->
+    <section class="mt-12">
+      <h2 class="label mb-4">// How much this map is worth</h2>
+      <div class="card p-6">
+        <p class="text-sm text-lab-300 leading-relaxed">
+          <strong class="text-lab-100">{status.label}.</strong> {sentenceCase(status.detail)}
+        </p>
+      </div>
+
+      {
+        entry && (
+          <dl class="border-t border-lab-800 mt-6">
+            {(
+              [
+                ['Records used', String(entry.n_obs ?? '—')],
+                ['Effort-matched controls', String(entry.n_control ?? '—')],
+                ['Control set', entry.derived_from ?? '—'],
+                [
+                  'Highest score under any real record',
+                  (entry.max_observed_score ?? 0).toFixed(3),
+                ],
+                ['Analysis dated', validationGenerated || '—'],
+              ] as Array<[string, string]>
+            ).map(([k, v]) => (
+              <div class="grid sm:grid-cols-[280px_1fr] gap-x-6 gap-y-1 border-b border-lab-800 py-3">
+                <dt class="font-mono text-2xs uppercase tracking-wider text-lab-500">{k}</dt>
+                <dd class="font-mono text-xs text-lab-300">{v}</dd>
+              </div>
+            ))}
+          </dl>
+        )
+      }
+
+      {
+        status.kind === 'measured' && entry?.bands?.length ? (
+          <div class="mt-8">
+            <h3 class="text-lg font-semibold text-lab-100">What the measurement found</h3>
+            <ul class="mt-4 space-y-4">
+              {entry.bands.map((b) => (
+                <li class="border-l-2 border-bio-600 pl-4">
+                  <span class="font-mono text-lg text-bio-400 tabular-nums">
+                    {b.enrichment.toFixed(1)}×
+                  </span>
+                  {/* The record's own sentence, verbatim. Paraphrasing an interval is
+                      how a cumulative "at or above 0.05" quietly becomes a bounded
+                      "0.05 to 0.50", so the wording that ships is the wording that
+                      was measured. */}
+                  <p class="text-sm text-lab-400 mt-1.5 leading-relaxed">{b.meaning}</p>
+                </li>
+              ))}
+            </ul>
+            <p class="text-sm text-lab-400 mt-5 leading-relaxed">
+              Those multipliers are <strong class="text-lab-200">enrichment ratios, not
+              chances</strong>. A ratio of{' '}
+              {Math.max(...entry.bands.map((b) => b.enrichment)).toFixed(1)}× means a real
+              occurrence record is that many times more likely to sit on such ground than a place
+              somebody searched just as hard and recorded a different fungus. It does not mean you
+              will find mushrooms that many times more often, and it does not convert into a
+              percentage. <strong class="text-lab-200">No percentage is available at any sample
+              size</strong>, because the days people searched and found nothing are not recorded
+              anywhere.
+            </p>
+            <p class="text-xs text-lab-500 mt-3 leading-relaxed">
+              These cut points were <strong>not</strong> attached to the current run, and no band
+              name appears on the map above. They are the standing measurement for this species,
+              dated {validationGenerated || 'unknown'}.
+            </p>
+          </div>
+        ) : status.kind === 'excluded' ? (
+          <div class="mt-8">
+            <h3 class="text-lg font-semibold text-lab-100">Why it is excluded</h3>
+            <p class="text-sm text-lab-400 mt-3 leading-relaxed">{status.detail}</p>
+            <p class="text-sm text-lab-400 mt-3 leading-relaxed">
+              Until that is fixed there is no measurement for this species at all. The map above is
+              the model's opinion with nothing standing behind it.
+            </p>
+          </div>
+        ) : (
+          <div class="mt-8">
+            <h3 class="text-lg font-semibold text-lab-100">Why there is no measurement</h3>
+            <p class="text-sm text-lab-400 mt-3 leading-relaxed">
+              {status.detail || 'No band analysis exists for this species.'}
+            </p>
+            <p class="text-sm text-lab-400 mt-3 leading-relaxed">
+              <strong class="text-lab-200">Read this as missing, not as failed.</strong> An
+              analysis that could not resolve is not the same as one that resolved badly, and
+              treating the two the same would quietly convert an absence of evidence into evidence
+              of absence.
+            </p>
+          </div>
+        )
+      }
+    </section>
+
+    <!-- Calibration -->
+    {
+      (fitted.length > 0 || unfitted.length > 0 || calDetail.length > 0) && (
+        <section class="mt-12">
+          <h2 class="label mb-4">// Which of these numbers were measured</h2>
+          <div class="card p-6">
+            {fitted.length ? (
+              <p class="text-sm text-lab-300 leading-relaxed">
+                <strong class="text-lab-100">Fitted to data:</strong>{' '}
+                {fitted.map(prettyField).join(', ')}
+              </p>
+            ) : (
+              <p class="text-sm text-lab-300 leading-relaxed">
+                <strong class="text-lab-100">Fitted to data: nothing.</strong> Every number the
+                model uses for this species came from the literature rather than from Oregon
+                observations.
+              </p>
+            )}
+            {unfitted.length > 0 && (
+              /* "unfitted" means exactly what it says: not fitted. For one species the
+                 record goes on to explain that its priors were tested and beat their
+                 data-derived replacements; for another it means nobody has tried.
+                 Calling the list "measured but left alone" would carry the first story
+                 onto the second, so the label stays literal. */
+              <p class="text-sm text-lab-300 leading-relaxed mt-3">
+                <strong class="text-lab-100">Not fitted:</strong>{' '}
+                {unfitted.map(prettyField).join(', ')} — literature values, not numbers this data
+                chose. Whether they have been tested at all is in the record below.
+              </p>
+            )}
+            {typeof cal.measured === 'string' && cal.measured.trim() && (
+              <p class="text-xs text-lab-500 mt-3">Calibration dated {cal.measured.trim()}.</p>
+            )}
+
+            {calDetail.length > 0 && (
+              <details class="mt-5 border-t border-lab-800 pt-4">
+                <summary class="cursor-pointer font-mono text-2xs uppercase tracking-wider text-bio-400 hover:text-bio-300">
+                  The calibration record, in the harness's own words
+                </summary>
+                <div class="mt-4 space-y-3">
+                  {calDetail.map((d) => (
+                    <p class="text-sm text-lab-400 leading-relaxed">
+                      {d.lead && <strong class="text-lab-200">{d.lead}</strong>} {d.text}
+                    </p>
+                  ))}
+                </div>
+              </details>
+            )}
+          </div>
+        </section>
+      )
+    }
+
+    <!-- Model parameters -->
+    <section class="mt-12">
+      <h2 class="label mb-4">// What the model looks for</h2>
+      <dl class="border-t border-lab-800">
+        {
+          conditions.map(([k, v]) => (
+            <div class="grid sm:grid-cols-[240px_1fr] gap-x-6 gap-y-1 border-b border-lab-800 py-3">
+              <dt class="font-mono text-2xs uppercase tracking-wider text-lab-500">{k}</dt>
+              <dd class="text-sm text-lab-300">{v}</dd>
+            </div>
+          ))
+        }
+      </dl>
+      {season.notes && <p class="text-sm text-lab-400 mt-5 leading-relaxed">{season.notes}</p>}
+    </section>
+
+    <!-- Look-alikes -->
+    {
+      looks.length > 0 && (
+        <section class="mt-12">
+          <h2 class="label mb-4">// Look-alikes</h2>
+          <div class="border-l-2 border-red-500 bg-red-500/10 px-4 py-4">
+            <p class="font-mono text-2xs uppercase tracking-wider text-red-400">
+              This is not an identification check
+            </p>
+            <p class="text-sm text-lab-300 mt-2 leading-relaxed">
+              This site cannot tell you what you are holding. These are the confusions recorded in
+              this species' profile — a starting point for identification, never a substitute for
+              one.
+            </p>
+          </div>
+          <ul class="mt-5 space-y-3">
+            {looks.map((l) => (
+              <li
+                class:list={[
+                  'text-sm leading-relaxed border-l-2 pl-4 py-1',
+                  l.bare ? 'border-spore-600 text-lab-400' : 'border-lab-700 text-lab-300',
+                ]}
+              >
+                {l.text}
+                {l.bare && (
+                  <span class="block font-mono text-2xs uppercase tracking-wider text-spore-400 mt-1.5">
+                    Identifier only — no description, symptoms or distinguishing feature recorded
+                  </span>
+                )}
+              </li>
+            ))}
+          </ul>
+          {anyBare && (
+            <p class="text-sm text-lab-400 mt-4 leading-relaxed">
+              An entry marked <em>identifier only</em> is a name this dataset has not yet described.
+              It tells you a confusion exists and nothing about how to resolve it, and inventing the
+              missing detail here would be putting words about edibility into a dataset that never
+              said them. Use a regional field guide for these.
+            </p>
+          )}
+        </section>
+      )
+    }
+
+    {
+      profile.special_notes && (
+        <section class="mt-12">
+          <h2 class="label mb-4">// Notes from the model</h2>
+          <details class="card p-6">
+            <summary class="cursor-pointer font-mono text-2xs uppercase tracking-wider text-bio-400 hover:text-bio-300">
+              Implementation and publication notes for this species
+            </summary>
+            <p class="text-sm text-lab-400 mt-4 leading-relaxed">{profile.special_notes}</p>
+          </details>
+        </section>
+      )
+    }
+  </div>
+</BaseLayout>

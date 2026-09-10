@@ -1,0 +1,97 @@
+---
+/**
+ * The score ramp, drawn in CSS from the same stops the renderer bakes into the
+ * PNG, with score ticks at sqrt(score) exactly as the image places them. The
+ * point is that a reader can hold this against the legend on the image.
+ *
+ * Band names appear ONLY when the run's own manifest carried them. A name for
+ * a band nobody measured is a guess wearing a label.
+ */
+import {
+  LEGEND_TICKS,
+  PAINT_FLOOR,
+  displayScale,
+  rampGradientCss,
+  type BandEntry,
+} from '../../lib/weather';
+
+interface Props {
+  bands?: BandEntry[] | null;
+  caption?: string;
+}
+const { bands = null, caption } = Astro.props;
+
+const gradient = rampGradientCss();
+const ticks = LEGEND_TICKS.map((score) => ({
+  score,
+  label: score === 1 ? '1.0' : String(score),
+  pos: displayScale(score) * 100,
+}));
+const bandMarks = (bands ?? [])
+  .filter((b) => b && b.min != null && b.name)
+  .map((b) => ({ name: b.name.toLowerCase(), pos: displayScale(Number(b.min)) * 100 }));
+---
+
+<div class="border border-lab-800 bg-lab-900 p-5">
+  <div class="flex items-baseline justify-between mb-3">
+    <span class="label">// Score ramp</span>
+    <span class="label">Painted above {PAINT_FLOOR}</span>
+  </div>
+
+  <div
+    class="h-4 border border-lab-700"
+    style={`background:${gradient}`}
+    role="img"
+    aria-label="Colour ramp from pale lavender at low scores through blue-purple, magenta and orange to yellow at the highest scores. No part of it is green."
+  >
+  </div>
+
+  <div class="relative h-5 mt-1">
+    {
+      ticks.map((t) => (
+        <span
+          class="absolute -translate-x-1/2 font-mono text-2xs text-lab-500 tabular-nums"
+          style={`left:${t.pos.toFixed(2)}%`}
+        >
+          {t.label}
+        </span>
+      ))
+    }
+  </div>
+
+  {
+    bandMarks.length > 0 && (
+      <div class="relative h-5 border-t border-lab-800 pt-1">
+        {bandMarks.map((b) => (
+          <span
+            class="absolute -translate-x-1/2 font-mono text-2xs uppercase tracking-wider text-bio-400"
+            style={`left:${b.pos.toFixed(2)}%`}
+          >
+            {b.name}
+          </span>
+        ))}
+      </div>
+    )
+  }
+
+  {
+    bandMarks.length > 0 && (
+      <p class="text-xs text-lab-400 leading-relaxed mt-4">
+        These band names come from this run's own manifest, where they were measured against
+        effort-matched controls. They mark relative enrichment, not a chance of finding anything.
+      </p>
+    )
+  }
+
+  <p class="text-xs text-lab-400 leading-relaxed mt-3">
+    {
+      caption ??
+        `Score, on the same scale the image is painted with. Below ${PAINT_FLOOR} nothing is painted and you are looking at the bare base map.`
+    }
+  </p>
+  <p class="text-xs text-lab-500 leading-relaxed mt-2">
+    The base map's green is forest cover drawn by OpenStreetMap. It is not a score.
+    <strong class="text-lab-300">No score on this map is ever green</strong> — the ramp was
+    rebuilt without it because readers were reading national forest as a hotspot.
+  </p>
+</div>
