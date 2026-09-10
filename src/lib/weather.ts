@@ -26,9 +26,14 @@
 /**
  * Where the map images are served from.
  *
- * One value, in one place, because the hostname is not settled and the network
- * it lives on is half-migrated. Set PUBLIC_MAPS_BASE_URL in .env (and give the
- * publish script the same value) to move every image on the site at once.
+ * One value, in one place. The origin is cdn.opsblu.com, which is shared across
+ * projects, so the base must include the /mycomap/ project prefix — the run
+ * record stores paths relative to it (<as_of>/<sha12>-<name>.png) and nothing
+ * here ever prepends a project name. Set PUBLIC_MAPS_BASE_URL in .env, and the
+ * repository variable MAPS_BASE_URL for CI, to move every image at once.
+ *
+ * The fallback below is the real origin rather than a placeholder, deliberately:
+ * an unset variable in CI must still produce a page whose images load.
  *
  * A wrong or unreachable base URL must fail visibly rather than leaving a page
  * of broken images under a confident freshness banner — see Plate.astro, which
@@ -36,7 +41,8 @@
  * imageState() below, which reports what the publish script could confirm.
  */
 export const MAPS_BASE_URL = (
-  (import.meta.env.PUBLIC_MAPS_BASE_URL as string | undefined) || 'https://maps.mycosci.com'
+  (import.meta.env.PUBLIC_MAPS_BASE_URL as string | undefined) ||
+  'https://cdn.opsblu.com/mycomap/maps'
 ).replace(/\/+$/, '');
 
 // ---------------------------------------------------------------------------

@@ -2,9 +2,9 @@
   "as_of_date": "2026-09-08",
   "target_date": "2026-09-09",
   "lag_days_behind_target": 1,
-  "published_at": "2026-09-10T16:27:58.854Z",
+  "published_at": "2026-09-10T17:02:51.505Z",
   "manifest_sha256": "721bac1ddf28636bd699246dd0dd5c554ff9c630dccf09aabe3698e981628ee6",
   "run": "data/weather/runs/2026-09-08.json",
-  "origin_uploaded": false,
+  "origin_uploaded": true,
   "publishable": true
 }

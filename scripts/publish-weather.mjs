@@ -61,16 +61,34 @@
  *
  *   <base>/<as_of>/<sha12>-<filename>.png
  *
- * ORIGIN RETENTION IS THE ORIGIN'S JOB
+ * THE ORIGIN IS SHARED, AND IT IS A PRODUCTION ROOT FILESYSTEM
  *
- * The upload below is additive — it never deletes an older day. The site only
- * ever references the current run, so nothing breaks if old days are removed,
- * but nothing removes them either: at 16 species that is ~8 MB a day, ~2.9 GB
- * a year, accumulating on the map host. Put a retention sweep on the origin
- * (e.g. `find /srv/mycomap-maps -mindepth 1 -maxdepth 1 -type d -mtime +14
- * -exec rm -rf {} +` on a daily timer) and keep whatever window the later
- * historical phase will want. Deleting a day the site is not pointing at is
- * always safe; deleting today's is not.
+ * Settled 2026-09-10: the images go to cdn.opsblu.com, permanently, alongside
+ * whatever other projects come to live there. Two consequences.
+ *
+ * First, the project namespace. The URL scheme below is relative to a
+ * configured base, and that base must land INSIDE a project prefix
+ * (…/mycomap/maps) rather than at the origin root, or MycoMap's dated
+ * directories quietly claim a namespace three other projects will want.
+ *
+ * Second, and more serious: that origin writes to the root filesystem of MISTY,
+ * which also serves opsblu.com and four other things. Filling it does not
+ * degrade the maps, it takes the website down, unattended, at whatever hour
+ * this runs. So the upload is not allowed to be a plain rsync. Before a byte
+ * moves, this calls the origin's storage policy —
+ *
+ *     sandbox/mycomap/scripts/cdn-publish.sh --guard --need-bytes N
+ *
+ * — which applies day retention and a per-project byte cap, then checks a
+ * free-space floor on the filesystem and exits 7 if this upload would cross it.
+ * Exit 7 is a refusal, not a warning: nothing is uploaded and nothing is
+ * written here, so the site keeps serving the run it already has. That guard
+ * is the surviving half of an earlier, separate CDN publisher; it governs the
+ * whole origin, so both writers are bounded by one policy rather than two.
+ *
+ * Retention is therefore the guard's job, not a TODO. The upload itself is
+ * still additive — it never deletes — and the guard never deletes the newest
+ * day, which is the one the site points at.
  *
  * The date and the digest are both in the path, so an origin that has not yet
  * received today's render can only return 404. It can never serve yesterday's
@@ -80,6 +98,7 @@
  */
 
 import crypto from 'node:crypto';
+import { Resolver } from 'node:dns/promises';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -102,12 +121,20 @@ const DEFAULT_MYCOMAP = path.join(
  * PUBLIC_MAPS_BASE_URL is read again at site build time (src/lib/weather.ts);
  * keep the two in the same .env and they cannot drift.
  */
-const MAPS_BASE_URL = (process.env.PUBLIC_MAPS_BASE_URL || 'https://maps.mycosci.com').replace(
-  /\/+$/,
-  ''
-);
-/** rsync destination, e.g. josh@192.168.1.200:/srv/mycomap-maps/ */
+const MAPS_BASE_URL = (
+  process.env.PUBLIC_MAPS_BASE_URL || 'https://cdn.opsblu.com/mycomap/maps'
+).replace(/\/+$/, '');
+/** rsync destination, e.g. josh@192.168.1.200:/srv/mycomap-cdn/public/mycomap/maps */
 const MAPS_RSYNC_DEST = process.env.MYCOMAP_MAPS_RSYNC_DEST || '';
+
+/**
+ * The origin's storage policy, which every writer to that origin goes through.
+ * Lives in the pipeline repo because that is where the origin is configured.
+ * Set MYCOMAP_SKIP_GUARD=1 to upload without it — only ever for an origin that
+ * is not a production filesystem.
+ */
+const GUARD_SCRIPT = process.env.MYCOMAP_CDN_GUARD || '';
+const SKIP_GUARD = process.env.MYCOMAP_SKIP_GUARD === '1';
 
 /** Colours in the published rendition. 256 is measured — see the report. */
 const PALETTE_COLOURS = 256;
@@ -309,7 +336,11 @@ async function convertImages(manifest, asOf, notes) {
       .toBuffer();
     const digest = sha256(converted);
     const name = `${digest.slice(0, 12)}-${base}`;
-    fs.writeFileSync(path.join(dest, name), converted);
+    // Mode is set here, not with rsync --chmod: macOS ships openrsync, which
+    // rejects --chmod outright ("invalid argument") and would fail the upload.
+    // `rsync -a` then carries these modes to the origin, where caddy must be
+    // able to read them.
+    fs.writeFileSync(path.join(dest, name), converted, { mode: 0o644 });
     const meta = await sharp(converted).metadata();
 
     images.push({
@@ -330,6 +361,62 @@ async function convertImages(manifest, asOf, notes) {
   return images;
 }
 
+/**
+ * Ask the origin's storage policy whether this upload may proceed.
+ *
+ * Returns nothing on success. Throws Refused on exit 7 — the free-space floor —
+ * because that is the case where continuing is actively harmful: the target is
+ * the root filesystem of a box serving live production, and not publishing a
+ * map is a non-event next to filling it.
+ *
+ * Any other failure (guard missing, host unreachable, remote error) is reported
+ * and treated as "do not upload". Conservative on purpose: an unverifiable disk
+ * is not a permissive one. MYCOMAP_SKIP_GUARD=1 opts out, loudly.
+ */
+function guardOrigin(bytes, notes) {
+  if (SKIP_GUARD) {
+    notes.push(
+      'MYCOMAP_SKIP_GUARD=1 — uploaded without checking the origin free-space floor'
+    );
+    return true;
+  }
+  const guard = GUARD_SCRIPT || path.join(MYCOMAP, 'scripts/cdn-publish.sh');
+  if (!fs.existsSync(guard)) {
+    notes.push(
+      `origin storage guard not found at ${guard}; refusing to upload rather than write ` +
+        'to a production filesystem unchecked'
+    );
+    return false;
+  }
+  try {
+    run(guard, ['--guard', '--need-bytes', String(bytes)], { stdio: 'inherit' });
+    return true;
+  } catch (err) {
+    if (err.status === 7) {
+      throw new Refused(
+        'the origin refused this upload: it would leave the target filesystem below its ' +
+          'free-space floor. That filesystem also serves live production. Nothing was ' +
+          'uploaded and nothing was written here; the site keeps serving its current run. ' +
+          'Free space on the origin, or lower MYCOMAP_CDN_RETAIN_DAYS, then re-run.'
+      );
+    }
+    notes.push(
+      `origin storage guard failed (exit ${err.status ?? '?'}); not uploading. ` +
+        'Run scripts/cdn-publish.sh --status in the pipeline repo to see why.'
+    );
+    return false;
+  }
+}
+
+/** Total bytes staged for one day. What the guard is asked to make room for. */
+function stagedBytes(asOf) {
+  const dir = path.join(STAGING, asOf);
+  if (!fs.existsSync(dir)) return 0;
+  return fs
+    .readdirSync(dir)
+    .reduce((n, f) => n + fs.statSync(path.join(dir, f)).size, 0);
+}
+
 /** rsync the staged day to the origin. Additive: never deletes older days. */
 function uploadImages(asOf, notes) {
   if (!MAPS_RSYNC_DEST) {
@@ -339,14 +426,47 @@ function uploadImages(asOf, notes) {
     );
     return false;
   }
+  // Disk policy first, always. Never rsync into a production root unchecked.
+  if (!guardOrigin(stagedBytes(asOf), notes)) return false;
+
   const src = path.join(STAGING, asOf) + '/';
   const dest = MAPS_RSYNC_DEST.replace(/\/+$/, '') + `/${asOf}/`;
   try {
-    run('rsync', ['-av', '--chmod=F644', src, dest], { stdio: 'inherit' });
+    run('rsync', ['-av', src, dest], { stdio: 'inherit' });
     return true;
   } catch (err) {
     notes.push(`rsync to ${dest} failed: ${err.message.split('\n')[0]}`);
     return false;
+  }
+}
+
+/**
+ * Resolve the origin the way the public internet does, not the way this
+ * machine does.
+ *
+ * This matters more than it sounds. `*.opsblu.com` is a wildcard ALIAS at the
+ * DNS provider, and cdn.opsblu.com is an explicit A record that beats it. Every
+ * public resolver returns the explicit record — but a resolver that cached the
+ * wildcard before the A record existed keeps answering with the provider's
+ * edge, which serves a confident 404 for a path it has never heard of.
+ *
+ * Verifying through such a resolver produces a FALSE NEGATIVE, and a false
+ * negative here is not harmless: origin_verified=false makes the site replace a
+ * perfectly good map with a statement that the origin does not have it. So the
+ * check is pinned to an address obtained from a public resolver, which is the
+ * answer a reader's browser will get.
+ *
+ * Returns null if public resolution is unavailable, in which case the caller
+ * falls back to an ordinary request and says so.
+ */
+async function publicAddress(hostname) {
+  const r = new Resolver();
+  r.setServers(['1.1.1.1', '8.8.8.8', '9.9.9.9']);
+  try {
+    const addrs = await r.resolve4(hostname);
+    return addrs?.[0] || null;
+  } catch {
+    return null;
   }
 }
 
@@ -358,11 +478,42 @@ function uploadImages(asOf, notes) {
  * exact failure this project keeps producing, so the run record carries the
  * verification result — including "we could not confirm" — and the page reads
  * it rather than assuming.
+ *
+ * The converse failure is just as bad and is why publicAddress() exists: a
+ * check that wrongly reports absent tears a working map off the page.
  */
 async function verifyOrigin(images, notes) {
+  const base = new URL(MAPS_BASE_URL);
+  const port = base.port || (base.protocol === 'https:' ? '443' : '80');
+  const pinned = await publicAddress(base.hostname);
+  if (!pinned) {
+    notes.push(
+      `could not resolve ${base.hostname} through a public resolver; origin checks below ` +
+        "used this machine's resolver and may not reflect what a reader sees"
+    );
+  }
+
   for (const img of images) {
     if (!img.url_path) continue;
     const url = `${MAPS_BASE_URL}/${img.url_path}`;
+    if (pinned) {
+      // curl, because fetch() cannot pin a hostname to an address and the
+      // whole point is to bypass whatever this machine's resolver believes.
+      try {
+        const code = run('curl', [
+          '-sS', '-o', '/dev/null', '-w', '%{http_code}',
+          '--max-time', '30',
+          '--resolve', `${base.hostname}:${port}:${pinned}`,
+          '-I', url,
+        ]).trim();
+        img.origin_verified = code === '200';
+        if (code !== '200') notes.push(`origin (${pinned}) returned ${code} for ${url}`);
+      } catch (err) {
+        img.origin_verified = false;
+        notes.push(`could not reach the map origin at ${pinned} for ${url}: ${err.message.split('\n')[0]}`);
+      }
+      continue;
+    }
     try {
       const res = await fetch(url, { method: 'HEAD', redirect: 'follow' });
       img.origin_verified = res.ok;

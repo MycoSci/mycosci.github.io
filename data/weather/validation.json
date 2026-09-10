@@ -1,6 +1,6 @@
 {
   "snapshot_of": "sandbox/mycomap/internal/species/score_bands.json",
-  "taken_at": "2026-09-10T16:27:58.854Z",
+  "taken_at": "2026-09-10T17:02:51.505Z",
   "record": {
     "generated": "2026-09-08 19:39 PDT",
     "method": "Score bins compared between real occurrence records and effort-matched control sites (target-group background: places where another fungus was recorded in the same season). enrichment = share of records in the band / share of controls in the band.",

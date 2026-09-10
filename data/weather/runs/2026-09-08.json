@@ -1,6 +1,6 @@
 {
   "record_version": 1,
-  "published_at": "2026-09-10T16:27:58.854Z",
+  "published_at": "2026-09-10T17:02:51.505Z",
   "as_of_date": "2026-09-08",
   "target_date": "2026-09-09",
   "lag_days_behind_target": 1,
@@ -120,11 +120,9 @@
       "palette_colours": 256,
       "render_sha256": "77d08854b1c176f1cd0791c55a04a3041d60667ba7b4db147ce1d1cbdc98f726",
       "published_sha256": "49604103dffbf4b2ba9c4908a6db4ae281b5e72ed7619a8128c155addedc0071",
-      "origin_verified": null
+      "origin_verified": true
     }
   ],
-  "origin_uploaded": false,
-  "publish_notes": [
-    "images were converted and staged but not uploaded (--upload was not passed), so the map origin may not have this run"
-  ]
+  "origin_uploaded": true,
+  "publish_notes": []
 }
