@@ -1,6 +1,6 @@
 {
   "snapshot_of": "sandbox/mycomap/species/*.json",
-  "taken_at": "2026-09-10T17:02:51.505Z",
+  "taken_at": "2026-09-10T17:22:32.190Z",
   "profiles": {
     "craterellus_calicornucopioides": {
       "id": "craterellus_calicornucopioides",
@@ -209,9 +209,122 @@
         "notes": "PNW fall staple. Tight mycorrhizal association with Douglas fir. First flushes after sustained fall rains when soil temps drop below 60°F. Peaks Oct-Nov in Coast Range and Cascades foothills. Prefers mossy, well-drained slopes with mature second-growth."
       },
       "look_alikes": [
-        "jack_o_lantern",
-        "false_chanterelle"
+        "Hygrophoropsis aurantiaca (False Chanterelle) — the confusion a forager in this region will actually meet; 1,089 GBIF records inside the mapped box. Thin, crowded, repeatedly forking TRUE gills that can be scraped off the cap with a fingernail, against the chanterelle's blunt shallow ridges which are continuous with the flesh and will not scrape away. USFS PNW-GTR-576 keys the pair on exactly that: gills 'easily scraped off the underside of the cap' versus ridges 'not easily scraped off'. The UBC Beaty Museum adds that true chanterelle ridges are 'often interconnected by prominent cross veins' while the false chanterelle's gills 'fork without obvious cross veins', that its flesh is thin where a chanterelle's is 'fleshy and firm', and that it grows on coniferous wood, decayed logs and wood chips. Its edibility is genuinely disputed across four positions in the sources — see research.conflicts, which records the disagreement rather than settling it.",
+        "Paxillus involutus (Poison Pax, sometimes miscalled 'brown chanterelle') — the look-alike in this region's own literature that has killed people, and one the profile previously omitted entirely. USFS PNW-GTR-576 places it in its chanterelle look-alike key flagged '[POISONOUS]' and warns the toxins 'can accumulate in susceptible consumers over long periods of time with little effect, and then the next meal can cause sudden illness or death'. The mechanism is an immune haemolytic anaemia built up over repeated meals rather than a dose-response poisoning — Duffy describes 'repeated ingestion of the mushroom over a period of years, gradually producing antibodies directed against red blood cells', with the acute episode progressing to 'changes in consciousness, cardiovascular collapse, kidney failure and other organ problems'. So a history of eating it without harm is not evidence of safety, which is the opposite of how people normally reason about food. Duffy notes the only two North American cases he documents were both from the Washington/Oregon border area, inside this map. Dull yellow-brown rather than orange, with crowded gills that stain brown and separate readily from the cap.",
+        "Turbinellus floccosus (Scaly or Woolly Chanterelle, formerly Gomphus floccosus) — abundant here at 1,352 GBIF records in the mapped box, MORE than the false chanterelle, and the confusion with the best-evidenced local casualty record. An upright, deeply vase-shaped orange fruiting body with a coarsely scaly cap and a hollow core, against the chanterelle's smooth cap and solid flesh; Beaty notes chanterelles are 'never as vase-like as the scaly chanterelle'. Onset is LATE — Beaty gives 'as late as 8-14 hours after consumption', long enough that a person may not connect the illness to the meal — and the suspected toxin is norcaperatic acid. The NAMA case registry carries an Oregon case whose cause is worth quoting in full: 'Severe vomiting, dizziness, weakness. Assumed Field Guide \"Not Recommended\" meant it would not taste good.' Sources conflict on severity; see research.conflicts.",
+        "Chroogomphus tomentosus (Woolly Pine Spike) and the hedgehogs Hydnum repandum / H. umbilicatum — named by USFS PNW-GTR-576 as things 'easily mistaken for the Pacific golden chanterelles when viewed from a distance or from above'. The pine spike has thick, distant, unforked true gills going 'smoky gray from black spores'; hedgehogs have a spore surface 'of white to orange spines rather than ridges'. Neither is treated as dangerous in that source, which calls hedgehogs 'choice commercially harvested edibles'.",
+        "Omphalotus olivascens (Western Jack-o'-Lantern) — the confusion the general chanterelle literature leads with, and kept here for that reason, but TWO INDEPENDENT LINES OF EVIDENCE PLACE IT SOUTH OF THIS MAP. The UBC Beaty Museum states plainly: 'Omphalotus has yet to be reported from BC and the few records from Oregon and Washington have yet to be verified.' GBIF holds 10,645 Californian records of O. olivascens and zero in either Oregon or Washington, while the same database holds 798 Oregon and 1,529 Washington records of the chanterelle itself — so the region is well sampled and the zero is a real absence, not absent collecting. The whole genus returns exactly one record in the mapped box, a 1965 herbarium specimen carrying four data-quality flags. USFS PNW-GTR-576's regional key does not list it. It remains the correct warning for California: clustered on wood or buried roots rather than single out of soil, deep true gills with an olive cast, orange flesh where a chanterelle's is white. NAMA records onset at 'one to three hours', nausea in 90% of cases and vomiting in 73%, with most recovered within 12 hours, and notes 'Usually the victims thought that they were picking Chanterelles.' DO NOT USE THE GLOW AS A TEST: Cornell warns 'Don't rely on the glow to distinguish Jacks from Chanterelles, because it fades after the mushrooms are picked, and it can be hard to see.'",
+        "Orellanine-containing Cortinarius (C. rubellus, C. orellanosus) — recorded here because it is the only genuinely deadly chanterelle confusion any source names, and because its danger is delayed kidney failure rather than an upset stomach. Debbie Viess, writing in NAMA's McIlvainea, notes 'Some unfortunate poisoning victims have mistaken orellanine Cortinarius for chanterelles'. Keep the magnitude honest: the same source says these are 'geographically restricted' and that 'Poisonings with orellanine containing Cortinarius are extremely rare in North America', the cited incident is European, and GBIF holds just 5 Oregon and 3 Washington records of C. rubellus and none of C. orellanosus. Rare, real, and severe. No documented PNW case of a deadly mushroom eaten as a chanterelle was found in this review."
       ],
+      "research": {
+        "reviewed": "2026-09-10",
+        "method": "Open-web source review, done twice by independent routes and reconciled. Every statement above is attributable to a source listed here; nothing was written from unsourced recall. GBIF occurrence counts quoted here were taken from the public API on 2026-09-10, restricted to the box this map covers: api.gbif.org/v1/occurrence/search?taxonKey=<key>&decimalLatitude=42,49&decimalLongitude=-125,-116.5&hasCoordinate=true&limit=0. They measure RECORDED OBSERVATIONS, which is observer effort as much as biology. A zero is evidence of scarcity, not proof of absence — except where a control taxon shows the same region is well sampled in the same database, which is the case for the jack-o'-lantern result below.",
+        "independent_source_count": 12,
+        "confidence": "good — the best-supported profile in this dataset, which is appropriate since it is the flagship species and its look-alikes are the ones that send people to hospital. The range finding on jack-o'-lantern is the least expected result and is the one I would most want a reviewer to check.",
+        "sources": [
+          {
+            "title": "Ecology and Management of Commercially Harvested Chanterelle Mushrooms",
+            "authors": "Pilz, D.; Norvell, L.; Danell, E.; Molina, R.",
+            "publication": "USDA Forest Service, Pacific Northwest Research Station, Gen. Tech. Rep. PNW-GTR-576",
+            "year": 2003,
+            "url": "https://www.fs.usda.gov/pnw/pubs/pnw_gtr576.pdf",
+            "supports": "Taxonomy (C. formosus vs C. cibarius), the regional look-alike key including the Paxillus involutus [POISONOUS] entry, host trees, and the ridges-versus-gills scrape character. A Forest Service monograph specifically about PNW chanterelles, and the single most authoritative source for this species."
+          },
+          {
+            "title": "House Joint Resolution 68 (1999)",
+            "publication": "Oregon Legislative Assembly; filed with the Secretary of State 1999-07-02",
+            "year": 1999,
+            "url": "https://www.oregonlegislature.gov/bills_laws/lawsstatutes/1999hjr0068.html",
+            "supports": "Primary statutory text: 'That the Pacific golden chanterelle (Cantharellus formosus) is recognized as and hereby is designated to be the official mushroom of the State of Oregon.' The law names C. formosus. Secondary sources claiming C. cibarius are wrong. Note this is a joint resolution, not a codified ORS section; ORS ch. 186 carries it only as a convenience note."
+          },
+          {
+            "title": "Mushroom Poisoning Syndromes",
+            "publication": "North American Mycological Association",
+            "url": "https://namyco.org/interests/toxicology/mushroom-poisoning-syndromes/",
+            "supports": "Omphalotus symptom frequencies and time course (onset 1-3 hours, nausea 90%, vomiting 73%, recovery within 12 hours), that victims 'usually thought that they were picking Chanterelles', that the western species is O. olivascens, and the explicit REJECTION of the old muscarine attribution in favour of illudins M and S."
+          },
+          {
+            "title": "Summary of Mushroom Poisoning Reports (case registry), 2006-2017 and 2018-2020",
+            "authors": "Beug, M. W.",
+            "publication": "North American Mycological Association Case Registry",
+            "url": "https://namyco.org/wp-content/uploads/2023/08/2006-2017_Summary_of_Mushroom_Poisoning_Reports.pdf",
+            "supports": "Real case records rather than general warnings: the Oregon Turbinellus case where the forager read 'Not Recommended' as a flavour rating, and the single recorded Hygrophoropsis case ('Vomiting'), which is what 'the supporting data is thin' means concretely."
+          },
+          {
+            "publication": "UBC Beaty Biodiversity Museum, 'Mushrooms Up! Edible and Poisonous Species of Coastal BC and the Pacific Northwest'",
+            "title": "Mushrooms Up! — Cantharellus formosus, Hygrophoropsis aurantiaca, Turbinellus floccosus",
+            "url": "https://explore.beatymuseum.ubc.ca/mushroomsup/C_formosus.html",
+            "supports": "The decisive regional statement that 'Omphalotus has yet to be reported from BC and the few records from Oregon and Washington have yet to be verified'; the cross-veins character; the 8-14 hour Turbinellus onset; and the note that PNW false chanterelles are more than one taxon. A Canadian museum, independent of the US federal and Californian sources."
+          },
+          {
+            "title": "California Fungi — Omphalotus olivascens, Hygrophoropsis aurantiaca, Turbinellus floccosus",
+            "authors": "Wood, M.; Stevens, F.",
+            "publication": "MykoWeb",
+            "url": "https://www.mykoweb.com/CAF/species/Omphalotus_olivascens.html",
+            "supports": "Descriptions, substrate and the separations for three look-alikes, including that H. aurantiaca 'is listed as edible by some authors, poisonous by others'. One authored work; three pages read, counted once."
+          },
+          {
+            "title": "Toxic Fungi of Western North America",
+            "authors": "Duffy, T. J., MD",
+            "publication": "hosted at MykoWeb",
+            "url": "https://www.mykoweb.com/TFWNA/P-40.html",
+            "supports": "Paxillus involutus autoimmune haemolysis — the sensitisation mechanism, the acute course, and that the only two documented North American cases were from the Washington/Oregon border area. A separate authored work from California Fungi despite the shared host."
+          },
+          {
+            "title": "Mushrooms causing gastro-intestinal distress",
+            "authors": "Benjamin, D. R.",
+            "publication": "FUNGI Magazine 16:1, Spring 2023",
+            "year": 2023,
+            "url": "https://www.fungimag.com/spring-2023-articles/V16I1-Gastro.pdf",
+            "supports": "Omphalotus toxicology from a clinical mushroom toxicologist: the illudin sesquiterpenes, 1-3 hour onset, the muscarinic features some victims show, and that chanterelle/jack-o'-lantern confusion 'remains unnecessarily frequent'."
+          },
+          {
+            "title": "A Cortinarius rubellus Poisoning in Canada",
+            "authors": "Viess, D.",
+            "publication": "McIlvainea 30, North American Mycological Association",
+            "year": 2021,
+            "url": "https://namyco.org/wp-content/uploads/2023/08/A_Cortinarius_rubellus_Poisoning_in_Canada-2-1.pdf",
+            "supports": "That orellanine Cortinarius have been mistaken for chanterelles, and equally that such poisonings are 'extremely rare in North America' and the species are geographically restricted. Cited for BOTH halves."
+          },
+          {
+            "title": "An adventure with Omphalotus",
+            "publication": "Cornell Mushroom Blog, Cornell University",
+            "year": 2007,
+            "url": "https://blog.mycology.cornell.edu/2007/04/02/an-adventure-with-omphalotus",
+            "supports": "The warning not to rely on bioluminescence as a field test, and an independent account of severity ('most victims end up in the emergency room')."
+          },
+          {
+            "title": "Cantharellus formosus; Omphalotus olivascens",
+            "authors": "Kuo, M.",
+            "publication": "MushroomExpert.Com",
+            "url": "https://www.mushroomexpert.com/cantharellus_formosus.html",
+            "supports": "The history of the cibarius misapplication and its resolution by Redhead et al. (1997); that O. olivascens is reported from California and Baja California; and the useful caveat that C. formosus' distinguishing scales and pink tones 'are sometimes absent in wet conditions'."
+          },
+          {
+            "title": "GBIF occurrence API and taxonomic backbone",
+            "publication": "Global Biodiversity Information Facility",
+            "url": "https://api.gbif.org/v1/occurrence/search",
+            "supports": "The range evidence, including the internal control that makes the jack-o'-lantern zero meaningful. Also Index Fungorum, queried via its web service, which gives type locality Sweden for C. cibarius and British Columbia for C. formosus. Databases rather than literature, counted as one bucket."
+          }
+        ],
+        "conflicts": [
+          "FALSE CHANTERELLE EDIBILITY — FOUR POSITIONS, NOT TWO. (1) UBC Beaty: 'Information about the false chanterelle's edibility is conflicting ... While some field guides note that it causes adverse reactions in some people, supporting data is thin.' (2) MykoWeb: 'Probably edible, but there is insufficient local experience to recommend it. It is listed as edible by some authors, poisonous by others.' (3) First Nature (UK): 'there are reports that some people have suffered hallucinations after eating this species ... we recommend that it should be considered as inedible.' (4) Beaty elsewhere, citing Arora: 'Hygrophoropsis aurantiaca (false chanterelle) may be mildly poisonous.' The whole documented case record behind this is ONE entry in the NAMA registry, reading 'Hygrophoropsis aurantiaca GA | 1 Adult | ? | Vomiting.' So the disagreement is largely between field-guide tradition and the case record, not between two bodies of evidence. Recorded, not resolved. Note also that Beaty says PNW false chanterelles are more than one species, and 'the different, closely related species included within it may differ in toxicity'.",
+          "SCALY CHANTERELLE SEVERITY. MykoWeb rates Turbinellus floccosus 'Questionable', noting it 'is commonly sold in the markets in Mexico and eaten there'. Beaty resolves part of that geographically: 'DNA barcode sequence differences suggest that the Pacific northwest/BC species differs from the species called Turbinellus floccosus from central Mexico and India. The Mexican and the Indian species are considered good edibles' — while 'All of the scaly chanterelles of the Pacific northwest and BC are suspect'. That is the most useful reading available: the thing eaten in Mexico may not be the thing growing here.",
+          "OMPHALOTUS TOXIN — A REAL CONFLICT, NOT JUST IMPRECISION. NAMA states: 'The toxin was long thought to be muscarine, but the symptoms do not match classical muscarinic poisoning. The toxins include the sesquiterpines illudin M and illudin S.' Two regional society pages still print muscarine: UBC Beaty says Omphalotus species are 'poisonous, containing toxins including muscarine', and the Bay Area Mycological Society says 'The toxins, similar to muscarine'. The chemistry literature supports illudins — illudin S was isolated from O. olivascens specifically (McMorris et al., J. Nat. Prod. 52(2):380, 1989). Benjamin (2023) reconciles the observation: illudins are the toxin, and separately 'some victims also evince evidence of muscarinic features such a sweating'. Recorded because two reputable regional sources are currently out of date on this point.",
+          "JACK-O'-LANTERN RANGE. Every general chanterelle reference consulted leads with Omphalotus. The regional evidence points the other way, from two independent directions: the UBC Beaty Museum says it has 'yet to be reported from BC' with Oregon and Washington records 'yet to be verified', and GBIF returns zero against a well-sampled control. USFS PNW-GTR-576's regional key omits it. Both sides are recorded above rather than one being dropped. The likeliest reading is that the warning is real, belongs to California, and was carried north by copied field-guide text — the same failure mode as the 'beech' entries elsewhere in this dataset. Beaty also notes the forward-looking risk: 'if they become more common further north, they have the potential to cause accidental poisonings in the Pacific northwest and BC.'",
+          "BIOLUMINESCENCE VISIBILITY. MykoWeb says the glow is 'sometimes bright enough to read a newspaper'; Cornell says it 'fades after the mushrooms are picked, and it can be hard to see' and warns against relying on it. For anything a forager might act on, Cornell's is the operationally safer framing."
+        ],
+        "gaps": [
+          "No source found giving a LOWER elevation bound for C. formosus. PNW-GTR-576 contains no elevation data for this species at all — a search of the full text for 'sea level', 'meters in elevation' and 'feet in elevation' returns nothing — and says only that chanterelles fruit 'often in low-elevation forests'. GBIF is no help either: 1.7% of its PNW C. formosus records carry an elevation field.",
+          "No poison-centre case series specific to PNW chanterelle misidentification was located, and no documented PNW case of a DEADLY mushroom eaten as a chanterelle.",
+          "MycoBank was NOT consulted — its interface is JavaScript-driven and no queryable endpoint was reached. Nomenclature here rests on Index Fungorum and GBIF. Recorded so nobody assumes a check that did not happen."
+        ],
+        "proposed_changes": [
+          "RENAME THE ID — NOT DONE HERE, PROPOSED ONLY. The id is 'cantharellus_cibarius' while the scientific_name, the iNaturalist taxon and the GBIF usage key are all Cantharellus formosus. These are two different organisms and two different GBIF usage keys (formosus 5466954, cibarius 5249504), with type localities British Columbia and Sweden respectively per Index Fungorum. PNW-GTR-576: the Pacific golden chanterelle was 'misidentified as Cantharellus cibarius, the golden chanterelle of fame in Europe', and Redhead and others (1997) 'were able to establish C. formosus as the correct scientific name'. Oregon's own statute names C. formosus. The id should become 'cantharellus_formosus', but it is a key used by the validation harness, the renderer, score_bands.json, cached weather and terrain artefacts and the published site, so it was left for a human to sequence. The DATA is already correct; only the key carries the old error.",
+          "NO MODELLED PARAMETER WAS TOUCHED. fruiting_conditions, association, substrate and the calibration block are exactly as found. This species' calibration block records that its temperature floors WON a cross-validated measurement against data-derived replacements, and nothing in a literature review is evidence against that.",
+          "elevation_min_ft = 0 ON THIS PROFILE IS AN UNFILLED FIELD, NOT A MEASUREMENT — but state the dataset picture accurately: sixteen of the eighteen profiles carry 0, while pigs_ears (1,000 ft) and spring_king (2,500 ft) carry real, research-corroborated values. So the field was deliberately filled for the montane species and left at 0 for the rest, rather than never being filled at all. For THIS species 0 also happens to be about right — GBIF specimen records exist at 8-46 m on the coast — but that is luck rather than calibration, since no source gives a lower bound. TWO FURTHER FACTS, both from the code rather than the literature: nothing in the Go scorer reads ElevationMinFt (only ElevationMaxFt is consumed, as a ceiling), so the value changes no prediction; but site/build.py DOES render it, so the public page publishes an elevation range whose lower bound has neither a source nor a consumer behind it. Either fill it from occurrence data or stop publishing it."
+        ]
+      },
       "edibility": "choice"
     },
     "laetiporus_conifericola": {
@@ -314,7 +427,67 @@
         ],
         "notes": "Late fall through winter fruiter. Very cold tolerant — keeps fruiting after first frosts. Prefers mossy, damp conifer forests. Often found alongside chanterelle habitat but later in season."
       },
-      "look_alikes": [],
+      "look_alikes": [
+        "The genus is its own best field mark: the spore surface is spines, not gills and not ridges. USFS PNW-GTR-576 uses exactly that to separate hedgehogs from the chanterelles they are mistaken for — 'Hedgehogs have white stems and a spore-bearing surface that consists of white to orange spines rather than ridges' — and calls them 'choice commercially harvested edibles'. The commonest confusion runs the other way round: people mistake a hedgehog for a chanterelle at a distance, and both are edible.",
+        "Other Hydnum species — H. umbilicatum, H. oregonense, H. subtilior and relatives. All are treated as edible; the UBC Beaty Museum states 'All hedgehog mushrooms are prized as good edibles and commercially sold.' The practical difficulty in this genus is knowing WHICH species you have, not whether it is safe. See research.conflicts — the name on this profile is probably not the organism that grows here.",
+        "Jelly fungi ('jelly hogs' / 'cat's tongue') — named as a look-alike by the UBC Beaty Museum, separated by texture: rubbery rather than brittle.",
+        "NOTE ON WHAT IS NOT HERE: no source consulted named a toxic look-alike for hedgehog mushrooms, and the toothed underside is genuinely distinctive. That is recorded as what the sources say, not as an assurance from this site — and the Beaty page still carries a general caution about individual reactions to any wild mushroom."
+      ],
+      "research": {
+        "reviewed": "2026-09-10",
+        "method": "Open-web source review. This profile previously had an EMPTY look_alikes list and empty special_notes; everything above is new and sourced. Note that hedgehog was not on the priority list for this pass, so the look-alike work here is lighter than the chanterelle profile's.",
+        "independent_source_count": 5,
+        "confidence": "good on taxonomy, moderate on look-alikes. The taxonomic finding below is backed by two peer-reviewed revisions and is the substantive result for this species.",
+        "sources": [
+          {
+            "title": "Chanterelle, Hedgehog and other genera: a revision of North American Hydnum",
+            "authors": "Swenie, R. A.; Baroni, T. J.; Matheny, P. B.",
+            "publication": "MycoKeys 42: 35-72",
+            "year": 2018,
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6286385/",
+            "supports": "That Hydnum washingtonianum, the Puget Sound taxon long lumped into H. repandum, does not match European H. repandum sequences; and that the American concept of H. repandum var. album is a different species. Peer-reviewed."
+          },
+          {
+            "title": "A revision of the genus Hydnum with 22 new species",
+            "authors": "Niskanen, T.; Liimatainen, K.; Norvell, L. L.; Ammirati, J. F.; et al.",
+            "publication": "Mycologia 110(5): 890-918",
+            "year": 2018,
+            "url": "https://pubmed.ncbi.nlm.nih.gov/30215579/",
+            "supports": "That 49 Hydnum species are recognised worldwide, that H. repandum is epitypified on European material, and that most species are known from a single continent. This is the paper that erected Hydnum oregonense. Peer-reviewed."
+          },
+          {
+            "title": "Mushrooms Up! — Hydnum washingtonianum",
+            "publication": "UBC Beaty Biodiversity Museum",
+            "url": "https://explore.beatymuseum.ubc.ca/mushroomsup/H_washingtonianum.html",
+            "supports": "'Hydnum washingtonianum, the American hedgehog, is known only from North America' and 'Earlier, the American hedgehog has been lumped with European and Asian species in Hydnum repandum.' Also the jelly-fungus look-alike and the edibility statement."
+          },
+          {
+            "title": "Ecology and Management of Commercially Harvested Chanterelle Mushrooms",
+            "authors": "Pilz, D.; Norvell, L.; Danell, E.; Molina, R.",
+            "publication": "USDA Forest Service, Gen. Tech. Rep. PNW-GTR-576",
+            "year": 2003,
+            "url": "https://www.fs.usda.gov/pnw/pubs/pnw_gtr576.pdf",
+            "supports": "The spines-not-ridges separation from chanterelles and the 'choice commercially harvested edibles' assessment."
+          },
+          {
+            "title": "GBIF occurrence API and taxonomic backbone",
+            "publication": "Global Biodiversity Information Facility",
+            "url": "https://api.gbif.org/v1/occurrence/search",
+            "supports": "H. repandum 182 records and H. oregonense 167 in the mapped box, H. umbilicatum zero; and that GBIF's backbone still carries H. washingtonianum as a SYNONYM, so the backbone lags the 2018 literature. Dataset, not literature."
+          }
+        ],
+        "conflicts": [
+          "THE NAME ON THIS PROFILE IS PROBABLY NOT THE ORGANISM THAT GROWS HERE, AND GBIF WILL NOT TELL YOU SO. GBIF matches 'Hydnum repandum' as ACCEPTED with usage key 2554716, which is why this profile's taxonomy block validates cleanly. But two peer-reviewed 2018 revisions place H. repandum sensu stricto in Europe: Niskanen et al. epitypify it on European material, and Swenie et al. report that the Puget Sound type of H. washingtonianum 'does not match European H. repandum sequences'. PNW material is most likely H. washingtonianum, H. oregonense or H. subtilior. The 182 GBIF records under H. repandum in this region are best read as legacy determinations under the old broad concept. NOT RENAMED HERE: the id is a harness and renderer key, and unlike the chanterelle case there is no single obvious replacement name — the PNW hedgehog is a group, not a species. Flagged for a human decision."
+        ],
+        "gaps": [
+          "No dedicated regional look-alike treatment for hedgehogs was found; the separations above come from sources whose main subject is something else.",
+          "No sourced elevation bound."
+        ],
+        "proposed_changes": [
+          "NO MODELLED PARAMETER WAS TOUCHED, including the association list, but see the next item.",
+          "'beech' IS IN THIS PROFILE'S ASSOCIATION LIST AND SHOULD PROBABLY NOT BE. Fagus is not native to the Pacific Northwest: USDA Forest Service FEIS gives American beech a range from Nova Scotia to Texas and Florida with no western component, and Oregon State University's Landscape Plants database records 'Native to (or naturalized in) Oregon: No' for both Fagus grandifolia and F. sylvatica. GBIF holds nine F. grandifolia records in the whole PNW box and the localities are arboreta and botanical gardens. This is the same copied-from-an-eastern-guide signature that was already cleaned out of lobster.json. PRACTICAL IMPACT IS SMALL BUT NOT ZERO: internal/terrain only emits 'beech' for the eastern fallback region and for FIA forest-type 600 (Maple/Beech/Birch), which is an eastern type, so in this map's box the token is inert rather than actively wrong. It is dead weight that documents a provenance problem. NOT REMOVED HERE because association is read by the scorer via TreeCoverResult.HostScore."
+        ]
+      },
       "edibility": "choice"
     },
     "hericium_abietis": {
@@ -484,8 +657,118 @@
         "notes": "Late fall specialist. Prefers sandy, well-drained soils under conifers. Often found on ridges and slopes with thin duff layer. Needs sharp cold snap to trigger flush. Very long delay after rain."
       },
       "look_alikes": [
-        "smith_agaricus"
+        "Amanita smithiana (Smith's Amanita) — THE ONE THAT MATTERS, and the reason this profile's look-alike list needed rewriting. It causes acute kidney failure, it grows beside matsutake in the same habitat, and the medical literature on it is very largely a literature about matsutake hunters in Oregon, Washington and British Columbia. 167 GBIF records inside the mapped box.\n  WHAT HAPPENS: Warden and Benjamin (Oregon Health Sciences University, Academic Emergency Medicine 1998) describe four patients in acute renal failure who 'All believed they were eating the matsutake (Tricholoma magnivalere) mushroom, which can be mistaken for A. smithiana.' Their course: 'Onset of gastrointestinal symptoms ranged from 20 minutes to 12 hours, and presentation in acute renal failure ranged from 4 to 6 days postingestion ... All underwent acute hemodialysis for at least several weeks, eventually returning to baseline renal function.' A separate BC/PNW series (Leathem et al. 1997) reports four more patients 'in which toxic mushrooms were mistaken for the edible pine mushroom or matsutake'. The Oregon Poison Center (West et al. 2009) frames it regionally: 'In the Pacific Northwest a new pattern of mushroom ingestion has emerged, attributed to Amanita smithiana, in which renal failure has been the predominant manifestation.' The delay is the trap — you feel poisoned, then you feel better, and the kidneys fail days later.\n  HOW TO TELL THEM APART, from Michael Beug for NAMA: 'lay the stipe (stem) of the mushroom in the palm of your hand and then squeeze down on the stipe with your thumb, applying as much pressure as you can. Amanita smithiana is very firm but if you squeeze hard, the stipe will shatter. The stipe of the Matsutake is much denser and will not shatter.' Also: matsutake's stem 'is widest near the gills and tapers gradually to a point while the stipe of Amanita smithiana tends to be bulbous and is usually widest right at ground level' — the UBC Beaty Museum calls the Amanita base 'torpedo-shaped, or like a parsnip', rooting deep into mineral soil. Matsutake's ring is membranous; A. smithiana's veil 'is powdery and readily flocculates into small pieces (often disappearing entirely)', leaving crumbly white bands round the stem base where matsutake has no volva at all. Odour: matsutake smells of 'old gym socks and cinnamon redhots'; A. smithiana is mild then foul. BUT BEUG HIMSELF ADDS THE CAVEAT '(however, not all people can distinguish the odors)', so odour is not a test to lean on alone. Note also Kuo's warning that A. smithiana's tell-tale powdery cap veil 'can be washed away' in rain, which is when it is 'mistaken, in its smooth-capped state, for the matsutake'. Both have white gills and a white spore print; that is why this confusion happens at all.",
+        "Catathelasma imperiale / C. ventricosum ('big cat') — named as a matsutake confusion by Beug for NAMA and by Bunyard in FUNGI: they 'have a similar overall appearance, occur in similar habitat and at the same time of the year, plus they have white gills and white spore print. Missing is the characteristic matsi odor.' The separations are a DOUBLE ring (matsutake's is single), gills that begin to run down the stem (matsutake's are notched or merely attached, never decurrent), a long rooting stem base, and a mealy or faint smell. Beug notes they are as dense as matsutake and will not shatter under the thumb, so the squeeze test does NOT separate these two — only the ring and the gills do. Sources treat Catathelasma as edible; this is a disappointment rather than a danger.",
+        "Tricholoma focale (= T. zelleri) and T. caligatum — other ringed Tricholoma in the same woods. T. caligatum 'smells weakly of matsutakes and indeed is often collected and eaten as such' (Bunyard). T. focale is orange-brown with a collapsing cottony ring and a strong mealy, often foul or bitter smell. Sources disagree about whether T. focale is really mistakable — see research.conflicts — but the NAMA case registry settles the practical question with an Oregon case: 'Acute renal failure with hepatic involvement after a meal of 3 T. focale + 1cap A. smithiana (all as Matsutake)'. Someone collected all three species as one.",
+        "REMOVED: 'smith_agaricus'. The profile previously carried this bare id and it appears to have been a garbled reference to Amanita smithiana. For completeness, Agaricus smithii IS a real published name (Kerrigan 1985, now a synonym of Agaricus smithianus), but it is not a matsutake look-alike by any source: it has chocolate-brown gills and a dark chocolate-brown spore print against matsutake's white, and an almond odour. No source connects any Agaricus to matsutake confusion.",
+        "NOT A MATSUTAKE LOOK-ALIKE, recorded to stop it being added: Amanita silvicola. Every source consulted names it as a confusion with A. SMITHIANA, not with matsutake. No source was found naming any white Amanita other than A. smithiana as a matsutake confusion."
       ],
+      "research": {
+        "reviewed": "2026-09-10",
+        "method": "Open-web source review with a deliberate bias toward peer-reviewed clinical toxicology and poison-centre reporting, because this species' principal look-alike causes organ failure. Every statement above is attributable to a source listed here.",
+        "independent_source_count": 11,
+        "confidence": "good, and the best clinically-sourced profile in this dataset. The Amanita smithiana material rests on four independent peer-reviewed case series plus a poison-centre registry, all of which independently report the matsutake misidentification. The field-separation characters are the weaker half — several trace back to Beug — and are flagged where so.",
+        "sources": [
+          {
+            "title": "Acute renal failure associated with suspected Amanita smithiana mushroom ingestions: a case series",
+            "authors": "Warden, C. R.; Benjamin, D. R.",
+            "publication": "Academic Emergency Medicine 5(8):808-12",
+            "year": 1998,
+            "url": "https://pubmed.ncbi.nlm.nih.gov/9715243/",
+            "supports": "Four Oregon patients in acute renal failure who all believed they were eating matsutake; onset 20 minutes to 12 hours, renal failure at 4-6 days, weeks of haemodialysis, eventual recovery. Peer-reviewed, and from Oregon Health Sciences University."
+          },
+          {
+            "title": "Renal failure caused by mushroom poisoning",
+            "authors": "Leathem, A. M.; Purssell, R. A.; Chan, V. R.; Kroeger, P. D.",
+            "publication": "Journal of Toxicology: Clinical Toxicology 35(1):67-75",
+            "year": 1997,
+            "url": "https://pubmed.ncbi.nlm.nih.gov/9022655/",
+            "supports": "Four more PNW / southwestern BC patients: 'toxic mushrooms were mistaken for the edible pine mushroom or matsutake'. All received haemodialysis and regained renal function. Independently corroborates Warden 1998."
+          },
+          {
+            "title": "Amanita smithiana mushroom ingestion: a case of delayed renal failure and literature review",
+            "authors": "West, P. L.; Lindgren, J.; Horowitz, B. Z.",
+            "publication": "Journal of Medical Toxicology 5(1):32-8",
+            "year": 2009,
+            "url": "https://pubmed.ncbi.nlm.nih.gov/19191214/",
+            "supports": "Oregon Poison Center; mycologist-confirmed identification; the timeline of hepatic then renal injury with dialysis from day 4. Source of the framing that this is an emerging PNW pattern."
+          },
+          {
+            "title": "Laboratory confirmation of Amanita smithiana mushroom poisoning",
+            "authors": "Apperley, S.; Kroeger, P.; Kirchmair, M.; et al.",
+            "publication": "Clinical Toxicology (Phila) 51(4):249-51",
+            "year": 2013,
+            "url": "https://pubmed.ncbi.nlm.nih.gov/23506521/",
+            "supports": "A chromatographically confirmed BC case, and the statement that A. smithiana 'can be easily mistaken for the edible and highly prized Pine mushroom'. Also the dissenting position on the toxin, recorded under conflicts."
+          },
+          {
+            "title": "How to Distinguish Amanita smithiana from Matsutake and Catathelasma species",
+            "authors": "Beug, M. W. (Chair, NAMA Toxicology Committee)",
+            "publication": "The Mycophile 57:1, North American Mycological Association",
+            "year": 2017,
+            "url": "https://sacmush.com/support/matsie.pdf",
+            "supports": "The squeeze test, the stem-taper difference, the membranous versus flocculose veil, the odour pair, and the Catathelasma double ring. CAUTION: this document's opening line says 'liver failure in Oregon' while its body correctly says delayed KIDNEY failure — quote the body, not the intro."
+          },
+          {
+            "title": "Summary of the Poisoning Reports in the NAMA Case Registry (2006-2017, 2018-2020)",
+            "authors": "Beug, M. W.",
+            "publication": "North American Mycological Association Case Registry",
+            "url": "https://namyco.org/wp-content/uploads/2023/08/2006-2017_Summary_of_Mushroom_Poisoning_Reports.pdf",
+            "supports": "A. smithiana cases logged from BC, Oregon (2) and Washington (2); the Oregon case where three Tricholoma focale and one A. smithiana cap were all collected as matsutake; and the toxin attribution. Same author as the Mycophile items, so counted as ONE source with them."
+          },
+          {
+            "title": "Mushrooms Up! — Amanita smithiana, Tricholoma murrillianum",
+            "publication": "UBC Beaty Biodiversity Museum",
+            "url": "https://explore.beatymuseum.ubc.ca/mushroomsup/A_smithiana.html",
+            "supports": "The 'torpedo-shaped, or like a parsnip' stem base test, the stem break and overnight-bend tests, the absence of a volva in matsutake, the amyloid-versus-non-amyloid spore difference, and the warning that 'The two species can grow next to one another in the same habit.'"
+          },
+          {
+            "title": "Amanita smithiana",
+            "publication": "Vancouver Mycological Society",
+            "url": "https://vanmyco.org/about-mushrooms/poisonous/amanita-smithiana/",
+            "supports": "Three narrated BC case histories with dialysis courses, the observation that in one case the Amanita was growing 'next to two Pine Mushrooms', and that 'A. smithiana has become a frequent cause of very serious mushroom poisoning in British Columbia.'"
+          },
+          {
+            "title": "Amanita smithiana; Tricholoma murrillianum; Catathelasma imperiale",
+            "authors": "Kuo, M.",
+            "publication": "MushroomExpert.Com",
+            "url": "https://www.mushroomexpert.com/amanita_smithiana.html",
+            "supports": "That the powdery cap veil 'can be washed away' in rain, leaving a smooth-capped state mistakable for matsutake — an important caveat for a wet-climate region; the Catathelasma separations; and the T. magnivelare / T. murrillianum range split."
+          },
+          {
+            "title": "North American matsutake: Names clarified and a new species described",
+            "authors": "Trudell, S. A.; Xu, J.; Justo, A.; Saar, I.; Cifuentes, J.",
+            "publication": "Mycologia 109(3)",
+            "year": 2017,
+            "url": "https://alfredojusto.weebly.com/uploads/9/2/0/2/92022628/2017_matsutake.pdf",
+            "supports": "That 'T. magnivelare from the eastern USA and Canada, T. murrillianum from the western USA and Canada' — confirming THIS PROFILE'S NAME IS CORRECT and that the older clinical literature's 'T. magnivelare' refers to the same organism. Also the Allotropa virgata indicator."
+          },
+          {
+            "title": "Ecology and Management of the Commercially Harvested American Matsutake Mushroom",
+            "authors": "Hosford, D.; Pilz, D.; Molina, R.; Amaranthus, M.",
+            "publication": "USDA Forest Service, Gen. Tech. Rep. PNW-GTR-412",
+            "year": 1997,
+            "url": "https://www.fs.usda.gov/pnw/pubs/pnw_gtr412.pdf",
+            "supports": "The sourced PNW host list and habitat: 'Among the reported tree associates are Douglas-fir, western hemlock, grand fir, Shasta red fir, Pacific silver fir, Engelmann spruce, white spruce, jack pine, red pine, sugar pine, ponderosa pine, inland lodgepole pine, and coastal shore pine. In southwestern Oregon and along the coast of northern California, it often associates with tanoak.' Also the elevation and duff data quoted below."
+          }
+        ],
+        "conflicts": [
+          "THE TOXIN IS NAMED BUT NOT SETTLED. Chilton and Ott (Lloydia 1976) detected aminohexadienoic acid (allenic norleucine) and chlorocrotylglycine 'only in crude extracts of A. smithiana' among 47 Amanita specimens, and NAMA states plainly that 'orellanine is not present' and that allenic norleucine is a toxin. Against that, Apperley et al. (2013) state 'The chemical structure of the A. smithiana toxin is unknown', and both Saviuc & Danel ('probably 2-amino-4,5-hexadienoic acid') and the UBC Beaty Museum ('Uncertain, likely include one or more amino sugars') hedge. Present the toxin as identified but not fully settled. None of this changes the clinical picture, which is unanimous.",
+          "IS TRICHOLOMA FOCALE ACTUALLY MISTAKABLE? Bunyard in FUNGI says it 'would not likely be mistaken for the real thing as it has a foul smell of rancid flour'. The NAMA case registry records an Oregon forager who collected three of them as matsutake anyway, alongside an Amanita smithiana cap. Expert judgement and the incident record disagree; both are recorded.",
+          "MADRONE IS NOT A CONFIRMED HOST. PNW-GTR-412 names madrone only as a stand component — 'closed-canopy tanoak stands (50 to 150 years old) with scattered Douglas-fir, madrone, and knobcone pine' — not as a mycorrhizal associate. Every other tree commonly listed for this species IS confirmed in that report's associate list. Recorded so nobody adds madrone to the association list on the strength of a habitat description.",
+          "THE CLINICAL LITERATURE USES AN OLD NAME. Every case series cited here (1997, 1998, 2009, 2013) says 'Tricholoma magnivelare', because they predate Trudell et al. (2017), which restricted that name to eastern North America and gave western material the name T. murrillianum that this profile correctly uses. Warden 1998 additionally misspells it 'magnivalere'. Same organism; different vintage of name."
+        ],
+        "gaps": [
+          "Tulloss & Lindgren (1992), the foundational taxonomic and poisoning paper on A. smithiana, could not be retrieved — amanitaceae.org timed out. It is cited by several sources used here but was not read directly.",
+          "The Oregon Mycological Society and Puget Sound Mycological Society yielded no fetchable page on this species; no content from either is cited.",
+          "Catathelasma ventricosum specifically is thin — Kuo doubts it occurs in western North America at all. The genus-level confusion claim is well supported; the species-level one is not."
+        ],
+        "proposed_changes": [
+          "NO MODELLED PARAMETER WAS TOUCHED. The association list (pine, fir, hemlock, douglas_fir, tanoak) is left as found and is well supported by PNW-GTR-412, which confirms every one of those.",
+          "ELEVATION — THE ONE PLACE THE MODEL HAS A SOURCED NUMBER AND DOES NOT USE IT. PNW-GTR-412 states 'Matsutake typically fruits from 300 to 1200 meters in elevation' (about 985-3,940 ft) for Washington, but the SAME report gives Oregon coastal dune habitats at 'Elevation ranges from 3 to 100 meters' and southern Cascades habitats up to 2,000 m. So the true envelope is roughly 10 ft to 6,560 ft and is habitat-specific rather than a single band. The profile's elevation_max_ft of 6000 is close to defensible; elevation_min_ft = 0 is very nearly right by accident, because the Oregon dune population really does fruit at about 10 ft. NOT CHANGED — elevation_max_ft is read by the scorer and this species is already excluded from validation, so a hand edit could not be measured.",
+          "This profile carries validation_excluded = true for a documented reason (96% of records are coordinate-obscured). That means NOTHING in this profile can currently be checked by the harness, which is all the more reason not to hand-tune its numbers on the strength of a literature review. Left alone deliberately."
+        ]
+      },
       "edibility": "choice"
     },
     "morchella_importuna": {
@@ -561,9 +844,122 @@
         "notes": "Spring specialist. Loves disturbed ground — recent burns, landscaping, river bottoms. Often fruits along riparian corridors and in orchards. The field-guide rule of thumb is \"sustained 50°F+ soil at 4 inches\", and that number used to be copied straight into soil_temp_min_f — where it cut off 62% of real PNW fruitings, because the model compares against a lapse-corrected 3-day mean of the 0-7cm ERA5 layer, which is not a 4-inch spot reading on a warm afternoon. The floors are now derived from this species' own observed p5; see calibration below."
       },
       "look_alikes": [
-        "false_morel",
-        "verpa"
+        "Gyromitra species (False Morels) — the serious one. G. esculenta has 678 GBIF records in the mapped box and G. montana 55, so these are common here and they fruit at the same time and often in the same places: the Michigan DNR notes false morels 'are often found at the same times and in many of the same places as the true morels'.\n  THE TOXIN: gyromitrin, which the body converts to monomethylhydrazine (MMH). The poison-centre consensus classification (White et al., Toxicon 2019) files it as its own syndrome group, '4A, GABA-blocking mushroom poisoning (gyromitrins)'.\n  THE COURSE: a 2025 review by Rocky Mountain Poison and Drug Safety with the CDC (Simon et al., Clinical Toxicology) found across 201 published Gyromitra ingestions that presentation was 'primarily gastrointestinal (88.1%) and often delayed with a median onset of 9 h', with hepatic effects in 53.7% and neurologic in 51.7%. Seizures were uncommon and mostly late in fatal cases. Michigan's health department describes onset 'six to 48 hours' and a course that untreated may progress to 'confusion, delirium, seizures and coma', with liver toxicity and jaundice within 48 hours.\n  HOW TO TELL: the caps are the tell. Missouri's Department of Conservation puts it well — false morel caps 'have lobes, folds, flaps, or wrinkles, but it does not have pits and ridges like a true morel. You might say false morel caps bulge outward instead of being pitted inward.' And the cross-section: 'When you slice a false morel down the middle, the cap and stalk are chambered (not completely hollow)', where a true morel is 'completely hollow' from cap to stem base. Cut every one lengthwise.\n  WHETHER COOKING FIXES IT IS GENUINELY DISPUTED and the dispute is recorded in research.conflicts rather than settled here. It is the single most consequential disagreement in this dataset.",
+        "Verpa bohemica and V. conica (Early or Thimble Morels) — 490 GBIF records for V. bohemica in the mapped box, and it fruits EARLIER than the true morels, which is part of why it gets picked. THE TEST IS CAP ATTACHMENT, NOT HOLLOWNESS: Kuo explains that where half-free morels are attached halfway, 'Verpa bohemica has a cap that hangs completely free of the stem, attached only at the top' — like a thimble over a finger. The Michigan DNR reduces it to a rule: 'check to see if the cap connects to the stalk. Free-hanging varieties should not be eaten.' Note explicitly that the hollow test does NOT work here — Kuo describes Verpa as 'hollow, or loosely stuffed with whitish, wispy fibers (like cotton candy) in the stem', so it can be hollow.\n  EFFECTS: Lagrange and Vernoux (Toxins, 2020) record that V. bohemica 'may cause variable reactions, including severe gastrointestinal upset and cerebellar syndrome with temporary loss of coordination in susceptible individuals', and separately as 'an inducer of Disulfiram-Like reactions (alcohol intolerance)'. Their conclusion: 'We suggest that Verpa bohemica, another false morel, is also inedible.' The NAMA case registry carries a Montana/Oregon entry for it. Yet it is eaten in parts of Europe and listed as edible in some national lists — another recorded conflict.\n  A PEER-REVIEWED CAVEAT WORTH TAKING SERIOUSLY: Lagrange and Vernoux note that while the Gyromitra/Morchella separation is morphologically clean, 'Verpa bohemica and Morchella semilibera, have similar traits'. Verpa is not separated from the HALF-FREE morels as easily as from the rest.",
+        "Other true morels — Morchella is a genus whose species limits were only sorted out recently and are not reliably separable in the field. This is a naming difficulty rather than a safety one; all are treated as edible when properly cooked.",
+        "THE MOREL ITSELF IS NOT A SAFE RAW FOOD, which belongs in a look-alike list because it is the failure mode that does not involve misidentification at all. Lagrange and Vernoux: 'It has been known for years that morels are not edible if eaten crude; however, cooking at least 10 min in boiling water or more is efficient to ensure their edibility. This is the reason why they are classified in the conditionally edible mushrooms category.' Separately, EATING TOO MANY causes a distinct, formally recognised neurological syndrome even when well cooked — White et al. (2019) list '2D, morel neurologic syndrome (Morchella spp.)', and Simon et al. (2025) found true-morel presentations 'primarily neurologic (65.4%), most commonly dizziness and/or unsteadiness/ataxia (51.9%) ... with a median onset of 12 h'. Drying does not fix either problem; Lagrange and Vernoux call the belief that it does 'a critical safety problem'. And the NAMA registry is full of people who reacted after years of eating them safely — 'Violently ill if he eats just one, after eating them for years, with no problem.'"
       ],
+      "research": {
+        "reviewed": "2026-09-10",
+        "method": "Open-web source review weighted toward peer-reviewed toxicology, poison-centre series and state health agencies, because the principal look-alike here is a hydrazine mycotoxin. Every statement above is attributable to a source listed here. GBIF counts are from the public API on 2026-09-10 over the mapped box (lat 42-49, lon -125 to -116.5).",
+        "independent_source_count": 12,
+        "confidence": "good on toxicology and on the identification characters; the significant caveat is that the central practical question — whether parboiling makes Gyromitra safe — has reputable sources on both sides and this profile does not resolve it. Two claims are marked thin below.",
+        "sources": [
+          {
+            "title": "Gyromitra and Morchella species ingestions: a narrative review",
+            "authors": "Simon, M. W.; Kuai, D.; Yeh, M.; Yip, L.",
+            "publication": "Clinical Toxicology (Phila) 63(9):609-618",
+            "year": 2025,
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40905838/",
+            "supports": "The best single clinical synthesis: 201 Gyromitra and 52 Morchella published ingestions; Gyromitra 88.1% GI with 9 h median onset, 53.7% hepatic, 51.7% neurologic; Morchella 65.4% neurologic at 12 h median. Also the finding that true morels are no longer considered non-fatal. Rocky Mountain Poison and Drug Safety with the CDC."
+          },
+          {
+            "title": "A 19-year retrospective review of gyromitrin-containing mushroom exposures",
+            "authors": "Vohra, V.; Dirks, A.; Bonito, G.; James, T.; Carroll, D. K.",
+            "publication": "Toxicon 247:107825",
+            "year": 2024,
+            "url": "https://pubmed.ncbi.nlm.nih.gov/38908526/",
+            "supports": "The counterweight to the case-report literature: 118 poison-centre cases, GI symptoms in 74.7% of symptomatic patients, neurologic in 26.5%, hepatotoxicity in 16.9%, and 'no reported deaths'. Also that presentations 'may be highly variable and multifactorial'."
+          },
+          {
+            "title": "Warning on False Morel and Morel Mushroom Poisoning",
+            "authors": "Lagrange, E.; Vernoux, J. P.",
+            "publication": "Toxins 12(8):482",
+            "year": 2020,
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7472412/",
+            "supports": "Peer-reviewed and unusually complete: the Gyromitra cooking dispute from BOTH sides, the acetylator-metabolism explanation for why traditions and toxicologists both have real evidence, the Verpa bohemica assessment, the morel neurological syndrome, and that drying does not detoxify. The single most useful source here."
+          },
+          {
+            "title": "Mushroom poisoning: a proposed new clinical classification",
+            "authors": "White, J.; Weinstein, S. A.; De Haro, L.; et al.",
+            "publication": "Toxicon 157:53-65",
+            "year": 2019,
+            "url": "https://pubmed.ncbi.nlm.nih.gov/30439442/",
+            "supports": "The multi-national poison-centre consensus that puts gyromitrins ('4A') and morel neurologic syndrome ('2D') on the formal syndrome list. Establishes that the morel syndrome is a recognised entity, not folklore."
+          },
+          {
+            "title": "Gyromitra Mushroom Toxicity",
+            "authors": "Regina, A.; Kong, E. L.; Horowitz, B. Z.",
+            "publication": "StatPearls, NCBI Bookshelf",
+            "url": "https://www.ncbi.nlm.nih.gov/books/NBK470580/",
+            "supports": "The PRO-parboiling position, quoted here specifically so the conflict is visible: 'Parboiling, with subsequent drying ... can remove about 99% of the mushroom's gyromitrin content', and 'fatalities have not been documented for decades'. Cited as one side of a dispute, NOT as settled guidance — see research.conflicts."
+          },
+          {
+            "title": "Morel Mushroom Identification",
+            "publication": "Michigan Department of Natural Resources",
+            "url": "https://www.michigan.gov/dnr/things-to-do/morels/morel-identification",
+            "supports": "The pits-versus-wrinkles character; that false morels 'should be considered poisonous and not eaten'; the Verpa free-hanging-cap rule; and that 'Some of the same people who had consumed this species safely for several years have suffered acute poisoning, and a few have died.' A state agency, independent of Missouri's."
+          },
+          {
+            "title": "Morels (field guide)",
+            "publication": "Missouri Department of Conservation",
+            "url": "https://mdc.mo.gov/discover-nature/field-guide/morels",
+            "supports": "The clearest statement of the hollow cross-section test and the bulge-outward-versus-pitted-inward cap character, plus the precautionary position: 'It is safest to consider all so-called false morels toxic.' A second, independent state agency."
+          },
+          {
+            "title": "Use Caution to Avoid False Morel Mushrooms",
+            "publication": "Michigan Department of Health and Human Services",
+            "year": 2011,
+            "url": "https://www.michigan.gov/mdhhs/inside-mdhhs/newsroom/2011/05/26/use-caution-to-avoid-false-morel-mushrooms",
+            "supports": "A real outbreak — eleven people hospitalised in one spring — with onset 'six to 48 hours' and the hepatic course. Also the claim that true morels can cause illness with alcohol, which NAMA disputes."
+          },
+          {
+            "title": "Summary of the Poisoning Reports in the NAMA Case Registry",
+            "authors": "Beug, M. W.",
+            "publication": "North American Mycological Association Case Registry",
+            "url": "https://namyco.org/wp-content/uploads/2023/08/2006-2017_Summary_of_Mushroom_Poisoning_Reports.pdf",
+            "supports": "Gyromitra esculenta cases including BC, WA, ID and MT; Verpa bohemica cases from MT and OR; and many Morchella cases in people who had eaten them for years without trouble. Also Beug's dissent on the alcohol question."
+          },
+          {
+            "title": "Morchella importuna; Verpa bohemica; Gyromitra esculenta",
+            "authors": "Kuo, M.",
+            "publication": "MushroomExpert.Com",
+            "url": "https://www.mushroomexpert.com/morchella_importuna.html",
+            "supports": "The cap-attachment separation for Verpa and the warning that Verpa can itself be hollow; the technical descriptions confirming M. importuna's cap and stem are hollow and G. esculenta's flesh is 'slight or chambered'; and the urban/landscaping habitat. Kuo is a co-author of M. importuna's original description."
+          },
+          {
+            "title": "Wild mushroom poisonings: a 5-year retrospective study",
+            "authors": "Gecan, J. S.; Cichowicz, S. M.",
+            "publication": "Journal of Food Protection 56(8):730-734; U.S. Food and Drug Administration",
+            "year": 1993,
+            "url": "https://pubmed.ncbi.nlm.nih.gov/31113097/",
+            "supports": "That this confusion reaches commerce: an FDA survey found '21% of the morel and 15% of the wild mixed mushrooms were contaminated with toxic look-alike species', with standing Import Alerts for morels contaminated with Gyromitra esculenta and Verpa bohemica."
+          },
+          {
+            "title": "GBIF occurrence API",
+            "publication": "Global Biodiversity Information Facility",
+            "url": "https://api.gbif.org/v1/occurrence/search",
+            "supports": "Regional abundance in the mapped box: Gyromitra esculenta 678, Verpa bohemica 490, Gyromitra montana 55 — confirming these are local confusions and not borrowed ones."
+          }
+        ],
+        "conflicts": [
+          "DOES PARBOILING MAKE GYROMITRA SAFE? THE MOST CONSEQUENTIAL DISAGREEMENT IN THIS DATASET, RECORDED UNRESOLVED. FOR: StatPearls, an NCBI-hosted clinical reference, states 'Parboiling, with subsequent drying, has been cited by various sources as an effective means to detoxify Gyromitra mushrooms and render them edible. This technique can remove about 99% of the mushroom's gyromitrin content', and 'fatalities have not been documented for decades'. Gyromitra is commercially sold and eaten in Finland and Scandinavia. AGAINST: Lagrange and Vernoux, who describe that tradition, immediately reject it, noting 'such processing inefficiency has been reported for a long time' and that Finland's own food authority still bars it for pregnant women and children 'because of residues of the toxin gyromitrin despite dried or cooked processing'. Missouri's Department of Conservation: 'It is safest to consider all so-called false morels toxic ... We do not recommend eating them.' The Michigan DNR: 'Not edible.' NAMA: 'Hopefully mushroomers are learning not to eat Gyromitra esculenta.' And Simon et al. (2025) report 28.9% mortality across published Gyromitra cases, against Vohra et al. (2024) reporting no deaths across 118 poison-centre cases — the two clinical figures are themselves measuring different populations, published case reports versus everyone who phoned a poison centre, which is most of the apparent contradiction. A partial mechanical explanation exists and is worth carrying: toxin content is not constant (Dirks et al. 2023: gyromitrin production is 'both discontinuous and more limited than previously thought'), and individual liver acetylator status varies. So both the traditions and the toxicologists may be describing real experience. THIS PROFILE TAKES NO POSITION AND ISSUES NO VERDICT.",
+          "DEATHS FROM GYROMITRA — the sources genuinely differ. StatPearls: 'fatalities have not been documented for decades.' NAMA: 'many deaths in Europe.' Michelot and Toth (1991): 'have caused severe poisonings and even deaths in humans.' Arlukowicz-Grabowska et al. (2019) document a patient who 'developed multiorgan failure and subsequently died'. Zaraf'iants (2016) is a forensic autopsy series. Michigan DNR: 'a few have died.' All recorded.",
+          "MORELS AND ALCOHOL. Michigan's health department says true morels 'can cause illness ... if they are eaten with alcoholic beverages'. NAMA's Beug pushes back directly: 'all the reported adverse incidents where someone ate mushrooms and consumed alcohol involved individual sensitivities, and not general toxicity ... For the hundreds of people who have eaten morels and consumed alcohol with the meal when I have been present, there has not been a single adverse reaction.' Note the disulfiram-like alcohol reaction is attributed by Lagrange and Vernoux to VERPA bohemica, not to Morchella — the two may have been conflated.",
+          "TRUE MORELS AND FATALITY — A RECENT CHANGE. Simon et al. (2025): 'No fatalities from Morchella spp. ingestion were reported until 2024. However, three articles published in 2024 report multiple cases of critical illness and fatality after Morchella spp. ingestion', describing 'severe, early vomiting and diarrhea, sometimes with shock, hemorrhagic gastrointestinal complications, and multi-system organ failure'. Any older source describing true morels as never fatal is now out of date. Recorded because it post-dates most field guides."
+        ],
+        "gaps": [
+          "THIN: the urban/woodchip habitat of M. importuna specifically rests on only two partially-dependent sources (Kuo, and MykoWeb which defers to Kuo for the description). The primary protologue — Kuo et al. 2012, Mycologia 104(5):1159-1177 — returned HTTP 403 and was NOT read. The habitat claim is probably right but is not independently corroborated.",
+          "THIN: Verpa conica specifically has two sources which do not agree — the Michigan DNR says 'Not edible', Lagrange and Vernoux say it has 'no identified toxicological status'.",
+          "THIN: the list of which Gyromitra species occur in the PNW rests on two sources. Note G. gigas is reportedly NOT a North American species.",
+          "The hollow-cross-section test is stated by state agencies and mycological reference works but NO peer-reviewed clinical source stating it was found. It is consistent with the technical descriptions, and it is recorded here at the level of evidence that actually exists for it.",
+          "The Oregon Mycological Society's own page on Gyromitra was blocked by a bot challenge and could not be read. It would have been the best regional source."
+        ],
+        "proposed_changes": [
+          "NO MODELLED PARAMETER WAS TOUCHED. This species' calibration block records that its air and soil temperature floors were MEASURED and moved by cmd/validate-backtest -fit-temp, with a documented cross-validated improvement. Nothing in a literature review is evidence against that, and the floors were left exactly as the harness set them.",
+          "POSSIBLE ASSOCIATION REVIEW, PROPOSED NOT DONE. The association list is cottonwood, ash, elm, apple, douglas_fir. Kuo describes M. importuna as 'apparently limited to landscaping sites, gardens, planters, and so on' and 'Clearly saprobic when growing in tree-less environments' — an urban woodchip specialist rather than a tree associate. If that is right, a TREE association list may be the wrong shape of predictor for this species entirely, and land cover or disturbance would carry more signal. Flagged as a modelling question for measurement, not edited. Note 'elm' is worth checking specifically: it is a classic EASTERN morel association and may be another inherited entry, though unlike beech, elms are widely planted in PNW towns and this species is an urban fruiter, so it is not obviously wrong."
+        ]
+      },
       "edibility": "choice"
     },
     "pleurotus_ostreatus": {
@@ -728,8 +1124,77 @@
         "notes": "Higher elevation conifer associate. Needs sustained cool temps and moisture. Often found near spruce-fir transition zones. Longer flush delay after rain than chanterelles."
       },
       "look_alikes": [
-        "bitter_bolete"
+        "WHAT CONFIRMS A KING BOLETE, since with boletes the positive characters do more work than the look-alike list. MykoWeb's California Fungi gives pores 'very small, pallid, becoming dull yellow, finally dingy yellowish-green', flesh 'thick, white, unchanging', a stalk with 'white reticulations especially at the apex', and a mild taste. So: a pale then yellow-olive pore surface that does NOT stain blue, white non-staining flesh, white netting on the upper stalk, and nothing bitter.",
+        "Caloboletus species (Bitter Boletes) — THE CORRECT REGIONAL BITTER LOOK-ALIKE, replacing the Tylopilus felleus entry this profile used to carry. The Pacific Northwest Key Council defines the genus: 'Caloboletus (bitter boletes) have sour-bitter flavour, and blue-bruising reactions of pores and flesh.' Four occur here, C. rubripes being commonest at 160 GBIF records in the mapped box: 'TASTE unpleasant, bitter. ODOR often strong unpleasant. TUBES and PORES yellow, darkening with age; bluing immediately when bruised.' C. calopus is 'not considered poisonous, but too bitter to eat'; C. conifericola 'too bitter to eat'; C. marshii 'not edible', with a Washington case in the NAMA registry — 'Boletus cf marshii WA 1 Adult 12 hours Chills, flushing, nausea.' THE DIFFERENCE THAT MATTERS FOR A READER HERE: these are YELLOW-pored and blue INSTANTLY, where the eastern Tylopilus felleus that field guides name is PINK-pored and does not blue.",
+        "Red-pored boletes — Rubroboletus pulcherrimus (63 GBIF records in the mapped box) and R. eastwoodiae (26). R. pulcherrimus is the one bolete implicated in a North American death: Duffy's Toxic Fungi of Western North America records that 'An Oregon husband and wife began with typical gastrointestinal symptoms', that 'The husband, however, died suddenly', and that 'his autopsy showed small bowel death from lack of blood supply'. Duffy also notes generally that 'Orange or red-pored boletes often cause GI symptoms.' The field rule is to avoid any bolete with an orange or red pore surface that stains strongly blue. CRITICAL CAVEAT: TASTE DOES NOT SCREEN FOR THIS. The dangerous red-pored species taste mild; the merely-bitter Caloboletus is the one that tastes bad. Bitterness sorts for palatability, not for toxicity, and a forager who has learned to 'taste a bit and spit' is not protected by that habit here.",
+        "Boletus rex-veris (Spring King) — the same organism's spring counterpart rather than a hazard. MykoWeb separates them: B. edulis has 'a more clavate stipe and a brownish cap that lacks pinkish tints when young', 'rarely occur in clusters', and fruits in late summer or fall, where rex-veris comes in clusters at the montane snowline in late spring. Both choice. See spring_king.json.",
+        "REMOVED: Tylopilus felleus. This profile previously named the bitter bolete as its only look-alike. GBIF holds ZERO records of T. felleus anywhere in the Oregon-Washington box, against a genus total of 37 there, of which 35 are the unrelated T. pseudoscaber. T. felleus is an eastern and European species, and fifty years of NAMA case-registry data contain no T. felleus case at all. The entry appears to be inherited from a non-regional field guide — the same signature as the 'beech' entries elsewhere in this dataset."
       ],
+      "research": {
+        "reviewed": "2026-09-10",
+        "method": "Open-web source review plus GBIF range checking over the mapped box (lat 42-49, lon -125 to -116.5) on 2026-09-10. Every statement above is attributable to a source listed here.",
+        "independent_source_count": 6,
+        "confidence": "moderate to good. The range correction and the Caloboletus substitution are solid and reproducible. The fatality account is second-hand — it traces to a case registry via a reference work, not to a medical journal — and its date is internally contradicted by its own source. Flagged rather than smoothed.",
+        "sources": [
+          {
+            "title": "California Fungi — Boletus edulis",
+            "authors": "Wood, M.; Stevens, F.",
+            "publication": "MykoWeb",
+            "url": "https://www.mykoweb.com/CAF/species/Boletus_edulis.html",
+            "supports": "The confirming field marks — pale-to-yellow-olive non-staining pores, white unchanging flesh, white apical reticulation, mild taste — and the separation from B. regineus and B. rex-veris."
+          },
+          {
+            "title": "BOLETES in the Pacific Northwest (regional key)",
+            "authors": "Gibson, I. (MatchMaker)",
+            "publication": "Pacific Northwest Key Council / South Vancouver Island Mycological Society",
+            "url": "https://www.svims.ca/council/Bolete.htm",
+            "supports": "The Caloboletus genus definition and the four PNW bitter species with taste, staining, distribution and edibility. Also that this key gives NO elevation for B. edulis: its complete habitat field reads 'variable, usually under conifers but may occur with hardwoods; common.'"
+          },
+          {
+            "title": "Toxic Fungi of Western North America",
+            "authors": "Duffy, T. J., MD",
+            "publication": "hosted at MykoWeb",
+            "url": "https://www.mykoweb.com/TFWNA/P-54.html",
+            "supports": "The Oregon Rubroboletus pulcherrimus fatality with the autopsy finding of small-bowel infarction, and the general red-pored-bolete GI warning."
+          },
+          {
+            "title": "Molecular phylogenetic analyses redefine seven major clades and reveal 22 new generic clades in the fungal family Boletaceae / porcini phylogeny",
+            "authors": "Feng, B.; Xu, J.; Wu, G.; et al.",
+            "publication": "PLOS ONE",
+            "year": 2012,
+            "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0037567",
+            "supports": "The direct peer-reviewed answer to whether 'Boletus edulis' is the right name for western material: 'Within this clade, B. edulis is the only known holarctic species.' It genuinely applies on both continents. See conflicts for what remains contested."
+          },
+          {
+            "title": "Summary of the Poisoning Reports in the NAMA Case Registry",
+            "authors": "Beug, M. W.",
+            "publication": "North American Mycological Association",
+            "url": "https://namyco.org/wp-content/uploads/2023/08/2006-2017_Summary_of_Mushroom_Poisoning_Reports.pdf",
+            "supports": "The Washington Caloboletus marshii case, and as a NEGATIVE finding the complete absence of any Tylopilus felleus case in the registry."
+          },
+          {
+            "title": "GBIF occurrence API and taxonomic backbone",
+            "publication": "Global Biodiversity Information Facility",
+            "url": "https://api.gbif.org/v1/occurrence/search",
+            "supports": "Tylopilus felleus 0 records in the mapped box against 1,648 for B. edulis; Caloboletus rubripes 160; Rubroboletus pulcherrimus 63, R. eastwoodiae 26. Also that Boletus edulis var. grandedulis (usageKey 6015477) resolves as a SYNONYM of B. edulis (5954958)."
+          }
+        ],
+        "conflicts": [
+          "IS 'BOLETUS EDULIS' RIGHT FOR PNW MATERIAL? PARTLY SETTLED, PARTLY NOT. Settled: Feng et al. (2012) find 'B. edulis is the only known holarctic species' in the porcini clade, so the name genuinely applies in North America and this profile's scientific_name is defensible. Not settled: whether western material warrants varietal rank as B. edulis var. grandedulis — GBIF currently treats that as a synonym of B. edulis. Also worth carrying: the same paper reports that of eight porcini species endemic to North and Central America, three are found only in western North America. So 'the porcini in your basket in Oregon' is not guaranteed to be B. edulis even though B. edulis does occur here. No change recommended.",
+          "THE FATALITY DATE. Duffy's Toxic Fungi of Western North America says in body text that the Oregon Boletus pulcherrimus death was 'a 1974 poisoning', while the same work's reference list describes the NAMA registry entry as a 'death in Oregon from Boletus pulcherrimus in 1994'. The work contradicts itself. Safest phrasing is 'an Oregon case recorded in the NAMA Case Registry', with no year.",
+          "MUSCARINE IN RUBROBOLETUS PULCHERRIMUS. A claim that this species contains muscarine circulates widely online. No fetchable primary source for it was found. Recorded as UNSUPPORTED; it should not be repeated."
+        ],
+        "gaps": [
+          "No peer-reviewed case report for the R. pulcherrimus fatality was located; the account traces to a case registry via a reference work.",
+          "No source gives an elevation bound for B. edulis. The PNW Key Council's habitat field is one line and contains no elevation; Burke Museum's reads only 'Occurs with conifers.' GBIF carries an elevation field on 0.7% of PNW records for this species, so it cannot substitute for a source.",
+          "MycoBank, Index Fungorum, the Oregon Mycological Society and the Puget Sound Mycological Society all failed to yield fetchable content in this review. Nomenclature here rests on GBIF plus the peer-reviewed phylogeny."
+        ],
+        "proposed_changes": [
+          "NO MODELLED PARAMETER WAS TOUCHED. fruiting_conditions, association and substrate are exactly as found. The look_alikes correction above is a PROSE field; no scorer reads look_alikes.",
+          "elevation_min_ft = 0 on this profile is an unfilled field rather than a measurement, and no source was found that would fill it. GBIF specimen records do exist at 1-3 m on the Oregon coast (Neskowin, Pacific City), so 0 is not obviously wrong for this species — but that is occurrence data, not literature. Note that nothing in the Go scorer reads ElevationMinFt, while site/build.py does render it.",
+          "POSSIBLE ASSOCIATION REVIEW, PROPOSED NOT DONE. The profile lists spruce, fir, pine, hemlock, douglas_fir. The PNW Key Council says only 'usually under conifers but may occur with hardwoods', and MykoWeb's California account is pine-dominated. The current list is broad and conifer-centric, which is consistent with both; no change indicated, but it has never been measured against observations."
+        ]
+      },
       "edibility": "choice"
     },
     "coprinus_comatus": {
@@ -814,10 +1279,66 @@
         "incubation_days_max": 21
       },
       "look_alikes": [
-        "Boletus edulis / B. rex-veris is the spring counterpart of the fall king — both choice; distinguish mainly by season and its habit of pushing up half-buried in duff",
-        "Bitter bolete (Tylopilus felleus) — not toxic but ruins a dish with intense bitterness; has pinkish pores and a dark net on the stalk",
-        "Red-pored boletes (e.g. Rubroboletus/Suillellus types) — avoid any bolete with orange/red pore surface that stains strongly blue"
+        "Boletus edulis (King Bolete) — the fall counterpart, and the separation is largely season and habit. MykoWeb: B. edulis 'differs in having a more clavate stipe and a brownish cap that lacks pinkish tints when young. Additionally, it rarely occur in clusters, and usually fruits in late summer or fall'. The spring king comes up in 'small groups or cespitose clusters under montane conifers, especially pines & firs; fruiting in late spring', often half-buried in duff near the receding snowline. Both are treated as choice; this is a naming question, not a safety one.",
+        "Caloboletus species (Bitter Boletes) — THE CORRECT REGIONAL BITTER LOOK-ALIKE, replacing the Tylopilus felleus entry this profile used to carry. The Pacific Northwest Key Council defines the genus: 'Caloboletus (bitter boletes) have sour-bitter flavour, and blue-bruising reactions of pores and flesh.' Four occur here. C. rubripes is the commonest (160 GBIF records in the mapped box): 'TASTE unpleasant, bitter. ODOR often strong unpleasant. TUBES and PORES yellow, darkening with age; bluing immediately when bruised.' C. calopus is 'not considered poisonous, but too bitter to eat'; C. conifericola 'too bitter to eat'; C. marshii 'not edible'. THE POINT OF DIFFERENCE THAT MATTERS: these are YELLOW-pored and stain blue INSTANTLY, whereas the eastern Tylopilus felleus that field guides name is PINK-pored and does not blue. A forager here told to watch for pink pores is being pointed at the wrong mushroom. NAMA's registry carries a Washington case: 'Boletus cf marshii WA 1 Adult 12 hours Chills, flushing, nausea.'",
+        "Red-pored boletes — Rubroboletus pulcherrimus (63 GBIF records in the mapped box) and R. eastwoodiae (26). R. pulcherrimus is the one bolete implicated in a North American death: Duffy's Toxic Fungi of Western North America records that 'An Oregon husband and wife began with typical gastrointestinal symptoms' in a poisoning where 'The husband, however, died suddenly' and 'his autopsy showed small bowel death from lack of blood supply'. The date is disputed between sources — see research.conflicts. The field rule is to avoid any bolete with an orange or red pore surface that stains strongly blue. CRITICAL CAVEAT: the bitter-taste test does NOT screen for this — the dangerous red-pored species taste mild, while the merely-bitter Caloboletus is the one that tastes bad. Bitterness sorts for palatability, not for toxicity.",
+        "REMOVED: Tylopilus felleus. The profile previously named the bitter bolete as a look-alike. GBIF holds ZERO records of T. felleus anywhere in the Oregon-Washington box, against a genus total of 37 there, of which 35 are the unrelated T. pseudoscaber. T. felleus is an eastern and European species and the entry appears to be inherited from a non-regional field guide — the same signature as the 'beech' entries elsewhere in this dataset. The bitter boletes a forager meets here are Caloboletus, above."
       ],
+      "research": {
+        "reviewed": "2026-09-10",
+        "method": "Open-web source review plus GBIF range checking over the mapped box (lat 42-49, lon -125 to -116.5) on 2026-09-10. This species was not on the priority list for this pass; it was reviewed because the elevation finding below turned up while checking something else, and because its look-alike list shared an error with the porcini profile.",
+        "independent_source_count": 5,
+        "confidence": "moderate. The Caloboletus and range findings are solid. The elevation finding rests partly on a hobbyist source corroborated by occurrence data, which is weaker than I would like for a number the model consumes — which is exactly why it is proposed rather than applied.",
+        "sources": [
+          {
+            "title": "BOLETES in the Pacific Northwest (regional key)",
+            "authors": "Gibson, I. (MatchMaker)",
+            "publication": "Pacific Northwest Key Council / South Vancouver Island Mycological Society",
+            "url": "https://www.svims.ca/council/Bolete.htm",
+            "supports": "The Caloboletus genus definition and the four PNW species with their taste, staining, distribution and edibility entries; and that this key gives NO elevation for B. rex-veris or B. edulis while giving explicit elevations for other boletes, which makes the omission an editorial choice rather than an oversight."
+          },
+          {
+            "title": "California Fungi — Boletus rex-veris",
+            "authors": "Wood, M.; Stevens, F.",
+            "publication": "MykoWeb",
+            "url": "https://www.mykoweb.com/CAF/species/Boletus_rex-veris.html",
+            "supports": "Description, the clustered montane habit, late-spring season, and the separation from B. edulis on stipe shape, cap tint and season."
+          },
+          {
+            "title": "Toxic Fungi of Western North America",
+            "authors": "Duffy, T. J., MD",
+            "publication": "hosted at MykoWeb",
+            "url": "https://www.mykoweb.com/TFWNA/P-54.html",
+            "supports": "The Oregon Boletus (now Rubroboletus) pulcherrimus fatality and the autopsy finding of small-bowel infarction."
+          },
+          {
+            "title": "Summary of the Poisoning Reports in the NAMA Case Registry",
+            "authors": "Beug, M. W.",
+            "publication": "North American Mycological Association",
+            "url": "https://namyco.org/wp-content/uploads/2023/08/2006-2017_Summary_of_Mushroom_Poisoning_Reports.pdf",
+            "supports": "The Washington Caloboletus marshii case, and — as a NEGATIVE finding — that fifty years of registry data contain no Tylopilus felleus case."
+          },
+          {
+            "title": "GBIF occurrence API",
+            "publication": "Global Biodiversity Information Facility",
+            "url": "https://api.gbif.org/v1/occurrence/search",
+            "supports": "The range evidence: Tylopilus felleus 0 in the mapped box; Caloboletus rubripes 160, C. calopus 55; Rubroboletus pulcherrimus 63, R. eastwoodiae 26; B. rex-veris 393. Also the elevation distribution quoted below."
+          }
+        ],
+        "conflicts": [
+          "THE FATALITY DATE. MykoWeb's Toxic Fungi of Western North America says in its body text that the Oregon Boletus pulcherrimus death was 'a 1974 poisoning', while its OWN reference list describes the same NAMA registry entry as a 'death in Oregon from Boletus pulcherrimus in 1994'. The same work contradicts itself. Safest phrasing is 'an Oregon case recorded in the NAMA Case Registry' without a year.",
+          "MUSCARINE IN RUBROBOLETUS PULCHERRIMUS. A claim that this species contains muscarine circulates widely online. No fetchable primary source for it was found in this review. It is recorded here as UNSUPPORTED and should not be repeated."
+        ],
+        "gaps": [
+          "No peer-reviewed case report for the Rubroboletus pulcherrimus fatality was located — the account traces to the NAMA Case Registry via Duffy, not to a medical journal.",
+          "The elevation figure below has only one explicit textual source and it is a hobbyist site; the corroboration is occurrence data, not literature."
+        ],
+        "proposed_changes": [
+          "elevation_min_ft = 2500 ON THIS PROFILE IS CORRECT, AND THE RESEARCH CORROBORATES IT. I record this as a positive result because I went looking for an error and found the opposite. The spring king is a montane snowmelt species: Oregon Discovery states they 'grow under Ponderosa pines and white firs at higher elevations of 3,000 feet above sea level and higher'; MykoWeb gives 'montane conifers'; the PNW Key Council notes it is 'common east of Cascade Mt. Summit'. GBIF corroborates independently — of the 21 PNW records carrying an elevation field, 17 are above 2,200 ft, with a median of 3,051 ft. The profile's 2,500 ft floor sits squarely inside that. NOTHING CHANGED.",
+          "THIS PROFILE AND pigs_ears.json ARE THE ONLY TWO CARRYING A NON-ZERO elevation_min_ft (2,500 and 1,000 respectively); the other sixteen are 0. That pattern suggests the field was deliberately filled for the montane species and left at 0 elsewhere, rather than never being filled at all — which is a more favourable reading of the dataset than I started with. Note separately that NOTHING IN THE GO SCORER READS ElevationMinFt (only ElevationMaxFt is consumed, as a ceiling), so even this correct value currently changes no prediction. It IS rendered on the public site by site/build.py.",
+          "LOOK-ALIKE CORRECTION APPLIED: Tylopilus felleus was removed from look_alikes and replaced with the Caloboletus species that actually occur here. That is a PROSE field, not a modelled one — no scorer reads look_alikes. NO MODELLED PARAMETER WAS TOUCHED: fruiting_conditions, association and substrate are exactly as found."
+        ]
+      },
       "edibility": "choice",
       "special_notes": "The spring king — a montane Boletus edulis relative that fruits in the WARMING soil at the receding snowline, so temp_trend is 'warming' (not a fall cooling species). Look for it half-buried, pushing up through conifer duff near lingering snowbanks on the east-Cascade and higher-elevation slopes from late spring into early summer. Choice edible with firm white flesh; safe boletes here have white-to-yellow pores that do not stain intensely blue and a mild taste. Fruiting is tied to SNOWMELT moisture more than to discrete rain events, so the precip and days-after-rain fields are weak predictors here — flagged lower-confidence, and elevation band matters more than rainfall for this species."
     },
@@ -872,8 +1393,72 @@
         "notes": "PNW specialty. Prefers old-growth and mature second-growth Douglas fir forests. Cooler and wetter preference than golden chanterelle. Often found on north-facing slopes in deep duff."
       },
       "look_alikes": [
-        "short_stemmed_russula"
+        "Turbinellus floccosus / T. kauffmanii (Scaly and Woolly Chanterelle) — THE best-evidenced real-world confusion for this species, and one the profile did not carry. The NAMA case registry records a Washington case from August 2020: two adults ate half a pound, well cooked, and 'Both suffered diarrhea, intestinal cramps, headache. Expected \"white chanterelles\"'. Turbinellus is a deeply vase-shaped fruiting body with a coarsely scaly orange cap and a hollow core; onset is late, 8-14 hours per the UBC Beaty Museum, which is long enough to obscure the cause. This is a documented local incident rather than an inherited warning.",
+        "Russula brevipes (Short-stemmed Russula) — the confusion the profile already named, and it is well founded: 1,258 GBIF records in the mapped box, a stout pale mushroom in the same conifer duff, with caps that 'can be completely invisible, making only a bulge covered by duff and soil' (UBC Beaty). The separation is the underside. Russula brevipes has true gills, 'very crowded, with many short gills interspersed among the long gills'; the white chanterelle has 'blunt, anastomosing ridges, well forked near the margin, strongly decurrent' (MykoWeb). Beaty states the comparison from the Russula side: 'The white chanterelle looks superficially similar, but has thick vein-like gills on the underside of the cap. It is smaller and not as substantial as the short-stemmed russula.' Russula brevipes is itself considered edible — this is a disappointment rather than a poisoning — though Beaty cautions to 'Avoid eating acrid/hot specimens' and notes it is a species complex. It is also the host of the lobster mushroom, which is why it carries its own host-only profile in this dataset.",
+        "Tricholoma murrillianum (Pacific Matsutake) — named by MykoWeb as a white-chanterelle confusion, and it 'also tends to bruise yellow to tawny-brown, but the gills are not decurrent, and it has a well developed veil and a strong spicy odor'. IMPORTANT AND STATED CAREFULLY: matsutake's own dangerous look-alike is Amanita smithiana, which causes kidney failure and is a white mushroom in this same conifer duff. NO SOURCE CONSULTED NAMES AMANITA SMITHIANA AS A WHITE-CHANTERELLE LOOK-ALIKE, and this profile does not claim it is one — the link is a two-step habitat adjacency, not a documented confusion. It is recorded only so that anyone working through pale mushrooms in this habitat reads the matsutake profile's look-alikes as well as this one.",
+        "Leucopaxillus albissimus — named by MykoWeb and not previously in this profile. A large white mushroom with 'subdecurrent \"true\" gills, not easily confused with the blunt gill-like ridges of the white chanterelle', which additionally 'differs in fruiting from a bed of dense, white mycelium' — a thick white mat in the duff beneath it that a chanterelle does not have.",
+        "Other pale chanterelles — USFS PNW-GTR-576 records that white and golden chanterelles are confused in BOTH directions, because 'with handling the whites tend to yellow and darken, and the goldens lose color as they dry', and because 'in the forest, golden chanterelles are sometimes pale to almost white when sheltered from light under duff or debris'. It also names an unnamed British Columbia species close to the European pale chanterelle C. pallens, and material reported as C. cibarius var. pallidifolius from under tanbark oaks in California. All are chanterelles."
       ],
+      "research": {
+        "reviewed": "2026-09-10",
+        "method": "Open-web source review by two independent routes. Every statement above is attributable to a source listed here. GBIF occurrence counts quoted here are from the public API on 2026-09-10, restricted to the box this map covers: api.gbif.org/v1/occurrence/search?taxonKey=<key>&decimalLatitude=42,49&decimalLongitude=-125,-116.5&hasCoordinate=true&limit=0. They measure RECORDED OBSERVATIONS, which is observer effort as much as biology.",
+        "independent_source_count": 6,
+        "confidence": "moderate, and I want to be plain about why. The morphological separations are well sourced, but only two sources address the white-chanterelle / Russula question directly, and the question 'is there a DANGEROUS white look-alike' came back with one documented incident (Turbinellus, Washington 2020) and no source at all for the Amanita smithiana version that seemed most likely a priori. Treat the short list as a limit of the written record, not as evidence that few confusions exist.",
+        "sources": [
+          {
+            "title": "Ecology and Management of Commercially Harvested Chanterelle Mushrooms",
+            "authors": "Pilz, D.; Norvell, L.; Danell, E.; Molina, R.",
+            "publication": "USDA Forest Service, Gen. Tech. Rep. PNW-GTR-576",
+            "year": 2003,
+            "url": "https://www.fs.usda.gov/pnw/pubs/pnw_gtr576.pdf",
+            "supports": "Bidirectional confusion with the Pacific golden chanterelle and the pale-chanterelle segregates."
+          },
+          {
+            "title": "California Fungi — Cantharellus subalbidus, Russula brevipes",
+            "authors": "Wood, M.; Stevens, F.",
+            "publication": "MykoWeb",
+            "url": "https://www.mykoweb.com/CAF/species/Cantharellus_subalbidus.html",
+            "supports": "Description and the ridge character; the Leucopaxillus albissimus and Tricholoma magnivelare confusions, neither previously recorded here; and that Russula brevipes 'is a species complex with more than one taxa' hidden under the name."
+          },
+          {
+            "title": "Mushrooms Up! — Russula brevipes, Amanita smithiana",
+            "publication": "UBC Beaty Biodiversity Museum",
+            "url": "https://explore.beatymuseum.ubc.ca/mushroomsup/R_brevipes.html",
+            "supports": "The white-chanterelle comparison stated from the Russula side, the crowded-true-gills character, the acrid-specimen caution, the Hypomyces lactifluorum host relationship and that raw lobster mushrooms may cause stomach upsets. Also, for the negative finding, that the confusion Beaty documents for A. smithiana is with matsutake and NOT with white chanterelle."
+          },
+          {
+            "title": "Summary of Mushroom Poisoning Reports (case registry), 2006-2017 and 2018-2020",
+            "authors": "Beug, M. W.",
+            "publication": "North American Mycological Association Case Registry",
+            "url": "https://namyco.org/wp-content/uploads/2023/08/2018-2020_Summary_of_Mushroom_Poisoning_Reports_Corrected_final-1.pdf",
+            "supports": "The Washington 2020 Turbinellus case where two adults ate half a pound expecting white chanterelles — the only documented local incident found for this species."
+          },
+          {
+            "title": "Amanita smithiana",
+            "publication": "Vancouver Mycological Society",
+            "url": "https://vanmyco.org/about-mushrooms/poisonous/amanita-smithiana/",
+            "supports": "That A. smithiana's documented confusion is with the pine mushroom / matsutake, not with white chanterelle. Cited for the NEGATIVE finding, which is the honest use of it."
+          },
+          {
+            "title": "GBIF occurrence API",
+            "publication": "Global Biodiversity Information Facility",
+            "url": "https://api.gbif.org/v1/occurrence/search",
+            "supports": "Regional abundance: R. brevipes 1,258, C. subalbidus 761, T. floccosus 1,352 records in the mapped box."
+          }
+        ],
+        "conflicts": [
+          "HABITAT AND SEASON. MykoWeb gives 'duff under mixed hardwood/conifer woods' with pines, Douglas fir and madrone, fruiting 'from late fall to mid-winter'. USFS PNW-GTR-576 gives 'mycorrhizal with Douglas-fir and hemlocks' and says they 'commonly fruit in late summer and early fall'. Those are different host lists and nearly opposite ends of the season. The likeliest explanation is latitude — MykoWeb describes Californian material, the USFS report the range as a whole — but this profile's association list and months were NOT changed on the strength of it, and the profile's own months (9-12) straddle both. Flagged for whoever has the observation data to settle it."
+        ],
+        "gaps": [
+          "NO SOURCE FOUND naming Amanita smithiana, Hygrophorus, Albatrellus or a white Clitocybe as a white-chanterelle look-alike. Recorded as an absence in the literature, NOT as reassurance that none exists.",
+          "No sourced elevation bound. GBIF carries elevation on a small minority of PNW records for this genus.",
+          "MycoBank was not consulted; nomenclature rests on GBIF and Index Fungorum."
+        ],
+        "proposed_changes": [
+          "NO MODELLED PARAMETER WAS TOUCHED. fruiting_conditions, association and substrate are as found, including through the season/host conflict above.",
+          "Possible association review: MykoWeb names madrone and pine for this species where the profile lists douglas_fir, hemlock, spruce, fir. Proposed for measurement against observations, not edited here."
+        ]
+      },
       "edibility": "choice"
     },
     "craterellus_tubaeformis": {
@@ -931,8 +1516,80 @@
         "notes": "The cold-weather chanterelle. Fruits prolifically in wet, cold conditions that stop golden chanterelles. Found in mossy conifer forests, often near streams and in boggy areas. Grows in dense clusters."
       },
       "look_alikes": [
-        "false_chanterelle"
+        "Hygrophoropsis aurantiaca (False Chanterelle) — the look-alike regional authorities name first for this species, and it shares yellowfoot's habit of fruiting from decayed conifer wood; 1,089 GBIF records in the mapped box. USFS PNW-GTR-576: 'Novices might mistake the darker young forms of the false chanterelle ... or other similarly colored mushrooms with gills that continue down the stem ... for the winter chanterelle. All of these look-alikes, however, have bright orange, thin gills rather than ridges.' The UBC Beaty Museum gives a finer separation: 'The yellowfoot's forking veins tend to be thicker, further apart, and lighter in colour than the gills of the false chanterelle. The margin of the yellowfoot's cap is usually distinctly wavy, while the circumference of the false chanterelle's cap is flattish.' Its edibility is disputed across four positions in the sources — the disagreement is recorded on the golden chanterelle profile.",
+        "Chrysomphalina chrysophylla and Hygrocybe species — named in the same breath by USFS PNW-GTR-576 and by E-Flora BC as 'similarly colored cap and decurrent gills ... but they are thin true gills rather than ridges'. C. chrysophylla has 147 GBIF records in the mapped box, so this is a live regional confusion rather than a borrowed one.",
+        "Golden chanterelles — Rebecca Lexa's PNW naturalist guide notes 'Yellowfoot looks a lot like golden/yellow Cantharellus chanterelles; the main difference is the darker-colored cap and sometimes hollow stipe in yellowfoot.' Both are edible; the risk is taxonomic rather than toxicological.",
+        "NOTE ON WHAT IS NOT HERE, AND WHY. No source consulted named a deadly look-alike for the winter chanterelle. Because this species fruits overwhelmingly from well-decayed wood and moss — Kuo cites a 2004 Trappe study putting it on woody debris 88% of the time — the obvious question is confusion with small brown wood-rotting mushrooms, above all the amatoxin-containing Galerina marginata, which the UBC Beaty Museum records on 'rotting wood of conifers ... Sometimes, wood is buried and the fungi appear to be growing from the ground or amid moss'. THAT HABITAT OVERLAP IS SOURCED; THE CONFUSION IS NOT. No source consulted asserts a yellowfoot/Galerina confusion, and this profile does not assert one either. What separates them is unambiguous where it matters: a Craterellus has blunt decurrent ridges, a hollow stem and a white spore print; a Galerina has crowded true gills, a ring, and a rusty-brown spore print. Recorded as an open question rather than as reassurance."
       ],
+      "research": {
+        "reviewed": "2026-09-10",
+        "method": "Open-web source review by two independent routes. GBIF occurrence counts quoted here are from the public API on 2026-09-10, restricted to the box this map covers: api.gbif.org/v1/occurrence/search?taxonKey=<key>&decimalLatitude=42,49&decimalLongitude=-125,-116.5&hasCoordinate=true&limit=0. They measure RECORDED OBSERVATIONS, which is observer effort as much as biology.",
+        "independent_source_count": 7,
+        "confidence": "good on the nomenclature question, which resolved unusually cleanly; thin on look-alikes, where only the USFS monograph and E-Flora BC give a substantive regional treatment. Do not read the short look-alike list as evidence that few confusions exist.",
+        "sources": [
+          {
+            "title": "Ecology and Management of Commercially Harvested Chanterelle Mushrooms",
+            "authors": "Pilz, D.; Norvell, L.; Danell, E.; Molina, R.",
+            "publication": "USDA Forest Service, Gen. Tech. Rep. PNW-GTR-576",
+            "year": 2003,
+            "url": "https://www.fs.usda.gov/pnw/pubs/pnw_gtr576.pdf",
+            "supports": "The winter-chanterelle look-alike paragraph, the thin-gills-not-ridges separation, the habitat on well-decayed wood, and the Craterellus neotubaeformis nomenclature discussion."
+          },
+          {
+            "title": "Craterellus tubaeformis — Conservation Status Assessment, Heritage Rank G4G5",
+            "authors": "Norvell, L. L. (quoted); Oregon Biodiversity Information Center",
+            "publication": "Institute for Natural Resources, Oregon State University",
+            "year": 2017,
+            "url": "https://inr.oregonstate.edu/sites/inr.oregonstate.edu/files/craterellus-tubaeformis-global.pdf",
+            "supports": "The strongest regional source on this species' identity, in the responsible mycologist's own words: 'the organism flagged in 1994 does not appear to represent the European C. tubaeformis ... Scott Redhead, Matt Trappe, and I intended to name the new species Craterellus neotubaeformis but we've still not managed to write the paper!' Also Trappe's finding that the PNW taxon is mycorrhizal with western hemlock, Douglas-fir and Sitka spruce, 'with a hemlock component (included well decayed wood) needed for fruiting'."
+          },
+          {
+            "title": "Craterellus species 02",
+            "authors": "Kuo, M.",
+            "publication": "MushroomExpert.Com",
+            "url": "https://www.mushroomexpert.com/craterellus_species_02.html",
+            "supports": "That 'the name Craterellus neotubaeformis was applied as a provisional name by Pilz and collaborators (2003) ... but the name has not been validly published'; that DNA supports the western material as distinct; that it is unclear whether any MORPHOLOGICAL feature separates it; and the Trappe 2004 figure of 88% on well-decayed woody debris."
+          },
+          {
+            "title": "California Fungi — Craterellus tubaeformis",
+            "authors": "Wood, M.; Stevens, F.",
+            "publication": "MykoWeb",
+            "url": "https://www.mykoweb.com/CAF/species/Craterellus_tubaeformis.html",
+            "supports": "The Cantharellus-versus-Craterellus placement resolved by molecular evidence; the synonym list; and habitat 'on soil, moss, and rotten wood in conifer woods during mid-winter'."
+          },
+          {
+            "title": "E-Flora BC atlas, content extracted from 'Matchmaker: Mushrooms of the Pacific Northwest'",
+            "authors": "Gibson, I.",
+            "publication": "University of British Columbia",
+            "url": "https://linnet.geog.ubc.ca/Atlas/Atlas.aspx?sciname=Craterellus+tubaeformis",
+            "supports": "The decurrent-gilled confusion set (Hygrophoropsis group, Chrysomphalina chrysophylla, some Hygrocybe) and the ridges-versus-true-gills separation, attributed to Pilz."
+          },
+          {
+            "title": "Mushrooms Up! — Hygrophoropsis aurantiaca, Galerina marginata",
+            "publication": "UBC Beaty Biodiversity Museum",
+            "url": "https://explore.beatymuseum.ubc.ca/mushroomsup/H_aurantiaca.html",
+            "supports": "The yellowfoot-versus-false-chanterelle separation on vein thickness and cap margin; and, for the open question above, Galerina's habitat on rotting conifer wood and moss together with its amatoxin course."
+          },
+          {
+            "title": "GBIF occurrence API and Index Fungorum name service",
+            "publication": "Global Biodiversity Information Facility; Index Fungorum (Kew)",
+            "url": "https://www.indexfungorum.org/ixfwebservice/fungus.asmx/NameSearch?SearchText=Craterellus%20tubaeformis",
+            "supports": "Craterellus tubaeformis (Fr.) Quel. 1888 is Legitimate with itself as current name, GBIF usage key 2554536, matching this profile exactly; Cantharellus tubaeformis is a heterotypic synonym. A search for 'Craterellus neotubaeformis' returns NOTHING in either database, confirming the provisional name was never validly published."
+          }
+        ],
+        "conflicts": [
+          "THE NAME IS UNSETTLED, AND THE PROFILE'S NAME IS STILL THE RIGHT ONE TO USE. Four independent sources agree the PNW winter chanterelle is probably not European Craterellus tubaeformis: USFS PNW-GTR-576 declines to use the name at all and substitutes 'Craterellus neotubaeformis nom. prov.'; the Oregon Biodiversity Information Center quotes Norvell saying the intended paper was never written; Kuo states the name 'has not been validly published'; MykoWeb says 'our west coast species may eventually get a new name'. All four also agree nobody published it — and neither GBIF nor Index Fungorum returns any record for the name. So the correct AVAILABLE name is Craterellus tubaeformis, which is what this profile uses, while the underlying organism is most likely an undescribed western species. No change recommended; recorded so the next reader knows it was checked rather than missed.",
+          "SUBSTRATE — THE MOST SUBSTANTIVE MODELLING QUESTION ON THIS PROFILE. It declares substrate 'mycorrhizal', which is right about the biology: Trappe, quoted by the Oregon Biodiversity Information Center, has the PNW taxon mycorrhizal with western hemlock, Douglas-fir and Sitka spruce. But it fruits from WOOD, and overwhelmingly so — Kuo cites Trappe (2004) at 88% of the time on well-decayed woody debris, and PNW-GTR-576 describes it 'usually found scattered to clustered on well-decayed wood ... or sometimes in soil and humus'. The Oregon assessment puts the two together: a hemlock component 'included well decayed wood' is NEEDED for fruiting. Both facts are true, and a model that reads substrate to choose a terrain layer may therefore be looking at the wrong surface for this species — mycorrhizal for the partner, deadwood for the fruiting site. FLAGGED, NOT CHANGED: substrate is read by the scorer, and this is a literature note, not a measurement."
+        ],
+        "gaps": [
+          "NO SOURCE FOUND for a yellowfoot/Galerina confusion, in either direction. The habitat overlap is sourced; the confusion is not.",
+          "No sourced elevation bound, upper or lower. GBIF carries elevation on 4.2% of PNW records for this species and those cluster at a few repeatedly-sampled sites, so it cannot substitute for one.",
+          "MycoBank was not consulted; nomenclature rests on Index Fungorum and GBIF."
+        ],
+        "proposed_changes": [
+          "NO MODELLED PARAMETER WAS TOUCHED. In particular substrate was left as 'mycorrhizal' despite the 88%-on-wood finding above, because substrate is consumed by the scorer. This is the one place in this review where I think a modelled field may be materially wrong for prediction purposes and I would want it MEASURED rather than argued: if the terrain layer for 'mycorrhizal' points at soil and duff, this species is being scored against the wrong surface most of the time."
+        ]
+      },
       "edibility": "choice"
     }
   }
