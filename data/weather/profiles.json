@@ -1,0 +1,939 @@
+{
+  "snapshot_of": "sandbox/mycomap/species/*.json",
+  "taken_at": "2026-09-10T17:02:51.505Z",
+  "profiles": {
+    "craterellus_calicornucopioides": {
+      "id": "craterellus_calicornucopioides",
+      "common_name": "Black Trumpet",
+      "scientific_name": "Craterellus calicornucopioides",
+      "taxonomy": {
+        "inat_taxon_id": 473935,
+        "gbif_usage_keys": [
+          8358272
+        ],
+        "resolved": "2026-09-08 via iNaturalist /v1/taxa and GBIF /v1/species/match (kingdom=Fungi); both matched this profile's scientific_name EXACTLY"
+      },
+      "substrate": "mycorrhizal",
+      "host_genera": [
+        "Notholithocarpus",
+        "Quercus",
+        "Lithocarpus"
+      ],
+      "association": [
+        "tanoak",
+        "live-oak",
+        "oak"
+      ],
+      "fruiting_conditions": {
+        "air_temp_min_f": 38,
+        "air_temp_max_f": 68,
+        "air_temp_optimal_f": 52,
+        "soil_temp_min_f": 42,
+        "soil_temp_max_f": 60,
+        "precip_threshold_inches_48h": 0.75,
+        "days_after_rain_min": 7,
+        "days_after_rain_max": 21,
+        "relative_humidity_min_pct": 75,
+        "elevation_min_ft": 0,
+        "elevation_max_ft": 3000,
+        "temp_trend_trigger": "cooling",
+        "incubation_days_min": 14,
+        "incubation_days_max": 28
+      },
+      "look_alikes": [
+        "Craterellus cornucopioides (near-identical eastern species, also choice)",
+        "Craterellus cinereus / Cantharellus-type dark chanterelles (also edible)",
+        "Devil's urn (Urnula craterium) at a glance, but that is a cup fungus on wood, not a hollow trumpet on soil"
+      ],
+      "edibility": "choice",
+      "special_notes": "Thin, hollow, dark grey-to-black trumpet fruiting in troops on the ground under tanoak and coastal live-oak, mostly in the lower-elevation coastal band of SW Oregon and NW California; genuinely scarce north of the Columbia. No dangerous look-alikes — all similar Craterellus are edible. Cryptic against leaf litter; found by patient ground-searching once one is spotted. A late, moisture-loving species: the long days-after-rain window (7-21) tracks sustained wet weather, not a single storm — flagged lower-confidence for calibration, and northern-PNW temperature floors are conservative."
+    },
+    "lactarius_rubidus": {
+      "id": "lactarius_rubidus",
+      "common_name": "Candy Cap",
+      "scientific_name": "Lactarius rubidus",
+      "taxonomy": {
+        "inat_taxon_id": 55276,
+        "gbif_usage_keys": [
+          8293722
+        ],
+        "resolved": "2026-09-08 via iNaturalist /v1/taxa and GBIF /v1/species/match (kingdom=Fungi); both matched this profile's scientific_name EXACTLY"
+      },
+      "substrate": "mycorrhizal",
+      "host_genera": [
+        "Pseudotsuga",
+        "Notholithocarpus",
+        "Quercus"
+      ],
+      "association": [
+        "douglas-fir",
+        "tanoak",
+        "live-oak"
+      ],
+      "fruiting_conditions": {
+        "air_temp_min_f": 38,
+        "air_temp_max_f": 68,
+        "air_temp_optimal_f": 50,
+        "soil_temp_min_f": 42,
+        "soil_temp_max_f": 60,
+        "precip_threshold_inches_48h": 0.75,
+        "days_after_rain_min": 5,
+        "days_after_rain_max": 14,
+        "relative_humidity_min_pct": 75,
+        "elevation_min_ft": 0,
+        "elevation_max_ft": 3000,
+        "temp_trend_trigger": "cooling",
+        "incubation_days_min": 10,
+        "incubation_days_max": 21
+      },
+      "look_alikes": [
+        "Lactarius rufulus and other small red-brown milk-caps — some are acrid/inedible; candy cap is distinguished by watery whey-like (not white) latex and, above all, the strong maple-syrup / curry smell that intensifies as it dries",
+        "Small brown Lactarius/Russula generally — a beginner should confirm the milk, the smell, and a spore print before eating"
+      ],
+      "edibility": "edible",
+      "special_notes": "Small orange-brown milk-cap prized as a culinary novelty — dried, it smells and tastes of maple syrup and is used in desserts. ID hinges on the watery, thin, whey-like latex (not the copious white milk of most Lactarius) plus the unmistakable maple/curry aroma when dried. Low, coastal, cool-wet fall-into-winter species. No deadly look-alikes, but several look-alike small brown Lactarius are acrid or GI-irritating, so confirm latex + smell before eating and start with a small amount. Elevation ceiling and the northern extent of its range are lower-confidence — strongest data is coastal SW Oregon and California."
+    },
+    "sparassis_radicata": {
+      "id": "sparassis_radicata",
+      "common_name": "Cauliflower Mushroom",
+      "scientific_name": "Sparassis radicata",
+      "taxonomy": {
+        "inat_taxon_id": 486226,
+        "gbif_usage_keys": [
+          2550248
+        ],
+        "resolved": "2026-09-08 via iNaturalist /v1/taxa and GBIF /v1/species/match (kingdom=Fungi); both matched this profile's scientific_name EXACTLY"
+      },
+      "substrate": "parasitic",
+      "host_genera": [
+        "Pseudotsuga",
+        "Pinus",
+        "Abies",
+        "Tsuga"
+      ],
+      "association": [
+        "douglas-fir",
+        "pine",
+        "fir",
+        "hemlock"
+      ],
+      "fruiting_conditions": {
+        "air_temp_min_f": 40,
+        "air_temp_max_f": 75,
+        "air_temp_optimal_f": 55,
+        "soil_temp_min_f": 45,
+        "soil_temp_max_f": 65,
+        "precip_threshold_inches_48h": 1,
+        "days_after_rain_min": 5,
+        "days_after_rain_max": 14,
+        "relative_humidity_min_pct": 72,
+        "elevation_min_ft": 0,
+        "elevation_max_ft": 5000,
+        "temp_trend_trigger": "cooling",
+        "incubation_days_min": 10,
+        "incubation_days_max": 21
+      },
+      "look_alikes": [
+        "Sparassis crispa (eastern/European cauliflower, also edible)",
+        "Wood cauliflower / Turbinellus and Ramaria clusters (coral fungi) at a glance, but Sparassis has flat wavy 'egg-noodle' lobes rather than upright branches"
+      ],
+      "edibility": "choice",
+      "special_notes": "Large brain/noodle-like rosette fruiting at the base of living or recently dead conifers, especially Douglas-fir. Root/butt-rot parasite — it fruits at the same stump or tree base year after year, so a confirmed spot is a reliable annual producer. No dangerous look-alikes; the wavy flattened lobes are distinctive. Requires thorough cleaning (debris lodges between lobes). Slow to develop — the days-after-rain window (5-14) is a lower-confidence estimate because the large fruiting body responds to sustained fall moisture rather than a single rain event; next calibration round should verify against logged finds."
+    },
+    "cantharellus_cibarius": {
+      "id": "cantharellus_cibarius",
+      "common_name": "Golden Chanterelle",
+      "scientific_name": "Cantharellus formosus",
+      "taxonomy": {
+        "inat_taxon_id": 120443,
+        "gbif_usage_keys": [
+          5466954
+        ],
+        "resolved": "2026-09-08 via iNaturalist /v1/taxa and GBIF /v1/species/match (kingdom=Fungi); both matched this profile's scientific_name EXACTLY"
+      },
+      "substrate": "mycorrhizal",
+      "association": [
+        "douglas_fir",
+        "hemlock",
+        "spruce",
+        "fir",
+        "oak"
+      ],
+      "fruiting_conditions": {
+        "air_temp_min_f": 35,
+        "air_temp_max_f": 75,
+        "air_temp_optimal_f": 48,
+        "soil_temp_min_f": 40,
+        "soil_temp_max_f": 70,
+        "precip_threshold_inches_48h": 0.75,
+        "days_after_rain_min": 2,
+        "days_after_rain_max": 7,
+        "relative_humidity_min_pct": 62,
+        "elevation_min_ft": 0,
+        "elevation_max_ft": 5000,
+        "temp_trend_trigger": "cooling",
+        "incubation_days_min": 10,
+        "incubation_days_max": 21
+      },
+      "calibration": {
+        "fitted": [],
+        "unfitted": [
+          "air_temp_min_f",
+          "air_temp_optimal_f",
+          "air_temp_max_f",
+          "soil_temp_min_f",
+          "soil_temp_max_f",
+          "temp_trend_trigger",
+          "everything on the moisture side"
+        ],
+        "rule": "MEASURED AND LEFT ALONE. The same per-species temperature fit that moved morel's floors was run on chanterelle and every candidate lost. Do not 'improve' these numbers without re-running cmd/validate-backtest -fit-temp; they have already beaten their data-derived replacements.",
+        "evidence": "n=350 observations, 5-fold cross-validated grouped by observation, paired DeLong. Floors at the observed p5 (35->38 air, 40->38 soil): effort-matched AUC 0.795 -> 0.786, -0.0092 +/- 0.0030, RESOLVED WORSE; ring undecided. All five parameters at p5/p50/p95: ring -0.0159 +/- 0.0051 and effort-matched -0.0235 +/- 0.0048, both resolved worse. The 1,296-member grid search, cross-validated, also lost effort-matched (-0.0159 +/- 0.0034). Floor sensitivity is monotone: the further the floors drop below their current 35/40, the worse it gets, reaching -0.078 effort-matched at p30. Only 1% of real chanterelle fruitings sit below the 35F air floor and 11% below the 40F soil floor, against 25% and 62% for morel. Every figure here survives a cluster bootstrap over whole observations: the clustered standard error matches DeLong's paired one to the fourth decimal on all three control sets, so the rejection is not an artefact of treating correlated records as independent.",
+        "caveat": "This is why the global 10F temperature shoulder was the wrong shape rather than the wrong idea: it helped morel (+0.101) and cost chanterelle (-0.011) because chanterelle's floors were already close to right and morel's were not. A negative result on this species is what makes the morel result a calibration finding instead of a tuning constant.",
+        "measured": "2026-09-09 by cmd/validate-backtest -fit-temp",
+        "reproduce": "go run ./cmd/validate-backtest -species chanterelle -sweep -n 350 -spatial 2 -target-group 2 -background 2 -compare \"air-min=38,soil-min=38\"   # the p5 floors this species rejected. Add -fit-temp to re-derive from scratch."
+      },
+      "season": {
+        "primary": [
+          "fall"
+        ],
+        "extended": [
+          "late_summer",
+          "early_winter"
+        ],
+        "months": [
+          9,
+          10,
+          11,
+          12
+        ],
+        "notes": "PNW fall staple. Tight mycorrhizal association with Douglas fir. First flushes after sustained fall rains when soil temps drop below 60°F. Peaks Oct-Nov in Coast Range and Cascades foothills. Prefers mossy, well-drained slopes with mature second-growth."
+      },
+      "look_alikes": [
+        "jack_o_lantern",
+        "false_chanterelle"
+      ],
+      "edibility": "choice"
+    },
+    "laetiporus_conifericola": {
+      "id": "laetiporus_conifericola",
+      "common_name": "Chicken of the Woods",
+      "scientific_name": "Laetiporus conifericola",
+      "taxonomy": {
+        "inat_taxon_id": 118057,
+        "gbif_usage_keys": [
+          3362030
+        ],
+        "resolved": "2026-09-08 via iNaturalist /v1/taxa and GBIF /v1/species/match (kingdom=Fungi); both matched this profile's scientific_name EXACTLY"
+      },
+      "substrate": "parasitic",
+      "host_genera": [
+        "Pseudotsuga",
+        "Tsuga",
+        "Abies",
+        "Picea"
+      ],
+      "association": [
+        "douglas-fir",
+        "hemlock",
+        "fir",
+        "spruce"
+      ],
+      "fruiting_conditions": {
+        "air_temp_min_f": 50,
+        "air_temp_max_f": 85,
+        "air_temp_optimal_f": 70,
+        "soil_temp_min_f": 55,
+        "soil_temp_max_f": 75,
+        "precip_threshold_inches_48h": 0.5,
+        "days_after_rain_min": 3,
+        "days_after_rain_max": 10,
+        "relative_humidity_min_pct": 70,
+        "elevation_min_ft": 0,
+        "elevation_max_ft": 6000,
+        "temp_trend_trigger": "any",
+        "incubation_days_min": 5,
+        "incubation_days_max": 14
+      },
+      "look_alikes": [
+        "Laetiporus gilbertsonii (hardwood/eucalyptus chicken, also edible)",
+        "Other bracket polypores such as Berkeley's polypore or velvet-top/Phaeolus at a distance, but only true Laetiporus has soft, moist, bright orange-and-yellow flesh with no pores on top and yellow pores below"
+      ],
+      "edibility": "edible_with_caution",
+      "special_notes": "Bright orange-and-yellow shelving bracket on living and dead CONIFERS in the PNW (the conifer species, unlike the hardwood chickens). Warm-season fruiter — appears from late spring through fall whenever it is warm and wet, with no strong cooling trigger, hence temp_trend 'any'. CAUTION: the conifer host species (L. conifericola) more often causes GI upset, dizziness or lip-swelling than the hardwood forms, even in people who tolerate eastern chicken; eat only young, tender, actively growing margins, cook thoroughly, and try a small portion first. Old, dry, or bug-ridden shelves are not worth taking. Upper air-temp ceiling (85F) is a lower-confidence estimate."
+    },
+    "hydnum_repandum": {
+      "id": "hydnum_repandum",
+      "common_name": "Hedgehog Mushroom",
+      "scientific_name": "Hydnum repandum",
+      "taxonomy": {
+        "inat_taxon_id": 48641,
+        "gbif_usage_keys": [
+          2554716
+        ],
+        "resolved": "2026-09-08 via iNaturalist /v1/taxa and GBIF /v1/species/match (kingdom=Fungi); both matched this profile's scientific_name EXACTLY"
+      },
+      "substrate": "mycorrhizal",
+      "association": [
+        "oak",
+        "beech",
+        "fir",
+        "spruce",
+        "hemlock",
+        "douglas_fir"
+      ],
+      "fruiting_conditions": {
+        "air_temp_min_f": 38,
+        "air_temp_max_f": 60,
+        "air_temp_optimal_f": 48,
+        "soil_temp_min_f": 42,
+        "soil_temp_max_f": 55,
+        "precip_threshold_inches_48h": 0.5,
+        "days_after_rain_min": 3,
+        "days_after_rain_max": 8,
+        "relative_humidity_min_pct": 70,
+        "elevation_min_ft": 0,
+        "elevation_max_ft": 5000,
+        "temp_trend_trigger": "cooling",
+        "incubation_days_min": 10,
+        "incubation_days_max": 21
+      },
+      "season": {
+        "primary": [
+          "fall",
+          "winter"
+        ],
+        "extended": [
+          "late_fall"
+        ],
+        "months": [
+          10,
+          11,
+          12,
+          1,
+          2
+        ],
+        "notes": "Late fall through winter fruiter. Very cold tolerant — keeps fruiting after first frosts. Prefers mossy, damp conifer forests. Often found alongside chanterelle habitat but later in season."
+      },
+      "look_alikes": [],
+      "edibility": "choice"
+    },
+    "hericium_abietis": {
+      "id": "hericium_abietis",
+      "common_name": "Lion's Mane",
+      "scientific_name": "Hericium abietis",
+      "taxonomy": {
+        "inat_taxon_id": 55187,
+        "gbif_usage_keys": [
+          5248545
+        ],
+        "resolved": "2026-09-08 via iNaturalist /v1/taxa and GBIF /v1/species/match (kingdom=Fungi); both matched this profile's scientific_name EXACTLY"
+      },
+      "substrate": "deadwood",
+      "host_genera": [
+        "Abies",
+        "Tsuga",
+        "Pseudotsuga",
+        "Quercus",
+        "Acer"
+      ],
+      "association": [
+        "fir",
+        "hemlock",
+        "douglas-fir",
+        "oak",
+        "maple"
+      ],
+      "fruiting_conditions": {
+        "air_temp_min_f": 40,
+        "air_temp_max_f": 75,
+        "air_temp_optimal_f": 55,
+        "soil_temp_min_f": 42,
+        "soil_temp_max_f": 65,
+        "precip_threshold_inches_48h": 0.75,
+        "days_after_rain_min": 3,
+        "days_after_rain_max": 10,
+        "relative_humidity_min_pct": 72,
+        "elevation_min_ft": 0,
+        "elevation_max_ft": 5000,
+        "temp_trend_trigger": "cooling",
+        "incubation_days_min": 7,
+        "incubation_days_max": 14
+      },
+      "look_alikes": [
+        "Hericium coralloides / Hericium erinaceus (other toothed 'mane' fungi, all edible)",
+        "No toxic look-alikes — the entire genus Hericium is safe when firm and white"
+      ],
+      "edibility": "choice",
+      "special_notes": "Cascade of white icicle-like spines hanging from wounds and cut/broken ends of conifer logs and standing trees (H. abietis on conifers; the hardwood forms H. erinaceus and H. coralloides also occur in the region). One of the safest choice edibles for beginners — no toxic look-alikes, and the whole genus is edible. Harvest while pure white and firm; yellowing/browning specimens turn sour. soil_temp values are proxies only since this is a wood-decay fungus not a ground-fruiter; treat them as loose bounds rather than hard triggers."
+    },
+    "hypomyces_lactifluorum": {
+      "id": "hypomyces_lactifluorum",
+      "common_name": "Lobster Mushroom",
+      "scientific_name": "Hypomyces lactifluorum",
+      "taxonomy": {
+        "inat_taxon_id": 48215,
+        "gbif_usage_keys": [
+          2561802
+        ],
+        "resolved": "2026-09-08 via iNaturalist /v1/taxa and GBIF /v1/species/match (kingdom=Fungi); both matched this profile's scientific_name EXACTLY"
+      },
+      "substrate": "parasitic",
+      "host_genera": [
+        "Russula",
+        "Lactarius"
+      ],
+      "association": [],
+      "host_coupling": {
+        "host_species": [
+          "russula_brevipes"
+        ],
+        "lag_days_min": 3,
+        "lag_days_max": 7
+      },
+      "fruiting_conditions": {
+        "air_temp_min_f": 45,
+        "air_temp_max_f": 85,
+        "air_temp_optimal_f": 66,
+        "soil_temp_min_f": 40,
+        "soil_temp_max_f": 77,
+        "precip_threshold_inches_48h": 1,
+        "days_after_rain_min": 3,
+        "days_after_rain_max": 7,
+        "relative_humidity_min_pct": 65,
+        "elevation_min_ft": 0,
+        "elevation_max_ft": 7000,
+        "temp_trend_trigger": "cooling",
+        "incubation_days_min": 14,
+        "incubation_days_max": 28
+      },
+      "season": {
+        "primary": [
+          "summer",
+          "early_fall"
+        ],
+        "extended": [],
+        "months": [
+          7,
+          8,
+          9
+        ],
+        "notes": "Parasitic fungus colonizing Russula and Lactarius hosts. Fruits on a 3-7 day lag after its host; the host itself has a shorter rain lag (1-3 days). Often partially buried."
+      },
+      "look_alikes": [],
+      "edibility": "choice",
+      "special_notes": "Two-organism model, now implemented: score = host_probability * parasite_probability (internal/species/host.go). The host is a MUSHROOM, not a tree -- Hypomyces lactifluorum parasitises a Russula brevipes (and some Lactarius) fruitbody -- so the host term is that host profile's own ScoreSite score read off the same daily weather series truncated to the lag day, taken as the maximum over the 3-7 day lag window. The parasite term keeps its own temperature gate and delegates MOISTURE entirely to the host: a lobster's water comes from the fruitbody it is consuming, not from the day's rain, which is why the wet-up -> incubation timeline made this species worse (67% -> 84% false negatives) when it was applied to the parasite instead of to the host. DATA FIX: `association` used to read hemlock/spruce/fir/oak/beech. Those are the trees the HOST associates with, one level too high, and a uniform reader of `association` (terrain.TreeCoverResult.HostScore) would have scored a lobster for standing next to an oak. The list moved to species/russula_brevipes.json, where it belongs; this species associates with no tree directly, and gets its forest requirement through its host, which is mycorrhizal and carries the forest habitat gate itself. Temp floors recalibrated 2026-09 to fall-fruiting reality (host-tracking); previous summer floors (55F/55F) blanked legitimate cool-fall finds. PUBLICATION STATUS, MEASURED 2026-09-08: RANKABLE BUT NOT ANSWERABLE. Across the real PNW records that could be scored, the HIGHEST score any lobster observation reached is 0.195, and the share firing at the 0.25 threshold is 0% -- a 100% false-negative rate not because the model is blind but because the whole score distribution sits below the band floors. Effort-matched AUC is 0.781 +/- 0.042, so the ordering is real: lobster pixels can be ranked against each other. What cannot happen is a lobster pixel entering a published band, because none ever will. A lobster map can therefore say 'better here than there' and must not say 'go here'; publishing it as a foraging map would be indefensible. Fixing this means recalibrating the parasite term's absolute level against its own observations, not lowering the band thresholds to meet it."
+    },
+    "tricholoma_murrillianum": {
+      "id": "tricholoma_murrillianum",
+      "common_name": "Pacific Matsutake",
+      "scientific_name": "Tricholoma murrillianum",
+      "taxonomy": {
+        "inat_taxon_id": 521711,
+        "gbif_usage_keys": [
+          5241743
+        ],
+        "gbif_legacy_keys": [
+          5241741,
+          2531386
+        ],
+        "gbif_legacy_names": [
+          "Tricholoma magnivelare",
+          "Armillaria ponderosa"
+        ],
+        "resolved": "2026-09-08 via iNaturalist /v1/taxa and GBIF /v1/species/match (kingdom=Fungi); both matched this profile's scientific_name EXACTLY",
+        "validation_excluded": true,
+        "validation_note": "836 of 869 PNW records carry a deliberately displaced coordinate (96%), the highest obscuring rate of any species here -- matsutake patches are guarded and iNaturalist auto-obscures the taxon. The 33 records that remain are a single pocket around Victoria BC, which is OUTSIDE NLCD_2021_Land_Cover_L48, so land cover resolves nowhere and the habitat gate is never assessed. A measurement on that set describes the edge of the land-cover layer, not the model: it is what produced the 0.36 spatial AUC in the git log. Excluded from validation until a land-cover source covering British Columbia is joined."
+      },
+      "substrate": "mycorrhizal",
+      "association": [
+        "pine",
+        "fir",
+        "hemlock",
+        "douglas_fir",
+        "tanoak"
+      ],
+      "fruiting_conditions": {
+        "air_temp_min_f": 40,
+        "air_temp_max_f": 65,
+        "air_temp_optimal_f": 50,
+        "soil_temp_min_f": 45,
+        "soil_temp_max_f": 60,
+        "precip_threshold_inches_48h": 1,
+        "days_after_rain_min": 7,
+        "days_after_rain_max": 14,
+        "relative_humidity_min_pct": 65,
+        "elevation_min_ft": 0,
+        "elevation_max_ft": 6000,
+        "temp_trend_trigger": "cooling",
+        "incubation_days_min": 14,
+        "incubation_days_max": 28
+      },
+      "season": {
+        "primary": [
+          "fall"
+        ],
+        "extended": [
+          "late_fall"
+        ],
+        "months": [
+          9,
+          10,
+          11,
+          12
+        ],
+        "notes": "Late fall specialist. Prefers sandy, well-drained soils under conifers. Often found on ridges and slopes with thin duff layer. Needs sharp cold snap to trigger flush. Very long delay after rain."
+      },
+      "look_alikes": [
+        "smith_agaricus"
+      ],
+      "edibility": "choice"
+    },
+    "morchella_importuna": {
+      "id": "morchella_importuna",
+      "common_name": "Black Morel",
+      "scientific_name": "Morchella importuna",
+      "taxonomy": {
+        "inat_taxon_id": 487375,
+        "gbif_usage_keys": [
+          8426492
+        ],
+        "resolved": "2026-09-08 via iNaturalist /v1/taxa and GBIF /v1/species/match (kingdom=Fungi); both matched this profile's scientific_name EXACTLY"
+      },
+      "substrate": "saprotrophic",
+      "association": [
+        "cottonwood",
+        "ash",
+        "elm",
+        "apple",
+        "douglas_fir"
+      ],
+      "fruiting_conditions": {
+        "air_temp_min_f": 41,
+        "air_temp_max_f": 70,
+        "air_temp_optimal_f": 58,
+        "soil_temp_min_f": 42,
+        "soil_temp_max_f": 70,
+        "precip_threshold_inches_48h": 0.5,
+        "days_after_rain_min": 3,
+        "days_after_rain_max": 7,
+        "relative_humidity_min_pct": 60,
+        "elevation_min_ft": 0,
+        "elevation_max_ft": 7000,
+        "temp_trend_trigger": "warming",
+        "incubation_days_min": 7,
+        "incubation_days_max": 21
+      },
+      "calibration": {
+        "fitted": [
+          "air_temp_min_f",
+          "soil_temp_min_f"
+        ],
+        "unfitted": [
+          "air_temp_optimal_f",
+          "air_temp_max_f",
+          "soil_temp_max_f",
+          "temp_trend_trigger",
+          "everything on the moisture side"
+        ],
+        "rule": "each fitted floor placed at the 5th percentile of this species' own observed temperatures, as the gate sees them (lapse-corrected 3-day trailing mean). No search: the grid search over 1,188 parameter sets generalised WORSE (+0.042 ring vs +0.092 for this rule), which is the freedom talking.",
+        "was": {
+          "air_temp_min_f": 45,
+          "soil_temp_min_f": 50
+        },
+        "evidence": "n=350 observations, 5-fold cross-validated grouped by observation, paired DeLong, with the delta ALSO bootstrapped over whole observations carrying their own controls (clustering did not widen it: 0.0081 against DeLong's 0.0082 on the ring). Ring AUC 0.700 -> 0.792 (+0.0917 +/- 0.0082); effort-matched (target-group) 0.589 -> 0.666 (+0.0775 +/- 0.0243); both RESOLVED better and agreeing in sign and magnitude, which is the test the habitat ramp failed when it turned out to be reading road access. Temporal (the fit objective) +0.0083 +/- 0.0041, significant but under the 80%-power floor. False negatives 67% -> 32%. Reverting the two floors together costs far more than the sum of reverting them one at a time (-0.092 ring jointly against -0.010 and -0.030 singly): below BOTH floors both bells read zero, so the two numbers are not independent and were measured as a pair.",
+        "caveat": "The effort-matched control set held only 17 points when this was measured -- Open-Meteo's daily quota ran out before it could be filled -- so that row is the weakest of the three despite being resolved. Re-run with a full target-group set before quoting it as the headline. Lowering soil_temp_min_f also moves the SOIL BELL'S MIDPOINT from 60F to 56F, because the bell's peak is (min+max)/2; that is a real second change and it was measured as part of this one, not separately. A 10F cold shoulder on TOP of these floors still measures +0.013 +/- 0.004 ring and is deliberately not shipped -- see TempShoulderF.",
+        "measured": "2026-09-09 by cmd/validate-backtest -fit-temp",
+        "reproduce": "go run ./cmd/validate-backtest -species morel -sweep -n 350 -spatial 2 -target-group 2 -background 2 -compare \"air-min=45,soil-min=50\"   # the old floors, measured against the new ones on the same points. Add -fit-temp to re-derive from scratch."
+      },
+      "season": {
+        "primary": [
+          "spring"
+        ],
+        "extended": [
+          "late_winter"
+        ],
+        "months": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "notes": "Spring specialist. Loves disturbed ground — recent burns, landscaping, river bottoms. Often fruits along riparian corridors and in orchards. The field-guide rule of thumb is \"sustained 50°F+ soil at 4 inches\", and that number used to be copied straight into soil_temp_min_f — where it cut off 62% of real PNW fruitings, because the model compares against a lapse-corrected 3-day mean of the 0-7cm ERA5 layer, which is not a 4-inch spot reading on a warm afternoon. The floors are now derived from this species' own observed p5; see calibration below."
+      },
+      "look_alikes": [
+        "false_morel",
+        "verpa"
+      ],
+      "edibility": "choice"
+    },
+    "pleurotus_ostreatus": {
+      "id": "pleurotus_ostreatus",
+      "common_name": "Oyster Mushroom",
+      "scientific_name": "Pleurotus ostreatus",
+      "taxonomy": {
+        "inat_taxon_id": 48494,
+        "gbif_usage_keys": [
+          2526530
+        ],
+        "resolved": "2026-09-08 via iNaturalist /v1/taxa and GBIF /v1/species/match (kingdom=Fungi); both matched this profile's scientific_name EXACTLY"
+      },
+      "substrate": "deadwood",
+      "association": [
+        "hardwood",
+        "deciduous",
+        "beech",
+        "oak",
+        "maple",
+        "poplar",
+        "birch"
+      ],
+      "fruiting_conditions": {
+        "air_temp_min_f": 40,
+        "air_temp_max_f": 80,
+        "air_temp_optimal_f": 55,
+        "soil_temp_min_f": 45,
+        "soil_temp_max_f": 75,
+        "precip_threshold_inches_48h": 0.5,
+        "days_after_rain_min": 1,
+        "days_after_rain_max": 5,
+        "relative_humidity_min_pct": 70,
+        "elevation_min_ft": 0,
+        "elevation_max_ft": 6000,
+        "temp_trend_trigger": "any",
+        "incubation_days_min": 3,
+        "incubation_days_max": 10
+      },
+      "season": {
+        "primary": [
+          "spring",
+          "fall"
+        ],
+        "extended": [
+          "winter"
+        ],
+        "months": [
+          3,
+          4,
+          5,
+          9,
+          10,
+          11,
+          12,
+          1,
+          2
+        ],
+        "notes": "Nearly year-round in mild climates. Fruits after temperature drops and rain. One of the most cold-tolerant edible species."
+      },
+      "look_alikes": [
+        "angel_wings"
+      ],
+      "edibility": "choice"
+    },
+    "gomphus_clavatus": {
+      "id": "gomphus_clavatus",
+      "common_name": "Pig's Ears",
+      "scientific_name": "Gomphus clavatus",
+      "taxonomy": {
+        "inat_taxon_id": 54121,
+        "gbif_usage_keys": [
+          5238786
+        ],
+        "resolved": "2026-09-08 via iNaturalist /v1/taxa and GBIF /v1/species/match (kingdom=Fungi); both matched this profile's scientific_name EXACTLY"
+      },
+      "substrate": "mycorrhizal",
+      "host_genera": [
+        "Abies",
+        "Picea",
+        "Pseudotsuga",
+        "Tsuga"
+      ],
+      "association": [
+        "fir",
+        "spruce",
+        "douglas-fir",
+        "hemlock",
+        "montane-conifer"
+      ],
+      "fruiting_conditions": {
+        "air_temp_min_f": 40,
+        "air_temp_max_f": 72,
+        "air_temp_optimal_f": 54,
+        "soil_temp_min_f": 44,
+        "soil_temp_max_f": 62,
+        "precip_threshold_inches_48h": 0.75,
+        "days_after_rain_min": 5,
+        "days_after_rain_max": 14,
+        "relative_humidity_min_pct": 80,
+        "elevation_min_ft": 1000,
+        "elevation_max_ft": 6000,
+        "temp_trend_trigger": "cooling",
+        "incubation_days_min": 14,
+        "incubation_days_max": 28
+      },
+      "look_alikes": [
+        "Turbinellus floccosus / Turbinellus kauffmanii (Scaly / Woolly Chanterelle) — GI-IRRITANT, causes cramps and diarrhea; these are upright orange-to-tan vases with a scaly interior surface, versus the low, clustered purple-brown 'ears' with shallow veined ridges of true Gomphus clavatus",
+        "Gomphus / Gloeocantharellus and various coral fungi at a glance"
+      ],
+      "edibility": "edible",
+      "special_notes": "Low clusters of fleshy, fan- to ear-shaped fruiting bodies with a purple-to-violet-brown upper surface and wrinkled/veined pale under-surface running down the stalk, in older-growth montane conifer forest. Good edible, but declining and considered rare/sensitive in parts of its range — harvest sparingly, if at all. IMPORTANT look-alike: the scaly and woolly chanterelles (Turbinellus) are GI-irritants; they are tall vases with a scaly inner cap, not the squat purple-brown veined ears of Gomphus, but confirm the color and shallow-ridge under-surface before eating. Fall cooling species. Elevation/humidity bounds are moderate-confidence."
+    },
+    "boletus_edulis": {
+      "id": "boletus_edulis",
+      "common_name": "Porcini / King Bolete",
+      "scientific_name": "Boletus edulis",
+      "taxonomy": {
+        "inat_taxon_id": 48701,
+        "gbif_usage_keys": [
+          5954958
+        ],
+        "resolved": "2026-09-08 via iNaturalist /v1/taxa and GBIF /v1/species/match (kingdom=Fungi); both matched this profile's scientific_name EXACTLY"
+      },
+      "substrate": "mycorrhizal",
+      "association": [
+        "spruce",
+        "fir",
+        "pine",
+        "hemlock",
+        "douglas_fir"
+      ],
+      "fruiting_conditions": {
+        "air_temp_min_f": 45,
+        "air_temp_max_f": 75,
+        "air_temp_optimal_f": 58,
+        "soil_temp_min_f": 50,
+        "soil_temp_max_f": 65,
+        "precip_threshold_inches_48h": 0.75,
+        "days_after_rain_min": 5,
+        "days_after_rain_max": 10,
+        "relative_humidity_min_pct": 70,
+        "elevation_min_ft": 0,
+        "elevation_max_ft": 7000,
+        "temp_trend_trigger": "any",
+        "incubation_days_min": 7,
+        "incubation_days_max": 18
+      },
+      "season": {
+        "primary": [
+          "fall"
+        ],
+        "extended": [
+          "late_summer"
+        ],
+        "months": [
+          8,
+          9,
+          10,
+          11
+        ],
+        "notes": "Higher elevation conifer associate. Needs sustained cool temps and moisture. Often found near spruce-fir transition zones. Longer flush delay after rain than chanterelles."
+      },
+      "look_alikes": [
+        "bitter_bolete"
+      ],
+      "edibility": "choice"
+    },
+    "coprinus_comatus": {
+      "id": "coprinus_comatus",
+      "common_name": "Shaggy Mane",
+      "scientific_name": "Coprinus comatus",
+      "taxonomy": {
+        "inat_taxon_id": 47392,
+        "gbif_usage_keys": [
+          7987658
+        ],
+        "resolved": "2026-09-08 via iNaturalist /v1/taxa and GBIF /v1/species/match (kingdom=Fungi); both matched this profile's scientific_name EXACTLY"
+      },
+      "substrate": "saprotrophic",
+      "association": [
+        "lawns",
+        "roadsides",
+        "gravel",
+        "disturbed-ground",
+        "hard-packed-soil"
+      ],
+      "fruiting_conditions": {
+        "air_temp_min_f": 40,
+        "air_temp_max_f": 75,
+        "air_temp_optimal_f": 55,
+        "soil_temp_min_f": 45,
+        "soil_temp_max_f": 65,
+        "precip_threshold_inches_48h": 0.5,
+        "days_after_rain_min": 3,
+        "days_after_rain_max": 10,
+        "relative_humidity_min_pct": 75,
+        "elevation_min_ft": 0,
+        "elevation_max_ft": 6000,
+        "temp_trend_trigger": "cooling",
+        "incubation_days_min": 3,
+        "incubation_days_max": 10
+      },
+      "look_alikes": [
+        "Coprinopsis atramentaria (Common Inkcap / Tippler's Bane) — NOT deadly but contains coprine, which causes a severe alcohol-intolerance reaction (flushing, nausea, palpitations) if alcohol is consumed within ~1-2 days; it is greyer, lacks the shaggy scales, and has no distinct ring",
+        "Coprinopsis / other small inkcaps, and immature stages of pale gilled mushrooms in grass"
+      ],
+      "edibility": "edible",
+      "special_notes": "Tall white cylindrical cap with shaggy upturned scales, fruiting in grass, gravel, roadsides and disturbed hard-packed ground — often in troops after fall rains (and a lesser spring flush). Distinctive when young and closed. MUST be harvested young and cooked within hours: the gills auto-digest into black 'ink' (deliquesce) within a day, and specimens already blackening are inedible. Main confusion is Coprinopsis atramentaria — safe to eat itself but do not pair EITHER species with alcohol. Primarily a cooling-triggered fall species in the PNW, so temp_trend is 'cooling'."
+    },
+    "boletus_rex_veris": {
+      "id": "boletus_rex_veris",
+      "common_name": "Spring King Bolete",
+      "scientific_name": "Boletus rex-veris",
+      "taxonomy": {
+        "inat_taxon_id": 438025,
+        "gbif_usage_keys": [
+          6016634
+        ],
+        "resolved": "2026-09-08 via iNaturalist /v1/taxa and GBIF /v1/species/match (kingdom=Fungi); both matched this profile's scientific_name EXACTLY"
+      },
+      "substrate": "mycorrhizal",
+      "host_genera": [
+        "Pinus",
+        "Abies",
+        "Pseudotsuga"
+      ],
+      "association": [
+        "ponderosa-pine",
+        "fir",
+        "douglas-fir",
+        "montane-conifer"
+      ],
+      "fruiting_conditions": {
+        "air_temp_min_f": 45,
+        "air_temp_max_f": 78,
+        "air_temp_optimal_f": 60,
+        "soil_temp_min_f": 45,
+        "soil_temp_max_f": 65,
+        "precip_threshold_inches_48h": 0.5,
+        "days_after_rain_min": 5,
+        "days_after_rain_max": 21,
+        "relative_humidity_min_pct": 60,
+        "elevation_min_ft": 2500,
+        "elevation_max_ft": 7000,
+        "temp_trend_trigger": "warming",
+        "incubation_days_min": 10,
+        "incubation_days_max": 21
+      },
+      "look_alikes": [
+        "Boletus edulis / B. rex-veris is the spring counterpart of the fall king — both choice; distinguish mainly by season and its habit of pushing up half-buried in duff",
+        "Bitter bolete (Tylopilus felleus) — not toxic but ruins a dish with intense bitterness; has pinkish pores and a dark net on the stalk",
+        "Red-pored boletes (e.g. Rubroboletus/Suillellus types) — avoid any bolete with orange/red pore surface that stains strongly blue"
+      ],
+      "edibility": "choice",
+      "special_notes": "The spring king — a montane Boletus edulis relative that fruits in the WARMING soil at the receding snowline, so temp_trend is 'warming' (not a fall cooling species). Look for it half-buried, pushing up through conifer duff near lingering snowbanks on the east-Cascade and higher-elevation slopes from late spring into early summer. Choice edible with firm white flesh; safe boletes here have white-to-yellow pores that do not stain intensely blue and a mild taste. Fruiting is tied to SNOWMELT moisture more than to discrete rain events, so the precip and days-after-rain fields are weak predictors here — flagged lower-confidence, and elevation band matters more than rainfall for this species."
+    },
+    "cantharellus_subalbidus": {
+      "id": "cantharellus_subalbidus",
+      "common_name": "White Chanterelle",
+      "scientific_name": "Cantharellus subalbidus",
+      "taxonomy": {
+        "inat_taxon_id": 54132,
+        "gbif_usage_keys": [
+          5466960
+        ],
+        "resolved": "2026-09-08 via iNaturalist /v1/taxa and GBIF /v1/species/match (kingdom=Fungi); both matched this profile's scientific_name EXACTLY"
+      },
+      "substrate": "mycorrhizal",
+      "association": [
+        "douglas_fir",
+        "hemlock",
+        "spruce",
+        "fir"
+      ],
+      "fruiting_conditions": {
+        "air_temp_min_f": 38,
+        "air_temp_max_f": 70,
+        "air_temp_optimal_f": 55,
+        "soil_temp_min_f": 48,
+        "soil_temp_max_f": 62,
+        "precip_threshold_inches_48h": 1,
+        "days_after_rain_min": 3,
+        "days_after_rain_max": 7,
+        "relative_humidity_min_pct": 75,
+        "elevation_min_ft": 0,
+        "elevation_max_ft": 5000,
+        "temp_trend_trigger": "cooling",
+        "incubation_days_min": 12,
+        "incubation_days_max": 24
+      },
+      "season": {
+        "primary": [
+          "fall"
+        ],
+        "extended": [
+          "late_summer",
+          "early_winter"
+        ],
+        "months": [
+          9,
+          10,
+          11,
+          12
+        ],
+        "notes": "PNW specialty. Prefers old-growth and mature second-growth Douglas fir forests. Cooler and wetter preference than golden chanterelle. Often found on north-facing slopes in deep duff."
+      },
+      "look_alikes": [
+        "short_stemmed_russula"
+      ],
+      "edibility": "choice"
+    },
+    "craterellus_tubaeformis": {
+      "id": "craterellus_tubaeformis",
+      "common_name": "Yellowfoot / Winter Chanterelle",
+      "scientific_name": "Craterellus tubaeformis",
+      "taxonomy": {
+        "inat_taxon_id": 350511,
+        "gbif_usage_keys": [
+          2554536
+        ],
+        "resolved": "2026-09-08 via iNaturalist /v1/taxa and GBIF /v1/species/match (kingdom=Fungi); both matched this profile's scientific_name EXACTLY"
+      },
+      "substrate": "mycorrhizal",
+      "association": [
+        "spruce",
+        "fir",
+        "hemlock",
+        "douglas_fir",
+        "pine"
+      ],
+      "fruiting_conditions": {
+        "air_temp_min_f": 35,
+        "air_temp_max_f": 55,
+        "air_temp_optimal_f": 45,
+        "soil_temp_min_f": 38,
+        "soil_temp_max_f": 50,
+        "precip_threshold_inches_48h": 0.5,
+        "days_after_rain_min": 2,
+        "days_after_rain_max": 6,
+        "relative_humidity_min_pct": 75,
+        "elevation_min_ft": 0,
+        "elevation_max_ft": 4000,
+        "temp_trend_trigger": "cooling",
+        "incubation_days_min": 14,
+        "incubation_days_max": 28
+      },
+      "season": {
+        "primary": [
+          "fall",
+          "winter"
+        ],
+        "extended": [
+          "late_fall",
+          "early_spring"
+        ],
+        "months": [
+          10,
+          11,
+          12,
+          1,
+          2,
+          3
+        ],
+        "notes": "The cold-weather chanterelle. Fruits prolifically in wet, cold conditions that stop golden chanterelles. Found in mossy conifer forests, often near streams and in boggy areas. Grows in dense clusters."
+      },
+      "look_alikes": [
+        "false_chanterelle"
+      ],
+      "edibility": "choice"
+    }
+  }
+}

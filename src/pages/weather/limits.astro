@@ -1,0 +1,177 @@
+---
+/**
+ * /weather/limits — what it can't tell you.
+ *
+ * The honest list, in the order the mistakes actually get made. The spread
+ * between the best- and worst-evidenced species is stated from the validation
+ * record rather than from memory, so it cannot go stale on the page.
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SpeciesRoster from '../../components/weather/SpeciesRoster.astro';
+import {
+  currentRun,
+  evidentialStatus,
+  profiles,
+  speciesWithBareLookAlikes,
+  validationCaveat,
+  validationGenerated,
+} from '../../lib/weather';
+
+const run = currentRun;
+
+// The spread, stated from the record rather than from memory.
+const statuses = Object.values(profiles).map((p) => ({ p, s: evidentialStatus(p.id) }));
+const measured = statuses.filter((x) => x.s.kind === 'measured' && x.s.entry);
+const unmeasured = statuses.filter((x) => x.s.kind !== 'measured' && x.s.entry);
+
+const best = measured.length
+  ? measured.reduce((a, b) => ((b.s.entry!.n_obs ?? 0) > (a.s.entry!.n_obs ?? 0) ? b : a))
+  : null;
+const worst = unmeasured.length
+  ? unmeasured.reduce((a, b) =>
+      (b.s.entry!.max_observed_score ?? 1) < (a.s.entry!.max_observed_score ?? 1) ? b : a
+    )
+  : null;
+const excluded = statuses.filter((x) => x.s.kind === 'excluded');
+
+const parts: string[] = [];
+if (best) {
+  parts.push(
+    `${best.p.common_name ?? best.p.id} has been checked against ${best.s.entry!.n_obs} records ` +
+      `with ${best.s.entry!.n_control} effort-matched controls`
+  );
+}
+if (excluded.length) {
+  parts.push(
+    `${excluded[0].p.common_name ?? excluded[0].p.id} was pulled out of validation entirely ` +
+      'because almost every record of it carries a deliberately displaced location'
+  );
+}
+if (worst) {
+  parts.push(
+    `${worst.p.common_name ?? worst.p.id} has never scored above ` +
+      `${(worst.s.entry!.max_observed_score ?? 0).toFixed(3)} on its own best real record`
+  );
+}
+const spread = parts.length
+  ? parts.join('; ') + '.'
+  : 'Nothing has been measured yet, so no species here is better evidenced than any other.';
+
+const bare = speciesWithBareLookAlikes();
+const totalBare = bare.reduce((n, b) => n + b.bare.length, 0);
+---
+
+<BaseLayout
+  title="What the fruiting map can't tell you | MycoSci"
+  description="Why the map is an enrichment ratio and never a probability, and which species are actually measured."
+>
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 py-10">
+    <div class="border-b border-lab-800 pb-8 mb-10">
+      <a href="/weather" class="label text-bio-500 hover:text-bio-400">// Fruiting weather</a>
+      <h1 class="text-3xl sm:text-4xl font-semibold text-lab-100 mt-2 tracking-tight">
+        What it can't tell you
+      </h1>
+      <p class="text-lab-400 mt-3 leading-relaxed">
+        The honest list, in the order the mistakes actually get made.
+      </p>
+    </div>
+
+    <div class="prose prose-invert prose-sm max-w-none prose-headings:font-semibold prose-headings:text-lab-100 prose-p:text-lab-400 prose-li:text-lab-400 prose-strong:text-lab-200 prose-a:text-bio-400 prose-a:no-underline hover:prose-a:text-bio-300">
+      <h2>It is not a probability, and it never will be</h2>
+      {validationCaveat && <p>{validationCaveat}</p>}
+      <p>
+        Put plainly: to say “there is a 40% chance of finding chanterelles here today” you need to
+        know how often people looked and found nothing. Nobody records that. Every occurrence
+        database on earth is a record of successes. So the strongest true statement available is a{' '}
+        <em>ratio</em> — this ground holds real records several times more often than ground people
+        searched just as hard — and that is the statement this section makes. More sample size does
+        not fix it. It is not a precision problem; the number simply is not in the data.
+      </p>
+
+      <h2>It does not identify mushrooms</h2>
+      <p>
+        Nothing here can tell you what is in your hand. Several species mapped here have look-alikes
+        that will make you ill, and at least one common Oregon look-alike is harmless until you
+        drink alcohol within a day or two of eating it. Use a key, take a spore print, and check
+        with somebody who already knows the species.
+      </p>
+      {
+        bare.length > 0 && (
+          <p>
+            <strong>And the look-alike data is incomplete.</strong> {totalBare} look-alike entries
+            across {bare.length} species are recorded as bare identifiers — a name, with no
+            description, no symptoms and no way to tell the two apart:{' '}
+            {bare.map((b) => b.name).join(', ')}. Those are shown marked as incomplete rather than
+            dressed up as guidance, but incomplete is what they are. Do not use this section as a
+            look-alike check for those species.
+          </p>
+        )
+      }
+
+      <h2>Species are not equally trustworthy</h2>
+      <p>
+        The gap between the best-measured species here and the worst is not a matter of degree.{' '}
+        {spread} They all produce a map that looks equally confident. They are not.
+      </p>
+    </div>
+
+    <div class="my-8">
+      <SpeciesRoster showRunMark={false} />
+    </div>
+    <p class="text-xs text-lab-500 leading-relaxed">
+      Standing band analysis dated {validationGenerated || 'unknown'}. None of it is used to label
+      any map in this section.
+    </p>
+
+    <div class="prose prose-invert prose-sm max-w-none mt-10 prose-headings:font-semibold prose-headings:text-lab-100 prose-p:text-lab-400 prose-li:text-lab-400 prose-strong:text-lab-200 prose-a:text-bio-400 prose-a:no-underline hover:prose-a:text-bio-300">
+      <h2>Obscured coordinates</h2>
+      <p>
+        iNaturalist automatically scrambles the location of species that get poached, and matsutake
+        is one of them. Validating against scrambled records measures the scrambling, not the model.
+        This is a good policy that makes a particular kind of measurement impossible, and the right
+        response is to say so rather than to publish a number produced from ruined data.
+      </p>
+
+      <h2>A weather model has no mycelium in it</h2>
+      <p>
+        The score reads weather, elevation and land cover. It does not know whether there is
+        mycelium under a given hillside, whether the stand was logged last spring, whether the patch
+        was picked out yesterday morning, or whether the ground is private, closed or dangerous.
+        Bright ground is ground where the <em>weather</em> is right.
+      </p>
+
+      <h2>It is one day behind</h2>
+      <p>
+        The weather archive this reads settles about a day after the fact. A morning run in Pacific
+        time lands somewhere between fourteen and thirty-eight hours behind real time, and every
+        page here leads with the date the weather actually knows rather than the date the map is
+        labelled for. If a storm arrived this morning, this map has not heard about it.
+        {run?.lag_days_behind_target
+          ? ` The current run is ${run.lag_days_behind_target} day behind its own label.`
+          : ''}
+      </p>
+
+      <h2>The report does not describe the weather</h2>
+      <p>
+        The daily report says what moved in the score distributions between runs. It does not say
+        how much rain fell or where, because the manifest it is built from does not record any
+        weather values — only the provenance of the fetch and the distributions that came out the
+        far end. A rainfall sentence would have to be imagined, so none is written.
+      </p>
+
+      <h2>It only publishes the current day</h2>
+      <p>
+        One run at a time. There is no image archive and no forecast: past runs exist here as
+        numbers — score distributions and provenance, kept in full — but their maps are not
+        republished, and no map is ever drawn for a day the pipeline did not produce. Historical and
+        forecast projections are a later phase.
+      </p>
+
+      <h2>Oregon only</h2>
+      <p>
+        The land-cover layer stops at the United States border and the weather grid is drawn for
+        this state. Outside it, the habitat gate is never assessed and the map means nothing.
+      </p>
+    </div>
+  </div>
+</BaseLayout>

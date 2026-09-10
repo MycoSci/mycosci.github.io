@@ -1,0 +1,70 @@
+---
+/**
+ * Where a run came from, in full.
+ *
+ * Every row is a field read straight out of the manifest, including the ones
+ * that are inconvenient — a dirty working tree, an unverified upload, a
+ * rendition digest that is not the digest the renderer signed.
+ */
+import { fmtRange, type RunRecord } from '../../lib/weather';
+
+interface Props {
+  run: RunRecord;
+}
+const { run } = Astro.props;
+
+const m = run.manifest;
+const w = m.weather ?? {};
+const t = m.terrain ?? {};
+const c = m.code ?? {};
+const fresh = w.freshness ?? {};
+
+const rows: Array<[string, string]> = [
+  ['Weather source', w.source ?? '—'],
+  ['Weather model', w.model ?? '—'],
+  ['Grid points read', `${w.grid_points ?? '—'} at ${w.step_degrees ?? '—'}° spacing`],
+  ['History per point', fmtRange(fresh.min_days, fresh.max_days, 'days')],
+  ['Forecast hours scored', String(w.allow_forecast_hours ?? 0)],
+  [
+    'Land cover measured',
+    `${(t.land_cover_coverage_pct ?? 0).toFixed(1)}% of Oregon; ${(t.forest_cells_pct ?? 0).toFixed(1)}% classed forest habitat`,
+  ],
+  ['Elevation points', String(t.elevation_points ?? '—')],
+  ['Code revision', `${c.revision ?? '—'}${c.dirty ? ' (dirty tree)' : ''}`],
+  ['Renderer', `${c.renderer ?? '—'}${c.go_version ? ` · ${c.go_version}` : ''}`],
+  ['Manifest generated', (m.generated_at ?? '').replace('T', ' ')],
+  ['Manifest SHA-256', run.manifest_sha256],
+  ['Published to this site', run.published_at.replace('T', ' ')],
+];
+
+for (const sp of m.species ?? []) {
+  const img = run.images?.find((i) => i.id === sp.id);
+  rows.push([`Render SHA-256 · ${sp.common_name ?? sp.id}`, sp.sha256 ?? '—']);
+  if (img?.published_sha256) {
+    rows.push([
+      `Served rendition · ${sp.common_name ?? sp.id}`,
+      `${img.published_sha256} · ${img.palette_colours}-colour PNG, ` +
+        `${((img.published_bytes ?? 0) / 1024).toFixed(0)} KB ` +
+        `(from ${((img.source_bytes ?? 0) / 1024).toFixed(0)} KB)`,
+    ]);
+  }
+}
+---
+
+<dl class="border-t border-lab-800">
+  {
+    rows.map(([k, v]) => (
+      <div class="grid sm:grid-cols-[240px_1fr] gap-x-6 gap-y-1 border-b border-lab-800 py-3">
+        <dt class="font-mono text-2xs uppercase tracking-wider text-lab-500">{k}</dt>
+        <dd class="font-mono text-xs text-lab-300 break-all">{v}</dd>
+      </div>
+    ))
+  }
+</dl>
+
+<p class="text-xs text-lab-500 leading-relaxed mt-4">
+  The <span class="text-lab-300">render SHA-256</span> is the digest the pipeline signed and this
+  site verified before converting. The <span class="text-lab-300">served rendition</span> is the
+  256-colour PNG actually delivered to your browser, which is a derived file with its own digest
+  — smaller to serve, and not byte-identical to the render.
+</p>

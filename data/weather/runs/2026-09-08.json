@@ -1,0 +1,128 @@
+{
+  "record_version": 1,
+  "published_at": "2026-09-10T17:02:51.505Z",
+  "as_of_date": "2026-09-08",
+  "target_date": "2026-09-09",
+  "lag_days_behind_target": 1,
+  "manifest_sha256": "721bac1ddf28636bd699246dd0dd5c554ff9c630dccf09aabe3698e981628ee6",
+  "manifest_path": "out/2026-09-09/manifest.json",
+  "manifest": {
+    "manifest_version": 1,
+    "generated_at": "2026-09-09T01:27:54.373536Z",
+    "target_date": "2026-09-09",
+    "as_of_date": "2026-09-08",
+    "lag_days_behind_target": 1,
+    "weather": {
+      "source": "open-meteo archive-api v1 (archive)",
+      "model": "ecmwf_ifs",
+      "model_verification": {
+        "model": "ecmwf_ifs",
+        "start": "2026-08-30",
+        "end": "2026-09-01",
+        "hours_compared": 72,
+        "max_abs_difference": {
+          "et0_fao_evapotranspiration": 0,
+          "precipitation": 0,
+          "relative_humidity_2m": 0,
+          "soil_moisture_0_to_7cm": 0,
+          "soil_moisture_7_to_28cm": 0,
+          "soil_temperature_0_to_7cm": 0,
+          "temperature_2m": 0
+        },
+        "agrees": true
+      },
+      "freshness": {
+        "now_utc": "2026-09-09T01:27:54.373536Z",
+        "target_date": "2026-09-09",
+        "as_of_date": "2026-09-08",
+        "newest_day": "2026-09-08",
+        "oldest_newest_day": "2026-09-08",
+        "lag_days_behind_target": 1,
+        "last_observed_hour": "2026-09-09T01:00:00Z",
+        "points": 252,
+        "points_empty": 0,
+        "points_short": 0,
+        "min_days": 35,
+        "max_days": 35,
+        "points_with_soil_moisture_on_last_day": 241,
+        "points_with_retained_forecast": 0,
+        "forecast_hours_dropped_total": 5544,
+        "sources": [
+          "archive_analysis"
+        ]
+      },
+      "allow_forecast_hours": 0,
+      "fetched_at": "2026-09-09T01:27:54.373536Z",
+      "from_cache": false,
+      "grid_points": 252,
+      "step_degrees": 0.4,
+      "series_days_needed": 35
+    },
+    "terrain": {
+      "land_cover_present": true,
+      "land_cover_coverage_pct": 96.02341686299707,
+      "forest_cells_pct": 45.49442379182156,
+      "forest_threshold": 0.3,
+      "elevation_points": 943,
+      "terrain_cache_version": 3
+    },
+    "model_variant": {
+      "lapse_reference": "cell",
+      "lapse_soil": false,
+      "habitat_penalty": 0,
+      "habitat_ramp": 0.2,
+      "temp_shoulder_f": 0,
+      "moisture_grade": 0,
+      "trend_continuous": false,
+      "forest_threshold": 0.3,
+      "paint_unassessed": false,
+      "terrain_retention": 0,
+      "terrain_baseline": 0
+    },
+    "code": {
+      "revision": "265b572bba546fb77c40ada1cbceacb825a6a89d",
+      "dirty": true,
+      "renderer": "cmd/render",
+      "go_version": "go1.26.3"
+    },
+    "score_bands": null,
+    "species": [
+      {
+        "id": "cantharellus_cibarius",
+        "common_name": "Golden Chanterelle",
+        "scientific_name": "Cantharellus formosus",
+        "model": "timeline",
+        "pixels_assessed": 1534318,
+        "pixels_painted": 213252,
+        "pixels_unassessed": 53087,
+        "painted_p50": 0.09104495920322625,
+        "painted_p95": 0.20254203139050045,
+        "max_score": 0.37584891804451415,
+        "file": "out/2026-09-09/oregon_cantharellus_cibarius_2026-09-09.png",
+        "sha256": "77d08854b1c176f1cd0791c55a04a3041d60667ba7b4db147ce1d1cbdc98f726"
+      }
+    ],
+    "warnings": [
+      "11/252 grid points have no soil-moisture reading on their last day; the timeline moisture term falls back to the precipitation proxy there",
+      "rendered from a dirty working tree; the revision below does not fully describe this build"
+    ],
+    "publishable": true
+  },
+  "images": [
+    {
+      "id": "cantharellus_cibarius",
+      "file": "49604103dffb-oregon_cantharellus_cibarius_2026-09-09.png",
+      "url_path": "2026-09-08/49604103dffb-oregon_cantharellus_cibarius_2026-09-09.png",
+      "width": 1456,
+      "height": 1092,
+      "source_bytes": 1476919,
+      "published_bytes": 520274,
+      "palette_colours": 256,
+      "render_sha256": "77d08854b1c176f1cd0791c55a04a3041d60667ba7b4db147ce1d1cbdc98f726",
+      "published_sha256": "49604103dffbf4b2ba9c4908a6db4ae281b5e72ed7619a8128c155addedc0071",
+      "origin_verified": true
+    }
+  ],
+  "origin_uploaded": true,
+  "publish_notes": []
+}

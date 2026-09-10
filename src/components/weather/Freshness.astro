@@ -1,0 +1,53 @@
+---
+/**
+ * The freshness claim.
+ *
+ * as_of_date leads and target_date is only ever the label. The weather archive
+ * settles about a day after the fact, so a morning run lands somewhere between
+ * fourteen and thirty-eight hours behind real time. Leading with the map's own
+ * date would quietly claim knowledge the run does not have.
+ */
+import type { RunRecord } from '../../lib/weather';
+
+interface Props {
+  run: RunRecord;
+}
+const { run } = Astro.props;
+
+const lag = run.lag_days_behind_target ?? 0;
+const fresh = run.manifest?.weather?.freshness ?? {};
+
+const items: Array<{ label: string; value: string; warn?: boolean }> = [
+  { label: 'Weather as of', value: run.as_of_date },
+  { label: 'Map labelled for', value: run.target_date ?? '—' },
+  {
+    label: 'Gap',
+    value: lag ? `${lag} day${lag === 1 ? '' : 's'} behind` : 'same day',
+    warn: lag >= 1,
+  },
+];
+if (fresh.last_observed_hour) {
+  items.push({
+    label: 'Last observed hour',
+    value: String(fresh.last_observed_hour).replace('T', ' '),
+  });
+}
+---
+
+<dl class="grid grid-cols-2 sm:grid-cols-4 border-t border-l border-lab-800">
+  {
+    items.map((item) => (
+      <div class="border-b border-r border-lab-800 px-4 py-3">
+        <dt class="label">{item.label}</dt>
+        <dd
+          class:list={[
+            'font-mono text-sm mt-1.5 tabular-nums',
+            item.warn ? 'text-spore-400' : 'text-lab-100',
+          ]}
+        >
+          {item.value}
+        </dd>
+      </div>
+    ))
+  }
+</dl>

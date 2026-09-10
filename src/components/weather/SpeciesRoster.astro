@@ -1,0 +1,103 @@
+---
+/**
+ * How well each species is actually known.
+ *
+ * The species on this map are not equally trustworthy and the gap between the
+ * best and the worst is not a matter of degree — one has been checked against
+ * 350 records and effort-matched controls, another has never scored above
+ * 0.195 on its own best real record. They all produce a map that looks equally
+ * confident. The gutter bar on the left is solid where a species has been
+ * measured and broken where it has not, so the difference is visible before
+ * anyone clicks anything.
+ *
+ * Colour note: measured is bronze, not green. Nothing in this section uses
+ * green for a quality signal, because green means forest on the base map.
+ */
+import { evidentialStatus, rosterOrder, type SpeciesProfile } from '../../lib/weather';
+
+interface Props {
+  /** Species ids rendered in the current run; they sort first. */
+  inRun?: Set<string>;
+  showRunMark?: boolean;
+}
+const { inRun = new Set<string>(), showRunMark = true } = Astro.props;
+
+const ordered: SpeciesProfile[] = rosterOrder(inRun);
+
+const gutter: Record<string, string> = {
+  measured: 'bg-bio-400',
+  unmeasured: 'bg-lab-600',
+  excluded: 'bg-spore-600',
+};
+---
+
+<ul class="border-t border-lab-800">
+  {
+    ordered.map((p) => {
+      const status = evidentialStatus(p.id);
+      const dashed = status.kind !== 'measured';
+      return (
+        <li>
+          <a
+            href={`/weather/species/${p.id}`}
+            class="group flex items-stretch gap-4 border-b border-lab-800 hover:bg-lab-900 transition-colors"
+          >
+            <span
+              class:list={['w-0.5 shrink-0', gutter[status.kind]]}
+              style={dashed
+                ? 'mask-image:repeating-linear-gradient(to bottom,#000 0 4px,transparent 4px 8px);-webkit-mask-image:repeating-linear-gradient(to bottom,#000 0 4px,transparent 4px 8px)'
+                : undefined}
+              aria-hidden="true"
+            />
+            <span class="flex-1 flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 py-3.5 pr-4">
+              <span class="text-sm text-lab-100 group-hover:text-bio-400 transition-colors">
+                {p.common_name ?? p.id}
+                {showRunMark && inRun.has(p.id) && (
+                  <span class="badge badge-bio ml-2">mapped today</span>
+                )}
+                <span class="block text-2xs font-mono text-lab-500 mt-0.5">
+                  {p.scientific_name}
+                </span>
+              </span>
+              <span class="text-right whitespace-nowrap">
+                <span
+                  class:list={[
+                    'font-mono text-2xs uppercase tracking-wider',
+                    status.kind === 'measured' ? 'text-bio-400' : 'text-lab-500',
+                  ]}
+                >
+                  {status.label}
+                </span>
+                {status.short && status.short !== status.label && (
+                  <span class="block font-mono text-2xs text-lab-500 tabular-nums mt-0.5">
+                    {status.short}
+                  </span>
+                )}
+              </span>
+            </span>
+          </a>
+        </li>
+      );
+    })
+  }
+</ul>
+
+<div class="flex flex-wrap gap-x-6 gap-y-2 mt-4">
+  <span class="flex items-center gap-2 text-2xs font-mono uppercase tracking-wider text-lab-500">
+    <span class="w-3 h-0.5 bg-bio-400"></span> Measured
+  </span>
+  <span class="flex items-center gap-2 text-2xs font-mono uppercase tracking-wider text-lab-500">
+    <span
+      class="w-3 h-0.5 bg-lab-600"
+      style="mask-image:repeating-linear-gradient(to right,#000 0 2px,transparent 2px 4px);-webkit-mask-image:repeating-linear-gradient(to right,#000 0 2px,transparent 2px 4px)"
+    ></span>
+    Not measured — a missing measurement, not a failed one
+  </span>
+  <span class="flex items-center gap-2 text-2xs font-mono uppercase tracking-wider text-lab-500">
+    <span
+      class="w-3 h-0.5 bg-spore-600"
+      style="mask-image:repeating-linear-gradient(to right,#000 0 2px,transparent 2px 4px);-webkit-mask-image:repeating-linear-gradient(to right,#000 0 2px,transparent 2px 4px)"
+    ></span>
+    Excluded from validation
+  </span>
+</div>

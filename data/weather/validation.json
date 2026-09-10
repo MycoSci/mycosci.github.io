@@ -1,0 +1,925 @@
+{
+  "snapshot_of": "sandbox/mycomap/internal/species/score_bands.json",
+  "taken_at": "2026-09-10T17:02:51.505Z",
+  "record": {
+    "generated": "2026-09-08 19:39 PDT",
+    "method": "Score bins compared between real occurrence records and effort-matched control sites (target-group background: places where another fungus was recorded in the same season). enrichment = share of records in the band / share of controls in the band.",
+    "caveat": "PRESENCE-ONLY. There are no true negatives in this data, so no absolute probability of fruiting is available and none is given. A band means a RELATIVE statement: a real record is N times as likely to sit in this band as an effort-matched control site is. A control is a place with no RECORDED observation, not a confirmed absence.",
+    "enrichment_targets": {
+      "paint": 1,
+      "possible": 2,
+      "prime": 4
+    },
+    "species": [
+      {
+        "species": "cantharellus_cibarius",
+        "derived_from": "spatial (target group)",
+        "n_obs": 350,
+        "n_control": 597,
+        "max_observed_score": 0.8824489566119035,
+        "paint_floor": 0.05,
+        "bands": [
+          {
+            "name": "POSSIBLE",
+            "min": 0.05,
+            "enrichment": 2.481038961038961,
+            "meaning": "Score 0.05 to 0.50: a real occurrence record is about 2.5x as likely to sit on this ground as an effort-matched control site is."
+          },
+          {
+            "name": "PRIME",
+            "min": 0.5,
+            "enrichment": 4.315974025974025,
+            "meaning": "Score 0.50 and above: about 4.3x as likely to hold a real occurrence record as effort-matched background. This is a RELATIVE statement, not a percentage chance of finding mushrooms -- nobody records the days they looked and found nothing, so no such percentage exists in this data."
+          }
+        ],
+        "measured": true,
+        "publish_as_foraging_map": true,
+        "note": "all three bands are reachable and enriched over effort-matched background"
+      },
+      {
+        "species": "hypomyces_lactifluorum",
+        "derived_from": "spatial (target group)",
+        "n_obs": 46,
+        "n_control": 80,
+        "max_observed_score": 0.19525094767488285,
+        "paint_floor": 0,
+        "bands": null,
+        "measured": false,
+        "publish_as_foraging_map": false,
+        "note": "NOT MEASURED: 46 observations against 80 controls is below the 100-point floor this analysis needs, so no threshold could be resolved either way. This is a missing measurement, NOT a finding that the bands failed -- do not read it as one. Re-run once the evaluation set is complete."
+      },
+      {
+        "species": "morchella_importuna",
+        "derived_from": "spatial (target group)",
+        "n_obs": 350,
+        "n_control": 17,
+        "max_observed_score": 0.8115331711668463,
+        "paint_floor": 0,
+        "bands": null,
+        "measured": false,
+        "publish_as_foraging_map": false,
+        "note": "NOT MEASURED: 350 observations against 17 controls is below the 100-point floor this analysis needs, so no threshold could be resolved either way. This is a missing measurement, NOT a finding that the bands failed -- do not read it as one. Re-run once the evaluation set is complete."
+      }
+    ],
+    "reliability": [
+      {
+        "species": "cantharellus_cibarius",
+        "control_set": "spatial (random ring)",
+        "n_obs": 350,
+        "n_control": 339,
+        "bins": [
+          {
+            "lo": 0,
+            "hi": 0.05,
+            "n_obs": 62,
+            "n_control": 226,
+            "share_obs": 0.17714285714285713,
+            "share_control": 0.6666666666666666,
+            "enrichment": 0.26571428571428574,
+            "log_se": 0.1214364675647681,
+            "enrichment_ci_lo": 0.20943347375512064,
+            "enrichment_ci_hi": 0.3371193743136145
+          },
+          {
+            "lo": 0.05,
+            "hi": 0.1,
+            "n_obs": 13,
+            "n_control": 12,
+            "share_obs": 0.037142857142857144,
+            "share_control": 0.035398230088495575,
+            "enrichment": 1.0492857142857144,
+            "log_se": 0.3930005278519264,
+            "enrichment_ci_lo": 0.48569648141309985,
+            "enrichment_ci_hi": 2.2668488497194756
+          },
+          {
+            "lo": 0.1,
+            "hi": 0.15,
+            "n_obs": 13,
+            "n_control": 5,
+            "share_obs": 0.037142857142857144,
+            "share_control": 0.014749262536873156,
+            "enrichment": 2.5182857142857142,
+            "log_se": 0.5206880847096075,
+            "enrichment_ci_lo": 0.9075830080446771,
+            "enrichment_ci_hi": 6.987529385811648
+          },
+          {
+            "lo": 0.15,
+            "hi": 0.2,
+            "n_obs": 10,
+            "n_control": 10,
+            "share_obs": 0.02857142857142857,
+            "share_control": 0.029498525073746312,
+            "enrichment": 0.9685714285714285,
+            "log_se": 0.4406733536708142,
+            "enrichment_ci_lo": 0.4083409383567117,
+            "enrichment_ci_hi": 2.2974199354593763
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.25,
+            "n_obs": 16,
+            "n_control": 7,
+            "share_obs": 0.045714285714285714,
+            "share_control": 0.02064896755162242,
+            "enrichment": 2.213877551020408,
+            "log_se": 0.44671036197140684,
+            "enrichment_ci_lo": 0.9223718918054312,
+            "enrichment_ci_hi": 5.313750185208386
+          },
+          {
+            "lo": 0.25,
+            "hi": 0.3,
+            "n_obs": 15,
+            "n_control": 7,
+            "share_obs": 0.04285714285714286,
+            "share_control": 0.02064896755162242,
+            "enrichment": 2.075510204081633,
+            "log_se": 0.45134999076026583,
+            "enrichment_ci_lo": 0.8568957809439824,
+            "enrichment_ci_hi": 5.027148812077755
+          },
+          {
+            "lo": 0.3,
+            "hi": 0.4,
+            "n_obs": 22,
+            "n_control": 13,
+            "share_obs": 0.06285714285714286,
+            "share_control": 0.038348082595870206,
+            "enrichment": 1.6391208791208793,
+            "log_se": 0.3414244089298609,
+            "enrichment_ci_lo": 0.8394303325808791,
+            "enrichment_ci_hi": 3.200643522267692
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "n_obs": 32,
+            "n_control": 8,
+            "share_obs": 0.09142857142857143,
+            "share_control": 0.02359882005899705,
+            "enrichment": 3.8742857142857146,
+            "log_se": 0.38786982949887,
+            "enrichment_ci_lo": 1.8114659746362658,
+            "enrichment_ci_hi": 8.28615607805293
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6,
+            "n_obs": 46,
+            "n_control": 6,
+            "share_obs": 0.13142857142857142,
+            "share_control": 0.017699115044247787,
+            "enrichment": 7.425714285714285,
+            "log_se": 0.42731581030536625,
+            "enrichment_ci_lo": 3.213658127790145,
+            "enrichment_ci_hi": 17.158400321498664
+          },
+          {
+            "lo": 0.6,
+            "hi": 0.7,
+            "n_obs": 75,
+            "n_control": 28,
+            "share_obs": 0.21428571428571427,
+            "share_control": 0.08259587020648967,
+            "enrichment": 2.5943877551020407,
+            "log_se": 0.20794379933794988,
+            "enrichment_ci_lo": 1.7259553263380205,
+            "enrichment_ci_hi": 3.899781020464953
+          },
+          {
+            "lo": 0.7,
+            "hi": 0.8,
+            "n_obs": 41,
+            "n_control": 14,
+            "share_obs": 0.11714285714285715,
+            "share_control": 0.04129793510324484,
+            "enrichment": 2.836530612244898,
+            "log_se": 0.3000196992973844,
+            "enrichment_ci_lo": 1.575453361396955,
+            "enrichment_ci_hi": 5.107041637251711
+          },
+          {
+            "lo": 0.8,
+            "hi": 1.01,
+            "n_obs": 5,
+            "n_control": 3,
+            "share_obs": 0.014285714285714285,
+            "share_control": 0.008849557522123894,
+            "enrichment": 1.6142857142857143,
+            "log_se": 0.7263100838958632,
+            "enrichment_ci_lo": 0.3888058392844491,
+            "enrichment_ci_hi": 6.702364275554148
+          }
+        ],
+        "cumulative": [
+          {
+            "threshold": 0.05,
+            "n_obs_at_or_above": 288,
+            "n_control_at_or_above": 113,
+            "share_obs_at_or_above": 0.8228571428571428,
+            "share_control_at_or_above": 0.3333333333333333,
+            "enrichment": 2.468571428571429,
+            "enrichment_ci_lo": 2.1073679556115366,
+            "enrichment_ci_hi": 2.891685280556909
+          },
+          {
+            "threshold": 0.1,
+            "n_obs_at_or_above": 275,
+            "n_control_at_or_above": 101,
+            "share_obs_at_or_above": 0.7857142857142857,
+            "share_control_at_or_above": 0.29793510324483774,
+            "enrichment": 2.6371994342291374,
+            "enrichment_ci_lo": 2.219738772305369,
+            "enrichment_ci_hi": 3.1331708679735173
+          },
+          {
+            "threshold": 0.15,
+            "n_obs_at_or_above": 262,
+            "n_control_at_or_above": 96,
+            "share_obs_at_or_above": 0.7485714285714286,
+            "share_control_at_or_above": 0.2831858407079646,
+            "enrichment": 2.643392857142857,
+            "enrichment_ci_lo": 2.208124553042219,
+            "enrichment_ci_hi": 3.164461799750785
+          },
+          {
+            "threshold": 0.2,
+            "n_obs_at_or_above": 252,
+            "n_control_at_or_above": 86,
+            "share_obs_at_or_above": 0.72,
+            "share_control_at_or_above": 0.2536873156342183,
+            "enrichment": 2.8381395348837204,
+            "enrichment_ci_lo": 2.337836498363229,
+            "enrichment_ci_hi": 3.4455087107714717
+          },
+          {
+            "threshold": 0.25,
+            "n_obs_at_or_above": 236,
+            "n_control_at_or_above": 79,
+            "share_obs_at_or_above": 0.6742857142857143,
+            "share_control_at_or_above": 0.23303834808259588,
+            "enrichment": 2.8934538878842675,
+            "enrichment_ci_lo": 2.353865564532075,
+            "enrichment_ci_hi": 3.5567347292311777
+          },
+          {
+            "threshold": 0.3,
+            "n_obs_at_or_above": 221,
+            "n_control_at_or_above": 72,
+            "share_obs_at_or_above": 0.6314285714285715,
+            "share_control_at_or_above": 0.21238938053097345,
+            "enrichment": 2.9729761904761904,
+            "enrichment_ci_lo": 2.3857055113580925,
+            "enrichment_ci_hi": 3.7048107518127193
+          },
+          {
+            "threshold": 0.4,
+            "n_obs_at_or_above": 199,
+            "n_control_at_or_above": 59,
+            "share_obs_at_or_above": 0.5685714285714286,
+            "share_control_at_or_above": 0.17404129793510326,
+            "enrichment": 3.2668765133171913,
+            "enrichment_ci_lo": 2.5462434042340076,
+            "enrichment_ci_hi": 4.1914618749789625
+          },
+          {
+            "threshold": 0.5,
+            "n_obs_at_or_above": 167,
+            "n_control_at_or_above": 51,
+            "share_obs_at_or_above": 0.47714285714285715,
+            "share_control_at_or_above": 0.1504424778761062,
+            "enrichment": 3.171596638655462,
+            "enrichment_ci_lo": 2.407325066857024,
+            "enrichment_ci_hi": 4.178507247242506
+          },
+          {
+            "threshold": 0.6,
+            "n_obs_at_or_above": 121,
+            "n_control_at_or_above": 45,
+            "share_obs_at_or_above": 0.3457142857142857,
+            "share_control_at_or_above": 0.13274336283185842,
+            "enrichment": 2.604380952380952,
+            "enrichment_ci_lo": 1.9141688398659849,
+            "enrichment_ci_hi": 3.5434701494773018
+          },
+          {
+            "threshold": 0.7,
+            "n_obs_at_or_above": 46,
+            "n_control_at_or_above": 17,
+            "share_obs_at_or_above": 0.13142857142857142,
+            "share_control_at_or_above": 0.05014749262536873,
+            "enrichment": 2.620840336134454,
+            "enrichment_ci_lo": 1.5335755284178503,
+            "enrichment_ci_hi": 4.47894736204856
+          },
+          {
+            "threshold": 0.8,
+            "n_obs_at_or_above": 5,
+            "n_control_at_or_above": 3,
+            "share_obs_at_or_above": 0.014285714285714285,
+            "share_control_at_or_above": 0.008849557522123894,
+            "enrichment": 1.6142857142857143,
+            "enrichment_ci_lo": 0.3888058392844491,
+            "enrichment_ci_hi": 6.702364275554148
+          }
+        ],
+        "underpowered": false,
+        "recommended_paint_floor": 0.05,
+        "recommended_possible_min": 0.05,
+        "recommended_prime_min": 0,
+        "max_observed_score": 0.8824489566119035,
+        "publishable": true,
+        "note": "no threshold reaches 4x enrichment, so this species has no defensible PRIME band; its top band should be labelled as the best available odds, not as a promise"
+      },
+      {
+        "species": "cantharellus_cibarius",
+        "control_set": "spatial (target group)",
+        "n_obs": 350,
+        "n_control": 597,
+        "bins": [
+          {
+            "lo": 0,
+            "hi": 0.05,
+            "n_obs": 62,
+            "n_control": 399,
+            "share_obs": 0.17714285714285713,
+            "share_control": 0.6683417085427136,
+            "enrichment": 0.26504833512352305,
+            "log_se": 0.11875652903750243,
+            "enrichment_ci_lo": 0.21000879465141395,
+            "enrichment_ci_hi": 0.3345127525176166
+          },
+          {
+            "lo": 0.05,
+            "hi": 0.1,
+            "n_obs": 13,
+            "n_control": 35,
+            "share_obs": 0.037142857142857144,
+            "share_control": 0.05862646566164154,
+            "enrichment": 0.6335510204081632,
+            "log_se": 0.31774568566908307,
+            "enrichment_ci_lo": 0.3398685720046958,
+            "enrichment_ci_hi": 1.181006213939308
+          },
+          {
+            "lo": 0.1,
+            "hi": 0.15,
+            "n_obs": 13,
+            "n_control": 13,
+            "share_obs": 0.037142857142857144,
+            "share_control": 0.021775544388609715,
+            "enrichment": 1.7057142857142857,
+            "log_se": 0.3864116575790178,
+            "enrichment_ci_lo": 0.7998085520061464,
+            "enrichment_ci_hi": 3.637697067869608
+          },
+          {
+            "lo": 0.15,
+            "hi": 0.2,
+            "n_obs": 10,
+            "n_control": 23,
+            "share_obs": 0.02857142857142857,
+            "share_control": 0.038525963149078725,
+            "enrichment": 0.7416149068322981,
+            "log_se": 0.3727547130974677,
+            "enrichment_ci_lo": 0.35717679285652654,
+            "enrichment_ci_hi": 1.5398331611561435
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.25,
+            "n_obs": 16,
+            "n_control": 9,
+            "share_obs": 0.045714285714285714,
+            "share_control": 0.01507537688442211,
+            "enrichment": 3.0323809523809526,
+            "log_se": 0.4111920796634115,
+            "enrichment_ci_lo": 1.354471887819513,
+            "enrichment_ci_hi": 6.7888704985718515
+          },
+          {
+            "lo": 0.25,
+            "hi": 0.3,
+            "n_obs": 15,
+            "n_control": 14,
+            "share_obs": 0.04285714285714286,
+            "share_control": 0.023450586264656615,
+            "enrichment": 1.8275510204081633,
+            "log_se": 0.3654627934031703,
+            "enrichment_ci_lo": 0.8928557505661602,
+            "enrichment_ci_hi": 3.740741693243349
+          },
+          {
+            "lo": 0.3,
+            "hi": 0.4,
+            "n_obs": 22,
+            "n_control": 19,
+            "share_obs": 0.06285714285714286,
+            "share_control": 0.031825795644891124,
+            "enrichment": 1.9750375939849625,
+            "log_se": 0.30586588510117324,
+            "enrichment_ci_lo": 1.0844688178392334,
+            "enrichment_ci_hi": 3.5969438986969355
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "n_obs": 32,
+            "n_control": 19,
+            "share_obs": 0.09142857142857143,
+            "share_control": 0.031825795644891124,
+            "enrichment": 2.872781954887218,
+            "log_se": 0.281690245152683,
+            "enrichment_ci_lo": 1.653952705276712,
+            "enrichment_ci_hi": 4.98978969229044
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6,
+            "n_obs": 46,
+            "n_control": 18,
+            "share_obs": 0.13142857142857142,
+            "share_control": 0.03015075376884422,
+            "enrichment": 4.359047619047619,
+            "log_se": 0.26974525252012943,
+            "enrichment_ci_lo": 2.5690929594950216,
+            "enrichment_ci_hi": 7.396110784897248
+          },
+          {
+            "lo": 0.6,
+            "hi": 0.7,
+            "n_obs": 75,
+            "n_control": 29,
+            "share_obs": 0.21428571428571427,
+            "share_control": 0.048576214405360134,
+            "enrichment": 4.411330049261084,
+            "log_se": 0.20804784839270324,
+            "enrichment_ci_lo": 2.934104980070908,
+            "enrichment_ci_hi": 6.63228921108457
+          },
+          {
+            "lo": 0.7,
+            "hi": 0.8,
+            "n_obs": 41,
+            "n_control": 15,
+            "share_obs": 0.11714285714285715,
+            "share_control": 0.02512562814070352,
+            "enrichment": 4.662285714285714,
+            "log_se": 0.29415085557569937,
+            "enrichment_ci_lo": 2.6194651287060893,
+            "enrichment_ci_hi": 8.298223879151164
+          },
+          {
+            "lo": 0.8,
+            "hi": 1.01,
+            "n_obs": 5,
+            "n_control": 4,
+            "share_obs": 0.014285714285714285,
+            "share_control": 0.006700167504187605,
+            "enrichment": 2.132142857142857,
+            "log_se": 0.6674337534668218,
+            "enrichment_ci_lo": 0.5763485691342278,
+            "enrichment_ci_hi": 7.887645440144338
+          }
+        ],
+        "cumulative": [
+          {
+            "threshold": 0.05,
+            "n_obs_at_or_above": 288,
+            "n_control_at_or_above": 198,
+            "share_obs_at_or_above": 0.8228571428571428,
+            "share_control_at_or_above": 0.3316582914572864,
+            "enrichment": 2.481038961038961,
+            "enrichment_ci_lo": 2.1921060659455858,
+            "enrichment_ci_hi": 2.808054966782837
+          },
+          {
+            "threshold": 0.1,
+            "n_obs_at_or_above": 275,
+            "n_control_at_or_above": 163,
+            "share_obs_at_or_above": 0.7857142857142857,
+            "share_control_at_or_above": 0.2730318257956449,
+            "enrichment": 2.877738825591586,
+            "enrichment_ci_lo": 2.497115368026891,
+            "enrichment_ci_hi": 3.31637891238514
+          },
+          {
+            "threshold": 0.15,
+            "n_obs_at_or_above": 262,
+            "n_control_at_or_above": 150,
+            "share_obs_at_or_above": 0.7485714285714286,
+            "share_control_at_or_above": 0.25125628140703515,
+            "enrichment": 2.979314285714286,
+            "enrichment_ci_lo": 2.5612359215584495,
+            "enrichment_ci_hi": 3.4656368584976764
+          },
+          {
+            "threshold": 0.2,
+            "n_obs_at_or_above": 252,
+            "n_control_at_or_above": 127,
+            "share_obs_at_or_above": 0.72,
+            "share_control_at_or_above": 0.21273031825795644,
+            "enrichment": 3.3845669291338583,
+            "enrichment_ci_lo": 2.8623639844282467,
+            "enrichment_ci_hi": 4.0020393493299125
+          },
+          {
+            "threshold": 0.25,
+            "n_obs_at_or_above": 236,
+            "n_control_at_or_above": 118,
+            "share_obs_at_or_above": 0.6742857142857143,
+            "share_control_at_or_above": 0.19765494137353434,
+            "enrichment": 3.411428571428571,
+            "enrichment_ci_lo": 2.8572671887876853,
+            "enrichment_ci_hi": 4.0730684703298685
+          },
+          {
+            "threshold": 0.3,
+            "n_obs_at_or_above": 221,
+            "n_control_at_or_above": 104,
+            "share_obs_at_or_above": 0.6314285714285715,
+            "share_control_at_or_above": 0.17420435510887772,
+            "enrichment": 3.6246428571428573,
+            "enrichment_ci_lo": 2.9910811121867242,
+            "enrichment_ci_hi": 4.39240373265296
+          },
+          {
+            "threshold": 0.4,
+            "n_obs_at_or_above": 199,
+            "n_control_at_or_above": 85,
+            "share_obs_at_or_above": 0.5685714285714286,
+            "share_control_at_or_above": 0.1423785594639866,
+            "enrichment": 3.993378151260505,
+            "enrichment_ci_lo": 3.2143899315108735,
+            "enrichment_ci_hi": 4.961149517871062
+          },
+          {
+            "threshold": 0.5,
+            "n_obs_at_or_above": 167,
+            "n_control_at_or_above": 66,
+            "share_obs_at_or_above": 0.47714285714285715,
+            "share_control_at_or_above": 0.11055276381909548,
+            "enrichment": 4.315974025974025,
+            "enrichment_ci_lo": 3.352608706277732,
+            "enrichment_ci_hi": 5.55616041860249
+          },
+          {
+            "threshold": 0.6,
+            "n_obs_at_or_above": 121,
+            "n_control_at_or_above": 48,
+            "share_obs_at_or_above": 0.3457142857142857,
+            "share_control_at_or_above": 0.08040201005025126,
+            "enrichment": 4.299821428571429,
+            "enrichment_ci_lo": 3.1625366703064093,
+            "enrichment_ci_hi": 5.846086937487034
+          },
+          {
+            "threshold": 0.7,
+            "n_obs_at_or_above": 46,
+            "n_control_at_or_above": 19,
+            "share_obs_at_or_above": 0.13142857142857142,
+            "share_control_at_or_above": 0.031825795644891124,
+            "enrichment": 4.129624060150376,
+            "enrichment_ci_lo": 2.4601383240753245,
+            "enrichment_ci_hi": 6.9320471581949645
+          },
+          {
+            "threshold": 0.8,
+            "n_obs_at_or_above": 5,
+            "n_control_at_or_above": 4,
+            "share_obs_at_or_above": 0.014285714285714285,
+            "share_control_at_or_above": 0.006700167504187605,
+            "enrichment": 2.132142857142857,
+            "enrichment_ci_lo": 0.5763485691342278,
+            "enrichment_ci_hi": 7.887645440144338
+          }
+        ],
+        "underpowered": false,
+        "recommended_paint_floor": 0.05,
+        "recommended_possible_min": 0.05,
+        "recommended_prime_min": 0.5,
+        "max_observed_score": 0.8824489566119035,
+        "publishable": true,
+        "note": "all three bands are reachable and enriched over effort-matched background"
+      },
+      {
+        "species": "hypomyces_lactifluorum",
+        "control_set": "spatial (random ring)",
+        "n_obs": 46,
+        "n_control": 37,
+        "bins": null,
+        "cumulative": null,
+        "underpowered": true,
+        "recommended_paint_floor": 0,
+        "recommended_possible_min": 0,
+        "recommended_prime_min": 0,
+        "max_observed_score": 0.19525094767488285,
+        "publishable": false,
+        "note": "NOT MEASURED: 46 observations against 37 controls is below the 100-point floor this analysis needs, so no threshold could be resolved either way. This is a missing measurement, NOT a finding that the bands failed -- do not read it as one. Re-run once the evaluation set is complete."
+      },
+      {
+        "species": "hypomyces_lactifluorum",
+        "control_set": "spatial (target group)",
+        "n_obs": 46,
+        "n_control": 80,
+        "bins": null,
+        "cumulative": null,
+        "underpowered": true,
+        "recommended_paint_floor": 0,
+        "recommended_possible_min": 0,
+        "recommended_prime_min": 0,
+        "max_observed_score": 0.19525094767488285,
+        "publishable": false,
+        "note": "NOT MEASURED: 46 observations against 80 controls is below the 100-point floor this analysis needs, so no threshold could be resolved either way. This is a missing measurement, NOT a finding that the bands failed -- do not read it as one. Re-run once the evaluation set is complete."
+      },
+      {
+        "species": "morchella_importuna",
+        "control_set": "spatial (random ring)",
+        "n_obs": 350,
+        "n_control": 606,
+        "bins": [
+          {
+            "lo": 0,
+            "hi": 0.05,
+            "n_obs": 129,
+            "n_control": 389,
+            "share_obs": 0.36857142857142855,
+            "share_control": 0.641914191419142,
+            "enrichment": 0.5741755416819684,
+            "log_se": 0.07625827298238018,
+            "enrichment_ci_lo": 0.49446133418462906,
+            "enrichment_ci_hi": 0.6667408144449211
+          },
+          {
+            "lo": 0.05,
+            "hi": 0.1,
+            "n_obs": 36,
+            "n_control": 79,
+            "share_obs": 0.10285714285714286,
+            "share_control": 0.13036303630363036,
+            "enrichment": 0.7890054249547921,
+            "log_se": 0.18954866855832708,
+            "enrichment_ci_lo": 0.5441678821732616,
+            "enrichment_ci_hi": 1.1440027627537934
+          },
+          {
+            "lo": 0.1,
+            "hi": 0.15,
+            "n_obs": 25,
+            "n_control": 30,
+            "share_obs": 0.07142857142857142,
+            "share_control": 0.04950495049504951,
+            "enrichment": 1.4428571428571426,
+            "log_se": 0.2623471468487676,
+            "enrichment_ci_lo": 0.8627976112858142,
+            "enrichment_ci_hi": 2.412891166436294
+          },
+          {
+            "lo": 0.15,
+            "hi": 0.2,
+            "n_obs": 25,
+            "n_control": 47,
+            "share_obs": 0.07142857142857142,
+            "share_control": 0.07755775577557755,
+            "enrichment": 0.9209726443768997,
+            "log_se": 0.23826306442887105,
+            "enrichment_ci_lo": 0.5773419512472832,
+            "enrichment_ci_hi": 1.469130399857758
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.25,
+            "n_obs": 19,
+            "n_control": 18,
+            "share_obs": 0.054285714285714284,
+            "share_control": 0.0297029702970297,
+            "enrichment": 1.8276190476190477,
+            "log_se": 0.32199351954547073,
+            "enrichment_ci_lo": 0.9722977002346889,
+            "enrichment_ci_hi": 3.435358720290827
+          },
+          {
+            "lo": 0.25,
+            "hi": 0.3,
+            "n_obs": 18,
+            "n_control": 5,
+            "share_obs": 0.05142857142857143,
+            "share_control": 0.00825082508250825,
+            "enrichment": 6.233142857142858,
+            "log_se": 0.5010471511563668,
+            "enrichment_ci_lo": 2.3345712625232635,
+            "enrichment_ci_hi": 16.642057795039733
+          },
+          {
+            "lo": 0.3,
+            "hi": 0.4,
+            "n_obs": 40,
+            "n_control": 10,
+            "share_obs": 0.11428571428571428,
+            "share_control": 0.0165016501650165,
+            "enrichment": 6.925714285714286,
+            "log_se": 0.34712057289413933,
+            "enrichment_ci_lo": 3.5074345395727797,
+            "enrichment_ci_hi": 13.675385192845066
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "n_obs": 21,
+            "n_control": 13,
+            "share_obs": 0.06,
+            "share_control": 0.02145214521452145,
+            "enrichment": 2.796923076923077,
+            "log_se": 0.34646041140147604,
+            "enrichment_ci_lo": 1.4182979210324547,
+            "enrichment_ci_hi": 5.515610353944701
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6,
+            "n_obs": 14,
+            "n_control": 3,
+            "share_obs": 0.04,
+            "share_control": 0.0049504950495049506,
+            "enrichment": 8.08,
+            "log_se": 0.6326567765291542,
+            "enrichment_ci_lo": 2.338207454065536,
+            "enrichment_ci_hi": 27.92156011926311
+          },
+          {
+            "lo": 0.6,
+            "hi": 0.7,
+            "n_obs": 10,
+            "n_control": 6,
+            "share_obs": 0.02857142857142857,
+            "share_control": 0.009900990099009901,
+            "enrichment": 2.8857142857142857,
+            "log_se": 0.5120149986016251,
+            "enrichment_ci_lo": 1.0578336157710442,
+            "enrichment_ci_hi": 7.872076302572207
+          },
+          {
+            "lo": 0.7,
+            "hi": 0.8,
+            "n_obs": 11,
+            "n_control": 3,
+            "share_obs": 0.03142857142857143,
+            "share_control": 0.0049504950495049506,
+            "enrichment": 6.348571428571429,
+            "log_se": 0.6478696754508423,
+            "enrichment_ci_lo": 1.78319241917453,
+            "enrichment_ci_hi": 22.602361220406625
+          },
+          {
+            "lo": 0.8,
+            "hi": 1.01,
+            "n_obs": 2,
+            "n_control": 3,
+            "share_obs": 0.005714285714285714,
+            "share_control": 0.0049504950495049506,
+            "enrichment": 1.1542857142857144,
+            "log_se": 0.9103988276901991,
+            "enrichment_ci_lo": 0.19380554290081117,
+            "enrichment_ci_hi": 6.874806005347255
+          }
+        ],
+        "cumulative": [
+          {
+            "threshold": 0.05,
+            "n_obs_at_or_above": 221,
+            "n_control_at_or_above": 217,
+            "share_obs_at_or_above": 0.6314285714285715,
+            "share_control_at_or_above": 0.3580858085808581,
+            "enrichment": 1.7633443054641211,
+            "enrichment_ci_lo": 1.543272521268047,
+            "enrichment_ci_hi": 2.0147984861791515
+          },
+          {
+            "threshold": 0.1,
+            "n_obs_at_or_above": 185,
+            "n_control_at_or_above": 138,
+            "share_obs_at_or_above": 0.5285714285714286,
+            "share_control_at_or_above": 0.22772277227722773,
+            "enrichment": 2.3211180124223603,
+            "enrichment_ci_lo": 1.9448120854802422,
+            "enrichment_ci_hi": 2.7702361929024852
+          },
+          {
+            "threshold": 0.15,
+            "n_obs_at_or_above": 160,
+            "n_control_at_or_above": 108,
+            "share_obs_at_or_above": 0.45714285714285713,
+            "share_control_at_or_above": 0.1782178217821782,
+            "enrichment": 2.5650793650793653,
+            "enrichment_ci_lo": 2.0884134286457683,
+            "enrichment_ci_hi": 3.1505410082631595
+          },
+          {
+            "threshold": 0.2,
+            "n_obs_at_or_above": 135,
+            "n_control_at_or_above": 61,
+            "share_obs_at_or_above": 0.38571428571428573,
+            "share_control_at_or_above": 0.10066006600660066,
+            "enrichment": 3.831850117096019,
+            "enrichment_ci_lo": 2.918592274765725,
+            "enrichment_ci_hi": 5.030875825595537
+          },
+          {
+            "threshold": 0.25,
+            "n_obs_at_or_above": 116,
+            "n_control_at_or_above": 43,
+            "share_obs_at_or_above": 0.3314285714285714,
+            "share_control_at_or_above": 0.07095709570957096,
+            "enrichment": 4.670830564784053,
+            "enrichment_ci_lo": 3.377316984631721,
+            "enrichment_ci_hi": 6.459760296174837
+          },
+          {
+            "threshold": 0.3,
+            "n_obs_at_or_above": 98,
+            "n_control_at_or_above": 38,
+            "share_obs_at_or_above": 0.28,
+            "share_control_at_or_above": 0.0627062706270627,
+            "enrichment": 4.4652631578947375,
+            "enrichment_ci_lo": 3.1444653396785816,
+            "enrichment_ci_hi": 6.340847462255745
+          },
+          {
+            "threshold": 0.4,
+            "n_obs_at_or_above": 58,
+            "n_control_at_or_above": 28,
+            "share_obs_at_or_above": 0.1657142857142857,
+            "share_control_at_or_above": 0.0462046204620462,
+            "enrichment": 3.586530612244898,
+            "enrichment_ci_lo": 2.3297709932949298,
+            "enrichment_ci_hi": 5.521230142185647
+          },
+          {
+            "threshold": 0.5,
+            "n_obs_at_or_above": 37,
+            "n_control_at_or_above": 15,
+            "share_obs_at_or_above": 0.10571428571428572,
+            "share_control_at_or_above": 0.024752475247524754,
+            "enrichment": 4.2708571428571425,
+            "enrichment_ci_lo": 2.378519852497516,
+            "enrichment_ci_hi": 7.668727555728032
+          },
+          {
+            "threshold": 0.6,
+            "n_obs_at_or_above": 23,
+            "n_control_at_or_above": 12,
+            "share_obs_at_or_above": 0.06571428571428571,
+            "share_control_at_or_above": 0.019801980198019802,
+            "enrichment": 3.3185714285714285,
+            "enrichment_ci_lo": 1.6721038350873432,
+            "enrichment_ci_hi": 6.5862634218259215
+          },
+          {
+            "threshold": 0.7,
+            "n_obs_at_or_above": 13,
+            "n_control_at_or_above": 6,
+            "share_obs_at_or_above": 0.037142857142857144,
+            "share_control_at_or_above": 0.009900990099009901,
+            "enrichment": 3.7514285714285713,
+            "enrichment_ci_lo": 1.4387490334144906,
+            "enrichment_ci_hi": 9.781564400520605
+          },
+          {
+            "threshold": 0.8,
+            "n_obs_at_or_above": 2,
+            "n_control_at_or_above": 3,
+            "share_obs_at_or_above": 0.005714285714285714,
+            "share_control_at_or_above": 0.0049504950495049506,
+            "enrichment": 1.1542857142857144,
+            "enrichment_ci_lo": 0.19380554290081117,
+            "enrichment_ci_hi": 6.874806005347255
+          }
+        ],
+        "underpowered": false,
+        "recommended_paint_floor": 0.05,
+        "recommended_possible_min": 0.1,
+        "recommended_prime_min": 0.25,
+        "max_observed_score": 0.8115331711668463,
+        "publishable": true,
+        "note": "all three bands are reachable and enriched over effort-matched background"
+      },
+      {
+        "species": "morchella_importuna",
+        "control_set": "spatial (target group)",
+        "n_obs": 350,
+        "n_control": 17,
+        "bins": null,
+        "cumulative": null,
+        "underpowered": true,
+        "recommended_paint_floor": 0,
+        "recommended_possible_min": 0,
+        "recommended_prime_min": 0,
+        "max_observed_score": 0.8115331711668463,
+        "publishable": false,
+        "note": "NOT MEASURED: 350 observations against 17 controls is below the 100-point floor this analysis needs, so no threshold could be resolved either way. This is a missing measurement, NOT a finding that the bands failed -- do not read it as one. Re-run once the evaluation set is complete."
+      }
+    ]
+  }
+}

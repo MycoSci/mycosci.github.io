@@ -1,0 +1,141 @@
+---
+/**
+ * One map, with whatever the record says about whether it should be one.
+ *
+ * Two failure modes are handled explicitly rather than left to chance:
+ *
+ *   1. A species the standing measurement marks publish_as_foraging_map=false
+ *      gets no plate at all — it gets a statement of what was withheld and why.
+ *      Lobster's best real record ever scored 0.195; a lobster map can say
+ *      "better here than there" and must not say "go here".
+ *   2. The image now lives on a host we control rather than in the same commit
+ *      as the page, so it can be absent. The URL is content-addressed by run
+ *      date and digest, so a stale origin can only 404 — but a 404 must look
+ *      like a 404, not like an empty map. A failed load replaces the figure
+ *      with what is missing and the digest that would prove it.
+ */
+import {
+  imageState,
+  withheldAsForagingMap,
+  sentenceCase,
+  type ManifestSpecies,
+  type RunRecord,
+} from '../../lib/weather';
+
+interface Props {
+  species: ManifestSpecies;
+  run: RunRecord;
+  /** Withheld species get a notice instead of a plate on a headline page. */
+  headline?: boolean;
+}
+const { species, run, headline = true } = Astro.props;
+
+const withheld = withheldAsForagingMap(species.id);
+const img = imageState(run, species.id);
+
+const assessed = species.pixels_assessed || 1;
+const painted = species.pixels_painted ?? 0;
+const paintedPct = (100 * painted) / assessed;
+const maxScore = species.max_score ?? 0;
+const name = species.common_name ?? species.id;
+
+const alt =
+  `Map of Oregon showing predicted ${name} fruiting likelihood for ${run.target_date}. ` +
+  `${paintedPct.toFixed(0)} percent of assessed ground is painted; the highest score anywhere ` +
+  `is ${maxScore.toFixed(2)}.`;
+---
+
+{
+  withheld && headline ? (
+    <div class="border-l-2 border-spore-600 bg-spore-600/5 px-5 py-5">
+      <p class="font-mono text-2xs uppercase tracking-wider text-spore-400">
+        Rendered · not published as a foraging map
+      </p>
+      <h3 class="text-lg font-semibold text-lab-100 mt-2">{name}</h3>
+      <p class="text-sm text-lab-300 mt-3 leading-relaxed">
+        The run produced a map for this species and the standing measurement says not to present
+        it as one. {sentenceCase(withheld.note)}
+      </p>
+    </div>
+  ) : (
+    <figure class="border border-lab-800 bg-lab-900">
+      <div class="relative bg-lab-950" data-plate>
+        {img.url ? (
+          <a href={img.url} class="block">
+            <img
+              src={img.url}
+              alt={alt}
+              width={1456}
+              height={1092}
+              loading="lazy"
+              decoding="async"
+              class="w-full h-auto block"
+              onerror="this.closest('[data-plate]').setAttribute('data-plate-failed','');"
+            />
+          </a>
+        ) : null}
+
+        <div class="plate-fallback px-5 py-8 text-center" data-has-image={img.url ? '' : null}>
+          <p class="font-mono text-2xs uppercase tracking-wider text-spore-400">
+            Map image unavailable
+          </p>
+          <p class="text-sm text-lab-300 mt-3 max-w-xl mx-auto leading-relaxed">
+            The run for <span class="font-mono text-lab-100">{run.as_of_date}</span> recorded a
+            map for {name}, but it did not load from the map origin.
+            {img.note}
+          </p>
+          {img.image?.published_sha256 && (
+            <p class="font-mono text-2xs text-lab-500 mt-3 break-all">
+              expected sha256 {img.image.published_sha256.slice(0, 24)}…
+            </p>
+          )}
+          <p class="text-xs text-lab-500 mt-3">
+            The numbers on this page come from the run record and are unaffected.
+          </p>
+        </div>
+      </div>
+
+      <figcaption class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 px-5 py-3 border-t border-lab-800">
+        <span class="text-sm text-lab-100">
+          <b>{name}</b>{' '}
+          <i class="text-lab-400">{species.scientific_name}</i>
+          {withheld && (
+            <span class="badge badge-spore ml-2">not a foraging map</span>
+          )}
+        </span>
+        <span class="font-mono text-2xs text-lab-500 tabular-nums whitespace-nowrap">
+          {paintedPct.toFixed(1)}% of assessed ground painted · peak {maxScore.toFixed(2)}
+        </span>
+      </figcaption>
+
+      {img.url && (
+        <p class="px-5 pb-4 text-xs text-lab-500">
+          <a href={img.url} class="text-bio-400 hover:text-bio-300">
+            Open the full-size image
+          </a>{' '}
+          — 1456 pixels across, with place names and its own legend.
+          {img.state === 'unverified' && (
+            <span class="text-spore-400">
+              {' '}
+              Its arrival on the map origin was never confirmed.
+            </span>
+          )}
+        </p>
+      )}
+    </figure>
+  )
+}
+
+<style>
+  /* The fallback is inert while an image is expected, and takes over the frame
+     the moment that image fails to load. A missing map must look missing. */
+  .plate-fallback[data-has-image] {
+    display: none;
+  }
+  [data-plate-failed] img {
+    display: none;
+  }
+  [data-plate-failed] .plate-fallback[data-has-image] {
+    display: block;
+  }
+</style>
