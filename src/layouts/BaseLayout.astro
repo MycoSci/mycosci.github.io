@@ -65,10 +65,11 @@ const canonical = new URL(currentPath, Astro.site ?? 'https://mycosci.github.io'
           </a>
 
           <!-- Navigation -->
-          <nav class="hidden md:flex items-center gap-6">
+          <nav aria-label="Primary" class="hidden md:flex items-center gap-6">
             {navItems.map((item) => (
               <a
                 href={item.href}
+                aria-current={isActive(item.href) ? 'page' : undefined}
                 class:list={[
                   'text-xs font-mono uppercase tracking-wider transition-colors duration-150 pb-0.5 border-b',
                   isActive(item.href)
@@ -82,8 +83,10 @@ const canonical = new URL(currentPath, Astro.site ?? 'https://mycosci.github.io'
           </nav>
 
           <!-- Right side -->
-          <div class="flex items-center gap-4">
-            <a href="/database" aria-label="Search" class="text-lab-400 hover:text-lab-100 transition-colors">
+          <div class="flex items-center gap-5 md:gap-4">
+            <!-- p-3/-m-3 buys a 40px touch target without moving a single pixel
+                 of the rendered icon: the padding is cancelled by the margin. -->
+            <a href="/database" aria-label="Search the catalog" class="p-3 -m-3 text-lab-400 hover:text-lab-100 transition-colors">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-5.2-5.2M17 11a6 6 0 11-12 0 6 6 0 0112 0z" />
               </svg>
@@ -91,6 +94,76 @@ const canonical = new URL(currentPath, Astro.site ?? 'https://mycosci.github.io'
             <a href="https://github.com/MycoSci" class="hidden sm:inline text-xs font-mono uppercase tracking-wider text-lab-400 hover:text-lab-100 transition-colors">
               GitHub
             </a>
+
+            <!-- Mobile navigation (<768px).
+
+                 A native <details> disclosure: it opens, closes and reports its
+                 own expanded state with no JavaScript, which matters for a site
+                 people load in the field on bad signal. The inline script at the
+                 end of <body> only layers conveniences on top of it. -->
+            <details id="site-menu" class="md:hidden">
+              <summary id="site-menu-toggle" class="nav-toggle" aria-controls="site-menu-panel">
+                <span class="nav-toggle-bars" aria-hidden="true"><span></span><span></span></span>
+                <span>Menu</span>
+              </summary>
+
+              <div
+                id="site-menu-panel"
+                class="absolute left-0 right-0 top-full border-b border-lab-800 bg-lab-950 max-h-[calc(100vh-3.5rem)] overflow-y-auto"
+              >
+                <nav aria-label="Site" class="max-w-7xl mx-auto px-4 sm:px-6 pb-4">
+                  <div class="flex items-baseline justify-between py-3 border-b border-lab-800">
+                    <span class="label text-lab-400">// Navigate</span>
+                    <span class="label tabular-nums">{String(navItems.length).padStart(2, '0')} Sections</span>
+                  </div>
+
+                  <ul>
+                    {navItems.map((item, i) => (
+                      <li>
+                        <a
+                          href={item.href}
+                          aria-current={isActive(item.href) ? 'page' : undefined}
+                          class="group flex items-stretch gap-4 border-b border-lab-800 hover:bg-lab-900 transition-colors"
+                        >
+                          <span
+                            class:list={['w-0.5 shrink-0', isActive(item.href) ? 'bg-bio-400' : 'bg-transparent']}
+                            aria-hidden="true"
+                          />
+                          <span class="flex-1 flex items-center justify-between gap-4 min-h-[52px] py-3 pr-1">
+                            <span
+                              class:list={[
+                                'text-sm font-mono uppercase tracking-[0.15em] transition-colors',
+                                isActive(item.href) ? 'text-bio-400' : 'text-lab-100 group-hover:text-bio-400'
+                              ]}
+                            >
+                              {item.label}
+                            </span>
+                            <span class="font-mono text-2xs text-lab-600 tabular-nums">
+                              {String(i + 1).padStart(2, '0')}
+                            </span>
+                          </span>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div class="flex items-center gap-6 pt-1">
+                    <a
+                      href="/blog"
+                      class="flex items-center min-h-[44px] text-2xs font-mono uppercase tracking-[0.2em] text-lab-400 hover:text-lab-100 transition-colors"
+                    >
+                      Field Notes
+                    </a>
+                    <a
+                      href="https://github.com/MycoSci"
+                      class="flex items-center min-h-[44px] text-2xs font-mono uppercase tracking-[0.2em] text-lab-400 hover:text-lab-100 transition-colors"
+                    >
+                      GitHub <span aria-hidden="true" class="ml-1.5 text-lab-600">&#8599;</span>
+                    </a>
+                  </div>
+                </nav>
+              </div>
+            </details>
           </div>
         </div>
       </div>
@@ -107,27 +180,27 @@ const canonical = new URL(currentPath, Astro.site ?? 'https://mycosci.github.io'
         <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-10">
           <div>
             <h4 class="label mb-4">Catalog</h4>
-            <ul class="space-y-2.5">
-              <li><a href="/database" class="text-sm text-lab-400 hover:text-bio-400 transition-colors">Species Catalog</a></li>
-              <li><a href="/database" class="text-sm text-lab-400 hover:text-bio-400 transition-colors">Browse by Phylum</a></li>
-              <li><a href="/api" class="text-sm text-lab-400 hover:text-bio-400 transition-colors">JSON API</a></li>
+            <ul class="space-y-0 md:space-y-2.5">
+              <li><a href="/database" class="block py-3 md:py-0 text-sm text-lab-400 hover:text-bio-400 transition-colors">Species Catalog</a></li>
+              <li><a href="/database" class="block py-3 md:py-0 text-sm text-lab-400 hover:text-bio-400 transition-colors">Browse by Phylum</a></li>
+              <li><a href="/api" class="block py-3 md:py-0 text-sm text-lab-400 hover:text-bio-400 transition-colors">JSON API</a></li>
             </ul>
           </div>
           <div>
             <h4 class="label mb-4">Knowledge</h4>
-            <ul class="space-y-2.5">
-              <li><a href="/docs" class="text-sm text-lab-400 hover:text-bio-400 transition-colors">Cultivation Teks</a></li>
-              <li><a href="/docs" class="text-sm text-lab-400 hover:text-bio-400 transition-colors">Lab Methods</a></li>
-              <li><a href="/weather" class="text-sm text-lab-400 hover:text-bio-400 transition-colors">Fruiting Weather</a></li>
-              <li><a href="/blog" class="text-sm text-lab-400 hover:text-bio-400 transition-colors">Field Notes</a></li>
+            <ul class="space-y-0 md:space-y-2.5">
+              <li><a href="/docs" class="block py-3 md:py-0 text-sm text-lab-400 hover:text-bio-400 transition-colors">Cultivation Teks</a></li>
+              <li><a href="/docs" class="block py-3 md:py-0 text-sm text-lab-400 hover:text-bio-400 transition-colors">Lab Methods</a></li>
+              <li><a href="/weather" class="block py-3 md:py-0 text-sm text-lab-400 hover:text-bio-400 transition-colors">Fruiting Weather</a></li>
+              <li><a href="/blog" class="block py-3 md:py-0 text-sm text-lab-400 hover:text-bio-400 transition-colors">Field Notes</a></li>
             </ul>
           </div>
           <div>
             <h4 class="label mb-4">Project</h4>
-            <ul class="space-y-2.5">
-              <li><a href="/about" class="text-sm text-lab-400 hover:text-bio-400 transition-colors">About</a></li>
-              <li><a href="https://github.com/MycoSci" class="text-sm text-lab-400 hover:text-bio-400 transition-colors">Source Code</a></li>
-              <li><a href="https://github.com/MycoSci" class="text-sm text-lab-400 hover:text-bio-400 transition-colors">Contribute</a></li>
+            <ul class="space-y-0 md:space-y-2.5">
+              <li><a href="/about" class="block py-3 md:py-0 text-sm text-lab-400 hover:text-bio-400 transition-colors">About</a></li>
+              <li><a href="https://github.com/MycoSci" class="block py-3 md:py-0 text-sm text-lab-400 hover:text-bio-400 transition-colors">Source Code</a></li>
+              <li><a href="https://github.com/MycoSci" class="block py-3 md:py-0 text-sm text-lab-400 hover:text-bio-400 transition-colors">Contribute</a></li>
             </ul>
           </div>
           <div>
@@ -154,5 +227,44 @@ const canonical = new URL(currentPath, Astro.site ?? 'https://mycosci.github.io'
         </div>
       </div>
     </footer>
+
+    <!-- Mobile nav conveniences. The menu already works without this: <details>
+         opens on click/Enter/Space and reports its own expanded state. This only
+         adds the explicit aria-expanded mirror, Escape-to-close with focus
+         returned to the toggle, click-away, and a reset when the viewport grows
+         past the breakpoint where the toggle disappears. Inline and unbundled,
+         so there is no request that can fail. -->
+    <script is:inline>
+      (function () {
+        var menu = document.getElementById('site-menu');
+        if (!menu) return;
+        var toggle = menu.querySelector('summary');
+
+        function sync() {
+          toggle.setAttribute('aria-expanded', menu.open ? 'true' : 'false');
+        }
+        sync();
+        menu.addEventListener('toggle', sync);
+
+        function close(refocus) {
+          if (!menu.open) return;
+          menu.open = false;
+          if (refocus) toggle.focus();
+        }
+
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape' || e.key === 'Esc') close(true);
+        });
+
+        document.addEventListener('click', function (e) {
+          if (!menu.contains(e.target)) close(false);
+        });
+
+        var wide = window.matchMedia('(min-width: 768px)');
+        var onWide = function (e) { if (e.matches) close(false); };
+        if (wide.addEventListener) wide.addEventListener('change', onWide);
+        else if (wide.addListener) wide.addListener(onWide);
+      })();
+    </script>
   </body>
 </html>

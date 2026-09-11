@@ -99,6 +99,56 @@
     @apply h-px bg-lab-800;
   }
 
+  /* ---------------------------------------------------------------
+     Mobile disclosure navigation (<768px).
+
+     A native <details>/<summary> disclosure, so the menu opens with no
+     JavaScript at all and the browser supplies the button semantics and
+     the expanded/collapsed state. The inline script in BaseLayout only
+     adds conveniences (explicit aria-expanded, Escape, click-away).
+
+     Everything below is scoped to .nav-toggle so it can never reach the
+     other <details> elements on the site.
+  ---------------------------------------------------------------- */
+  .nav-toggle {
+    @apply flex items-center gap-2.5 min-h-[44px] min-w-[44px] px-3
+           cursor-pointer select-none border border-lab-700
+           text-2xs font-mono uppercase tracking-[0.2em] text-lab-400
+           transition-colors duration-150;
+    list-style: none;
+  }
+  .nav-toggle::-webkit-details-marker { display: none; }
+  .nav-toggle:hover {
+    @apply text-lab-100 border-lab-600;
+  }
+  .nav-toggle:focus-visible {
+    @apply outline-none ring-1 ring-bio-400;
+  }
+  details[open] > .nav-toggle {
+    @apply text-bio-400 border-bio-400;
+  }
+
+  /* Two hairline rules that fold into a cross when open. */
+  .nav-toggle-bars {
+    @apply relative block w-3.5 h-2.5 shrink-0;
+  }
+  .nav-toggle-bars > span {
+    @apply absolute left-0 w-full bg-current transition-transform duration-150;
+    height: 1px;
+  }
+  .nav-toggle-bars > span:first-child { top: 0; }
+  .nav-toggle-bars > span:last-child  { bottom: 0; }
+  details[open] > .nav-toggle .nav-toggle-bars > span:first-child {
+    transform: translateY(4.5px) rotate(45deg);
+  }
+  details[open] > .nav-toggle .nav-toggle-bars > span:last-child {
+    transform: translateY(-4.5px) rotate(-45deg);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nav-toggle-bars > span { transition: none; }
+  }
+
   /* Legacy no-ops — kept so older markup doesn't break, glow/noise removed */
   .glow,
   .glow-strong {
