@@ -1,6 +1,6 @@
 {
   "snapshot_of": "sandbox/mycomap/species/*.json",
-  "taken_at": "2026-09-10T17:37:44.394Z",
+  "taken_at": "2026-09-17T19:33:23.827Z",
   "profiles": {
     "craterellus_calicornucopioides": {
       "id": "craterellus_calicornucopioides",
@@ -152,6 +152,7 @@
         "resolved": "2026-09-08 via iNaturalist /v1/taxa and GBIF /v1/species/match (kingdom=Fungi); both matched this profile's scientific_name EXACTLY"
       },
       "substrate": "mycorrhizal",
+      "arid_open_gate": "block",
       "association": [
         "douglas_fir",
         "hemlock",
@@ -176,7 +177,9 @@
         "incubation_days_max": 21
       },
       "calibration": {
-        "fitted": [],
+        "fitted": [
+          "arid_open_gate"
+        ],
         "unfitted": [
           "air_temp_min_f",
           "air_temp_optimal_f",
@@ -186,11 +189,11 @@
           "temp_trend_trigger",
           "everything on the moisture side"
         ],
-        "rule": "MEASURED AND LEFT ALONE. The same per-species temperature fit that moved morel's floors was run on chanterelle and every candidate lost. Do not 'improve' these numbers without re-running cmd/validate-backtest -fit-temp; they have already beaten their data-derived replacements.",
-        "evidence": "n=350 observations, 5-fold cross-validated grouped by observation, paired DeLong. Floors at the observed p5 (35->38 air, 40->38 soil): effort-matched AUC 0.795 -> 0.786, -0.0092 +/- 0.0030, RESOLVED WORSE; ring undecided. All five parameters at p5/p50/p95: ring -0.0159 +/- 0.0051 and effort-matched -0.0235 +/- 0.0048, both resolved worse. The 1,296-member grid search, cross-validated, also lost effort-matched (-0.0159 +/- 0.0034). Floor sensitivity is monotone: the further the floors drop below their current 35/40, the worse it gets, reaching -0.078 effort-matched at p30. Only 1% of real chanterelle fruitings sit below the 35F air floor and 11% below the 40F soil floor, against 25% and 62% for morel. Every figure here survives a cluster bootstrap over whole observations: the clustered standard error matches DeLong's paired one to the fourth decimal on all three control sets, so the rejection is not an artefact of treating correlated records as independent.",
-        "caveat": "This is why the global 10F temperature shoulder was the wrong shape rather than the wrong idea: it helped morel (+0.101) and cost chanterelle (-0.011) because chanterelle's floors were already close to right and morel's were not. A negative result on this species is what makes the morel result a calibration finding instead of a tuning constant.",
-        "measured": "2026-09-09 by cmd/validate-backtest -fit-temp",
-        "reproduce": "go run ./cmd/validate-backtest -species chanterelle -sweep -n 350 -spatial 2 -target-group 2 -background 2 -compare \"air-min=38,soil-min=38\"   # the p5 floors this species rejected. Add -fit-temp to re-derive from scratch."
+        "rule": "MEASURED AND LEFT ALONE. The same per-species temperature fit that moved morel's floors was run on chanterelle and every candidate lost. Do not 'improve' these numbers without re-running cmd/validate-backtest -fit-temp; they have already beaten their data-derived replacements.\n\nARID-OPEN EXCLUSION (arid_open_gate), 2026-09-10 -- Set to \"block\". This is the first site predicate since the forest gate itself to resolve better on BOTH control sets. It is applied ON TOP of the forest gate this species already carries: it COMPLEMENTS that gate, it does not replace it and it is not redundant with it.",
+        "evidence": "n=350 observations, 5-fold cross-validated grouped by observation, paired DeLong. Floors at the observed p5 (35->38 air, 40->38 soil): effort-matched AUC 0.795 -> 0.786, -0.0092 +/- 0.0030, RESOLVED WORSE; ring undecided. All five parameters at p5/p50/p95: ring -0.0159 +/- 0.0051 and effort-matched -0.0235 +/- 0.0048, both resolved worse. The 1,296-member grid search, cross-validated, also lost effort-matched (-0.0159 +/- 0.0034). Floor sensitivity is monotone: the further the floors drop below their current 35/40, the worse it gets, reaching -0.078 effort-matched at p30. Only 1% of real chanterelle fruitings sit below the 35F air floor and 11% below the 40F soil floor, against 25% and 62% for morel. Every figure here survives a cluster bootstrap over whole observations: the clustered standard error matches DeLong's paired one to the fourth decimal on all three control sets, so the rejection is not an artefact of treating correlated records as independent.\n\nARID-OPEN EXCLUSION AND HABITAT GATE, 2026-09-10 -- Measured 2026-09-10 with cmd/validate-backtest -sweep -compare, DeLong's PAIRED test on the same evaluation points, sample-seed 0x6d79636f6d6170, FN and background fire rate beside every AUC. The arid-open statistic is the share of the same ~960 m NLCD patch the forest fraction is measured over whose class is shrub/scrub, grassland, barren, cultivated crops or permanent ice; the developed classes are deliberately NOT in it, which is the whole content of the predicate. n=350 observations, 281 random-ring and 502 effort-matched (target-group) controls. At the shipped threshold 0.30: ring AUC 0.780 -> 0.800, +0.020 +/- 0.007, RESOLVED better; effort-matched 0.788 -> 0.813, +0.025 +/- 0.006, RESOLVED better. False negatives 35% -> 35% (unchanged) while the control fire rate falls 20% -> 17% on the ring and 19% -> 16% effort-matched. Measured in reverse on the shipped profile, removing it costs -0.020 +/- 0.007 and -0.025 +/- 0.006. Threshold sweep on the same points: 0.20 gains more effort-matched (+0.033 +/- 0.009) but starts costing finds (FN 35% -> 38%); 0.50 and above decay to +0.005 because the forest gate has already taken that ground. The weather-free land-cover screen on the full pool agrees: patch blocking margin +36 +/- 3 pp ring, +13 +/- 1 pp effort-matched.",
+        "caveat": "This is why the global 10F temperature shoulder was the wrong shape rather than the wrong idea: it helped morel (+0.101) and cost chanterelle (-0.011) because chanterelle's floors were already close to right and morel's were not. A negative result on this species is what makes the morel result a calibration finding instead of a tuning constant.\n\nARID-OPEN EXCLUSION, 2026-09-10 -- The overlap with the forest gate is large but not total, and the residual is the whole case for carrying both: on the effort-matched controls at patch threshold 0.60 the forest gate alone blocks 21% of control ground the arid predicate misses, the arid predicate alone blocks 2% the forest gate misses, and 13% is blocked by both. The 2% is where the gain lives. NOTE ALSO that only cmd/validate-backtest currently measures the arid-open patch fraction: species.HabitatFromForestFraction leaves it UNKNOWN for cmd/render and cmd/render-hires, which read forest fraction only, so this field changes the validated score and does NOT yet change a painted map.",
+        "measured": "2026-09-09 by cmd/validate-backtest -fit-temp; 2026-09-10 (arid_open_gate) by cmd/validate-backtest -sweep -compare",
+        "reproduce": "go run ./cmd/validate-backtest -species chanterelle -sweep -n 350 -spatial 2 -target-group 2 -background 2 -compare \"air-min=38,soil-min=38\"   # the p5 floors this species rejected. Add -fit-temp to re-derive from scratch.\ngo run ./cmd/validate-backtest -species chanterelle -sweep -n 350 -spatial 2 -target-group 2 -background 1 -compare \"arid-open-gate=none;arid-open-gate=block,arid-threshold=0.20;arid-open-gate=block,arid-threshold=0.50\"   # arid_open_gate: the shipped 0.30 against removal and against its neighbours on the same points"
       },
       "season": {
         "primary": [
@@ -339,6 +342,7 @@
         "resolved": "2026-09-08 via iNaturalist /v1/taxa and GBIF /v1/species/match (kingdom=Fungi); both matched this profile's scientific_name EXACTLY"
       },
       "substrate": "parasitic",
+      "arid_open_gate": "none",
       "host_genera": [
         "Pseudotsuga",
         "Tsuga",
@@ -372,7 +376,23 @@
         "Other bracket polypores such as Berkeley's polypore or velvet-top/Phaeolus at a distance, but only true Laetiporus has soft, moist, bright orange-and-yellow flesh with no pores on top and yellow pores below"
       ],
       "edibility": "edible_with_caution",
-      "special_notes": "Bright orange-and-yellow shelving bracket on living and dead CONIFERS in the PNW (the conifer species, unlike the hardwood chickens). Warm-season fruiter — appears from late spring through fall whenever it is warm and wet, with no strong cooling trigger, hence temp_trend 'any'. CAUTION: the conifer host species (L. conifericola) more often causes GI upset, dizziness or lip-swelling than the hardwood forms, even in people who tolerate eastern chicken; eat only young, tender, actively growing margins, cook thoroughly, and try a small portion first. Old, dry, or bug-ridden shelves are not worth taking. Upper air-temp ceiling (85F) is a lower-confidence estimate."
+      "special_notes": "Bright orange-and-yellow shelving bracket on living and dead CONIFERS in the PNW (the conifer species, unlike the hardwood chickens). Warm-season fruiter — appears from late spring through fall whenever it is warm and wet, with no strong cooling trigger, hence temp_trend 'any'. CAUTION: the conifer host species (L. conifericola) more often causes GI upset, dizziness or lip-swelling than the hardwood forms, even in people who tolerate eastern chicken; eat only young, tender, actively growing margins, cook thoroughly, and try a small portion first. Old, dry, or bug-ridden shelves are not worth taking. Upper air-temp ceiling (85F) is a lower-confidence estimate.",
+      "calibration": {
+        "fitted": [
+          "arid_open_gate"
+        ],
+        "unfitted": [
+          "habitat_gate",
+          "substrate",
+          "host_genera",
+          "everything in fruiting_conditions"
+        ],
+        "rule": "No parameter changed. What changed is the EVIDENCE for the gate this profile already carries: the parasitic forest habitat gate had only ever been measured on lobster, and applied to this species by inference from the physical claim that a conifer bole needs a conifer forest. It is now measured on this species' own observations.\n\nARID-OPEN EXCLUSION (arid_open_gate), 2026-09-10 -- Set EXPLICITLY to \"none\" for the arid-open exclusion: both control sets are POSITIVE and NEITHER is resolved, so it fails the bar the two shipped species cleared. Recorded rather than shipped, and sample size is the reason -- n=150 here against chanterelle's 350. SEPARATELY, the PARASITIC FOREST GATE is now properly measured and the earlier 14-control figure is superseded.",
+        "evidence": "Land-cover screen (cmd/validate-backtest -habitat-screen), n=350 drawn from the 1,204-record usable pool at sample-seed 0x6d79636f6d6170, 410 random-ring and 574 effort-matched (target-group) controls: forest fraction p25/median/p75 finds 0.63/0.88/0.95 against ring 0.00/0.14/0.66 and target group 0.00/0.00/0.32. The gate blocks 7% of real fruitings against 58% of ring and 71% of effort-matched control ground -- margin +51 +/- 3 pp and +64 +/- 2 pp, RESOLVED positive on both sets. AUC of forest fraction alone 0.825 +/- 0.018 and 0.929 +/- 0.008. 75% of records sit on NLCD class 42 evergreen forest against 28% of ring and 10% of effort-matched controls.\n\nARID-OPEN EXCLUSION AND HABITAT GATE, 2026-09-10 -- Measured 2026-09-10 with cmd/validate-backtest -sweep -compare, DeLong's PAIRED test on the same evaluation points, sample-seed 0x6d79636f6d6170, FN and background fire rate beside every AUC. The arid-open statistic is the share of the same ~960 m NLCD patch the forest fraction is measured over whose class is shrub/scrub, grassland, barren, cultivated crops or permanent ice; the developed classes are deliberately NOT in it. PARASITIC FOREST GATE, n=150, 171 random-ring and 255 effort-matched controls, both fetched rather than scavenged from cache, -compare \"parasitic-gate=false\": ring AUC 0.750 -> 0.488, -0.263 +/- 0.032; effort-matched 0.801 -> 0.399, -0.403 +/- 0.032. Both RESOLVED WORSE and the two sets AGREE, at eight and thirteen paired standard errors. This SUPERSEDES the -0.143 +/- 0.068 recorded above, which rested on FOURTEEN target-group controls and should not be quoted. ARID-OPEN, same points, threshold 0.30: ring 0.758 -> 0.782, +0.024 +/- 0.012 (p=0.046, under the power floor); effort-matched 0.806 -> 0.819, +0.013 +/- 0.009, undecided. Positive on both sets at every swept threshold from 0.20 to 0.60 and never resolved.",
+        "caveat": "The SCORING-PATH run is underpowered and is not the verdict: turning the gate off measured -0.143 +/- 0.068 on the effort-matched set (significantly worse, under the 80%-power floor) and the random-ring set had NO usable controls at all, because the parked prefetch job had not reached this species' spatial controls before Open-Meteo's daily budget ran out. The effort-matched set held 14 points. Also, false negatives are 100% at threshold 0.25 with and without the gate -- every score this species produces is below the forager threshold -- so the gate makes it RANKABLE, not usable in absolute terms, exactly as it does for lobster.\n\nARID-OPEN EXCLUSION, 2026-09-10 -- This species' scores sit entirely below the 0.25 paint threshold on the evaluation set, so its false-negative and background-fire columns are degenerate at 100% and 0% and only the RANKING is readable. That is a real problem with the profile's absolute calibration, separate from either gate, and it means the usual FN-versus-fire-rate check on a proposed exclusion cannot be run here at all. Re-measure the arid-open exclusion at n=350: the deltas above would resolve at that size if they hold.",
+        "measured": "2026-09-10 by cmd/validate-backtest -habitat-screen and -sweep -compare \"parasitic-gate=false\"; 2026-09-10 (arid_open_gate) by cmd/validate-backtest -sweep -compare",
+        "reproduce": "go run ./cmd/validate-backtest -species chicken_of_the_woods -sweep -n 350 -spatial 2 -target-group 2 -compare \"parasitic-gate=false\"   # needs a full weather budget for the spatial control sets\ngo run ./cmd/validate-backtest -species chicken_of_the_woods -sweep -n 350 -spatial 2 -target-group 2 -background 1 -compare \"parasitic-gate=false;arid-open-gate=block,arid-threshold=0.30\""
+      }
     },
     "hydnum_repandum": {
       "id": "hydnum_repandum",
@@ -502,6 +522,7 @@
         "resolved": "2026-09-08 via iNaturalist /v1/taxa and GBIF /v1/species/match (kingdom=Fungi); both matched this profile's scientific_name EXACTLY"
       },
       "substrate": "deadwood",
+      "arid_open_gate": "none",
       "host_genera": [
         "Abies",
         "Tsuga",
@@ -537,7 +558,23 @@
         "No toxic look-alikes — the entire genus Hericium is safe when firm and white"
       ],
       "edibility": "choice",
-      "special_notes": "Cascade of white icicle-like spines hanging from wounds and cut/broken ends of conifer logs and standing trees (H. abietis on conifers; the hardwood forms H. erinaceus and H. coralloides also occur in the region). One of the safest choice edibles for beginners — no toxic look-alikes, and the whole genus is edible. Harvest while pure white and firm; yellowing/browning specimens turn sour. soil_temp values are proxies only since this is a wood-decay fungus not a ground-fruiter; treat them as loose bounds rather than hard triggers."
+      "special_notes": "Cascade of white icicle-like spines hanging from wounds and cut/broken ends of conifer logs and standing trees (H. abietis on conifers; the hardwood forms H. erinaceus and H. coralloides also occur in the region). One of the safest choice edibles for beginners — no toxic look-alikes, and the whole genus is edible. Harvest while pure white and firm; yellowing/browning specimens turn sour. soil_temp values are proxies only since this is a wood-decay fungus not a ground-fruiter; treat them as loose bounds rather than hard triggers.",
+      "calibration": {
+        "fitted": [
+          "arid_open_gate"
+        ],
+        "unfitted": [
+          "habitat_gate",
+          "substrate",
+          "association",
+          "everything in fruiting_conditions"
+        ],
+        "rule": "habitat_gate is deliberately NOT set, and this profile is the reason the deadwood substrate has no class-wide switch. The screen says this species SHOULD be gated on forest and says the opposite for oyster, the only other deadwood profile. A screen is not a verdict, so nothing is set until the scoring-path measurement exists.\n\nARID-OPEN EXCLUSION (arid_open_gate), 2026-09-10 -- Set EXPLICITLY to \"none\" for the arid-open exclusion: ring-only evidence, under the power floor. SEPARATELY AND MORE IMPORTANTLY, the FOREST gate is now measured on the scoring path and came back RESOLVED BETTER, and habitat_gate has still NOT been turned on -- for the same reason. That result is recorded here so the next pass re-runs it rather than re-argues it.",
+        "evidence": "cmd/validate-backtest -habitat-screen, n=350 drawn from the 373-record usable pool at sample-seed 0x6d79636f6d6170, 619 random-ring controls. Forest fraction p25/median/p75: finds 0.79/0.90/0.97 against ring controls 0.00/0.12/0.70. The hard gate would block 5% of real fruitings and 58% of control ground -- margin +53 +/- 2 pp, the largest positive margin of any species screened. AUC of forest fraction alone 0.844 +/- 0.013. 82% of records sit on NLCD class 42 evergreen forest against 28% of ring controls. Hericium abietis is a conifer-log specialist of mature forest, which is what separates it from the other deadwood profile.\n\nARID-OPEN EXCLUSION AND HABITAT GATE, 2026-09-10 -- Measured 2026-09-10 with cmd/validate-backtest -sweep -compare, DeLong's PAIRED test on the same evaluation points, sample-seed 0x6d79636f6d6170, FN and background fire rate beside every AUC. The arid-open statistic is the share of the same ~960 m NLCD patch the forest fraction is measured over whose class is shrub/scrub, grassland, barren, cultivated crops or permanent ice; the developed classes are deliberately NOT in it. FOREST GATE, n=150, 277 random-ring controls, -compare \"habitat-gate=forest\": ring AUC 0.612 -> 0.705, +0.092 +/- 0.022, RESOLVED BETTER, false negatives 50% -> 56% against a control fire rate of 39% -> 21%. This is the other half of the deadwood split measured on the scoring path rather than screened: the same predicate is worth +0.092 here and -0.131 to oyster, 0.22 AUC apart, which is why substrate \"deadwood\" can never carry one switch. ARID-OPEN, same points, threshold 0.30: 0.612 -> 0.647, +0.034 +/- 0.015, significant and under the 80%-power floor. Land-cover screen, patch statistic: +40 +/- 2 pp arid-open against +53 +/- 3 pp forest.",
+        "caveat": "The effort-matched (target-group) control set could not be built: iNaturalist answered the kingdom-Fungi pool query with HTTP 429. That matters more here than for a negative result, because the random ring is exactly the set that flatters a habitat gate by drawing controls from open roadless country -- a habitat ramp once won on the ring and lost effort-matched, and it was reading road access. Do not set habitat_gate on this evidence. Needs: an effort-matched screen, then a paired DeLong run on the scoring path.\n\nARID-OPEN EXCLUSION, 2026-09-10 -- iNaturalist answered the kingdom-Fungi target-group pool query with HTTP 429 on every attempt on 2026-09-10, so BOTH results above rest on the random ring alone, and the ring flatters any predicate that blocks open ground. The forest-gate result is the one that matters and the one to re-run first: at +0.092 +/- 0.022 with an 18-point drop in control fire rate it is the strongest unshipped site result in the model. The union of the two predicates blocks +54 pp of ring control ground against the forest gate's +53 pp alone, i.e. the arid-open exclusion adds essentially nothing here -- for this species it is REDUNDANT with a forest gate, not a complement to one.",
+        "measured": "2026-09-10 by cmd/validate-backtest -habitat-screen; 2026-09-10 (arid_open_gate) by cmd/validate-backtest -sweep -compare",
+        "reproduce": "go run ./cmd/validate-backtest -species lions_mane -habitat-screen -n 350 -spatial 2 -target-group 2   # then, with weather budget: -sweep -n 350 -spatial 2 -target-group 2 -compare \"habitat-gate=forest\"\ngo run ./cmd/validate-backtest -species lions_mane -sweep -n 350 -spatial 2 -target-group 2 -background 1 -compare \"habitat-gate=forest;arid-open-gate=block,arid-threshold=0.30\"   # CHECK for a 'spatial (target group)' row before acting on either"
+      }
     },
     "hypomyces_lactifluorum": {
       "id": "hypomyces_lactifluorum",
@@ -783,6 +820,8 @@
         "resolved": "2026-09-08 via iNaturalist /v1/taxa and GBIF /v1/species/match (kingdom=Fungi); both matched this profile's scientific_name EXACTLY"
       },
       "substrate": "saprotrophic",
+      "habitat_gate": "none",
+      "arid_open_gate": "none",
       "association": [
         "cottonwood",
         "ash",
@@ -809,7 +848,9 @@
       "calibration": {
         "fitted": [
           "air_temp_min_f",
-          "soil_temp_min_f"
+          "soil_temp_min_f",
+          "habitat_gate",
+          "arid_open_gate"
         ],
         "unfitted": [
           "air_temp_optimal_f",
@@ -818,15 +859,15 @@
           "temp_trend_trigger",
           "everything on the moisture side"
         ],
-        "rule": "each fitted floor placed at the 5th percentile of this species' own observed temperatures, as the gate sees them (lapse-corrected 3-day trailing mean). No search: the grid search over 1,188 parameter sets generalised WORSE (+0.042 ring vs +0.092 for this rule), which is the freedom talking.",
+        "rule": "each fitted floor placed at the 5th percentile of this species' own observed temperatures, as the gate sees them (lapse-corrected 3-day trailing mean). No search: the grid search over 1,188 parameter sets generalised WORSE (+0.042 ring vs +0.092 for this rule), which is the freedom talking.\n\nARID-OPEN EXCLUSION (arid_open_gate), 2026-09-10 -- Set EXPLICITLY to \"none\" for the arid-open exclusion as well as the forest gate. Both site predicates have now been measured on this species and both are rejected, for different reasons: the forest gate blocks its finds outright (-0.378 ring / -0.403 effort-matched), and the arid-open exclusion only helps against the control set that was not matched for recording effort.",
         "was": {
           "air_temp_min_f": 45,
           "soil_temp_min_f": 50
         },
-        "evidence": "n=350 observations, 5-fold cross-validated grouped by observation, paired DeLong, with the delta ALSO bootstrapped over whole observations carrying their own controls (clustering did not widen it: 0.0081 against DeLong's 0.0082 on the ring). Ring AUC 0.700 -> 0.792 (+0.0917 +/- 0.0082); effort-matched (target-group) 0.589 -> 0.666 (+0.0775 +/- 0.0243); both RESOLVED better and agreeing in sign and magnitude, which is the test the habitat ramp failed when it turned out to be reading road access. Temporal (the fit objective) +0.0083 +/- 0.0041, significant but under the 80%-power floor. False negatives 67% -> 32%. Reverting the two floors together costs far more than the sum of reverting them one at a time (-0.092 ring jointly against -0.010 and -0.030 singly): below BOTH floors both bells read zero, so the two numbers are not independent and were measured as a pair.",
-        "caveat": "The effort-matched control set held only 17 points when this was measured -- Open-Meteo's daily quota ran out before it could be filled -- so that row is the weakest of the three despite being resolved. Re-run with a full target-group set before quoting it as the headline. Lowering soil_temp_min_f also moves the SOIL BELL'S MIDPOINT from 60F to 56F, because the bell's peak is (min+max)/2; that is a real second change and it was measured as part of this one, not separately. A 10F cold shoulder on TOP of these floors still measures +0.013 +/- 0.004 ring and is deliberately not shipped -- see TempShoulderF.",
-        "measured": "2026-09-09 by cmd/validate-backtest -fit-temp",
-        "reproduce": "go run ./cmd/validate-backtest -species morel -sweep -n 350 -spatial 2 -target-group 2 -background 2 -compare \"air-min=45,soil-min=50\"   # the old floors, measured against the new ones on the same points. Add -fit-temp to re-derive from scratch."
+        "evidence": "n=350 observations, 5-fold cross-validated grouped by observation, paired DeLong, with the delta ALSO bootstrapped over whole observations carrying their own controls (clustering did not widen it: 0.0081 against DeLong's 0.0082 on the ring). Ring AUC 0.700 -> 0.792 (+0.0917 +/- 0.0082); effort-matched (target-group) 0.589 -> 0.666 (+0.0775 +/- 0.0243); both RESOLVED better and agreeing in sign and magnitude, which is the test the habitat ramp failed when it turned out to be reading road access. Temporal (the fit objective) +0.0083 +/- 0.0041, significant but under the 80%-power floor. False negatives 67% -> 32%. Reverting the two floors together costs far more than the sum of reverting them one at a time (-0.092 ring jointly against -0.010 and -0.030 singly): below BOTH floors both bells read zero, so the two numbers are not independent and were measured as a pair. | HABITAT GATE, measured 2026-09-10 and set to \"none\": a forest habitat gate on this species is RESOLVED WORSE on both spatial control sets. n=350 (drawn from the 363 whose weather series was cached, of 474 usable), 586 random-ring and 674 effort-matched controls, DeLong paired with a cluster bootstrap over whole observations: ring 0.792 -> 0.415, -0.378 +/- 0.020; effort-matched 0.758 -> 0.355, -0.403 +/- 0.020. False negatives 32% -> 84% while the background fire rate barely moves (25% -> 18% ring, 29% -> 25% effort-matched), i.e. the gate blocks the finds and not the background. The land-cover screen on the full pool says the same at -59 +/- 3 pp (ring) and -70 +/- 2 pp (effort-matched), with 71% of records on NLCD developed classes 21-24 against 3% of ring controls: Morchella importuna is the landscaping-bark morel, and it is found in cities.\n\nARID-OPEN EXCLUSION AND HABITAT GATE, 2026-09-10 -- Measured 2026-09-10 with cmd/validate-backtest -sweep -compare, DeLong's PAIRED test on the same evaluation points, sample-seed 0x6d79636f6d6170, FN and background fire rate beside every AUC. The arid-open statistic is the share of the same ~960 m NLCD patch the forest fraction is measured over whose class is shrub/scrub, grassland, barren, cultivated crops or permanent ice; the developed classes are deliberately NOT in it. n=350 observations, 586 random-ring and 674 effort-matched controls. At threshold 0.30: ring AUC 0.792 -> 0.809, +0.017 +/- 0.008, significant but under the 80%-power floor; effort-matched 0.758 -> 0.748, -0.010 +/- 0.007, undecided and NEGATIVE. The two sets disagree in sign at every swept threshold, and the effort-matched column is negative at 0.20 (-0.007), 0.30 (-0.010), 0.40 (-0.009) and 0.60 (-0.001). False negatives 32% -> 35%. Land-cover screen, patch statistic: +15 +/- 2 pp ring and +5 +/- 1 pp effort-matched, the smallest margins of any species screened -- and the scoring path resolves the small one to nothing.",
+        "caveat": "The effort-matched control set held only 17 points when this was measured -- Open-Meteo's daily quota ran out before it could be filled -- so that row is the weakest of the three despite being resolved. Re-run with a full target-group set before quoting it as the headline. Lowering soil_temp_min_f also moves the SOIL BELL'S MIDPOINT from 60F to 56F, because the bell's peak is (min+max)/2; that is a real second change and it was measured as part of this one, not separately. A 10F cold shoulder on TOP of these floors still measures +0.013 +/- 0.004 ring and is deliberately not shipped -- see TempShoulderF. | On the habitat gate: the paired run was -cached-only, so it is a 350-of-363 subsample of the 474-record pool rather than the pool, and the sub-selection is by what earlier runs happened to fetch. The temporal control set moved the OTHER way (+0.063 +/- 0.026) and that is an artefact, not a redeeming feature: that set is coordinate-paired, so a gate that zeroes a coordinate zeroes the observation and its own controls together, converting comparisons into ties worth 0.5 each -- and morel's temporal AUC is 0.430, below chance, so blinding it looks like a gain.\n\nARID-OPEN EXCLUSION, 2026-09-10 -- The temporal control set is coordinate-paired and structurally cannot judge a SPATIAL predicate: it multiplies an observation and its own controls by the same number, and where both become exactly zero it converts a comparison into a tie worth 0.5. This species' temporal AUC is 0.431, BELOW chance, so blinding the model pushes it toward 0.5 and shows up as a gain. That artefact was identified on the forest gate here and applies unchanged to the arid-open exclusion; the temporal row was ignored for both.",
+        "measured": "2026-09-09 by cmd/validate-backtest -fit-temp; 2026-09-10 (arid_open_gate) by cmd/validate-backtest -sweep -compare",
+        "reproduce": "go run ./cmd/validate-backtest -species morel -sweep -n 350 -spatial 2 -target-group 2 -background 2 -compare \"air-min=45,soil-min=50\"   # the old floors, measured against the new ones on the same points. Add -fit-temp to re-derive from scratch.  # habitat gate: -compare \"habitat-gate=forest\" (equivalently \"saprotroph-gate=true\"), plus -habitat-screen for the weather-free version\ngo run ./cmd/validate-backtest -species morel -sweep -n 350 -spatial 2 -target-group 2 -background 1 -compare \"arid-open-gate=block,arid-threshold=0.30;arid-open-gate=block,arid-threshold=0.20\"   # arid_open_gate"
       },
       "season": {
         "primary": [
@@ -974,6 +1015,8 @@
         "resolved": "2026-09-08 via iNaturalist /v1/taxa and GBIF /v1/species/match (kingdom=Fungi); both matched this profile's scientific_name EXACTLY"
       },
       "substrate": "deadwood",
+      "habitat_gate": "none",
+      "arid_open_gate": "none",
       "association": [
         "hardwood",
         "deciduous",
@@ -1118,7 +1161,23 @@
           "NO MODELLED PARAMETER WAS TOUCHED. fruiting_conditions, association and substrate are exactly as found, including 'beech' and 'birch'."
         ]
       },
-      "edibility": "choice"
+      "edibility": "choice",
+      "calibration": {
+        "fitted": [
+          "habitat_gate",
+          "arid_open_gate"
+        ],
+        "unfitted": [
+          "substrate",
+          "association",
+          "everything in fruiting_conditions"
+        ],
+        "rule": "Set EXPLICITLY to \"none\" rather than left to the substrate default, because substrate \"deadwood\" contains two species with opposite answers and a future decision to gate the class must not sweep this one in. Lion's mane, the other deadwood profile, screens at +53 pp of differential blocking; this one screens NEGATIVE.\n\nARID-OPEN EXCLUSION (arid_open_gate), 2026-09-10 -- Set EXPLICITLY to \"none\", and it is the hardest call in the pass. The arid-open exclusion was invented FOR this species -- oyster's 64.7% desert paint is why the predicate exists -- and on the random ring it is the best result any site predicate has produced for it. It is still not shipped, because the one control set that would separate habitat from recording effort could not be built. AND THE FOREST GATE MEASUREMENT IS NOW CLOSED: the screen's -7 +/- 3 pp is confirmed on the scoring path, so habitat_gate stays \"none\" on evidence rather than on a bound.",
+        "evidence": "cmd/validate-backtest -habitat-screen, n=350 drawn from the 474-record usable pool at sample-seed 0x6d79636f6d6170, 567 random-ring controls, NLCD on the shipped ~960 m patch at the 0.30 threshold. Forest fraction p25/median/p75: finds 0.21/0.48/0.78 against ring controls 0.24/0.75/0.94. The hard gate would block 34% of real fruitings and 28% of control ground -- margin -7 +/- 3 pp, i.e. it darkens the finds. AUC of forest fraction alone as a find-vs-control classifier is 0.394 +/- 0.020, resolved BELOW 0.5. The threshold sweep is monotone in the wrong direction: -0 pp at 0.20, -7 at 0.30, -16 at 0.50, -20 at 0.70.\n\nARID-OPEN EXCLUSION AND HABITAT GATE, 2026-09-10 -- Measured 2026-09-10 with cmd/validate-backtest -sweep -compare, DeLong's PAIRED test on the same evaluation points, sample-seed 0x6d79636f6d6170, FN and background fire rate beside every AUC. The arid-open statistic is the share of the same ~960 m NLCD patch the forest fraction is measured over whose class is shrub/scrub, grassland, barren, cultivated crops or permanent ice; the developed classes are deliberately NOT in it. FOREST GATE, n=150, 259 random-ring controls, -compare \"habitat-gate=forest\": ring AUC 0.706 -> 0.575, -0.131 +/- 0.024, RESOLVED WORSE, false negatives 39% -> 58% for a control fire rate that barely moves (34% -> 30%) -- it blocks the finds, not the background. ARID-OPEN, same points: threshold 0.20 gives 0.706 -> 0.758, +0.053 +/- 0.016, RESOLVED better, FN 39% -> 41% against a control fire rate of 34% -> 24%; threshold 0.30 gives +0.029 +/- 0.013 and 0.40 gives +0.026 +/- 0.010, both significant and under the 80%-power floor. Land-cover screen on the full pool, re-measured as a PATCH statistic rather than the centre pixel it was first screened on: +22 +/- 2 pp, against the forest gate's -7 +/- 3 pp.",
+        "caveat": "The effort-matched (target-group) control set could NOT be built for this species: iNaturalist answered the kingdom-Fungi pool query with HTTP 429 after four attempts. So this rests on the random-ring set alone, and the ring set's documented bias is toward open, roadless country -- which is the direction that would FLATTER a forest gate, not this result, so the sign is safe even though the size is not confirmed. It has also not been measured on the SCORING PATH: the screen bounds what a gate can do to a ranking, it does not compute a score. Re-run with a target-group set and a paired DeLong comparison when Open-Meteo's daily budget allows.\n\nARID-OPEN EXCLUSION, 2026-09-10 -- THE EFFORT-MATCHED CONTROL SET DOES NOT EXIST FOR THIS SPECIES. iNaturalist answered the kingdom-Fungi target-group pool query with HTTP 429 on FOUR separate attempts across 2026-09-10, so every number above rests on the random ring alone. That is disqualifying here specifically: the ring set's documented bias is toward open, roadless country, and a predicate whose entire job is to block open country is exactly what that bias would manufacture. The same predicate on the two species that DO have an effort-matched set behaves differently on it -- shaggy mane +0.019 ring / -0.004 effort-matched, black morel +0.017 / -0.010 -- so the ring result cannot be assumed to survive. Re-run when iNaturalist is not throttling; if the effort-matched delta is positive, this field should become \"block\".",
+        "measured": "2026-09-10 by cmd/validate-backtest -habitat-screen; 2026-09-10 (arid_open_gate) by cmd/validate-backtest -sweep -compare",
+        "reproduce": "go run ./cmd/validate-backtest -species oyster -habitat-screen -n 350 -spatial 2 -target-group 2   # then, with weather budget: -sweep -n 350 -spatial 2 -target-group 2 -compare \"habitat-gate=forest\"\ngo run ./cmd/validate-backtest -species oyster -sweep -n 350 -spatial 2 -target-group 2 -background 1 -compare \"arid-open-gate=block,arid-threshold=0.20;arid-open-gate=block,arid-threshold=0.30\"   # arid_open_gate: CHECK the report actually contains a 'spatial (target group)' row before quoting anything from it"
+      }
     },
     "gomphus_clavatus": {
       "id": "gomphus_clavatus",
@@ -1304,6 +1363,8 @@
         "resolved": "2026-09-08 via iNaturalist /v1/taxa and GBIF /v1/species/match (kingdom=Fungi); both matched this profile's scientific_name EXACTLY"
       },
       "substrate": "saprotrophic",
+      "habitat_gate": "none",
+      "arid_open_gate": "none",
       "association": [
         "lawns",
         "roadsides",
@@ -1332,7 +1393,23 @@
         "Coprinopsis / other small inkcaps, and immature stages of pale gilled mushrooms in grass"
       ],
       "edibility": "edible",
-      "special_notes": "Tall white cylindrical cap with shaggy upturned scales, fruiting in grass, gravel, roadsides and disturbed hard-packed ground — often in troops after fall rains (and a lesser spring flush). Distinctive when young and closed. MUST be harvested young and cooked within hours: the gills auto-digest into black 'ink' (deliquesce) within a day, and specimens already blackening are inedible. Main confusion is Coprinopsis atramentaria — safe to eat itself but do not pair EITHER species with alcohol. Primarily a cooling-triggered fall species in the PNW, so temp_trend is 'cooling'."
+      "special_notes": "Tall white cylindrical cap with shaggy upturned scales, fruiting in grass, gravel, roadsides and disturbed hard-packed ground — often in troops after fall rains (and a lesser spring flush). Distinctive when young and closed. MUST be harvested young and cooked within hours: the gills auto-digest into black 'ink' (deliquesce) within a day, and specimens already blackening are inedible. Main confusion is Coprinopsis atramentaria — safe to eat itself but do not pair EITHER species with alcohol. Primarily a cooling-triggered fall species in the PNW, so temp_trend is 'cooling'.",
+      "calibration": {
+        "fitted": [
+          "habitat_gate",
+          "arid_open_gate"
+        ],
+        "unfitted": [
+          "substrate",
+          "association",
+          "everything in fruiting_conditions"
+        ],
+        "rule": "Set explicitly to \"none\". The profile's own association list already said this -- lawns, roadsides, gravel, disturbed ground, hard-packed soil -- and the measurement agrees with it against both control sets.\n\nARID-OPEN EXCLUSION (arid_open_gate), 2026-09-10 -- Set EXPLICITLY to \"none\" in both senses: not forest-gated, and not arid-open-gated either. The arid-open exclusion looked positive for every species on the land-cover screen; on the scoring path it comes apart here. It wins on the random ring and does nothing effort-matched, which is the signature of a predicate reading recording effort rather than habitat -- the same shape that sank the habitat ramp. AND THE FOREST GATE IS NOW CLOSED on the scoring path, on both control sets.",
+        "evidence": "cmd/validate-backtest -habitat-screen, n=350 drawn from the 2,600-record usable pool at sample-seed 0x6d79636f6d6170, 497 random-ring and 585 effort-matched (target-group) controls. Forest fraction p25/median/p75: finds 0.06/0.26/0.56 against ring 0.21/0.75/0.93 and target group 0.54/0.78/0.89. The hard gate would block 55% of real fruitings against 29% of ring and 16% of effort-matched control ground -- margin -26 +/- 4 pp and -39 +/- 3 pp. Both sets agree, which is the form of this evidence that counts. AUC of forest fraction alone: 0.305 +/- 0.019 and 0.220 +/- 0.019, both resolved below 0.5. NLCD class at the coordinate: 56% of finds are on developed classes 21-24 against 1% of ring controls.\n\nARID-OPEN EXCLUSION AND HABITAT GATE, 2026-09-10 -- Measured 2026-09-10 with cmd/validate-backtest -sweep -compare, DeLong's PAIRED test on the same evaluation points, sample-seed 0x6d79636f6d6170, FN and background fire rate beside every AUC. The arid-open statistic is the share of the same ~960 m NLCD patch the forest fraction is measured over whose class is shrub/scrub, grassland, barren, cultivated crops or permanent ice; the developed classes are deliberately NOT in it. FOREST GATE, n=150, 213 ring and 271 effort-matched controls, -compare \"habitat-gate=forest\": ring AUC 0.714 -> 0.529, -0.186 +/- 0.026; effort-matched 0.624 -> 0.444, -0.180 +/- 0.025. Both RESOLVED WORSE and the two sets AGREE, at seven paired standard errors each, with false negatives 34% -> 65% while the control fire rate barely moves (31% -> 26% ring, 44% -> 40% effort-matched). ARID-OPEN, same points, threshold 0.30: ring 0.714 -> 0.733, +0.019 +/- 0.012, undecided; effort-matched 0.624 -> 0.620, -0.004 +/- 0.009, undecided. At threshold 0.20 the two sets DISAGREE IN SIGN (ring +0.026 +/- 0.015, effort-matched -0.009 +/- 0.012). At no swept threshold does the effort-matched set show a gain as large as its own standard error.",
+        "caveat": "Screen only: it bounds the sign and size of what a forest gate could do to the ranking, and does not compute a score, so it is not the paired DeLong verdict. The weather series for this species' evaluation set is almost entirely uncached (8 of 2,600), so the scoring-path run needs a full weather budget. The finding it would have to overturn is large and agreed by both control sets.\n\nARID-OPEN EXCLUSION, 2026-09-10 -- The land-cover screen made this a candidate: patch blocking margin +26 +/- 2 pp on the ring. Worth recording WHY that was misleading rather than only that it was. The ring set draws controls from open landscape, where there is a great deal of arid ground to block; the effort-matched set draws from places people actually look, whose arid patch fraction has a p75 of 0.09 -- there is almost nothing there for the predicate to block, so blocking it buys nothing. The screen measures differential blocking; only the scoring path measures what that does to a ranking.",
+        "measured": "2026-09-10 by cmd/validate-backtest -habitat-screen; 2026-09-10 (arid_open_gate) by cmd/validate-backtest -sweep -compare",
+        "reproduce": "go run ./cmd/validate-backtest -species shaggy_mane -habitat-screen -n 350 -spatial 2 -target-group 2   # then, with weather budget: -sweep -n 350 -spatial 2 -target-group 2 -compare \"habitat-gate=forest\"\ngo run ./cmd/validate-backtest -species shaggy_mane -sweep -n 350 -spatial 2 -target-group 2 -background 1 -compare \"habitat-gate=forest;arid-open-gate=block,arid-threshold=0.30;arid-open-gate=block,arid-threshold=0.20\""
+      }
     },
     "boletus_rex_veris": {
       "id": "boletus_rex_veris",
@@ -1568,6 +1645,7 @@
         "resolved": "2026-09-08 via iNaturalist /v1/taxa and GBIF /v1/species/match (kingdom=Fungi); both matched this profile's scientific_name EXACTLY"
       },
       "substrate": "mycorrhizal",
+      "arid_open_gate": "block",
       "association": [
         "spruce",
         "fir",
@@ -1682,10 +1760,21 @@
           "MycoBank was not consulted; nomenclature rests on Index Fungorum and GBIF."
         ],
         "proposed_changes": [
-          "NO MODELLED PARAMETER WAS TOUCHED. In particular substrate was left as 'mycorrhizal' despite the 88%-on-wood finding above, because substrate is consumed by the scorer. This is the one place in this review where I think a modelled field may be materially wrong for prediction purposes and I would want it MEASURED rather than argued: if the terrain layer for 'mycorrhizal' points at soil and duff, this species is being scored against the wrong surface most of the time."
+          "NO MODELLED PARAMETER WAS TOUCHED. In particular substrate was left as 'mycorrhizal' despite the 88%-on-wood finding above, because substrate is consumed by the scorer. This is the one place in this review where I think a modelled field may be materially wrong for prediction purposes and I would want it MEASURED rather than argued: if the terrain layer for 'mycorrhizal' points at soil and duff, this species is being scored against the wrong surface most of the time.",
+          "SUBSTRATE, RESOLVED 2026-09-10 -- MEASURED, AND THE ANSWER IS: DO NOT RECLASSIFY. The open question above was posed as 'if the terrain layer for mycorrhizal points at soil and duff, this species is being scored against the wrong surface'. It does not. Substrate has exactly three consumers in the code: (1) it selects the forest HABITAT GATE (internal/species/site.go, needsForestHabitat); (2) 'parasitic' alone routes to the snapshot model instead of the timeline one (model.go, UsesTimeline); (3) cmd/mycomap blends a tree-cover host match for 'mycorrhizal' and 'parasitic' only. There is no soil layer, no duff layer and no wood layer -- nothing in the scorer reads a fruiting SURFACE at all. So the 88%-on-decayed-wood finding, which is correct and is Trappe's, has no scorer to be wrong in. WHAT THE RECLASSIFICATION WOULD ACTUALLY DO is remove this species' habitat gate, because substrate 'deadwood' ships ungated (DeadwoodHabitatGate=false, measured -- see site.go). That would be a large regression: cmd/validate-backtest -habitat-screen at n=350 puts yellowfoot's finds at forest fraction p25/median/p75 = 0.64/0.83/0.94 against a random ring at 0.07/0.54/0.84, with the gate blocking 8% of real fruitings and 39% of ring / 32% of effort-matched control ground -- a margin of +32 +/- 3 pp on the ring and +8 +/- 3 pp effort-matched, positive on both. 77% of its records sit on NLCD class 42 evergreen forest. Both readings of the biology agree on this: a fungus mycorrhizal with western hemlock needs the forest, and a fungus fruiting from well-decayed hemlock wood needs the same forest. The gate is invariant to the label; only the DEFAULT attached to the label would change, and it would change the wrong way. So substrate stays 'mycorrhizal'. If a future pass reclassifies it on taxonomic grounds it MUST carry habitat_gate:\"forest\" in the same edit, or it will silently lose a measured +32 pp gate. Reproduce: go run ./cmd/validate-backtest -species yellowfoot -habitat-screen -n 350 -spatial 2 -target-group 2"
         ]
       },
-      "edibility": "choice"
+      "edibility": "choice",
+      "calibration": {
+        "fitted": [
+          "arid_open_gate"
+        ],
+        "rule": "ARID-OPEN EXCLUSION (arid_open_gate), 2026-09-10 -- Set to \"block\", replicating the chanterelle result on a second mycorrhizal species that already carries the forest gate: two independent species, both control sets, same threshold, same direction.",
+        "evidence": "ARID-OPEN EXCLUSION AND HABITAT GATE, 2026-09-10 -- Measured 2026-09-10 with cmd/validate-backtest -sweep -compare, DeLong's PAIRED test on the same evaluation points, sample-seed 0x6d79636f6d6170, FN and background fire rate beside every AUC. The arid-open statistic is the share of the same ~960 m NLCD patch the forest fraction is measured over whose class is shrub/scrub, grassland, barren, cultivated crops or permanent ice; the developed classes are deliberately NOT in it, which is the whole content of the predicate. n=150 observations, 180 random-ring and 97 effort-matched controls. At the shipped threshold 0.30: ring AUC 0.688 -> 0.732, +0.044 +/- 0.013, RESOLVED better; effort-matched 0.645 -> 0.792, +0.148 +/- 0.027, RESOLVED better. False negatives 46% -> 47% for a control fire rate of 29% -> 23% on the ring and 29% -> 12% effort-matched. Land-cover screen on the full pool: patch margin +25 +/- 3 pp ring, +13 +/- 3 pp effort-matched.",
+        "caveat": "ARID-OPEN EXCLUSION, 2026-09-10 -- The effort-matched control set is THIN -- 97 controls -- because iNaturalist answered the kingdom-Fungi pool query with HTTP 429 partway through and the pool came back at 400 records instead of 5,000. The delta resolves against its own error bar at that size, but this is the smallest control set behind any shipped decision here and should be re-run when iNaturalist is not throttling. Same renderer caveat as chanterelle: cmd/render and cmd/render-hires do not measure the arid-open patch fraction, so this changes the validated score and not yet a map.",
+        "measured": "2026-09-10 (arid_open_gate) by cmd/validate-backtest -sweep -compare",
+        "reproduce": "go run ./cmd/validate-backtest -species yellowfoot -sweep -n 350 -spatial 2 -target-group 2 -background 1 -compare \"arid-open-gate=none;arid-open-gate=block,arid-threshold=0.20\"   # arid_open_gate"
+      }
     }
   }
 }
