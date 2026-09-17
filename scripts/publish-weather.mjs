@@ -39,9 +39,25 @@
  *     makes a checkable claim, so it gets checked, before conversion.
  *   * Guess which freshness claim is true when latest.json and its manifest
  *     disagree about as_of_date.
- *   * Re-publish a run it has already published (idempotent; --force overrides).
+ *   * Re-publish a run it has already published AND finished uploading
+ *     (idempotent; --force overrides). "Finished" includes the images: a run
+ *     whose record says origin_uploaded=false is not published, it is half
+ *     published, and the next run completes it rather than declaring victory.
  *   * Claim an image reached the origin when it did not. The record carries
  *     the verification result, including the failure, and the site reads it.
+ *   * Accept --upload with nowhere to upload to. That combination exits
+ *     non-zero before anything is converted, committed or pushed.
+ *
+ * EXIT CODES
+ *
+ *   0  published, or genuinely nothing to do
+ *   2  refused (bad inputs, publishable=false, no upload destination) — nothing
+ *      was written
+ *   3  the run was recorded and pushed, but the upload that was asked for did
+ *      not happen. The record says origin_uploaded=false and the next run will
+ *      finish it; the non-zero exists so the chain does not report green.
+ *   7  the origin's disk policy refused the upload (free-space floor). Nothing
+ *      was uploaded or written. daily-run.sh announces this one specially.
  *
  * WHERE THINGS GO
  *
@@ -124,8 +140,40 @@ const DEFAULT_MYCOMAP = path.join(
 const MAPS_BASE_URL = (
   process.env.PUBLIC_MAPS_BASE_URL || 'https://cdn.opsblu.com/mycomap/maps'
 ).replace(/\/+$/, '');
-/** rsync destination, e.g. josh@192.168.1.200:/srv/mycomap-cdn/public/mycomap/maps */
-const MAPS_RSYNC_DEST = process.env.MYCOMAP_MAPS_RSYNC_DEST || '';
+/**
+ * rsync destination, e.g. josh@192.168.1.200:/srv/mycomap-cdn/public/mycomap/maps
+ *
+ * Resolved, not hardcoded. The origin's user/host/root live in exactly one
+ * file — the pipeline repo's scripts/cdn-publish.sh, which is already the
+ * shared entry point for that origin's disk policy — and it will print the
+ * destination on demand (`--maps-dest`, local only, no network). So this
+ * script asks rather than carrying a second copy of the hostname: this project
+ * has twice had two lanes invent two spellings for one shared thing.
+ *
+ * MYCOMAP_MAPS_RSYNC_DEST still wins if it is set, for a throwaway origin.
+ */
+function resolveRsyncDest(mycomapRepo, notes = []) {
+  const fromEnv = (process.env.MYCOMAP_MAPS_RSYNC_DEST || '').trim();
+  if (fromEnv) return fromEnv;
+  const script = path.join(mycomapRepo, 'scripts/cdn-publish.sh');
+  if (!fs.existsSync(script)) {
+    notes.push(
+      `MYCOMAP_MAPS_RSYNC_DEST is unset and ${script} is missing, so the canonical ` +
+        'map destination could not be resolved'
+    );
+    return '';
+  }
+  try {
+    return (run('bash', [script, '--maps-dest'], { cwd: mycomapRepo }) || '').trim();
+  } catch (err) {
+    notes.push(
+      `could not ask cdn-publish.sh for the map destination: ${String(err.message).split('\n')[0]}`
+    );
+    return '';
+  }
+}
+/** Filled in by main() once --mycomap is known. */
+let MAPS_RSYNC_DEST = '';
 
 /**
  * The origin's storage policy, which every writer to that origin goes through.
@@ -152,7 +200,19 @@ const RAMP_STOPS = [
   [1.0, 255, 240, 40],
 ];
 
-class Refused extends Error {}
+class Refused extends Error {
+  /**
+   * Refusals exit 2 by default. A refusal the CALLER must handle differently
+   * carries its own code: daily-run.sh documents 7 as "the origin's disk
+   * policy said no", which it announces as the guard working rather than as a
+   * crash. Before this, that refusal exited 2 like every other and was
+   * reported as an unexplained publisher failure.
+   */
+  constructor(message, code = 2) {
+    super(message);
+    this.code = code;
+  }
+}
 
 const argv = process.argv.slice(2);
 const flag = (name) => argv.includes(`--${name}`);
@@ -397,7 +457,8 @@ function guardOrigin(bytes, notes) {
         'the origin refused this upload: it would leave the target filesystem below its ' +
           'free-space floor. That filesystem also serves live production. Nothing was ' +
           'uploaded and nothing was written here; the site keeps serving its current run. ' +
-          'Free space on the origin, or lower MYCOMAP_CDN_RETAIN_DAYS, then re-run.'
+          'Free space on the origin, or lower MYCOMAP_CDN_RETAIN_DAYS, then re-run.',
+        7
       );
     }
     notes.push(
@@ -419,12 +480,14 @@ function stagedBytes(asOf) {
 
 /** rsync the staged day to the origin. Additive: never deletes older days. */
 function uploadImages(asOf, notes) {
+  // Unreachable in practice: main() refuses before anything is written when
+  // --upload was asked for and no destination could be resolved. Kept as a
+  // belt so a future caller cannot reintroduce the silent skip.
   if (!MAPS_RSYNC_DEST) {
-    notes.push(
-      'MYCOMAP_MAPS_RSYNC_DEST is not set, so the converted images were staged but not ' +
-        'uploaded. The site will show the maps as not yet on the origin.'
+    throw new Refused(
+      'asked to upload, but no map destination is configured and none could be resolved ' +
+        'from the pipeline repo. Nothing was uploaded.'
     );
-    return false;
   }
   // Disk policy first, always. Never rsync into a production root unchecked.
   if (!guardOrigin(stagedBytes(asOf), notes)) return false;
@@ -553,8 +616,57 @@ function commitData(asOf) {
 // Main
 // ---------------------------------------------------------------------------
 
+/**
+ * Is a previously written run record a FINISHED publish?
+ *
+ * Returns null when it is, or a human-readable reason when it is not. Read
+ * conservatively: a record from before this field existed, or one whose images
+ * carry no verdict, is treated as finished — otherwise every historical record
+ * would suddenly demand a re-upload. Only an explicit "no" counts as a no.
+ */
+function incompleteReason(prev) {
+  if (prev.origin_uploaded === false) {
+    return 'origin_uploaded=false — the images were never shipped to the map origin';
+  }
+  const missing = (prev.images || []).filter(
+    (i) => i && i.url_path && i.origin_verified === false
+  );
+  if (missing.length) {
+    return `${missing.length} of ${(prev.images || []).length} image(s) were not found on the ` +
+      `origin when last checked (e.g. ${missing[0].url_path})`;
+  }
+  return null;
+}
+
 async function main() {
   if (!fs.existsSync(MYCOMAP)) throw new Refused(`--mycomap path does not exist: ${MYCOMAP}`);
+
+  /**
+   * Destination first, before a single byte is converted, committed or pushed.
+   *
+   * On 2026-09-17 this script was asked to upload, found no destination, wrote
+   * a note about it, skipped the upload, committed the metadata, pushed to the
+   * live site and printed success. The site then advertised a run whose images
+   * were on nobody's disk. Asking to upload and not uploading is not a degraded
+   * mode; it is the failure this whole chain exists to prevent, and it now
+   * stops here, where nothing has happened yet.
+   *
+   * The staged-but-not-uploaded path remains available — but only when nobody
+   * asked for an upload.
+   */
+  const destNotes = [];
+  if (DO_UPLOAD) {
+    MAPS_RSYNC_DEST = resolveRsyncDest(MYCOMAP, destNotes);
+    if (!MAPS_RSYNC_DEST) {
+      throw new Refused(
+        '--upload was requested but no map destination is configured.\n' +
+          '  ' + (destNotes.join('\n  ') || 'MYCOMAP_MAPS_RSYNC_DEST is empty.') + '\n' +
+          `  The canonical value comes from ${path.join(MYCOMAP, 'scripts/cdn-publish.sh')} ` +
+          '(`--maps-dest`); set MYCOMAP_MAPS_RSYNC_DEST only to override it.\n' +
+          '  Nothing was converted, nothing was committed and nothing was pushed.'
+      );
+    }
+  }
 
   const explicitDate = opt('date', '');
   let manifestRel;
@@ -583,16 +695,41 @@ async function main() {
   const dataDir = path.join(SITE, 'data/weather');
   const latestPath = path.join(dataDir, 'latest.json');
   const runPath = path.join(dataDir, 'runs', `${asOf}.json`);
+  /**
+   * The already-published gate.
+   *
+   * It used to be keyed on the manifest digest alone, which made a failed
+   * upload unrepairable: the run record correctly said origin_uploaded=false,
+   * the next run saw an unchanged manifest, printed "Nothing to do." and
+   * exited 0 without uploading. That defeated the point of the 13:05 retry —
+   * for the one failure the retry exists for, the retry was a no-op — and left
+   * --force as the only way out, i.e. a human.
+   *
+   * So "published" now means the metadata AND the images. Same manifest but
+   * images not known to be on the origin is not a finished publish, and the
+   * correct response is to finish it.
+   */
   if (!FORCE && fs.existsSync(runPath)) {
     const prev = readJson(runPath);
     if (prev.manifest_sha256 === manifestDigest) {
-      console.log(`already published: run as of ${asOf} (manifest unchanged). Nothing to do.`);
-      console.log('Pass --force to rebuild it anyway.');
-      return 0;
+      const why = incompleteReason(prev);
+      if (!why) {
+        console.log(`already published: run as of ${asOf} (manifest unchanged). Nothing to do.`);
+        console.log('Pass --force to rebuild it anyway.');
+        return 0;
+      }
+      if (!DO_UPLOAD) {
+        // Nothing to repair with. Say so rather than claiming completeness.
+        console.log(`run as of ${asOf} is published but INCOMPLETE: ${why}`);
+        console.log('Re-run with --upload (the daily job does) to finish it. Nothing done.');
+        return 0;
+      }
+      console.log(`run as of ${asOf} is published but INCOMPLETE: ${why}`);
+      console.log('  repairing: re-staging and uploading the images for this run.');
     }
   }
 
-  const notes = checkRamp();
+  const notes = [...destNotes, ...checkRamp()];
   const images = await convertImages(manifest, asOf, notes);
 
   const profiles = loadProfiles();
@@ -691,6 +828,27 @@ async function main() {
   } else {
     console.log('  (no push — pass --push to publish; --commit to commit only)');
   }
+
+  /**
+   * An upload that was asked for and did not happen is a failed run, even
+   * though the record was written correctly.
+   *
+   * The record is written and committed first, deliberately: it carries
+   * origin_uploaded=false, which is what makes the page honest and what the
+   * gate above now reads to repair this on the next firing. But the exit code
+   * has to say so too — otherwise daily-run.sh sees "publish: ok", the
+   * staleness check passes (the pointer did move), and the chain reports green
+   * over a site whose images are not on the origin. Exit 3 lands in that
+   * script's catch-all and is announced.
+   */
+  if (DO_UPLOAD && !uploaded) {
+    console.error(
+      '  FAILED   : --upload was requested and the images did NOT reach the origin.\n' +
+        '             The run record says origin_uploaded=false, so the page will say so and\n' +
+        '             the next run will finish the upload rather than skip it.'
+    );
+    return 3;
+  }
   return 0;
 }
 
@@ -700,7 +858,7 @@ main()
     if (err instanceof Refused) {
       console.error('PUBLISH REFUSED');
       console.error(`  ${err.message}`);
-      process.exit(2);
+      process.exit(err.code || 2);
     }
     throw err;
   });
