@@ -1,6 +1,6 @@
 {
   "record_version": 1,
-  "published_at": "2026-09-17T19:33:23.827Z",
+  "published_at": "2026-09-17T19:35:10.786Z",
   "as_of_date": "2026-09-16",
   "target_date": "2026-09-17",
   "lag_days_behind_target": 1,
@@ -4260,7 +4260,7 @@
       "palette_colours": 256,
       "render_sha256": "7e20e7a86370c9eb520417e40fe9b996442c385fe6e34b13d9c347f600b50025",
       "published_sha256": "d639e1a455c3b73338e765aa3093230587cf0eb3c72d749ce4f9546ee17a3b5c",
-      "origin_verified": null
+      "origin_verified": true
     },
     {
       "id": "lactarius_rubidus",
@@ -4273,7 +4273,7 @@
       "palette_colours": 256,
       "render_sha256": "addd29a47b494087924716dcf47f78a84afdc1b02744071ba8a2cb048537c58e",
       "published_sha256": "7378d95b3227fa5f8dadb1d8fc4db1267400f8858ea65d312cab57760cdd8c3f",
-      "origin_verified": null
+      "origin_verified": true
     },
     {
       "id": "sparassis_radicata",
@@ -4286,7 +4286,7 @@
       "palette_colours": 256,
       "render_sha256": "685aed6356107e0080ed61b9fa665138bf3fb40d8a7bd4a194ede2c103daeebd",
       "published_sha256": "48d9331efc20103d65f29667e310f5973d97d7e6917918efd180a94e134ad92c",
-      "origin_verified": null
+      "origin_verified": true
     },
     {
       "id": "cantharellus_cibarius",
@@ -4299,7 +4299,7 @@
       "palette_colours": 256,
       "render_sha256": "9199ed27afe8669b6314198567ababa24b12805771dba17ad5f9332a1441b24b",
       "published_sha256": "3e87df0db79d3051789c6002da6c03be9fbe1b3605ee0330d6b016217a434821",
-      "origin_verified": null
+      "origin_verified": true
     },
     {
       "id": "laetiporus_conifericola",
@@ -4312,7 +4312,7 @@
       "palette_colours": 256,
       "render_sha256": "c9e6f67f8ceff2d9fc8a60987799a8e4ed42fa0459f05c476dea8aee98ea5b66",
       "published_sha256": "3c40c85174556738db4ebe50138d0632d37081cb5f00a352a9c29062f976332f",
-      "origin_verified": null
+      "origin_verified": true
     },
     {
       "id": "hydnum_repandum",
@@ -4325,7 +4325,7 @@
       "palette_colours": 256,
       "render_sha256": "3a375426912a1b571223155c1578ad9876535550ebb105df9b7bba9a8384ea93",
       "published_sha256": "3c43e9ba63c128b425f82abdf4cbd2f56af893e8184d94ed7fa558cd1d304654",
-      "origin_verified": null
+      "origin_verified": true
     },
     {
       "id": "hericium_abietis",
@@ -4338,7 +4338,7 @@
       "palette_colours": 256,
       "render_sha256": "4b1eef373c02c05cd1b9263f98bd65e85e25c039af80020c4cf8152ff190493d",
       "published_sha256": "449fd5cd9a447ee3ab8523fdf77235fca96b5cc8e439dea5dd08928c640ccc56",
-      "origin_verified": null
+      "origin_verified": true
     },
     {
       "id": "hypomyces_lactifluorum",
@@ -4351,7 +4351,7 @@
       "palette_colours": 256,
       "render_sha256": "e1abc8e32235fe7858d73ab969412921cc8b7129d0aa63658f2fc5b4f2d29851",
       "published_sha256": "3dc0dc9e8ee69001807bcccad1ae46f56ed7c89bd63fbe9c86371a270f9e7a33",
-      "origin_verified": null
+      "origin_verified": true
     },
     {
       "id": "tricholoma_murrillianum",
@@ -4364,7 +4364,7 @@
       "palette_colours": 256,
       "render_sha256": "01faf86450662d3ada77ba43bc55ae5e77a57eff263e8f1d7cd90c42c8f907f4",
       "published_sha256": "87d8c4027bacabfd1f75d485cbc3fb1113cfad7c0933554ce15f9d1f70937406",
-      "origin_verified": null
+      "origin_verified": true
     },
     {
       "id": "morchella_importuna",
@@ -4377,7 +4377,7 @@
       "palette_colours": 256,
       "render_sha256": "62fd9fac039dc8a993e8d03903d757b48265f30d388a9ede1cfbc449393725d5",
       "published_sha256": "fe74e62485c04e5782c2d4fb01e004a53ca24c41a1df8883dc69c7ca9b6f4dbb",
-      "origin_verified": null
+      "origin_verified": true
     },
     {
       "id": "pleurotus_ostreatus",
@@ -4390,7 +4390,7 @@
       "palette_colours": 256,
       "render_sha256": "d96615355b61872bc7a3371f12f53c9e3e6bf6f85c7116f25d76fa2f7eeb56ca",
       "published_sha256": "26a0a0b1e3b04b3b6cbe921929da6575b2b2831328deab07839691cf7c7c2466",
-      "origin_verified": null
+      "origin_verified": true
     },
     {
       "id": "gomphus_clavatus",
@@ -4403,7 +4403,7 @@
       "palette_colours": 256,
       "render_sha256": "913382fadf653480dce2da67f2562d48f58ff04d650c65c9a313ea46119d46ef",
       "published_sha256": "fde45be1dc55b74291e71f30135b49b5a7aac35c5544497743211cc0ed326e9e",
-      "origin_verified": null
+      "origin_verified": true
     },
     {
       "id": "boletus_edulis",
@@ -4416,7 +4416,7 @@
       "palette_colours": 256,
       "render_sha256": "9b97272d10e72b62e8c6074de08e27f0ab32631f1d1e7e7b76b6b873aa7a3e2e",
       "published_sha256": "42229243be95d4b1e9d938e4c8dccfd3a99dceacd6cd5a2fbc3a1ab9f43e3d8a",
-      "origin_verified": null
+      "origin_verified": true
     },
     {
       "id": "coprinus_comatus",
@@ -4429,7 +4429,7 @@
       "palette_colours": 256,
       "render_sha256": "1e2ba64d86c053870d602fe4f05fcd3a5884c9c22337427ac54d39137a4e0ff7",
       "published_sha256": "7377513d23e16e3978916b9778fd05fc2bb6fe6b336715ebe65e43523954fe25",
-      "origin_verified": null
+      "origin_verified": true
     },
     {
       "id": "boletus_rex_veris",
@@ -4442,7 +4442,7 @@
       "palette_colours": 256,
       "render_sha256": "722a20edfab300f84c00c4f207234a56d7042223ed16b1635d85f6a6f57e935e",
       "published_sha256": "46576ebd68f227b1c6397a92e994b809fc8e5e4eaea4116bcbd06d46ee010502",
-      "origin_verified": null
+      "origin_verified": true
     },
     {
       "id": "cantharellus_subalbidus",
@@ -4455,7 +4455,7 @@
       "palette_colours": 256,
       "render_sha256": "25dd3cdf36529ac5dbf9b7f0f05857aa15f5b26d4286a6032bf7db59a63d6f8f",
       "published_sha256": "ac494a98a9272c975ac31f64a0e8d21ab74d5801a3fbf64dfb210541ede15653",
-      "origin_verified": null
+      "origin_verified": true
     },
     {
       "id": "craterellus_tubaeformis",
@@ -4468,11 +4468,9 @@
       "palette_colours": 256,
       "render_sha256": "c2e270ce3035b3f683107e7f72148b955ba4283460efe2d3c6c21862a1eb47f8",
       "published_sha256": "2bab69cfd09e3e641c874cbe1369fc3418a86c404491b01392aa84ac8c0b5d1f",
-      "origin_verified": null
+      "origin_verified": true
     }
   ],
-  "origin_uploaded": false,
-  "publish_notes": [
-    "MYCOMAP_MAPS_RSYNC_DEST is not set, so the converted images were staged but not uploaded. The site will show the maps as not yet on the origin."
-  ]
+  "origin_uploaded": true,
+  "publish_notes": []
 }
