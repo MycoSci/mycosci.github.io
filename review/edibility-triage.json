@@ -1,0 +1,354 @@
+{
+  "purpose": "plan \u00a76.6 \u2014 added species from the poisonous-species arm, awaiting SOURCED edibility work. All currently edibility:'unknown'.",
+  "n": 29,
+  "records": [
+    {
+      "slug": "agaricus-menieri",
+      "accepted": "Agaricus menieri",
+      "edibility": "unknown",
+      "reference_list_arms": [
+        "wikipedia_poisonous"
+      ],
+      "gbif": "5455280",
+      "occ_total": 49,
+      "occ_na": 0,
+      "note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+    },
+    {
+      "slug": "amanita-aprica",
+      "accepted": "Amanita aprica",
+      "edibility": "unknown",
+      "reference_list_arms": [
+        "wikipedia_poisonous"
+      ],
+      "gbif": "5452296",
+      "occ_total": 1443,
+      "occ_na": 1427,
+      "note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+    },
+    {
+      "slug": "amanita-cokeri",
+      "accepted": "Amanita cokeri",
+      "edibility": "unknown",
+      "reference_list_arms": [
+        "wikipedia_poisonous"
+      ],
+      "gbif": "5451920",
+      "occ_total": 872,
+      "occ_na": 834,
+      "note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+    },
+    {
+      "slug": "amanita-cothurnata",
+      "accepted": "Amanita cothurnata",
+      "edibility": "unknown",
+      "reference_list_arms": [
+        "wikipedia_poisonous"
+      ],
+      "gbif": "5452587",
+      "occ_total": 332,
+      "occ_na": 315,
+      "note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+    },
+    {
+      "slug": "amanita-flavorubescens",
+      "accepted": "Amanita flavorubescens",
+      "edibility": "unknown",
+      "reference_list_arms": [
+        "wikipedia_poisonous"
+      ],
+      "gbif": "5452397",
+      "occ_total": 724,
+      "occ_na": 710,
+      "note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+    },
+    {
+      "slug": "amanita-gioiosa",
+      "accepted": "Amanita gioiosa",
+      "edibility": "unknown",
+      "reference_list_arms": [
+        "wikipedia_poisonous"
+      ],
+      "gbif": "5452115",
+      "occ_total": 50,
+      "occ_na": 1,
+      "note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+    },
+    {
+      "slug": "amanita-gracilior",
+      "accepted": "Amanita gracilior",
+      "edibility": "unknown",
+      "reference_list_arms": [
+        "wikipedia_poisonous"
+      ],
+      "gbif": "5452102",
+      "occ_total": 170,
+      "occ_na": 0,
+      "note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+    },
+    {
+      "slug": "amanita-heterochroma",
+      "accepted": "Amanita heterochroma",
+      "edibility": "unknown",
+      "reference_list_arms": [
+        "wikipedia_poisonous"
+      ],
+      "gbif": "5452433",
+      "occ_total": 5,
+      "occ_na": 0,
+      "note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+    },
+    {
+      "slug": "amanita-hongoi",
+      "accepted": "Amanita hongoi",
+      "edibility": "unknown",
+      "reference_list_arms": [
+        "wikipedia_poisonous"
+      ],
+      "gbif": "5451806",
+      "occ_total": 36,
+      "occ_na": 0,
+      "note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+    },
+    {
+      "slug": "amanita-ibotengutake",
+      "accepted": "Amanita ibotengutake",
+      "edibility": "unknown",
+      "reference_list_arms": [
+        "wikipedia_poisonous"
+      ],
+      "gbif": "5452245",
+      "occ_total": 263,
+      "occ_na": 6,
+      "note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+    },
+    {
+      "slug": "amanita-neoovoidea",
+      "accepted": "Amanita neoovoidea",
+      "edibility": "unknown",
+      "reference_list_arms": [
+        "wikipedia_poisonous"
+      ],
+      "gbif": null,
+      "occ_total": null,
+      "occ_na": null,
+      "note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+    },
+    {
+      "slug": "amanita-pseudoporphyria",
+      "accepted": "Amanita pseudoporphyria",
+      "edibility": "unknown",
+      "reference_list_arms": [
+        "wikipedia_poisonous"
+      ],
+      "gbif": "5452310",
+      "occ_total": 554,
+      "occ_na": 2,
+      "note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+    },
+    {
+      "slug": "amanita-pseudoregalis",
+      "accepted": "Amanita pseudoregalis",
+      "edibility": "unknown",
+      "reference_list_arms": [
+        "wikipedia_poisonous"
+      ],
+      "gbif": "5452420",
+      "occ_total": 9,
+      "occ_na": 0,
+      "note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+    },
+    {
+      "slug": "coprinopsis-alopecia",
+      "accepted": "Coprinopsis alopecia",
+      "edibility": "unknown",
+      "reference_list_arms": [
+        "wikipedia_poisonous"
+      ],
+      "gbif": "9809682",
+      "occ_total": 218,
+      "occ_na": 25,
+      "note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+    },
+    {
+      "slug": "cortinarius-cinnamomeofulvus",
+      "accepted": "Cortinarius cinnamomeofulvus",
+      "edibility": "unknown",
+      "reference_list_arms": [
+        "wikipedia_poisonous"
+      ],
+      "gbif": "3349396",
+      "occ_total": 11,
+      "occ_na": 0,
+      "note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+    },
+    {
+      "slug": "cortinarius-cruentus",
+      "accepted": "Cortinarius cruentus",
+      "edibility": "unknown",
+      "reference_list_arms": [
+        "wikipedia_poisonous"
+      ],
+      "gbif": "3351114",
+      "occ_total": 13,
+      "occ_na": 3,
+      "note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+    },
+    {
+      "slug": "cortinarius-mirandus",
+      "accepted": "Cortinarius mirandus",
+      "edibility": "unknown",
+      "reference_list_arms": [
+        "wikipedia_poisonous"
+      ],
+      "gbif": "3351051",
+      "occ_total": 52,
+      "occ_na": 0,
+      "note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+    },
+    {
+      "slug": "entoloma-sarcopum",
+      "accepted": "Entoloma sarcopum",
+      "edibility": "unknown",
+      "reference_list_arms": [
+        "wikipedia_poisonous"
+      ],
+      "gbif": null,
+      "occ_total": null,
+      "occ_na": null,
+      "note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+    },
+    {
+      "slug": "helvella-dryophila",
+      "accepted": "Helvella dryophila",
+      "edibility": "unknown",
+      "reference_list_arms": [
+        "wikipedia_poisonous"
+      ],
+      "gbif": "7564028",
+      "occ_total": 2868,
+      "occ_na": 2858,
+      "note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+    },
+    {
+      "slug": "helvella-lactea",
+      "accepted": "Helvella lactea",
+      "edibility": "unknown",
+      "reference_list_arms": [
+        "wikipedia_poisonous"
+      ],
+      "gbif": "3492928",
+      "occ_total": 397,
+      "occ_na": 261,
+      "note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+    },
+    {
+      "slug": "inocybe-sublilacina",
+      "accepted": "Inocybe sublilacina",
+      "edibility": "unknown",
+      "reference_list_arms": [
+        "wikipedia_poisonous"
+      ],
+      "gbif": "10736633",
+      "occ_total": 125,
+      "occ_na": 99,
+      "note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+    },
+    {
+      "slug": "mycena-diosma",
+      "accepted": "Mycena diosma",
+      "edibility": "unknown",
+      "reference_list_arms": [
+        "wikipedia_poisonous"
+      ],
+      "gbif": "4911765",
+      "occ_total": 1085,
+      "occ_na": 1,
+      "note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+    },
+    {
+      "slug": "paralepistopsis-acromelalga",
+      "accepted": "Paralepistopsis acromelalga",
+      "edibility": "unknown",
+      "reference_list_arms": [
+        "wikipedia_poisonous"
+      ],
+      "gbif": "7884892",
+      "occ_total": 36,
+      "occ_na": 0,
+      "note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+    },
+    {
+      "slug": "paralepistopsis-amoenolens",
+      "accepted": "Paralepistopsis amoenolens",
+      "edibility": "unknown",
+      "reference_list_arms": [
+        "wikipedia_poisonous"
+      ],
+      "gbif": "8201706",
+      "occ_total": 67,
+      "occ_na": 0,
+      "note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+    },
+    {
+      "slug": "rubroboletus-lupinus",
+      "accepted": "Rubroboletus lupinus",
+      "edibility": "unknown",
+      "reference_list_arms": [
+        "wikipedia_poisonous"
+      ],
+      "gbif": "8019387",
+      "occ_total": 395,
+      "occ_na": 0,
+      "note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+    },
+    {
+      "slug": "russula-subnigricans",
+      "accepted": "Russula subnigricans",
+      "edibility": "unknown",
+      "reference_list_arms": [
+        "wikipedia_poisonous"
+      ],
+      "gbif": "3359054",
+      "occ_total": 215,
+      "occ_na": 5,
+      "note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+    },
+    {
+      "slug": "tricholoma-muscarium",
+      "accepted": "Tricholoma muscarium",
+      "edibility": "unknown",
+      "reference_list_arms": [
+        "wikipedia_poisonous"
+      ],
+      "gbif": "5450587",
+      "occ_total": 57,
+      "occ_na": 0,
+      "note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+    },
+    {
+      "slug": "tricholoma-pardinum",
+      "accepted": "Tricholoma pardinum",
+      "edibility": "unknown",
+      "reference_list_arms": [
+        "wikipedia_poisonous"
+      ],
+      "gbif": "7242174",
+      "occ_total": 1975,
+      "occ_na": 498,
+      "note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+    },
+    {
+      "slug": "trogia-venenata",
+      "accepted": "Trogia venenata",
+      "edibility": "unknown",
+      "reference_list_arms": [
+        "wikipedia_poisonous"
+      ],
+      "gbif": "8342755",
+      "occ_total": 14,
+      "occ_na": 0,
+      "note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+    }
+  ]
+}

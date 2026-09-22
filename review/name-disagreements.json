@@ -1,0 +1,6498 @@
+[
+  {
+    "slug": "acanthophysellum-lividocoeruleum",
+    "catalog_accepted": "Acanthophysellum lividocoeruleum",
+    "if_current_name": "Xylobolus lividocoeruleus",
+    "if_year": 1967,
+    "occ": null
+  },
+  {
+    "slug": "acetabula-ancilis",
+    "catalog_accepted": "Acetabula ancilis",
+    "if_current_name": "Discina ancilis",
+    "if_year": 1880,
+    "occ": null
+  },
+  {
+    "slug": "acetabula-calyx",
+    "catalog_accepted": "Acetabula calyx",
+    "if_current_name": "Helvella solitaria",
+    "if_year": 1873,
+    "occ": null
+  },
+  {
+    "slug": "acetabula-sulcata",
+    "catalog_accepted": "Acetabula sulcata",
+    "if_current_name": "Dissingia leucomelaena",
+    "if_year": 1870,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-abietinus",
+    "catalog_accepted": "Agaricus abietinus",
+    "if_current_name": "Gloeophyllum abietinum",
+    "if_year": 1790,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-acuminatus",
+    "catalog_accepted": "Agaricus acuminatus",
+    "if_current_name": "Stropharia aeruginosa",
+    "if_year": 1772,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-adnatus",
+    "catalog_accepted": "Agaricus adnatus",
+    "if_current_name": "Amanita gemmata",
+    "if_year": 1870,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-albidus",
+    "catalog_accepted": "Agaricus albidus",
+    "if_current_name": "Crepidotus variabilis",
+    "if_year": 1804,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-amarus",
+    "catalog_accepted": "Agaricus amarus",
+    "if_current_name": "Flammula alnicola",
+    "if_year": 1792,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-angulatus",
+    "catalog_accepted": "Agaricus angulatus",
+    "if_current_name": "Collybiopsis vaillantii",
+    "if_year": 1783,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-annulatus",
+    "catalog_accepted": "Agaricus annulatus",
+    "if_current_name": "Macrolepiota procera",
+    "if_year": 1777,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-areolatus",
+    "catalog_accepted": "Agaricus areolatus",
+    "if_current_name": "Lacrymaria lacrymabunda",
+    "if_year": 1836,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-aromaticus",
+    "catalog_accepted": "Agaricus aromaticus",
+    "if_current_name": "Calocybe gambosa",
+    "if_year": 1841,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-arvalis",
+    "catalog_accepted": "Agaricus arvalis",
+    "if_current_name": "Agrocybe arvalis",
+    "if_year": 1821,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-atrorufus",
+    "catalog_accepted": "Agaricus atrorufus",
+    "if_current_name": "Deconica montana",
+    "if_year": 1774,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-australis",
+    "catalog_accepted": "Agaricus australis",
+    "if_current_name": "Pleurotus australis",
+    "if_year": 1887,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-campestris-var-buchananii",
+    "catalog_accepted": "Agaricus campestris var. buchananii",
+    "if_current_name": "Agaricus arvensis",
+    "if_year": 1860,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-campestris-var-elongatus",
+    "catalog_accepted": "Agaricus campestris var. elongatus",
+    "if_current_name": "Agaricus bisporus",
+    "if_year": 1860,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-caryophylleus",
+    "catalog_accepted": "Agaricus caryophylleus",
+    "if_current_name": "Marasmius oreades",
+    "if_year": 1774,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-cellaris",
+    "catalog_accepted": "Agaricus cellaris",
+    "if_current_name": "Agaricus gennadii",
+    "if_year": 1985,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-cerasinus",
+    "catalog_accepted": "Agaricus cerasinus",
+    "if_current_name": "Hygrophorus agathosmus",
+    "if_year": 1836,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-cinerascens",
+    "catalog_accepted": "Agaricus cinerascens",
+    "if_current_name": "Pseudoclitocybe cyathiformis",
+    "if_year": 1783,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-clypeatus",
+    "catalog_accepted": "Agaricus clypeatus",
+    "if_current_name": "Entoloma clypeatum",
+    "if_year": 1753,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-constrictus",
+    "catalog_accepted": "Agaricus constrictus",
+    "if_current_name": "Tricholomella constricta",
+    "if_year": 1821,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-cretaceus",
+    "catalog_accepted": "Agaricus cretaceus",
+    "if_current_name": "Conioexocarpus cretaceus",
+    "if_year": 1788,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-cristatus",
+    "catalog_accepted": "Agaricus cristatus",
+    "if_current_name": "Inocybe cincinnata",
+    "if_year": 1772,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-croceus",
+    "catalog_accepted": "Agaricus croceus",
+    "if_current_name": "Cortinarius croceus",
+    "if_year": 1774,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-crustuliniformis",
+    "catalog_accepted": "Agaricus crustuliniformis",
+    "if_current_name": "Hebeloma crustuliniforme",
+    "if_year": 1787,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-cupreus",
+    "catalog_accepted": "Agaricus cupreus",
+    "if_current_name": "Macropsalliota americana",
+    "if_year": 1877,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-curtisii",
+    "catalog_accepted": "Agaricus curtisii",
+    "if_current_name": "Pluteus cervinus",
+    "if_year": 1849,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-cyathiformis",
+    "catalog_accepted": "Agaricus cyathiformis",
+    "if_current_name": "Neolentinus cyathiformis",
+    "if_year": 1774,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-dealbatus",
+    "catalog_accepted": "Agaricus dealbatus",
+    "if_current_name": "Homophron cernuum",
+    "if_year": 1783,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-deliciosus",
+    "catalog_accepted": "Agaricus deliciosus",
+    "if_current_name": "Lactarius deliciosus",
+    "if_year": 1753,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-denticulatus",
+    "catalog_accepted": "Agaricus denticulatus",
+    "if_current_name": "Prunulus pelianthinus",
+    "if_year": 1788,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-detersibilis",
+    "catalog_accepted": "Agaricus detersibilis",
+    "if_current_name": "Gymnopus detersibilis",
+    "if_year": 1853,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-dilatatus",
+    "catalog_accepted": "Agaricus dilatatus",
+    "if_current_name": "Basidopus stylobates",
+    "if_year": 1815,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-eburneus",
+    "catalog_accepted": "Agaricus eburneus",
+    "if_current_name": "Hygrophorus eburneus",
+    "if_year": 1783,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-elatus",
+    "catalog_accepted": "Agaricus elatus",
+    "if_current_name": "Hebeloma sinapizans",
+    "if_year": 1789,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-ericetorum",
+    "catalog_accepted": "Agaricus ericetorum",
+    "if_current_name": "Clitocybe ericeticola",
+    "if_year": 1792,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-extinctorius",
+    "catalog_accepted": "Agaricus extinctorius",
+    "if_current_name": "Coprinopsis extinctoria",
+    "if_year": 1790,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-fastibilis",
+    "catalog_accepted": "Agaricus fastibilis",
+    "if_current_name": "Hebeloma laterinum",
+    "if_year": 1801,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-flaccidus",
+    "catalog_accepted": "Agaricus flaccidus",
+    "if_current_name": "Lenzites betulinus",
+    "if_year": 1789,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-flammans",
+    "catalog_accepted": "Agaricus flammans",
+    "if_current_name": "Pholiota flammans",
+    "if_year": 1783,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-foetidus",
+    "catalog_accepted": "Agaricus foetidus",
+    "if_current_name": "Gymnopus foetidus",
+    "if_year": 1821,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-fritillarius",
+    "catalog_accepted": "Agaricus fritillarius",
+    "if_current_name": "Tricholoma tigrinum",
+    "if_year": 1783,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-fuscescens",
+    "catalog_accepted": "Agaricus fuscescens",
+    "if_current_name": "Coprinopsis atramentaria",
+    "if_year": 1774,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-fuscopurpureus",
+    "catalog_accepted": "Agaricus fuscopurpureus",
+    "if_current_name": "Gymnopus fuscopurpureus",
+    "if_year": 1798,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-hortensis",
+    "catalog_accepted": "Agaricus hortensis",
+    "if_current_name": "Agaricus bisporus",
+    "if_year": 1938,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-illudens",
+    "catalog_accepted": "Agaricus illudens",
+    "if_current_name": "Omphalotus illudens",
+    "if_year": 1822,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-infidus",
+    "catalog_accepted": "Agaricus infidus",
+    "if_current_name": "Inocybe infida",
+    "if_year": 1875,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-infundibuliformis",
+    "catalog_accepted": "Agaricus infundibuliformis",
+    "if_current_name": "Clitocybe infundibuliformis",
+    "if_year": 1774,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-ingratus",
+    "catalog_accepted": "Agaricus ingratus",
+    "if_current_name": "Agaricus bernardii",
+    "if_year": 1951,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-labyrinthiformis",
+    "catalog_accepted": "Agaricus labyrinthiformis",
+    "if_current_name": "Fomitopsis quercina",
+    "if_year": 1792,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-laccatus",
+    "catalog_accepted": "Agaricus laccatus",
+    "if_current_name": "Laccaria laccata",
+    "if_year": 1772,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-laceratus",
+    "catalog_accepted": "Agaricus laceratus",
+    "if_current_name": "Clitocybula lacerata",
+    "if_year": 1772,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-lacteus",
+    "catalog_accepted": "Agaricus lacteus",
+    "if_current_name": "Hemimycena lactea",
+    "if_year": 1801,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-lactifluus",
+    "catalog_accepted": "Agaricus lactifluus",
+    "if_current_name": "Lactifluus volemus",
+    "if_year": 1763,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-laevigatus",
+    "catalog_accepted": "Agaricus laevigatus",
+    "if_current_name": "Mycena metata",
+    "if_year": 1801,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-lanatus",
+    "catalog_accepted": "Agaricus lanatus",
+    "if_current_name": "Marasmius lanatus",
+    "if_year": 1803,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-leoninus-var-chrysophaeus",
+    "catalog_accepted": "Agaricus leoninus var. chrysophaeus",
+    "if_current_name": "Pluteus leoninus",
+    "if_year": 1798,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-lignatilis",
+    "catalog_accepted": "Agaricus lignatilis",
+    "if_current_name": "Ossicaulis lignatilis",
+    "if_year": 1801,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-limacinus",
+    "catalog_accepted": "Agaricus limacinus",
+    "if_current_name": "Hygrophorus limacinus",
+    "if_year": 1772,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-luteoalbus",
+    "catalog_accepted": "Agaricus luteoalbus",
+    "if_current_name": "Pleurotus djamor",
+    "if_year": 1928,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-macrosporus",
+    "catalog_accepted": "Agaricus macrosporus",
+    "if_current_name": "Panus rudis",
+    "if_year": 1837,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-magnivelaris",
+    "catalog_accepted": "Agaricus magnivelaris",
+    "if_current_name": "Tricholoma magnivelare",
+    "if_year": 1878,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-malachius",
+    "catalog_accepted": "Agaricus malachius",
+    "if_current_name": "Cortinarius malachius",
+    "if_year": 1818,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-mammillatus",
+    "catalog_accepted": "Agaricus mammillatus",
+    "if_current_name": "Mycena mammillata",
+    "if_year": 1872,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-mollis",
+    "catalog_accepted": "Agaricus mollis",
+    "if_current_name": "Crepidotus mollis",
+    "if_year": 1774,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-mucidus",
+    "catalog_accepted": "Agaricus mucidus",
+    "if_current_name": "Mucidula mucida",
+    "if_year": 1794,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-muscigenus",
+    "catalog_accepted": "Agaricus muscigenus",
+    "if_current_name": "Arrhenia spathulata",
+    "if_year": 1786,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-nauseosus",
+    "catalog_accepted": "Agaricus nauseosus",
+    "if_current_name": "Russula nauseosa",
+    "if_year": 1801,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-nitidus",
+    "catalog_accepted": "Agaricus nitidus",
+    "if_current_name": "Russula nitida",
+    "if_year": 1801,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-obscurus",
+    "catalog_accepted": "Agaricus obscurus",
+    "if_current_name": "Armillaria obscura",
+    "if_year": 1774,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-oedipus",
+    "catalog_accepted": "Agaricus oedipus",
+    "if_current_name": "Gymnopus fusipes",
+    "if_year": 1827,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-olivaceus",
+    "catalog_accepted": "Agaricus olivaceus",
+    "if_current_name": "Russula olivacea",
+    "if_year": 1774,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-pachyphyllus",
+    "catalog_accepted": "Agaricus pachyphyllus",
+    "if_current_name": "Pseudolaccaria pachyphylla",
+    "if_year": 1815,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-pacificus",
+    "catalog_accepted": "Agaricus pacificus",
+    "if_current_name": "Pleurotus djamor",
+    "if_year": 1842,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-pallidus",
+    "catalog_accepted": "Agaricus pallidus",
+    "if_current_name": "Lactarius pallidus",
+    "if_year": 1801,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-parasiticus",
+    "catalog_accepted": "Agaricus parasiticus",
+    "if_current_name": "Asterophora parasitica",
+    "if_year": 1792,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-pediades",
+    "catalog_accepted": "Agaricus pediades",
+    "if_current_name": "Agrocybe pediades",
+    "if_year": 1821,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-pilosus",
+    "catalog_accepted": "Agaricus pilosus",
+    "if_current_name": "Marasmius hudsonii",
+    "if_year": 1778,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-platypus",
+    "catalog_accepted": "Agaricus platypus",
+    "if_current_name": "Collybiopsis ramealis",
+    "if_year": 1816,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-plumbeus",
+    "catalog_accepted": "Agaricus plumbeus",
+    "if_current_name": "Amanita vaginata",
+    "if_year": 1774,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-porphyreus",
+    "catalog_accepted": "Agaricus porphyreus",
+    "if_current_name": "Agaricus porphyrocephalus",
+    "if_year": 1951,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-pullus",
+    "catalog_accepted": "Agaricus pullus",
+    "if_current_name": "Tricholoma terreum",
+    "if_year": 1783,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-punctatus",
+    "catalog_accepted": "Agaricus punctatus",
+    "if_current_name": "Cortinarius gentilis",
+    "if_year": 1801,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-puniceus",
+    "catalog_accepted": "Agaricus puniceus",
+    "if_current_name": "Hygrocybe punicea",
+    "if_year": 1821,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-purpurellus",
+    "catalog_accepted": "Agaricus purpurellus",
+    "if_current_name": "Agaricus dulcidulus",
+    "if_year": 1952,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-pygmaeus",
+    "catalog_accepted": "Agaricus pygmaeus",
+    "if_current_name": "Psathyrella pygmaea",
+    "if_year": 1791,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-repens",
+    "catalog_accepted": "Agaricus repens",
+    "if_current_name": "Gymnopus erythropus",
+    "if_year": 1782,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-reticulatus",
+    "catalog_accepted": "Agaricus reticulatus",
+    "if_current_name": "Bolbitius reticulatus",
+    "if_year": 1798,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-rhodellus",
+    "catalog_accepted": "Agaricus rhodellus",
+    "if_current_name": "Mycena rosella",
+    "if_year": 1815,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-rubescens",
+    "catalog_accepted": "Agaricus rubescens",
+    "if_current_name": "Lactarius rufus",
+    "if_year": 1794,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-rubiginosus",
+    "catalog_accepted": "Agaricus rubiginosus",
+    "if_current_name": "Galerina vittiformis",
+    "if_year": 1801,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-scabellus",
+    "catalog_accepted": "Agaricus scabellus",
+    "if_current_name": "Crinipellis scabella",
+    "if_year": 1805,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-sinuatus",
+    "catalog_accepted": "Agaricus sinuatus",
+    "if_current_name": "Entoloma sinuatum",
+    "if_year": 1793,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-spectabilis",
+    "catalog_accepted": "Agaricus spectabilis",
+    "if_current_name": "Gymnopilus junonius",
+    "if_year": 1824,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-splendens",
+    "catalog_accepted": "Agaricus splendens",
+    "if_current_name": "Paralepista splendens",
+    "if_year": 1801,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-stolonifer",
+    "catalog_accepted": "Agaricus stolonifer",
+    "if_current_name": "Strobilurus tenacellus",
+    "if_year": 1830,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-subinvolutus",
+    "catalog_accepted": "Agaricus subinvolutus",
+    "if_current_name": "Clitocybe subinvoluta",
+    "if_year": 1789,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-trivialis",
+    "catalog_accepted": "Agaricus trivialis",
+    "if_current_name": "Lactarius trivialis",
+    "if_year": 1815,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-urinascens",
+    "catalog_accepted": "Agaricus urinascens",
+    "if_current_name": "Agaricus crocodilinus",
+    "if_year": 1951,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-versatilis",
+    "catalog_accepted": "Agaricus versatilis",
+    "if_current_name": "Omphalina versatilis",
+    "if_year": 1837,
+    "occ": null
+  },
+  {
+    "slug": "agaricus-virgatus",
+    "catalog_accepted": "Agaricus virgatus",
+    "if_current_name": "Volvariella volvacea",
+    "if_year": 1794,
+    "occ": null
+  },
+  {
+    "slug": "agrocybe-molesta",
+    "catalog_accepted": "Agrocybe molesta",
+    "if_current_name": "Agrocybe dura",
+    "if_year": 1978,
+    "occ": null
+  },
+  {
+    "slug": "aleuria-granulosa",
+    "catalog_accepted": "Aleuria granulosa",
+    "if_current_name": "Galactinia granulosa",
+    "if_year": 1879,
+    "occ": null
+  },
+  {
+    "slug": "aleuria-olivacea",
+    "catalog_accepted": "Aleuria olivacea",
+    "if_current_name": "Peziza elaeocarpa",
+    "if_year": 1879,
+    "occ": null
+  },
+  {
+    "slug": "aleuria-scotica",
+    "catalog_accepted": "Aleuria scotica",
+    "if_current_name": "Melastiza scotica",
+    "if_year": 1995,
+    "occ": null
+  },
+  {
+    "slug": "aleurocystis-capensis",
+    "catalog_accepted": "Aleurocystis capensis",
+    "if_current_name": "Aleurocystis hakgallae",
+    "if_year": 1920,
+    "occ": null
+  },
+  {
+    "slug": "aleurodiscus-cerussatus",
+    "catalog_accepted": "Aleurodiscus cerussatus",
+    "if_current_name": "Gloeomyces cerussatus",
+    "if_year": 1907,
+    "occ": null
+  },
+  {
+    "slug": "aleurodiscus-dextrinoideocerussatus",
+    "catalog_accepted": "Aleurodiscus dextrinoideocerussatus",
+    "if_current_name": "Gloeomyces dextrinoideocerussatus",
+    "if_year": 1990,
+    "occ": null
+  },
+  {
+    "slug": "alloexidiopsis-calcea",
+    "catalog_accepted": "Alloexidiopsis calcea",
+    "if_current_name": "Leiostroma farinellum",
+    "if_year": 2022,
+    "occ": null
+  },
+  {
+    "slug": "alnicola-amarescens",
+    "catalog_accepted": "Alnicola amarescens",
+    "if_current_name": "Naucoria amarescens",
+    "if_year": 1934,
+    "occ": null
+  },
+  {
+    "slug": "alnicola-celluloderma",
+    "catalog_accepted": "Alnicola celluloderma",
+    "if_current_name": "Naucoria celluloderma",
+    "if_year": 1966,
+    "occ": null
+  },
+  {
+    "slug": "amanita-nauseosa",
+    "catalog_accepted": "Amanita nauseosa",
+    "if_current_name": "Saproamanita nauseosa",
+    "if_year": 1966,
+    "occ": null
+  },
+  {
+    "slug": "amanita-pleropus",
+    "catalog_accepted": "Amanita pleropus",
+    "if_current_name": "Saproamanita pleropus",
+    "if_year": 1975,
+    "occ": null
+  },
+  {
+    "slug": "amanita-praeclara",
+    "catalog_accepted": "Amanita praeclara",
+    "if_current_name": "Saproamanita praeclara",
+    "if_year": 1969,
+    "occ": null
+  },
+  {
+    "slug": "amanita-strangulata",
+    "catalog_accepted": "Amanita strangulata",
+    "if_current_name": "Amanita vaginata",
+    "if_year": 1872,
+    "occ": null
+  },
+  {
+    "slug": "amanita-subcaligata",
+    "catalog_accepted": "Amanita subcaligata",
+    "if_current_name": "Saproamanita subcaligata",
+    "if_year": 1995,
+    "occ": null
+  },
+  {
+    "slug": "amanita-thiersii",
+    "catalog_accepted": "Amanita thiersii",
+    "if_current_name": "Saproamanita thiersii",
+    "if_year": 1969,
+    "occ": null
+  },
+  {
+    "slug": "amanita-vittadinii",
+    "catalog_accepted": "Amanita vittadinii",
+    "if_current_name": "Saproamanita vittadinii",
+    "if_year": 1826,
+    "occ": null
+  },
+  {
+    "slug": "amarrendia-lignicolor",
+    "catalog_accepted": "Amarrendia lignicolor",
+    "if_current_name": "Alpova lignicolor",
+    "if_year": 2002,
+    "occ": null
+  },
+  {
+    "slug": "amauroderma-conjunctum",
+    "catalog_accepted": "Amauroderma conjunctum",
+    "if_current_name": "Sanguinoderma conjunctum",
+    "if_year": 1920,
+    "occ": null
+  },
+  {
+    "slug": "amauroderma-preussii",
+    "catalog_accepted": "Amauroderma preussii",
+    "if_current_name": "Sanguinoderma preussii",
+    "if_year": 1972,
+    "occ": null
+  },
+  {
+    "slug": "amyloporia-stratosa",
+    "catalog_accepted": "Amyloporia stratosa",
+    "if_current_name": "Antrodia stratosa",
+    "if_year": 2011,
+    "occ": null
+  },
+  {
+    "slug": "antrodia-eutelea",
+    "catalog_accepted": "Antrodia eutelea",
+    "if_current_name": "Megasporoporia eutelea",
+    "if_year": 1983,
+    "occ": null
+  },
+  {
+    "slug": "antrodia-ramentacea",
+    "catalog_accepted": "Antrodia ramentacea",
+    "if_current_name": "Fomitopsis ramentacea",
+    "if_year": 1966,
+    "occ": null
+  },
+  {
+    "slug": "antrodia-semisupina",
+    "catalog_accepted": "Antrodia semisupina",
+    "if_current_name": "Antrodiella semisupina",
+    "if_year": 1976,
+    "occ": null
+  },
+  {
+    "slug": "antrodiella-americana",
+    "catalog_accepted": "Antrodiella americana",
+    "if_current_name": "Antella americana",
+    "if_year": 1984,
+    "occ": null
+  },
+  {
+    "slug": "arcangeliella-claridgei",
+    "catalog_accepted": "Arcangeliella claridgei",
+    "if_current_name": "Lactarius claridgei",
+    "if_year": 2008,
+    "occ": null
+  },
+  {
+    "slug": "arcangeliella-corkii",
+    "catalog_accepted": "Arcangeliella corkii",
+    "if_current_name": "Lactarius corkii",
+    "if_year": 2008,
+    "occ": null
+  },
+  {
+    "slug": "armillaria-socialis",
+    "catalog_accepted": "Armillaria socialis",
+    "if_current_name": "Desarmillaria tabescens",
+    "if_year": 1889,
+    "occ": null
+  },
+  {
+    "slug": "arrhenia-cyathella",
+    "catalog_accepted": "Arrhenia cyathella",
+    "if_current_name": "Pulverulina cyathella",
+    "if_year": 2008,
+    "occ": null
+  },
+  {
+    "slug": "arrhenia-muscigena",
+    "catalog_accepted": "Arrhenia muscigena",
+    "if_current_name": "Muscinupta laevis",
+    "if_year": 1888,
+    "occ": null
+  },
+  {
+    "slug": "ascobolus-ciliatus",
+    "catalog_accepted": "Ascobolus ciliatus",
+    "if_current_name": "Lasiobolus papillatus",
+    "if_year": 1817,
+    "occ": null
+  },
+  {
+    "slug": "ascobolus-glaber",
+    "catalog_accepted": "Ascobolus glaber",
+    "if_current_name": "Saccobolus glaber",
+    "if_year": 1794,
+    "occ": null
+  },
+  {
+    "slug": "ascobolus-niveus",
+    "catalog_accepted": "Ascobolus niveus",
+    "if_current_name": "Coprotus niveus",
+    "if_year": 1866,
+    "occ": null
+  },
+  {
+    "slug": "ascobolus-vinosus",
+    "catalog_accepted": "Ascobolus vinosus",
+    "if_current_name": "Pseudombrophila hepatica",
+    "if_year": 1836,
+    "occ": null
+  },
+  {
+    "slug": "athelia-epiphylla",
+    "catalog_accepted": "Athelia epiphylla",
+    "if_current_name": "Asterostromella epiphylla",
+    "if_year": 1818,
+    "occ": null
+  },
+  {
+    "slug": "athelia-rolfsii",
+    "catalog_accepted": "Athelia rolfsii",
+    "if_current_name": "Agroathelia rolfsii",
+    "if_year": 1978,
+    "occ": null
+  },
+  {
+    "slug": "athelia-rosea",
+    "catalog_accepted": "Athelia rosea",
+    "if_current_name": "Corticium roseum",
+    "if_year": 1826,
+    "occ": null
+  },
+  {
+    "slug": "atheliachaete-galactites",
+    "catalog_accepted": "Atheliachaete galactites",
+    "if_current_name": "Rhizochaete galactites",
+    "if_year": 2011,
+    "occ": null
+  },
+  {
+    "slug": "athelopsis-bispora",
+    "catalog_accepted": "Athelopsis bispora",
+    "if_current_name": "Lyomyces bisporus",
+    "if_year": 2007,
+    "occ": null
+  },
+  {
+    "slug": "aurantiporus-pilotae",
+    "catalog_accepted": "Aurantiporus pilotae",
+    "if_current_name": "Hapalopilus croceus",
+    "if_year": 1905,
+    "occ": null
+  },
+  {
+    "slug": "auricularia-aurantiaca",
+    "catalog_accepted": "Auricularia aurantiaca",
+    "if_current_name": "Phlebia radiata",
+    "if_year": 1800,
+    "occ": null
+  },
+  {
+    "slug": "boletellus-coccineus",
+    "catalog_accepted": "Boletellus coccineus",
+    "if_current_name": "Boletellus ananas",
+    "if_year": 1992,
+    "occ": null
+  },
+  {
+    "slug": "boletus-albellus",
+    "catalog_accepted": "Boletus albellus",
+    "if_current_name": "Leccinellum albellum",
+    "if_year": 1888,
+    "occ": null
+  },
+  {
+    "slug": "boletus-borealis",
+    "catalog_accepted": "Boletus borealis",
+    "if_current_name": "Climacocystis borealis",
+    "if_year": 1826,
+    "occ": null
+  },
+  {
+    "slug": "boletus-candidus",
+    "catalog_accepted": "Boletus candidus",
+    "if_current_name": "Cyanosporus caesius",
+    "if_year": 1797,
+    "occ": null
+  },
+  {
+    "slug": "boletus-cavipes",
+    "catalog_accepted": "Boletus cavipes",
+    "if_current_name": "Boletinus cavipes",
+    "if_year": 1835,
+    "occ": null
+  },
+  {
+    "slug": "boletus-cinnamomeus",
+    "catalog_accepted": "Boletus cinnamomeus",
+    "if_current_name": "Coltricia cinnamomea",
+    "if_year": 1787,
+    "occ": null
+  },
+  {
+    "slug": "boletus-cristatus",
+    "catalog_accepted": "Boletus cristatus",
+    "if_current_name": "Grifola frondosa",
+    "if_year": 1762,
+    "occ": null
+  },
+  {
+    "slug": "boletus-decipiens",
+    "catalog_accepted": "Boletus decipiens",
+    "if_current_name": "Trichaptum fuscoviolaceum",
+    "if_year": 1792,
+    "occ": null
+  },
+  {
+    "slug": "boletus-fimbriatus",
+    "catalog_accepted": "Boletus fimbriatus",
+    "if_current_name": "Coltricia perennis",
+    "if_year": 1791,
+    "occ": null
+  },
+  {
+    "slug": "boletus-floccopus",
+    "catalog_accepted": "Boletus floccopus",
+    "if_current_name": "Strobilomyces strobilaceus",
+    "if_year": 1797,
+    "occ": null
+  },
+  {
+    "slug": "boletus-fuligineus",
+    "catalog_accepted": "Boletus fuligineus",
+    "if_current_name": "Porphyrellus fuligineus",
+    "if_year": 1801,
+    "occ": null
+  },
+  {
+    "slug": "boletus-griseus",
+    "catalog_accepted": "Boletus griseus",
+    "if_current_name": "Retiboletus griseus",
+    "if_year": 1878,
+    "occ": null
+  },
+  {
+    "slug": "boletus-hirsutus",
+    "catalog_accepted": "Boletus hirsutus",
+    "if_current_name": "Inonotus hispidus",
+    "if_year": 1772,
+    "occ": null
+  },
+  {
+    "slug": "boletus-lignatilis",
+    "catalog_accepted": "Boletus lignatilis",
+    "if_current_name": "Boletellus cubensis",
+    "if_year": 1868,
+    "occ": null
+  },
+  {
+    "slug": "boletus-maximus",
+    "catalog_accepted": "Boletus maximus",
+    "if_current_name": "Cerioporus squamosus",
+    "if_year": 1803,
+    "occ": null
+  },
+  {
+    "slug": "boletus-mucidus",
+    "catalog_accepted": "Boletus mucidus",
+    "if_current_name": "Bjerkandera fumosa",
+    "if_year": 1770,
+    "occ": null
+  },
+  {
+    "slug": "boletus-multicolor",
+    "catalog_accepted": "Boletus multicolor",
+    "if_current_name": "Trametes ochracea",
+    "if_year": 1774,
+    "occ": null
+  },
+  {
+    "slug": "boletus-obliquus",
+    "catalog_accepted": "Boletus obliquus",
+    "if_current_name": "Serpula lacrymans",
+    "if_year": 1788,
+    "occ": null
+  },
+  {
+    "slug": "boletus-papyraceus",
+    "catalog_accepted": "Boletus papyraceus",
+    "if_current_name": "Sidera vulgaris",
+    "if_year": 1789,
+    "occ": null
+  },
+  {
+    "slug": "boletus-pascuus",
+    "catalog_accepted": "Boletus pascuus",
+    "if_current_name": "Xerocomellus pruinatus",
+    "if_year": 1841,
+    "occ": null
+  },
+  {
+    "slug": "boletus-perennis",
+    "catalog_accepted": "Boletus perennis",
+    "if_current_name": "Coltricia perennis",
+    "if_year": 1753,
+    "occ": null
+  },
+  {
+    "slug": "boletus-pictus",
+    "catalog_accepted": "Boletus pictus",
+    "if_current_name": "Suillus spraguei",
+    "if_year": 1872,
+    "occ": null
+  },
+  {
+    "slug": "boletus-polymorphus",
+    "catalog_accepted": "Boletus polymorphus",
+    "if_current_name": "Cerioporus squamosus",
+    "if_year": 1791,
+    "occ": null
+  },
+  {
+    "slug": "boletus-populinus",
+    "catalog_accepted": "Boletus populinus",
+    "if_current_name": "Oxyporus populinus",
+    "if_year": 1803,
+    "occ": null
+  },
+  {
+    "slug": "boletus-pseudoscaber",
+    "catalog_accepted": "Boletus pseudoscaber",
+    "if_current_name": "Leccinellum pseudoscabrum",
+    "if_year": 1929,
+    "occ": null
+  },
+  {
+    "slug": "boletus-ramosus",
+    "catalog_accepted": "Boletus ramosus",
+    "if_current_name": "Laetiporus sulphureus",
+    "if_year": 1791,
+    "occ": null
+  },
+  {
+    "slug": "boletus-roseus",
+    "catalog_accepted": "Boletus roseus",
+    "if_current_name": "Fomitopsis rosea",
+    "if_year": 1805,
+    "occ": null
+  },
+  {
+    "slug": "boletus-sanguineus",
+    "catalog_accepted": "Boletus sanguineus",
+    "if_current_name": "Fabisporus sanguineus",
+    "if_year": 1763,
+    "occ": null
+  },
+  {
+    "slug": "boletus-scaber-f-aerugineus",
+    "catalog_accepted": "Boletus scaber f. aerugineus",
+    "if_current_name": "Leccinum scabrum",
+    "if_year": 1925,
+    "occ": null
+  },
+  {
+    "slug": "boletus-scaber-var-rufus",
+    "catalog_accepted": "Boletus scaber var. rufus",
+    "if_current_name": "Leccinum scabrum",
+    "if_year": 1825,
+    "occ": null
+  },
+  {
+    "slug": "boletus-spadiceus",
+    "catalog_accepted": "Boletus spadiceus",
+    "if_current_name": "Xerocomus ferrugineus",
+    "if_year": 1838,
+    "occ": null
+  },
+  {
+    "slug": "boletus-spongiosus",
+    "catalog_accepted": "Boletus spongiosus",
+    "if_current_name": "Inonotus hispidus",
+    "if_year": 1777,
+    "occ": null
+  },
+  {
+    "slug": "boletus-supinus",
+    "catalog_accepted": "Boletus supinus",
+    "if_current_name": "Fomitella supina",
+    "if_year": 1806,
+    "occ": null
+  },
+  {
+    "slug": "boletus-tessellatus",
+    "catalog_accepted": "Boletus tessellatus",
+    "if_current_name": "Leccinellum crocipodium",
+    "if_year": 1878,
+    "occ": null
+  },
+  {
+    "slug": "boletus-variegatus",
+    "catalog_accepted": "Boletus variegatus",
+    "if_current_name": "Suillus variegatus",
+    "if_year": 1810,
+    "occ": null
+  },
+  {
+    "slug": "boletus-vulpinus",
+    "catalog_accepted": "Boletus vulpinus",
+    "if_current_name": "Inonotus vulpinus",
+    "if_year": 1809,
+    "occ": null
+  },
+  {
+    "slug": "botrytis-capitata",
+    "catalog_accepted": "Botrytis capitata",
+    "if_current_name": "Botryobasidium candicans",
+    "if_year": 1928,
+    "occ": null
+  },
+  {
+    "slug": "brunneoporus-juniperinus",
+    "catalog_accepted": "Brunneoporus juniperinus",
+    "if_current_name": "Fomitopsis juniperina",
+    "if_year": 2018,
+    "occ": null
+  },
+  {
+    "slug": "brunneoporus-malicola",
+    "catalog_accepted": "Brunneoporus malicola",
+    "if_current_name": "Fomitopsis malicola",
+    "if_year": 2017,
+    "occ": null
+  },
+  {
+    "slug": "buglossoporus-quercinus",
+    "catalog_accepted": "Buglossoporus quercinus",
+    "if_current_name": "Fomitopsis pulvina",
+    "if_year": 1966,
+    "occ": null
+  },
+  {
+    "slug": "butyriboletus-frostii",
+    "catalog_accepted": "Butyriboletus frostii",
+    "if_current_name": "Exsudoporus frostii",
+    "if_year": 2016,
+    "occ": null
+  },
+  {
+    "slug": "butyriboletus-pseudoregius",
+    "catalog_accepted": "Butyriboletus pseudoregius",
+    "if_current_name": "Butyriboletus fuscoroseus",
+    "if_year": 2014,
+    "occ": null
+  },
+  {
+    "slug": "calocybe-carnea",
+    "catalog_accepted": "Calocybe carnea",
+    "if_current_name": "Rugosomyces carneus",
+    "if_year": 1962,
+    "occ": null
+  },
+  {
+    "slug": "calvatia-turneri",
+    "catalog_accepted": "Calvatia turneri",
+    "if_current_name": "Utraria turneri",
+    "if_year": 1990,
+    "occ": null
+  },
+  {
+    "slug": "camarophyllopsis-roseola",
+    "catalog_accepted": "Camarophyllopsis roseola",
+    "if_current_name": "Hodophilus roseolus",
+    "if_year": 2002,
+    "occ": null
+  },
+  {
+    "slug": "camarophyllus-apricosus",
+    "catalog_accepted": "Camarophyllus apricosus",
+    "if_current_name": "Cuphophyllus apricosus",
+    "if_year": 1990,
+    "occ": null
+  },
+  {
+    "slug": "camarophyllus-aurantiopallens",
+    "catalog_accepted": "Camarophyllus aurantiopallens",
+    "if_current_name": "Cuphophyllus aurantiopallens",
+    "if_year": 1973,
+    "occ": null
+  },
+  {
+    "slug": "camarophyllus-canus",
+    "catalog_accepted": "Camarophyllus canus",
+    "if_current_name": "Cuphophyllus canus",
+    "if_year": 1973,
+    "occ": null
+  },
+  {
+    "slug": "camarophyllus-impurus",
+    "catalog_accepted": "Camarophyllus impurus",
+    "if_current_name": "Cuphophyllus impurus",
+    "if_year": 1990,
+    "occ": null
+  },
+  {
+    "slug": "camarophyllus-patinicolor",
+    "catalog_accepted": "Camarophyllus patinicolor",
+    "if_current_name": "Cuphophyllus patinicolor",
+    "if_year": 1973,
+    "occ": null
+  },
+  {
+    "slug": "campanella-caesia",
+    "catalog_accepted": "Campanella caesia",
+    "if_current_name": "Metacampanella caesia",
+    "if_year": 1981,
+    "occ": null
+  },
+  {
+    "slug": "candelabrochaete-cirrata",
+    "catalog_accepted": "Candelabrochaete cirrata",
+    "if_current_name": "Rigidoporus cirratus",
+    "if_year": 1986,
+    "occ": null
+  },
+  {
+    "slug": "candelabrochaete-langloisii",
+    "catalog_accepted": "Candelabrochaete langloisii",
+    "if_current_name": "Ceriporia langloisii",
+    "if_year": 1970,
+    "occ": null
+  },
+  {
+    "slug": "cantharellus-cinereus",
+    "catalog_accepted": "Cantharellus cinereus",
+    "if_current_name": "Craterellus cinereus",
+    "if_year": 1794,
+    "occ": null
+  },
+  {
+    "slug": "cantharellus-confluens",
+    "catalog_accepted": "Cantharellus confluens",
+    "if_current_name": "Byssomerulius corium",
+    "if_year": 1832,
+    "occ": null
+  },
+  {
+    "slug": "cantharellus-incarnatus",
+    "catalog_accepted": "Cantharellus incarnatus",
+    "if_current_name": "Byssomerulius incarnatus",
+    "if_year": 1832,
+    "occ": null
+  },
+  {
+    "slug": "cantharellus-insignis",
+    "catalog_accepted": "Cantharellus insignis",
+    "if_current_name": "Podoserpula insignis",
+    "if_year": 1966,
+    "occ": null
+  },
+  {
+    "slug": "cantharellus-lilacinus",
+    "catalog_accepted": "Cantharellus lilacinus",
+    "if_current_name": "Cuphophyllus cheelii",
+    "if_year": 1919,
+    "occ": null
+  },
+  {
+    "slug": "cantharellus-melanoxeros",
+    "catalog_accepted": "Cantharellus melanoxeros",
+    "if_current_name": "Craterellus melanoxeros",
+    "if_year": 1830,
+    "occ": null
+  },
+  {
+    "slug": "cantharellus-multiplex",
+    "catalog_accepted": "Cantharellus multiplex",
+    "if_current_name": "Polyozellus multiplex",
+    "if_year": 1899,
+    "occ": null
+  },
+  {
+    "slug": "cantharellus-rufescens",
+    "catalog_accepted": "Cantharellus rufescens",
+    "if_current_name": "Hygrophoropsis aurantiaca",
+    "if_year": 1838,
+    "occ": null
+  },
+  {
+    "slug": "cantharellus-tubaeformis",
+    "catalog_accepted": "Cantharellus tubaeformis",
+    "if_current_name": "Craterellus tubaeformis",
+    "if_year": 1821,
+    "occ": null
+  },
+  {
+    "slug": "cantharellus-tubaeformis-var-lutescens",
+    "catalog_accepted": "Cantharellus tubaeformis var. lutescens",
+    "if_current_name": "Craterellus lutescens",
+    "if_year": 1838,
+    "occ": null
+  },
+  {
+    "slug": "cantharellus-tubaeformis-var-subramosus",
+    "catalog_accepted": "Cantharellus tubaeformis var. subramosus",
+    "if_current_name": "Craterellus tubaeformis",
+    "if_year": 1987,
+    "occ": null
+  },
+  {
+    "slug": "ceraceomerulius-serpens",
+    "catalog_accepted": "Ceraceomerulius serpens",
+    "if_current_name": "Crystallicutis serpens",
+    "if_year": 1973,
+    "occ": null
+  },
+  {
+    "slug": "ceratobasidium-cereale",
+    "catalog_accepted": "Ceratobasidium cereale",
+    "if_current_name": "Rhizoctonia cornigera",
+    "if_year": 1984,
+    "occ": null
+  },
+  {
+    "slug": "ceratobasidium-cornigerum",
+    "catalog_accepted": "Ceratobasidium cornigerum",
+    "if_current_name": "Rhizoctonia cornigera",
+    "if_year": 1935,
+    "occ": null
+  },
+  {
+    "slug": "ceratobasidium-ramicola",
+    "catalog_accepted": "Ceratobasidium ramicola",
+    "if_current_name": "Rhizoctonia ramicola",
+    "if_year": 1969,
+    "occ": null
+  },
+  {
+    "slug": "ceratobasidium-setariae",
+    "catalog_accepted": "Ceratobasidium setariae",
+    "if_current_name": "Rhizoctonia setariae",
+    "if_year": 1986,
+    "occ": null
+  },
+  {
+    "slug": "ceratorhiza-decidua",
+    "catalog_accepted": "Ceratorhiza decidua",
+    "if_current_name": "Rhizoctonia anceps",
+    "if_year": 1999,
+    "occ": null
+  },
+  {
+    "slug": "ceratorhiza-hydrophila",
+    "catalog_accepted": "Ceratorhiza hydrophila",
+    "if_current_name": "Rhizoctonia hydrophila",
+    "if_year": 2010,
+    "occ": null
+  },
+  {
+    "slug": "ceratorhiza-rhizodes",
+    "catalog_accepted": "Ceratorhiza rhizodes",
+    "if_current_name": "Rhizoctonia rhizodes",
+    "if_year": 2010,
+    "occ": null
+  },
+  {
+    "slug": "ceriporiopsis-incarnata",
+    "catalog_accepted": "Ceriporiopsis incarnata",
+    "if_current_name": "Fomitopsis marianii",
+    "if_year": 1963,
+    "occ": null
+  },
+  {
+    "slug": "chalymmota-carbonaria",
+    "catalog_accepted": "Chalymmota carbonaria",
+    "if_current_name": "Panaeolus acuminatus",
+    "if_year": 1932,
+    "occ": null
+  },
+  {
+    "slug": "chamaemyces-fracidus",
+    "catalog_accepted": "Chamaemyces fracidus",
+    "if_current_name": "Lepiota fracida",
+    "if_year": 1962,
+    "occ": null
+  },
+  {
+    "slug": "chamaeota-dextrinoidespora",
+    "catalog_accepted": "Chamaeota dextrinoidespora",
+    "if_current_name": "Macropsalliota dextrinoidespora",
+    "if_year": 1988,
+    "occ": null
+  },
+  {
+    "slug": "chamaeota-sinica",
+    "catalog_accepted": "Chamaeota sinica",
+    "if_current_name": "Candelolepiota sinica",
+    "if_year": 1995,
+    "occ": null
+  },
+  {
+    "slug": "ciliaria-trechispora",
+    "catalog_accepted": "Ciliaria trechispora",
+    "if_current_name": "Scutellinia trechispora",
+    "if_year": 1907,
+    "occ": null
+  },
+  {
+    "slug": "clavaria-bresadolae",
+    "catalog_accepted": "Clavaria bresadolae",
+    "if_current_name": "Mucronella bresadolae",
+    "if_year": 1888,
+    "occ": null
+  },
+  {
+    "slug": "clavaria-divaricata",
+    "catalog_accepted": "Clavaria divaricata",
+    "if_current_name": "Ramaria divaricata",
+    "if_year": 1887,
+    "occ": null
+  },
+  {
+    "slug": "clavaria-fossicola",
+    "catalog_accepted": "Clavaria fossicola",
+    "if_current_name": "Sulzbacheromyces fossicola",
+    "if_year": 1950,
+    "occ": null
+  },
+  {
+    "slug": "clavaria-fusiformis",
+    "catalog_accepted": "Clavaria fusiformis",
+    "if_current_name": "Clavulinopsis fusiformis",
+    "if_year": 1799,
+    "occ": null
+  },
+  {
+    "slug": "clavaria-gracilis",
+    "catalog_accepted": "Clavaria gracilis",
+    "if_current_name": "Ramaria gracilis",
+    "if_year": 1797,
+    "occ": null
+  },
+  {
+    "slug": "clavaria-gyrans",
+    "catalog_accepted": "Clavaria gyrans",
+    "if_current_name": "Typhula setipes",
+    "if_year": 1783,
+    "occ": null
+  },
+  {
+    "slug": "clavaria-muscoides",
+    "catalog_accepted": "Clavaria muscoides",
+    "if_current_name": "Clavulinopsis corniculata",
+    "if_year": 1787,
+    "occ": null
+  },
+  {
+    "slug": "clavaria-palmata",
+    "catalog_accepted": "Clavaria palmata",
+    "if_current_name": "Thelephora palmata",
+    "if_year": 1772,
+    "occ": null
+  },
+  {
+    "slug": "clavaria-rubella",
+    "catalog_accepted": "Clavaria rubella",
+    "if_current_name": "Ramaria rubella",
+    "if_year": 1774,
+    "occ": null
+  },
+  {
+    "slug": "clavaria-umbrina",
+    "catalog_accepted": "Clavaria umbrina",
+    "if_current_name": "Clavulinopsis umbrina",
+    "if_year": 1846,
+    "occ": null
+  },
+  {
+    "slug": "clavaria-zollingeri",
+    "catalog_accepted": "Clavaria zollingeri",
+    "if_current_name": "Clavulinopsis zollingeri",
+    "if_year": 1846,
+    "occ": null
+  },
+  {
+    "slug": "clavulina-amethystina",
+    "catalog_accepted": "Clavulina amethystina",
+    "if_current_name": "Clavaria amethystina",
+    "if_year": 1933,
+    "occ": null
+  },
+  {
+    "slug": "clavulinopsis-minutula",
+    "catalog_accepted": "Clavulinopsis minutula",
+    "if_current_name": "Ramariopsis minutula",
+    "if_year": 1950,
+    "occ": null
+  },
+  {
+    "slug": "clitocella-fallax",
+    "catalog_accepted": "Clitocella fallax",
+    "if_current_name": "Lulesia fallax",
+    "if_year": 2014,
+    "occ": null
+  },
+  {
+    "slug": "clitocella-mundula",
+    "catalog_accepted": "Clitocella mundula",
+    "if_current_name": "Lulesia mundula",
+    "if_year": 2014,
+    "occ": null
+  },
+  {
+    "slug": "clitocella-popinalis",
+    "catalog_accepted": "Clitocella popinalis",
+    "if_current_name": "Lulesia popinalis",
+    "if_year": 2014,
+    "occ": null
+  },
+  {
+    "slug": "clitocybe-alba",
+    "catalog_accepted": "Clitocybe alba",
+    "if_current_name": "Clitocybe nebularis",
+    "if_year": 1951,
+    "occ": null
+  },
+  {
+    "slug": "clitocybe-borealis",
+    "catalog_accepted": "Clitocybe borealis",
+    "if_current_name": "Omphaliaster borealis",
+    "if_year": 1969,
+    "occ": null
+  },
+  {
+    "slug": "clitocybe-cinerascens",
+    "catalog_accepted": "Clitocybe cinerascens",
+    "if_current_name": "Pseudoclitocybe cyathiformis",
+    "if_year": 1887,
+    "occ": null
+  },
+  {
+    "slug": "clitocybe-cinerescens",
+    "catalog_accepted": "Clitocybe cinerescens",
+    "if_current_name": "Lyophyllum decastes",
+    "if_year": 1938,
+    "occ": null
+  },
+  {
+    "slug": "clitocybe-costata",
+    "catalog_accepted": "Clitocybe costata",
+    "if_current_name": "Infundibulicybe costata",
+    "if_year": 1954,
+    "occ": null
+  },
+  {
+    "slug": "clitocybe-dicolor",
+    "catalog_accepted": "Clitocybe dicolor",
+    "if_current_name": "Pseudolyophyllum metachroum",
+    "if_year": 1915,
+    "occ": null
+  },
+  {
+    "slug": "clitocybe-ectypa",
+    "catalog_accepted": "Clitocybe ectypa",
+    "if_current_name": "Desarmillaria ectypa",
+    "if_year": 1874,
+    "occ": null
+  },
+  {
+    "slug": "clitocybe-ericetorum",
+    "catalog_accepted": "Clitocybe ericetorum",
+    "if_current_name": "Lichenomphalia umbellifera",
+    "if_year": 1872,
+    "occ": null
+  },
+  {
+    "slug": "clitocybe-expallens",
+    "catalog_accepted": "Clitocybe expallens",
+    "if_current_name": "Pseudoclitocybe expallens",
+    "if_year": 1871,
+    "occ": null
+  },
+  {
+    "slug": "clitocybe-fallax",
+    "catalog_accepted": "Clitocybe fallax",
+    "if_current_name": "Lulesia fallax",
+    "if_year": 1912,
+    "occ": null
+  },
+  {
+    "slug": "clitocybe-gilva",
+    "catalog_accepted": "Clitocybe gilva",
+    "if_current_name": "Paralepista gilva",
+    "if_year": 1871,
+    "occ": null
+  },
+  {
+    "slug": "clitocybe-hydrogramma",
+    "catalog_accepted": "Clitocybe hydrogramma",
+    "if_current_name": "Singerocybe phaeophthalma",
+    "if_year": 1871,
+    "occ": null
+  },
+  {
+    "slug": "clitocybe-infumata",
+    "catalog_accepted": "Clitocybe infumata",
+    "if_current_name": "Lyophyllum infumatum",
+    "if_year": 1928,
+    "occ": null
+  },
+  {
+    "slug": "clitocybe-metachroa",
+    "catalog_accepted": "Clitocybe metachroa",
+    "if_current_name": "Pseudolyophyllum metachroum",
+    "if_year": 1871,
+    "occ": null
+  },
+  {
+    "slug": "clitocybe-odora",
+    "catalog_accepted": "Clitocybe odora",
+    "if_current_name": "Collybia odora",
+    "if_year": 1871,
+    "occ": null
+  },
+  {
+    "slug": "clitocybe-opaca",
+    "catalog_accepted": "Clitocybe opaca",
+    "if_current_name": "Entoloma opacum",
+    "if_year": 1920,
+    "occ": null
+  },
+  {
+    "slug": "clitocybe-phaeophthalma",
+    "catalog_accepted": "Clitocybe phaeophthalma",
+    "if_current_name": "Singerocybe phaeophthalma",
+    "if_year": 1981,
+    "occ": null
+  },
+  {
+    "slug": "clitocybe-phyllophila",
+    "catalog_accepted": "Clitocybe phyllophila",
+    "if_current_name": "Collybia phyllophila",
+    "if_year": 1871,
+    "occ": null
+  },
+  {
+    "slug": "clitocybe-rivulosa",
+    "catalog_accepted": "Clitocybe rivulosa",
+    "if_current_name": "Collybia rivulosa",
+    "if_year": 1871,
+    "occ": null
+  },
+  {
+    "slug": "clitocybe-striatula",
+    "catalog_accepted": "Clitocybe striatula",
+    "if_current_name": "Gamundia striatula",
+    "if_year": 1960,
+    "occ": null
+  },
+  {
+    "slug": "clitocybe-trigonospora",
+    "catalog_accepted": "Clitocybe trigonospora",
+    "if_current_name": "Lyophyllum trigonosporum",
+    "if_year": 1943,
+    "occ": null
+  },
+  {
+    "slug": "clitocybe-xanthophylla",
+    "catalog_accepted": "Clitocybe xanthophylla",
+    "if_current_name": "Gerronema xanthophyllum",
+    "if_year": 1881,
+    "occ": null
+  },
+  {
+    "slug": "clitopilus-caelatus",
+    "catalog_accepted": "Clitopilus caelatus",
+    "if_current_name": "Rhodocybe caelata",
+    "if_year": 2009,
+    "occ": null
+  },
+  {
+    "slug": "clitopilus-geminus",
+    "catalog_accepted": "Clitopilus geminus",
+    "if_current_name": "Rhodocybe gemina",
+    "if_year": 2009,
+    "occ": null
+  },
+  {
+    "slug": "collybia-anthracophila",
+    "catalog_accepted": "Collybia anthracophila",
+    "if_current_name": "Tephrocybe anthracophila",
+    "if_year": 1871,
+    "occ": null
+  },
+  {
+    "slug": "collybia-butyracea-var-asema",
+    "catalog_accepted": "Collybia butyracea var. asema",
+    "if_current_name": "Rhodocollybia asema",
+    "if_year": 1888,
+    "occ": null
+  },
+  {
+    "slug": "collybia-erosa",
+    "catalog_accepted": "Collybia erosa",
+    "if_current_name": "Sagaranella erosa",
+    "if_year": 1887,
+    "occ": null
+  },
+  {
+    "slug": "collybia-hymenocephala",
+    "catalog_accepted": "Collybia hymenocephala",
+    "if_current_name": "Marasmius hymeniicephalus",
+    "if_year": 1887,
+    "occ": null
+  },
+  {
+    "slug": "collybia-velutipes",
+    "catalog_accepted": "Collybia velutipes",
+    "if_current_name": "Flammulina velutipes",
+    "if_year": 1871,
+    "occ": null
+  },
+  {
+    "slug": "coltricia-parvula",
+    "catalog_accepted": "Coltricia parvula",
+    "if_current_name": "Coltricia cinnamomea",
+    "if_year": 1904,
+    "occ": null
+  },
+  {
+    "slug": "conferticium-ravum",
+    "catalog_accepted": "Conferticium ravum",
+    "if_current_name": "Gloeocystidiopsis rava",
+    "if_year": 1994,
+    "occ": null
+  },
+  {
+    "slug": "coniophora-fusca",
+    "catalog_accepted": "Coniophora fusca",
+    "if_current_name": "Tomentella fusca",
+    "if_year": 1889,
+    "occ": null
+  },
+  {
+    "slug": "coniophora-umbrina",
+    "catalog_accepted": "Coniophora umbrina",
+    "if_current_name": "Coniophora olivacea",
+    "if_year": 1888,
+    "occ": null
+  },
+  {
+    "slug": "conocybe-aeruginosa",
+    "catalog_accepted": "Conocybe aeruginosa",
+    "if_current_name": "Conobolbitina aeruginosa",
+    "if_year": 1969,
+    "occ": null
+  },
+  {
+    "slug": "conocybe-coprophila",
+    "catalog_accepted": "Conocybe coprophila",
+    "if_current_name": "Conocybula coprophila",
+    "if_year": 1935,
+    "occ": null
+  },
+  {
+    "slug": "conocybe-mairei",
+    "catalog_accepted": "Conocybe mairei",
+    "if_current_name": "Conobolbitina mairei",
+    "if_year": 1977,
+    "occ": null
+  },
+  {
+    "slug": "conocybe-pygmaeoaffinis",
+    "catalog_accepted": "Conocybe pygmaeoaffinis",
+    "if_current_name": "Conobolbitina pygmaeoaffinis",
+    "if_year": 1935,
+    "occ": null
+  },
+  {
+    "slug": "coprinus-cordisporus",
+    "catalog_accepted": "Coprinus cordisporus",
+    "if_current_name": "Narcissea cordispora",
+    "if_year": 1908,
+    "occ": null
+  },
+  {
+    "slug": "cordyceps-entomorrhiza",
+    "catalog_accepted": "Cordyceps entomorrhiza",
+    "if_current_name": "Claviceps purpurea",
+    "if_year": 1818,
+    "occ": null
+  },
+  {
+    "slug": "cordyceps-japonica",
+    "catalog_accepted": "Cordyceps japonica",
+    "if_current_name": "Tolypocladium japonicum",
+    "if_year": 1920,
+    "occ": null
+  },
+  {
+    "slug": "cordyceps-ramosa",
+    "catalog_accepted": "Cordyceps ramosa",
+    "if_current_name": "Tolypocladium ramosum",
+    "if_year": 1936,
+    "occ": null
+  },
+  {
+    "slug": "cordyceps-sinclairii",
+    "catalog_accepted": "Cordyceps sinclairii",
+    "if_current_name": "Isaria sinclairii",
+    "if_year": 1855,
+    "occ": null
+  },
+  {
+    "slug": "coriolopsis-byrsina",
+    "catalog_accepted": "Coriolopsis byrsina",
+    "if_current_name": "Crassisporus byrsinus",
+    "if_year": 1972,
+    "occ": null
+  },
+  {
+    "slug": "coriolus-kymatodes",
+    "catalog_accepted": "Coriolus kymatodes",
+    "if_current_name": "Skeletocutis amorpha",
+    "if_year": 1925,
+    "occ": null
+  },
+  {
+    "slug": "coriolus-velutinus",
+    "catalog_accepted": "Coriolus velutinus",
+    "if_current_name": "Trametes pubescens",
+    "if_year": 1886,
+    "occ": null
+  },
+  {
+    "slug": "corticium-bresadolae",
+    "catalog_accepted": "Corticium bresadolae",
+    "if_current_name": "Granulobasidium vellereum",
+    "if_year": 1910,
+    "occ": null
+  },
+  {
+    "slug": "corticium-caesium",
+    "catalog_accepted": "Corticium caesium",
+    "if_current_name": "Sebacina laciniata",
+    "if_year": 1796,
+    "occ": null
+  },
+  {
+    "slug": "corticium-calceum",
+    "catalog_accepted": "Corticium calceum",
+    "if_current_name": "Leiostroma farinellum",
+    "if_year": 1838,
+    "occ": null
+  },
+  {
+    "slug": "corticium-centrifugum",
+    "catalog_accepted": "Corticium centrifugum",
+    "if_current_name": "Asterostromella epiphylla",
+    "if_year": 1903,
+    "occ": null
+  },
+  {
+    "slug": "corticium-cretaceum",
+    "catalog_accepted": "Corticium cretaceum",
+    "if_current_name": "Lyomyces sambuci",
+    "if_year": 1891,
+    "occ": null
+  },
+  {
+    "slug": "corticium-fenestratum",
+    "catalog_accepted": "Corticium fenestratum",
+    "if_current_name": "Rhizoctonia fusispora",
+    "if_year": 1934,
+    "occ": null
+  },
+  {
+    "slug": "corticium-fusisporum",
+    "catalog_accepted": "Corticium fusisporum",
+    "if_current_name": "Coniophora fusispora",
+    "if_year": 1879,
+    "occ": null
+  },
+  {
+    "slug": "corticium-incrustans",
+    "catalog_accepted": "Corticium incrustans",
+    "if_current_name": "Sebacina incrustans",
+    "if_year": 1796,
+    "occ": null
+  },
+  {
+    "slug": "corticium-lombardiae",
+    "catalog_accepted": "Corticium lombardiae",
+    "if_current_name": "Corticium roseum",
+    "if_year": 1983,
+    "occ": null
+  },
+  {
+    "slug": "corticium-lundellii",
+    "catalog_accepted": "Corticium lundellii",
+    "if_current_name": "Hypochnicium lundellii",
+    "if_year": 1949,
+    "occ": null
+  },
+  {
+    "slug": "corticium-macrosporum",
+    "catalog_accepted": "Corticium macrosporum",
+    "if_current_name": "Sebacina macrospora",
+    "if_year": 1900,
+    "occ": null
+  },
+  {
+    "slug": "corticium-microsporum",
+    "catalog_accepted": "Corticium microsporum",
+    "if_current_name": "Trechispora cohaerens",
+    "if_year": 1910,
+    "occ": null
+  },
+  {
+    "slug": "corticium-ochroleucum",
+    "catalog_accepted": "Corticium ochroleucum",
+    "if_current_name": "Gloeocystidium ochroleucum",
+    "if_year": 1898,
+    "occ": null
+  },
+  {
+    "slug": "corticium-pezizoideum",
+    "catalog_accepted": "Corticium pezizoideum",
+    "if_current_name": "Pellidiscus pezizoideus",
+    "if_year": 1888,
+    "occ": null
+  },
+  {
+    "slug": "corticium-polygonioides",
+    "catalog_accepted": "Corticium polygonioides",
+    "if_current_name": "Dendrocorticium polygonioides",
+    "if_year": 1881,
+    "occ": null
+  },
+  {
+    "slug": "corticium-sphaerosporum",
+    "catalog_accepted": "Corticium sphaerosporum",
+    "if_current_name": "Trechispora sphaerospora",
+    "if_year": 1908,
+    "occ": null
+  },
+  {
+    "slug": "cortinarius-caroviolaceus",
+    "catalog_accepted": "Cortinarius caroviolaceus",
+    "if_current_name": "Calonarius caroviolaceus",
+    "if_year": 1960,
+    "occ": null
+  },
+  {
+    "slug": "cortinarius-cinnamomeobadius",
+    "catalog_accepted": "Cortinarius cinnamomeobadius",
+    "if_current_name": "Cortinarius croceus",
+    "if_year": 1940,
+    "occ": null
+  },
+  {
+    "slug": "cortinarius-evosmus",
+    "catalog_accepted": "Cortinarius evosmus",
+    "if_current_name": "Calonarius evosmus",
+    "if_year": 2006,
+    "occ": null
+  },
+  {
+    "slug": "cortinarius-flabellus",
+    "catalog_accepted": "Cortinarius flabellus",
+    "if_current_name": "Cortinarius flexipes",
+    "if_year": 1838,
+    "occ": null
+  },
+  {
+    "slug": "cortinarius-haasii",
+    "catalog_accepted": "Cortinarius haasii",
+    "if_current_name": "Calonarius haasii",
+    "if_year": 1967,
+    "occ": null
+  },
+  {
+    "slug": "cortinarius-paleifer",
+    "catalog_accepted": "Cortinarius paleifer",
+    "if_current_name": "Cortinarius flexipes",
+    "if_year": 1968,
+    "occ": null
+  },
+  {
+    "slug": "cortinarius-pansa",
+    "catalog_accepted": "Cortinarius pansa",
+    "if_current_name": "Phlegmacium pansa",
+    "if_year": 1887,
+    "occ": null
+  },
+  {
+    "slug": "cortinarius-purpureobadius",
+    "catalog_accepted": "Cortinarius purpureobadius",
+    "if_current_name": "Cortinarius anthracinus",
+    "if_year": 1887,
+    "occ": null
+  },
+  {
+    "slug": "cortinarius-umidicola",
+    "catalog_accepted": "Cortinarius umidicola",
+    "if_current_name": "Cortinarius lucorum",
+    "if_year": 1905,
+    "occ": null
+  },
+  {
+    "slug": "cotylidia-pusiola",
+    "catalog_accepted": "Cotylidia pusiola",
+    "if_current_name": "Cyphellostereum pusiolum",
+    "if_year": 2010,
+    "occ": null
+  },
+  {
+    "slug": "craterellus-pistillaris",
+    "catalog_accepted": "Craterellus pistillaris",
+    "if_current_name": "Clavariadelphus truncatus",
+    "if_year": 1838,
+    "occ": null
+  },
+  {
+    "slug": "crepidotus-nephrodes",
+    "catalog_accepted": "Crepidotus nephrodes",
+    "if_current_name": "Crepidotus crocophyllus",
+    "if_year": 1887,
+    "occ": null
+  },
+  {
+    "slug": "crucispora-rhombisperma",
+    "catalog_accepted": "Crucispora rhombisperma",
+    "if_current_name": "Panaeolus rhombispermus",
+    "if_year": 1980,
+    "occ": null
+  },
+  {
+    "slug": "cyclocybe-aegerita",
+    "catalog_accepted": "Cyclocybe aegerita",
+    "if_current_name": "Cyclocybe cylindracea",
+    "if_year": 2014,
+    "occ": null
+  },
+  {
+    "slug": "cyclomyces-setiporus",
+    "catalog_accepted": "Cyclomyces setiporus",
+    "if_current_name": "Hymenochaete setipora",
+    "if_year": 1900,
+    "occ": null
+  },
+  {
+    "slug": "cyphella-griseopallida",
+    "catalog_accepted": "Cyphella griseopallida",
+    "if_current_name": "Resupinatus griseopallidus",
+    "if_year": 1836,
+    "occ": null
+  },
+  {
+    "slug": "cyphella-pimii",
+    "catalog_accepted": "Cyphella pimii",
+    "if_current_name": "Calyptella capula",
+    "if_year": 1884,
+    "occ": null
+  },
+  {
+    "slug": "cyphella-sulphurea",
+    "catalog_accepted": "Cyphella sulphurea",
+    "if_current_name": "Calyptella campanula",
+    "if_year": 1874,
+    "occ": null
+  },
+  {
+    "slug": "cystoderma-lilacipes",
+    "catalog_accepted": "Cystoderma lilacipes",
+    "if_current_name": "Cystoderma jasonis",
+    "if_year": 1978,
+    "occ": null
+  },
+  {
+    "slug": "cystodermella-contusifolia",
+    "catalog_accepted": "Cystodermella contusifolia",
+    "if_current_name": "Cystolepiota contusifolia",
+    "if_year": 2002,
+    "occ": null
+  },
+  {
+    "slug": "cystostereum-pini-canadensis",
+    "catalog_accepted": "Cystostereum pini-canadensis",
+    "if_current_name": "Crustomyces pini-canadensis",
+    "if_year": 1968,
+    "occ": null
+  },
+  {
+    "slug": "cytidiella-albida",
+    "catalog_accepted": "Cytidiella albida",
+    "if_current_name": "Stereophlebia pendula",
+    "if_year": 2021,
+    "occ": null
+  },
+  {
+    "slug": "dacrymyces-punctiformis",
+    "catalog_accepted": "Dacrymyces punctiformis",
+    "if_current_name": "Cerinomyces tortus",
+    "if_year": 1934,
+    "occ": null
+  },
+  {
+    "slug": "daedalea-hispida",
+    "catalog_accepted": "Daedalea hispida",
+    "if_current_name": "Funalia hispida",
+    "if_year": 1928,
+    "occ": null
+  },
+  {
+    "slug": "daedalea-incana",
+    "catalog_accepted": "Daedalea incana",
+    "if_current_name": "Cerrena unicolor",
+    "if_year": 1905,
+    "occ": null
+  },
+  {
+    "slug": "daedalea-ochracea",
+    "catalog_accepted": "Daedalea ochracea",
+    "if_current_name": "Trametes meyenii",
+    "if_year": 1878,
+    "occ": null
+  },
+  {
+    "slug": "daedalea-quercina",
+    "catalog_accepted": "Daedalea quercina",
+    "if_current_name": "Fomitopsis quercina",
+    "if_year": 1801,
+    "occ": null
+  },
+  {
+    "slug": "daedalea-sepiaria-subsp-tricolor",
+    "catalog_accepted": "Daedalea sepiaria subsp. tricolor",
+    "if_current_name": "Daedaleopsis tricolor",
+    "if_year": 1828,
+    "occ": null
+  },
+  {
+    "slug": "daedalea-sistotremoides",
+    "catalog_accepted": "Daedalea sistotremoides",
+    "if_current_name": "Fuscopostia fragilis",
+    "if_year": 1926,
+    "occ": null
+  },
+  {
+    "slug": "daedalea-suaveolens",
+    "catalog_accepted": "Daedalea suaveolens",
+    "if_current_name": "Trametes suaveolens",
+    "if_year": 1801,
+    "occ": null
+  },
+  {
+    "slug": "daedalea-variegata",
+    "catalog_accepted": "Daedalea variegata",
+    "if_current_name": "Lenzites betulinus",
+    "if_year": 1818,
+    "occ": null
+  },
+  {
+    "slug": "daedalea-xantha",
+    "catalog_accepted": "Daedalea xantha",
+    "if_current_name": "Amyloporia xantha",
+    "if_year": 1997,
+    "occ": null
+  },
+  {
+    "slug": "daldinia-fissa",
+    "catalog_accepted": "Daldinia fissa",
+    "if_current_name": "Daldinia vernicosa",
+    "if_year": 1924,
+    "occ": null
+  },
+  {
+    "slug": "decapitatus-flavidus",
+    "catalog_accepted": "Decapitatus flavidus",
+    "if_current_name": "Decapitatus citricolor",
+    "if_year": 2000,
+    "occ": null
+  },
+  {
+    "slug": "dendrochaete-vallata",
+    "catalog_accepted": "Dendrochaete vallata",
+    "if_current_name": "Kusaghiporia mesotalpae",
+    "if_year": 1965,
+    "occ": null
+  },
+  {
+    "slug": "dendrosarcus-applicatus",
+    "catalog_accepted": "Dendrosarcus applicatus",
+    "if_current_name": "Resupinatus applicatus",
+    "if_year": 1898,
+    "occ": null
+  },
+  {
+    "slug": "dendrosarcus-atrocoeruleus",
+    "catalog_accepted": "Dendrosarcus atrocoeruleus",
+    "if_current_name": "Hohenbuehelia atrocoerulea",
+    "if_year": 1898,
+    "occ": null
+  },
+  {
+    "slug": "derminus-tener",
+    "catalog_accepted": "Derminus tener",
+    "if_current_name": "Conocybe tenera",
+    "if_year": 1889,
+    "occ": null
+  },
+  {
+    "slug": "discina-melaleuca",
+    "catalog_accepted": "Discina melaleuca",
+    "if_current_name": "Paradiscina melaleuca",
+    "if_year": 1898,
+    "occ": null
+  },
+  {
+    "slug": "discina-montana",
+    "catalog_accepted": "Discina montana",
+    "if_current_name": "Maublancomyces montanus",
+    "if_year": 1975,
+    "occ": null
+  },
+  {
+    "slug": "donkia-pulcherrima",
+    "catalog_accepted": "Donkia pulcherrima",
+    "if_current_name": "Climacodon pulcherrimus",
+    "if_year": 1937,
+    "occ": null
+  },
+  {
+    "slug": "ductifera-sucina",
+    "catalog_accepted": "Ductifera sucina",
+    "if_current_name": "Protohydnum sucinum",
+    "if_year": 1958,
+    "occ": null
+  },
+  {
+    "slug": "efibula-tuberculata",
+    "catalog_accepted": "Efibula tuberculata",
+    "if_current_name": "Phanericium tuberculatum",
+    "if_year": 2006,
+    "occ": null
+  },
+  {
+    "slug": "eichleriella-shearii",
+    "catalog_accepted": "Eichleriella shearii",
+    "if_current_name": "Eichleriella macrochaeta",
+    "if_year": 2017,
+    "occ": null
+  },
+  {
+    "slug": "entocybe-nitida",
+    "catalog_accepted": "Entocybe nitida",
+    "if_current_name": "Entoloma nitidum",
+    "if_year": 2011,
+    "occ": null
+  },
+  {
+    "slug": "entocybe-turbida",
+    "catalog_accepted": "Entocybe turbida",
+    "if_current_name": "Entoloma turbidum",
+    "if_year": 2011,
+    "occ": null
+  },
+  {
+    "slug": "entocybe-vinacea",
+    "catalog_accepted": "Entocybe vinacea",
+    "if_current_name": "Entoloma vinaceum",
+    "if_year": 2011,
+    "occ": null
+  },
+  {
+    "slug": "entoloma-costatum",
+    "catalog_accepted": "Entoloma costatum",
+    "if_current_name": "Clitopiloides costata",
+    "if_year": 1871,
+    "occ": null
+  },
+  {
+    "slug": "entoloma-farinogustus",
+    "catalog_accepted": "Entoloma farinogustus",
+    "if_current_name": "Entoloma cetratum",
+    "if_year": 1979,
+    "occ": null
+  },
+  {
+    "slug": "entoloma-insidiosum",
+    "catalog_accepted": "Entoloma insidiosum",
+    "if_current_name": "Entoloma asprellum",
+    "if_year": 1987,
+    "occ": null
+  },
+  {
+    "slug": "entoloma-papillatum",
+    "catalog_accepted": "Entoloma papillatum",
+    "if_current_name": "Entoloma clandestinum",
+    "if_year": 1953,
+    "occ": null
+  },
+  {
+    "slug": "entoloma-pascuum",
+    "catalog_accepted": "Entoloma pascuum",
+    "if_current_name": "Entoloma sericeum",
+    "if_year": 1949,
+    "occ": null
+  },
+  {
+    "slug": "entoloma-pluteoides",
+    "catalog_accepted": "Entoloma pluteoides",
+    "if_current_name": "Entoloma pluteimorphum",
+    "if_year": 1973,
+    "occ": null
+  },
+  {
+    "slug": "entoloma-prunuloides-var-obscurum",
+    "catalog_accepted": "Entoloma prunuloides var. obscurum",
+    "if_current_name": "Entoloma ochreoprunuloides",
+    "if_year": 2004,
+    "occ": null
+  },
+  {
+    "slug": "entoloma-sericeonitens",
+    "catalog_accepted": "Entoloma sericeonitens",
+    "if_current_name": "Entoloma fuscotomentosum",
+    "if_year": 1980,
+    "occ": null
+  },
+  {
+    "slug": "exidia-repanda",
+    "catalog_accepted": "Exidia repanda",
+    "if_current_name": "Descidia repanda",
+    "if_year": 1822,
+    "occ": null
+  },
+  {
+    "slug": "exidia-thuretiana",
+    "catalog_accepted": "Exidia thuretiana",
+    "if_current_name": "Descidia thuretiana",
+    "if_year": 1874,
+    "occ": null
+  },
+  {
+    "slug": "exidiopsis-galzinii",
+    "catalog_accepted": "Exidiopsis galzinii",
+    "if_current_name": "Protohydnum galzinii",
+    "if_year": 1928,
+    "occ": null
+  },
+  {
+    "slug": "exidiopsis-mucedinea",
+    "catalog_accepted": "Exidiopsis mucedinea",
+    "if_current_name": "Proterochaete mucedinea",
+    "if_year": 1957,
+    "occ": null
+  },
+  {
+    "slug": "favolus-caespitosus",
+    "catalog_accepted": "Favolus caespitosus",
+    "if_current_name": "Favolus tenuiculus",
+    "if_year": 1919,
+    "occ": null
+  },
+  {
+    "slug": "flagelloscypha-citrispora",
+    "catalog_accepted": "Flagelloscypha citrispora",
+    "if_current_name": "Flagelloscypha minutissima",
+    "if_year": 1964,
+    "occ": null
+  },
+  {
+    "slug": "flammula-decussata",
+    "catalog_accepted": "Flammula decussata",
+    "if_current_name": "Pholiota decussata",
+    "if_year": 1876,
+    "occ": null
+  },
+  {
+    "slug": "flammula-hybrida",
+    "catalog_accepted": "Flammula hybrida",
+    "if_current_name": "Gymnopilus hybridus",
+    "if_year": 1876,
+    "occ": null
+  },
+  {
+    "slug": "flammula-muricella",
+    "catalog_accepted": "Flammula muricella",
+    "if_current_name": "Pholiota muricella",
+    "if_year": 1887,
+    "occ": null
+  },
+  {
+    "slug": "flammula-ochrochlora",
+    "catalog_accepted": "Flammula ochrochlora",
+    "if_current_name": "Pholiota ochrochlora",
+    "if_year": 1879,
+    "occ": null
+  },
+  {
+    "slug": "flavidoporia-pulvinascens",
+    "catalog_accepted": "Flavidoporia pulvinascens",
+    "if_current_name": "Fomitopsis pulvinascens",
+    "if_year": 2017,
+    "occ": null
+  },
+  {
+    "slug": "fomes-sublinteus",
+    "catalog_accepted": "Fomes sublinteus",
+    "if_current_name": "Fulvifomes luteoumbrinus",
+    "if_year": 1912,
+    "occ": null
+  },
+  {
+    "slug": "fomes-ungulatus",
+    "catalog_accepted": "Fomes ungulatus",
+    "if_current_name": "Fomitopsis pinicola",
+    "if_year": 1888,
+    "occ": null
+  },
+  {
+    "slug": "fomes-variegatus",
+    "catalog_accepted": "Fomes variegatus",
+    "if_current_name": "Scindalma secretanii",
+    "if_year": 1833,
+    "occ": null
+  },
+  {
+    "slug": "fomitopsis-epileucina",
+    "catalog_accepted": "Fomitopsis epileucina",
+    "if_current_name": "Fomitopsis marianii",
+    "if_year": 1993,
+    "occ": null
+  },
+  {
+    "slug": "fomitopsis-iberica",
+    "catalog_accepted": "Fomitopsis iberica",
+    "if_current_name": "Fomitopsis marianii",
+    "if_year": 1989,
+    "occ": null
+  },
+  {
+    "slug": "fomitopsis-sulcata",
+    "catalog_accepted": "Fomitopsis sulcata",
+    "if_current_name": "Perenniporia martia",
+    "if_year": 1971,
+    "occ": null
+  },
+  {
+    "slug": "fomitopsis-supina",
+    "catalog_accepted": "Fomitopsis supina",
+    "if_current_name": "Fomitella supina",
+    "if_year": 1978,
+    "occ": null
+  },
+  {
+    "slug": "fulvifomes-sublinteus",
+    "catalog_accepted": "Fulvifomes sublinteus",
+    "if_current_name": "Fulvifomes luteoumbrinus",
+    "if_year": 1915,
+    "occ": null
+  },
+  {
+    "slug": "furtadoella-corneri",
+    "catalog_accepted": "Furtadoella corneri",
+    "if_current_name": "Furtadomyces corneri",
+    "if_year": 2022,
+    "occ": null
+  },
+  {
+    "slug": "galactinia-olivacea",
+    "catalog_accepted": "Galactinia olivacea",
+    "if_current_name": "Phylloscypha phyllogena",
+    "if_year": 1907,
+    "occ": null
+  },
+  {
+    "slug": "galactinia-vesiculosa-f-cerea",
+    "catalog_accepted": "Galactinia vesiculosa f. cerea",
+    "if_current_name": "Galactinia cerea",
+    "if_year": 1960,
+    "occ": null
+  },
+  {
+    "slug": "galera-hypnorum",
+    "catalog_accepted": "Galera hypnorum",
+    "if_current_name": "Galerina hypnorum",
+    "if_year": 1871,
+    "occ": null
+  },
+  {
+    "slug": "galera-reticulata",
+    "catalog_accepted": "Galera reticulata",
+    "if_current_name": "Bolbitius reticulatus",
+    "if_year": 1871,
+    "occ": null
+  },
+  {
+    "slug": "galerina-mutabilis",
+    "catalog_accepted": "Galerina mutabilis",
+    "if_current_name": "Kuehneromyces mutabilis",
+    "if_year": 1960,
+    "occ": null
+  },
+  {
+    "slug": "ganoderma-annulare",
+    "catalog_accepted": "Ganoderma annulare",
+    "if_current_name": "Ganoderma australe",
+    "if_year": 1940,
+    "occ": null
+  },
+  {
+    "slug": "ganoderma-insulare",
+    "catalog_accepted": "Ganoderma insulare",
+    "if_current_name": "Amauroderma insulare",
+    "if_year": 1903,
+    "occ": null
+  },
+  {
+    "slug": "ganoderma-weberianum",
+    "catalog_accepted": "Ganoderma weberianum",
+    "if_current_name": "Phylloporia weberiana",
+    "if_year": 1972,
+    "occ": null
+  },
+  {
+    "slug": "geastrum-stellatum",
+    "catalog_accepted": "Geastrum stellatum",
+    "if_current_name": "Astraeus hygrometricus",
+    "if_year": 1886,
+    "occ": null
+  },
+  {
+    "slug": "geopyxis-cupularis",
+    "catalog_accepted": "Geopyxis cupularis",
+    "if_current_name": "Tarzetta cupularis",
+    "if_year": 1889,
+    "occ": null
+  },
+  {
+    "slug": "gerronema-favrei",
+    "catalog_accepted": "Gerronema favrei",
+    "if_current_name": "Arrhenia favrei",
+    "if_year": 1982,
+    "occ": null
+  },
+  {
+    "slug": "gilbertsonia-angulopora",
+    "catalog_accepted": "Gilbertsonia angulopora",
+    "if_current_name": "Antrodia angulopora",
+    "if_year": 2001,
+    "occ": null
+  },
+  {
+    "slug": "gloeocystidium-ochraceum",
+    "catalog_accepted": "Gloeocystidium ochraceum",
+    "if_current_name": "Gloeocystidiopsis rava",
+    "if_year": 1911,
+    "occ": null
+  },
+  {
+    "slug": "grammothele-fuligo",
+    "catalog_accepted": "Grammothele fuligo",
+    "if_current_name": "Cyanoporus fuligo",
+    "if_year": 1979,
+    "occ": null
+  },
+  {
+    "slug": "grammothele-subargentea",
+    "catalog_accepted": "Grammothele subargentea",
+    "if_current_name": "Porogramme subargentea",
+    "if_year": 1983,
+    "occ": null
+  },
+  {
+    "slug": "grandinia-microspora",
+    "catalog_accepted": "Grandinia microspora",
+    "if_current_name": "Trechispora microspora",
+    "if_year": 1889,
+    "occ": null
+  },
+  {
+    "slug": "gymnopilus-spectabilis",
+    "catalog_accepted": "Gymnopilus spectabilis",
+    "if_current_name": "Gymnopilus junonius",
+    "if_year": 1949,
+    "occ": null
+  },
+  {
+    "slug": "gyromitra-ambigua",
+    "catalog_accepted": "Gyromitra ambigua",
+    "if_current_name": "Paragyromitra ambigua",
+    "if_year": 1969,
+    "occ": null
+  },
+  {
+    "slug": "gyromitra-gigas",
+    "catalog_accepted": "Gyromitra gigas",
+    "if_current_name": "Discina gigas",
+    "if_year": 1873,
+    "occ": null
+  },
+  {
+    "slug": "gyromitra-infula",
+    "catalog_accepted": "Gyromitra infula",
+    "if_current_name": "Paragyromitra infula",
+    "if_year": 1886,
+    "occ": null
+  },
+  {
+    "slug": "gyromitra-korfii",
+    "catalog_accepted": "Gyromitra korfii",
+    "if_current_name": "Maublancomyces korfii",
+    "if_year": 1973,
+    "occ": null
+  },
+  {
+    "slug": "gyromitra-leucoxantha",
+    "catalog_accepted": "Gyromitra leucoxantha",
+    "if_current_name": "Piscidiscina leucoxantha",
+    "if_year": 1969,
+    "occ": null
+  },
+  {
+    "slug": "haasiella-splendidissima",
+    "catalog_accepted": "Haasiella splendidissima",
+    "if_current_name": "Haasiella venustissima",
+    "if_year": 1966,
+    "occ": null
+  },
+  {
+    "slug": "hapalopilus-albocitrinus",
+    "catalog_accepted": "Hapalopilus albocitrinus",
+    "if_current_name": "Luteoporia albocitrina",
+    "if_year": 1980,
+    "occ": null
+  },
+  {
+    "slug": "hapalopilus-mutans",
+    "catalog_accepted": "Hapalopilus mutans",
+    "if_current_name": "Aurantiporus mutans",
+    "if_year": 1986,
+    "occ": null
+  },
+  {
+    "slug": "haplotrichum-acremonium",
+    "catalog_accepted": "Haplotrichum acremonium",
+    "if_current_name": "Sarocladium strictum",
+    "if_year": 1896,
+    "occ": null
+  },
+  {
+    "slug": "hebeloma-fastibile",
+    "catalog_accepted": "Hebeloma fastibile",
+    "if_current_name": "Hebeloma laterinum",
+    "if_year": 1871,
+    "occ": null
+  },
+  {
+    "slug": "hebeloma-glutinosum",
+    "catalog_accepted": "Hebeloma glutinosum",
+    "if_current_name": "Pholiota lenta",
+    "if_year": 1880,
+    "occ": null
+  },
+  {
+    "slug": "helvella-coccinea",
+    "catalog_accepted": "Helvella coccinea",
+    "if_current_name": "Sarcoscypha coccinea",
+    "if_year": 1772,
+    "occ": null
+  },
+  {
+    "slug": "helvella-cochleata",
+    "catalog_accepted": "Helvella cochleata",
+    "if_current_name": "Legaliana badia",
+    "if_year": 1790,
+    "occ": null
+  },
+  {
+    "slug": "helvella-nigricans",
+    "catalog_accepted": "Helvella nigricans",
+    "if_current_name": "Helvella crispa",
+    "if_year": 1774,
+    "occ": null
+  },
+  {
+    "slug": "helvella-terrestris",
+    "catalog_accepted": "Helvella terrestris",
+    "if_current_name": "Pindara terrestris",
+    "if_year": 1999,
+    "occ": null
+  },
+  {
+    "slug": "helvella-tubaeformis",
+    "catalog_accepted": "Helvella tubaeformis",
+    "if_current_name": "Craterellus lutescens",
+    "if_year": 1774,
+    "occ": null
+  },
+  {
+    "slug": "henningsia-galapagensis",
+    "catalog_accepted": "Henningsia galapagensis",
+    "if_current_name": "Meripilus galapagensis",
+    "if_year": 1981,
+    "occ": null
+  },
+  {
+    "slug": "hexagonia-heteropora",
+    "catalog_accepted": "Hexagonia heteropora",
+    "if_current_name": "Megasporia cavernulosa",
+    "if_year": 1889,
+    "occ": null
+  },
+  {
+    "slug": "humaria-coccinea",
+    "catalog_accepted": "Humaria coccinea",
+    "if_current_name": "Octospora corallina",
+    "if_year": 1889,
+    "occ": null
+  },
+  {
+    "slug": "humaria-luteola",
+    "catalog_accepted": "Humaria luteola",
+    "if_current_name": "Humarina luteola",
+    "if_year": 1914,
+    "occ": null
+  },
+  {
+    "slug": "humaria-miniata",
+    "catalog_accepted": "Humaria miniata",
+    "if_current_name": "Melastiza cornubiensis",
+    "if_year": 1875,
+    "occ": null
+  },
+  {
+    "slug": "hydnum-abietinum",
+    "catalog_accepted": "Hydnum abietinum",
+    "if_current_name": "Hericium coralloides",
+    "if_year": 1794,
+    "occ": null
+  },
+  {
+    "slug": "hydnum-artocreas",
+    "catalog_accepted": "Hydnum artocreas",
+    "if_current_name": "Crustomyces laminifer",
+    "if_year": 1891,
+    "occ": null
+  },
+  {
+    "slug": "hydnum-badium",
+    "catalog_accepted": "Hydnum badium",
+    "if_current_name": "Sarcodon imbricatus",
+    "if_year": 1825,
+    "occ": null
+  },
+  {
+    "slug": "hydnum-bicolor",
+    "catalog_accepted": "Hydnum bicolor",
+    "if_current_name": "Resinicium bicolor",
+    "if_year": 1805,
+    "occ": null
+  },
+  {
+    "slug": "hydnum-candidum",
+    "catalog_accepted": "Hydnum candidum",
+    "if_current_name": "Hyphodontia quercina",
+    "if_year": 1788,
+    "occ": null
+  },
+  {
+    "slug": "hydnum-cinereum",
+    "catalog_accepted": "Hydnum cinereum",
+    "if_current_name": "Bankera cinerea",
+    "if_year": 1789,
+    "occ": null
+  },
+  {
+    "slug": "hydnum-ferrugineum",
+    "catalog_accepted": "Hydnum ferrugineum",
+    "if_current_name": "Tomentella crinalis",
+    "if_year": 1801,
+    "occ": null
+  },
+  {
+    "slug": "hydnum-flavidum",
+    "catalog_accepted": "Hydnum flavidum",
+    "if_current_name": "Hydnum repandum",
+    "if_year": 1774,
+    "occ": null
+  },
+  {
+    "slug": "hydnum-graveolens",
+    "catalog_accepted": "Hydnum graveolens",
+    "if_current_name": "Phellodon melaleucus",
+    "if_year": 1838,
+    "occ": null
+  },
+  {
+    "slug": "hydnum-membranaceum",
+    "catalog_accepted": "Hydnum membranaceum",
+    "if_current_name": "Radulomyces molaris",
+    "if_year": 1791,
+    "occ": null
+  },
+  {
+    "slug": "hydnum-paradoxum",
+    "catalog_accepted": "Hydnum paradoxum",
+    "if_current_name": "Schizopora paradoxa",
+    "if_year": 1794,
+    "occ": null
+  },
+  {
+    "slug": "hydnum-pullum",
+    "catalog_accepted": "Hydnum pullum",
+    "if_current_name": "Phellodon tomentosus",
+    "if_year": 1774,
+    "occ": null
+  },
+  {
+    "slug": "hydnum-repandum-subsp-rufescens",
+    "catalog_accepted": "Hydnum repandum subsp. rufescens",
+    "if_current_name": "Hydnum rufescens",
+    "if_year": 1825,
+    "occ": null
+  },
+  {
+    "slug": "hydrocybe-rigens",
+    "catalog_accepted": "Hydrocybe rigens",
+    "if_current_name": "Cortinarius rigens",
+    "if_year": 1877,
+    "occ": null
+  },
+  {
+    "slug": "hygrophoropsis-aurantiaca-var-pallida",
+    "catalog_accepted": "Hygrophoropsis aurantiaca var. pallida",
+    "if_current_name": "Hygrophoropsis aurantiaca",
+    "if_year": 1995,
+    "occ": null
+  },
+  {
+    "slug": "hygrophorus-dichrous",
+    "catalog_accepted": "Hygrophorus dichrous",
+    "if_current_name": "Hygrophorus glutinifer",
+    "if_year": 1953,
+    "occ": null
+  },
+  {
+    "slug": "hygrophorus-houghtonii",
+    "catalog_accepted": "Hygrophorus houghtonii",
+    "if_current_name": "Gliophorus laetus",
+    "if_year": 1873,
+    "occ": null
+  },
+  {
+    "slug": "hymenochaetopsis-intricata",
+    "catalog_accepted": "Hymenochaetopsis intricata",
+    "if_current_name": "Hydnoporia intricata",
+    "if_year": 2016,
+    "occ": null
+  },
+  {
+    "slug": "hymenogaster-albus",
+    "catalog_accepted": "Hymenogaster albus",
+    "if_current_name": "Descolea alba",
+    "if_year": 1844,
+    "occ": null
+  },
+  {
+    "slug": "hyphodontia-barba-jovis",
+    "catalog_accepted": "Hyphodontia barba-jovis",
+    "if_current_name": "Kneiffiella barba-jovis",
+    "if_year": 1958,
+    "occ": null
+  },
+  {
+    "slug": "hyphodontia-setulosa",
+    "catalog_accepted": "Hyphodontia setulosa",
+    "if_current_name": "Pseudophlebia setulosa",
+    "if_year": 1974,
+    "occ": null
+  },
+  {
+    "slug": "hypholoma-appendiculatum",
+    "catalog_accepted": "Hypholoma appendiculatum",
+    "if_current_name": "Candolleomyces candolleanus",
+    "if_year": 1872,
+    "occ": null
+  },
+  {
+    "slug": "hypholoma-artemisiae",
+    "catalog_accepted": "Hypholoma artemisiae",
+    "if_current_name": "Psathyrella artemisiae",
+    "if_year": 1879,
+    "occ": null
+  },
+  {
+    "slug": "hypholoma-elongatipes",
+    "catalog_accepted": "Hypholoma elongatipes",
+    "if_current_name": "Psathyrella elongatipes",
+    "if_year": 1933,
+    "occ": null
+  },
+  {
+    "slug": "hypholoma-melanthinum",
+    "catalog_accepted": "Hypholoma melanthinum",
+    "if_current_name": "Coprinopsis melanthina",
+    "if_year": 1879,
+    "occ": null
+  },
+  {
+    "slug": "hypochnicium-albostramineum",
+    "catalog_accepted": "Hypochnicium albostramineum",
+    "if_current_name": "Neohypochnicium albostramineum",
+    "if_year": 1985,
+    "occ": null
+  },
+  {
+    "slug": "hypochnicium-cremicolor",
+    "catalog_accepted": "Hypochnicium cremicolor",
+    "if_current_name": "Neohypochnicium cremicolor",
+    "if_year": 2003,
+    "occ": null
+  },
+  {
+    "slug": "hypochnicium-geogenium",
+    "catalog_accepted": "Hypochnicium geogenium",
+    "if_current_name": "Neohypochnicium geogenium",
+    "if_year": 1958,
+    "occ": null
+  },
+  {
+    "slug": "hypochnicium-punctulatum",
+    "catalog_accepted": "Hypochnicium punctulatum",
+    "if_current_name": "Neohypochnicium punctulatum",
+    "if_year": 1958,
+    "occ": null
+  },
+  {
+    "slug": "hypochnicium-wakefieldiae",
+    "catalog_accepted": "Hypochnicium wakefieldiae",
+    "if_current_name": "Neohypochnicium wakefieldiae",
+    "if_year": 1958,
+    "occ": null
+  },
+  {
+    "slug": "inermisia-aggregata",
+    "catalog_accepted": "Inermisia aggregata",
+    "if_current_name": "Byssonectria fusispora",
+    "if_year": 1969,
+    "occ": null
+  },
+  {
+    "slug": "inocybe-carbonaria",
+    "catalog_accepted": "Inocybe carbonaria",
+    "if_current_name": "Pholiota carbonaria",
+    "if_year": 1876,
+    "occ": null
+  },
+  {
+    "slug": "inocybe-geophylla-var-violacea",
+    "catalog_accepted": "Inocybe geophylla var. violacea",
+    "if_current_name": "Inocybe euviolacea",
+    "if_year": 1887,
+    "occ": null
+  },
+  {
+    "slug": "inocybe-hirsuta",
+    "catalog_accepted": "Inocybe hirsuta",
+    "if_current_name": "Inosperma hirsutum",
+    "if_year": 1872,
+    "occ": null
+  },
+  {
+    "slug": "inocybe-longicystis",
+    "catalog_accepted": "Inocybe longicystis",
+    "if_current_name": "Inocybe stellatospora",
+    "if_year": 1918,
+    "occ": null
+  },
+  {
+    "slug": "inocybe-maritima",
+    "catalog_accepted": "Inocybe maritima",
+    "if_current_name": "Inocybe impexa",
+    "if_year": 1879,
+    "occ": null
+  },
+  {
+    "slug": "inocybe-trivialis",
+    "catalog_accepted": "Inocybe trivialis",
+    "if_current_name": "Inocybe duriuscula",
+    "if_year": 1884,
+    "occ": null
+  },
+  {
+    "slug": "inonotus-crocitinctus",
+    "catalog_accepted": "Inonotus crocitinctus",
+    "if_current_name": "Neomensularia crocitincta",
+    "if_year": 1972,
+    "occ": null
+  },
+  {
+    "slug": "irpex-flavus",
+    "catalog_accepted": "Irpex flavus",
+    "if_current_name": "Flavodon flavus",
+    "if_year": 1833,
+    "occ": null
+  },
+  {
+    "slug": "irpex-japonicus",
+    "catalog_accepted": "Irpex japonicus",
+    "if_current_name": "Cerrena zonata",
+    "if_year": 1912,
+    "occ": null
+  },
+  {
+    "slug": "irpex-lacteus-subsp-sinuosus",
+    "catalog_accepted": "Irpex lacteus subsp. sinuosus",
+    "if_current_name": "Antrodia sinuosa",
+    "if_year": 1925,
+    "occ": null
+  },
+  {
+    "slug": "irpiciporus-xuchilensis",
+    "catalog_accepted": "Irpiciporus xuchilensis",
+    "if_current_name": "Bjerkandera xuchilensis",
+    "if_year": 2022,
+    "occ": null
+  },
+  {
+    "slug": "irpicodon-pendulus",
+    "catalog_accepted": "Irpicodon pendulus",
+    "if_current_name": "Plicatura pendula",
+    "if_year": 1966,
+    "occ": null
+  },
+  {
+    "slug": "ithyphallus-campanulatus",
+    "catalog_accepted": "Ithyphallus campanulatus",
+    "if_current_name": "Battarrea phalloides",
+    "if_year": 1888,
+    "occ": null
+  },
+  {
+    "slug": "kneiffia-tenuis",
+    "catalog_accepted": "Kneiffia tenuis",
+    "if_current_name": "Kneiffiella tenuis",
+    "if_year": 1893,
+    "occ": null
+  },
+  {
+    "slug": "kneiffiella-cineracea",
+    "catalog_accepted": "Kneiffiella cineracea",
+    "if_current_name": "Egonia cineracea",
+    "if_year": 1980,
+    "occ": null
+  },
+  {
+    "slug": "kneiffiella-lanata",
+    "catalog_accepted": "Kneiffiella lanata",
+    "if_current_name": "Xylodon lanatus",
+    "if_year": 2017,
+    "occ": null
+  },
+  {
+    "slug": "kusaghiporia-persicina",
+    "catalog_accepted": "Kusaghiporia persicina",
+    "if_current_name": "Kusaghiporia mesotalpae",
+    "if_year": 2022,
+    "occ": null
+  },
+  {
+    "slug": "laccocephalum-hartmannii",
+    "catalog_accepted": "Laccocephalum hartmannii",
+    "if_current_name": "Fomitopsis hartmannii",
+    "if_year": 1995,
+    "occ": null
+  },
+  {
+    "slug": "laccocephalum-sclerotinum",
+    "catalog_accepted": "Laccocephalum sclerotinum",
+    "if_current_name": "Fomitopsis sclerotina",
+    "if_year": 1995,
+    "occ": null
+  },
+  {
+    "slug": "laccocephalum-tumulosum",
+    "catalog_accepted": "Laccocephalum tumulosum",
+    "if_current_name": "Fomitopsis tumulosa",
+    "if_year": 1995,
+    "occ": null
+  },
+  {
+    "slug": "lactarius-blennius-f-albidopallens",
+    "catalog_accepted": "Lactarius blennius f. albidopallens",
+    "if_current_name": "Lactarius blennius",
+    "if_year": 1928,
+    "occ": null
+  },
+  {
+    "slug": "lactarius-velutinus",
+    "catalog_accepted": "Lactarius velutinus",
+    "if_current_name": "Lactifluus vellereus",
+    "if_year": 1868,
+    "occ": null
+  },
+  {
+    "slug": "lactarius-volemus-subsp-oedematopus",
+    "catalog_accepted": "Lactarius volemus subsp. oedematopus",
+    "if_current_name": "Lactifluus oedematopus",
+    "if_year": 1887,
+    "occ": null
+  },
+  {
+    "slug": "lactarius-volemus-var-oedematopus",
+    "catalog_accepted": "Lactarius volemus var. oedematopus",
+    "if_current_name": "Lactifluus oedematopus",
+    "if_year": 1838,
+    "occ": null
+  },
+  {
+    "slug": "lanmaoa-pallidorosea",
+    "catalog_accepted": "Lanmaoa pallidorosea",
+    "if_current_name": "Lanmaoa rubissima",
+    "if_year": 2019,
+    "occ": null
+  },
+  {
+    "slug": "lentinus-caespitosus",
+    "catalog_accepted": "Lentinus caespitosus",
+    "if_current_name": "Desarmillaria caespitosa",
+    "if_year": 1847,
+    "occ": null
+  },
+  {
+    "slug": "lentinus-cornucopioides",
+    "catalog_accepted": "Lentinus cornucopioides",
+    "if_current_name": "Lentinellus cochleatus",
+    "if_year": 1889,
+    "occ": null
+  },
+  {
+    "slug": "lentinus-fulvidus",
+    "catalog_accepted": "Lentinus fulvidus",
+    "if_current_name": "Heliocybe sulcata",
+    "if_year": 1912,
+    "occ": null
+  },
+  {
+    "slug": "lentinus-levis",
+    "catalog_accepted": "Lentinus levis",
+    "if_current_name": "Pleurotus levis",
+    "if_year": 1915,
+    "occ": null
+  },
+  {
+    "slug": "lentinus-stenophyllus",
+    "catalog_accepted": "Lentinus stenophyllus",
+    "if_current_name": "Pleurotus tuber-regium",
+    "if_year": 1847,
+    "occ": null
+  },
+  {
+    "slug": "lentinus-tricholoma",
+    "catalog_accepted": "Lentinus tricholoma",
+    "if_current_name": "Lentinus swartzii",
+    "if_year": 1876,
+    "occ": null
+  },
+  {
+    "slug": "lentinus-variabilis",
+    "catalog_accepted": "Lentinus variabilis",
+    "if_current_name": "Neolentinus cyathiformis",
+    "if_year": 1886,
+    "occ": null
+  },
+  {
+    "slug": "lenzites-tenuis",
+    "catalog_accepted": "Lenzites tenuis",
+    "if_current_name": "Trametes tenuis",
+    "if_year": 1950,
+    "occ": null
+  },
+  {
+    "slug": "lepiota-aurea",
+    "catalog_accepted": "Lepiota aurea",
+    "if_current_name": "Leucocoprinus birnbaumii",
+    "if_year": 1912,
+    "occ": null
+  },
+  {
+    "slug": "lepiota-cepistipes-var-lutea",
+    "catalog_accepted": "Lepiota cepistipes var. lutea",
+    "if_current_name": "Leucocoprinus cepistipes",
+    "if_year": 1886,
+    "occ": null
+  },
+  {
+    "slug": "lepiota-langei",
+    "catalog_accepted": "Lepiota langei",
+    "if_current_name": "Cystolepiota hetieri",
+    "if_year": 1945,
+    "occ": null
+  },
+  {
+    "slug": "lepiota-rhacodes",
+    "catalog_accepted": "Lepiota rhacodes",
+    "if_current_name": "Chlorophyllum rhacodes",
+    "if_year": 1872,
+    "occ": null
+  },
+  {
+    "slug": "lepiota-serena",
+    "catalog_accepted": "Lepiota serena",
+    "if_current_name": "Leucocoprinus serenus",
+    "if_year": 1880,
+    "occ": null
+  },
+  {
+    "slug": "lepista-irina",
+    "catalog_accepted": "Lepista irina",
+    "if_current_name": "Collybia irina",
+    "if_year": 1959,
+    "occ": null
+  },
+  {
+    "slug": "lepista-multiformis",
+    "catalog_accepted": "Lepista multiformis",
+    "if_current_name": "Pseudoporpoloma pes-caprae",
+    "if_year": 1983,
+    "occ": null
+  },
+  {
+    "slug": "lepista-nuda",
+    "catalog_accepted": "Lepista nuda",
+    "if_current_name": "Collybia nuda",
+    "if_year": 1871,
+    "occ": null
+  },
+  {
+    "slug": "lepista-personata",
+    "catalog_accepted": "Lepista personata",
+    "if_current_name": "Collybia personata",
+    "if_year": 1871,
+    "occ": null
+  },
+  {
+    "slug": "lepista-piperita",
+    "catalog_accepted": "Lepista piperita",
+    "if_current_name": "Clitopilus piperitus",
+    "if_year": 1964,
+    "occ": null
+  },
+  {
+    "slug": "lepista-sordida",
+    "catalog_accepted": "Lepista sordida",
+    "if_current_name": "Collybia sordida",
+    "if_year": 1951,
+    "occ": null
+  },
+  {
+    "slug": "leptoporus-lacteus",
+    "catalog_accepted": "Leptoporus lacteus",
+    "if_current_name": "Tyromyces lacteus",
+    "if_year": 1903,
+    "occ": null
+  },
+  {
+    "slug": "leptoporus-litschaueri",
+    "catalog_accepted": "Leptoporus litschaueri",
+    "if_current_name": "Postia sericeomollis",
+    "if_year": 1932,
+    "occ": null
+  },
+  {
+    "slug": "leptosporomyces-septentrionalis",
+    "catalog_accepted": "Leptosporomyces septentrionalis",
+    "if_current_name": "Pseudoathelia septentrionalis",
+    "if_year": 1991,
+    "occ": null
+  },
+  {
+    "slug": "leucoagaricus-americanus",
+    "catalog_accepted": "Leucoagaricus americanus",
+    "if_current_name": "Macropsalliota americana",
+    "if_year": 2000,
+    "occ": null
+  },
+  {
+    "slug": "leucoagaricus-badhamii",
+    "catalog_accepted": "Leucoagaricus badhamii",
+    "if_current_name": "Leucocoprinus badhamii",
+    "if_year": 1951,
+    "occ": null
+  },
+  {
+    "slug": "leucoagaricus-barssii",
+    "catalog_accepted": "Leucoagaricus barssii",
+    "if_current_name": "Leucocoprinus barssii",
+    "if_year": 2000,
+    "occ": null
+  },
+  {
+    "slug": "leucoagaricus-cepistipes",
+    "catalog_accepted": "Leucoagaricus cepistipes",
+    "if_current_name": "Leucocoprinus cepistipes",
+    "if_year": 2016,
+    "occ": null
+  },
+  {
+    "slug": "leucoagaricus-croceovelutinus",
+    "catalog_accepted": "Leucoagaricus croceovelutinus",
+    "if_current_name": "Leucocoprinus croceovelutinus",
+    "if_year": 1976,
+    "occ": null
+  },
+  {
+    "slug": "leucoagaricus-crystallifer",
+    "catalog_accepted": "Leucoagaricus crystallifer",
+    "if_current_name": "Leucocoprinus crystallifer",
+    "if_year": 2000,
+    "occ": null
+  },
+  {
+    "slug": "leucoagaricus-gauguei",
+    "catalog_accepted": "Leucoagaricus gauguei",
+    "if_current_name": "Leucocoprinus gauguei",
+    "if_year": 1974,
+    "occ": null
+  },
+  {
+    "slug": "leucoagaricus-georginae",
+    "catalog_accepted": "Leucoagaricus georginae",
+    "if_current_name": "Leucocoprinus georginae",
+    "if_year": 1990,
+    "occ": null
+  },
+  {
+    "slug": "leucoagaricus-gongylophorus",
+    "catalog_accepted": "Leucoagaricus gongylophorus",
+    "if_current_name": "Leucocoprinus gongylophorus",
+    "if_year": 1986,
+    "occ": null
+  },
+  {
+    "slug": "leucoagaricus-ionidicolor",
+    "catalog_accepted": "Leucoagaricus ionidicolor",
+    "if_current_name": "Leucocoprinus ionidicolor",
+    "if_year": 1988,
+    "occ": null
+  },
+  {
+    "slug": "leucoagaricus-leucothites",
+    "catalog_accepted": "Leucoagaricus leucothites",
+    "if_current_name": "Leucocoprinus leucothites",
+    "if_year": 1977,
+    "occ": null
+  },
+  {
+    "slug": "leucoagaricus-medioflavoides",
+    "catalog_accepted": "Leucoagaricus medioflavoides",
+    "if_current_name": "Leucocoprinus medioflavoides",
+    "if_year": 1976,
+    "occ": null
+  },
+  {
+    "slug": "leucoagaricus-melanotrichus",
+    "catalog_accepted": "Leucoagaricus melanotrichus",
+    "if_current_name": "Leucocoprinus melanotrichus",
+    "if_year": 1975,
+    "occ": null
+  },
+  {
+    "slug": "leucoagaricus-meleagris",
+    "catalog_accepted": "Leucoagaricus meleagris",
+    "if_current_name": "Mesopsalliota meleagris",
+    "if_year": 1951,
+    "occ": null
+  },
+  {
+    "slug": "leucoagaricus-menieri",
+    "catalog_accepted": "Leucoagaricus menieri",
+    "if_current_name": "Leucocoprinus menieri",
+    "if_year": 1968,
+    "occ": null
+  },
+  {
+    "slug": "leucoagaricus-nympharum",
+    "catalog_accepted": "Leucoagaricus nympharum",
+    "if_current_name": "Leucocoprinus nympharum",
+    "if_year": 1977,
+    "occ": null
+  },
+  {
+    "slug": "leucoagaricus-pilatianus",
+    "catalog_accepted": "Leucoagaricus pilatianus",
+    "if_current_name": "Leucocoprinus pilatianus",
+    "if_year": 1976,
+    "occ": null
+  },
+  {
+    "slug": "leucoagaricus-serenus",
+    "catalog_accepted": "Leucoagaricus serenus",
+    "if_current_name": "Leucocoprinus serenus",
+    "if_year": 1974,
+    "occ": null
+  },
+  {
+    "slug": "leucoagaricus-sericifer",
+    "catalog_accepted": "Leucoagaricus sericifer",
+    "if_current_name": "Leucocoprinus sericifer",
+    "if_year": 2000,
+    "occ": null
+  },
+  {
+    "slug": "leucoagaricus-subvolvatus",
+    "catalog_accepted": "Leucoagaricus subvolvatus",
+    "if_current_name": "Leucocoprinus subvolvatus",
+    "if_year": 1977,
+    "occ": null
+  },
+  {
+    "slug": "leucocoprinus-cretaceus",
+    "catalog_accepted": "Leucocoprinus cretaceus",
+    "if_current_name": "Conioexocarpus cretaceus",
+    "if_year": 1945,
+    "occ": null
+  },
+  {
+    "slug": "leucocoprinus-holospilotus",
+    "catalog_accepted": "Leucocoprinus holospilotus",
+    "if_current_name": "Macropsalliota holospilota",
+    "if_year": 1990,
+    "occ": null
+  },
+  {
+    "slug": "leucoporus-brumalis",
+    "catalog_accepted": "Leucoporus brumalis",
+    "if_current_name": "Lentinus brumalis",
+    "if_year": 1926,
+    "occ": null
+  },
+  {
+    "slug": "licrostroma-subgiganteum",
+    "catalog_accepted": "Licrostroma subgiganteum",
+    "if_current_name": "Scytinostroma artocreas",
+    "if_year": 1964,
+    "occ": null
+  },
+  {
+    "slug": "lilaceophlebia-ochraceofulva",
+    "catalog_accepted": "Lilaceophlebia ochraceofulva",
+    "if_current_name": "Phanerochaete ochraceofulva",
+    "if_year": 2004,
+    "occ": null
+  },
+  {
+    "slug": "lycoperdon-caudatum",
+    "catalog_accepted": "Lycoperdon caudatum",
+    "if_current_name": "Sinoperdon caudatum",
+    "if_year": 1889,
+    "occ": null
+  },
+  {
+    "slug": "lycoperdon-dermoxanthum",
+    "catalog_accepted": "Lycoperdon dermoxanthum",
+    "if_current_name": "Holocotylon dermoxanthum",
+    "if_year": 1842,
+    "occ": null
+  },
+  {
+    "slug": "lycoperdon-furfuraceum",
+    "catalog_accepted": "Lycoperdon furfuraceum",
+    "if_current_name": "Bovista aestivalis",
+    "if_year": 1774,
+    "occ": null
+  },
+  {
+    "slug": "lycoperdon-hiemale",
+    "catalog_accepted": "Lycoperdon hiemale",
+    "if_current_name": "Lycoperdon pratense",
+    "if_year": 1782,
+    "occ": null
+  },
+  {
+    "slug": "lycoperdon-lambinonii",
+    "catalog_accepted": "Lycoperdon lambinonii",
+    "if_current_name": "Utraria lambinonii",
+    "if_year": 1972,
+    "occ": null
+  },
+  {
+    "slug": "lycoperdon-molle",
+    "catalog_accepted": "Lycoperdon molle",
+    "if_current_name": "Utraria mollis",
+    "if_year": 1800,
+    "occ": null
+  },
+  {
+    "slug": "lycoperdon-nigrescens",
+    "catalog_accepted": "Lycoperdon nigrescens",
+    "if_current_name": "Fuscospina nigrescens",
+    "if_year": 1794,
+    "occ": null
+  },
+  {
+    "slug": "lycoperdon-pulcherrimum",
+    "catalog_accepted": "Lycoperdon pulcherrimum",
+    "if_current_name": "Utraria pulcherrima",
+    "if_year": 1873,
+    "occ": null
+  },
+  {
+    "slug": "lycoperdon-saccatum",
+    "catalog_accepted": "Lycoperdon saccatum",
+    "if_current_name": "Lycoperdon excipuliforme",
+    "if_year": 1794,
+    "occ": null
+  },
+  {
+    "slug": "lycoperdon-subcretaceum",
+    "catalog_accepted": "Lycoperdon subcretaceum",
+    "if_current_name": "Pseudoperdon subcretaceum",
+    "if_year": 2010,
+    "occ": null
+  },
+  {
+    "slug": "lycoperdon-variolosum",
+    "catalog_accepted": "Lycoperdon variolosum",
+    "if_current_name": "Hypoxylon fragiforme",
+    "if_year": 1768,
+    "occ": null
+  },
+  {
+    "slug": "lyophyllum-anthracophilum",
+    "catalog_accepted": "Lyophyllum anthracophilum",
+    "if_current_name": "Tephrocybe anthracophila",
+    "if_year": 1987,
+    "occ": null
+  },
+  {
+    "slug": "lyophyllum-boudieri",
+    "catalog_accepted": "Lyophyllum boudieri",
+    "if_current_name": "Myochromella boudieri",
+    "if_year": 1954,
+    "occ": null
+  },
+  {
+    "slug": "lyophyllum-ozes",
+    "catalog_accepted": "Lyophyllum ozes",
+    "if_current_name": "Collybia ozes",
+    "if_year": 1943,
+    "occ": null
+  },
+  {
+    "slug": "marasmiellus-affixus",
+    "catalog_accepted": "Marasmiellus affixus",
+    "if_current_name": "Collybiopsis affixa",
+    "if_year": 1973,
+    "occ": null
+  },
+  {
+    "slug": "marasmiellus-humillimus",
+    "catalog_accepted": "Marasmiellus humillimus",
+    "if_current_name": "Collybiopsis humillima",
+    "if_year": 1974,
+    "occ": null
+  },
+  {
+    "slug": "marasmiellus-tricolor",
+    "catalog_accepted": "Marasmiellus tricolor",
+    "if_current_name": "Metacampanella tricolor",
+    "if_year": 1948,
+    "occ": null
+  },
+  {
+    "slug": "marasmius-anomalus",
+    "catalog_accepted": "Marasmius anomalus",
+    "if_current_name": "Marasmius epodius",
+    "if_year": 1854,
+    "occ": null
+  },
+  {
+    "slug": "marasmius-conigenus",
+    "catalog_accepted": "Marasmius conigenus",
+    "if_current_name": "Strobilurus conigenus",
+    "if_year": 1889,
+    "occ": null
+  },
+  {
+    "slug": "marasmius-equicrinis",
+    "catalog_accepted": "Marasmius equicrinis",
+    "if_current_name": "Marasmius crinis-equi",
+    "if_year": 1880,
+    "occ": null
+  },
+  {
+    "slug": "marasmius-kanukaneus",
+    "catalog_accepted": "Marasmius kanukaneus",
+    "if_current_name": "Gymnopus kanukaneus",
+    "if_year": 1964,
+    "occ": null
+  },
+  {
+    "slug": "marasmius-languidus",
+    "catalog_accepted": "Marasmius languidus",
+    "if_current_name": "Metacampanella tricolor",
+    "if_year": 1838,
+    "occ": null
+  },
+  {
+    "slug": "marasmius-longipes",
+    "catalog_accepted": "Marasmius longipes",
+    "if_current_name": "Xerula pudens",
+    "if_year": 1854,
+    "occ": null
+  },
+  {
+    "slug": "marasmius-nigripes",
+    "catalog_accepted": "Marasmius nigripes",
+    "if_current_name": "Tetrapyrgos nigripes",
+    "if_year": 1838,
+    "occ": null
+  },
+  {
+    "slug": "marasmius-repens",
+    "catalog_accepted": "Marasmius repens",
+    "if_current_name": "Gymnopus erythropus",
+    "if_year": 1886,
+    "occ": null
+  },
+  {
+    "slug": "marasmius-tenerrimus",
+    "catalog_accepted": "Marasmius tenerrimus",
+    "if_current_name": "Marasmiellus tenerrimus",
+    "if_year": 1868,
+    "occ": null
+  },
+  {
+    "slug": "marcelleina-pseudoanthracina",
+    "catalog_accepted": "Marcelleina pseudoanthracina",
+    "if_current_name": "Scotopezia pseudoanthracina",
+    "if_year": 1987,
+    "occ": null
+  },
+  {
+    "slug": "mastocephalus-rorulentus",
+    "catalog_accepted": "Mastocephalus rorulentus",
+    "if_current_name": "Leucocoprinus cepistipes",
+    "if_year": 1891,
+    "occ": null
+  },
+  {
+    "slug": "mastocephalus-sordescens",
+    "catalog_accepted": "Mastocephalus sordescens",
+    "if_current_name": "Leucocoprinus cepistipes",
+    "if_year": 1891,
+    "occ": null
+  },
+  {
+    "slug": "megalocystidium-chelidonium",
+    "catalog_accepted": "Megalocystidium chelidonium",
+    "if_current_name": "Confertotrama rugulosa",
+    "if_year": 1997,
+    "occ": null
+  },
+  {
+    "slug": "meiorganum-curtisii",
+    "catalog_accepted": "Meiorganum curtisii",
+    "if_current_name": "Pseudomerulius curtisii",
+    "if_year": 1990,
+    "occ": null
+  },
+  {
+    "slug": "melanoleuca-vinosa",
+    "catalog_accepted": "Melanoleuca vinosa",
+    "if_current_name": "Ripartitella vinosa",
+    "if_year": 1971,
+    "occ": null
+  },
+  {
+    "slug": "melanoporia-nigra",
+    "catalog_accepted": "Melanoporia nigra",
+    "if_current_name": "Fomitopsis nigra",
+    "if_year": 1907,
+    "occ": null
+  },
+  {
+    "slug": "merulius-aurantiacus",
+    "catalog_accepted": "Merulius aurantiacus",
+    "if_current_name": "Hygrophoropsis aurantiaca",
+    "if_year": 1792,
+    "occ": null
+  },
+  {
+    "slug": "merulius-buccinalis",
+    "catalog_accepted": "Merulius buccinalis",
+    "if_current_name": "Omphalina buccinalis",
+    "if_year": 1796,
+    "occ": null
+  },
+  {
+    "slug": "merulius-carbonarius",
+    "catalog_accepted": "Merulius carbonarius",
+    "if_current_name": "Faerberia carbonaria",
+    "if_year": 1805,
+    "occ": null
+  },
+  {
+    "slug": "merulius-cucullatus",
+    "catalog_accepted": "Merulius cucullatus",
+    "if_current_name": "Campanella junghuhnii",
+    "if_year": 1838,
+    "occ": null
+  },
+  {
+    "slug": "merulius-incarnatus",
+    "catalog_accepted": "Merulius incarnatus",
+    "if_current_name": "Byssomerulius incarnatus",
+    "if_year": 1822,
+    "occ": null
+  },
+  {
+    "slug": "merulius-lividus",
+    "catalog_accepted": "Merulius lividus",
+    "if_current_name": "Phlebia rufa",
+    "if_year": 1923,
+    "occ": null
+  },
+  {
+    "slug": "merulius-minor",
+    "catalog_accepted": "Merulius minor",
+    "if_current_name": "Cantharellus minor",
+    "if_year": 1891,
+    "occ": null
+  },
+  {
+    "slug": "merulius-muscigenus",
+    "catalog_accepted": "Merulius muscigenus",
+    "if_current_name": "Arrhenia spathulata",
+    "if_year": 1792,
+    "occ": null
+  },
+  {
+    "slug": "merulius-papyrinus",
+    "catalog_accepted": "Merulius papyrinus",
+    "if_current_name": "Byssomerulius corium",
+    "if_year": 1888,
+    "occ": null
+  },
+  {
+    "slug": "merulius-vastator",
+    "catalog_accepted": "Merulius vastator",
+    "if_current_name": "Serpula lacrymans",
+    "if_year": 1783,
+    "occ": null
+  },
+  {
+    "slug": "mycena-acicula",
+    "catalog_accepted": "Mycena acicula",
+    "if_current_name": "Pruinomycena acicula",
+    "if_year": 1871,
+    "occ": null
+  },
+  {
+    "slug": "mycena-amicta",
+    "catalog_accepted": "Mycena amicta",
+    "if_current_name": "Basidopus amictus",
+    "if_year": 1872,
+    "occ": null
+  },
+  {
+    "slug": "mycena-citricolor",
+    "catalog_accepted": "Mycena citricolor",
+    "if_current_name": "Decapitatus citricolor",
+    "if_year": 1887,
+    "occ": null
+  },
+  {
+    "slug": "mycena-cyanorhiza",
+    "catalog_accepted": "Mycena cyanorhiza",
+    "if_current_name": "Basidopus cyanorhizus",
+    "if_year": 1875,
+    "occ": null
+  },
+  {
+    "slug": "mycena-filopes",
+    "catalog_accepted": "Mycena filopes",
+    "if_current_name": "Linopodium filopes",
+    "if_year": 1871,
+    "occ": null
+  },
+  {
+    "slug": "mycena-floridula",
+    "catalog_accepted": "Mycena floridula",
+    "if_current_name": "Atheniella floridula",
+    "if_year": 1877,
+    "occ": null
+  },
+  {
+    "slug": "mycena-galopus",
+    "catalog_accepted": "Mycena galopus",
+    "if_current_name": "Galactopus galopus",
+    "if_year": 1871,
+    "occ": null
+  },
+  {
+    "slug": "mycena-interrupta",
+    "catalog_accepted": "Mycena interrupta",
+    "if_current_name": "Basidopus interruptus",
+    "if_year": 1887,
+    "occ": null
+  },
+  {
+    "slug": "mycena-marginella",
+    "catalog_accepted": "Mycena marginella",
+    "if_current_name": "Hydropus marginellus",
+    "if_year": 1871,
+    "occ": null
+  },
+  {
+    "slug": "mycena-mirabilis",
+    "catalog_accepted": "Mycena mirabilis",
+    "if_current_name": "Basidopus amictus",
+    "if_year": 1886,
+    "occ": null
+  },
+  {
+    "slug": "mycena-pelianthina",
+    "catalog_accepted": "Mycena pelianthina",
+    "if_current_name": "Prunulus pelianthinus",
+    "if_year": 1872,
+    "occ": null
+  },
+  {
+    "slug": "mycena-pura-var-rosea",
+    "catalog_accepted": "Mycena pura var. rosea",
+    "if_current_name": "Mycena pura",
+    "if_year": 1876,
+    "occ": null
+  },
+  {
+    "slug": "mycena-rosea",
+    "catalog_accepted": "Mycena rosea",
+    "if_current_name": "Prunulus roseus",
+    "if_year": 1912,
+    "occ": null
+  },
+  {
+    "slug": "mycena-rugosa",
+    "catalog_accepted": "Mycena rugosa",
+    "if_current_name": "Mycena galericulata",
+    "if_year": 1872,
+    "occ": null
+  },
+  {
+    "slug": "mycena-strobilina",
+    "catalog_accepted": "Mycena strobilina",
+    "if_current_name": "Atheniella adonis",
+    "if_year": 1821,
+    "occ": null
+  },
+  {
+    "slug": "mycena-stylobates",
+    "catalog_accepted": "Mycena stylobates",
+    "if_current_name": "Basidopus stylobates",
+    "if_year": 1871,
+    "occ": null
+  },
+  {
+    "slug": "mycena-tenerrima",
+    "catalog_accepted": "Mycena tenerrima",
+    "if_current_name": "Basidopus tenerrimus",
+    "if_year": 1872,
+    "occ": null
+  },
+  {
+    "slug": "mycena-torquata",
+    "catalog_accepted": "Mycena torquata",
+    "if_current_name": "Basidopus stylobates",
+    "if_year": 1871,
+    "occ": null
+  },
+  {
+    "slug": "mycena-tricolor",
+    "catalog_accepted": "Mycena tricolor",
+    "if_current_name": "Decapitatus citricolor",
+    "if_year": 1920,
+    "occ": null
+  },
+  {
+    "slug": "mycoacia-uda",
+    "catalog_accepted": "Mycoacia uda",
+    "if_current_name": "Mycoaciella uda",
+    "if_year": 1931,
+    "occ": null
+  },
+  {
+    "slug": "naucoria-abstrusa",
+    "catalog_accepted": "Naucoria abstrusa",
+    "if_current_name": "Pholiota abstrusa",
+    "if_year": 1887,
+    "occ": null
+  },
+  {
+    "slug": "naucoria-conspersa",
+    "catalog_accepted": "Naucoria conspersa",
+    "if_current_name": "Tubaria conspersa",
+    "if_year": 1871,
+    "occ": null
+  },
+  {
+    "slug": "naucoria-phaea",
+    "catalog_accepted": "Naucoria phaea",
+    "if_current_name": "Naucoria scolecina",
+    "if_year": 1937,
+    "occ": null
+  },
+  {
+    "slug": "neoantrodia-primaeva",
+    "catalog_accepted": "Neoantrodia primaeva",
+    "if_current_name": "Fomitopsis primaeva",
+    "if_year": 2017,
+    "occ": null
+  },
+  {
+    "slug": "neoantrodia-variiformis",
+    "catalog_accepted": "Neoantrodia variiformis",
+    "if_current_name": "Fomitopsis variiformis",
+    "if_year": 2017,
+    "occ": null
+  },
+  {
+    "slug": "nigroporus-durus",
+    "catalog_accepted": "Nigroporus durus",
+    "if_current_name": "Nigrohirschioporus durus",
+    "if_year": 1907,
+    "occ": null
+  },
+  {
+    "slug": "nigroporus-ussuriensis",
+    "catalog_accepted": "Nigroporus ussuriensis",
+    "if_current_name": "Fomitopsis ussuriensis",
+    "if_year": 1995,
+    "occ": null
+  },
+  {
+    "slug": "niveoporofomes-spraguei",
+    "catalog_accepted": "Niveoporofomes spraguei",
+    "if_current_name": "Fomitopsis spraguei",
+    "if_year": 2016,
+    "occ": null
+  },
+  {
+    "slug": "nothopanus-candidissimus",
+    "catalog_accepted": "Nothopanus candidissimus",
+    "if_current_name": "Cheimonophyllum haedinum",
+    "if_year": 1980,
+    "occ": null
+  },
+  {
+    "slug": "octospora-coccinea",
+    "catalog_accepted": "Octospora coccinea",
+    "if_current_name": "Sarcoscypha coccinea",
+    "if_year": 1788,
+    "occ": null
+  },
+  {
+    "slug": "odonticium-septocystidia",
+    "catalog_accepted": "Odonticium septocystidia",
+    "if_current_name": "Ceriporia septocystidia",
+    "if_year": 2006,
+    "occ": null
+  },
+  {
+    "slug": "omphalia-colensoi",
+    "catalog_accepted": "Omphalia colensoi",
+    "if_current_name": "Omphalina colensoi",
+    "if_year": 1887,
+    "occ": null
+  },
+  {
+    "slug": "omphalia-grisea",
+    "catalog_accepted": "Omphalia grisea",
+    "if_current_name": "Omphalina grisea",
+    "if_year": 1872,
+    "occ": null
+  },
+  {
+    "slug": "omphalia-mellea",
+    "catalog_accepted": "Omphalia mellea",
+    "if_current_name": "Armillaria mellea",
+    "if_year": 1886,
+    "occ": null
+  },
+  {
+    "slug": "omphalia-mutila",
+    "catalog_accepted": "Omphalia mutila",
+    "if_current_name": "Omphalina mutila",
+    "if_year": 1879,
+    "occ": null
+  },
+  {
+    "slug": "omphalia-rosella",
+    "catalog_accepted": "Omphalia rosella",
+    "if_current_name": "Laccaria laccata",
+    "if_year": 1821,
+    "occ": null
+  },
+  {
+    "slug": "omphalia-sphagnicola",
+    "catalog_accepted": "Omphalia sphagnicola",
+    "if_current_name": "Lichenomphalia umbellifera",
+    "if_year": 1879,
+    "occ": null
+  },
+  {
+    "slug": "omphalia-umbellifera-var-citrina",
+    "catalog_accepted": "Omphalia umbellifera var. citrina",
+    "if_current_name": "Lichenomphalia umbellifera",
+    "if_year": 1887,
+    "occ": null
+  },
+  {
+    "slug": "omphalia-viridis",
+    "catalog_accepted": "Omphalia viridis",
+    "if_current_name": "Arrhenia chlorocyanea",
+    "if_year": 1930,
+    "occ": null
+  },
+  {
+    "slug": "omphalina-galericolor",
+    "catalog_accepted": "Omphalina galericolor",
+    "if_current_name": "Arrhenia lilacinicolor",
+    "if_year": 1975,
+    "occ": null
+  },
+  {
+    "slug": "onnia-orientalis",
+    "catalog_accepted": "Onnia orientalis",
+    "if_current_name": "Fulvoderma vallatum",
+    "if_year": 1943,
+    "occ": null
+  },
+  {
+    "slug": "ophiocordyceps-caloceroides",
+    "catalog_accepted": "Ophiocordyceps caloceroides",
+    "if_current_name": "Cordyceps caloceroides",
+    "if_year": 1933,
+    "occ": null
+  },
+  {
+    "slug": "ostracoderma-ochraceum",
+    "catalog_accepted": "Ostracoderma ochraceum",
+    "if_current_name": "Chromelosporium ochraceum",
+    "if_year": 1958,
+    "occ": null
+  },
+  {
+    "slug": "otidea-atrofusca",
+    "catalog_accepted": "Otidea atrofusca",
+    "if_current_name": "Midotis lingua",
+    "if_year": 1894,
+    "occ": null
+  },
+  {
+    "slug": "otidea-silvicola",
+    "catalog_accepted": "Otidea silvicola",
+    "if_current_name": "Midotis lingua",
+    "if_year": 1889,
+    "occ": null
+  },
+  {
+    "slug": "panaeolus-guttulatus",
+    "catalog_accepted": "Panaeolus guttulatus",
+    "if_current_name": "Staktophyllus guttulatus",
+    "if_year": 1883,
+    "occ": null
+  },
+  {
+    "slug": "panus-meruliceps",
+    "catalog_accepted": "Panus meruliceps",
+    "if_current_name": "Rhodotus reticeps",
+    "if_year": 1906,
+    "occ": null
+  },
+  {
+    "slug": "paxillus-panuoides-var-ionipus",
+    "catalog_accepted": "Paxillus panuoides var. ionipus",
+    "if_current_name": "Paxillus ionipus",
+    "if_year": 2003,
+    "occ": null
+  },
+  {
+    "slug": "pelloporus-triqueter",
+    "catalog_accepted": "Pelloporus triqueter",
+    "if_current_name": "Onnia triquetra",
+    "if_year": 1886,
+    "occ": null
+  },
+  {
+    "slug": "peniophora-cinerea-var-piceae",
+    "catalog_accepted": "Peniophora cinerea var. piceae",
+    "if_current_name": "Peniophora cinerea",
+    "if_year": 1889,
+    "occ": null
+  },
+  {
+    "slug": "peniophora-eichleri",
+    "catalog_accepted": "Peniophora eichleri",
+    "if_current_name": "Hypochnicium eichleri",
+    "if_year": 1902,
+    "occ": null
+  },
+  {
+    "slug": "peniophora-hastata",
+    "catalog_accepted": "Peniophora hastata",
+    "if_current_name": "Hastodontia hastata",
+    "if_year": 1928,
+    "occ": null
+  },
+  {
+    "slug": "peniophora-populnea",
+    "catalog_accepted": "Peniophora populnea",
+    "if_current_name": "Mutatoderma populneum",
+    "if_year": 1926,
+    "occ": null
+  },
+  {
+    "slug": "peniophora-praetermissa",
+    "catalog_accepted": "Peniophora praetermissa",
+    "if_current_name": "Peniophorella praetermissa",
+    "if_year": 1889,
+    "occ": null
+  },
+  {
+    "slug": "peniophora-pubera",
+    "catalog_accepted": "Peniophora pubera",
+    "if_current_name": "Peniophorella pubera",
+    "if_year": 1888,
+    "occ": null
+  },
+  {
+    "slug": "perenniporia-tenuis",
+    "catalog_accepted": "Perenniporia tenuis",
+    "if_current_name": "Xanthoperenniporia tenuis",
+    "if_year": 1973,
+    "occ": null
+  },
+  {
+    "slug": "peziza-atrovinosa",
+    "catalog_accepted": "Peziza atrovinosa",
+    "if_current_name": "Rugosporella atrovinosa",
+    "if_year": 1875,
+    "occ": null
+  },
+  {
+    "slug": "peziza-brunnea",
+    "catalog_accepted": "Peziza brunnea",
+    "if_current_name": "Sphaerosporella brunnea",
+    "if_year": 1805,
+    "occ": null
+  },
+  {
+    "slug": "peziza-cupularis",
+    "catalog_accepted": "Peziza cupularis",
+    "if_current_name": "Tarzetta cupularis",
+    "if_year": 1753,
+    "occ": null
+  },
+  {
+    "slug": "peziza-granulosa",
+    "catalog_accepted": "Peziza granulosa",
+    "if_current_name": "Cheilymenia granulata",
+    "if_year": 1801,
+    "occ": null
+  },
+  {
+    "slug": "peziza-gregaria",
+    "catalog_accepted": "Peziza gregaria",
+    "if_current_name": "Wilcoxina gregaria",
+    "if_year": 1876,
+    "occ": null
+  },
+  {
+    "slug": "peziza-helvelloides",
+    "catalog_accepted": "Peziza helvelloides",
+    "if_current_name": "Helvella pezizoides",
+    "if_year": 1849,
+    "occ": null
+  },
+  {
+    "slug": "peziza-hispida",
+    "catalog_accepted": "Peziza hispida",
+    "if_current_name": "Helvella elastica",
+    "if_year": 1778,
+    "occ": null
+  },
+  {
+    "slug": "peziza-hybrida",
+    "catalog_accepted": "Peziza hybrida",
+    "if_current_name": "Trichophaea hybrida",
+    "if_year": 1802,
+    "occ": null
+  },
+  {
+    "slug": "peziza-imperialis",
+    "catalog_accepted": "Peziza imperialis",
+    "if_current_name": "Sowerbyella imperialis",
+    "if_year": 1878,
+    "occ": null
+  },
+  {
+    "slug": "peziza-isabellina",
+    "catalog_accepted": "Peziza isabellina",
+    "if_current_name": "Aleuria isabellina",
+    "if_year": 1873,
+    "occ": null
+  },
+  {
+    "slug": "peziza-linteicola",
+    "catalog_accepted": "Peziza linteicola",
+    "if_current_name": "Peziza repanda",
+    "if_year": 1887,
+    "occ": null
+  },
+  {
+    "slug": "peziza-pudica",
+    "catalog_accepted": "Peziza pudica",
+    "if_current_name": "Peziza domiciliana",
+    "if_year": 1884,
+    "occ": null
+  },
+  {
+    "slug": "peziza-rubra",
+    "catalog_accepted": "Peziza rubra",
+    "if_current_name": "Pyropyxis rubra",
+    "if_year": 1872,
+    "occ": null
+  },
+  {
+    "slug": "phaeogalera-stagninoides",
+    "catalog_accepted": "Phaeogalera stagninoides",
+    "if_current_name": "Galerina stagnina",
+    "if_year": 1975,
+    "occ": null
+  },
+  {
+    "slug": "phanerochaete-cumulodentata",
+    "catalog_accepted": "Phanerochaete cumulodentata",
+    "if_current_name": "Phanerochaete amphibolia",
+    "if_year": 2015,
+    "occ": null
+  },
+  {
+    "slug": "phanerodontia-chrysosporium",
+    "catalog_accepted": "Phanerodontia chrysosporium",
+    "if_current_name": "Phanerochaete chrysosporium",
+    "if_year": 2010,
+    "occ": null
+  },
+  {
+    "slug": "phellinus-ferruginosus-subsp-floccosus",
+    "catalog_accepted": "Phellinus ferruginosus subsp. floccosus",
+    "if_current_name": "Fuscoporia contigua",
+    "if_year": 1928,
+    "occ": null
+  },
+  {
+    "slug": "phellinus-gilvus",
+    "catalog_accepted": "Phellinus gilvus",
+    "if_current_name": "Fuscoporia gilva",
+    "if_year": 1900,
+    "occ": null
+  },
+  {
+    "slug": "phellinus-rickii",
+    "catalog_accepted": "Phellinus rickii",
+    "if_current_name": "Tropicoporus rickii",
+    "if_year": 1950,
+    "occ": null
+  },
+  {
+    "slug": "phellinus-robiniae",
+    "catalog_accepted": "Phellinus robiniae",
+    "if_current_name": "Fulvifomes robiniae",
+    "if_year": 1913,
+    "occ": null
+  },
+  {
+    "slug": "phellinus-sarcites",
+    "catalog_accepted": "Phellinus sarcites",
+    "if_current_name": "Fuscoporia sarcites",
+    "if_year": 1972,
+    "occ": null
+  },
+  {
+    "slug": "phellinus-troyanus",
+    "catalog_accepted": "Phellinus troyanus",
+    "if_current_name": "Phellinus nilgheriensis",
+    "if_year": 1980,
+    "occ": null
+  },
+  {
+    "slug": "phlebia-albida",
+    "catalog_accepted": "Phlebia albida",
+    "if_current_name": "Stereophlebia pendula",
+    "if_year": 1863,
+    "occ": null
+  },
+  {
+    "slug": "phlebia-leptospermi",
+    "catalog_accepted": "Phlebia leptospermi",
+    "if_current_name": "Merulius leptospermi",
+    "if_year": 1985,
+    "occ": null
+  },
+  {
+    "slug": "phlebia-pallida",
+    "catalog_accepted": "Phlebia pallida",
+    "if_current_name": "Stereophlebia pendula",
+    "if_year": 1993,
+    "occ": null
+  },
+  {
+    "slug": "phlebia-pallidolivens",
+    "catalog_accepted": "Phlebia pallidolivens",
+    "if_current_name": "Cytidiella pallidolivens",
+    "if_year": 1967,
+    "occ": null
+  },
+  {
+    "slug": "phlebia-serialis",
+    "catalog_accepted": "Phlebia serialis",
+    "if_current_name": "Merulius serialis",
+    "if_year": 1957,
+    "occ": null
+  },
+  {
+    "slug": "phlebia-subserialis",
+    "catalog_accepted": "Phlebia subserialis",
+    "if_current_name": "Phanerochaete cacao",
+    "if_year": 1957,
+    "occ": null
+  },
+  {
+    "slug": "phlebia-tuberculata",
+    "catalog_accepted": "Phlebia tuberculata",
+    "if_current_name": "Stereophlebia pendula",
+    "if_year": 2011,
+    "occ": null
+  },
+  {
+    "slug": "pholiota-aegerita",
+    "catalog_accepted": "Pholiota aegerita",
+    "if_current_name": "Cyclocybe cylindracea",
+    "if_year": 1872,
+    "occ": null
+  },
+  {
+    "slug": "pholiota-paludosa",
+    "catalog_accepted": "Pholiota paludosa",
+    "if_current_name": "Galerina paludosa",
+    "if_year": 1887,
+    "occ": null
+  },
+  {
+    "slug": "pholiota-praticola",
+    "catalog_accepted": "Pholiota praticola",
+    "if_current_name": "Galerina praticola",
+    "if_year": 1945,
+    "occ": null
+  },
+  {
+    "slug": "pholiota-pudica",
+    "catalog_accepted": "Pholiota pudica",
+    "if_current_name": "Cyclocybe cylindracea",
+    "if_year": 1876,
+    "occ": null
+  },
+  {
+    "slug": "pholiota-tuberculosa",
+    "catalog_accepted": "Pholiota tuberculosa",
+    "if_current_name": "Pleuroflammula tuberculosa",
+    "if_year": 1871,
+    "occ": null
+  },
+  {
+    "slug": "pholiotina-cyanopus",
+    "catalog_accepted": "Pholiotina cyanopus",
+    "if_current_name": "Conocybula cyanopus",
+    "if_year": 1950,
+    "occ": null
+  },
+  {
+    "slug": "pholiotina-dasypus",
+    "catalog_accepted": "Pholiotina dasypus",
+    "if_current_name": "Conobolbitina dasypus",
+    "if_year": 2005,
+    "occ": null
+  },
+  {
+    "slug": "pholiotina-striipes",
+    "catalog_accepted": "Pholiotina striipes",
+    "if_current_name": "Conobolbitina striipes",
+    "if_year": 1967,
+    "occ": null
+  },
+  {
+    "slug": "pholiotina-sulcatipes",
+    "catalog_accepted": "Pholiotina sulcatipes",
+    "if_current_name": "Conocybe sulcatipes",
+    "if_year": 1991,
+    "occ": null
+  },
+  {
+    "slug": "phylloporus-veluticeps",
+    "catalog_accepted": "Phylloporus veluticeps",
+    "if_current_name": "Flammulina velutipes",
+    "if_year": 1981,
+    "occ": null
+  },
+  {
+    "slug": "physisporinus-vitreus",
+    "catalog_accepted": "Physisporinus vitreus",
+    "if_current_name": "Meripilus vitreus",
+    "if_year": 1889,
+    "occ": null
+  },
+  {
+    "slug": "physisporus-aurantiacus",
+    "catalog_accepted": "Physisporus aurantiacus",
+    "if_current_name": "Erastia aurantiaca",
+    "if_year": 1887,
+    "occ": null
+  },
+  {
+    "slug": "physisporus-molluscus",
+    "catalog_accepted": "Physisporus molluscus",
+    "if_current_name": "Trechispora mollusca",
+    "if_year": 1826,
+    "occ": null
+  },
+  {
+    "slug": "pilatoporus-hemitephrus",
+    "catalog_accepted": "Pilatoporus hemitephrus",
+    "if_current_name": "Neofomitella hemitephra",
+    "if_year": 2018,
+    "occ": null
+  },
+  {
+    "slug": "pilatoporus-palustris",
+    "catalog_accepted": "Pilatoporus palustris",
+    "if_current_name": "Fomitopsis palustris",
+    "if_year": 1990,
+    "occ": null
+  },
+  {
+    "slug": "piptoporellus-baudonii",
+    "catalog_accepted": "Piptoporellus baudonii",
+    "if_current_name": "Pseudophaeolus baudonii",
+    "if_year": 2020,
+    "occ": null
+  },
+  {
+    "slug": "piptoporellus-soloniensis",
+    "catalog_accepted": "Piptoporellus soloniensis",
+    "if_current_name": "Pseudophaeolus soloniensis",
+    "if_year": 2016,
+    "occ": null
+  },
+  {
+    "slug": "pleurotus-candidissimus",
+    "catalog_accepted": "Pleurotus candidissimus",
+    "if_current_name": "Cheimonophyllum haedinum",
+    "if_year": 1887,
+    "occ": null
+  },
+  {
+    "slug": "pleurotus-columbinus",
+    "catalog_accepted": "Pleurotus columbinus",
+    "if_current_name": "Pleurotus ostreatus",
+    "if_year": 1881,
+    "occ": null
+  },
+  {
+    "slug": "pleurotus-hirtus",
+    "catalog_accepted": "Pleurotus hirtus",
+    "if_current_name": "Lentinus scleropus",
+    "if_year": 1951,
+    "occ": null
+  },
+  {
+    "slug": "pleurotus-sapidus",
+    "catalog_accepted": "Pleurotus sapidus",
+    "if_current_name": "Pleurotus cornucopiae",
+    "if_year": 1883,
+    "occ": null
+  },
+  {
+    "slug": "plicaturopsis-crispa",
+    "catalog_accepted": "Plicaturopsis crispa",
+    "if_current_name": "Plicatura crispa",
+    "if_year": 1964,
+    "occ": null
+  },
+  {
+    "slug": "pluteus-eximius",
+    "catalog_accepted": "Pluteus eximius",
+    "if_current_name": "Pluteus cervinus",
+    "if_year": 1887,
+    "occ": null
+  },
+  {
+    "slug": "podoscypha-affinis",
+    "catalog_accepted": "Podoscypha affinis",
+    "if_current_name": "Cotylidia aurantiaca",
+    "if_year": 1900,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-albofuscus",
+    "catalog_accepted": "Polyporus albofuscus",
+    "if_current_name": "Laetiporus portentosus",
+    "if_year": 1924,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-alveolarius",
+    "catalog_accepted": "Polyporus alveolarius",
+    "if_current_name": "Lentinus arcularius",
+    "if_year": 1821,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-argillaceus",
+    "catalog_accepted": "Polyporus argillaceus",
+    "if_current_name": "Elmerina caryae",
+    "if_year": 1878,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-aurantiacus",
+    "catalog_accepted": "Polyporus aurantiacus",
+    "if_current_name": "Erastia aurantiaca",
+    "if_year": 1838,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-badius",
+    "catalog_accepted": "Polyporus badius",
+    "if_current_name": "Picipes badius",
+    "if_year": 1832,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-brittonii",
+    "catalog_accepted": "Polyporus brittonii",
+    "if_current_name": "Kusaghiporia mesotalpae",
+    "if_year": 1926,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-brumalis",
+    "catalog_accepted": "Polyporus brumalis",
+    "if_current_name": "Lentinus brumalis",
+    "if_year": 1818,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-byssinus",
+    "catalog_accepted": "Polyporus byssinus",
+    "if_current_name": "Physisporus byssinus",
+    "if_year": 1815,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-carpineus",
+    "catalog_accepted": "Polyporus carpineus",
+    "if_current_name": "Bjerkandera adusta",
+    "if_year": 1818,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-cereus",
+    "catalog_accepted": "Polyporus cereus",
+    "if_current_name": "Hymenochaete xerantica",
+    "if_year": 1854,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-conchatus",
+    "catalog_accepted": "Polyporus conchatus",
+    "if_current_name": "Phellinopsis conchata",
+    "if_year": 1821,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-conicus",
+    "catalog_accepted": "Polyporus conicus",
+    "if_current_name": "Amauroderma conicum",
+    "if_year": 1913,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-corticola",
+    "catalog_accepted": "Polyporus corticola",
+    "if_current_name": "Oxyporus corticola",
+    "if_year": 1821,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-croceus",
+    "catalog_accepted": "Polyporus croceus",
+    "if_current_name": "Hapalopilus croceus",
+    "if_year": 1815,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-cuneatus",
+    "catalog_accepted": "Polyporus cuneatus",
+    "if_current_name": "Australoporus tasmanicus",
+    "if_year": 1924,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-decurrens",
+    "catalog_accepted": "Polyporus decurrens",
+    "if_current_name": "Scutiger decurrens",
+    "if_year": 1897,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-destructor",
+    "catalog_accepted": "Polyporus destructor",
+    "if_current_name": "Fibroporia destructor",
+    "if_year": 1815,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-dictyoporus",
+    "catalog_accepted": "Polyporus dictyoporus",
+    "if_current_name": "Macrohyporia dictyopora",
+    "if_year": 1883,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-dilatatus",
+    "catalog_accepted": "Polyporus dilatatus",
+    "if_current_name": "Cubamyces menziesii",
+    "if_year": 1844,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-dissectus",
+    "catalog_accepted": "Polyporus dissectus",
+    "if_current_name": "Cerioporus squamosus",
+    "if_year": 1826,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-durescens",
+    "catalog_accepted": "Polyporus durescens",
+    "if_current_name": "Pilatoporus durescens",
+    "if_year": 1975,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-elegans",
+    "catalog_accepted": "Polyporus elegans",
+    "if_current_name": "Cerioporus leptocephalus",
+    "if_year": 1780,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-fagicola",
+    "catalog_accepted": "Polyporus fagicola",
+    "if_current_name": "Bresadolia craterella",
+    "if_year": 1906,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-farinosus",
+    "catalog_accepted": "Polyporus farinosus",
+    "if_current_name": "Oligoporus rennyi",
+    "if_year": 1891,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-flabelliformis",
+    "catalog_accepted": "Polyporus flabelliformis",
+    "if_current_name": "Cerioporus squamosus",
+    "if_year": 1825,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-flavidus",
+    "catalog_accepted": "Polyporus flavidus",
+    "if_current_name": "Cylindrosporus flavidus",
+    "if_year": 1854,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-flavus",
+    "catalog_accepted": "Polyporus flavus",
+    "if_current_name": "Trichaptum flavum",
+    "if_year": 1838,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-flexipes",
+    "catalog_accepted": "Polyporus flexipes",
+    "if_current_name": "Lentinus flexipes",
+    "if_year": 1830,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-fraxineus",
+    "catalog_accepted": "Polyporus fraxineus",
+    "if_current_name": "Vanderbylia fraxinea",
+    "if_year": 1821,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-friesii",
+    "catalog_accepted": "Polyporus friesii",
+    "if_current_name": "Pallidohirschioporus biformis",
+    "if_year": 1833,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-fuscatus",
+    "catalog_accepted": "Polyporus fuscatus",
+    "if_current_name": "Trametes versicolor",
+    "if_year": 1818,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-fuscellus",
+    "catalog_accepted": "Polyporus fuscellus",
+    "if_current_name": "Funalia aspera",
+    "if_year": 1854,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-griseus",
+    "catalog_accepted": "Polyporus griseus",
+    "if_current_name": "Boletopsis grisea",
+    "if_year": 1874,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-heteroporus",
+    "catalog_accepted": "Polyporus heteroporus",
+    "if_current_name": "Trametes heteropora",
+    "if_year": 1841,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-hirtus",
+    "catalog_accepted": "Polyporus hirtus",
+    "if_current_name": "Trametes hirta",
+    "if_year": 1821,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-humilis",
+    "catalog_accepted": "Polyporus humilis",
+    "if_current_name": "Loweomyces fractipes",
+    "if_year": 1874,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-infundibuliformis",
+    "catalog_accepted": "Polyporus infundibuliformis",
+    "if_current_name": "Picipes melanopus",
+    "if_year": 1826,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-japonicus",
+    "catalog_accepted": "Polyporus japonicus",
+    "if_current_name": "Cerrena zonata",
+    "if_year": 1936,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-juniperinus",
+    "catalog_accepted": "Polyporus juniperinus",
+    "if_current_name": "Pyrofomes juniperinus",
+    "if_year": 1900,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-laciniatus",
+    "catalog_accepted": "Polyporus laciniatus",
+    "if_current_name": "Daedalea laciniata",
+    "if_year": 1825,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-laevigatus",
+    "catalog_accepted": "Polyporus laevigatus",
+    "if_current_name": "Xylodon raduloides",
+    "if_year": 1830,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-leucocreas",
+    "catalog_accepted": "Polyporus leucocreas",
+    "if_current_name": "Laetiporus portentosus",
+    "if_year": 1879,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-luridus",
+    "catalog_accepted": "Polyporus luridus",
+    "if_current_name": "Lentinus brumalis",
+    "if_year": 1873,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-lutescens",
+    "catalog_accepted": "Polyporus lutescens",
+    "if_current_name": "Albatrellus ovinus",
+    "if_year": 1922,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-maculatus",
+    "catalog_accepted": "Polyporus maculatus",
+    "if_current_name": "Bresadolia uda",
+    "if_year": 1851,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-melanopus",
+    "catalog_accepted": "Polyporus melanopus",
+    "if_current_name": "Picipes melanopus",
+    "if_year": 1821,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-miniatus",
+    "catalog_accepted": "Polyporus miniatus",
+    "if_current_name": "Trametes cinnabarina",
+    "if_year": 1829,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-mollis",
+    "catalog_accepted": "Polyporus mollis",
+    "if_current_name": "Leptoporus mollis",
+    "if_year": 1821,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-multiplex",
+    "catalog_accepted": "Polyporus multiplex",
+    "if_current_name": "Grifola colensoi",
+    "if_year": 1912,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-murinus",
+    "catalog_accepted": "Polyporus murinus",
+    "if_current_name": "Bjerkandera adusta",
+    "if_year": 1838,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-nigricans",
+    "catalog_accepted": "Polyporus nigricans",
+    "if_current_name": "Phellinus igniarius",
+    "if_year": 1821,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-obducens",
+    "catalog_accepted": "Polyporus obducens",
+    "if_current_name": "Oxyporus obducens",
+    "if_year": 1825,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-occidentalis",
+    "catalog_accepted": "Polyporus occidentalis",
+    "if_current_name": "Coriolopsis occidentalis",
+    "if_year": 1833,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-odorus",
+    "catalog_accepted": "Polyporus odorus",
+    "if_current_name": "Haploporus odorus",
+    "if_year": 1826,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-orbicularis",
+    "catalog_accepted": "Polyporus orbicularis",
+    "if_current_name": "Lentinus arcularius",
+    "if_year": 1876,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-pallescens",
+    "catalog_accepted": "Polyporus pallescens",
+    "if_current_name": "Bjerkandera fumosa",
+    "if_year": 1818,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-parvulus",
+    "catalog_accepted": "Polyporus parvulus",
+    "if_current_name": "Trichaptum abietinum",
+    "if_year": 1832,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-petalodes",
+    "catalog_accepted": "Polyporus petalodes",
+    "if_current_name": "Cerioporus varius",
+    "if_year": 1838,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-piceus",
+    "catalog_accepted": "Polyporus piceus",
+    "if_current_name": "Ganoderma piceum",
+    "if_year": 1879,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-polygrammus",
+    "catalog_accepted": "Polyporus polygrammus",
+    "if_current_name": "Pseudofavolus polygrammus",
+    "if_year": 1837,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-populinus",
+    "catalog_accepted": "Polyporus populinus",
+    "if_current_name": "Oxyporus populinus",
+    "if_year": 1821,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-propinquus",
+    "catalog_accepted": "Polyporus propinquus",
+    "if_current_name": "Trametes propinqua",
+    "if_year": 1880,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-pubertatis",
+    "catalog_accepted": "Polyporus pubertatis",
+    "if_current_name": "Abundisporus pubertatis",
+    "if_year": 1915,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-purpurascens",
+    "catalog_accepted": "Polyporus purpurascens",
+    "if_current_name": "Byssomerulius corium",
+    "if_year": 1825,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-robiniae",
+    "catalog_accepted": "Polyporus robiniae",
+    "if_current_name": "Fulvifomes robiniae",
+    "if_year": 1903,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-rosulatus",
+    "catalog_accepted": "Polyporus rosulatus",
+    "if_current_name": "Ischnoderma rosulatum",
+    "if_year": 1948,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-rubiginosus",
+    "catalog_accepted": "Polyporus rubiginosus",
+    "if_current_name": "Gloeophyllum odoratum",
+    "if_year": 1833,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-schulzeri",
+    "catalog_accepted": "Polyporus schulzeri",
+    "if_current_name": "Coriolopsis gallica",
+    "if_year": 1868,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-scutellatus",
+    "catalog_accepted": "Polyporus scutellatus",
+    "if_current_name": "Cerioporus scutellatus",
+    "if_year": 1832,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-serpens",
+    "catalog_accepted": "Polyporus serpens",
+    "if_current_name": "Antrodia albida",
+    "if_year": 1818,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-sinensis",
+    "catalog_accepted": "Polyporus sinensis",
+    "if_current_name": "Trametes hirta",
+    "if_year": 1821,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-sordidus",
+    "catalog_accepted": "Polyporus sordidus",
+    "if_current_name": "Fomitopsis feei",
+    "if_year": 1844,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-splendens",
+    "catalog_accepted": "Polyporus splendens",
+    "if_current_name": "Fomitopsis modesta",
+    "if_year": 1844,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-squamosus",
+    "catalog_accepted": "Polyporus squamosus",
+    "if_current_name": "Cerioporus squamosus",
+    "if_year": 1821,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-subradiatus",
+    "catalog_accepted": "Polyporus subradiatus",
+    "if_current_name": "Hirticrusta subradiata",
+    "if_year": 1915,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-testaceus",
+    "catalog_accepted": "Polyporus testaceus",
+    "if_current_name": "Gloeophyllum trabeum",
+    "if_year": 1838,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-tigrinus",
+    "catalog_accepted": "Polyporus tigrinus",
+    "if_current_name": "Microporellus obovatus",
+    "if_year": 1902,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-trabeus",
+    "catalog_accepted": "Polyporus trabeus",
+    "if_current_name": "Gloeophyllum trabeum",
+    "if_year": 1838,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-trachypus",
+    "catalog_accepted": "Polyporus trachypus",
+    "if_current_name": "Lentinus brumalis",
+    "if_year": 1848,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-triqueter",
+    "catalog_accepted": "Polyporus triqueter",
+    "if_current_name": "Onnia triquetra",
+    "if_year": 1825,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-tristis",
+    "catalog_accepted": "Polyporus tristis",
+    "if_current_name": "Nigroporus vinosus",
+    "if_year": 1846,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-umbilicatus",
+    "catalog_accepted": "Polyporus umbilicatus",
+    "if_current_name": "Lentinus arcularius",
+    "if_year": 1838,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-ungulatus",
+    "catalog_accepted": "Polyporus ungulatus",
+    "if_current_name": "Fomitopsis pinicola",
+    "if_year": 1879,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-unitus",
+    "catalog_accepted": "Polyporus unitus",
+    "if_current_name": "Perenniporia unita",
+    "if_year": 1825,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-ursinus",
+    "catalog_accepted": "Polyporus ursinus",
+    "if_current_name": "Cerrena hydnoides",
+    "if_year": 1821,
+    "occ": null
+  },
+  {
+    "slug": "polyporus-zonatus",
+    "catalog_accepted": "Polyporus zonatus",
+    "if_current_name": "Trametes ochracea",
+    "if_year": 1821,
+    "occ": null
+  },
+  {
+    "slug": "polystictus-adustus",
+    "catalog_accepted": "Polystictus adustus",
+    "if_current_name": "Bjerkandera adusta",
+    "if_year": 1890,
+    "occ": null
+  },
+  {
+    "slug": "polystictus-albidus",
+    "catalog_accepted": "Polystictus albidus",
+    "if_current_name": "Amaropostia stiptica",
+    "if_year": 1886,
+    "occ": null
+  },
+  {
+    "slug": "polystictus-cinerascens",
+    "catalog_accepted": "Polystictus cinerascens",
+    "if_current_name": "Trametes hirsuta",
+    "if_year": 1886,
+    "occ": null
+  },
+  {
+    "slug": "polystictus-flavidus",
+    "catalog_accepted": "Polystictus flavidus",
+    "if_current_name": "Cylindrosporus flavidus",
+    "if_year": 1886,
+    "occ": null
+  },
+  {
+    "slug": "poria-collabefacta",
+    "catalog_accepted": "Poria collabefacta",
+    "if_current_name": "Ceraceomyces crispatus",
+    "if_year": 1886,
+    "occ": null
+  },
+  {
+    "slug": "poria-fatiscens",
+    "catalog_accepted": "Poria fatiscens",
+    "if_current_name": "Ceriporia tarda",
+    "if_year": 1888,
+    "occ": null
+  },
+  {
+    "slug": "poria-incarnata",
+    "catalog_accepted": "Poria incarnata",
+    "if_current_name": "Fomitopsis marianii",
+    "if_year": 1794,
+    "occ": null
+  },
+  {
+    "slug": "poria-isabellina",
+    "catalog_accepted": "Poria isabellina",
+    "if_current_name": "Perenniporia isabellina",
+    "if_year": 1891,
+    "occ": null
+  },
+  {
+    "slug": "poria-microspora",
+    "catalog_accepted": "Poria microspora",
+    "if_current_name": "Meripilus crocatus",
+    "if_year": 1905,
+    "occ": null
+  },
+  {
+    "slug": "poria-salicina",
+    "catalog_accepted": "Poria salicina",
+    "if_current_name": "Phellinopsis conchata",
+    "if_year": 1794,
+    "occ": null
+  },
+  {
+    "slug": "poria-vaporaria",
+    "catalog_accepted": "Poria vaporaria",
+    "if_current_name": "Fibroporia vaillantii",
+    "if_year": 1794,
+    "occ": null
+  },
+  {
+    "slug": "poria-viticola",
+    "catalog_accepted": "Poria viticola",
+    "if_current_name": "Ginnsia viticola",
+    "if_year": 1886,
+    "occ": null
+  },
+  {
+    "slug": "poria-vulgaris",
+    "catalog_accepted": "Poria vulgaris",
+    "if_current_name": "Sidera vulgaris",
+    "if_year": 1886,
+    "occ": null
+  },
+  {
+    "slug": "postia-simanii",
+    "catalog_accepted": "Postia simanii",
+    "if_current_name": "Cystidiopostia simanii",
+    "if_year": 1982,
+    "occ": null
+  },
+  {
+    "slug": "prototremella-tulasnei",
+    "catalog_accepted": "Prototremella tulasnei",
+    "if_current_name": "Tulasnella cystidiophora",
+    "if_year": 1896,
+    "occ": null
+  },
+  {
+    "slug": "protubera-nipponica",
+    "catalog_accepted": "Protubera nipponica",
+    "if_current_name": "Kobayasia nipponica",
+    "if_year": 1938,
+    "occ": null
+  },
+  {
+    "slug": "psalliota-exserta",
+    "catalog_accepted": "Psalliota exserta",
+    "if_current_name": "Agaricus exsertus",
+    "if_year": 1911,
+    "occ": null
+  },
+  {
+    "slug": "psalliota-flavescens",
+    "catalog_accepted": "Psalliota flavescens",
+    "if_current_name": "Agaricus xanthodermus",
+    "if_year": 1885,
+    "occ": null
+  },
+  {
+    "slug": "psathyra-fibrillosa",
+    "catalog_accepted": "Psathyra fibrillosa",
+    "if_current_name": "Psathyrella fibrillosa",
+    "if_year": 1887,
+    "occ": null
+  },
+  {
+    "slug": "psathyrella-appendiculata",
+    "catalog_accepted": "Psathyrella appendiculata",
+    "if_current_name": "Candolleomyces candolleanus",
+    "if_year": 1938,
+    "occ": null
+  },
+  {
+    "slug": "psathyrella-hydrophila",
+    "catalog_accepted": "Psathyrella hydrophila",
+    "if_current_name": "Psathyrella piluliformis",
+    "if_year": 1937,
+    "occ": null
+  },
+  {
+    "slug": "psathyrella-pannucioides",
+    "catalog_accepted": "Psathyrella pannucioides",
+    "if_current_name": "Coprinopsis pannucioides",
+    "if_year": 1967,
+    "occ": null
+  },
+  {
+    "slug": "psathyrella-subprona",
+    "catalog_accepted": "Psathyrella subprona",
+    "if_current_name": "Parasola subprona",
+    "if_year": 1927,
+    "occ": null
+  },
+  {
+    "slug": "pseudospongipellis-delectans",
+    "catalog_accepted": "Pseudospongipellis delectans",
+    "if_current_name": "Somion delectans",
+    "if_year": 2022,
+    "occ": null
+  },
+  {
+    "slug": "pseudospongipellis-unicolor",
+    "catalog_accepted": "Pseudospongipellis unicolor",
+    "if_current_name": "Somion unicolor",
+    "if_year": 2022,
+    "occ": null
+  },
+  {
+    "slug": "pseudotomentella-nigra",
+    "catalog_accepted": "Pseudotomentella nigra",
+    "if_current_name": "Polyozellus niger",
+    "if_year": 1958,
+    "occ": null
+  },
+  {
+    "slug": "psilocybe-coronilla",
+    "catalog_accepted": "Psilocybe coronilla",
+    "if_current_name": "Stropharia coronilla",
+    "if_year": 1995,
+    "occ": null
+  },
+  {
+    "slug": "pterygellus-funalis",
+    "catalog_accepted": "Pterygellus funalis",
+    "if_current_name": "Craterellus funalis",
+    "if_year": 1976,
+    "occ": null
+  },
+  {
+    "slug": "pterygellus-polymorphus",
+    "catalog_accepted": "Pterygellus polymorphus",
+    "if_current_name": "Craterellus polymorphus",
+    "if_year": 1966,
+    "occ": null
+  },
+  {
+    "slug": "pyropolyporus-hydrophilus",
+    "catalog_accepted": "Pyropolyporus hydrophilus",
+    "if_current_name": "Phylloporia sancti-georgii",
+    "if_year": 1910,
+    "occ": null
+  },
+  {
+    "slug": "pyropolyporus-sublinteus",
+    "catalog_accepted": "Pyropolyporus sublinteus",
+    "if_current_name": "Fulvifomes luteoumbrinus",
+    "if_year": 1908,
+    "occ": null
+  },
+  {
+    "slug": "pyropolyporus-troyanus",
+    "catalog_accepted": "Pyropolyporus troyanus",
+    "if_current_name": "Phellinus nilgheriensis",
+    "if_year": 1910,
+    "occ": null
+  },
+  {
+    "slug": "ramaria-subtilis",
+    "catalog_accepted": "Ramaria subtilis",
+    "if_current_name": "Ramariopsis subtilis",
+    "if_year": 1888,
+    "occ": null
+  },
+  {
+    "slug": "ranadivia-modesta",
+    "catalog_accepted": "Ranadivia modesta",
+    "if_current_name": "Fomitopsis modesta",
+    "if_year": 2018,
+    "occ": null
+  },
+  {
+    "slug": "ranadivia-stereoides",
+    "catalog_accepted": "Ranadivia stereoides",
+    "if_current_name": "Fomitopsis stereoides",
+    "if_year": 2018,
+    "occ": null
+  },
+  {
+    "slug": "rheubarbariboletus-armeniacus",
+    "catalog_accepted": "Rheubarbariboletus armeniacus",
+    "if_current_name": "Xerocomus armeniacus",
+    "if_year": 2015,
+    "occ": null
+  },
+  {
+    "slug": "rhizoctonia-oryzae-sativae",
+    "catalog_accepted": "Rhizoctonia oryzae-sativae",
+    "if_current_name": "Rhizoctonia setariae",
+    "if_year": 1974,
+    "occ": null
+  },
+  {
+    "slug": "rhizopogon-albus",
+    "catalog_accepted": "Rhizopogon albus",
+    "if_current_name": "Descolea alba",
+    "if_year": 1823,
+    "occ": null
+  },
+  {
+    "slug": "rhodofomes-cajanderi",
+    "catalog_accepted": "Rhodofomes cajanderi",
+    "if_current_name": "Fomitopsis cajanderi",
+    "if_year": 2016,
+    "occ": null
+  },
+  {
+    "slug": "rhodofomes-carneus",
+    "catalog_accepted": "Rhodofomes carneus",
+    "if_current_name": "Fomitopsis carnea",
+    "if_year": 2016,
+    "occ": null
+  },
+  {
+    "slug": "rhodofomes-roseus",
+    "catalog_accepted": "Rhodofomes roseus",
+    "if_current_name": "Fomitopsis rosea",
+    "if_year": 1990,
+    "occ": null
+  },
+  {
+    "slug": "rhodofomitopsis-cupreorosea",
+    "catalog_accepted": "Rhodofomitopsis cupreorosea",
+    "if_current_name": "Fomitopsis cupreorosea",
+    "if_year": 2016,
+    "occ": null
+  },
+  {
+    "slug": "rhodofomitopsis-feei",
+    "catalog_accepted": "Rhodofomitopsis feei",
+    "if_current_name": "Fomitopsis feei",
+    "if_year": 2016,
+    "occ": null
+  },
+  {
+    "slug": "rhodofomitopsis-lilacinogilva",
+    "catalog_accepted": "Rhodofomitopsis lilacinogilva",
+    "if_current_name": "Fomitopsis lilacinogilva",
+    "if_year": 2016,
+    "occ": null
+  },
+  {
+    "slug": "rhodofomitopsis-oleracea",
+    "catalog_accepted": "Rhodofomitopsis oleracea",
+    "if_current_name": "Fomitopsis oleracea",
+    "if_year": 2020,
+    "occ": null
+  },
+  {
+    "slug": "rigidoporus-crocatus",
+    "catalog_accepted": "Rigidoporus crocatus",
+    "if_current_name": "Meripilus crocatus",
+    "if_year": 1983,
+    "occ": null
+  },
+  {
+    "slug": "rigidoporus-lineatus",
+    "catalog_accepted": "Rigidoporus lineatus",
+    "if_current_name": "Meripilus lineatus",
+    "if_year": 1972,
+    "occ": null
+  },
+  {
+    "slug": "rigidoporus-sanguinolentus",
+    "catalog_accepted": "Rigidoporus sanguinolentus",
+    "if_current_name": "Meripilus sanguinolentus",
+    "if_year": 1966,
+    "occ": null
+  },
+  {
+    "slug": "rigidoporus-undatus",
+    "catalog_accepted": "Rigidoporus undatus",
+    "if_current_name": "Meripilus undatus",
+    "if_year": 1967,
+    "occ": null
+  },
+  {
+    "slug": "rigidoporus-vinctus",
+    "catalog_accepted": "Rigidoporus vinctus",
+    "if_current_name": "Lividopora vincta",
+    "if_year": 1972,
+    "occ": null
+  },
+  {
+    "slug": "russula-amara",
+    "catalog_accepted": "Russula amara",
+    "if_current_name": "Russula caerulea",
+    "if_year": 1927,
+    "occ": null
+  },
+  {
+    "slug": "russula-urens",
+    "catalog_accepted": "Russula urens",
+    "if_current_name": "Russula cuprea",
+    "if_year": 1926,
+    "occ": null
+  },
+  {
+    "slug": "sarcodon-atroviridis",
+    "catalog_accepted": "Sarcodon atroviridis",
+    "if_current_name": "Neosarcodon atroviridis",
+    "if_year": 1906,
+    "occ": null
+  },
+  {
+    "slug": "sarcodontia-spumea",
+    "catalog_accepted": "Sarcodontia spumea",
+    "if_current_name": "Spongipellis spumea",
+    "if_year": 2001,
+    "occ": null
+  },
+  {
+    "slug": "sclerotium-delphinii",
+    "catalog_accepted": "Sclerotium delphinii",
+    "if_current_name": "Agroathelia delphinii",
+    "if_year": 1924,
+    "occ": null
+  },
+  {
+    "slug": "scutellinia-asperior",
+    "catalog_accepted": "Scutellinia asperior",
+    "if_current_name": "Ramsbottomia asperior",
+    "if_year": 1956,
+    "occ": null
+  },
+  {
+    "slug": "sebacina-grisea",
+    "catalog_accepted": "Sebacina grisea",
+    "if_current_name": "Ulocolla grisea",
+    "if_year": 1908,
+    "occ": null
+  },
+  {
+    "slug": "sepultaria-foliacea",
+    "catalog_accepted": "Sepultaria foliacea",
+    "if_current_name": "Geopora foliacea",
+    "if_year": 1906,
+    "occ": null
+  },
+  {
+    "slug": "sistotrema-estonicum",
+    "catalog_accepted": "Sistotrema estonicum",
+    "if_current_name": "Sistotrema octosporum",
+    "if_year": 1965,
+    "occ": null
+  },
+  {
+    "slug": "sistotrema-niveocremeum",
+    "catalog_accepted": "Sistotrema niveocremeum",
+    "if_current_name": "Sertulicium niveocremeum",
+    "if_year": 1956,
+    "occ": null
+  },
+  {
+    "slug": "sistotrema-sulphureum",
+    "catalog_accepted": "Sistotrema sulphureum",
+    "if_current_name": "Laetiporus sulphureus",
+    "if_year": 1804,
+    "occ": null
+  },
+  {
+    "slug": "skeletocutis-friabilis",
+    "catalog_accepted": "Skeletocutis friabilis",
+    "if_current_name": "Ischnoderma friabile",
+    "if_year": 1997,
+    "occ": null
+  },
+  {
+    "slug": "solenia-urceolata",
+    "catalog_accepted": "Solenia urceolata",
+    "if_current_name": "Resupinatus urceolatus",
+    "if_year": 1828,
+    "occ": null
+  },
+  {
+    "slug": "sphaerospora-trechispora-f-paludicola",
+    "catalog_accepted": "Sphaerospora trechispora f. paludicola",
+    "if_current_name": "Scutellinia paludicola",
+    "if_year": 1948,
+    "occ": null
+  },
+  {
+    "slug": "sporotrichum-aureum",
+    "catalog_accepted": "Sporotrichum aureum",
+    "if_current_name": "Riopa metamorphosa",
+    "if_year": 1809,
+    "occ": null
+  },
+  {
+    "slug": "sporotrichum-fuscum",
+    "catalog_accepted": "Sporotrichum fuscum",
+    "if_current_name": "Tomentella fusca",
+    "if_year": 1822,
+    "occ": null
+  },
+  {
+    "slug": "sporotrichum-pulverulentum",
+    "catalog_accepted": "Sporotrichum pulverulentum",
+    "if_current_name": "Phanerochaete chrysosporium",
+    "if_year": 1972,
+    "occ": null
+  },
+  {
+    "slug": "squamanita-odorata",
+    "catalog_accepted": "Squamanita odorata",
+    "if_current_name": "Dissoderma odoratum",
+    "if_year": 1946,
+    "occ": null
+  },
+  {
+    "slug": "steccherinum-fimbriatum",
+    "catalog_accepted": "Steccherinum fimbriatum",
+    "if_current_name": "Etheirodon fimbriatus",
+    "if_year": 1958,
+    "occ": null
+  },
+  {
+    "slug": "stereophlebia-tuberculata",
+    "catalog_accepted": "Stereophlebia tuberculata",
+    "if_current_name": "Stereophlebia pendula",
+    "if_year": 2018,
+    "occ": null
+  },
+  {
+    "slug": "stereopsis-humphreyi",
+    "catalog_accepted": "Stereopsis humphreyi",
+    "if_current_name": "Baisuzhenia humphreyi",
+    "if_year": 1984,
+    "occ": null
+  },
+  {
+    "slug": "stereum-aculeatum",
+    "catalog_accepted": "Stereum aculeatum",
+    "if_current_name": "Podoscypha aculeata",
+    "if_year": 1913,
+    "occ": null
+  },
+  {
+    "slug": "stereum-alneum",
+    "catalog_accepted": "Stereum alneum",
+    "if_current_name": "Phanerochaete alnea",
+    "if_year": 1838,
+    "occ": null
+  },
+  {
+    "slug": "stereum-concolor",
+    "catalog_accepted": "Stereum concolor",
+    "if_current_name": "Stereum ostrea",
+    "if_year": 1859,
+    "occ": null
+  },
+  {
+    "slug": "stereum-plicatum",
+    "catalog_accepted": "Stereum plicatum",
+    "if_current_name": "Cymatoderma plicatum",
+    "if_year": 1918,
+    "occ": null
+  },
+  {
+    "slug": "stereum-pulverulentum",
+    "catalog_accepted": "Stereum pulverulentum",
+    "if_current_name": "Hymenochaete luteobadia",
+    "if_year": 1888,
+    "occ": null
+  },
+  {
+    "slug": "stropharia-aurantiaca",
+    "catalog_accepted": "Stropharia aurantiaca",
+    "if_current_name": "Psilocybe aurantiaca",
+    "if_year": 1938,
+    "occ": null
+  },
+  {
+    "slug": "stypella-subgelatinosa",
+    "catalog_accepted": "Stypella subgelatinosa",
+    "if_current_name": "Protodontia subgelatinosa",
+    "if_year": 1998,
+    "occ": null
+  },
+  {
+    "slug": "suillus-cavipes",
+    "catalog_accepted": "Suillus cavipes",
+    "if_current_name": "Boletinus cavipes",
+    "if_year": 1964,
+    "occ": null
+  },
+  {
+    "slug": "suillus-pictus",
+    "catalog_accepted": "Suillus pictus",
+    "if_current_name": "Suillus spraguei",
+    "if_year": 1898,
+    "occ": null
+  },
+  {
+    "slug": "syzygospora-effibulata",
+    "catalog_accepted": "Syzygospora effibulata",
+    "if_current_name": "Carcinomyces effibulatus",
+    "if_year": 1986,
+    "occ": null
+  },
+  {
+    "slug": "telamonia-bulbosa",
+    "catalog_accepted": "Telamonia bulbosa",
+    "if_current_name": "Cortinarius bulbosus",
+    "if_year": 1877,
+    "occ": null
+  },
+  {
+    "slug": "tetrapyrgos-dendrophora",
+    "catalog_accepted": "Tetrapyrgos dendrophora",
+    "if_current_name": "Metacampanella dendrophora",
+    "if_year": 1987,
+    "occ": null
+  },
+  {
+    "slug": "tetrapyrgos-olivaceonigra",
+    "catalog_accepted": "Tetrapyrgos olivaceonigra",
+    "if_current_name": "Metacampanella olivaceonigra",
+    "if_year": 1987,
+    "occ": null
+  },
+  {
+    "slug": "tetrapyrgos-subdendrophora",
+    "catalog_accepted": "Tetrapyrgos subdendrophora",
+    "if_current_name": "Metacampanella subdendrophora",
+    "if_year": 1987,
+    "occ": null
+  },
+  {
+    "slug": "thanatephorus-biapiculatus",
+    "catalog_accepted": "Thanatephorus biapiculatus",
+    "if_current_name": "Rhizoctonia biapiculata",
+    "if_year": 1998,
+    "occ": null
+  },
+  {
+    "slug": "thanatephorus-hebelomatosporus",
+    "catalog_accepted": "Thanatephorus hebelomatosporus",
+    "if_current_name": "Rhizoctonia hebelomatospora",
+    "if_year": 1998,
+    "occ": null
+  },
+  {
+    "slug": "thanatephorus-microsclerotium",
+    "catalog_accepted": "Thanatephorus microsclerotium",
+    "if_current_name": "Rhizoctonia microsclerotia",
+    "if_year": 1998,
+    "occ": null
+  },
+  {
+    "slug": "thanatephorus-pendulus",
+    "catalog_accepted": "Thanatephorus pendulus",
+    "if_current_name": "Rhizoctonia sasakii",
+    "if_year": 1996,
+    "occ": null
+  },
+  {
+    "slug": "thelephora-biennis",
+    "catalog_accepted": "Thelephora biennis",
+    "if_current_name": "Tomentella phylacteris",
+    "if_year": 1821,
+    "occ": null
+  },
+  {
+    "slug": "thelephora-coerulea",
+    "catalog_accepted": "Thelephora coerulea",
+    "if_current_name": "Terana coerulea",
+    "if_year": 1805,
+    "occ": null
+  },
+  {
+    "slug": "thelephora-corrugata",
+    "catalog_accepted": "Thelephora corrugata",
+    "if_current_name": "Hydnoporia corrugata",
+    "if_year": 1815,
+    "occ": null
+  },
+  {
+    "slug": "thelephora-granulosa",
+    "catalog_accepted": "Thelephora granulosa",
+    "if_current_name": "Hyphodontia granulosa",
+    "if_year": 1801,
+    "occ": null
+  },
+  {
+    "slug": "thelephora-laxa",
+    "catalog_accepted": "Thelephora laxa",
+    "if_current_name": "Coniophora puteana",
+    "if_year": 1828,
+    "occ": null
+  },
+  {
+    "slug": "thelephora-lobata",
+    "catalog_accepted": "Thelephora lobata",
+    "if_current_name": "Stereum lobatum",
+    "if_year": 1828,
+    "occ": null
+  },
+  {
+    "slug": "thelephora-regularis",
+    "catalog_accepted": "Thelephora regularis",
+    "if_current_name": "Hyphodontia spathulata",
+    "if_year": 1828,
+    "occ": null
+  },
+  {
+    "slug": "thelephora-sparassoides",
+    "catalog_accepted": "Thelephora sparassoides",
+    "if_current_name": "Stereopsis sparassoides",
+    "if_year": 1901,
+    "occ": null
+  },
+  {
+    "slug": "thelephora-vinosa",
+    "catalog_accepted": "Thelephora vinosa",
+    "if_current_name": "Tomentella fusca",
+    "if_year": 1801,
+    "occ": null
+  },
+  {
+    "slug": "thelephora-viridis",
+    "catalog_accepted": "Thelephora viridis",
+    "if_current_name": "Peniophora viridis",
+    "if_year": 1851,
+    "occ": null
+  },
+  {
+    "slug": "tinctoporellus-epimiltinus",
+    "catalog_accepted": "Tinctoporellus epimiltinus",
+    "if_current_name": "Porogramme epimiltina",
+    "if_year": 1979,
+    "occ": null
+  },
+  {
+    "slug": "tolypocladium-microsporum",
+    "catalog_accepted": "Tolypocladium microsporum",
+    "if_current_name": "Nectriopsis microspora",
+    "if_year": 1983,
+    "occ": null
+  },
+  {
+    "slug": "tolypocladium-szemaoense",
+    "catalog_accepted": "Tolypocladium szemaoense",
+    "if_current_name": "Perennicordyceps szemaoensis",
+    "if_year": 2014,
+    "occ": null
+  },
+  {
+    "slug": "tomentella-asperula",
+    "catalog_accepted": "Tomentella asperula",
+    "if_current_name": "Thelephora asperula",
+    "if_year": 1906,
+    "occ": null
+  },
+  {
+    "slug": "tomentella-badia",
+    "catalog_accepted": "Tomentella badia",
+    "if_current_name": "Thelephora allobadia",
+    "if_year": 1975,
+    "occ": null
+  },
+  {
+    "slug": "tomentella-bryophila",
+    "catalog_accepted": "Tomentella bryophila",
+    "if_current_name": "Thelephora bryophila",
+    "if_year": 1974,
+    "occ": null
+  },
+  {
+    "slug": "tomentella-caesia",
+    "catalog_accepted": "Tomentella caesia",
+    "if_current_name": "Sebacina laciniata",
+    "if_year": 1887,
+    "occ": null
+  },
+  {
+    "slug": "tomentella-cinereoumbrina",
+    "catalog_accepted": "Tomentella cinereoumbrina",
+    "if_current_name": "Thelephora cinereoumbrina",
+    "if_year": 1993,
+    "occ": null
+  },
+  {
+    "slug": "tomentella-ferruginea",
+    "catalog_accepted": "Tomentella ferruginea",
+    "if_current_name": "Tomentella fusca",
+    "if_year": 1887,
+    "occ": null
+  },
+  {
+    "slug": "tomentella-lapida",
+    "catalog_accepted": "Tomentella lapida",
+    "if_current_name": "Thelephora lapida",
+    "if_year": 1984,
+    "occ": null
+  },
+  {
+    "slug": "tomentella-microspora",
+    "catalog_accepted": "Tomentella microspora",
+    "if_current_name": "Thelephora microspora",
+    "if_year": 1906,
+    "occ": null
+  },
+  {
+    "slug": "tomentella-olivascens",
+    "catalog_accepted": "Tomentella olivascens",
+    "if_current_name": "Thelephora olivascens",
+    "if_year": 1928,
+    "occ": null
+  },
+  {
+    "slug": "tomentella-pilosa",
+    "catalog_accepted": "Tomentella pilosa",
+    "if_current_name": "Thelephora pilosa",
+    "if_year": 1924,
+    "occ": null
+  },
+  {
+    "slug": "tomentella-stuposa",
+    "catalog_accepted": "Tomentella stuposa",
+    "if_current_name": "Thelephora stuposa",
+    "if_year": 1984,
+    "occ": null
+  },
+  {
+    "slug": "tomentellastrum-umbrinum",
+    "catalog_accepted": "Tomentellastrum umbrinum",
+    "if_current_name": "Polyozellus umbrinus",
+    "if_year": 1958,
+    "occ": null
+  },
+  {
+    "slug": "trachyderma-tsunodae",
+    "catalog_accepted": "Trachyderma tsunodae",
+    "if_current_name": "Ganoderma tsunodae",
+    "if_year": 1952,
+    "occ": null
+  },
+  {
+    "slug": "trametes-abietis",
+    "catalog_accepted": "Trametes abietis",
+    "if_current_name": "Porodaedalea abietis",
+    "if_year": 1888,
+    "occ": null
+  },
+  {
+    "slug": "trametes-acuta",
+    "catalog_accepted": "Trametes acuta",
+    "if_current_name": "Trametes strumosa",
+    "if_year": 1844,
+    "occ": null
+  },
+  {
+    "slug": "trametes-azurea",
+    "catalog_accepted": "Trametes azurea",
+    "if_current_name": "Trametes versicolor",
+    "if_year": 1965,
+    "occ": null
+  },
+  {
+    "slug": "trametes-bombycina",
+    "catalog_accepted": "Trametes bombycina",
+    "if_current_name": "Oxychaete cervinogilva",
+    "if_year": 1889,
+    "occ": null
+  },
+  {
+    "slug": "trametes-drummondii",
+    "catalog_accepted": "Trametes drummondii",
+    "if_current_name": "Phaeotrametes decipiens",
+    "if_year": 1950,
+    "occ": null
+  },
+  {
+    "slug": "trametes-nigrescens",
+    "catalog_accepted": "Trametes nigrescens",
+    "if_current_name": "Cerioporus scutellatus",
+    "if_year": 1905,
+    "occ": null
+  },
+  {
+    "slug": "trametes-nivosa",
+    "catalog_accepted": "Trametes nivosa",
+    "if_current_name": "Fomitopsis nivosa",
+    "if_year": 1907,
+    "occ": null
+  },
+  {
+    "slug": "trametes-serpens",
+    "catalog_accepted": "Trametes serpens",
+    "if_current_name": "Podofomes mollis",
+    "if_year": 1849,
+    "occ": null
+  },
+  {
+    "slug": "trametes-sinensis",
+    "catalog_accepted": "Trametes sinensis",
+    "if_current_name": "Trametes hirta",
+    "if_year": 1838,
+    "occ": null
+  },
+  {
+    "slug": "trametes-subectypa",
+    "catalog_accepted": "Trametes subectypa",
+    "if_current_name": "Fomitopsis subectypa",
+    "if_year": 1987,
+    "occ": null
+  },
+  {
+    "slug": "trametes-variegata",
+    "catalog_accepted": "Trametes variegata",
+    "if_current_name": "Hexagonia papyracea",
+    "if_year": 2012,
+    "occ": null
+  },
+  {
+    "slug": "tremella-aurantia",
+    "catalog_accepted": "Tremella aurantia",
+    "if_current_name": "Naematelia aurantia",
+    "if_year": 1822,
+    "occ": null
+  },
+  {
+    "slug": "trichaptum-biforme",
+    "catalog_accepted": "Trichaptum biforme",
+    "if_current_name": "Pallidohirschioporus biformis",
+    "if_year": 1972,
+    "occ": null
+  },
+  {
+    "slug": "trichaptum-fumosoavellaneum",
+    "catalog_accepted": "Trichaptum fumosoavellaneum",
+    "if_current_name": "Perennihirschioporus fumosoavellaneus",
+    "if_year": 1991,
+    "occ": null
+  },
+  {
+    "slug": "trichaptum-griseofuscum",
+    "catalog_accepted": "Trichaptum griseofuscum",
+    "if_current_name": "Nigrohirschioporus griseofuscus",
+    "if_year": 2003,
+    "occ": null
+  },
+  {
+    "slug": "trichaptum-purpureum",
+    "catalog_accepted": "Trichaptum purpureum",
+    "if_current_name": "Phlebiopsis dregeana",
+    "if_year": 1989,
+    "occ": null
+  },
+  {
+    "slug": "trichaptum-sector",
+    "catalog_accepted": "Trichaptum sector",
+    "if_current_name": "Nigrohirschioporus sector",
+    "if_year": 1971,
+    "occ": null
+  },
+  {
+    "slug": "trichaptum-subchartaceum",
+    "catalog_accepted": "Trichaptum subchartaceum",
+    "if_current_name": "Pallidohirschioporus subchartaceus",
+    "if_year": 1972,
+    "occ": null
+  },
+  {
+    "slug": "tricholoma-chrysites",
+    "catalog_accepted": "Tricholoma chrysites",
+    "if_current_name": "Tricholoma scalpturatum",
+    "if_year": 1874,
+    "occ": null
+  },
+  {
+    "slug": "tricholoma-humile",
+    "catalog_accepted": "Tricholoma humile",
+    "if_current_name": "Melanoleuca humilis",
+    "if_year": 1872,
+    "occ": null
+  },
+  {
+    "slug": "tricholoma-hygrophorus",
+    "catalog_accepted": "Tricholoma hygrophorus",
+    "if_current_name": "Melanoleuca hygrophorus",
+    "if_year": 1945,
+    "occ": null
+  },
+  {
+    "slug": "tricholoma-squarrulosum",
+    "catalog_accepted": "Tricholoma squarrulosum",
+    "if_current_name": "Tricholoma atrosquamosum",
+    "if_year": 1898,
+    "occ": null
+  },
+  {
+    "slug": "trichophaea-gregaria",
+    "catalog_accepted": "Trichophaea gregaria",
+    "if_current_name": "Wilcoxina gregaria",
+    "if_year": 1907,
+    "occ": null
+  },
+  {
+    "slug": "trichophaea-pseudogregaria",
+    "catalog_accepted": "Trichophaea pseudogregaria",
+    "if_current_name": "Pseudotrichophaea paludosa",
+    "if_year": 1907,
+    "occ": null
+  },
+  {
+    "slug": "trichophaeopsis-paludosa",
+    "catalog_accepted": "Trichophaeopsis paludosa",
+    "if_current_name": "Pseudotrichophaea paludosa",
+    "if_year": 1991,
+    "occ": null
+  },
+  {
+    "slug": "trichosporon-lodderae",
+    "catalog_accepted": "Trichosporon lodderae",
+    "if_current_name": "Candida viswanathii",
+    "if_year": 1952,
+    "occ": null
+  },
+  {
+    "slug": "tulosesus-amphithallus",
+    "catalog_accepted": "Tulosesus amphithallus",
+    "if_current_name": "Ephemerocybe amphithalla",
+    "if_year": 2020,
+    "occ": null
+  },
+  {
+    "slug": "tulosesus-angulatus",
+    "catalog_accepted": "Tulosesus angulatus",
+    "if_current_name": "Ephemerocybe angulata",
+    "if_year": 2020,
+    "occ": null
+  },
+  {
+    "slug": "tulosesus-bisporiger",
+    "catalog_accepted": "Tulosesus bisporiger",
+    "if_current_name": "Ephemerocybe bisporigera",
+    "if_year": 2020,
+    "occ": null
+  },
+  {
+    "slug": "tulosesus-callinus",
+    "catalog_accepted": "Tulosesus callinus",
+    "if_current_name": "Ephemerocybe callina",
+    "if_year": 2020,
+    "occ": null
+  },
+  {
+    "slug": "tulosesus-canistri",
+    "catalog_accepted": "Tulosesus canistri",
+    "if_current_name": "Ephemerocybe canistri",
+    "if_year": 2020,
+    "occ": null
+  },
+  {
+    "slug": "tulosesus-congregatus",
+    "catalog_accepted": "Tulosesus congregatus",
+    "if_current_name": "Ephemerocybe congregata",
+    "if_year": 2020,
+    "occ": null
+  },
+  {
+    "slug": "tulosesus-ephemerus",
+    "catalog_accepted": "Tulosesus ephemerus",
+    "if_current_name": "Coprinellus ephemerus",
+    "if_year": 2020,
+    "occ": null
+  },
+  {
+    "slug": "tulosesus-heterosetulosus",
+    "catalog_accepted": "Tulosesus heterosetulosus",
+    "if_current_name": "Ephemerocybe heterosetulosa",
+    "if_year": 2020,
+    "occ": null
+  },
+  {
+    "slug": "tulosesus-hiascens",
+    "catalog_accepted": "Tulosesus hiascens",
+    "if_current_name": "Ephemerocybe hiascens",
+    "if_year": 2020,
+    "occ": null
+  },
+  {
+    "slug": "tulosesus-impatiens",
+    "catalog_accepted": "Tulosesus impatiens",
+    "if_current_name": "Ephemerocybe impatiens",
+    "if_year": 2020,
+    "occ": null
+  },
+  {
+    "slug": "tulosesus-marculentus",
+    "catalog_accepted": "Tulosesus marculentus",
+    "if_current_name": "Ephemerocybe marculenta",
+    "if_year": 2020,
+    "occ": null
+  },
+  {
+    "slug": "tulosesus-pellucidus",
+    "catalog_accepted": "Tulosesus pellucidus",
+    "if_current_name": "Ephemerocybe pellucida",
+    "if_year": 2020,
+    "occ": null
+  },
+  {
+    "slug": "tulosesus-plagioporus",
+    "catalog_accepted": "Tulosesus plagioporus",
+    "if_current_name": "Ephemerocybe plagiopora",
+    "if_year": 2020,
+    "occ": null
+  },
+  {
+    "slug": "tulosesus-sassii",
+    "catalog_accepted": "Tulosesus sassii",
+    "if_current_name": "Ephemerocybe sassii",
+    "if_year": 2020,
+    "occ": null
+  },
+  {
+    "slug": "tulosesus-sclerocystidiosus",
+    "catalog_accepted": "Tulosesus sclerocystidiosus",
+    "if_current_name": "Ephemerocybe sclerocystidiosa",
+    "if_year": 2020,
+    "occ": null
+  },
+  {
+    "slug": "tulosesus-subdisseminatus",
+    "catalog_accepted": "Tulosesus subdisseminatus",
+    "if_current_name": "Ephemerocybe subdisseminata",
+    "if_year": 2020,
+    "occ": null
+  },
+  {
+    "slug": "tulosesus-subimpatiens",
+    "catalog_accepted": "Tulosesus subimpatiens",
+    "if_current_name": "Ephemerocybe subimpatiens",
+    "if_year": 2020,
+    "occ": null
+  },
+  {
+    "slug": "tulosesus-subpurpureus",
+    "catalog_accepted": "Tulosesus subpurpureus",
+    "if_current_name": "Ephemerocybe subpurpurea",
+    "if_year": 2020,
+    "occ": null
+  },
+  {
+    "slug": "tulosesus-velatopruinatus",
+    "catalog_accepted": "Tulosesus velatopruinatus",
+    "if_current_name": "Ephemerocybe velatopruinata",
+    "if_year": 2020,
+    "occ": null
+  },
+  {
+    "slug": "tylopilus-alboater",
+    "catalog_accepted": "Tylopilus alboater",
+    "if_current_name": "Neoporphyrellus alboater",
+    "if_year": 1909,
+    "occ": null
+  },
+  {
+    "slug": "typhula-hyalina",
+    "catalog_accepted": "Typhula hyalina",
+    "if_current_name": "Chaetotyphula hyalina",
+    "if_year": 1838,
+    "occ": null
+  },
+  {
+    "slug": "tyromyces-leucospongius",
+    "catalog_accepted": "Tyromyces leucospongius",
+    "if_current_name": "Spongiporus leucospongia",
+    "if_year": 1941,
+    "occ": null
+  },
+  {
+    "slug": "tyromyces-unicolor",
+    "catalog_accepted": "Tyromyces unicolor",
+    "if_current_name": "Somion unicolor",
+    "if_year": 1975,
+    "occ": null
+  },
+  {
+    "slug": "ugola-physaroides",
+    "catalog_accepted": "Ugola physaroides",
+    "if_current_name": "Asterophora lycoperdoides",
+    "if_year": 2001,
+    "occ": null
+  },
+  {
+    "slug": "volvariella-loveiana",
+    "catalog_accepted": "Volvariella loveiana",
+    "if_current_name": "Volvariella surrecta",
+    "if_year": 1964,
+    "occ": null
+  },
+  {
+    "slug": "wrightoporia-pouzarii",
+    "catalog_accepted": "Wrightoporia pouzarii",
+    "if_current_name": "Amylonotus africanus",
+    "if_year": 1987,
+    "occ": null
+  },
+  {
+    "slug": "wynnella-silvicola",
+    "catalog_accepted": "Wynnella silvicola",
+    "if_current_name": "Midotis lingua",
+    "if_year": 1966,
+    "occ": null
+  },
+  {
+    "slug": "xylaria-compuncta",
+    "catalog_accepted": "Xylaria compuncta",
+    "if_current_name": "Sarcoxylon compunctum",
+    "if_year": 1854,
+    "occ": null
+  },
+  {
+    "slug": "xylaria-tortuosa",
+    "catalog_accepted": "Xylaria tortuosa",
+    "if_current_name": "Xylaria digitata",
+    "if_year": 1879,
+    "occ": null
+  },
+  {
+    "slug": "xylobolus-thoenii",
+    "catalog_accepted": "Xylobolus thoenii",
+    "if_current_name": "Gloeomyces thoenii",
+    "if_year": 2011,
+    "occ": null
+  },
+  {
+    "slug": "xylodon-fimbriatus",
+    "catalog_accepted": "Xylodon fimbriatus",
+    "if_current_name": "Etheirodon fimbriatus",
+    "if_year": 1826,
+    "occ": null
+  },
+  {
+    "slug": "zelleromyces-australiensis",
+    "catalog_accepted": "Zelleromyces australiensis",
+    "if_current_name": "Lactarius australiensis",
+    "if_year": 1979,
+    "occ": null
+  },
+  {
+    "slug": "zelleromyces-ravenelii",
+    "catalog_accepted": "Zelleromyces ravenelii",
+    "if_current_name": "Hydnangium ravenelii",
+    "if_year": 1961,
+    "occ": null
+  }
+]

@@ -1,0 +1,230 @@
+[
+  {
+    "slug": "agaricus-calyptrodermus",
+    "accepted": "Agaricus calyptrodermus",
+    "if_status": "EMPTY",
+    "near_misses": null
+  },
+  {
+    "slug": "agaricus-heterosticha",
+    "accepted": "Agaricus heterosticha",
+    "if_status": "EMPTY",
+    "near_misses": null
+  },
+  {
+    "slug": "agaricus-resinosus",
+    "accepted": "Agaricus resinosus",
+    "if_status": "EMPTY",
+    "near_misses": null
+  },
+  {
+    "slug": "agaricus-turmale",
+    "accepted": "Agaricus turmale",
+    "if_status": "EMPTY",
+    "near_misses": null
+  },
+  {
+    "slug": "amanita-amerivirescens",
+    "accepted": "Amanita amerivirescens",
+    "if_status": "EMPTY",
+    "near_misses": null
+  },
+  {
+    "slug": "amanita-cruetilemurum",
+    "accepted": "Amanita cruetilemurum",
+    "if_status": "EMPTY",
+    "near_misses": null
+  },
+  {
+    "slug": "amanita-subcokeri",
+    "accepted": "Amanita subcokeri",
+    "if_status": "EMPTY",
+    "near_misses": null
+  },
+  {
+    "slug": "armillariella-cepistipes",
+    "accepted": "Armillariella cepistipes",
+    "if_status": "EMPTY",
+    "near_misses": null
+  },
+  {
+    "slug": "butyriboletus-fibrillosus",
+    "accepted": "Butyriboletus fibrillosus",
+    "if_status": "EMPTY",
+    "near_misses": null
+  },
+  {
+    "slug": "dacryopsida-nuda",
+    "accepted": "Dacryopsida nuda",
+    "if_status": "EMPTY",
+    "near_misses": null
+  },
+  {
+    "slug": "entoloma-salmonicolor",
+    "accepted": "Entoloma salmonicolor",
+    "if_status": "EMPTY",
+    "near_misses": null
+  },
+  {
+    "slug": "favolus-roseoporus",
+    "accepted": "Favolus roseoporus",
+    "if_status": "EMPTY",
+    "near_misses": null
+  },
+  {
+    "slug": "fuscoporia-ferrugineofusca",
+    "accepted": "Fuscoporia ferrugineofusca",
+    "if_status": "EMPTY",
+    "near_misses": null
+  },
+  {
+    "slug": "helvella-lacustris",
+    "accepted": "Helvella lacustris",
+    "if_status": "EMPTY",
+    "near_misses": null
+  },
+  {
+    "slug": "hydnum-aerolatum",
+    "accepted": "Hydnum aerolatum",
+    "if_status": "EMPTY",
+    "near_misses": null
+  },
+  {
+    "slug": "hydnum-hoopaiense",
+    "accepted": "Hydnum hoopaiense",
+    "if_status": "EMPTY",
+    "near_misses": null
+  },
+  {
+    "slug": "hydnum-pseudociliatum",
+    "accepted": "Hydnum pseudociliatum",
+    "if_status": "EMPTY",
+    "near_misses": null
+  },
+  {
+    "slug": "hygrocybe-persoonii",
+    "accepted": "Hygrocybe persoonii",
+    "if_status": "EMPTY",
+    "near_misses": null
+  },
+  {
+    "slug": "laccaria-laccata-var-amethystea",
+    "accepted": "Laccaria laccata var. amethystea",
+    "if_status": "EMPTY",
+    "near_misses": null
+  },
+  {
+    "slug": "leucocoprinus-roseolanatus",
+    "accepted": "Leucocoprinus roseolanatus",
+    "if_status": "EMPTY",
+    "near_misses": null
+  },
+  {
+    "slug": "morchella-esculenta-var-vulgaris",
+    "accepted": "Morchella esculenta var. vulgaris",
+    "if_status": "EMPTY",
+    "near_misses": null
+  },
+  {
+    "slug": "mycoacia-resupinata",
+    "accepted": "Mycoacia resupinata",
+    "if_status": "EMPTY",
+    "near_misses": null
+  },
+  {
+    "slug": "omphalina-graveolens",
+    "accepted": "Omphalina graveolens",
+    "if_status": "EMPTY",
+    "near_misses": null
+  },
+  {
+    "slug": "panaeolus-longinquus",
+    "accepted": "Panaeolus longinquus",
+    "if_status": "EMPTY",
+    "near_misses": null
+  },
+  {
+    "slug": "phaeocollybia-pluteoides",
+    "accepted": "Phaeocollybia pluteoides",
+    "if_status": "EMPTY",
+    "near_misses": null
+  },
+  {
+    "slug": "phanerochaete-eichleriana",
+    "accepted": "Phanerochaete eichleriana",
+    "if_status": "EMPTY",
+    "near_misses": null
+  },
+  {
+    "slug": "phellodon-perangustus",
+    "accepted": "Phellodon perangustus",
+    "if_status": "EMPTY",
+    "near_misses": null
+  },
+  {
+    "slug": "pholiota-pampeanus",
+    "accepted": "Pholiota pampeanus",
+    "if_status": "EMPTY",
+    "near_misses": null
+  },
+  {
+    "slug": "pholiotina-carbonaria",
+    "accepted": "Pholiotina carbonaria",
+    "if_status": "EMPTY",
+    "near_misses": null
+  },
+  {
+    "slug": "phylloporus-leucomyces",
+    "accepted": "Phylloporus leucomyces",
+    "if_status": "EMPTY",
+    "near_misses": null
+  },
+  {
+    "slug": "pyronema-granulata",
+    "accepted": "Pyronema granulata",
+    "if_status": "EMPTY",
+    "near_misses": null
+  },
+  {
+    "slug": "rubroboletus-subluridellus",
+    "accepted": "Rubroboletus subluridellus",
+    "if_status": "EMPTY",
+    "near_misses": null
+  },
+  {
+    "slug": "strobilomyces-retisporus",
+    "accepted": "Strobilomyces retisporus",
+    "if_status": "EMPTY",
+    "near_misses": null
+  },
+  {
+    "slug": "suillellus-luridiformis",
+    "accepted": "Suillellus luridiformis",
+    "if_status": "EMPTY",
+    "near_misses": null
+  },
+  {
+    "slug": "thelephora-granulosa-subsp-granulosa",
+    "accepted": "Thelephora granulosa subsp. granulosa",
+    "if_status": "EMPTY",
+    "near_misses": null
+  },
+  {
+    "slug": "trichaptum-cladotrichum",
+    "accepted": "Trichaptum cladotrichum",
+    "if_status": "EMPTY",
+    "near_misses": null
+  },
+  {
+    "slug": "tricholoma-cnista-var-evenosum",
+    "accepted": "Tricholoma cnista var. evenosum",
+    "if_status": "EMPTY",
+    "near_misses": null
+  },
+  {
+    "slug": "volvariella-volvaceai",
+    "accepted": "Volvariella volvaceai",
+    "if_status": "EMPTY",
+    "near_misses": null
+  }
+]

@@ -1,0 +1,67 @@
+[
+  {
+    "slug": "agaricus-australis",
+    "catalog": 1856,
+    "index_fungorum": 1887
+  },
+  {
+    "slug": "boletus-tessellatus",
+    "catalog": 1844,
+    "index_fungorum": 1878
+  },
+  {
+    "slug": "clavaria-muscoides",
+    "catalog": 1753,
+    "index_fungorum": 1787
+  },
+  {
+    "slug": "coprinus-cordisporus",
+    "catalog": 1923,
+    "index_fungorum": 1908
+  },
+  {
+    "slug": "discina-intermedia",
+    "catalog": 1987,
+    "index_fungorum": 2025
+  },
+  {
+    "slug": "ganoderma-insulare",
+    "catalog": 2020,
+    "index_fungorum": 1903
+  },
+  {
+    "slug": "ithyphallus-campanulatus",
+    "catalog": 1933,
+    "index_fungorum": 1888
+  },
+  {
+    "slug": "lactarius-indigo",
+    "catalog": 1822,
+    "index_fungorum": 1838
+  },
+  {
+    "slug": "morchella-esculenta",
+    "catalog": 1801,
+    "index_fungorum": 1794
+  },
+  {
+    "slug": "pleurotus-sapidus",
+    "catalog": 1887,
+    "index_fungorum": 1883
+  },
+  {
+    "slug": "polyporus-lutescens",
+    "catalog": 1825,
+    "index_fungorum": 1922
+  },
+  {
+    "slug": "ramaria-subtilis",
+    "catalog": 1982,
+    "index_fungorum": 1888
+  },
+  {
+    "slug": "russula-emetica",
+    "catalog": 1774,
+    "index_fungorum": 1796
+  }
+]

@@ -1,0 +1,5338 @@
+{
+ "build_expect": {
+  "backbone_records_added": 59,
+  "backbone_aliases_appended": 13
+ },
+ "generated": "2026-09-18",
+ "purpose": "Backbone repair for the MycoSci mushroom catalog \u2014 retrieval from the GBIF backbone + Index Fungorum.",
+ "provenance_tag": "backbone-refresh-2026-09-18",
+ "schema": "records[] match data/species.json exactly; if_enrichment{} mirrors mushroom-if-enrichment.json; provenance{} is out-of-band and NOT merged",
+ "rules_honoured": [
+  "GBIF species/match asserted matchType == EXACT before any usageKey was used (2 FUZZY and 3 HIGHERRANK/NONE results were refused, not used)",
+  "Index Fungorum queried with AnywhereInText; multi-record binomials disambiguated by CURRENT-NAME-RECORD-NUMBER self-reference, never exact[0]",
+  "GBIF sub-endpoints paged on endOfRecords (no count field)",
+  "edibility is 'unknown' on every record; reference-list membership was NOT treated as an edibility source"
+ ],
+ "counts": {
+  "records_added": 59,
+  "records_added_with_gbif_key": 57,
+  "records_added_unresolved": 2,
+  "records_with_year": 59,
+  "records_with_common_name": 36,
+  "alias_additions": 13,
+  "synonym_only_review": 9,
+  "degraded_field_refresh": 5
+ },
+ "records": [
+  {
+   "slug": "agaricus-menieri",
+   "accepted": "Agaricus menieri",
+   "genus": "Agaricus",
+   "family": "Agaricaceae",
+   "order": "Agaricales",
+   "class": "Agaricomycetes",
+   "phylum": "Basidiomycota",
+   "kingdom": "Fungi",
+   "commonName": null,
+   "edibility": "unknown",
+   "synonyms": [
+    "Agaricus ammophilus",
+    "Agaricus xanthoderma ammophilus",
+    "Agaricus xanthodermus ammophilus",
+    "Fungus ammophilus",
+    "Pratella ammophila",
+    "Pratella xanthoderma ammophila",
+    "Psalliota ammophila"
+   ],
+   "tier": "stub",
+   "unresolved": false,
+   "sources": [
+    "gbif",
+    "index-fungorum",
+    "backbone-refresh-2026-09-18"
+   ],
+   "authorship": "Bon",
+   "registry": {
+    "gbif": "5455280"
+   },
+   "year": 1981,
+   "description": "Agaricus menieri is a species of fungus in the genus Agaricus, family Agaricaceae, order Agaricales, class Agaricomycetes, phylum Basidiomycota.",
+   "descriptionAuto": true
+  },
+  {
+   "slug": "amanita-aprica",
+   "accepted": "Amanita aprica",
+   "genus": "Amanita",
+   "family": "Amanitaceae",
+   "order": "Agaricales",
+   "class": "Agaricomycetes",
+   "phylum": "Basidiomycota",
+   "kingdom": "Fungi",
+   "commonName": "Sunshine Amanita",
+   "edibility": "unknown",
+   "synonyms": [],
+   "tier": "stub",
+   "unresolved": false,
+   "sources": [
+    "gbif",
+    "index-fungorum",
+    "backbone-refresh-2026-09-18"
+   ],
+   "authorship": "J.E. Lindgr. & Tulloss",
+   "registry": {
+    "gbif": "5452296"
+   },
+   "vernacularNames": [
+    {
+     "name": "Sunshine Amanita",
+     "lang": "en"
+    }
+   ],
+   "year": 2005,
+   "description": "Amanita aprica is a species of fungus in the genus Amanita, family Amanitaceae, order Agaricales, class Agaricomycetes, phylum Basidiomycota.",
+   "descriptionAuto": true
+  },
+  {
+   "slug": "amanita-augusta",
+   "accepted": "Amanita augusta",
+   "genus": "Amanita",
+   "family": "Amanitaceae",
+   "order": "Agaricales",
+   "class": "Agaricomycetes",
+   "phylum": "Basidiomycota",
+   "kingdom": "Fungi",
+   "commonName": "Majestic Amanita",
+   "edibility": "unknown",
+   "synonyms": [],
+   "tier": "stub",
+   "unresolved": false,
+   "sources": [
+    "gbif",
+    "index-fungorum",
+    "backbone-refresh-2026-09-18"
+   ],
+   "authorship": "Bojantchev & R.M. Davis",
+   "registry": {
+    "gbif": "7423091"
+   },
+   "vernacularNames": [
+    {
+     "name": "Majestic Amanita",
+     "lang": "en"
+    },
+    {
+     "name": "Western Yellow-veiled Amanita",
+     "lang": "en"
+    }
+   ],
+   "year": 2013,
+   "description": "Amanita augusta is a species of fungus in the genus Amanita, family Amanitaceae, order Agaricales, class Agaricomycetes, phylum Basidiomycota.",
+   "descriptionAuto": true
+  },
+  {
+   "slug": "amanita-cokeri",
+   "accepted": "Amanita cokeri",
+   "genus": "Amanita",
+   "family": "Amanitaceae",
+   "order": "Agaricales",
+   "class": "Agaricomycetes",
+   "phylum": "Basidiomycota",
+   "kingdom": "Fungi",
+   "commonName": "Coker's amanita",
+   "edibility": "unknown",
+   "synonyms": [
+    "Aspidella cokeri"
+   ],
+   "tier": "stub",
+   "unresolved": false,
+   "sources": [
+    "gbif",
+    "index-fungorum",
+    "backbone-refresh-2026-09-18"
+   ],
+   "authorship": "E.-J. Gilbert & K\u00fchner ex E.-J. Gilbert",
+   "registry": {
+    "gbif": "5451920"
+   },
+   "vernacularNames": [
+    {
+     "name": "Coker's amanita",
+     "lang": "en"
+    }
+   ],
+   "year": 1940,
+   "description": "Amanita cokeri is a species of fungus in the genus Amanita, family Amanitaceae, order Agaricales, class Agaricomycetes, phylum Basidiomycota.",
+   "descriptionAuto": true
+  },
+  {
+   "slug": "amanita-cothurnata",
+   "accepted": "Amanita cothurnata",
+   "genus": "Amanita",
+   "family": "Amanitaceae",
+   "order": "Agaricales",
+   "class": "Agaricomycetes",
+   "phylum": "Basidiomycota",
+   "kingdom": "Fungi",
+   "commonName": null,
+   "edibility": "unknown",
+   "synonyms": [
+    "Venenarius cothurnensis"
+   ],
+   "tier": "stub",
+   "unresolved": false,
+   "sources": [
+    "gbif",
+    "index-fungorum",
+    "backbone-refresh-2026-09-18"
+   ],
+   "authorship": "G.F. Atk.",
+   "registry": {
+    "gbif": "5452587"
+   },
+   "year": 1900,
+   "description": "Amanita cothurnata is a species of fungus in the genus Amanita, family Amanitaceae, order Agaricales, class Agaricomycetes, phylum Basidiomycota.",
+   "descriptionAuto": true
+  },
+  {
+   "slug": "amanita-flavorubescens",
+   "accepted": "Amanita flavorubescens",
+   "genus": "Amanita",
+   "family": "Amanitaceae",
+   "order": "Agaricales",
+   "class": "Agaricomycetes",
+   "phylum": "Basidiomycota",
+   "kingdom": "Fungi",
+   "commonName": null,
+   "edibility": "unknown",
+   "synonyms": [
+    "Venenarius flavorubescens"
+   ],
+   "tier": "stub",
+   "unresolved": false,
+   "sources": [
+    "gbif",
+    "index-fungorum",
+    "backbone-refresh-2026-09-18"
+   ],
+   "authorship": "G.F. Atk.",
+   "registry": {
+    "gbif": "5452397"
+   },
+   "year": 1902,
+   "description": "Amanita flavorubescens is a species of fungus in the genus Amanita, family Amanitaceae, order Agaricales, class Agaricomycetes, phylum Basidiomycota.",
+   "descriptionAuto": true
+  },
+  {
+   "slug": "amanita-gioiosa",
+   "accepted": "Amanita gioiosa",
+   "genus": "Amanita",
+   "family": "Amanitaceae",
+   "order": "Agaricales",
+   "class": "Agaricomycetes",
+   "phylum": "Basidiomycota",
+   "kingdom": "Fungi",
+   "commonName": "Pebbly Soil Amanita",
+   "edibility": "unknown",
+   "synonyms": [
+    "Amanita pantherina mediterranea"
+   ],
+   "tier": "stub",
+   "unresolved": false,
+   "sources": [
+    "gbif",
+    "index-fungorum",
+    "backbone-refresh-2026-09-18"
+   ],
+   "authorship": "S. Curreli",
+   "registry": {
+    "gbif": "5452115"
+   },
+   "vernacularNames": [
+    {
+     "name": "Pebbly Soil Amanita",
+     "lang": "en"
+    }
+   ],
+   "year": 1990,
+   "description": "Amanita gioiosa is a species of fungus in the genus Amanita, family Amanitaceae, order Agaricales, class Agaricomycetes, phylum Basidiomycota.",
+   "descriptionAuto": true
+  },
+  {
+   "slug": "amanita-gracilior",
+   "accepted": "Amanita gracilior",
+   "genus": "Amanita",
+   "family": "Amanitaceae",
+   "order": "Agaricales",
+   "class": "Agaricomycetes",
+   "phylum": "Basidiomycota",
+   "kingdom": "Fungi",
+   "commonName": "European Slender Lepidella",
+   "edibility": "unknown",
+   "synonyms": [
+    "Amanita baccata gracilior",
+    "Amanita gracilior beilleioides"
+   ],
+   "tier": "stub",
+   "unresolved": false,
+   "sources": [
+    "gbif",
+    "index-fungorum",
+    "backbone-refresh-2026-09-18"
+   ],
+   "authorship": "Bas & Honrubia",
+   "registry": {
+    "gbif": "5452102"
+   },
+   "vernacularNames": [
+    {
+     "name": "European Slender Lepidella",
+     "lang": "en"
+    }
+   ],
+   "year": 1982,
+   "description": "Amanita gracilior is a species of fungus in the genus Amanita, family Amanitaceae, order Agaricales, class Agaricomycetes, phylum Basidiomycota.",
+   "descriptionAuto": true
+  },
+  {
+   "slug": "amanita-heterochroma",
+   "accepted": "Amanita heterochroma",
+   "genus": "Amanita",
+   "family": "Amanitaceae",
+   "order": "Agaricales",
+   "class": "Agaricomycetes",
+   "phylum": "Basidiomycota",
+   "kingdom": "Fungi",
+   "commonName": null,
+   "edibility": "unknown",
+   "synonyms": [
+    "Amanita heterochroma alba",
+    "Amanita muscaria heterochroma",
+    "Amanita variabilis"
+   ],
+   "tier": "stub",
+   "unresolved": false,
+   "sources": [
+    "gbif",
+    "index-fungorum",
+    "backbone-refresh-2026-09-18"
+   ],
+   "authorship": "S. Curreli",
+   "registry": {
+    "gbif": "5452433"
+   },
+   "year": 1992,
+   "description": "Amanita heterochroma is a species of fungus in the genus Amanita, family Amanitaceae, order Agaricales, class Agaricomycetes, phylum Basidiomycota.",
+   "descriptionAuto": true
+  },
+  {
+   "slug": "amanita-hongoi",
+   "accepted": "Amanita hongoi",
+   "genus": "Amanita",
+   "family": "Amanitaceae",
+   "order": "Agaricales",
+   "class": "Agaricomycetes",
+   "phylum": "Basidiomycota",
+   "kingdom": "Fungi",
+   "commonName": "Hongo's Lepidella",
+   "edibility": "unknown",
+   "synonyms": [],
+   "tier": "stub",
+   "unresolved": false,
+   "sources": [
+    "gbif",
+    "index-fungorum",
+    "backbone-refresh-2026-09-18"
+   ],
+   "authorship": "Bas",
+   "registry": {
+    "gbif": "5451806"
+   },
+   "vernacularNames": [
+    {
+     "name": "Hongo's Lepidella",
+     "lang": "en"
+    }
+   ],
+   "year": 1969,
+   "description": "Amanita hongoi is a species of fungus in the genus Amanita, family Amanitaceae, order Agaricales, class Agaricomycetes, phylum Basidiomycota.",
+   "descriptionAuto": true
+  },
+  {
+   "slug": "amanita-ibotengutake",
+   "accepted": "Amanita ibotengutake",
+   "genus": "Amanita",
+   "family": "Amanitaceae",
+   "order": "Agaricales",
+   "class": "Agaricomycetes",
+   "phylum": "Basidiomycota",
+   "kingdom": "Fungi",
+   "commonName": "Japanese Ringed-Bulb Amanita",
+   "edibility": "unknown",
+   "synonyms": [],
+   "tier": "stub",
+   "unresolved": false,
+   "sources": [
+    "gbif",
+    "index-fungorum",
+    "backbone-refresh-2026-09-18"
+   ],
+   "authorship": "T. Oda, C. Tanaka & Tsuda",
+   "registry": {
+    "gbif": "5452245"
+   },
+   "vernacularNames": [
+    {
+     "name": "Japanese Ringed-Bulb Amanita",
+     "lang": "en"
+    }
+   ],
+   "year": 2002,
+   "description": "Amanita ibotengutake is a species of fungus in the genus Amanita, family Amanitaceae, order Agaricales, class Agaricomycetes, phylum Basidiomycota.",
+   "descriptionAuto": true
+  },
+  {
+   "slug": "amanita-neoovoidea",
+   "accepted": "Amanita neoovoidea",
+   "genus": "Amanita",
+   "family": "Amanitaceae",
+   "order": "Agaricales",
+   "class": "Agaricomycetes",
+   "phylum": "Basidiomycota",
+   "kingdom": "Fungi",
+   "commonName": null,
+   "edibility": "unknown",
+   "synonyms": [],
+   "tier": "stub",
+   "unresolved": true,
+   "sources": [
+    "index-fungorum",
+    "backbone-refresh-2026-09-18"
+   ],
+   "authorship": "Hongo",
+   "year": 1976,
+   "description": "Amanita neoovoidea is a species of fungus in the genus Amanita, family Amanitaceae, order Agaricales, class Agaricomycetes, phylum Basidiomycota.",
+   "descriptionAuto": true
+  },
+  {
+   "slug": "amanita-pseudoporphyria",
+   "accepted": "Amanita pseudoporphyria",
+   "genus": "Amanita",
+   "family": "Amanitaceae",
+   "order": "Agaricales",
+   "class": "Agaricomycetes",
+   "phylum": "Basidiomycota",
+   "kingdom": "Fungi",
+   "commonName": "Hongo's False Death Cap",
+   "edibility": "unknown",
+   "synonyms": [],
+   "tier": "stub",
+   "unresolved": false,
+   "sources": [
+    "gbif",
+    "index-fungorum",
+    "backbone-refresh-2026-09-18"
+   ],
+   "authorship": "Hongo",
+   "registry": {
+    "gbif": "5452310"
+   },
+   "vernacularNames": [
+    {
+     "name": "Hongo's False Death Cap",
+     "lang": "en"
+    }
+   ],
+   "year": 1957,
+   "description": "Amanita pseudoporphyria is a species of fungus in the genus Amanita, family Amanitaceae, order Agaricales, class Agaricomycetes, phylum Basidiomycota.",
+   "descriptionAuto": true
+  },
+  {
+   "slug": "amanita-pseudoregalis",
+   "accepted": "Amanita pseudoregalis",
+   "genus": "Amanita",
+   "family": "Amanitaceae",
+   "order": "Agaricales",
+   "class": "Agaricomycetes",
+   "phylum": "Basidiomycota",
+   "kingdom": "Fungi",
+   "commonName": null,
+   "edibility": "unknown",
+   "synonyms": [],
+   "tier": "stub",
+   "unresolved": false,
+   "sources": [
+    "gbif",
+    "index-fungorum",
+    "backbone-refresh-2026-09-18"
+   ],
+   "authorship": "Pluvinage",
+   "registry": {
+    "gbif": "5452420"
+   },
+   "year": 1991,
+   "description": "Amanita pseudoregalis is a species of fungus in the genus Amanita, family Amanitaceae, order Agaricales, class Agaricomycetes, phylum Basidiomycota.",
+   "descriptionAuto": true
+  },
+  {
+   "slug": "amanita-velosa",
+   "accepted": "Amanita velosa",
+   "genus": "Amanita",
+   "family": "Amanitaceae",
+   "order": "Agaricales",
+   "class": "Agaricomycetes",
+   "phylum": "Basidiomycota",
+   "kingdom": "Fungi",
+   "commonName": "Bittersweet Orange Ringless Amanita",
+   "edibility": "unknown",
+   "synonyms": [
+    "Amanitopsis velosa"
+   ],
+   "tier": "stub",
+   "unresolved": false,
+   "sources": [
+    "gbif",
+    "index-fungorum",
+    "backbone-refresh-2026-09-18"
+   ],
+   "authorship": "(Peck) Lloyd",
+   "registry": {
+    "gbif": "5452448"
+   },
+   "vernacularNames": [
+    {
+     "name": "Bittersweet Orange Ringless Amanita",
+     "lang": "en"
+    },
+    {
+     "name": "springtime amanita",
+     "lang": "en"
+    }
+   ],
+   "year": 1898,
+   "description": "Amanita velosa is a species of fungus in the genus Amanita, family Amanitaceae, order Agaricales, class Agaricomycetes, phylum Basidiomycota.",
+   "descriptionAuto": true
+  },
+  {
+   "slug": "boletus-rex-veris",
+   "accepted": "Boletus rex-veris",
+   "genus": "Boletus",
+   "family": "Boletaceae",
+   "order": "Boletales",
+   "class": "Agaricomycetes",
+   "phylum": "Basidiomycota",
+   "kingdom": "Fungi",
+   "commonName": "Spring King",
+   "edibility": "unknown",
+   "synonyms": [],
+   "tier": "stub",
+   "unresolved": false,
+   "sources": [
+    "gbif",
+    "index-fungorum",
+    "backbone-refresh-2026-09-18"
+   ],
+   "authorship": "D. Arora & Simonini",
+   "registry": {
+    "gbif": "6016634"
+   },
+   "vernacularNames": [
+    {
+     "name": "Spring King",
+     "lang": "en"
+    },
+    {
+     "name": "Spring King Bolete",
+     "lang": "en"
+    }
+   ],
+   "year": 2008,
+   "description": "Boletus rex-veris is a species of fungus in the genus Boletus, family Boletaceae, order Boletales, class Agaricomycetes, phylum Basidiomycota.",
+   "descriptionAuto": true
+  },
+  {
+   "slug": "boletus-variipes",
+   "accepted": "Boletus variipes",
+   "genus": "Boletus",
+   "family": "Boletaceae",
+   "order": "Boletales",
+   "class": "Agaricomycetes",
+   "phylum": "Basidiomycota",
+   "kingdom": "Fungi",
+   "commonName": null,
+   "edibility": "unknown",
+   "synonyms": [
+    "Boletus variipes fagicola"
+   ],
+   "tier": "stub",
+   "unresolved": false,
+   "sources": [
+    "gbif",
+    "index-fungorum",
+    "backbone-refresh-2026-09-18"
+   ],
+   "authorship": "Peck",
+   "registry": {
+    "gbif": "7240439"
+   },
+   "year": 1888,
+   "description": "Boletus variipes is a species of fungus in the genus Boletus, family Boletaceae, order Boletales, class Agaricomycetes, phylum Basidiomycota.",
+   "descriptionAuto": true
+  },
+  {
+   "slug": "byssomerulius-incarnatus",
+   "accepted": "Byssomerulius incarnatus",
+   "genus": "Byssomerulius",
+   "family": "Irpicaceae",
+   "order": "Polyporales",
+   "class": "Agaricomycetes",
+   "phylum": "Basidiomycota",
+   "kingdom": "Fungi",
+   "commonName": null,
+   "edibility": "unknown",
+   "synonyms": [
+    "Cantharellus incarnatus",
+    "Merulius incarnatus",
+    "Merulius tremellosus incarnatus",
+    "Phlebia incarnata",
+    "Sesia incarnata"
+   ],
+   "tier": "stub",
+   "unresolved": false,
+   "sources": [
+    "gbif",
+    "index-fungorum",
+    "backbone-refresh-2026-09-18"
+   ],
+   "authorship": "(Schwein.) Gilb.",
+   "registry": {
+    "gbif": "2544954"
+   },
+   "year": 1974,
+   "description": "Byssomerulius incarnatus is a species of fungus in the genus Byssomerulius, family Irpicaceae, order Polyporales, class Agaricomycetes, phylum Basidiomycota.",
+   "descriptionAuto": true
+  },
+  {
+   "slug": "cantharellus-formosus",
+   "accepted": "Cantharellus formosus",
+   "genus": "Cantharellus",
+   "family": "Hydnaceae",
+   "order": "Cantharellales",
+   "class": "Agaricomycetes",
+   "phylum": "Basidiomycota",
+   "kingdom": "Fungi",
+   "commonName": "Pacific Golden Chanterelle",
+   "edibility": "unknown",
+   "synonyms": [],
+   "tier": "stub",
+   "unresolved": false,
+   "sources": [
+    "gbif",
+    "index-fungorum",
+    "backbone-refresh-2026-09-18"
+   ],
+   "authorship": "Corner",
+   "registry": {
+    "gbif": "5466954"
+   },
+   "vernacularNames": [
+    {
+     "name": "Pacific Golden Chanterelle",
+     "lang": "en"
+    }
+   ],
+   "year": 1966,
+   "description": "Cantharellus formosus is a species of fungus in the genus Cantharellus, family Hydnaceae, order Cantharellales, class Agaricomycetes, phylum Basidiomycota.",
+   "descriptionAuto": true
+  },
+  {
+   "slug": "coprinopsis-alopecia",
+   "accepted": "Coprinopsis alopecia",
+   "genus": "Coprinopsis",
+   "family": "Psathyrellaceae",
+   "order": "Agaricales",
+   "class": "Agaricomycetes",
+   "phylum": "Basidiomycota",
+   "kingdom": "Fungi",
+   "commonName": "Distinguished Inkcap",
+   "edibility": "unknown",
+   "synonyms": [
+    "Agaricus alopecia",
+    "Coprinus alopecia"
+   ],
+   "tier": "stub",
+   "unresolved": false,
+   "sources": [
+    "gbif",
+    "index-fungorum",
+    "backbone-refresh-2026-09-18"
+   ],
+   "authorship": "(Lasch) La Chiusa & Boffelli",
+   "registry": {
+    "gbif": "9809682"
+   },
+   "vernacularNames": [
+    {
+     "name": "Distinguished Inkcap",
+     "lang": "en"
+    }
+   ],
+   "year": 2017,
+   "description": "Coprinopsis alopecia is a species of fungus in the genus Coprinopsis, family Psathyrellaceae, order Agaricales, class Agaricomycetes, phylum Basidiomycota.",
+   "descriptionAuto": true
+  },
+  {
+   "slug": "coprinopsis-variegata",
+   "accepted": "Coprinopsis variegata",
+   "genus": "Coprinopsis",
+   "family": "Psathyrellaceae",
+   "order": "Agaricales",
+   "class": "Agaricomycetes",
+   "phylum": "Basidiomycota",
+   "kingdom": "Fungi",
+   "commonName": "feltscale inky cap",
+   "edibility": "unknown",
+   "synonyms": [
+    "Coprinus atramentarius crassivelatus",
+    "Coprinus variegatus"
+   ],
+   "tier": "stub",
+   "unresolved": false,
+   "sources": [
+    "gbif",
+    "index-fungorum",
+    "backbone-refresh-2026-09-18"
+   ],
+   "authorship": "(Peck) Redhead, Vilgalys & Moncalvo",
+   "registry": {
+    "gbif": "5448870"
+   },
+   "vernacularNames": [
+    {
+     "name": "feltscale inky cap",
+     "lang": "en"
+    },
+    {
+     "name": "scaly ink cap",
+     "lang": "en"
+    }
+   ],
+   "year": 2001,
+   "description": "Coprinopsis variegata is a species of fungus in the genus Coprinopsis, family Psathyrellaceae, order Agaricales, class Agaricomycetes, phylum Basidiomycota.",
+   "descriptionAuto": true
+  },
+  {
+   "slug": "cortinarius-cinnamomeofulvus",
+   "accepted": "Cortinarius cinnamomeofulvus",
+   "genus": "Cortinarius",
+   "family": "Cortinariaceae",
+   "order": "Agaricales",
+   "class": "Agaricomycetes",
+   "phylum": "Basidiomycota",
+   "kingdom": "Fungi",
+   "commonName": null,
+   "edibility": "unknown",
+   "synonyms": [
+    "Dermocybe cinnamomea cinnamomeofulva",
+    "Dermocybe cinnamomeofulva"
+   ],
+   "tier": "stub",
+   "unresolved": false,
+   "sources": [
+    "gbif",
+    "index-fungorum",
+    "backbone-refresh-2026-09-18"
+   ],
+   "authorship": "Rob. Henry",
+   "registry": {
+    "gbif": "3349396"
+   },
+   "year": 1988,
+   "description": "Cortinarius cinnamomeofulvus is a species of fungus in the genus Cortinarius, family Cortinariaceae, order Agaricales, class Agaricomycetes, phylum Basidiomycota.",
+   "descriptionAuto": true
+  },
+  {
+   "slug": "cortinarius-cruentus",
+   "accepted": "Cortinarius cruentus",
+   "genus": "Cortinarius",
+   "family": "Cortinariaceae",
+   "order": "Agaricales",
+   "class": "Agaricomycetes",
+   "phylum": "Basidiomycota",
+   "kingdom": "Fungi",
+   "commonName": null,
+   "edibility": "unknown",
+   "synonyms": [],
+   "tier": "stub",
+   "unresolved": false,
+   "sources": [
+    "gbif",
+    "index-fungorum",
+    "backbone-refresh-2026-09-18"
+   ],
+   "authorship": "Bidaud & Reumaux",
+   "registry": {
+    "gbif": "3351114"
+   },
+   "year": 1994,
+   "description": "Cortinarius cruentus is a species of fungus in the genus Cortinarius, family Cortinariaceae, order Agaricales, class Agaricomycetes, phylum Basidiomycota.",
+   "descriptionAuto": true
+  },
+  {
+   "slug": "cortinarius-mirandus",
+   "accepted": "Cortinarius mirandus",
+   "genus": "Cortinarius",
+   "family": "Cortinariaceae",
+   "order": "Agaricales",
+   "class": "Agaricomycetes",
+   "phylum": "Basidiomycota",
+   "kingdom": "Fungi",
+   "commonName": null,
+   "edibility": "unknown",
+   "synonyms": [],
+   "tier": "stub",
+   "unresolved": false,
+   "sources": [
+    "gbif",
+    "index-fungorum",
+    "backbone-refresh-2026-09-18"
+   ],
+   "authorship": "Mo\u00ebnne-Locc. & Reumaux",
+   "registry": {
+    "gbif": "3351051"
+   },
+   "year": 1994,
+   "description": "Cortinarius mirandus is a species of fungus in the genus Cortinarius, family Cortinariaceae, order Agaricales, class Agaricomycetes, phylum Basidiomycota.",
+   "descriptionAuto": true
+  },
+  {
+   "slug": "craterellus-calicornucopioides",
+   "accepted": "Craterellus calicornucopioides",
+   "genus": "Craterellus",
+   "family": "Hydnaceae",
+   "order": "Cantharellales",
+   "class": "Agaricomycetes",
+   "phylum": "Basidiomycota",
+   "kingdom": "Fungi",
+   "commonName": "California Black Trumpet",
+   "edibility": "unknown",
+   "synonyms": [],
+   "tier": "stub",
+   "unresolved": false,
+   "sources": [
+    "gbif",
+    "index-fungorum",
+    "backbone-refresh-2026-09-18"
+   ],
+   "authorship": "D. Arora & J.L. Frank",
+   "registry": {
+    "gbif": "8358272"
+   },
+   "vernacularNames": [
+    {
+     "name": "California Black Trumpet",
+     "lang": "en"
+    }
+   ],
+   "year": 2015,
+   "description": "Craterellus calicornucopioides is a species of fungus in the genus Craterellus, family Hydnaceae, order Cantharellales, class Agaricomycetes, phylum Basidiomycota.",
+   "descriptionAuto": true
+  },
+  {
+   "slug": "cyttaria-espinosae",
+   "accepted": "Cyttaria espinosae",
+   "genus": "Cyttaria",
+   "family": "Cyttariaceae",
+   "order": "Cyttariales",
+   "class": "Leotiomycetes",
+   "phylum": "Ascomycota",
+   "kingdom": "Fungi",
+   "commonName": null,
+   "edibility": "unknown",
+   "synonyms": [],
+   "tier": "stub",
+   "unresolved": false,
+   "sources": [
+    "gbif",
+    "index-fungorum",
+    "backbone-refresh-2026-09-18"
+   ],
+   "authorship": "Lloyd",
+   "registry": {
+    "gbif": "2580236"
+   },
+   "year": 1917,
+   "description": "Cyttaria espinosae is a species of fungus in the genus Cyttaria, family Cyttariaceae, order Cyttariales, class Leotiomycetes, phylum Ascomycota.",
+   "descriptionAuto": true
+  },
+  {
+   "slug": "entoloma-quadratum",
+   "accepted": "Entoloma quadratum",
+   "genus": "Entoloma",
+   "family": "Entolomataceae",
+   "order": "Agaricales",
+   "class": "Agaricomycetes",
+   "phylum": "Basidiomycota",
+   "kingdom": "Fungi",
+   "commonName": "Salmon-colored Entoloma",
+   "edibility": "unknown",
+   "synonyms": [
+    "Agaricus quadratus",
+    "Inocephalus quadratus",
+    "Latzinaea quadrata",
+    "Nolanea quadrata"
+   ],
+   "tier": "stub",
+   "unresolved": false,
+   "sources": [
+    "gbif",
+    "index-fungorum",
+    "backbone-refresh-2026-09-18"
+   ],
+   "authorship": "(Berk. & M.A. Curtis) E. Horak",
+   "registry": {
+    "gbif": "3346639"
+   },
+   "vernacularNames": [
+    {
+     "name": "Salmon-colored Entoloma",
+     "lang": "en"
+    },
+    {
+     "name": "salmon pinkgill",
+     "lang": "en"
+    }
+   ],
+   "year": 1976,
+   "description": "Entoloma quadratum is a species of fungus in the genus Entoloma, family Entolomataceae, order Agaricales, class Agaricomycetes, phylum Basidiomycota.",
+   "descriptionAuto": true
+  },
+  {
+   "slug": "entoloma-sarcopum",
+   "accepted": "Entoloma sarcopum",
+   "genus": "Entoloma",
+   "family": "Entolomataceae",
+   "order": "Agaricales",
+   "class": "Agaricomycetes",
+   "phylum": "Basidiomycota",
+   "kingdom": "Fungi",
+   "commonName": null,
+   "edibility": "unknown",
+   "synonyms": [],
+   "tier": "stub",
+   "unresolved": true,
+   "sources": [
+    "index-fungorum",
+    "backbone-refresh-2026-09-18"
+   ],
+   "authorship": "Nagas. & Hongo",
+   "year": 1999,
+   "description": "Entoloma sarcopum is a species of fungus in the genus Entoloma, family Entolomataceae, order Agaricales, class Agaricomycetes, phylum Basidiomycota.",
+   "descriptionAuto": true
+  },
+  {
+   "slug": "flammulina-filiformis",
+   "accepted": "Flammulina filiformis",
+   "genus": "Flammulina",
+   "family": "Physalacriaceae",
+   "order": "Agaricales",
+   "class": "Agaricomycetes",
+   "phylum": "Basidiomycota",
+   "kingdom": "Fungi",
+   "commonName": null,
+   "edibility": "unknown",
+   "synonyms": [
+    "Flammulina velutipes filiformis"
+   ],
+   "tier": "stub",
+   "unresolved": false,
+   "sources": [
+    "gbif",
+    "index-fungorum",
+    "backbone-refresh-2026-09-18"
+   ],
+   "authorship": "(Z.W. Ge, X.B. Liu & Zhu L. Yang) P.M. Wang, Y.C. Dai, E. Horak & Zhu L. Yang",
+   "registry": {
+    "gbif": "10418172"
+   },
+   "year": 2018,
+   "description": "Flammulina filiformis is a species of fungus in the genus Flammulina, family Physalacriaceae, order Agaricales, class Agaricomycetes, phylum Basidiomycota.",
+   "descriptionAuto": true
+  },
+  {
+   "slug": "fomitopsis-mounceae",
+   "accepted": "Fomitopsis mounceae",
+   "genus": "Fomitopsis",
+   "family": "Fomitopsidaceae",
+   "order": "Polyporales",
+   "class": "Agaricomycetes",
+   "phylum": "Basidiomycota",
+   "kingdom": "Fungi",
+   "commonName": "Northern Red Belt",
+   "edibility": "unknown",
+   "synonyms": [],
+   "tier": "stub",
+   "unresolved": false,
+   "sources": [
+    "gbif",
+    "index-fungorum",
+    "backbone-refresh-2026-09-18"
+   ],
+   "authorship": "Haight & Nakasone",
+   "registry": {
+    "gbif": "10825597"
+   },
+   "vernacularNames": [
+    {
+     "name": "Northern Red Belt",
+     "lang": "en"
+    }
+   ],
+   "year": 2019,
+   "description": "Fomitopsis mounceae is a species of fungus in the genus Fomitopsis, family Fomitopsidaceae, order Polyporales, class Agaricomycetes, phylum Basidiomycota.",
+   "descriptionAuto": true
+  },
+  {
+   "slug": "fomitopsis-ochracea",
+   "accepted": "Fomitopsis ochracea",
+   "genus": "Fomitopsis",
+   "family": "Fomitopsidaceae",
+   "order": "Polyporales",
+   "class": "Agaricomycetes",
+   "phylum": "Basidiomycota",
+   "kingdom": "Fungi",
+   "commonName": "American Brown Fomitopsis",
+   "edibility": "unknown",
+   "synonyms": [],
+   "tier": "stub",
+   "unresolved": false,
+   "sources": [
+    "gbif",
+    "index-fungorum",
+    "backbone-refresh-2026-09-18"
+   ],
+   "authorship": "Ryvarden & Stokland",
+   "registry": {
+    "gbif": "3361986"
+   },
+   "vernacularNames": [
+    {
+     "name": "American Brown Fomitopsis",
+     "lang": "en"
+    },
+    {
+     "name": "Ochre-banded Conk",
+     "lang": "en"
+    }
+   ],
+   "year": 2008,
+   "description": "Fomitopsis ochracea is a species of fungus in the genus Fomitopsis, family Fomitopsidaceae, order Polyporales, class Agaricomycetes, phylum Basidiomycota.",
+   "descriptionAuto": true
+  },
+  {
+   "slug": "helvella-dryophila",
+   "accepted": "Helvella dryophila",
+   "genus": "Helvella",
+   "family": "Helvellaceae",
+   "order": "Pezizales",
+   "class": "Pezizomycetes",
+   "phylum": "Ascomycota",
+   "kingdom": "Fungi",
+   "commonName": "Oak-loving Elfin Saddle",
+   "edibility": "unknown",
+   "synonyms": [],
+   "tier": "stub",
+   "unresolved": false,
+   "sources": [
+    "gbif",
+    "index-fungorum",
+    "backbone-refresh-2026-09-18"
+   ],
+   "authorship": "Vellinga & N.H. Nguyen",
+   "registry": {
+    "gbif": "7564028"
+   },
+   "vernacularNames": [
+    {
+     "name": "Oak-loving Elfin Saddle",
+     "lang": "en"
+    }
+   ],
+   "year": 2013,
+   "description": "Helvella dryophila is a species of fungus in the genus Helvella, family Helvellaceae, order Pezizales, class Pezizomycetes, phylum Ascomycota.",
+   "descriptionAuto": true
+  },
+  {
+   "slug": "helvella-lactea",
+   "accepted": "Helvella lactea",
+   "genus": "Helvella",
+   "family": "Helvellaceae",
+   "order": "Pezizales",
+   "class": "Pezizomycetes",
+   "phylum": "Ascomycota",
+   "kingdom": "Fungi",
+   "commonName": null,
+   "edibility": "unknown",
+   "synonyms": [],
+   "tier": "stub",
+   "unresolved": false,
+   "sources": [
+    "gbif",
+    "index-fungorum",
+    "backbone-refresh-2026-09-18"
+   ],
+   "authorship": "Boud.",
+   "registry": {
+    "gbif": "3492928"
+   },
+   "year": 1907,
+   "description": "Helvella lactea is a species of fungus in the genus Helvella, family Helvellaceae, order Pezizales, class Pezizomycetes, phylum Ascomycota.",
+   "descriptionAuto": true
+  },
+  {
+   "slug": "hymenopellis-furfuracea",
+   "accepted": "Hymenopellis furfuracea",
+   "genus": "Hymenopellis",
+   "family": "Physalacriaceae",
+   "order": "Agaricales",
+   "class": "Agaricomycetes",
+   "phylum": "Basidiomycota",
+   "kingdom": "Fungi",
+   "commonName": null,
+   "edibility": "unknown",
+   "synonyms": [
+    "Collybia radicata furfuracea",
+    "Oudemansiella furfuracea",
+    "Oudemansiella radicata furfuracea",
+    "Xerula furfuracea"
+   ],
+   "tier": "stub",
+   "unresolved": false,
+   "sources": [
+    "gbif",
+    "index-fungorum",
+    "backbone-refresh-2026-09-18"
+   ],
+   "authorship": "(Peck) R.H. Petersen",
+   "registry": {
+    "gbif": "7518425"
+   },
+   "year": 2010,
+   "description": "Hymenopellis furfuracea is a species of fungus in the genus Hymenopellis, family Physalacriaceae, order Agaricales, class Agaricomycetes, phylum Basidiomycota.",
+   "descriptionAuto": true
+  },
+  {
+   "slug": "inocybe-sublilacina",
+   "accepted": "Inocybe sublilacina",
+   "genus": "Inocybe",
+   "family": "Inocybaceae",
+   "order": "Agaricales",
+   "class": "Agaricomycetes",
+   "phylum": "Basidiomycota",
+   "kingdom": "Fungi",
+   "commonName": null,
+   "edibility": "unknown",
+   "synonyms": [],
+   "tier": "stub",
+   "unresolved": false,
+   "sources": [
+    "gbif",
+    "index-fungorum",
+    "backbone-refresh-2026-09-18"
+   ],
+   "authorship": "Matheny & Voitk",
+   "registry": {
+    "gbif": "10736633"
+   },
+   "year": 2018,
+   "description": "Inocybe sublilacina is a species of fungus in the genus Inocybe, family Inocybaceae, order Agaricales, class Agaricomycetes, phylum Basidiomycota.",
+   "descriptionAuto": true
+  },
+  {
+   "slug": "lactarius-alnicola",
+   "accepted": "Lactarius alnicola",
+   "genus": "Lactarius",
+   "family": "Russulaceae",
+   "order": "Russulales",
+   "class": "Agaricomycetes",
+   "phylum": "Basidiomycota",
+   "kingdom": "Fungi",
+   "commonName": "Golden Milk Cap",
+   "edibility": "unknown",
+   "synonyms": [
+    "Lactarius alnicola pitkinensis",
+    "Lactarius alnicola pungens"
+   ],
+   "tier": "stub",
+   "unresolved": false,
+   "sources": [
+    "gbif",
+    "index-fungorum",
+    "backbone-refresh-2026-09-18"
+   ],
+   "authorship": "A.H. Sm.",
+   "registry": {
+    "gbif": "7240078"
+   },
+   "vernacularNames": [
+    {
+     "name": "Golden Milk Cap",
+     "lang": "en"
+    }
+   ],
+   "year": 1960,
+   "description": "Lactarius alnicola is a species of fungus in the genus Lactarius, family Russulaceae, order Russulales, class Agaricomycetes, phylum Basidiomycota.",
+   "descriptionAuto": true
+  },
+  {
+   "slug": "lactarius-corrugis",
+   "accepted": "Lactarius corrugis",
+   "genus": "Lactarius",
+   "family": "Russulaceae",
+   "order": "Russulales",
+   "class": "Agaricomycetes",
+   "phylum": "Basidiomycota",
+   "kingdom": "Fungi",
+   "commonName": "Corrugated-cap milky",
+   "edibility": "unknown",
+   "synonyms": [
+    "Lactifluus corrugis",
+    "SH1544977.08FU",
+    "SH1544991.08FU",
+    "SH191791.07FU",
+    "SH191803.07FU",
+    "SH2712090.08FU"
+   ],
+   "tier": "stub",
+   "unresolved": false,
+   "sources": [
+    "gbif",
+    "index-fungorum",
+    "backbone-refresh-2026-09-18"
+   ],
+   "authorship": "Peck",
+   "registry": {
+    "gbif": "5462830"
+   },
+   "vernacularNames": [
+    {
+     "name": "Corrugated-cap milky",
+     "lang": "en"
+    }
+   ],
+   "year": 1880,
+   "description": "Lactarius corrugis is a species of fungus in the genus Lactarius, family Russulaceae, order Russulales, class Agaricomycetes, phylum Basidiomycota.",
+   "descriptionAuto": true
+  },
+  {
+   "slug": "lactarius-rubidus",
+   "accepted": "Lactarius rubidus",
+   "genus": "Lactarius",
+   "family": "Russulaceae",
+   "order": "Russulales",
+   "class": "Agaricomycetes",
+   "phylum": "Basidiomycota",
+   "kingdom": "Fungi",
+   "commonName": "Candy Cap",
+   "edibility": "unknown",
+   "synonyms": [
+    "Lactarius fragilis rubidus"
+   ],
+   "tier": "stub",
+   "unresolved": false,
+   "sources": [
+    "gbif",
+    "index-fungorum",
+    "backbone-refresh-2026-09-18"
+   ],
+   "authorship": "(Hesler & A.H. Sm.) Methven",
+   "registry": {
+    "gbif": "8293722"
+   },
+   "vernacularNames": [
+    {
+     "name": "Candy Cap",
+     "lang": "en"
+    }
+   ],
+   "year": 1997,
+   "description": "Lactarius rubidus is a species of fungus in the genus Lactarius, family Russulaceae, order Russulales, class Agaricomycetes, phylum Basidiomycota.",
+   "descriptionAuto": true
+  },
+  {
+   "slug": "lactarius-rubrilacteus",
+   "accepted": "Lactarius rubrilacteus",
+   "genus": "Lactarius",
+   "family": "Russulaceae",
+   "order": "Russulales",
+   "class": "Agaricomycetes",
+   "phylum": "Basidiomycota",
+   "kingdom": "Fungi",
+   "commonName": "Bleeding Milk Cap",
+   "edibility": "unknown",
+   "synonyms": [],
+   "tier": "stub",
+   "unresolved": false,
+   "sources": [
+    "gbif",
+    "index-fungorum",
+    "backbone-refresh-2026-09-18"
+   ],
+   "authorship": "Hesler & A.H. Sm.",
+   "registry": {
+    "gbif": "5463706"
+   },
+   "vernacularNames": [
+    {
+     "name": "Bleeding Milk Cap",
+     "lang": "en"
+    },
+    {
+     "name": "Red-bleeding Milk Cap",
+     "lang": "en"
+    }
+   ],
+   "year": 1979,
+   "description": "Lactarius rubrilacteus is a species of fungus in the genus Lactarius, family Russulaceae, order Russulales, class Agaricomycetes, phylum Basidiomycota.",
+   "descriptionAuto": true
+  },
+  {
+   "slug": "laetiporus-gilbertsonii",
+   "accepted": "Laetiporus gilbertsonii",
+   "genus": "Laetiporus",
+   "family": "Laetiporaceae",
+   "order": "Polyporales",
+   "class": "Agaricomycetes",
+   "phylum": "Basidiomycota",
+   "kingdom": "Fungi",
+   "commonName": "Western Chicken-of-the-Woods",
+   "edibility": "unknown",
+   "synonyms": [
+    "Laetiporus gilbertsonii pallidus"
+   ],
+   "tier": "stub",
+   "unresolved": false,
+   "sources": [
+    "gbif",
+    "index-fungorum",
+    "backbone-refresh-2026-09-18"
+   ],
+   "authorship": "Burds.",
+   "registry": {
+    "gbif": "6016762"
+   },
+   "vernacularNames": [
+    {
+     "name": "Western Chicken-of-the-Woods",
+     "lang": "en"
+    },
+    {
+     "name": "Western Hardwood Sulphur Shelf",
+     "lang": "en"
+    }
+   ],
+   "year": 2001,
+   "description": "Laetiporus gilbertsonii is a species of fungus in the genus Laetiporus, family Laetiporaceae, order Polyporales, class Agaricomycetes, phylum Basidiomycota.",
+   "descriptionAuto": true
+  },
+  {
+   "slug": "marasmius-plicatulus",
+   "accepted": "Marasmius plicatulus",
+   "genus": "Marasmius",
+   "family": "Marasmiaceae",
+   "order": "Agaricales",
+   "class": "Agaricomycetes",
+   "phylum": "Basidiomycota",
+   "kingdom": "Fungi",
+   "commonName": "pleated marasmius",
+   "edibility": "unknown",
+   "synonyms": [],
+   "tier": "stub",
+   "unresolved": false,
+   "sources": [
+    "gbif",
+    "index-fungorum",
+    "backbone-refresh-2026-09-18"
+   ],
+   "authorship": "Peck",
+   "registry": {
+    "gbif": "3322440"
+   },
+   "vernacularNames": [
+    {
+     "name": "pleated marasmius",
+     "lang": "en"
+    },
+    {
+     "name": "red pinwheel",
+     "lang": "en"
+    }
+   ],
+   "year": 1897,
+   "description": "Marasmius plicatulus is a species of fungus in the genus Marasmius, family Marasmiaceae, order Agaricales, class Agaricomycetes, phylum Basidiomycota.",
+   "descriptionAuto": true
+  },
+  {
+   "slug": "megacollybia-rodmanii",
+   "accepted": "Megacollybia rodmanii",
+   "genus": "Megacollybia",
+   "family": "Tricholomataceae",
+   "order": "Agaricales",
+   "class": "Agaricomycetes",
+   "phylum": "Basidiomycota",
+   "kingdom": "Fungi",
+   "commonName": "Eastern American Platterful Mushroom",
+   "edibility": "unknown",
+   "synonyms": [
+    "Megacollybia rodmanii murina"
+   ],
+   "tier": "stub",
+   "unresolved": false,
+   "sources": [
+    "gbif",
+    "index-fungorum",
+    "backbone-refresh-2026-09-18"
+   ],
+   "authorship": "R.H. Petersen, K.W. Hughes & Lickey",
+   "registry": {
+    "gbif": "7943876"
+   },
+   "vernacularNames": [
+    {
+     "name": "Eastern American Platterful Mushroom",
+     "lang": "en"
+    },
+    {
+     "name": "Rodman Collybia",
+     "lang": "en"
+    }
+   ],
+   "year": 2008,
+   "description": "Megacollybia rodmanii is a species of fungus in the genus Megacollybia, family Tricholomataceae, order Agaricales, class Agaricomycetes, phylum Basidiomycota.",
+   "descriptionAuto": true
+  },
+  {
+   "slug": "morchella-importuna",
+   "accepted": "Morchella importuna",
+   "genus": "Morchella",
+   "family": "Morchellaceae",
+   "order": "Pezizales",
+   "class": "Pezizomycetes",
+   "phylum": "Ascomycota",
+   "kingdom": "Fungi",
+   "commonName": "Landscaping Black Morel",
+   "edibility": "unknown",
+   "synonyms": [],
+   "tier": "stub",
+   "unresolved": false,
+   "sources": [
+    "gbif",
+    "index-fungorum",
+    "backbone-refresh-2026-09-18"
+   ],
+   "authorship": "M. Kuo, O'Donnell & T.J. Volk",
+   "registry": {
+    "gbif": "8426492"
+   },
+   "vernacularNames": [
+    {
+     "name": "Landscaping Black Morel",
+     "lang": "en"
+    }
+   ],
+   "year": 2012,
+   "description": "Morchella importuna is a species of fungus in the genus Morchella, family Morchellaceae, order Pezizales, class Pezizomycetes, phylum Ascomycota.",
+   "descriptionAuto": true
+  },
+  {
+   "slug": "mycena-diosma",
+   "accepted": "Mycena diosma",
+   "genus": "Prunulus",
+   "family": "Mycenaceae",
+   "order": "Agaricales",
+   "class": "Agaricomycetes",
+   "phylum": "Basidiomycota",
+   "kingdom": "Fungi",
+   "commonName": null,
+   "edibility": "unknown",
+   "synonyms": [],
+   "tier": "stub",
+   "unresolved": false,
+   "sources": [
+    "gbif",
+    "index-fungorum",
+    "backbone-refresh-2026-09-18"
+   ],
+   "authorship": "Krieglst. & Schw\u00f6bel",
+   "registry": {
+    "gbif": "4911765"
+   },
+   "year": 1982,
+   "description": "Mycena diosma is a species of fungus in the genus Prunulus, family Mycenaceae, order Agaricales, class Agaricomycetes, phylum Basidiomycota.",
+   "descriptionAuto": true
+  },
+  {
+   "slug": "paralepistopsis-acromelalga",
+   "accepted": "Paralepistopsis acromelalga",
+   "genus": "Paralepistopsis",
+   "family": "Tricholomataceae",
+   "order": "Agaricales",
+   "class": "Agaricomycetes",
+   "phylum": "Basidiomycota",
+   "kingdom": "Fungi",
+   "commonName": null,
+   "edibility": "unknown",
+   "synonyms": [
+    "Clitocybe acromelalga",
+    "Neoclitocybe acromelalga"
+   ],
+   "tier": "stub",
+   "unresolved": false,
+   "sources": [
+    "gbif",
+    "index-fungorum",
+    "backbone-refresh-2026-09-18"
+   ],
+   "authorship": "(Ichimura) Vizzini",
+   "registry": {
+    "gbif": "7884892"
+   },
+   "year": 2012,
+   "description": "Paralepistopsis acromelalga is a species of fungus in the genus Paralepistopsis, family Tricholomataceae, order Agaricales, class Agaricomycetes, phylum Basidiomycota.",
+   "descriptionAuto": true
+  },
+  {
+   "slug": "paralepistopsis-amoenolens",
+   "accepted": "Paralepistopsis amoenolens",
+   "genus": "Paralepistopsis",
+   "family": "Tricholomataceae",
+   "order": "Agaricales",
+   "class": "Agaricomycetes",
+   "phylum": "Basidiomycota",
+   "kingdom": "Fungi",
+   "commonName": "paralysis funnel",
+   "edibility": "unknown",
+   "synonyms": [
+    "Clitocybe amoenolens",
+    "Paralepistosis amoenolens"
+   ],
+   "tier": "stub",
+   "unresolved": false,
+   "sources": [
+    "gbif",
+    "index-fungorum",
+    "backbone-refresh-2026-09-18"
+   ],
+   "authorship": "(Malen\u00e7on) Vizzini",
+   "registry": {
+    "gbif": "8201706"
+   },
+   "vernacularNames": [
+    {
+     "name": "paralysis funnel",
+     "lang": "en"
+    }
+   ],
+   "year": 2012,
+   "description": "Paralepistopsis amoenolens is a species of fungus in the genus Paralepistopsis, family Tricholomataceae, order Agaricales, class Agaricomycetes, phylum Basidiomycota.",
+   "descriptionAuto": true
+  },
+  {
+   "slug": "rubroboletus-lupinus",
+   "accepted": "Rubroboletus lupinus",
+   "genus": "Rubroboletus",
+   "family": "Boletaceae",
+   "order": "Boletales",
+   "class": "Agaricomycetes",
+   "phylum": "Basidiomycota",
+   "kingdom": "Fungi",
+   "commonName": "Wolf bolete",
+   "edibility": "unknown",
+   "synonyms": [
+    "Boletus lupinus",
+    "Boletus satanas lupinus",
+    "Dictyopus tuberosus lupinus",
+    "Suillellus lupinus",
+    "Suillus lupinus",
+    "Tubiporus lupinus"
+   ],
+   "tier": "stub",
+   "unresolved": false,
+   "sources": [
+    "gbif",
+    "index-fungorum",
+    "backbone-refresh-2026-09-18"
+   ],
+   "authorship": "(Fr.) Costanzo, Gelardi, Simonini & Vizzini",
+   "registry": {
+    "gbif": "8019387"
+   },
+   "vernacularNames": [
+    {
+     "name": "Wolf bolete",
+     "lang": "en"
+    }
+   ],
+   "year": 2015,
+   "description": "Rubroboletus lupinus is a species of fungus in the genus Rubroboletus, family Boletaceae, order Boletales, class Agaricomycetes, phylum Basidiomycota.",
+   "descriptionAuto": true
+  },
+  {
+   "slug": "russula-subnigricans",
+   "accepted": "Russula subnigricans",
+   "genus": "Russula",
+   "family": "Russulaceae",
+   "order": "Russulales",
+   "class": "Agaricomycetes",
+   "phylum": "Basidiomycota",
+   "kingdom": "Fungi",
+   "commonName": "Rank Russula",
+   "edibility": "unknown",
+   "synonyms": [],
+   "tier": "stub",
+   "unresolved": false,
+   "sources": [
+    "gbif",
+    "index-fungorum",
+    "backbone-refresh-2026-09-18"
+   ],
+   "authorship": "Hongo",
+   "registry": {
+    "gbif": "3359054"
+   },
+   "vernacularNames": [
+    {
+     "name": "Rank Russula",
+     "lang": "en"
+    }
+   ],
+   "year": 1955,
+   "description": "Russula subnigricans is a species of fungus in the genus Russula, family Russulaceae, order Russulales, class Agaricomycetes, phylum Basidiomycota.",
+   "descriptionAuto": true
+  },
+  {
+   "slug": "stropharia-ambigua",
+   "accepted": "Stropharia ambigua",
+   "genus": "Stropharia",
+   "family": "Strophariaceae",
+   "order": "Agaricales",
+   "class": "Agaricomycetes",
+   "phylum": "Basidiomycota",
+   "kingdom": "Fungi",
+   "commonName": "Questionable Stropharia",
+   "edibility": "unknown",
+   "synonyms": [
+    "Hypholoma ambiguum"
+   ],
+   "tier": "stub",
+   "unresolved": false,
+   "sources": [
+    "gbif",
+    "index-fungorum",
+    "backbone-refresh-2026-09-18"
+   ],
+   "authorship": "(Peck) Zeller",
+   "registry": {
+    "gbif": "3557439"
+   },
+   "vernacularNames": [
+    {
+     "name": "Questionable Stropharia",
+     "lang": "en"
+    }
+   ],
+   "year": 1914,
+   "description": "Stropharia ambigua is a species of fungus in the genus Stropharia, family Strophariaceae, order Agaricales, class Agaricomycetes, phylum Basidiomycota.",
+   "descriptionAuto": true
+  },
+  {
+   "slug": "suillus-decipiens",
+   "accepted": "Suillus decipiens",
+   "genus": "Suillus",
+   "family": "Suillaceae",
+   "order": "Boletales",
+   "class": "Agaricomycetes",
+   "phylum": "Basidiomycota",
+   "kingdom": "Fungi",
+   "commonName": "Deceptive Jack",
+   "edibility": "unknown",
+   "synonyms": [
+    "Boletinus berkeleyi",
+    "Boletinus decipiens",
+    "Boletus decipiens",
+    "Suillus berkeleyi"
+   ],
+   "tier": "stub",
+   "unresolved": false,
+   "sources": [
+    "gbif",
+    "index-fungorum",
+    "backbone-refresh-2026-09-18"
+   ],
+   "authorship": "(Peck) Kuntze",
+   "registry": {
+    "gbif": "8225180"
+   },
+   "vernacularNames": [
+    {
+     "name": "Deceptive Jack",
+     "lang": "en"
+    }
+   ],
+   "year": 1898,
+   "description": "Suillus decipiens is a species of fungus in the genus Suillus, family Suillaceae, order Boletales, class Agaricomycetes, phylum Basidiomycota.",
+   "descriptionAuto": true
+  },
+  {
+   "slug": "tremella-fuciformis",
+   "accepted": "Tremella fuciformis",
+   "genus": "Tremella",
+   "family": "Tremellaceae",
+   "order": "Tremellales",
+   "class": "Tremellomycetes",
+   "phylum": "Basidiomycota",
+   "kingdom": "Fungi",
+   "commonName": "Silver ear",
+   "edibility": "unknown",
+   "synonyms": [
+    "Nakaiomyces nipponicus",
+    "Tremella fuciformis corniculata",
+    "Tremella nipponica"
+   ],
+   "tier": "stub",
+   "unresolved": false,
+   "sources": [
+    "gbif",
+    "index-fungorum",
+    "backbone-refresh-2026-09-18"
+   ],
+   "authorship": "Berk.",
+   "registry": {
+    "gbif": "5237434"
+   },
+   "vernacularNames": [
+    {
+     "name": "Silver ear",
+     "lang": "en"
+    },
+    {
+     "name": "bela drhtavka",
+     "lang": "en"
+    },
+    {
+     "name": "snow fungus",
+     "lang": "en"
+    }
+   ],
+   "year": 1856,
+   "description": "Tremella fuciformis is a species of fungus in the genus Tremella, family Tremellaceae, order Tremellales, class Tremellomycetes, phylum Basidiomycota.",
+   "descriptionAuto": true
+  },
+  {
+   "slug": "tricholoma-muscarium",
+   "accepted": "Tricholoma muscarium",
+   "genus": "Tricholoma",
+   "family": "Tricholomataceae",
+   "order": "Agaricales",
+   "class": "Agaricomycetes",
+   "phylum": "Basidiomycota",
+   "kingdom": "Fungi",
+   "commonName": null,
+   "edibility": "unknown",
+   "synonyms": [],
+   "tier": "stub",
+   "unresolved": false,
+   "sources": [
+    "gbif",
+    "index-fungorum",
+    "backbone-refresh-2026-09-18"
+   ],
+   "authorship": "Kawam. ex Hongo",
+   "registry": {
+    "gbif": "5450587"
+   },
+   "year": 1959,
+   "description": "Tricholoma muscarium is a species of fungus in the genus Tricholoma, family Tricholomataceae, order Agaricales, class Agaricomycetes, phylum Basidiomycota.",
+   "descriptionAuto": true
+  },
+  {
+   "slug": "tricholoma-pardinum",
+   "accepted": "Tricholoma pardinum",
+   "genus": "Tricholoma",
+   "family": "Tricholomataceae",
+   "order": "Agaricales",
+   "class": "Agaricomycetes",
+   "phylum": "Basidiomycota",
+   "kingdom": "Fungi",
+   "commonName": "Leopard Knight",
+   "edibility": "unknown",
+   "synonyms": [
+    "Agaricus myomyces pardinus",
+    "Agaricus unguentatus",
+    "Cortinellus unguentatus",
+    "Tricholoma pardinum albellum",
+    "Tricholoma pardinum unguentatum",
+    "Tricholoma pardolatum",
+    "Tricholoma unguentatum"
+   ],
+   "tier": "stub",
+   "unresolved": false,
+   "sources": [
+    "gbif",
+    "index-fungorum",
+    "backbone-refresh-2026-09-18"
+   ],
+   "authorship": "(Pers.) Qu\u00e9l.",
+   "registry": {
+    "gbif": "7242174"
+   },
+   "vernacularNames": [
+    {
+     "name": "Leopard Knight",
+     "lang": "en"
+    },
+    {
+     "name": "Spotted tricholoma",
+     "lang": "en"
+    }
+   ],
+   "year": 1873,
+   "description": "Tricholoma pardinum is a species of fungus in the genus Tricholoma, family Tricholomataceae, order Agaricales, class Agaricomycetes, phylum Basidiomycota.",
+   "descriptionAuto": true
+  },
+  {
+   "slug": "trogia-venenata",
+   "accepted": "Trogia venenata",
+   "genus": "Trogia",
+   "family": "Marasmiaceae",
+   "order": "Agaricales",
+   "class": "Agaricomycetes",
+   "phylum": "Basidiomycota",
+   "kingdom": "Fungi",
+   "commonName": null,
+   "edibility": "unknown",
+   "synonyms": [],
+   "tier": "stub",
+   "unresolved": false,
+   "sources": [
+    "gbif",
+    "index-fungorum",
+    "backbone-refresh-2026-09-18"
+   ],
+   "authorship": "Zhu L. Yang, Yan C. Li & L.P. Tang",
+   "registry": {
+    "gbif": "8342755"
+   },
+   "year": 2012,
+   "description": "Trogia venenata is a species of fungus in the genus Trogia, family Marasmiaceae, order Agaricales, class Agaricomycetes, phylum Basidiomycota.",
+   "descriptionAuto": true
+  },
+  {
+   "slug": "tuber-aestivum",
+   "accepted": "Tuber aestivum",
+   "genus": "Tuber",
+   "family": "Tuberaceae",
+   "order": "Pezizales",
+   "class": "Pezizomycetes",
+   "phylum": "Ascomycota",
+   "kingdom": "Fungi",
+   "commonName": "Summer Truffle",
+   "edibility": "unknown",
+   "synonyms": [
+    "Hymenangium aestivum",
+    "Lycoperdon aestivum",
+    "Rhizopogon aestivus",
+    "Tuber album aestivum",
+    "Tuber blotii"
+   ],
+   "tier": "stub",
+   "unresolved": false,
+   "sources": [
+    "gbif",
+    "index-fungorum",
+    "backbone-refresh-2026-09-18"
+   ],
+   "authorship": "Vittad.",
+   "registry": {
+    "gbif": "7364443"
+   },
+   "vernacularNames": [
+    {
+     "name": "Summer Truffle",
+     "lang": "en"
+    }
+   ],
+   "year": 1831,
+   "description": "Tuber aestivum is a species of fungus in the genus Tuber, family Tuberaceae, order Pezizales, class Pezizomycetes, phylum Ascomycota.",
+   "descriptionAuto": true
+  },
+  {
+   "slug": "tuber-borchii",
+   "accepted": "Tuber borchii",
+   "genus": "Tuber",
+   "family": "Tuberaceae",
+   "order": "Pezizales",
+   "class": "Pezizomycetes",
+   "phylum": "Ascomycota",
+   "kingdom": "Fungi",
+   "commonName": null,
+   "edibility": "unknown",
+   "synonyms": [
+    "Rhizopogon borchii",
+    "Tartufa albida",
+    "Tuber aestivum",
+    "Tuber albidum",
+    "Tuber borschii",
+    "Tuber mixtum"
+   ],
+   "tier": "stub",
+   "unresolved": false,
+   "sources": [
+    "gbif",
+    "index-fungorum",
+    "backbone-refresh-2026-09-18"
+   ],
+   "authorship": "Vittad.",
+   "registry": {
+    "gbif": "5258463"
+   },
+   "year": 1831,
+   "description": "Tuber borchii is a species of fungus in the genus Tuber, family Tuberaceae, order Pezizales, class Pezizomycetes, phylum Ascomycota.",
+   "descriptionAuto": true
+  },
+  {
+   "slug": "tuber-melanosporum",
+   "accepted": "Tuber melanosporum",
+   "genus": "Tuber",
+   "family": "Tuberaceae",
+   "order": "Pezizales",
+   "class": "Pezizomycetes",
+   "phylum": "Ascomycota",
+   "kingdom": "Fungi",
+   "commonName": "Black P\u00e9rigord Truffle",
+   "edibility": "unknown",
+   "synonyms": [
+    "Tuber brumale melanosporum",
+    "Tuber hiemalbum",
+    "Tuber melanosporum hiemalbum",
+    "Tuber melanosporum moschatum",
+    "Tuber nigrum"
+   ],
+   "tier": "stub",
+   "unresolved": false,
+   "sources": [
+    "gbif",
+    "index-fungorum",
+    "backbone-refresh-2026-09-18"
+   ],
+   "authorship": "Vittad.",
+   "registry": {
+    "gbif": "5258468"
+   },
+   "vernacularNames": [
+    {
+     "name": "Black P\u00e9rigord Truffle",
+     "lang": "en"
+    },
+    {
+     "name": "Black Truffle",
+     "lang": "en"
+    }
+   ],
+   "year": 1831,
+   "description": "Tuber melanosporum is a species of fungus in the genus Tuber, family Tuberaceae, order Pezizales, class Pezizomycetes, phylum Ascomycota.",
+   "descriptionAuto": true
+  },
+  {
+   "slug": "ustilago-maydis",
+   "accepted": "Ustilago maydis",
+   "genus": "Ustilago",
+   "family": "Ustilaginaceae",
+   "order": "Ustilaginales",
+   "class": "Ustilaginomycetes",
+   "phylum": "Basidiomycota",
+   "kingdom": "Fungi",
+   "commonName": "Corn Smut",
+   "edibility": "unknown",
+   "synonyms": [],
+   "tier": "stub",
+   "unresolved": false,
+   "sources": [
+    "gbif",
+    "index-fungorum",
+    "backbone-refresh-2026-09-18"
+   ],
+   "authorship": "(DC.) Corda",
+   "registry": {
+    "gbif": "8092646"
+   },
+   "vernacularNames": [
+    {
+     "name": "Corn Smut",
+     "lang": "en"
+    }
+   ],
+   "year": 1842,
+   "description": "Ustilago maydis is a species of fungus in the genus Ustilago, family Ustilaginaceae, order Ustilaginales, class Ustilaginomycetes, phylum Basidiomycota.",
+   "descriptionAuto": true
+  },
+  {
+   "slug": "wilcoxina-rehmii",
+   "accepted": "Wilcoxina rehmii",
+   "genus": "Wilcoxina",
+   "family": "Pyronemataceae",
+   "order": "Pezizales",
+   "class": "Pezizomycetes",
+   "phylum": "Ascomycota",
+   "kingdom": "Fungi",
+   "commonName": null,
+   "edibility": "unknown",
+   "synonyms": [],
+   "tier": "stub",
+   "unresolved": false,
+   "sources": [
+    "gbif",
+    "index-fungorum",
+    "backbone-refresh-2026-09-18"
+   ],
+   "authorship": "Chin S. Yang & Korf",
+   "registry": {
+    "gbif": "5258582"
+   },
+   "year": 1985,
+   "description": "Wilcoxina rehmii is a species of fungus in the genus Wilcoxina, family Pyronemataceae, order Pezizales, class Pezizomycetes, phylum Ascomycota.",
+   "descriptionAuto": true
+  }
+ ],
+ "if_enrichment": {
+  "agaricus-menieri": {
+   "slug": "agaricus-menieri",
+   "accepted": "Agaricus menieri",
+   "catalog_authorship": "",
+   "catalog_year": null,
+   "if_status": "HIT",
+   "if_n_exact_records": 1,
+   "if_record_selection": "single",
+   "if_record_selection_reason": "ranked: CURRENT NAME RECORD NUMBER points at this record, then agreement with queried name, then NAME STATUS, then earliest year \u2014 NOT exact[0]",
+   "year": 1981,
+   "authors": "Bon",
+   "if_record_id": "110459",
+   "basionym_record_id": "151938",
+   "basionym_is_self": false,
+   "protonym_record_id": "151938",
+   "type_locality": "",
+   "host_substrate": "",
+   "typification": "",
+   "published_in": "Index of Fungi 5: 151",
+   "name_status": "Legitimate",
+   "if_current_name": "Agaricus menieri",
+   "if_current_name_record_id": "110459",
+   "name_agrees_with_queried_name": true,
+   "name_disagreement": false
+  },
+  "amanita-aprica": {
+   "slug": "amanita-aprica",
+   "accepted": "Amanita aprica",
+   "catalog_authorship": "",
+   "catalog_year": null,
+   "if_status": "HIT",
+   "if_n_exact_records": 1,
+   "if_record_selection": "single",
+   "if_record_selection_reason": "ranked: CURRENT NAME RECORD NUMBER points at this record, then agreement with queried name, then NAME STATUS, then earliest year \u2014 NOT exact[0]",
+   "year": 2005,
+   "authors": "J.E. Lindgr. & Tulloss",
+   "if_record_id": "343980",
+   "basionym_record_id": "343980",
+   "basionym_is_self": true,
+   "protonym_record_id": "343980",
+   "type_locality": "Washington",
+   "host_substrate": "on ground in sun, occurring with conifers, mainly <i>Pseudotsuga menziesii</i>, less frequently <i>Pinus</i>",
+   "typification": "Holotype WTU, Lindgren 94-07",
+   "published_in": "Index of Fungi 7: 793",
+   "name_status": "Legitimate",
+   "if_current_name": "Amanita aprica",
+   "if_current_name_record_id": "343980",
+   "name_agrees_with_queried_name": true,
+   "name_disagreement": false
+  },
+  "amanita-augusta": {
+   "slug": "amanita-augusta",
+   "accepted": "Amanita augusta",
+   "catalog_authorship": "",
+   "catalog_year": null,
+   "if_status": "HIT",
+   "if_n_exact_records": 1,
+   "if_record_selection": "single",
+   "if_record_selection_reason": "ranked: CURRENT NAME RECORD NUMBER points at this record, then agreement with queried name, then NAME STATUS, then earliest year \u2014 NOT exact[0]",
+   "year": 2013,
+   "authors": "Bojantchev & R.M. Davis",
+   "if_record_id": "801321",
+   "basionym_record_id": "801321",
+   "basionym_is_self": true,
+   "protonym_record_id": "801321",
+   "type_locality": "California",
+   "host_substrate": "on soil, associated with <i>Notholithocarpus densiflorus</i>, <i>Pinus muricata</i> and <i>Pseudotsuga menziesi</i>",
+   "typification": "Holotype UC 1851352",
+   "published_in": "",
+   "name_status": "Legitimate",
+   "if_current_name": "Amanita augusta",
+   "if_current_name_record_id": "801321",
+   "name_agrees_with_queried_name": true,
+   "name_disagreement": false
+  },
+  "amanita-cokeri": {
+   "slug": "amanita-cokeri",
+   "accepted": "Amanita cokeri",
+   "catalog_authorship": "",
+   "catalog_year": null,
+   "if_status": "HIT",
+   "if_n_exact_records": 1,
+   "if_record_selection": "single",
+   "if_record_selection_reason": "ranked: CURRENT NAME RECORD NUMBER points at this record, then agreement with queried name, then NAME STATUS, then earliest year \u2014 NOT exact[0]",
+   "year": 1940,
+   "authors": "E.-J. Gilbert & K\u00fchner ex E.-J. Gilbert",
+   "if_record_id": "355702",
+   "basionym_record_id": "355702",
+   "basionym_is_self": true,
+   "protonym_record_id": "355702",
+   "type_locality": "",
+   "host_substrate": "",
+   "typification": "",
+   "published_in": "",
+   "name_status": "Legitimate",
+   "if_current_name": "Amanita cokeri",
+   "if_current_name_record_id": "355702",
+   "name_agrees_with_queried_name": true,
+   "name_disagreement": false
+  },
+  "amanita-cothurnata": {
+   "slug": "amanita-cothurnata",
+   "accepted": "Amanita cothurnata",
+   "catalog_authorship": "",
+   "catalog_year": null,
+   "if_status": "HIT",
+   "if_n_exact_records": 2,
+   "if_record_selection": "self-current",
+   "if_record_selection_reason": "ranked: CURRENT NAME RECORD NUMBER points at this record, then agreement with queried name, then NAME STATUS, then earliest year \u2014 NOT exact[0]",
+   "year": 1900,
+   "authors": "G.F. Atk.",
+   "if_record_id": "205816",
+   "basionym_record_id": "205816",
+   "basionym_is_self": true,
+   "protonym_record_id": "205816",
+   "type_locality": "",
+   "host_substrate": "",
+   "typification": "Typification: Tab. 17, figs 68-70 (loc. cit.)",
+   "published_in": "Saccardo's Syll. fung. XIX: 46; XXI: 6",
+   "name_status": "Legitimate",
+   "if_current_name": "Amanita cothurnata",
+   "if_current_name_record_id": "205816",
+   "name_agrees_with_queried_name": true,
+   "name_disagreement": false,
+   "homonym_alternatives": [
+    {
+     "authors": "G.F. Atk.",
+     "year": null,
+     "record": "593714",
+     "current": null
+    }
+   ]
+  },
+  "amanita-flavorubescens": {
+   "slug": "amanita-flavorubescens",
+   "accepted": "Amanita flavorubescens",
+   "catalog_authorship": "",
+   "catalog_year": null,
+   "if_status": "HIT",
+   "if_n_exact_records": 1,
+   "if_record_selection": "single",
+   "if_record_selection_reason": "ranked: CURRENT NAME RECORD NUMBER points at this record, then agreement with queried name, then NAME STATUS, then earliest year \u2014 NOT exact[0]",
+   "year": 1902,
+   "authors": "G.F. Atk.",
+   "if_record_id": "206197",
+   "basionym_record_id": "206197",
+   "basionym_is_self": true,
+   "protonym_record_id": "206197",
+   "type_locality": "New York",
+   "host_substrate": "on soil",
+   "typification": "Holotype CUP 9884",
+   "published_in": "Saccardo's Syll. fung. XVII: 1",
+   "name_status": "Legitimate",
+   "if_current_name": "Amanita flavorubescens",
+   "if_current_name_record_id": "206197",
+   "name_agrees_with_queried_name": true,
+   "name_disagreement": false
+  },
+  "amanita-gioiosa": {
+   "slug": "amanita-gioiosa",
+   "accepted": "Amanita gioiosa",
+   "catalog_authorship": "",
+   "catalog_year": null,
+   "if_status": "HIT",
+   "if_n_exact_records": 2,
+   "if_record_selection": "self-current",
+   "if_record_selection_reason": "ranked: CURRENT NAME RECORD NUMBER points at this record, then agreement with queried name, then NAME STATUS, then earliest year \u2014 NOT exact[0]",
+   "year": 1990,
+   "authors": "S. Curreli",
+   "if_record_id": "129120",
+   "basionym_record_id": "129120",
+   "basionym_is_self": true,
+   "protonym_record_id": "129120",
+   "type_locality": "Sardegna",
+   "host_substrate": "on soil, associated with <i>Eucalyptus</i> and <i>Cistus</i>",
+   "typification": "Holotype colln Curreli, 123",
+   "published_in": "Index of Fungi 6: 130",
+   "name_status": "Legitimate",
+   "if_current_name": "Amanita gioiosa",
+   "if_current_name_record_id": "129120",
+   "name_agrees_with_queried_name": true,
+   "name_disagreement": false,
+   "homonym_alternatives": [
+    {
+     "authors": "S. Curreli",
+     "year": "1990",
+     "record": "132089",
+     "current": null
+    }
+   ],
+   "year_if_selected_record": 1991,
+   "year_rule": "several IF records share this authorship but differ on year ([1990, 1991]); earliest taken as the protologue date"
+  },
+  "amanita-gracilior": {
+   "slug": "amanita-gracilior",
+   "accepted": "Amanita gracilior",
+   "catalog_authorship": "",
+   "catalog_year": null,
+   "if_status": "HIT",
+   "if_n_exact_records": 1,
+   "if_record_selection": "single",
+   "if_record_selection_reason": "ranked: CURRENT NAME RECORD NUMBER points at this record, then agreement with queried name, then NAME STATUS, then earliest year \u2014 NOT exact[0]",
+   "year": 1982,
+   "authors": "Bas & Honrubia",
+   "if_record_id": "110467",
+   "basionym_record_id": "110467",
+   "basionym_is_self": true,
+   "protonym_record_id": "110467",
+   "type_locality": "France",
+   "host_substrate": "",
+   "typification": "",
+   "published_in": "Index of Fungi 5: 151",
+   "name_status": "Legitimate",
+   "if_current_name": "Amanita gracilior",
+   "if_current_name_record_id": "110467",
+   "name_agrees_with_queried_name": true,
+   "name_disagreement": false
+  },
+  "amanita-heterochroma": {
+   "slug": "amanita-heterochroma",
+   "accepted": "Amanita heterochroma",
+   "catalog_authorship": "",
+   "catalog_year": null,
+   "if_status": "HIT",
+   "if_n_exact_records": 2,
+   "if_record_selection": "self-current",
+   "if_record_selection_reason": "ranked: CURRENT NAME RECORD NUMBER points at this record, then agreement with queried name, then NAME STATUS, then earliest year \u2014 NOT exact[0]",
+   "year": 1992,
+   "authors": "S. Curreli",
+   "if_record_id": "467900",
+   "basionym_record_id": "355334",
+   "basionym_is_self": false,
+   "protonym_record_id": "355334",
+   "type_locality": "",
+   "host_substrate": "",
+   "typification": "",
+   "published_in": "Index of Fungi 7: 165",
+   "name_status": "Legitimate",
+   "if_current_name": "Amanita heterochroma",
+   "if_current_name_record_id": "467900",
+   "name_agrees_with_queried_name": true,
+   "name_disagreement": false,
+   "homonym_alternatives": [
+    {
+     "authors": "S. Curreli",
+     "year": "1994",
+     "record": "581071",
+     "current": null
+    }
+   ],
+   "year_if_selected_record": 1992,
+   "year_rule": "several IF records share this authorship but differ on year ([1992, 1994]); earliest taken as the protologue date"
+  },
+  "amanita-hongoi": {
+   "slug": "amanita-hongoi",
+   "accepted": "Amanita hongoi",
+   "catalog_authorship": "",
+   "catalog_year": null,
+   "if_status": "HIT",
+   "if_n_exact_records": 1,
+   "if_record_selection": "single",
+   "if_record_selection_reason": "ranked: CURRENT NAME RECORD NUMBER points at this record, then agreement with queried name, then NAME STATUS, then earliest year \u2014 NOT exact[0]",
+   "year": 1969,
+   "authors": "Bas",
+   "if_record_id": "308559",
+   "basionym_record_id": "308559",
+   "basionym_is_self": true,
+   "protonym_record_id": "308559",
+   "type_locality": "Japan",
+   "host_substrate": "",
+   "typification": "",
+   "published_in": "Index of Fungi 4: 2",
+   "name_status": "Legitimate",
+   "if_current_name": "Amanita hongoi",
+   "if_current_name_record_id": "308559",
+   "name_agrees_with_queried_name": true,
+   "name_disagreement": false
+  },
+  "amanita-ibotengutake": {
+   "slug": "amanita-ibotengutake",
+   "accepted": "Amanita ibotengutake",
+   "catalog_authorship": "",
+   "catalog_year": null,
+   "if_status": "HIT",
+   "if_n_exact_records": 1,
+   "if_record_selection": "single",
+   "if_record_selection_reason": "ranked: CURRENT NAME RECORD NUMBER points at this record, then agreement with queried name, then NAME STATUS, then earliest year \u2014 NOT exact[0]",
+   "year": 2002,
+   "authors": "T. Oda, C. Tanaka & Tsuda",
+   "if_record_id": "466011",
+   "basionym_record_id": "466011",
+   "basionym_is_self": true,
+   "protonym_record_id": "466011",
+   "type_locality": "Honshu",
+   "host_substrate": "in mixed forest with <i>Quercus serrata</i> and <i>Pinus densiflora</i>",
+   "typification": "Holotype CBM, Oda FB-30969|http://www.ncbi.nlm.nih.gov/nuccore/AB080988",
+   "published_in": "Index of Fungi 7: 484",
+   "name_status": "Legitimate",
+   "if_current_name": "Amanita ibotengutake",
+   "if_current_name_record_id": "466011",
+   "name_agrees_with_queried_name": true,
+   "name_disagreement": false
+  },
+  "amanita-neoovoidea": {
+   "slug": "amanita-neoovoidea",
+   "accepted": "Amanita neoovoidea",
+   "catalog_authorship": "",
+   "catalog_year": null,
+   "if_status": "HIT",
+   "if_n_exact_records": 1,
+   "if_record_selection": "single",
+   "if_record_selection_reason": "ranked: CURRENT NAME RECORD NUMBER points at this record, then agreement with queried name, then NAME STATUS, then earliest year \u2014 NOT exact[0]",
+   "year": 1976,
+   "authors": "Hongo",
+   "if_record_id": "584334",
+   "basionym_record_id": "584334",
+   "basionym_is_self": true,
+   "protonym_record_id": "584334",
+   "type_locality": "",
+   "host_substrate": "",
+   "typification": "",
+   "published_in": "",
+   "name_status": "Orthographic variant",
+   "if_current_name": "",
+   "if_current_name_record_id": "308572",
+   "name_agrees_with_queried_name": null,
+   "name_disagreement": false
+  },
+  "amanita-pseudoporphyria": {
+   "slug": "amanita-pseudoporphyria",
+   "accepted": "Amanita pseudoporphyria",
+   "catalog_authorship": "",
+   "catalog_year": null,
+   "if_status": "HIT",
+   "if_n_exact_records": 1,
+   "if_record_selection": "single",
+   "if_record_selection_reason": "ranked: CURRENT NAME RECORD NUMBER points at this record, then agreement with queried name, then NAME STATUS, then earliest year \u2014 NOT exact[0]",
+   "year": 1957,
+   "authors": "Hongo",
+   "if_record_id": "292458",
+   "basionym_record_id": "292458",
+   "basionym_is_self": true,
+   "protonym_record_id": "292458",
+   "type_locality": "Japan",
+   "host_substrate": "in woodland of <i>Coniferae</i>",
+   "typification": "Holotype TNS 237281",
+   "published_in": "Index of Fungi 2: 365",
+   "name_status": "Legitimate",
+   "if_current_name": "Amanita pseudoporphyria",
+   "if_current_name_record_id": "292458",
+   "name_agrees_with_queried_name": true,
+   "name_disagreement": false
+  },
+  "amanita-pseudoregalis": {
+   "slug": "amanita-pseudoregalis",
+   "accepted": "Amanita pseudoregalis",
+   "catalog_authorship": "",
+   "catalog_year": null,
+   "if_status": "HIT",
+   "if_n_exact_records": 1,
+   "if_record_selection": "single",
+   "if_record_selection_reason": "ranked: CURRENT NAME RECORD NUMBER points at this record, then agreement with queried name, then NAME STATUS, then earliest year \u2014 NOT exact[0]",
+   "year": 1991,
+   "authors": "Pluvinage",
+   "if_record_id": "129726",
+   "basionym_record_id": "129726",
+   "basionym_is_self": true,
+   "protonym_record_id": "129726",
+   "type_locality": "France",
+   "host_substrate": "on soil, associated with <i>Picea abies</i>",
+   "typification": "Holotype colln Bidaud, 90-10-201",
+   "published_in": "Index of Fungi 6: 130",
+   "name_status": "Legitimate",
+   "if_current_name": "Amanita pseudoregalis",
+   "if_current_name_record_id": "129726",
+   "name_agrees_with_queried_name": true,
+   "name_disagreement": false
+  },
+  "amanita-velosa": {
+   "slug": "amanita-velosa",
+   "accepted": "Amanita velosa",
+   "catalog_authorship": "",
+   "catalog_year": null,
+   "if_status": "HIT",
+   "if_n_exact_records": 1,
+   "if_record_selection": "single",
+   "if_record_selection_reason": "ranked: CURRENT NAME RECORD NUMBER points at this record, then agreement with queried name, then NAME STATUS, then earliest year \u2014 NOT exact[0]",
+   "year": 1898,
+   "authors": "(Peck) Lloyd",
+   "if_record_id": "485288",
+   "basionym_record_id": "501684",
+   "basionym_is_self": false,
+   "protonym_record_id": "501684",
+   "type_locality": "",
+   "host_substrate": "",
+   "typification": "",
+   "published_in": "",
+   "name_status": "Legitimate",
+   "if_current_name": "Amanita velosa",
+   "if_current_name_record_id": "485288",
+   "name_agrees_with_queried_name": true,
+   "name_disagreement": false
+  },
+  "boletus-rex-veris": {
+   "slug": "boletus-rex-veris",
+   "accepted": "Boletus rex-veris",
+   "catalog_authorship": "",
+   "catalog_year": null,
+   "if_status": "HIT",
+   "if_n_exact_records": 1,
+   "if_record_selection": "single",
+   "if_record_selection_reason": "ranked: CURRENT NAME RECORD NUMBER points at this record, then agreement with queried name, then NAME STATUS, then earliest year \u2014 NOT exact[0]",
+   "year": 2008,
+   "authors": "D. Arora & Simonini",
+   "if_record_id": "509545",
+   "basionym_record_id": "509545",
+   "basionym_is_self": true,
+   "protonym_record_id": "509545",
+   "type_locality": "California",
+   "host_substrate": "on soil, associated with <i>Pinus poderosa</i>",
+   "typification": "Holotype SFSU UC1860313",
+   "published_in": "",
+   "name_status": "Legitimate",
+   "if_current_name": "Boletus rex-veris",
+   "if_current_name_record_id": "509545",
+   "name_agrees_with_queried_name": true,
+   "name_disagreement": false
+  },
+  "boletus-variipes": {
+   "slug": "boletus-variipes",
+   "accepted": "Boletus variipes",
+   "catalog_authorship": "",
+   "catalog_year": null,
+   "if_status": "HIT",
+   "if_n_exact_records": 1,
+   "if_record_selection": "single",
+   "if_record_selection_reason": "ranked: CURRENT NAME RECORD NUMBER points at this record, then agreement with queried name, then NAME STATUS, then earliest year \u2014 NOT exact[0]",
+   "year": 1888,
+   "authors": "Peck",
+   "if_record_id": "356789",
+   "basionym_record_id": "356789",
+   "basionym_is_self": true,
+   "protonym_record_id": "356789",
+   "type_locality": "New York",
+   "host_substrate": "on soil, associated with <i>Quercus</i>",
+   "typification": "Typification: Peck s.n.",
+   "published_in": "",
+   "name_status": "Legitimate",
+   "if_current_name": "Boletus variipes",
+   "if_current_name_record_id": "356789",
+   "name_agrees_with_queried_name": true,
+   "name_disagreement": false
+  },
+  "byssomerulius-incarnatus": {
+   "slug": "byssomerulius-incarnatus",
+   "accepted": "Byssomerulius incarnatus",
+   "catalog_authorship": "",
+   "catalog_year": null,
+   "if_status": "HIT",
+   "if_n_exact_records": 1,
+   "if_record_selection": "single",
+   "if_record_selection_reason": "ranked: CURRENT NAME RECORD NUMBER points at this record, then agreement with queried name, then NAME STATUS, then earliest year \u2014 NOT exact[0]",
+   "year": 1974,
+   "authors": "(Schwein.) Gilb.",
+   "if_record_id": "310027",
+   "basionym_record_id": "155468",
+   "basionym_is_self": false,
+   "protonym_record_id": "155468",
+   "type_locality": "",
+   "host_substrate": "",
+   "typification": "",
+   "published_in": "Index of Fungi 4: 303",
+   "name_status": "Legitimate",
+   "if_current_name": "Byssomerulius incarnatus",
+   "if_current_name_record_id": "310027",
+   "name_agrees_with_queried_name": true,
+   "name_disagreement": false
+  },
+  "cantharellus-formosus": {
+   "slug": "cantharellus-formosus",
+   "accepted": "Cantharellus formosus",
+   "catalog_authorship": "",
+   "catalog_year": null,
+   "if_status": "HIT",
+   "if_n_exact_records": 1,
+   "if_record_selection": "single",
+   "if_record_selection_reason": "ranked: CURRENT NAME RECORD NUMBER points at this record, then agreement with queried name, then NAME STATUS, then earliest year \u2014 NOT exact[0]",
+   "year": 1966,
+   "authors": "Corner",
+   "if_record_id": "327480",
+   "basionym_record_id": "327480",
+   "basionym_is_self": true,
+   "protonym_record_id": "327480",
+   "type_locality": "British Columbia",
+   "host_substrate": "",
+   "typification": "",
+   "published_in": "Index of Fungi 3: 402",
+   "name_status": "Legitimate",
+   "if_current_name": "Cantharellus formosus",
+   "if_current_name_record_id": "327480",
+   "name_agrees_with_queried_name": true,
+   "name_disagreement": false
+  },
+  "coprinopsis-alopecia": {
+   "slug": "coprinopsis-alopecia",
+   "accepted": "Coprinopsis alopecia",
+   "catalog_authorship": "",
+   "catalog_year": null,
+   "if_status": "HIT",
+   "if_n_exact_records": 1,
+   "if_record_selection": "single",
+   "if_record_selection_reason": "ranked: CURRENT NAME RECORD NUMBER points at this record, then agreement with queried name, then NAME STATUS, then earliest year \u2014 NOT exact[0]",
+   "year": 2017,
+   "authors": "(Lasch) La Chiusa & Boffelli",
+   "if_record_id": "552969",
+   "basionym_record_id": "533702",
+   "basionym_is_self": false,
+   "protonym_record_id": "533702",
+   "type_locality": "",
+   "host_substrate": "",
+   "typification": "",
+   "published_in": "",
+   "name_status": "Legitimate",
+   "if_current_name": "Coprinopsis alopecia",
+   "if_current_name_record_id": "552969",
+   "name_agrees_with_queried_name": true,
+   "name_disagreement": false
+  },
+  "coprinopsis-variegata": {
+   "slug": "coprinopsis-variegata",
+   "accepted": "Coprinopsis variegata",
+   "catalog_authorship": "",
+   "catalog_year": null,
+   "if_status": "HIT",
+   "if_n_exact_records": 1,
+   "if_record_selection": "single",
+   "if_record_selection_reason": "ranked: CURRENT NAME RECORD NUMBER points at this record, then agreement with queried name, then NAME STATUS, then earliest year \u2014 NOT exact[0]",
+   "year": 2001,
+   "authors": "(Peck) Redhead, Vilgalys & Moncalvo",
+   "if_record_id": "474343",
+   "basionym_record_id": "171547",
+   "basionym_is_self": false,
+   "protonym_record_id": "171547",
+   "type_locality": "",
+   "host_substrate": "",
+   "typification": "",
+   "published_in": "Index of Fungi 7: 237",
+   "name_status": "Legitimate",
+   "if_current_name": "Coprinopsis variegata",
+   "if_current_name_record_id": "474343",
+   "name_agrees_with_queried_name": true,
+   "name_disagreement": false
+  },
+  "cortinarius-cinnamomeofulvus": {
+   "slug": "cortinarius-cinnamomeofulvus",
+   "accepted": "Cortinarius cinnamomeofulvus",
+   "catalog_authorship": "",
+   "catalog_year": null,
+   "if_status": "HIT",
+   "if_n_exact_records": 1,
+   "if_record_selection": "single",
+   "if_record_selection_reason": "ranked: CURRENT NAME RECORD NUMBER points at this record, then agreement with queried name, then NAME STATUS, then earliest year \u2014 NOT exact[0]",
+   "year": 1988,
+   "authors": "Rob. Henry",
+   "if_record_id": "134945",
+   "basionym_record_id": "134945",
+   "basionym_is_self": true,
+   "protonym_record_id": "134945",
+   "type_locality": "France",
+   "host_substrate": "in woodland",
+   "typification": "",
+   "published_in": "Index of Fungi 5: 875",
+   "name_status": "Legitimate",
+   "if_current_name": "Cortinarius cinnamomeofulvus",
+   "if_current_name_record_id": "134945",
+   "name_agrees_with_queried_name": true,
+   "name_disagreement": false
+  },
+  "cortinarius-cruentus": {
+   "slug": "cortinarius-cruentus",
+   "accepted": "Cortinarius cruentus",
+   "catalog_authorship": "",
+   "catalog_year": null,
+   "if_status": "HIT",
+   "if_n_exact_records": 1,
+   "if_record_selection": "single",
+   "if_record_selection_reason": "ranked: CURRENT NAME RECORD NUMBER points at this record, then agreement with queried name, then NAME STATUS, then earliest year \u2014 NOT exact[0]",
+   "year": 1994,
+   "authors": "Bidaud & Reumaux",
+   "if_record_id": "446957",
+   "basionym_record_id": "446957",
+   "basionym_is_self": true,
+   "protonym_record_id": "446957",
+   "type_locality": "France",
+   "host_substrate": "on soil, associated with <i>Gymnospermae</i> and <i>Angiospermae</i>",
+   "typification": "Holotype G [as 'GK'] 3615",
+   "published_in": "Index of Fungi 6: 1032",
+   "name_status": "Legitimate",
+   "if_current_name": "Cortinarius cruentus",
+   "if_current_name_record_id": "446957",
+   "name_agrees_with_queried_name": true,
+   "name_disagreement": false
+  },
+  "cortinarius-mirandus": {
+   "slug": "cortinarius-mirandus",
+   "accepted": "Cortinarius mirandus",
+   "catalog_authorship": "",
+   "catalog_year": null,
+   "if_status": "HIT",
+   "if_n_exact_records": 1,
+   "if_record_selection": "single",
+   "if_record_selection_reason": "ranked: CURRENT NAME RECORD NUMBER points at this record, then agreement with queried name, then NAME STATUS, then earliest year \u2014 NOT exact[0]",
+   "year": 1994,
+   "authors": "Mo\u00ebnne-Locc. & Reumaux",
+   "if_record_id": "446965",
+   "basionym_record_id": "446965",
+   "basionym_is_self": true,
+   "protonym_record_id": "446965",
+   "type_locality": "France",
+   "host_substrate": "at base of trunks of <i>Larix decidua</i>",
+   "typification": "Holotype G [as 'GK'] 2720",
+   "published_in": "Index of Fungi 6: 1034",
+   "name_status": "Legitimate",
+   "if_current_name": "Cortinarius mirandus",
+   "if_current_name_record_id": "446965",
+   "name_agrees_with_queried_name": true,
+   "name_disagreement": false
+  },
+  "craterellus-calicornucopioides": {
+   "slug": "craterellus-calicornucopioides",
+   "accepted": "Craterellus calicornucopioides",
+   "catalog_authorship": "",
+   "catalog_year": null,
+   "if_status": "HIT",
+   "if_n_exact_records": 1,
+   "if_record_selection": "single",
+   "if_record_selection_reason": "ranked: CURRENT NAME RECORD NUMBER points at this record, then agreement with queried name, then NAME STATUS, then earliest year \u2014 NOT exact[0]",
+   "year": 2015,
+   "authors": "D. Arora & J.L. Frank",
+   "if_record_id": "551288",
+   "basionym_record_id": "551288",
+   "basionym_is_self": true,
+   "protonym_record_id": "551288",
+   "type_locality": "California",
+   "host_substrate": "",
+   "typification": "Holotype SFSU, Arora 15002|http://www.ncbi.nlm.nih.gov/nuccore/KR560047",
+   "published_in": "",
+   "name_status": "Legitimate",
+   "if_current_name": "Craterellus calicornucopioides",
+   "if_current_name_record_id": "551288",
+   "name_agrees_with_queried_name": true,
+   "name_disagreement": false
+  },
+  "cyttaria-espinosae": {
+   "slug": "cyttaria-espinosae",
+   "accepted": "Cyttaria espinosae",
+   "catalog_authorship": "",
+   "catalog_year": null,
+   "if_status": "HIT",
+   "if_n_exact_records": 1,
+   "if_record_selection": "single",
+   "if_record_selection_reason": "ranked: CURRENT NAME RECORD NUMBER points at this record, then agreement with queried name, then NAME STATUS, then earliest year \u2014 NOT exact[0]",
+   "year": 1917,
+   "authors": "Lloyd",
+   "if_record_id": "141001",
+   "basionym_record_id": "141001",
+   "basionym_is_self": true,
+   "protonym_record_id": "141001",
+   "type_locality": "",
+   "host_substrate": "",
+   "typification": "",
+   "published_in": "Saccardo's Syll. fung. XXIV: 1154",
+   "name_status": "Legitimate",
+   "if_current_name": "Cyttaria espinosae",
+   "if_current_name_record_id": "141001",
+   "name_agrees_with_queried_name": true,
+   "name_disagreement": false
+  },
+  "entoloma-quadratum": {
+   "slug": "entoloma-quadratum",
+   "accepted": "Entoloma quadratum",
+   "catalog_authorship": "",
+   "catalog_year": null,
+   "if_status": "HIT",
+   "if_n_exact_records": 1,
+   "if_record_selection": "single",
+   "if_record_selection_reason": "ranked: CURRENT NAME RECORD NUMBER points at this record, then agreement with queried name, then NAME STATUS, then earliest year \u2014 NOT exact[0]",
+   "year": 1976,
+   "authors": "(Berk. & M.A. Curtis) E. Horak",
+   "if_record_id": "313803",
+   "basionym_record_id": "507029",
+   "basionym_is_self": false,
+   "protonym_record_id": "507029",
+   "type_locality": "",
+   "host_substrate": "",
+   "typification": "",
+   "published_in": "Index of Fungi 4: 473",
+   "name_status": "Legitimate",
+   "if_current_name": "Entoloma quadratum",
+   "if_current_name_record_id": "313803",
+   "name_agrees_with_queried_name": true,
+   "name_disagreement": false
+  },
+  "entoloma-sarcopum": {
+   "slug": "entoloma-sarcopum",
+   "accepted": "Entoloma sarcopum",
+   "catalog_authorship": "",
+   "catalog_year": null,
+   "if_status": "HIT",
+   "if_n_exact_records": 1,
+   "if_record_selection": "single",
+   "if_record_selection_reason": "ranked: CURRENT NAME RECORD NUMBER points at this record, then agreement with queried name, then NAME STATUS, then earliest year \u2014 NOT exact[0]",
+   "year": 1999,
+   "authors": "Nagas. & Hongo",
+   "if_record_id": "459971",
+   "basionym_record_id": "459971",
+   "basionym_is_self": true,
+   "protonym_record_id": "459971",
+   "type_locality": "",
+   "host_substrate": "",
+   "typification": "",
+   "published_in": "",
+   "name_status": "Orthographic variant",
+   "if_current_name": "",
+   "if_current_name_record_id": "637096",
+   "name_agrees_with_queried_name": null,
+   "name_disagreement": false
+  },
+  "flammulina-filiformis": {
+   "slug": "flammulina-filiformis",
+   "accepted": "Flammulina filiformis",
+   "catalog_authorship": "",
+   "catalog_year": null,
+   "if_status": "HIT",
+   "if_n_exact_records": 1,
+   "if_record_selection": "single",
+   "if_record_selection_reason": "ranked: CURRENT NAME RECORD NUMBER points at this record, then agreement with queried name, then NAME STATUS, then earliest year \u2014 NOT exact[0]",
+   "year": 2018,
+   "authors": "(Z.W. Ge, X.B. Liu & Zhu L. Yang) P.M. Wang, Y.C. Dai, E. Horak & Zhu L. Yang",
+   "if_record_id": "819132",
+   "basionym_record_id": "570170",
+   "basionym_is_self": false,
+   "protonym_record_id": "570170",
+   "type_locality": "",
+   "host_substrate": "",
+   "typification": "",
+   "published_in": "",
+   "name_status": "Legitimate",
+   "if_current_name": "Flammulina filiformis",
+   "if_current_name_record_id": "819132",
+   "name_agrees_with_queried_name": true,
+   "name_disagreement": false
+  },
+  "fomitopsis-mounceae": {
+   "slug": "fomitopsis-mounceae",
+   "accepted": "Fomitopsis mounceae",
+   "catalog_authorship": "",
+   "catalog_year": null,
+   "if_status": "HIT",
+   "if_n_exact_records": 1,
+   "if_record_selection": "single",
+   "if_record_selection_reason": "ranked: CURRENT NAME RECORD NUMBER points at this record, then agreement with queried name, then NAME STATUS, then earliest year \u2014 NOT exact[0]",
+   "year": 2019,
+   "authors": "Haight & Nakasone",
+   "if_record_id": "826717",
+   "basionym_record_id": "826717",
+   "basionym_is_self": true,
+   "protonym_record_id": "826717",
+   "type_locality": "Alberta",
+   "host_substrate": "on <i>Populus tremuloides</i>",
+   "typification": "Holotype CFMR, Haight JEH-78",
+   "published_in": "",
+   "name_status": "Legitimate",
+   "if_current_name": "Fomitopsis mounceae",
+   "if_current_name_record_id": "826717",
+   "name_agrees_with_queried_name": true,
+   "name_disagreement": false
+  },
+  "fomitopsis-ochracea": {
+   "slug": "fomitopsis-ochracea",
+   "accepted": "Fomitopsis ochracea",
+   "catalog_authorship": "",
+   "catalog_year": null,
+   "if_status": "HIT",
+   "if_n_exact_records": 1,
+   "if_record_selection": "single",
+   "if_record_selection_reason": "ranked: CURRENT NAME RECORD NUMBER points at this record, then agreement with queried name, then NAME STATUS, then earliest year \u2014 NOT exact[0]",
+   "year": 2008,
+   "authors": "Ryvarden & Stokland",
+   "if_record_id": "507308",
+   "basionym_record_id": "507308",
+   "basionym_is_self": true,
+   "protonym_record_id": "507308",
+   "type_locality": "Alberta",
+   "host_substrate": "on fallen log of <i>Populus tremuloides</i>",
+   "typification": "Holotype O, Stokland 223",
+   "published_in": "",
+   "name_status": "Legitimate",
+   "if_current_name": "Fomitopsis ochracea",
+   "if_current_name_record_id": "507308",
+   "name_agrees_with_queried_name": true,
+   "name_disagreement": false
+  },
+  "helvella-dryophila": {
+   "slug": "helvella-dryophila",
+   "accepted": "Helvella dryophila",
+   "catalog_authorship": "",
+   "catalog_year": null,
+   "if_status": "HIT",
+   "if_n_exact_records": 1,
+   "if_record_selection": "single",
+   "if_record_selection_reason": "ranked: CURRENT NAME RECORD NUMBER points at this record, then agreement with queried name, then NAME STATUS, then earliest year \u2014 NOT exact[0]",
+   "year": 2013,
+   "authors": "Vellinga & N.H. Nguyen",
+   "if_record_id": "802331",
+   "basionym_record_id": "802331",
+   "basionym_is_self": true,
+   "protonym_record_id": "802331",
+   "type_locality": "California",
+   "host_substrate": "on ground, associated with <i>Quercus</i>",
+   "typification": "Holotype UC 1999233",
+   "published_in": "",
+   "name_status": "Legitimate",
+   "if_current_name": "Helvella dryophila",
+   "if_current_name_record_id": "802331",
+   "name_agrees_with_queried_name": true,
+   "name_disagreement": false
+  },
+  "helvella-lactea": {
+   "slug": "helvella-lactea",
+   "accepted": "Helvella lactea",
+   "catalog_authorship": "",
+   "catalog_year": null,
+   "if_status": "HIT",
+   "if_n_exact_records": 2,
+   "if_record_selection": "self-current",
+   "if_record_selection_reason": "ranked: CURRENT NAME RECORD NUMBER points at this record, then agreement with queried name, then NAME STATUS, then earliest year \u2014 NOT exact[0]",
+   "year": 1907,
+   "authors": "Boud.",
+   "if_record_id": "147024",
+   "basionym_record_id": "147024",
+   "basionym_is_self": true,
+   "protonym_record_id": "147024",
+   "type_locality": "France",
+   "host_substrate": "on argilous soil",
+   "typification": "Typification: not determined",
+   "published_in": "Saccardo's Syll. fung. XIX: 847; XXII: 599",
+   "name_status": "Legitimate",
+   "if_current_name": "Helvella lactea",
+   "if_current_name_record_id": "147024",
+   "name_agrees_with_queried_name": true,
+   "name_disagreement": false,
+   "homonym_alternatives": [
+    {
+     "authors": "Boud.",
+     "year": "1966",
+     "record": "594690",
+     "current": null
+    }
+   ],
+   "year_if_selected_record": 1907,
+   "year_rule": "several IF records share this authorship but differ on year ([1907, 1966]); earliest taken as the protologue date"
+  },
+  "hymenopellis-furfuracea": {
+   "slug": "hymenopellis-furfuracea",
+   "accepted": "Hymenopellis furfuracea",
+   "catalog_authorship": "",
+   "catalog_year": null,
+   "if_status": "HIT",
+   "if_n_exact_records": 2,
+   "if_record_selection": "self-current",
+   "if_record_selection_reason": "ranked: CURRENT NAME RECORD NUMBER points at this record, then agreement with queried name, then NAME STATUS, then earliest year \u2014 NOT exact[0]",
+   "year": 2010,
+   "authors": "(Peck) R.H. Petersen",
+   "if_record_id": "567954",
+   "basionym_record_id": "372668",
+   "basionym_is_self": false,
+   "protonym_record_id": "372668",
+   "type_locality": "",
+   "host_substrate": "",
+   "typification": "",
+   "published_in": "",
+   "name_status": "Legitimate",
+   "if_current_name": "Hymenopellis furfuracea",
+   "if_current_name_record_id": "567954",
+   "name_agrees_with_queried_name": true,
+   "name_disagreement": false,
+   "homonym_alternatives": [
+    {
+     "authors": "(Peck) R.H. Petersen",
+     "year": "2010",
+     "record": "800746",
+     "current": null
+    }
+   ]
+  },
+  "inocybe-sublilacina": {
+   "slug": "inocybe-sublilacina",
+   "accepted": "Inocybe sublilacina",
+   "catalog_authorship": "",
+   "catalog_year": null,
+   "if_status": "HIT",
+   "if_n_exact_records": 1,
+   "if_record_selection": "single",
+   "if_record_selection_reason": "ranked: CURRENT NAME RECORD NUMBER points at this record, then agreement with queried name, then NAME STATUS, then earliest year \u2014 NOT exact[0]",
+   "year": 2018,
+   "authors": "Matheny & Voitk",
+   "if_record_id": "822203",
+   "basionym_record_id": "822203",
+   "basionym_is_self": true,
+   "protonym_record_id": "822203",
+   "type_locality": "Colorado",
+   "host_substrate": "on soil, associated with <i>Picea</i>",
+   "typification": "Holotype TENN 062542",
+   "published_in": "",
+   "name_status": "Legitimate",
+   "if_current_name": "Inocybe sublilacina",
+   "if_current_name_record_id": "822203",
+   "name_agrees_with_queried_name": true,
+   "name_disagreement": false
+  },
+  "lactarius-alnicola": {
+   "slug": "lactarius-alnicola",
+   "accepted": "Lactarius alnicola",
+   "catalog_authorship": "",
+   "catalog_year": null,
+   "if_status": "HIT",
+   "if_n_exact_records": 1,
+   "if_record_selection": "single",
+   "if_record_selection_reason": "ranked: CURRENT NAME RECORD NUMBER points at this record, then agreement with queried name, then NAME STATUS, then earliest year \u2014 NOT exact[0]",
+   "year": 1960,
+   "authors": "A.H. Sm.",
+   "if_record_id": "332867",
+   "basionym_record_id": "332867",
+   "basionym_is_self": true,
+   "protonym_record_id": "332867",
+   "type_locality": "Idaho",
+   "host_substrate": "",
+   "typification": "",
+   "published_in": "Index of Fungi 3: 48",
+   "name_status": "Legitimate",
+   "if_current_name": "Lactarius alnicola",
+   "if_current_name_record_id": "332867",
+   "name_agrees_with_queried_name": true,
+   "name_disagreement": false
+  },
+  "lactarius-corrugis": {
+   "slug": "lactarius-corrugis",
+   "accepted": "Lactarius corrugis",
+   "catalog_authorship": "",
+   "catalog_year": null,
+   "if_status": "HIT",
+   "if_n_exact_records": 1,
+   "if_record_selection": "single",
+   "if_record_selection_reason": "ranked: CURRENT NAME RECORD NUMBER points at this record, then agreement with queried name, then NAME STATUS, then earliest year \u2014 NOT exact[0]",
+   "year": 1880,
+   "authors": "Peck",
+   "if_record_id": "216878",
+   "basionym_record_id": "216878",
+   "basionym_is_self": true,
+   "protonym_record_id": "216878",
+   "type_locality": "New York",
+   "host_substrate": "on soil",
+   "typification": "Typification: Peck s.n.",
+   "published_in": "Saccardo's Syll. fung. V: 449; XII: 979; XIX: 1025",
+   "name_status": "Legitimate",
+   "if_current_name": "",
+   "if_current_name_record_id": "",
+   "name_agrees_with_queried_name": null,
+   "name_disagreement": false
+  },
+  "lactarius-rubidus": {
+   "slug": "lactarius-rubidus",
+   "accepted": "Lactarius rubidus",
+   "catalog_authorship": "",
+   "catalog_year": null,
+   "if_status": "HIT",
+   "if_n_exact_records": 3,
+   "if_record_selection": "self-current",
+   "if_record_selection_reason": "ranked: CURRENT NAME RECORD NUMBER points at this record, then agreement with queried name, then NAME STATUS, then earliest year \u2014 NOT exact[0]",
+   "year": 1997,
+   "authors": "(Hesler & A.H. Sm.) Methven",
+   "if_record_id": "803100",
+   "basionym_record_id": "117712",
+   "basionym_is_self": false,
+   "protonym_record_id": "117712",
+   "type_locality": "",
+   "host_substrate": "",
+   "typification": "",
+   "published_in": "",
+   "name_status": "Legitimate",
+   "if_current_name": "Lactarius rubidus",
+   "if_current_name_record_id": "803100",
+   "name_agrees_with_queried_name": true,
+   "name_disagreement": false,
+   "homonym_alternatives": [
+    {
+     "authors": "(Hesler & A.H. Sm.) Methven",
+     "year": "1997",
+     "record": "315641",
+     "current": null
+    },
+    {
+     "authors": "(Hesler & A.H. Sm.) Methven",
+     "year": "1997",
+     "record": "315679",
+     "current": null
+    }
+   ],
+   "year_if_selected_record": 2013,
+   "year_rule": "several IF records share this authorship but differ on year ([1997, 2013]); earliest taken as the protologue date"
+  },
+  "lactarius-rubrilacteus": {
+   "slug": "lactarius-rubrilacteus",
+   "accepted": "Lactarius rubrilacteus",
+   "catalog_authorship": "",
+   "catalog_year": null,
+   "if_status": "HIT",
+   "if_n_exact_records": 1,
+   "if_record_selection": "single",
+   "if_record_selection_reason": "ranked: CURRENT NAME RECORD NUMBER points at this record, then agreement with queried name, then NAME STATUS, then earliest year \u2014 NOT exact[0]",
+   "year": 1979,
+   "authors": "Hesler & A.H. Sm.",
+   "if_record_id": "116113",
+   "basionym_record_id": "116113",
+   "basionym_is_self": true,
+   "protonym_record_id": "116113",
+   "type_locality": "Oregon",
+   "host_substrate": "",
+   "typification": "Holotype MICH, Gruber 8-4,1200",
+   "published_in": "Index of Fungi 5: 53",
+   "name_status": "Legitimate",
+   "if_current_name": "Lactarius rubrilacteus",
+   "if_current_name_record_id": "116113",
+   "name_agrees_with_queried_name": true,
+   "name_disagreement": false
+  },
+  "laetiporus-gilbertsonii": {
+   "slug": "laetiporus-gilbertsonii",
+   "accepted": "Laetiporus gilbertsonii",
+   "catalog_authorship": "",
+   "catalog_year": null,
+   "if_status": "HIT",
+   "if_n_exact_records": 1,
+   "if_record_selection": "single",
+   "if_record_selection_reason": "ranked: CURRENT NAME RECORD NUMBER points at this record, then agreement with queried name, then NAME STATUS, then earliest year \u2014 NOT exact[0]",
+   "year": 2001,
+   "authors": "Burds.",
+   "if_record_id": "372853",
+   "basionym_record_id": "372853",
+   "basionym_is_self": true,
+   "protonym_record_id": "372853",
+   "type_locality": "California",
+   "host_substrate": "on <i>Eucalyptus</i>",
+   "typification": "Holotype CFMR, Collins CA-16",
+   "published_in": "Index of Fungi 7: 500",
+   "name_status": "Legitimate",
+   "if_current_name": "Laetiporus gilbertsonii",
+   "if_current_name_record_id": "372853",
+   "name_agrees_with_queried_name": true,
+   "name_disagreement": false
+  },
+  "marasmius-plicatulus": {
+   "slug": "marasmius-plicatulus",
+   "accepted": "Marasmius plicatulus",
+   "catalog_authorship": "",
+   "catalog_year": null,
+   "if_status": "HIT",
+   "if_n_exact_records": 2,
+   "if_record_selection": "self-current",
+   "if_record_selection_reason": "ranked: CURRENT NAME RECORD NUMBER points at this record, then agreement with queried name, then NAME STATUS, then earliest year \u2014 NOT exact[0]",
+   "year": 1897,
+   "authors": "Peck",
+   "if_record_id": "204432",
+   "basionym_record_id": "204432",
+   "basionym_is_self": true,
+   "protonym_record_id": "204432",
+   "type_locality": "California",
+   "host_substrate": "in fallen leaves",
+   "typification": "Typification: McClatchie s.n.",
+   "published_in": "Saccardo's Syll. fung. XIV: 107",
+   "name_status": "Legitimate",
+   "if_current_name": "Marasmius plicatulus",
+   "if_current_name_record_id": "204432",
+   "name_agrees_with_queried_name": true,
+   "name_disagreement": false,
+   "homonym_alternatives": [
+    {
+     "authors": "Peck",
+     "year": null,
+     "record": "593421",
+     "current": null
+    }
+   ]
+  },
+  "megacollybia-rodmanii": {
+   "slug": "megacollybia-rodmanii",
+   "accepted": "Megacollybia rodmanii",
+   "catalog_authorship": "",
+   "catalog_year": null,
+   "if_status": "HIT",
+   "if_n_exact_records": 1,
+   "if_record_selection": "single",
+   "if_record_selection_reason": "ranked: CURRENT NAME RECORD NUMBER points at this record, then agreement with queried name, then NAME STATUS, then earliest year \u2014 NOT exact[0]",
+   "year": 2008,
+   "authors": "R.H. Petersen, K.W. Hughes & Lickey",
+   "if_record_id": "530328",
+   "basionym_record_id": "530328",
+   "basionym_is_self": true,
+   "protonym_record_id": "530328",
+   "type_locality": "Tennessee",
+   "host_substrate": "on or near very rotten wood",
+   "typification": "Holotype TENN 59430|http://www.ncbi.nlm.nih.gov/nuccore/EU623761",
+   "published_in": "",
+   "name_status": "Legitimate",
+   "if_current_name": "Megacollybia rodmanii",
+   "if_current_name_record_id": "530328",
+   "name_agrees_with_queried_name": true,
+   "name_disagreement": false
+  },
+  "morchella-importuna": {
+   "slug": "morchella-importuna",
+   "accepted": "Morchella importuna",
+   "catalog_authorship": "",
+   "catalog_year": null,
+   "if_status": "HIT",
+   "if_n_exact_records": 1,
+   "if_record_selection": "single",
+   "if_record_selection_reason": "ranked: CURRENT NAME RECORD NUMBER points at this record, then agreement with queried name, then NAME STATUS, then earliest year \u2014 NOT exact[0]",
+   "year": 2012,
+   "authors": "M. Kuo, O'Donnell & T.J. Volk",
+   "if_record_id": "563958",
+   "basionym_record_id": "563958",
+   "basionym_is_self": true,
+   "protonym_record_id": "563958",
+   "type_locality": "Washington",
+   "host_substrate": "in garden",
+   "typification": "Holotype F 04130401",
+   "published_in": "",
+   "name_status": "Legitimate",
+   "if_current_name": "Morchella importuna",
+   "if_current_name_record_id": "563958",
+   "name_agrees_with_queried_name": true,
+   "name_disagreement": false
+  },
+  "mycena-diosma": {
+   "slug": "mycena-diosma",
+   "accepted": "Mycena diosma",
+   "catalog_authorship": "",
+   "catalog_year": null,
+   "if_status": "HIT",
+   "if_n_exact_records": 1,
+   "if_record_selection": "single",
+   "if_record_selection_reason": "ranked: CURRENT NAME RECORD NUMBER points at this record, then agreement with queried name, then NAME STATUS, then earliest year \u2014 NOT exact[0]",
+   "year": 1982,
+   "authors": "Krieglst. & Schw\u00f6bel",
+   "if_record_id": "110826",
+   "basionym_record_id": "110826",
+   "basionym_is_self": true,
+   "protonym_record_id": "110826",
+   "type_locality": "Germany",
+   "host_substrate": "",
+   "typification": "",
+   "published_in": "Index of Fungi 5: 167",
+   "name_status": "Legitimate",
+   "if_current_name": "Prunulus diosmus",
+   "if_current_name_record_id": "833293",
+   "name_agrees_with_queried_name": false,
+   "name_disagreement": true
+  },
+  "paralepistopsis-acromelalga": {
+   "slug": "paralepistopsis-acromelalga",
+   "accepted": "Paralepistopsis acromelalga",
+   "catalog_authorship": "",
+   "catalog_year": null,
+   "if_status": "HIT",
+   "if_n_exact_records": 1,
+   "if_record_selection": "single",
+   "if_record_selection_reason": "ranked: CURRENT NAME RECORD NUMBER points at this record, then agreement with queried name, then NAME STATUS, then earliest year \u2014 NOT exact[0]",
+   "year": 2012,
+   "authors": "(Ichimura) Vizzini",
+   "if_record_id": "564342",
+   "basionym_record_id": "208518",
+   "basionym_is_self": false,
+   "protonym_record_id": "208518",
+   "type_locality": "",
+   "host_substrate": "",
+   "typification": "",
+   "published_in": "",
+   "name_status": "Legitimate",
+   "if_current_name": "Paralepistopsis acromelalga",
+   "if_current_name_record_id": "564342",
+   "name_agrees_with_queried_name": true,
+   "name_disagreement": false
+  },
+  "paralepistopsis-amoenolens": {
+   "slug": "paralepistopsis-amoenolens",
+   "accepted": "Paralepistopsis amoenolens",
+   "catalog_authorship": "",
+   "catalog_year": null,
+   "if_status": "HIT",
+   "if_n_exact_records": 1,
+   "if_record_selection": "single",
+   "if_record_selection_reason": "ranked: CURRENT NAME RECORD NUMBER points at this record, then agreement with queried name, then NAME STATUS, then earliest year \u2014 NOT exact[0]",
+   "year": 2012,
+   "authors": "(Malen\u00e7on) Vizzini",
+   "if_record_id": "564341",
+   "basionym_record_id": "311313",
+   "basionym_is_self": false,
+   "protonym_record_id": "311313",
+   "type_locality": "",
+   "host_substrate": "",
+   "typification": "",
+   "published_in": "",
+   "name_status": "Legitimate",
+   "if_current_name": "Paralepistopsis amoenolens",
+   "if_current_name_record_id": "564341",
+   "name_agrees_with_queried_name": true,
+   "name_disagreement": false
+  },
+  "rubroboletus-lupinus": {
+   "slug": "rubroboletus-lupinus",
+   "accepted": "Rubroboletus lupinus",
+   "catalog_authorship": "",
+   "catalog_year": null,
+   "if_status": "HIT",
+   "if_n_exact_records": 1,
+   "if_record_selection": "single",
+   "if_record_selection_reason": "ranked: CURRENT NAME RECORD NUMBER points at this record, then agreement with queried name, then NAME STATUS, then earliest year \u2014 NOT exact[0]",
+   "year": 2015,
+   "authors": "(Fr.) Costanzo, Gelardi, Simonini & Vizzini",
+   "if_record_id": "551144",
+   "basionym_record_id": "247160",
+   "basionym_is_self": false,
+   "protonym_record_id": "247160",
+   "type_locality": "",
+   "host_substrate": "",
+   "typification": "",
+   "published_in": "",
+   "name_status": "Legitimate",
+   "if_current_name": "Rubroboletus lupinus",
+   "if_current_name_record_id": "551144",
+   "name_agrees_with_queried_name": true,
+   "name_disagreement": false
+  },
+  "russula-subnigricans": {
+   "slug": "russula-subnigricans",
+   "accepted": "Russula subnigricans",
+   "catalog_authorship": "",
+   "catalog_year": null,
+   "if_status": "HIT",
+   "if_n_exact_records": 1,
+   "if_record_selection": "single",
+   "if_record_selection_reason": "ranked: CURRENT NAME RECORD NUMBER points at this record, then agreement with queried name, then NAME STATUS, then earliest year \u2014 NOT exact[0]",
+   "year": 1955,
+   "authors": "Hongo",
+   "if_record_id": "305414",
+   "basionym_record_id": "305414",
+   "basionym_is_self": true,
+   "protonym_record_id": "305414",
+   "type_locality": "Japan",
+   "host_substrate": "on ground in woods of <i>Shiia</i>",
+   "typification": "Typification: not indicated",
+   "published_in": "Index of Fungi 2: 220",
+   "name_status": "Legitimate",
+   "if_current_name": "Russula subnigricans",
+   "if_current_name_record_id": "305414",
+   "name_agrees_with_queried_name": true,
+   "name_disagreement": false
+  },
+  "stropharia-ambigua": {
+   "slug": "stropharia-ambigua",
+   "accepted": "Stropharia ambigua",
+   "catalog_authorship": "",
+   "catalog_year": null,
+   "if_status": "HIT",
+   "if_n_exact_records": 1,
+   "if_record_selection": "single",
+   "if_record_selection_reason": "ranked: CURRENT NAME RECORD NUMBER points at this record, then agreement with queried name, then NAME STATUS, then earliest year \u2014 NOT exact[0]",
+   "year": 1914,
+   "authors": "(Peck) Zeller",
+   "if_record_id": "487198",
+   "basionym_record_id": "156342",
+   "basionym_is_self": false,
+   "protonym_record_id": "156342",
+   "type_locality": "",
+   "host_substrate": "",
+   "typification": "",
+   "published_in": "",
+   "name_status": "Legitimate",
+   "if_current_name": "Stropharia ambigua",
+   "if_current_name_record_id": "487198",
+   "name_agrees_with_queried_name": true,
+   "name_disagreement": false
+  },
+  "suillus-decipiens": {
+   "slug": "suillus-decipiens",
+   "accepted": "Suillus decipiens",
+   "catalog_authorship": "",
+   "catalog_year": null,
+   "if_status": "HIT",
+   "if_n_exact_records": 1,
+   "if_record_selection": "single",
+   "if_record_selection_reason": "ranked: CURRENT NAME RECORD NUMBER points at this record, then agreement with queried name, then NAME STATUS, then earliest year \u2014 NOT exact[0]",
+   "year": 1898,
+   "authors": "(Peck) Kuntze",
+   "if_record_id": "487337",
+   "basionym_record_id": "451312",
+   "basionym_is_self": false,
+   "protonym_record_id": "207004",
+   "type_locality": "",
+   "host_substrate": "",
+   "typification": "",
+   "published_in": "",
+   "name_status": "Legitimate",
+   "if_current_name": "Suillus decipiens",
+   "if_current_name_record_id": "487337",
+   "name_agrees_with_queried_name": true,
+   "name_disagreement": false
+  },
+  "tremella-fuciformis": {
+   "slug": "tremella-fuciformis",
+   "accepted": "Tremella fuciformis",
+   "catalog_authorship": "",
+   "catalog_year": null,
+   "if_status": "HIT",
+   "if_n_exact_records": 1,
+   "if_record_selection": "single",
+   "if_record_selection_reason": "ranked: CURRENT NAME RECORD NUMBER points at this record, then agreement with queried name, then NAME STATUS, then earliest year \u2014 NOT exact[0]",
+   "year": 1856,
+   "authors": "Berk.",
+   "if_record_id": "173606",
+   "basionym_record_id": "173606",
+   "basionym_is_self": true,
+   "protonym_record_id": "173606",
+   "type_locality": "Amazonas",
+   "host_substrate": "on trunks",
+   "typification": "Holotype K(M) 55469",
+   "published_in": "Saccardo's Syll. fung. VI: 782; XII: 791; XX: 974; XXI: 455",
+   "name_status": "Legitimate",
+   "if_current_name": "Tremella fuciformis",
+   "if_current_name_record_id": "173606",
+   "name_agrees_with_queried_name": true,
+   "name_disagreement": false
+  },
+  "tricholoma-muscarium": {
+   "slug": "tricholoma-muscarium",
+   "accepted": "Tricholoma muscarium",
+   "catalog_authorship": "",
+   "catalog_year": null,
+   "if_status": "HIT",
+   "if_n_exact_records": 2,
+   "if_record_selection": "self-current",
+   "if_record_selection_reason": "ranked: CURRENT NAME RECORD NUMBER points at this record, then agreement with queried name, then NAME STATUS, then earliest year \u2014 NOT exact[0]",
+   "year": 1959,
+   "authors": "Kawam. ex Hongo",
+   "if_record_id": "307047",
+   "basionym_record_id": "307047",
+   "basionym_is_self": true,
+   "protonym_record_id": "307047",
+   "type_locality": "Japan",
+   "host_substrate": "",
+   "typification": "",
+   "published_in": "Index of Fungi 3: 368",
+   "name_status": "Legitimate",
+   "if_current_name": "Tricholoma muscarium",
+   "if_current_name_record_id": "307047",
+   "name_agrees_with_queried_name": true,
+   "name_disagreement": false,
+   "homonym_alternatives": [
+    {
+     "authors": "Kawam.",
+     "year": "1954",
+     "record": "307046",
+     "current": null
+    }
+   ]
+  },
+  "tricholoma-pardinum": {
+   "slug": "tricholoma-pardinum",
+   "accepted": "Tricholoma pardinum",
+   "catalog_authorship": "",
+   "catalog_year": null,
+   "if_status": "HIT",
+   "if_n_exact_records": 1,
+   "if_record_selection": "single",
+   "if_record_selection_reason": "ranked: CURRENT NAME RECORD NUMBER points at this record, then agreement with queried name, then NAME STATUS, then earliest year \u2014 NOT exact[0]",
+   "year": 1873,
+   "authors": "(Pers.) Qu\u00e9l.",
+   "if_record_id": "356853",
+   "basionym_record_id": "461533",
+   "basionym_is_self": false,
+   "protonym_record_id": "461533",
+   "type_locality": "",
+   "host_substrate": "",
+   "typification": "",
+   "published_in": "",
+   "name_status": "Legitimate",
+   "if_current_name": "Tricholoma pardinum",
+   "if_current_name_record_id": "356853",
+   "name_agrees_with_queried_name": true,
+   "name_disagreement": false
+  },
+  "trogia-venenata": {
+   "slug": "trogia-venenata",
+   "accepted": "Trogia venenata",
+   "catalog_authorship": "",
+   "catalog_year": null,
+   "if_status": "HIT",
+   "if_n_exact_records": 2,
+   "if_record_selection": "self-current",
+   "if_record_selection_reason": "ranked: CURRENT NAME RECORD NUMBER points at this record, then agreement with queried name, then NAME STATUS, then earliest year \u2014 NOT exact[0]",
+   "year": 2012,
+   "authors": "Zhu L. Yang, Yan C. Li & L.P. Tang",
+   "if_record_id": "549597",
+   "basionym_record_id": "549597",
+   "basionym_is_self": true,
+   "protonym_record_id": "549597",
+   "type_locality": "",
+   "host_substrate": "",
+   "typification": "Holotype HKAS 56679",
+   "published_in": "",
+   "name_status": "Legitimate",
+   "if_current_name": "Trogia venenata",
+   "if_current_name_record_id": "549597",
+   "name_agrees_with_queried_name": true,
+   "name_disagreement": false,
+   "homonym_alternatives": [
+    {
+     "authors": "Zhu L. Yang",
+     "year": "2012",
+     "record": "561711",
+     "current": null
+    }
+   ]
+  },
+  "tuber-aestivum": {
+   "slug": "tuber-aestivum",
+   "accepted": "Tuber aestivum",
+   "catalog_authorship": "",
+   "catalog_year": null,
+   "if_status": "HIT",
+   "if_n_exact_records": 5,
+   "if_record_selection": "self-current",
+   "if_record_selection_reason": "ranked: CURRENT NAME RECORD NUMBER points at this record, then agreement with queried name, then NAME STATUS, then earliest year \u2014 NOT exact[0]",
+   "year": 1831,
+   "authors": "Vittad.",
+   "if_record_id": "218597",
+   "basionym_record_id": "218597",
+   "basionym_is_self": true,
+   "protonym_record_id": "218597",
+   "type_locality": "Italy",
+   "host_substrate": "in the ground",
+   "typification": "Typification: Tab. 2, fig. 4 (loc. cit.)",
+   "published_in": "Saccardo's Syll. fung. VIII: 891; XII: 1036; XX: 1031, 1308",
+   "name_status": "Legitimate",
+   "if_current_name": "Tuber aestivum",
+   "if_current_name_record_id": "218597",
+   "name_agrees_with_queried_name": true,
+   "name_disagreement": false,
+   "homonym_alternatives": [
+    {
+     "authors": "(Wulfen) Spreng.",
+     "year": "1827",
+     "record": "218548",
+     "current": "Rhizopogon aestivus"
+    },
+    {
+     "authors": "(Wulfen) Spreng.",
+     "year": "1827",
+     "record": "496680",
+     "current": null
+    },
+    {
+     "authors": "Vittad.",
+     "year": "2021",
+     "record": "10001890",
+     "current": null
+    },
+    {
+     "authors": "Vittad.",
+     "year": "2021",
+     "record": "10001891",
+     "current": null
+    }
+   ]
+  },
+  "tuber-borchii": {
+   "slug": "tuber-borchii",
+   "accepted": "Tuber borchii",
+   "catalog_authorship": "",
+   "catalog_year": null,
+   "if_status": "HIT",
+   "if_n_exact_records": 5,
+   "if_record_selection": "self-current",
+   "if_record_selection_reason": "ranked: CURRENT NAME RECORD NUMBER points at this record, then agreement with queried name, then NAME STATUS, then earliest year \u2014 NOT exact[0]",
+   "year": 1831,
+   "authors": "Vittad.",
+   "if_record_id": "118774",
+   "basionym_record_id": "118774",
+   "basionym_is_self": true,
+   "protonym_record_id": "118774",
+   "type_locality": "Italy",
+   "host_substrate": "",
+   "typification": "Typification: Tab. I, fig. III (loc. cit.)",
+   "published_in": "Saccardo's Syll. fung. VII: 171; VIII: 889; XII: 1036; XX: 1032",
+   "name_status": "Legitimate",
+   "if_current_name": "Tuber borchii",
+   "if_current_name_record_id": "118774",
+   "name_agrees_with_queried_name": true,
+   "name_disagreement": false,
+   "homonym_alternatives": [
+    {
+     "authors": "Kauffman",
+     "year": "1910",
+     "record": "220786",
+     "current": "Tuber canaliculatum"
+    },
+    {
+     "authors": "Vittad.",
+     "year": "2000",
+     "record": "599327",
+     "current": null
+    },
+    {
+     "authors": "Vittad.",
+     "year": "2021",
+     "record": "10001893",
+     "current": null
+    },
+    {
+     "authors": "Vittad.",
+     "year": "2021",
+     "record": "10001895",
+     "current": null
+    }
+   ]
+  },
+  "tuber-melanosporum": {
+   "slug": "tuber-melanosporum",
+   "accepted": "Tuber melanosporum",
+   "catalog_authorship": "",
+   "catalog_year": null,
+   "if_status": "HIT",
+   "if_n_exact_records": 3,
+   "if_record_selection": "self-current",
+   "if_record_selection_reason": "ranked: CURRENT NAME RECORD NUMBER points at this record, then agreement with queried name, then NAME STATUS, then earliest year \u2014 NOT exact[0]",
+   "year": 1831,
+   "authors": "Vittad.",
+   "if_record_id": "192144",
+   "basionym_record_id": "192144",
+   "basionym_is_self": true,
+   "protonym_record_id": "192144",
+   "type_locality": "Italy",
+   "host_substrate": "",
+   "typification": "Typification: Tab. II, fig. III (loc. cit.)",
+   "published_in": "Saccardo's Syll. fung. VIII: 894; XI: 444; XII: 1036; XX: 1036, 1308",
+   "name_status": "Legitimate",
+   "if_current_name": "Tuber melanosporum",
+   "if_current_name_record_id": "192144",
+   "name_agrees_with_queried_name": true,
+   "name_disagreement": false,
+   "homonym_alternatives": [
+    {
+     "authors": "Vittad.",
+     "year": "2021",
+     "record": "10001899",
+     "current": null
+    },
+    {
+     "authors": "Vittad.",
+     "year": "2021",
+     "record": "10001900",
+     "current": null
+    }
+   ],
+   "year_if_selected_record": 1831,
+   "year_rule": "several IF records share this authorship but differ on year ([1831, 2021]); earliest taken as the protologue date"
+  },
+  "ustilago-maydis": {
+   "slug": "ustilago-maydis",
+   "accepted": "Ustilago maydis",
+   "catalog_authorship": "",
+   "catalog_year": null,
+   "if_status": "HIT",
+   "if_n_exact_records": 1,
+   "if_record_selection": "single",
+   "if_record_selection_reason": "ranked: CURRENT NAME RECORD NUMBER points at this record, then agreement with queried name, then NAME STATUS, then earliest year \u2014 NOT exact[0]",
+   "year": 1842,
+   "authors": "(DC.) Corda",
+   "if_record_id": "169566",
+   "basionym_record_id": "244259",
+   "basionym_is_self": false,
+   "protonym_record_id": "244259",
+   "type_locality": "",
+   "host_substrate": "",
+   "typification": "",
+   "published_in": "Saccardo's Syll. fung. VII: 464A, 472A-473A; XII: 828; XX: 1105",
+   "name_status": "Legitimate",
+   "if_current_name": "Ustilago maydis",
+   "if_current_name_record_id": "169566",
+   "name_agrees_with_queried_name": true,
+   "name_disagreement": false
+  },
+  "wilcoxina-rehmii": {
+   "slug": "wilcoxina-rehmii",
+   "accepted": "Wilcoxina rehmii",
+   "catalog_authorship": "",
+   "catalog_year": null,
+   "if_status": "HIT",
+   "if_n_exact_records": 1,
+   "if_record_selection": "single",
+   "if_record_selection_reason": "ranked: CURRENT NAME RECORD NUMBER points at this record, then agreement with queried name, then NAME STATUS, then earliest year \u2014 NOT exact[0]",
+   "year": 1985,
+   "authors": "Chin S. Yang & Korf",
+   "if_record_id": "104862",
+   "basionym_record_id": "104862",
+   "basionym_is_self": true,
+   "protonym_record_id": "104862",
+   "type_locality": "Germany",
+   "host_substrate": "on soil",
+   "typification": "Holotype S (colln Sydow), Sydow, Jul. 1885",
+   "published_in": "Index of Fungi 5: 507",
+   "name_status": "Legitimate",
+   "if_current_name": "Wilcoxina rehmii",
+   "if_current_name_record_id": "104862",
+   "name_agrees_with_queried_name": true,
+   "name_disagreement": false
+  }
+ },
+ "provenance": {
+  "agaricus-menieri": {
+   "queried_name": "Agaricus menieri",
+   "repair_class": "absent-add",
+   "reference_list_arms": [
+    "wikipedia_poisonous"
+   ],
+   "gbif_matchType": "EXACT",
+   "gbif_rank": "SPECIES",
+   "gbif_taxonomicStatus": "ACCEPTED",
+   "gbif_publishedIn": "(1981). Docums Mycol. 11(no. 44): 28.",
+   "occ_total": 49,
+   "occ_na": 0,
+   "authorship_source": "index-fungorum",
+   "authorship_gbif": "Bon",
+   "authorship_if": "Bon",
+   "authorship_conflict": false,
+   "year_rule": null,
+   "higher_taxonomy_from_genus_record": null,
+   "edibility_note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+  },
+  "amanita-aprica": {
+   "queried_name": "Amanita aprica",
+   "repair_class": "absent-add",
+   "reference_list_arms": [
+    "wikipedia_poisonous"
+   ],
+   "gbif_matchType": "EXACT",
+   "gbif_rank": "SPECIES",
+   "gbif_taxonomicStatus": "ACCEPTED",
+   "gbif_publishedIn": "(2005). Mycotaxon 91: 194.",
+   "occ_total": 1443,
+   "occ_na": 1427,
+   "authorship_source": "index-fungorum",
+   "authorship_gbif": "J.Lindgr. & Tulloss",
+   "authorship_if": "J.E. Lindgr. & Tulloss",
+   "authorship_conflict": true,
+   "year_rule": null,
+   "higher_taxonomy_from_genus_record": null,
+   "edibility_note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+  },
+  "amanita-augusta": {
+   "queried_name": "Amanita augusta",
+   "repair_class": "absent-add",
+   "reference_list_arms": [
+    "gbif_top200_northamerica"
+   ],
+   "gbif_matchType": "EXACT",
+   "gbif_rank": "SPECIES",
+   "gbif_taxonomicStatus": "ACCEPTED",
+   "gbif_publishedIn": "(2013). N. Amer. Fung. 8(5): 2.",
+   "occ_total": 3302,
+   "occ_na": 3215,
+   "authorship_source": "index-fungorum",
+   "authorship_gbif": "Bojantchev & R.M.Davis",
+   "authorship_if": "Bojantchev & R.M. Davis",
+   "authorship_conflict": false,
+   "year_rule": null,
+   "higher_taxonomy_from_genus_record": null,
+   "edibility_note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+  },
+  "amanita-cokeri": {
+   "queried_name": "Amanita cokeri",
+   "repair_class": "absent-add",
+   "reference_list_arms": [
+    "wikipedia_poisonous"
+   ],
+   "gbif_matchType": "EXACT",
+   "gbif_rank": "SPECIES",
+   "gbif_taxonomicStatus": "ACCEPTED",
+   "gbif_publishedIn": "(1940). In Bresadola, Iconogr. mycol., Suppl. I (Milan) 27: 66.",
+   "occ_total": 872,
+   "occ_na": 834,
+   "authorship_source": "index-fungorum",
+   "authorship_gbif": "E.-J.Gilbert & K\u00fchner ex E.-J.Gilbert",
+   "authorship_if": "E.-J. Gilbert & K\u00fchner ex E.-J. Gilbert",
+   "authorship_conflict": false,
+   "year_rule": null,
+   "higher_taxonomy_from_genus_record": null,
+   "edibility_note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+  },
+  "amanita-cothurnata": {
+   "queried_name": "Amanita cothurnata",
+   "repair_class": "absent-add",
+   "reference_list_arms": [
+    "wikipedia_poisonous"
+   ],
+   "gbif_matchType": "EXACT",
+   "gbif_rank": "SPECIES",
+   "gbif_taxonomicStatus": "ACCEPTED",
+   "gbif_publishedIn": "(1900). Stud. Amer. Fungi: 60.",
+   "occ_total": 332,
+   "occ_na": 315,
+   "authorship_source": "index-fungorum",
+   "authorship_gbif": "G.F.Atk.",
+   "authorship_if": "G.F. Atk.",
+   "authorship_conflict": false,
+   "year_rule": null,
+   "higher_taxonomy_from_genus_record": null,
+   "edibility_note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+  },
+  "amanita-flavorubescens": {
+   "queried_name": "Amanita flavorubescens",
+   "repair_class": "absent-add",
+   "reference_list_arms": [
+    "wikipedia_poisonous"
+   ],
+   "gbif_matchType": "EXACT",
+   "gbif_rank": "SPECIES",
+   "gbif_taxonomicStatus": "ACCEPTED",
+   "gbif_publishedIn": "(1902). J. Mycol. 8(3): 111.",
+   "occ_total": 724,
+   "occ_na": 710,
+   "authorship_source": "index-fungorum",
+   "authorship_gbif": "G.F.Atk.",
+   "authorship_if": "G.F. Atk.",
+   "authorship_conflict": false,
+   "year_rule": null,
+   "higher_taxonomy_from_genus_record": null,
+   "edibility_note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+  },
+  "amanita-gioiosa": {
+   "queried_name": "Amanita gioiosa",
+   "repair_class": "absent-add",
+   "reference_list_arms": [
+    "wikipedia_poisonous"
+   ],
+   "gbif_matchType": "EXACT",
+   "gbif_rank": "SPECIES",
+   "gbif_taxonomicStatus": "ACCEPTED",
+   "gbif_publishedIn": "(1991). Micol. Ital. 20(1): 51.",
+   "occ_total": 50,
+   "occ_na": 1,
+   "authorship_source": "index-fungorum",
+   "authorship_gbif": "S.Curreli",
+   "authorship_if": "S. Curreli",
+   "authorship_conflict": false,
+   "year_rule": "several IF records share this authorship but differ on year ([1990, 1991]); earliest taken as the protologue date",
+   "higher_taxonomy_from_genus_record": null,
+   "edibility_note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+  },
+  "amanita-gracilior": {
+   "queried_name": "Amanita gracilior",
+   "repair_class": "absent-add",
+   "reference_list_arms": [
+    "wikipedia_poisonous"
+   ],
+   "gbif_matchType": "EXACT",
+   "gbif_rank": "SPECIES",
+   "gbif_taxonomicStatus": "ACCEPTED",
+   "gbif_publishedIn": "(1982). Persoonia 11(4): 511.",
+   "occ_total": 170,
+   "occ_na": 0,
+   "authorship_source": "index-fungorum",
+   "authorship_gbif": "Bas & Honrubia",
+   "authorship_if": "Bas & Honrubia",
+   "authorship_conflict": false,
+   "year_rule": null,
+   "higher_taxonomy_from_genus_record": null,
+   "edibility_note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+  },
+  "amanita-heterochroma": {
+   "queried_name": "Amanita heterochroma",
+   "repair_class": "absent-add",
+   "reference_list_arms": [
+    "wikipedia_poisonous"
+   ],
+   "gbif_matchType": "EXACT",
+   "gbif_rank": "SPECIES",
+   "gbif_taxonomicStatus": "ACCEPTED",
+   "gbif_publishedIn": "(1992). Micol. Ital. 21(3): 15.",
+   "occ_total": 5,
+   "occ_na": 0,
+   "authorship_source": "index-fungorum",
+   "authorship_gbif": "S.Curreli",
+   "authorship_if": "S. Curreli",
+   "authorship_conflict": false,
+   "year_rule": "several IF records share this authorship but differ on year ([1992, 1994]); earliest taken as the protologue date",
+   "higher_taxonomy_from_genus_record": null,
+   "edibility_note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+  },
+  "amanita-hongoi": {
+   "queried_name": "Amanita hongoi",
+   "repair_class": "absent-add",
+   "reference_list_arms": [
+    "wikipedia_poisonous"
+   ],
+   "gbif_matchType": "EXACT",
+   "gbif_rank": "SPECIES",
+   "gbif_taxonomicStatus": "ACCEPTED",
+   "gbif_publishedIn": "(1969). Persoonia 5(4): 410.",
+   "occ_total": 36,
+   "occ_na": 0,
+   "authorship_source": "index-fungorum",
+   "authorship_gbif": "Bas",
+   "authorship_if": "Bas",
+   "authorship_conflict": false,
+   "year_rule": null,
+   "higher_taxonomy_from_genus_record": null,
+   "edibility_note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+  },
+  "amanita-ibotengutake": {
+   "queried_name": "Amanita ibotengutake",
+   "repair_class": "absent-add",
+   "reference_list_arms": [
+    "wikipedia_poisonous"
+   ],
+   "gbif_matchType": "EXACT",
+   "gbif_rank": "SPECIES",
+   "gbif_taxonomicStatus": "ACCEPTED",
+   "gbif_publishedIn": "(2002). In Oda, Yamazaki, Tanaka, Terashita, Taniguchi & Tsuda, Mycol. Progr. 1(4): 360.",
+   "occ_total": 263,
+   "occ_na": 6,
+   "authorship_source": "index-fungorum",
+   "authorship_gbif": "T.Oda, C.Tanaka & Tsuda",
+   "authorship_if": "T. Oda, C. Tanaka & Tsuda",
+   "authorship_conflict": false,
+   "year_rule": null,
+   "higher_taxonomy_from_genus_record": null,
+   "edibility_note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+  },
+  "amanita-neoovoidea": {
+   "queried_name": "Amanita neoovoidea",
+   "repair_class": "absent-add",
+   "reference_list_arms": [
+    "wikipedia_poisonous"
+   ],
+   "gbif_matchType": "FUZZY",
+   "gbif_rank": "SPECIES",
+   "gbif_taxonomicStatus": null,
+   "gbif_publishedIn": null,
+   "occ_total": null,
+   "occ_na": null,
+   "authorship_source": "index-fungorum",
+   "authorship_gbif": "",
+   "authorship_if": "Hongo",
+   "authorship_conflict": false,
+   "year_rule": null,
+   "higher_taxonomy_from_genus_record": "EXACT",
+   "edibility_note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+  },
+  "amanita-pseudoporphyria": {
+   "queried_name": "Amanita pseudoporphyria",
+   "repair_class": "absent-add",
+   "reference_list_arms": [
+    "wikipedia_poisonous"
+   ],
+   "gbif_matchType": "EXACT",
+   "gbif_rank": "SPECIES",
+   "gbif_taxonomicStatus": "ACCEPTED",
+   "gbif_publishedIn": "(1957). J. Jap. Bot. 32: 141.",
+   "occ_total": 554,
+   "occ_na": 2,
+   "authorship_source": "index-fungorum",
+   "authorship_gbif": "Hongo",
+   "authorship_if": "Hongo",
+   "authorship_conflict": false,
+   "year_rule": null,
+   "higher_taxonomy_from_genus_record": null,
+   "edibility_note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+  },
+  "amanita-pseudoregalis": {
+   "queried_name": "Amanita pseudoregalis",
+   "repair_class": "absent-add",
+   "reference_list_arms": [
+    "wikipedia_poisonous"
+   ],
+   "gbif_matchType": "EXACT",
+   "gbif_rank": "SPECIES",
+   "gbif_taxonomicStatus": "ACCEPTED",
+   "gbif_publishedIn": "(1991). Docums Mycol. 21(no. 81): 35.",
+   "occ_total": 9,
+   "occ_na": 0,
+   "authorship_source": "index-fungorum",
+   "authorship_gbif": "Pluvinage",
+   "authorship_if": "Pluvinage",
+   "authorship_conflict": false,
+   "year_rule": null,
+   "higher_taxonomy_from_genus_record": null,
+   "edibility_note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+  },
+  "amanita-velosa": {
+   "queried_name": "Amanita velosa",
+   "repair_class": "absent-add",
+   "reference_list_arms": [
+    "gbif_top200_northamerica"
+   ],
+   "gbif_matchType": "EXACT",
+   "gbif_rank": "SPECIES",
+   "gbif_taxonomicStatus": "ACCEPTED",
+   "gbif_publishedIn": "(1898). Mycol. Writ. (Cincinnati) 1(7): 9, 15.",
+   "occ_total": 3955,
+   "occ_na": 3901,
+   "authorship_source": "index-fungorum",
+   "authorship_gbif": "(Peck) Lloyd",
+   "authorship_if": "(Peck) Lloyd",
+   "authorship_conflict": false,
+   "year_rule": null,
+   "higher_taxonomy_from_genus_record": null,
+   "edibility_note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+  },
+  "boletus-rex-veris": {
+   "queried_name": "Boletus rex-veris",
+   "repair_class": "absent-add",
+   "reference_list_arms": [
+    "mycomap_oregon_profile"
+   ],
+   "gbif_matchType": "EXACT",
+   "gbif_rank": "SPECIES",
+   "gbif_taxonomicStatus": "ACCEPTED",
+   "gbif_publishedIn": "(2008). Econ. Bot. 62(3): 373.",
+   "occ_total": 1030,
+   "occ_na": 987,
+   "authorship_source": "index-fungorum",
+   "authorship_gbif": "D.Arora & Simonini",
+   "authorship_if": "D. Arora & Simonini",
+   "authorship_conflict": false,
+   "year_rule": null,
+   "higher_taxonomy_from_genus_record": null,
+   "edibility_note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+  },
+  "boletus-variipes": {
+   "queried_name": "Boletus variipes",
+   "repair_class": "absent-add",
+   "reference_list_arms": [
+    "wikipedia_edible"
+   ],
+   "gbif_matchType": "EXACT",
+   "gbif_rank": "SPECIES",
+   "gbif_taxonomicStatus": "ACCEPTED",
+   "gbif_publishedIn": "(1888). Rep. (Annual) Trustees State Mus. Nat. Hist., New York 41: 76.",
+   "occ_total": 979,
+   "occ_na": 938,
+   "authorship_source": "index-fungorum",
+   "authorship_gbif": "Peck",
+   "authorship_if": "Peck",
+   "authorship_conflict": false,
+   "year_rule": null,
+   "higher_taxonomy_from_genus_record": null,
+   "edibility_note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+  },
+  "byssomerulius-incarnatus": {
+   "queried_name": "Byssomerulius incarnatus",
+   "repair_class": "absent-add",
+   "reference_list_arms": [
+    "gbif_top200_northamerica"
+   ],
+   "gbif_matchType": "EXACT",
+   "gbif_rank": "SPECIES",
+   "gbif_taxonomicStatus": "ACCEPTED",
+   "gbif_publishedIn": "(1974). Fungi Dec. Pond. Pine: 45.",
+   "occ_total": 5769,
+   "occ_na": 5658,
+   "authorship_source": "index-fungorum",
+   "authorship_gbif": "(Schwein.) Gilb.",
+   "authorship_if": "(Schwein.) Gilb.",
+   "authorship_conflict": false,
+   "year_rule": null,
+   "higher_taxonomy_from_genus_record": null,
+   "edibility_note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+  },
+  "cantharellus-formosus": {
+   "queried_name": "Cantharellus formosus",
+   "repair_class": "absent-add",
+   "reference_list_arms": [
+    "gbif_top200_northamerica",
+    "mycomap_oregon_profile"
+   ],
+   "gbif_matchType": "EXACT",
+   "gbif_rank": "SPECIES",
+   "gbif_taxonomicStatus": "ACCEPTED",
+   "gbif_publishedIn": "(1966). Monogr. Cantharelloid Fungi: 45.",
+   "occ_total": 4193,
+   "occ_na": 4074,
+   "authorship_source": "index-fungorum",
+   "authorship_gbif": "Corner",
+   "authorship_if": "Corner",
+   "authorship_conflict": false,
+   "year_rule": null,
+   "higher_taxonomy_from_genus_record": null,
+   "edibility_note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+  },
+  "coprinopsis-alopecia": {
+   "queried_name": "Coprinopsis alopecia",
+   "repair_class": "absent-add",
+   "reference_list_arms": [
+    "wikipedia_poisonous"
+   ],
+   "gbif_matchType": "EXACT",
+   "gbif_rank": "SPECIES",
+   "gbif_taxonomicStatus": "ACCEPTED",
+   "gbif_publishedIn": "(2017). In Boffelli, Index Fungorum 333: 1.",
+   "occ_total": 218,
+   "occ_na": 25,
+   "authorship_source": "index-fungorum",
+   "authorship_gbif": "(Lasch) La Chiusa & Boffelli",
+   "authorship_if": "(Lasch) La Chiusa & Boffelli",
+   "authorship_conflict": false,
+   "year_rule": null,
+   "higher_taxonomy_from_genus_record": null,
+   "edibility_note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+  },
+  "coprinopsis-variegata": {
+   "queried_name": "Coprinopsis variegata",
+   "repair_class": "absent-add",
+   "reference_list_arms": [
+    "gbif_top200_northamerica"
+   ],
+   "gbif_matchType": "EXACT",
+   "gbif_rank": "SPECIES",
+   "gbif_taxonomicStatus": "ACCEPTED",
+   "gbif_publishedIn": "(2001). In Redhead, Vilgalys, Moncalvo, Johnson & Hopple, Taxon 50(1): 232.",
+   "occ_total": 3672,
+   "occ_na": 3653,
+   "authorship_source": "index-fungorum",
+   "authorship_gbif": "(Peck) Redhead, Vilgalys & Moncalvo",
+   "authorship_if": "(Peck) Redhead, Vilgalys & Moncalvo",
+   "authorship_conflict": false,
+   "year_rule": null,
+   "higher_taxonomy_from_genus_record": null,
+   "edibility_note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+  },
+  "cortinarius-cinnamomeofulvus": {
+   "queried_name": "Cortinarius cinnamomeofulvus",
+   "repair_class": "absent-add",
+   "reference_list_arms": [
+    "wikipedia_poisonous"
+   ],
+   "gbif_matchType": "EXACT",
+   "gbif_rank": "SPECIES",
+   "gbif_taxonomicStatus": "ACCEPTED",
+   "gbif_publishedIn": "(1988). Docums Mycol. 19(no. 73): 65.",
+   "occ_total": 11,
+   "occ_na": 0,
+   "authorship_source": "index-fungorum",
+   "authorship_gbif": "Rob.Henry",
+   "authorship_if": "Rob. Henry",
+   "authorship_conflict": false,
+   "year_rule": null,
+   "higher_taxonomy_from_genus_record": null,
+   "edibility_note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+  },
+  "cortinarius-cruentus": {
+   "queried_name": "Cortinarius cruentus",
+   "repair_class": "absent-add",
+   "reference_list_arms": [
+    "wikipedia_poisonous"
+   ],
+   "gbif_matchType": "EXACT",
+   "gbif_rank": "SPECIES",
+   "gbif_taxonomicStatus": "ACCEPTED",
+   "gbif_publishedIn": "(1994). In Bidaud, Mo\u00ebnne-Loccoz, Reumaux & Henry, Atlas Des Cortinaires (Meyzieu) 6: 189.",
+   "occ_total": 13,
+   "occ_na": 3,
+   "authorship_source": "index-fungorum",
+   "authorship_gbif": "Bidaud & Reumaux",
+   "authorship_if": "Bidaud & Reumaux",
+   "authorship_conflict": false,
+   "year_rule": null,
+   "higher_taxonomy_from_genus_record": null,
+   "edibility_note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+  },
+  "cortinarius-mirandus": {
+   "queried_name": "Cortinarius mirandus",
+   "repair_class": "absent-add",
+   "reference_list_arms": [
+    "wikipedia_poisonous"
+   ],
+   "gbif_matchType": "EXACT",
+   "gbif_rank": "SPECIES",
+   "gbif_taxonomicStatus": "ACCEPTED",
+   "gbif_publishedIn": "(1994). In Bidaud, Mo\u00ebnne-Loccoz, Reumaux & Henry, Atlas Des Cortinaires (Meyzieu) 6: 190.",
+   "occ_total": 52,
+   "occ_na": 0,
+   "authorship_source": "index-fungorum",
+   "authorship_gbif": "Mo\u00ebnne-Locc. & Reumaux",
+   "authorship_if": "Mo\u00ebnne-Locc. & Reumaux",
+   "authorship_conflict": false,
+   "year_rule": null,
+   "higher_taxonomy_from_genus_record": null,
+   "edibility_note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+  },
+  "craterellus-calicornucopioides": {
+   "queried_name": "Craterellus calicornucopioides",
+   "repair_class": "absent-add",
+   "reference_list_arms": [
+    "mycomap_oregon_profile"
+   ],
+   "gbif_matchType": "EXACT",
+   "gbif_rank": "SPECIES",
+   "gbif_taxonomicStatus": "ACCEPTED",
+   "gbif_publishedIn": "(2015). In Frank, Index Fungorum 249: 1.",
+   "occ_total": 1369,
+   "occ_na": 1170,
+   "authorship_source": "index-fungorum",
+   "authorship_gbif": "D.Arora & J.L.Frank",
+   "authorship_if": "D. Arora & J.L. Frank",
+   "authorship_conflict": false,
+   "year_rule": null,
+   "higher_taxonomy_from_genus_record": null,
+   "edibility_note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+  },
+  "cyttaria-espinosae": {
+   "queried_name": "Cyttaria espinosae",
+   "repair_class": "absent-add",
+   "reference_list_arms": [
+    "wikipedia_edible"
+   ],
+   "gbif_matchType": "EXACT",
+   "gbif_rank": "SPECIES",
+   "gbif_taxonomicStatus": "ACCEPTED",
+   "gbif_publishedIn": "(1917). Mycol. Notes (Cincinnati) 5(Letter 48): 673.",
+   "occ_total": 303,
+   "occ_na": 0,
+   "authorship_source": "index-fungorum",
+   "authorship_gbif": "Lloyd",
+   "authorship_if": "Lloyd",
+   "authorship_conflict": false,
+   "year_rule": null,
+   "higher_taxonomy_from_genus_record": null,
+   "edibility_note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+  },
+  "entoloma-quadratum": {
+   "queried_name": "Entoloma quadratum",
+   "repair_class": "absent-add",
+   "reference_list_arms": [
+    "gbif_top200_northamerica"
+   ],
+   "gbif_matchType": "EXACT",
+   "gbif_rank": "SPECIES",
+   "gbif_taxonomicStatus": "ACCEPTED",
+   "gbif_publishedIn": "(1976). Sydowia 28(1-6): 190 (\u20191975-1976\u2032).",
+   "occ_total": 3542,
+   "occ_na": 3362,
+   "authorship_source": "index-fungorum",
+   "authorship_gbif": "(Berk. & M.A.Curtis) E.Horak",
+   "authorship_if": "(Berk. & M.A. Curtis) E. Horak",
+   "authorship_conflict": false,
+   "year_rule": null,
+   "higher_taxonomy_from_genus_record": null,
+   "edibility_note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+  },
+  "entoloma-sarcopum": {
+   "queried_name": "Entoloma sarcopum",
+   "repair_class": "absent-add",
+   "reference_list_arms": [
+    "wikipedia_poisonous"
+   ],
+   "gbif_matchType": "FUZZY",
+   "gbif_rank": "SPECIES",
+   "gbif_taxonomicStatus": null,
+   "gbif_publishedIn": null,
+   "occ_total": null,
+   "occ_na": null,
+   "authorship_source": "index-fungorum",
+   "authorship_gbif": "",
+   "authorship_if": "Nagas. & Hongo",
+   "authorship_conflict": false,
+   "year_rule": null,
+   "higher_taxonomy_from_genus_record": "EXACT",
+   "edibility_note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+  },
+  "flammulina-filiformis": {
+   "queried_name": "Flammulina filiformis",
+   "repair_class": "absent-add",
+   "reference_list_arms": [
+    "wikipedia_edible"
+   ],
+   "gbif_matchType": "EXACT",
+   "gbif_rank": "SPECIES",
+   "gbif_taxonomicStatus": "ACCEPTED",
+   "gbif_publishedIn": "(2018). In Wang, Liu, Dai, Horak, Steffen & Yang, Mycol. Progr. 17(9): 1021.",
+   "occ_total": 165,
+   "occ_na": 60,
+   "authorship_source": "index-fungorum",
+   "authorship_gbif": "(Z.W.Ge, X.B.Liu & Zhu L.Yang) P.M.Wang, Y.C.Dai, E.Horak & Zhu L.Yang",
+   "authorship_if": "(Z.W. Ge, X.B. Liu & Zhu L. Yang) P.M. Wang, Y.C. Dai, E. Horak & Zhu L. Yang",
+   "authorship_conflict": false,
+   "year_rule": null,
+   "higher_taxonomy_from_genus_record": null,
+   "edibility_note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+  },
+  "fomitopsis-mounceae": {
+   "queried_name": "Fomitopsis mounceae",
+   "repair_class": "absent-add",
+   "reference_list_arms": [
+    "gbif_top200_northamerica"
+   ],
+   "gbif_matchType": "EXACT",
+   "gbif_rank": "SPECIES",
+   "gbif_taxonomicStatus": "ACCEPTED",
+   "gbif_publishedIn": "(2019). In Haight, Nakasone, Glaeser, Laursen, Redhead & Taylor, Mycologia 111(2): 344.",
+   "occ_total": 27591,
+   "occ_na": 27554,
+   "authorship_source": "index-fungorum",
+   "authorship_gbif": "Haight & Nakasone",
+   "authorship_if": "Haight & Nakasone",
+   "authorship_conflict": false,
+   "year_rule": null,
+   "higher_taxonomy_from_genus_record": null,
+   "edibility_note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+  },
+  "fomitopsis-ochracea": {
+   "queried_name": "Fomitopsis ochracea",
+   "repair_class": "absent-add",
+   "reference_list_arms": [
+    "gbif_top200_northamerica"
+   ],
+   "gbif_matchType": "EXACT",
+   "gbif_rank": "SPECIES",
+   "gbif_taxonomicStatus": "ACCEPTED",
+   "gbif_publishedIn": "(2008). Syn. Fung. (Oslo) 25: 46.",
+   "occ_total": 3781,
+   "occ_na": 3764,
+   "authorship_source": "index-fungorum",
+   "authorship_gbif": "Ryvarden & Stokland",
+   "authorship_if": "Ryvarden & Stokland",
+   "authorship_conflict": false,
+   "year_rule": null,
+   "higher_taxonomy_from_genus_record": null,
+   "edibility_note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+  },
+  "helvella-dryophila": {
+   "queried_name": "Helvella dryophila",
+   "repair_class": "absent-add",
+   "reference_list_arms": [
+    "wikipedia_poisonous"
+   ],
+   "gbif_matchType": "EXACT",
+   "gbif_rank": "SPECIES",
+   "gbif_taxonomicStatus": "ACCEPTED",
+   "gbif_publishedIn": "(2013). Mycologia 105(5): 1278.",
+   "occ_total": 2868,
+   "occ_na": 2858,
+   "authorship_source": "index-fungorum",
+   "authorship_gbif": "Vellinga & N.H.Nguyen",
+   "authorship_if": "Vellinga & N.H. Nguyen",
+   "authorship_conflict": false,
+   "year_rule": null,
+   "higher_taxonomy_from_genus_record": null,
+   "edibility_note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+  },
+  "helvella-lactea": {
+   "queried_name": "Helvella lactea",
+   "repair_class": "absent-add",
+   "reference_list_arms": [
+    "wikipedia_poisonous"
+   ],
+   "gbif_matchType": "EXACT",
+   "gbif_rank": "SPECIES",
+   "gbif_taxonomicStatus": "ACCEPTED",
+   "gbif_publishedIn": "(1907). Hist. Class. Discom. Eur. (Paris): 36.",
+   "occ_total": 397,
+   "occ_na": 261,
+   "authorship_source": "index-fungorum",
+   "authorship_gbif": "Boud.",
+   "authorship_if": "Boud.",
+   "authorship_conflict": false,
+   "year_rule": "several IF records share this authorship but differ on year ([1907, 1966]); earliest taken as the protologue date",
+   "higher_taxonomy_from_genus_record": null,
+   "edibility_note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+  },
+  "hymenopellis-furfuracea": {
+   "queried_name": "Hymenopellis furfuracea",
+   "repair_class": "absent-add",
+   "reference_list_arms": [
+    "gbif_top200_northamerica"
+   ],
+   "gbif_matchType": "EXACT",
+   "gbif_rank": "SPECIES",
+   "gbif_taxonomicStatus": "ACCEPTED",
+   "gbif_publishedIn": "(2010). In Petersen & Hughes, Nova Hedwigia, Beih. 137: 137 [+ 602].",
+   "occ_total": 3386,
+   "occ_na": 3224,
+   "authorship_source": "index-fungorum",
+   "authorship_gbif": "(Peck) R.H.Petersen",
+   "authorship_if": "(Peck) R.H. Petersen",
+   "authorship_conflict": false,
+   "year_rule": null,
+   "higher_taxonomy_from_genus_record": null,
+   "edibility_note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+  },
+  "inocybe-sublilacina": {
+   "queried_name": "Inocybe sublilacina",
+   "repair_class": "absent-add",
+   "reference_list_arms": [
+    "wikipedia_poisonous"
+   ],
+   "gbif_matchType": "EXACT",
+   "gbif_rank": "SPECIES",
+   "gbif_taxonomicStatus": "ACCEPTED",
+   "gbif_publishedIn": "(2018). In Matheny & Swenie, Mycologia 110(3): 632.",
+   "occ_total": 125,
+   "occ_na": 99,
+   "authorship_source": "index-fungorum",
+   "authorship_gbif": "Matheny & A.Voitk",
+   "authorship_if": "Matheny & Voitk",
+   "authorship_conflict": true,
+   "year_rule": null,
+   "higher_taxonomy_from_genus_record": null,
+   "edibility_note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+  },
+  "lactarius-alnicola": {
+   "queried_name": "Lactarius alnicola",
+   "repair_class": "absent-add",
+   "reference_list_arms": [
+    "gbif_top200_northamerica"
+   ],
+   "gbif_matchType": "EXACT",
+   "gbif_rank": "SPECIES",
+   "gbif_taxonomicStatus": "ACCEPTED",
+   "gbif_publishedIn": "(1960). Brittonia 12: 319.",
+   "occ_total": 5016,
+   "occ_na": 4991,
+   "authorship_source": "index-fungorum",
+   "authorship_gbif": "A.H.Sm.",
+   "authorship_if": "A.H. Sm.",
+   "authorship_conflict": false,
+   "year_rule": null,
+   "higher_taxonomy_from_genus_record": null,
+   "edibility_note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+  },
+  "lactarius-corrugis": {
+   "queried_name": "Lactarius corrugis",
+   "repair_class": "absent-add",
+   "reference_list_arms": [
+    "wikipedia_edible"
+   ],
+   "gbif_matchType": "EXACT",
+   "gbif_rank": "SPECIES",
+   "gbif_taxonomicStatus": "ACCEPTED",
+   "gbif_publishedIn": null,
+   "occ_total": 2000,
+   "occ_na": 1923,
+   "authorship_source": "index-fungorum",
+   "authorship_gbif": "Peck",
+   "authorship_if": "Peck",
+   "authorship_conflict": false,
+   "year_rule": null,
+   "higher_taxonomy_from_genus_record": null,
+   "edibility_note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+  },
+  "lactarius-rubidus": {
+   "queried_name": "Lactarius rubidus",
+   "repair_class": "absent-add",
+   "reference_list_arms": [
+    "mycomap_oregon_profile"
+   ],
+   "gbif_matchType": "EXACT",
+   "gbif_rank": "SPECIES",
+   "gbif_taxonomicStatus": "ACCEPTED",
+   "gbif_publishedIn": "(2013). Mycotaxon 124: 324.",
+   "occ_total": 2165,
+   "occ_na": 2127,
+   "authorship_source": "index-fungorum",
+   "authorship_gbif": "(Hesler & A.H.Sm.) Methven",
+   "authorship_if": "(Hesler & A.H. Sm.) Methven",
+   "authorship_conflict": false,
+   "year_rule": "several IF records share this authorship but differ on year ([1997, 2013]); earliest taken as the protologue date",
+   "higher_taxonomy_from_genus_record": null,
+   "edibility_note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+  },
+  "lactarius-rubrilacteus": {
+   "queried_name": "Lactarius rubrilacteus",
+   "repair_class": "absent-add",
+   "reference_list_arms": [
+    "wikipedia_edible"
+   ],
+   "gbif_matchType": "EXACT",
+   "gbif_rank": "SPECIES",
+   "gbif_taxonomicStatus": "ACCEPTED",
+   "gbif_publishedIn": "(1979). North American Species of Lactarius (Ann Arbor): 76.",
+   "occ_total": 1570,
+   "occ_na": 1544,
+   "authorship_source": "index-fungorum",
+   "authorship_gbif": "Hesler & A.H.Sm.",
+   "authorship_if": "Hesler & A.H. Sm.",
+   "authorship_conflict": false,
+   "year_rule": null,
+   "higher_taxonomy_from_genus_record": null,
+   "edibility_note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+  },
+  "laetiporus-gilbertsonii": {
+   "queried_name": "Laetiporus gilbertsonii",
+   "repair_class": "absent-add",
+   "reference_list_arms": [
+    "gbif_top200_northamerica"
+   ],
+   "gbif_matchType": "EXACT",
+   "gbif_rank": "SPECIES",
+   "gbif_taxonomicStatus": "ACCEPTED",
+   "gbif_publishedIn": "(2001). In Burdsall & Banik, Harvard Pap. Bot. 6(1): 48.",
+   "occ_total": 7492,
+   "occ_na": 7289,
+   "authorship_source": "index-fungorum",
+   "authorship_gbif": "Burds.",
+   "authorship_if": "Burds.",
+   "authorship_conflict": false,
+   "year_rule": null,
+   "higher_taxonomy_from_genus_record": null,
+   "edibility_note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+  },
+  "marasmius-plicatulus": {
+   "queried_name": "Marasmius plicatulus",
+   "repair_class": "absent-add",
+   "reference_list_arms": [
+    "gbif_top200_northamerica"
+   ],
+   "gbif_matchType": "EXACT",
+   "gbif_rank": "SPECIES",
+   "gbif_taxonomicStatus": "ACCEPTED",
+   "gbif_publishedIn": "(1897). Bull. Torrey Bot. Club 24: 142.",
+   "occ_total": 3235,
+   "occ_na": 3209,
+   "authorship_source": "index-fungorum",
+   "authorship_gbif": "Peck",
+   "authorship_if": "Peck",
+   "authorship_conflict": false,
+   "year_rule": null,
+   "higher_taxonomy_from_genus_record": null,
+   "edibility_note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+  },
+  "megacollybia-rodmanii": {
+   "queried_name": "Megacollybia rodmanii",
+   "repair_class": "absent-add",
+   "reference_list_arms": [
+    "gbif_top200_northamerica"
+   ],
+   "gbif_matchType": "EXACT",
+   "gbif_rank": "SPECIES",
+   "gbif_taxonomicStatus": "ACCEPTED",
+   "gbif_publishedIn": "(2008). In Hughes Et al., Rep. Tottori Mycol. Inst. 45: 42 (\u20192007\u2032).",
+   "occ_total": 5633,
+   "occ_na": 5599,
+   "authorship_source": "index-fungorum",
+   "authorship_gbif": "R.H.Petersen, K.W.Hughes & Lickey",
+   "authorship_if": "R.H. Petersen, K.W. Hughes & Lickey",
+   "authorship_conflict": false,
+   "year_rule": null,
+   "higher_taxonomy_from_genus_record": null,
+   "edibility_note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+  },
+  "morchella-importuna": {
+   "queried_name": "Morchella importuna",
+   "repair_class": "absent-add",
+   "reference_list_arms": [
+    "mycomap_oregon_profile"
+   ],
+   "gbif_matchType": "EXACT",
+   "gbif_rank": "SPECIES",
+   "gbif_taxonomicStatus": "ACCEPTED",
+   "gbif_publishedIn": "(2012). In Kuo, Dewsbury, O\u2019Donnell, Carter, Rehner, Moore, Moncalvo, Canfield, Stephenson, Methven & Volk, Mycologia 104(5): 1172.",
+   "occ_total": 1593,
+   "occ_na": 979,
+   "authorship_source": "index-fungorum",
+   "authorship_gbif": "M.Kuo, O'Donnell & T.J.Volk",
+   "authorship_if": "M. Kuo, O'Donnell & T.J. Volk",
+   "authorship_conflict": false,
+   "year_rule": null,
+   "higher_taxonomy_from_genus_record": null,
+   "edibility_note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+  },
+  "mycena-diosma": {
+   "queried_name": "Mycena diosma",
+   "repair_class": "absent-add",
+   "reference_list_arms": [
+    "wikipedia_poisonous"
+   ],
+   "gbif_matchType": "EXACT",
+   "gbif_rank": "SPECIES",
+   "gbif_taxonomicStatus": "SYNONYM",
+   "gbif_publishedIn": "(1982). Z. Mykol. 48(1): 32.",
+   "occ_total": 1085,
+   "occ_na": 1,
+   "authorship_source": "index-fungorum",
+   "authorship_gbif": "Krieglst. & Schw\u00f6bel",
+   "authorship_if": "Krieglst. & Schw\u00f6bel",
+   "authorship_conflict": false,
+   "year_rule": null,
+   "higher_taxonomy_from_genus_record": null,
+   "edibility_note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+  },
+  "paralepistopsis-acromelalga": {
+   "queried_name": "Paralepistopsis acromelalga",
+   "repair_class": "absent-add",
+   "reference_list_arms": [
+    "wikipedia_poisonous"
+   ],
+   "gbif_matchType": "EXACT",
+   "gbif_rank": "SPECIES",
+   "gbif_taxonomicStatus": "ACCEPTED",
+   "gbif_publishedIn": "(2012). Mycotaxon 120: 261.",
+   "occ_total": 36,
+   "occ_na": 0,
+   "authorship_source": "index-fungorum",
+   "authorship_gbif": "(Ichimura) Vizzini",
+   "authorship_if": "(Ichimura) Vizzini",
+   "authorship_conflict": false,
+   "year_rule": null,
+   "higher_taxonomy_from_genus_record": null,
+   "edibility_note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+  },
+  "paralepistopsis-amoenolens": {
+   "queried_name": "Paralepistopsis amoenolens",
+   "repair_class": "absent-add",
+   "reference_list_arms": [
+    "wikipedia_poisonous"
+   ],
+   "gbif_matchType": "EXACT",
+   "gbif_rank": "SPECIES",
+   "gbif_taxonomicStatus": "ACCEPTED",
+   "gbif_publishedIn": "(2012). Mycotaxon 120: 257.",
+   "occ_total": 67,
+   "occ_na": 0,
+   "authorship_source": "index-fungorum",
+   "authorship_gbif": "(Malen\u00e7on) Vizzini",
+   "authorship_if": "(Malen\u00e7on) Vizzini",
+   "authorship_conflict": false,
+   "year_rule": null,
+   "higher_taxonomy_from_genus_record": null,
+   "edibility_note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+  },
+  "rubroboletus-lupinus": {
+   "queried_name": "Rubroboletus lupinus",
+   "repair_class": "absent-add",
+   "reference_list_arms": [
+    "wikipedia_poisonous"
+   ],
+   "gbif_matchType": "EXACT",
+   "gbif_rank": "SPECIES",
+   "gbif_taxonomicStatus": "ACCEPTED",
+   "gbif_publishedIn": "(2015). In Vizzini, Index Fungorum 233: 1.",
+   "occ_total": 395,
+   "occ_na": 0,
+   "authorship_source": "index-fungorum",
+   "authorship_gbif": "(Fr.) Costanzo, Gelardi, Simonini & Vizzini",
+   "authorship_if": "(Fr.) Costanzo, Gelardi, Simonini & Vizzini",
+   "authorship_conflict": false,
+   "year_rule": null,
+   "higher_taxonomy_from_genus_record": null,
+   "edibility_note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+  },
+  "russula-subnigricans": {
+   "queried_name": "Russula subnigricans",
+   "repair_class": "absent-add",
+   "reference_list_arms": [
+    "wikipedia_poisonous"
+   ],
+   "gbif_matchType": "EXACT",
+   "gbif_rank": "SPECIES",
+   "gbif_taxonomicStatus": "ACCEPTED",
+   "gbif_publishedIn": "(1955). J. Jap. Bot. 30(3): 79.",
+   "occ_total": 215,
+   "occ_na": 5,
+   "authorship_source": "index-fungorum",
+   "authorship_gbif": "Hongo",
+   "authorship_if": "Hongo",
+   "authorship_conflict": false,
+   "year_rule": null,
+   "higher_taxonomy_from_genus_record": null,
+   "edibility_note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+  },
+  "stropharia-ambigua": {
+   "queried_name": "Stropharia ambigua",
+   "repair_class": "absent-add",
+   "reference_list_arms": [
+    "gbif_top200_northamerica"
+   ],
+   "gbif_matchType": "EXACT",
+   "gbif_rank": "SPECIES",
+   "gbif_taxonomicStatus": "ACCEPTED",
+   "gbif_publishedIn": "(1914). Mycologia 6(3): 144.",
+   "occ_total": 7326,
+   "occ_na": 7203,
+   "authorship_source": "index-fungorum",
+   "authorship_gbif": "(Peck) Zeller",
+   "authorship_if": "(Peck) Zeller",
+   "authorship_conflict": false,
+   "year_rule": null,
+   "higher_taxonomy_from_genus_record": null,
+   "edibility_note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+  },
+  "suillus-decipiens": {
+   "queried_name": "Suillus decipiens",
+   "repair_class": "absent-add",
+   "reference_list_arms": [
+    "wikipedia_edible"
+   ],
+   "gbif_matchType": "EXACT",
+   "gbif_rank": "SPECIES",
+   "gbif_taxonomicStatus": "ACCEPTED",
+   "gbif_publishedIn": "(1898). Revis. Gen. Pl. (Leipzig) 3(3): 535.",
+   "occ_total": 700,
+   "occ_na": 672,
+   "authorship_source": "index-fungorum",
+   "authorship_gbif": "(Peck) Kuntze",
+   "authorship_if": "(Peck) Kuntze",
+   "authorship_conflict": false,
+   "year_rule": null,
+   "higher_taxonomy_from_genus_record": null,
+   "edibility_note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+  },
+  "tremella-fuciformis": {
+   "queried_name": "Tremella fuciformis",
+   "repair_class": "absent-add",
+   "reference_list_arms": [
+    "wikipedia_edible"
+   ],
+   "gbif_matchType": "EXACT",
+   "gbif_rank": "SPECIES",
+   "gbif_taxonomicStatus": "ACCEPTED",
+   "gbif_publishedIn": "(1856). Hooker\u2019s J. Bot. Kew Gard. Misc. 8: 277.",
+   "occ_total": 12339,
+   "occ_na": 4482,
+   "authorship_source": "index-fungorum",
+   "authorship_gbif": "Berk.",
+   "authorship_if": "Berk.",
+   "authorship_conflict": false,
+   "year_rule": null,
+   "higher_taxonomy_from_genus_record": null,
+   "edibility_note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+  },
+  "tricholoma-muscarium": {
+   "queried_name": "Tricholoma muscarium",
+   "repair_class": "absent-add",
+   "reference_list_arms": [
+    "wikipedia_poisonous"
+   ],
+   "gbif_matchType": "EXACT",
+   "gbif_rank": "SPECIES",
+   "gbif_taxonomicStatus": "ACCEPTED",
+   "gbif_publishedIn": "(1959). Mem. Fac. Lib. Arts Educ. Shiga Univ., Nat. Sci. 9: 62.",
+   "occ_total": 57,
+   "occ_na": 0,
+   "authorship_source": "index-fungorum",
+   "authorship_gbif": "Kawam. ex Hongo",
+   "authorship_if": "Kawam. ex Hongo",
+   "authorship_conflict": false,
+   "year_rule": null,
+   "higher_taxonomy_from_genus_record": null,
+   "edibility_note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+  },
+  "tricholoma-pardinum": {
+   "queried_name": "Tricholoma pardinum",
+   "repair_class": "absent-add",
+   "reference_list_arms": [
+    "wikipedia_poisonous"
+   ],
+   "gbif_matchType": "EXACT",
+   "gbif_rank": "SPECIES",
+   "gbif_taxonomicStatus": "ACCEPTED",
+   "gbif_publishedIn": "(1873). M\u00e9m. Soc. \u00c9mul. Montb\u00e9liard, S\u00e9r. 2 5: 339.",
+   "occ_total": 1975,
+   "occ_na": 498,
+   "authorship_source": "index-fungorum",
+   "authorship_gbif": "(Pers.) Qu\u00e9l.",
+   "authorship_if": "(Pers.) Qu\u00e9l.",
+   "authorship_conflict": false,
+   "year_rule": null,
+   "higher_taxonomy_from_genus_record": null,
+   "edibility_note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+  },
+  "trogia-venenata": {
+   "queried_name": "Trogia venenata",
+   "repair_class": "absent-add",
+   "reference_list_arms": [
+    "wikipedia_poisonous"
+   ],
+   "gbif_matchType": "EXACT",
+   "gbif_rank": "SPECIES",
+   "gbif_taxonomicStatus": "ACCEPTED",
+   "gbif_publishedIn": "(2012). Mycol. Progr. 11(4): [5].",
+   "occ_total": 14,
+   "occ_na": 0,
+   "authorship_source": "index-fungorum",
+   "authorship_gbif": "Zhu L.Yang, Yan C.Li & L.P.Tang",
+   "authorship_if": "Zhu L. Yang, Yan C. Li & L.P. Tang",
+   "authorship_conflict": false,
+   "year_rule": null,
+   "higher_taxonomy_from_genus_record": null,
+   "edibility_note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+  },
+  "tuber-aestivum": {
+   "queried_name": "Tuber aestivum",
+   "repair_class": "absent-add",
+   "reference_list_arms": [
+    "wikipedia_edible"
+   ],
+   "gbif_matchType": "EXACT",
+   "gbif_rank": "SPECIES",
+   "gbif_taxonomicStatus": "ACCEPTED",
+   "gbif_publishedIn": "(1827). Syst. veg., Edn 16 4(1): 416.",
+   "occ_total": 1124,
+   "occ_na": 9,
+   "authorship_source": "index-fungorum",
+   "authorship_gbif": "(Wulfen) Spreng.",
+   "authorship_if": "Vittad.",
+   "authorship_conflict": true,
+   "year_rule": null,
+   "higher_taxonomy_from_genus_record": null,
+   "edibility_note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+  },
+  "tuber-borchii": {
+   "queried_name": "Tuber borchii",
+   "repair_class": "absent-add",
+   "reference_list_arms": [
+    "wikipedia_edible"
+   ],
+   "gbif_matchType": "EXACT",
+   "gbif_rank": "SPECIES",
+   "gbif_taxonomicStatus": "ACCEPTED",
+   "gbif_publishedIn": "(1831). Monogr. Tuberac. (Milano): 44.",
+   "occ_total": 1241,
+   "occ_na": 23,
+   "authorship_source": "index-fungorum",
+   "authorship_gbif": "Vittad.",
+   "authorship_if": "Vittad.",
+   "authorship_conflict": false,
+   "year_rule": null,
+   "higher_taxonomy_from_genus_record": null,
+   "edibility_note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+  },
+  "tuber-melanosporum": {
+   "queried_name": "Tuber melanosporum",
+   "repair_class": "absent-add",
+   "reference_list_arms": [
+    "wikipedia_edible"
+   ],
+   "gbif_matchType": "EXACT",
+   "gbif_rank": "SPECIES",
+   "gbif_taxonomicStatus": "ACCEPTED",
+   "gbif_publishedIn": "(1831). Monogr. Tuberac. (Milano): 36.",
+   "occ_total": 633,
+   "occ_na": 32,
+   "authorship_source": "index-fungorum",
+   "authorship_gbif": "Vittad.",
+   "authorship_if": "Vittad.",
+   "authorship_conflict": false,
+   "year_rule": "several IF records share this authorship but differ on year ([1831, 2021]); earliest taken as the protologue date",
+   "higher_taxonomy_from_genus_record": null,
+   "edibility_note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+  },
+  "ustilago-maydis": {
+   "queried_name": "Ustilago maydis",
+   "repair_class": "absent-add",
+   "reference_list_arms": [
+    "wikipedia_edible"
+   ],
+   "gbif_matchType": "EXACT",
+   "gbif_rank": "SPECIES",
+   "gbif_taxonomicStatus": "ACCEPTED",
+   "gbif_publishedIn": null,
+   "occ_total": 1591,
+   "occ_na": 24,
+   "authorship_source": "index-fungorum",
+   "authorship_gbif": "(Pers.) Roussel",
+   "authorship_if": "(DC.) Corda",
+   "authorship_conflict": true,
+   "year_rule": null,
+   "higher_taxonomy_from_genus_record": null,
+   "edibility_note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+  },
+  "wilcoxina-rehmii": {
+   "queried_name": "Wilcoxina rehmii",
+   "repair_class": "absent-add",
+   "reference_list_arms": [
+    "gbif_top200_northamerica"
+   ],
+   "gbif_matchType": "EXACT",
+   "gbif_rank": "SPECIES",
+   "gbif_taxonomicStatus": "ACCEPTED",
+   "gbif_publishedIn": "(1985). Mycotaxon 24: 517.",
+   "occ_total": 17041,
+   "occ_na": 6605,
+   "authorship_source": "index-fungorum",
+   "authorship_gbif": "Chin S.Yang & Korf",
+   "authorship_if": "Chin S. Yang & Korf",
+   "authorship_conflict": false,
+   "year_rule": null,
+   "higher_taxonomy_from_genus_record": null,
+   "edibility_note": "set to unknown deliberately; reference-list arm is NOT a per-species edibility source"
+  }
+ },
+ "alias_additions_no_new_record": [
+  {
+   "queried_name": "Agaricus silvaticus",
+   "catalog_target_accepted": "Agaricus sylvaticus",
+   "catalog_target_slug": "agaricus-sylvaticus",
+   "already_in_target_synonyms": false,
+   "gbif_matchType": "HIGHERRANK",
+   "gbif_key": null,
+   "gbif_taxonomicStatus": null,
+   "gbif_accepted": null,
+   "if_current_name": "",
+   "if_year": 1774,
+   "if_authors": "Schaeff.",
+   "occ_total": null,
+   "occ_na": null,
+   "proposed_action": "add queried_name to the target record synonyms[] \u2014 NO new species record"
+  },
+  {
+   "queried_name": "Amanita pseudorubescens",
+   "catalog_target_accepted": "Amanita rubescens",
+   "catalog_target_slug": "amanita-rubescens",
+   "already_in_target_synonyms": false,
+   "gbif_matchType": "EXACT",
+   "gbif_key": 8206894,
+   "gbif_taxonomicStatus": "SYNONYM",
+   "gbif_accepted": "Amanita rubescens (Pers.) Fr.",
+   "if_current_name": "",
+   "if_year": 1935,
+   "if_authors": "Herrfurth",
+   "occ_total": 3,
+   "occ_na": 2,
+   "proposed_action": "add queried_name to the target record synonyms[] \u2014 NO new species record"
+  },
+  {
+   "queried_name": "Collybia nuda",
+   "catalog_target_accepted": "Lepista nuda",
+   "catalog_target_slug": "lepista-nuda",
+   "already_in_target_synonyms": false,
+   "gbif_matchType": "NONE",
+   "gbif_key": null,
+   "gbif_taxonomicStatus": null,
+   "gbif_accepted": null,
+   "if_current_name": "Collybia nuda",
+   "if_year": 2023,
+   "if_authors": "(Bull.) Z.M. He & Zhu L. Yang",
+   "occ_total": null,
+   "occ_na": null,
+   "proposed_action": "add queried_name to the target record synonyms[] \u2014 NO new species record"
+  },
+  {
+   "queried_name": "Collybia personata",
+   "catalog_target_accepted": "Lepista personata",
+   "catalog_target_slug": "lepista-personata",
+   "already_in_target_synonyms": false,
+   "gbif_matchType": "NONE",
+   "gbif_key": null,
+   "gbif_taxonomicStatus": null,
+   "gbif_accepted": null,
+   "if_current_name": "Collybia personata",
+   "if_year": 2023,
+   "if_authors": "(Fr.) Z.M. He & Zhu L. Yang",
+   "occ_total": null,
+   "occ_na": null,
+   "proposed_action": "add queried_name to the target record synonyms[] \u2014 NO new species record"
+  },
+  {
+   "queried_name": "Cortinarius callisteus",
+   "catalog_target_accepted": "Aureonarius callisteus",
+   "catalog_target_slug": "aureonarius-callisteus",
+   "already_in_target_synonyms": false,
+   "gbif_matchType": "EXACT",
+   "gbif_key": 9160408,
+   "gbif_taxonomicStatus": "SYNONYM",
+   "gbif_accepted": "Aureonarius callisteus (Fr.) Niskanen & Liimat.",
+   "if_current_name": "Aureonarius callisteus",
+   "if_year": 1838,
+   "if_authors": "(Fr.) Fr.",
+   "occ_total": 774,
+   "occ_na": 111,
+   "proposed_action": "add queried_name to the target record synonyms[] \u2014 NO new species record"
+  },
+  {
+   "queried_name": "Cortinarius limonius",
+   "catalog_target_accepted": "Aureonarius limonius",
+   "catalog_target_slug": "aureonarius-limonius",
+   "already_in_target_synonyms": false,
+   "gbif_matchType": "EXACT",
+   "gbif_key": 8969932,
+   "gbif_taxonomicStatus": "SYNONYM",
+   "gbif_accepted": "Aureonarius limonius (Fr.) Niskanen & Liimat.",
+   "if_current_name": "Aureonarius limonius",
+   "if_year": 1838,
+   "if_authors": "(Fr.) Fr.",
+   "occ_total": 2605,
+   "occ_na": 278,
+   "proposed_action": "add queried_name to the target record synonyms[] \u2014 NO new species record"
+  },
+  {
+   "queried_name": "Cortinarius rubicundulus",
+   "catalog_target_accepted": "Cystinarius rubicundulus",
+   "catalog_target_slug": "cystinarius-rubicundulus",
+   "already_in_target_synonyms": false,
+   "gbif_matchType": "EXACT",
+   "gbif_key": 2528983,
+   "gbif_taxonomicStatus": "SYNONYM",
+   "gbif_accepted": "Cystinarius rubicundulus (Rea) Niskanen & Liimat.",
+   "if_current_name": "Cystinarius rubicundulus",
+   "if_year": 1946,
+   "if_authors": "(Rea) A. Pearson",
+   "occ_total": 1498,
+   "occ_na": 76,
+   "proposed_action": "add queried_name to the target record synonyms[] \u2014 NO new species record"
+  },
+  {
+   "queried_name": "Inocybe lilacina",
+   "catalog_target_accepted": "Inocybe geophylla",
+   "catalog_target_slug": "inocybe-geophylla",
+   "already_in_target_synonyms": false,
+   "gbif_matchType": "EXACT",
+   "gbif_key": 3331644,
+   "gbif_taxonomicStatus": "SYNONYM",
+   "gbif_accepted": "Inocybe geophylla P.Kumm.",
+   "if_current_name": "Inocybe geophylla",
+   "if_year": 1918,
+   "if_authors": "(Peck) Kauffman",
+   "occ_total": 7866,
+   "occ_na": 750,
+   "proposed_action": "add queried_name to the target record synonyms[] \u2014 NO new species record"
+  },
+  {
+   "queried_name": "Lactarius volemus",
+   "catalog_target_accepted": "Lactifluus volemus",
+   "catalog_target_slug": "lactifluus-volemus",
+   "already_in_target_synonyms": false,
+   "gbif_matchType": "EXACT",
+   "gbif_key": 5248803,
+   "gbif_taxonomicStatus": "SYNONYM",
+   "gbif_accepted": "Lactifluus volemus (Fr.) Kuntze",
+   "if_current_name": "Lactifluus volemus",
+   "if_year": 1838,
+   "if_authors": "(Fr.) Fr.",
+   "occ_total": 4598,
+   "occ_na": 1479,
+   "proposed_action": "add queried_name to the target record synonyms[] \u2014 NO new species record"
+  },
+  {
+   "queried_name": "Mycena leaina",
+   "catalog_target_accepted": "Mycena leaiana",
+   "catalog_target_slug": "mycena-leaiana",
+   "already_in_target_synonyms": false,
+   "gbif_matchType": "EXACT",
+   "gbif_key": 6014366,
+   "gbif_taxonomicStatus": "ACCEPTED",
+   "gbif_accepted": null,
+   "if_current_name": null,
+   "if_year": null,
+   "if_authors": null,
+   "occ_total": 12547,
+   "occ_na": 12488,
+   "proposed_action": "add queried_name to the target record synonyms[] \u2014 NO new species record"
+  },
+  {
+   "queried_name": "Omphalotus japonicus",
+   "catalog_target_accepted": "Omphalotus guepiniiformis",
+   "catalog_target_slug": "omphalotus-guepiniiformis",
+   "already_in_target_synonyms": false,
+   "gbif_matchType": "EXACT",
+   "gbif_key": 2538097,
+   "gbif_taxonomicStatus": "SYNONYM",
+   "gbif_accepted": "Omphalotus guepiniiformis (Berk.) Neda",
+   "if_current_name": "Omphalotus guepiniiformis",
+   "if_year": 2002,
+   "if_authors": "(Kawam.) Kirchm. & O.K. Mill.",
+   "occ_total": 159,
+   "occ_na": 0,
+   "proposed_action": "add queried_name to the target record synonyms[] \u2014 NO new species record"
+  },
+  {
+   "queried_name": "Ramaria neoformosa",
+   "catalog_target_accepted": "Ramaria formosa",
+   "catalog_target_slug": "ramaria-formosa",
+   "already_in_target_synonyms": false,
+   "gbif_matchType": "EXACT",
+   "gbif_key": 5238484,
+   "gbif_taxonomicStatus": "HETEROTYPIC_SYNONYM",
+   "gbif_accepted": "Ramaria formosa (Pers.) Qu\u00e9l.",
+   "if_current_name": "Ramaria formosa",
+   "if_year": 1976,
+   "if_authors": "R.H. Petersen",
+   "occ_total": 159,
+   "occ_na": 2,
+   "proposed_action": "add queried_name to the target record synonyms[] \u2014 NO new species record"
+  },
+  {
+   "queried_name": "Trametes lactinea",
+   "catalog_target_accepted": "Cubamyces lactineus",
+   "catalog_target_slug": "cubamyces-lactineus",
+   "already_in_target_synonyms": false,
+   "gbif_matchType": "EXACT",
+   "gbif_key": 9259588,
+   "gbif_taxonomicStatus": "ACCEPTED",
+   "gbif_accepted": null,
+   "if_current_name": "Cubamyces lactineus",
+   "if_year": 1876,
+   "if_authors": "(Berk.) Berk. & Cooke",
+   "occ_total": 3848,
+   "occ_na": 3478,
+   "proposed_action": "add queried_name to the target record synonyms[] \u2014 NO new species record"
+  }
+ ],
+ "synonym_only_review": [
+  {
+   "queried_name": "Clitocybe cerussata",
+   "catalog_treats_as_synonym_of": "Clitocybe phyllophila",
+   "catalog_slug": "clitocybe-phyllophila",
+   "gbif_taxonomicStatus": "SYNONYM",
+   "gbif_accepted": "Clitocybe phyllophila (Pers.) P.Kumm.",
+   "gbif_key": 2531107,
+   "if_current_name": "Collybia phyllophila",
+   "if_year": 1871,
+   "if_authors": "(Fr.) P. Kumm.",
+   "occ_total": 736,
+   "occ_na": 78,
+   "disagreement": false,
+   "proposed_action": "NO automatic change \u2014 GBIF/IF/catalog disagree on rank of this name; human adjudication"
+  },
+  {
+   "queried_name": "Clitocybe dealbata",
+   "catalog_treats_as_synonym_of": "Clitocybe rivulosa",
+   "catalog_slug": "clitocybe-rivulosa",
+   "gbif_taxonomicStatus": "SYNONYM",
+   "gbif_accepted": "Clitocybe rivulosa (Pers.) P.Kumm.",
+   "gbif_key": 2531056,
+   "if_current_name": "Clitocybe dealbata",
+   "if_year": 1871,
+   "if_authors": "(Sowerby) P. Kumm.",
+   "occ_total": 1772,
+   "occ_na": 360,
+   "disagreement": false,
+   "proposed_action": "NO automatic change \u2014 GBIF/IF/catalog disagree on rank of this name; human adjudication"
+  },
+  {
+   "queried_name": "Cortinarius palustris",
+   "catalog_treats_as_synonym_of": "Cortinarius chrysolitus",
+   "catalog_slug": "cortinarius-chrysolitus",
+   "gbif_taxonomicStatus": "SYNONYM",
+   "gbif_accepted": "Cortinarius chrysolitus Kauffman",
+   "gbif_key": 2528869,
+   "if_current_name": "Cortinarius chrysolitus",
+   "if_year": 1980,
+   "if_authors": "M.M. Moser ex Nezdojm.",
+   "occ_total": 48,
+   "occ_na": 1,
+   "disagreement": false,
+   "proposed_action": "NO automatic change \u2014 GBIF/IF/catalog disagree on rank of this name; human adjudication"
+  },
+  {
+   "queried_name": "Cortinarius phoeniceus",
+   "catalog_treats_as_synonym_of": "Cortinarius purpureus",
+   "catalog_slug": "cortinarius-purpureus",
+   "gbif_taxonomicStatus": "SYNONYM",
+   "gbif_accepted": "Cortinarius purpureus (Bull.) Bidaud, Mo\u00ebnne-Locc. & Reumaux",
+   "gbif_key": 2528732,
+   "if_current_name": "Cortinarius purpureus",
+   "if_year": 1912,
+   "if_authors": "(Bull.) Maire",
+   "occ_total": 849,
+   "occ_na": 94,
+   "disagreement": false,
+   "proposed_action": "NO automatic change \u2014 GBIF/IF/catalog disagree on rank of this name; human adjudication"
+  },
+  {
+   "queried_name": "Gyromitra perlata",
+   "catalog_treats_as_synonym_of": "Discina ancilis",
+   "catalog_slug": "discina-ancilis",
+   "gbif_taxonomicStatus": "SYNONYM",
+   "gbif_accepted": "Discina ancilis (Pers.) Sacc.",
+   "gbif_key": 5258522,
+   "if_current_name": "Discina ancilis",
+   "if_year": 1969,
+   "if_authors": "(Fr.) Harmaja",
+   "occ_total": 645,
+   "occ_na": 71,
+   "disagreement": false,
+   "proposed_action": "NO automatic change \u2014 GBIF/IF/catalog disagree on rank of this name; human adjudication"
+  },
+  {
+   "queried_name": "Handkea utriformis",
+   "catalog_treats_as_synonym_of": "Bovistella utriformis",
+   "catalog_slug": "bovistella-utriformis",
+   "gbif_taxonomicStatus": "SYNONYM",
+   "gbif_accepted": "Bovistella utriformis (Bull.) Demoulin & Rebriev",
+   "gbif_key": 9225670,
+   "if_current_name": "Bovistella utriformis",
+   "if_year": 1989,
+   "if_authors": "(Bull.) Kreisel",
+   "occ_total": 140,
+   "occ_na": 11,
+   "disagreement": false,
+   "proposed_action": "NO automatic change \u2014 GBIF/IF/catalog disagree on rank of this name; human adjudication"
+  },
+  {
+   "queried_name": "Hapalopilus nidulans",
+   "catalog_treats_as_synonym_of": "Hapalopilus rutilans",
+   "catalog_slug": "hapalopilus-rutilans",
+   "gbif_taxonomicStatus": "SYNONYM",
+   "gbif_accepted": "Hapalopilus rutilans (Pers.) Murrill",
+   "gbif_key": 2548633,
+   "if_current_name": "Hapalopilus rutilans",
+   "if_year": 1881,
+   "if_authors": "(Fr.) P. Karst.",
+   "occ_total": 3553,
+   "occ_na": 602,
+   "disagreement": false,
+   "proposed_action": "NO automatic change \u2014 GBIF/IF/catalog disagree on rank of this name; human adjudication"
+  },
+  {
+   "queried_name": "Inocybe rimosa",
+   "catalog_treats_as_synonym_of": "Pseudosperma rimosum",
+   "catalog_slug": "pseudosperma-rimosum",
+   "gbif_taxonomicStatus": "HETEROTYPIC_SYNONYM",
+   "gbif_accepted": "Pseudosperma rimosum (Bull.) Matheny & Esteve-Rav.",
+   "gbif_key": 2528091,
+   "if_current_name": "Pseudosperma rimosum",
+   "if_year": 1867,
+   "if_authors": "(Bull.) Kalchbr.",
+   "occ_total": 5454,
+   "occ_na": 548,
+   "disagreement": false,
+   "proposed_action": "NO automatic change \u2014 GBIF/IF/catalog disagree on rank of this name; human adjudication"
+  },
+  {
+   "queried_name": "Pholiotina rugosa",
+   "catalog_treats_as_synonym_of": "Conocybe rugosa",
+   "catalog_slug": "conocybe-rugosa",
+   "gbif_taxonomicStatus": "SYNONYM",
+   "gbif_accepted": "Conocybe rugosa (Peck) Watling",
+   "gbif_key": 2529908,
+   "if_current_name": "Conocybe rugosa",
+   "if_year": 1948,
+   "if_authors": "(Peck) Singer",
+   "occ_total": 841,
+   "occ_na": 456,
+   "disagreement": false,
+   "proposed_action": "NO automatic change \u2014 GBIF/IF/catalog disagree on rank of this name; human adjudication"
+  }
+ ],
+ "degraded_field_refresh": [
+  {
+   "queried_name": "Cudonia circinans",
+   "catalog_slug": "cudonia-circinans",
+   "gbif_matchType": "EXACT",
+   "gbif_key": 8907562,
+   "current_fields": {
+    "family": "Cudoniaceae",
+    "order": "Rhytismatales",
+    "class": "Leotiomycetes",
+    "authorship": "(Pers.) Fr.",
+    "registry": {
+     "gbif": "8907562"
+    },
+    "unresolved": false
+   },
+   "gbif_fields": {
+    "family": "Cudoniaceae",
+    "order": "Rhytismatales",
+    "class": "Leotiomycetes",
+    "phylum": "Ascomycota",
+    "authorship": "(Pers.) Fr.",
+    "taxonomicStatus": "ACCEPTED"
+   },
+   "if_year": 1849,
+   "if_authors": "(Pers.) Fr.",
+   "proposed_action": "fill only the empty fields listed in current_fields from gbif_fields; overwrite nothing non-empty"
+  },
+  {
+   "queried_name": "Helvella crispa",
+   "catalog_slug": "helvella-crispa",
+   "gbif_matchType": "HIGHERRANK",
+   "gbif_key": null,
+   "current_fields": {
+    "family": "Helvellaceae",
+    "order": "Pezizales",
+    "class": "Pezizomycetes",
+    "authorship": null,
+    "registry": {
+     "gbif": "5"
+    },
+    "unresolved": false
+   },
+   "gbif_fields": {
+    "family": null,
+    "order": null,
+    "class": null,
+    "phylum": null,
+    "authorship": null,
+    "taxonomicStatus": null
+   },
+   "if_year": 1822,
+   "if_authors": "(Scop.) Fr.",
+   "homonym_candidates": [
+    {
+     "key": 8050877,
+     "scientificName": "Helvella crispa Scop.",
+     "authorship": "Scop.",
+     "status": "DOUBTFUL",
+     "accepted": null,
+     "family": "Helvellaceae"
+    },
+    {
+     "key": 8227523,
+     "scientificName": "Helvella crispa Sowerby",
+     "authorship": "Sowerby",
+     "status": "DOUBTFUL",
+     "accepted": null,
+     "family": "Helvellaceae"
+    },
+    {
+     "key": 7769436,
+     "scientificName": "Helvella crispa Bull.",
+     "authorship": "Bull.",
+     "status": "HETEROTYPIC_SYNONYM",
+     "accepted": "Craterellus undulatus (Pers.) E.Campo & Papetti",
+     "family": "Hydnaceae"
+    },
+    {
+     "key": 2554614,
+     "scientificName": "Helvella crispa (Scop.) Fr.",
+     "authorship": "(Scop.) Fr.",
+     "status": "ACCEPTED",
+     "accepted": null,
+     "family": "Helvellaceae"
+    }
+   ],
+   "proposed_action": "HOMONYM \u2014 matcher returns HIGHERRANK. Candidates listed; human picks. No automatic fill."
+  },
+  {
+   "queried_name": "Pseudohydnum gelatinosum",
+   "catalog_slug": "pseudohydnum-gelatinosum",
+   "gbif_matchType": "EXACT",
+   "gbif_key": 5249353,
+   "current_fields": {
+    "family": "",
+    "order": "Auriculariales",
+    "class": "Agaricomycetes",
+    "authorship": "(Scop.) P.Karst.",
+    "registry": {
+     "gbif": "5249353"
+    },
+    "unresolved": false
+   },
+   "gbif_fields": {
+    "family": null,
+    "order": "Auriculariales",
+    "class": "Agaricomycetes",
+    "phylum": "Basidiomycota",
+    "authorship": "(Scop.) P.Karst.",
+    "taxonomicStatus": "ACCEPTED"
+   },
+   "if_year": 1868,
+   "if_authors": "(Scop.) P. Karst.",
+   "proposed_action": "fill only the empty fields listed in current_fields from gbif_fields; overwrite nothing non-empty"
+  },
+  {
+   "queried_name": "Trichaptum abietinum",
+   "catalog_slug": "trichaptum-abietinum",
+   "gbif_matchType": "EXACT",
+   "gbif_key": 8690832,
+   "current_fields": {
+    "family": "",
+    "order": "Hymenochaetales",
+    "class": "Agaricomycetes",
+    "authorship": "(Pers. ex J.F.Gmel.) Ryvarden",
+    "registry": {
+     "gbif": "8690832"
+    },
+    "unresolved": false
+   },
+   "gbif_fields": {
+    "family": null,
+    "order": "Hymenochaetales",
+    "class": "Agaricomycetes",
+    "phylum": "Basidiomycota",
+    "authorship": "(Pers. ex J.F.Gmel.) Ryvarden",
+    "taxonomicStatus": "ACCEPTED"
+   },
+   "if_year": 1972,
+   "if_authors": "(Pers. ex J.F. Gmel.) Ryvarden",
+   "proposed_action": "fill only the empty fields listed in current_fields from gbif_fields; overwrite nothing non-empty"
+  },
+  {
+   "queried_name": "Trichaptum biforme",
+   "catalog_slug": "trichaptum-biforme",
+   "gbif_matchType": "EXACT",
+   "gbif_key": 5247228,
+   "current_fields": {
+    "family": "",
+    "order": "Hymenochaetales",
+    "class": "Agaricomycetes",
+    "authorship": "(Fr.) Ryvarden",
+    "registry": {
+     "gbif": "5247228"
+    },
+    "unresolved": false
+   },
+   "gbif_fields": {
+    "family": null,
+    "order": "Hymenochaetales",
+    "class": "Agaricomycetes",
+    "phylum": "Basidiomycota",
+    "authorship": "(Fr.) Ryvarden",
+    "taxonomicStatus": "ACCEPTED"
+   },
+   "if_year": 1972,
+   "if_authors": "(Fr.) Ryvarden",
+   "proposed_action": "fill only the empty fields listed in current_fields from gbif_fields; overwrite nothing non-empty"
+  }
+ ]
+}

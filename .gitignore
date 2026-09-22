@@ -25,3 +25,7 @@ pnpm-debug.log*
 .DS_Store
 .weather-out/
 public/maps/
+
+# raw HTTP cache for scripts/fetch-gbif-spine.py (regenerable; the RESULT, data/gbif-spine.json,
+# is committed — the cache is not)
+.cache/

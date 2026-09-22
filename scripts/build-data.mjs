@@ -172,6 +172,64 @@ if (existsSync(join(ROOT, 'data/gbif.json'))) {
   console.log(`gbif overlay filled : ${gbifFilled}`);
 }
 
+// 3.6) Backbone-refresh overlay — whole records for taxa that are in the GBIF/IF backbones
+// but absent from the CSVs, plus synonym aliases that make an existing record findable under
+// a name people actually search for (data/backbone-refresh.json, built 2026-09-18).
+//
+// Additive only, in the same spirit as the GBIF overlay above:
+//   * a record is inserted only if its slug does not already exist;
+//   * a slug/accepted-name collision ABORTS the build rather than auto-suffixing, because a
+//     collision means the "this taxon is missing" finding was wrong for that name;
+//   * an alias is appended to synonyms[] and changes no accepted name and creates no record.
+// Runs before the curated overrides so a curated file can target an added record.
+let backboneAdded = 0;
+let aliasAppended = 0;
+let backboneExpect = null;
+const backbonePath = join(ROOT, 'data/backbone-refresh.json');
+if (existsSync(backbonePath)) {
+  const bb = JSON.parse(readFileSync(backbonePath, 'utf8'));
+  const tag = bb.provenance_tag || 'backbone-refresh';
+  backboneExpect = bb.build_expect || null;
+
+  const acceptedNames = new Set(records.map((r) => r.accepted));
+  const seenNew = new Set();
+  const collisions = [];
+  for (const rec of bb.records || []) {
+    if (usedSlugs.has(rec.slug)) collisions.push(`existing slug: ${rec.slug}`);
+    if (seenNew.has(rec.slug)) collisions.push(`duplicate within overlay: ${rec.slug}`);
+    if (acceptedNames.has(rec.accepted)) collisions.push(`existing accepted name: ${rec.accepted}`);
+    seenNew.add(rec.slug);
+  }
+  if (collisions.length) {
+    console.error('! backbone overlay ABORT — collisions (a collision means the absence finding was wrong):');
+    for (const c of collisions) console.error(`    ${c}`);
+    process.exit(1);
+  }
+
+  for (const rec of bb.records || []) {
+    const copy = structuredClone(rec);
+    copy.synonyms = [...new Set(copy.synonyms || [])].sort();
+    copy.sources = [...new Set([...(copy.sources || []), tag])].sort();
+    records.push(copy);
+    usedSlugs.set(copy.slug, true);
+    bySlug.set(copy.slug, copy);
+    backboneAdded++;
+  }
+  // keep the canonical accepted-name ordering the finalize step established
+  records.sort((a, b) => a.accepted.localeCompare(b.accepted));
+
+  for (const a of bb.alias_additions_no_new_record || []) {
+    const target = bySlug.get(a.catalog_target_slug);
+    if (!target) { console.warn(`! alias target missing: ${a.catalog_target_slug}`); continue; }
+    if (a.queried_name === target.accepted) continue;         // a name is not its own synonym
+    if (target.synonyms.includes(a.queried_name)) continue;   // already findable — no-op
+    target.synonyms.push(a.queried_name);
+    target.synonyms.sort();
+    aliasAppended++;
+  }
+  console.log(`backbone overlay    : +${backboneAdded} records, +${aliasAppended} synonym aliases`);
+}
+
 // 4) curated overrides — per-species enrichment merged in by slug (data/curated/*.json).
 // This is how phase-1+ data lands without touching the raw CSVs. Each file is a partial
 // SpeciesRecord; non-empty keys win, the taxon is promoted to curated, and provenance is noted.
@@ -191,6 +249,93 @@ if (existsSync(curatedDir)) {
     rec.tier = 'curated';
     if (!rec.sources.includes('curated')) { rec.sources.push('curated'); rec.sources.sort(); }
     overridden++;
+  }
+}
+
+// 4.5) Index Fungorum overlay — FILL-ONLY year/authorship (data/index-fungorum.json).
+// See MYCOSCI-MERGE-PLAN.md §3. Three properties this code exists to guarantee:
+//
+//   1. FILL-ONLY. A value is written only into a field that is absent/null/blank. A non-empty
+//      value is NEVER rewritten — not by IF, not even when IF is probably right. The 2,898
+//      known conflicting values are counted and left alone.
+//   2. GATES RUN BEFORE WRITES. A record that IF missed, that IF gives a different current
+//      name for, or that IF matches with more than one exact record (a homonym) gets NOTHING,
+//      even if the field it would fill is empty. Those 1,778 records are human decisions.
+//      Ordering is the entire safety property: a homonym's year is exactly the field the
+//      ambiguity attacks.
+//   3. RUNS AFTER the curated overrides, so a hand-curated year/authorship is "non-empty" by
+//      the time this sees it and is therefore untouchable under rule 1.
+const isBlank = (v) => v === null || v === undefined || (typeof v === 'string' && v.trim() === '');
+let ifYearWrites = 0, ifAuthWrites = 0;
+let ifGateMiss = 0, ifGateName = 0, ifGateHomonym = 0;
+let ifYearConflicts = 0, ifAuthConflicts = 0;
+let ifExpect = null;
+const ifPath = join(ROOT, 'data/index-fungorum.json');
+if (existsSync(ifPath)) {
+  const ifFile = JSON.parse(readFileSync(ifPath, 'utf8'));
+  const ifRecords = ifFile.records || {};
+  ifExpect = ifFile.build_expect || null;
+
+  // Pre-flight canary. An earlier build of this file took Index Fungorum's exact[0] instead of
+  // ranking the candidate records, which dated Agaricus bisporus to Pilat 1951 instead of
+  // (J.E. Lange) Imbach 1946. Refuse to run at all on a file that fails this.
+  const canary = ifRecords['agaricus-bisporus'];
+  if (!canary || canary.year !== 1946 || canary.authors !== '(J.E. Lange) Imbach') {
+    console.error('! index-fungorum overlay ABORT — pre-flight canary failed.');
+    console.error(`    agaricus-bisporus is ${JSON.stringify(canary?.authors)} ${JSON.stringify(canary?.year)}`);
+    console.error('    expected "(J.E. Lange) Imbach" 1946 — this looks like the exact[0]-bugged file.');
+    process.exit(1);
+  }
+
+  for (const [slug, e] of Object.entries(ifRecords)) {
+    const rec = bySlug.get(slug);
+    if (!rec) continue;
+    if (e.if_status !== 'HIT') { ifGateMiss++; continue; }
+
+    // count what we are declining to rewrite (rule 1), before the gates consume the record
+    if (!isBlank(rec.year) && !isBlank(e.year) && rec.year !== e.year) ifYearConflicts++;
+    if (!isBlank(rec.authorship) && !isBlank(e.authors) && rec.authorship !== e.authors) ifAuthConflicts++;
+
+    if (e.name_disagreement) { ifGateName++; continue; }          // IF asserts another current name
+    if ((e.if_n_exact_records || 0) > 1) { ifGateHomonym++; continue; } // homonym: our pick was a tiebreak
+
+    if (isBlank(rec.year) && !isBlank(e.year)) { rec.year = e.year; ifYearWrites++; }
+    if (isBlank(rec.authorship) && !isBlank(e.authors)) { rec.authorship = e.authors; ifAuthWrites++; }
+  }
+  console.log(`index-fungorum overlay: ${ifYearWrites} year + ${ifAuthWrites} authorship written (fill-only)`);
+  // NB the gates are sequential, so these are disjoint buckets summing to the gated total.
+  // The full homonym population is 1,258; 446 of those are also name disagreements and are
+  // already counted in the previous bucket, which is why the homonym bucket reads 812.
+  console.log(`  gated, untouched    : ${ifGateMiss} IF miss + ${ifGateName} name disagreement + ${ifGateHomonym} homonym = ${ifGateMiss + ifGateName + ifGateHomonym}`);
+  console.log(`  conflicts left alone: ${ifYearConflicts} year, ${ifAuthConflicts} authorship`);
+}
+
+// Overlay contract check. Each overlay file states the counts it is expected to apply; a
+// mismatch means the inputs, the gates or the upstream data moved, and that must be reviewed
+// rather than absorbed silently. This is the guard against the failure mode where the overlay
+// stops firing and the build still exits 0.
+{
+  const actual = {
+    backbone_records_added: backboneAdded,
+    backbone_aliases_appended: aliasAppended,
+    if_year_writes: ifYearWrites,
+    if_authorship_writes: ifAuthWrites,
+    if_gated_if_miss: ifGateMiss,
+    if_gated_name_disagreement: ifGateName,
+    if_gated_homonym: ifGateHomonym,
+    if_year_conflicts_left: ifYearConflicts,
+    if_authorship_conflicts_left: ifAuthConflicts,
+  };
+  const expected = { ...(backboneExpect || {}), ...(ifExpect || {}) };
+  const bad = Object.entries(expected).filter(([k, v]) => actual[k] !== v);
+  if (bad.length) {
+    console.error('! OVERLAY CONTRACT MISMATCH — the overlay did not apply what it promises.');
+    for (const [k, v] of bad) console.error(`    ${k}: expected ${v}, got ${actual[k]}`);
+    console.error('    Review why before updating build_expect in the overlay file.');
+    process.exit(1);
+  }
+  if (Object.keys(expected).length) {
+    console.log(`overlay contract    : ${Object.keys(expected).length} counts match`);
   }
 }
 
