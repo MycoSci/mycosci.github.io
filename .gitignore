@@ -29,3 +29,6 @@ public/maps/
 # raw HTTP cache for scripts/fetch-gbif-spine.py (regenerable; the RESULT, data/gbif-spine.json,
 # is committed — the cache is not)
 .cache/
+# rendered long-tail template pages (regenerable byte-for-byte by
+# `node scripts/render-template-pages.mjs`; committed pages would be a 4-figure file dump)
+template-pages/
