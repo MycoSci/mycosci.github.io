@@ -31,7 +31,7 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const TEMPLATE_VERSION = '1.1';
+const TEMPLATE_VERSION = '1.2';
 const SCHEMA_VERSION = '1.1';
 
 const argv = process.argv.slice(2);
@@ -227,11 +227,6 @@ function gaps(sp, tierWhy) {
     : 'This catalog holds no published source about this species, and no registry record could '
       + 'be attached to it either. The page below is the catalog\'s own stored fields and '
       + 'nothing more.');
-  g.push('No literature search has been run for this species individually. The sampled coverage '
-       + 'survey found that species documented only to this level generally have no accessible '
-       + 'literature, and a pilot confirmed it on a small sample — that is a finding about the '
-       + 'group, not a search for this name. A source for this species has not been ruled out; '
-       + 'it has not been looked for.');
   if (!sp.type_locality) g.push('No type locality is recorded in Index Fungorum.');
   if (!sp.host_substrate) g.push('No host or substrate is recorded in Index Fungorum.');
   if (!sp.vernacular_names.length) g.push('No common name is recorded for it in any language.');
@@ -342,13 +337,20 @@ function sourceProvenance(sp, srcs) {
   };
 }
 
+// The last clause of this warning is a statement about classify() in this file, not about
+// today's catalog contents: classify() reads g.match_type, g.rank, g.occurrence_count,
+// g.countries, rec.vernacularNames, rec.commonName, rec.synonyms and rec.year, and no
+// edibility or toxicity field. That is what makes the clause true by construction rather
+// than true-by-coincidence, and it stays true as the catalog grows. If classify() ever
+// gains a toxicity input, this sentence must be revisited.
 const READER_WARNING =
   'This catalog holds no source stating whether this species is edible or poisonous. '
   + 'Its edibility is unrecorded here because it is unknown to this catalog, not because it '
   + 'has been assessed and found unremarkable. The absence of a toxicity statement on this '
   + 'page is not evidence of safety, and nothing on this page supports a decision to eat this '
-  + 'species. Species with severe documented toxicity are present in this catalog at this '
-  + 'evidence level.';
+  + 'species. Which pages get this template is decided by classify() from registry coverage '
+  + 'alone -- occurrence counts, recorded names and match type -- and it reads no toxicity '
+  + 'field of any kind, so a seriously toxic species can and does sit at this evidence level.';
 
 function buildPage(rec) {
   const { tier, why } = classify(rec);
@@ -376,6 +378,9 @@ function buildPage(rec) {
       toxicity: null,
       look_alikes: [],
       citations: {},
+      // No toxicity verdict exists for a page with edibility_evidence 'none'; the danger
+      // marker follows the verdict, so it is null here by construction, never by oversight.
+      danger: null,
       reader_warning: READER_WARNING,
     },
     sources: srcs,
@@ -407,7 +412,7 @@ function md(page) {
   A(`# *${sp.scientific_name}*${sp.authorship ? ' ' + sp.authorship : ''}`);
   A();
   const vn = sp.vernacular_names.slice(0, 6).map((v) => v.name).join(', ');
-  A(`**${vn || 'no common name recorded'}** · tier ${sp.tier} · `
+  A(`**${vn || 'no common name recorded'}** · `
     + (sp.occurrence_count === null
       ? 'occurrence count unavailable'
       : `${sp.occurrence_count.toLocaleString('en-US')} occurrence${sp.occurrence_count === 1 ? '' : 's'} worldwide (GBIF)`));
@@ -422,10 +427,10 @@ function md(page) {
   A();
   A(`> **Evidence basis.** ${pv.evidence_basis}`);
   A();
-  A(`> ⚠ ${s.reader_warning}`);
+  A(`> ${s.reader_warning}`);
   A();
   if (sp.name_disagreement && sp.if_current_name) {
-    A(`> ⚠ **Unsettled name.** Index Fungorum gives the current name for this record as `
+    A(`> **Unsettled name.** Index Fungorum gives the current name for this record as `
       + `*${plain(sp.if_current_name)}*. This catalog uses *${sp.scientific_name}*. The two registries `
       + `disagree and this catalog does not resolve the disagreement.`);
     A();
