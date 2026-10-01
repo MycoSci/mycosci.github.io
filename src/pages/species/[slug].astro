@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection, render } from 'astro:content';
 import speciesData from '../../../data/species.json';
 import { edibilityMeta, cautionText, registryLinks, cap, type SpeciesRecord } from '../../lib/species';
+import { corpusPage } from '../../lib/corpus';
 
 export async function getStaticPaths() {
   return (speciesData as SpeciesRecord[]).map((rec) => ({ params: { slug: rec.slug }, props: { rec } }));
@@ -33,6 +34,14 @@ const ecology = [
   ['Trophic mode', rec.trophicMode ? cap(rec.trophicMode) : ''],
   ['Fruiting season', seasons || ''],
 ].filter(([, v]) => v) as [string, string][];
+
+// The species corpus: a sourced narrative page, else a deterministic template page,
+// else nothing and this page stays the taxonomy view it has always been. The markdown
+// is rendered as written -- its evidence-basis line, its danger warning, its gaps list
+// and its provenance footer are the point of it, not clutter to trim.
+const corpus = corpusPage(rec.slug);
+
+const PROSE = 'prose prose-invert max-w-none prose-headings:text-lab-100 prose-headings:font-semibold prose-p:text-lab-300 prose-a:text-bio-400 prose-a:no-underline hover:prose-a:underline prose-strong:text-lab-100 prose-li:text-lab-300 prose-code:text-bio-400 prose-img:border prose-img:border-lab-800';
 
 const hasEnrichment =
   rec.vernacularNames?.length || rec.notableCompounds?.length || rec.dangerousLookalikes?.length ||
@@ -84,11 +93,28 @@ const hasEnrichment =
       <!-- Main column -->
       <div class="md:col-span-2 min-w-0 space-y-10">
         <!-- Overview: MDX body, else description, else skeleton -->
-        {Content ? (
-          <div class="prose prose-invert max-w-none prose-headings:text-lab-100 prose-headings:font-semibold prose-p:text-lab-300 prose-a:text-bio-400 prose-a:no-underline hover:prose-a:underline prose-strong:text-lab-100 prose-li:text-lab-300 prose-code:text-bio-400 prose-img:border prose-img:border-lab-800">
+        {Content && (
+          <div class={PROSE}>
             <Content />
           </div>
-        ) : (
+        )}
+
+        {corpus ? (
+          <div class="corpus-body space-y-5">
+            {Content && <h2 class="label">// Corpus Page</h2>}
+            <div class={PROSE} set:html={corpus.html} />
+            {corpus.kind === 'template' && (
+              <div class="border border-lab-800 p-5">
+                <span class="label">// Contribute</span>
+                <p class="text-sm text-lab-400 mt-2">
+                  Verified taxonomy is in place. Help add a sourced profile — morphology, ecology,
+                  edibility, look-alikes. Every entry is open source.
+                </p>
+                <a href="https://github.com/MycoSci" class="btn btn-secondary mt-4">Edit on GitHub</a>
+              </div>
+            )}
+          </div>
+        ) : !Content && (
           <div class="space-y-5">
             {rec.description && <p class="text-lab-300 leading-relaxed text-lg">{rec.description}</p>}
             {rec.tier !== 'curated' && (
@@ -241,3 +267,9 @@ const hasEnrichment =
     </div>
   </article>
 </BaseLayout>
+
+<style is:global>
+  /* The corpus pages carry a taxonomy table; on a phone it has to scroll, not push
+     the page sideways. set:html content carries no scoped style attribute, hence is:global. */
+  .corpus-body table { display: block; overflow-x: auto; max-width: 100%; }
+</style>

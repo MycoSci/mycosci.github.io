@@ -1,0 +1,60 @@
+# *Rhodocollybia fodiens* (Kalchbr.) Antonín & Noordel.
+
+**no vernacular name recorded** · tier T2 · 1,272 occurrences worldwide (GBIF)
+
+> **Evidence basis.** This page rests on 2 independent source lineages (Wikipedia (English), GBIF). Two is the minimum this site will publish an edibility verdict on.
+
+> Edibility evidence for this species is 'none' and this page rests on 2 independent source(s). Do not use it as a basis for eating anything.
+
+## Taxonomy (pulled, not generated)
+
+| field | value | source |
+|---|---|---|
+| kingdom | Fungi | catalog/GBIF |
+| phylum | Basidiomycota | catalog/GBIF |
+| class | Agaricomycetes | catalog/GBIF |
+| order | Agaricales | catalog/GBIF |
+| family | Omphalotaceae | catalog/GBIF |
+| authorship | (Kalchbr.) Antonín & Noordel. | index_fungorum |
+| year | 1997 | index_fungorum |
+| published in | Index of Fungi 6: 870 | Index Fungorum |
+| synonyms | 2 recorded | catalog |
+| countries with records | SE, FI, NO, CH, AT, DK, EE, FR, SI, RU, GB, DE | GBIF |
+
+## Summary
+
+Rhodocollybia fodiens (Kalchbr.) Antonín & Noordel. is a species of fungus in the family Omphalotaceae. The GBIF description record for this taxon lists a distribution of Denmark, Norway and Sweden. *[wikipedia, gbif_desc]*
+
+## Edibility and safety
+
+**Evidence gate: `none`** — computed mechanically (gate v2.0-rules), not asked of the model.
+
+*Why: no cited source makes an edibility or toxicity statement about this species.*
+
+**No edibility is asserted on this page.** Absence of a warning here is not a statement of safety.
+
+## Gaps — what was looked for and not found
+
+- The only descriptive text supplied is a one-line Wikipedia stub, which iNaturalist reproduces. It gives no morphology, habitat, substrate, season, or ecology.
+- The GBIF description record contains only a distribution listing (country codes), with no habitat, host or substrate information.
+- No supplied source discusses the origin of the scientific name, the naming history, any vernacular names, or any cultural use or cultivation.
+- No supplied source makes an edibility or toxicity statement about this species, and no look-alike information was found.
+- Sources that could have held descriptive text returned nothing usable: EOL (204), MushroomExpert (404), First Nature (403), MushroomWorld (404), MykoWeb (403) and Wikispecies (200, no usable content).
+- Wikipedia and iNaturalist form a single independent cluster, so the supplied sources amount to one text source plus one database record.
+
+## Sources
+
+**This page rests on 2 independent source lineages (Wikipedia (English), GBIF). Two is the minimum this site will publish an edibility verdict on.**
+
+**3 fetched, 2 independent (inflation 1.50x).** Sources in one cluster count as one.
+
+- cluster 0: `wikipedia`, `inaturalist`  — merged on: declared_derivative: inaturalist <- wikipedia; jaccard=0.571
+- cluster 1: `gbif_desc`
+
+- `wikipedia` — Wikipedia (English) — https://en.wikipedia.org/w/api.php?action=query&prop=extracts&explaintext=1&redirects=1&format=json&titles=Rhodocollybia%20fodiens
+- `inaturalist` — iNaturalist — https://api.inaturalist.org/v1/taxa?rank=species&q=Rhodocollybia%20fodiens  **[derivative of `wikipedia`: declared_derivative: inaturalist <- wikipedia; jaccard=0.571]**
+- `gbif_desc` — GBIF — https://api.gbif.org/v1/species/2538147/descriptions
+
+---
+
+*generated 2026-09-20T08:58:28Z · model sonnet · prompt v1.4 · pipeline v0.2 · 57.7s*

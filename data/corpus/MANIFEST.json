@@ -1,0 +1,16 @@
+{
+  "what": "Narrative species pages, vendored. The markdown here is the published artifact.",
+  "source_repo": "MycoSci/mycosci-corpus-draft (private)",
+  "source_commit": "f12fbc97a86a6b00156c962774549c8a851f2a47",
+  "source_path": "pages/*.md",
+  "vendored": "2026-09-30",
+  "page_count": 3462,
+  "aggregate_md5": "312a55597642f3252ad8da65abb1b34e",
+  "aggregate_md5_recipe": "cd pages && md5 -q $(ls *.md) | md5",
+  "notes": [
+    "Only the markdown is vendored. The per-page JSON (prompts, model answers, source clusters, independence maths) stays in the private draft repo; this repo carries exactly what publishes.",
+    "Each page states its own evidence basis, its own gaps, and its own 'generated ... model sonnet' provenance footer. Do not strip those when rendering.",
+    "U+26A0 means danger and nothing else: it appears on exactly the 195 pages that carry a danger level (28 deadly, 80 poisonous, 87 caution). Verified set-equal at vendoring time. Do not reuse the glyph for any other meaning anywhere in this repo.",
+    "Template pages for the long tail are NOT here. They are regenerated into template-pages/ by scripts/render-template-pages.mjs during prebuild and are gitignored."
+  ]
+}
