@@ -1,0 +1,4361 @@
+{
+  "record_version": 1,
+  "published_at": "2026-10-03T13:22:26.487Z",
+  "as_of_date": "2026-10-02",
+  "target_date": "2026-10-03",
+  "lag_days_behind_target": 1,
+  "manifest_sha256": "48de3dca1b41ef4348e3ce298d631219912ad743d5719138e3f4df86b54e26c7",
+  "manifest_path": "out/2026-10-03/manifest.json",
+  "manifest": {
+    "manifest_version": 1,
+    "generated_at": "2026-10-03T13:20:08.250080317Z",
+    "target_date": "2026-10-03",
+    "as_of_date": "2026-10-02",
+    "lag_days_behind_target": 1,
+    "weather": {
+      "source": "open-meteo archive-api v1 (archive)",
+      "model": "ecmwf_ifs",
+      "model_verification": {
+        "model": "ecmwf_ifs",
+        "start": "2026-09-23",
+        "end": "2026-09-25",
+        "hours_compared": 72,
+        "max_abs_difference": {
+          "et0_fao_evapotranspiration": 0,
+          "precipitation": 0,
+          "relative_humidity_2m": 0,
+          "soil_moisture_0_to_7cm": 0,
+          "soil_moisture_7_to_28cm": 0,
+          "soil_temperature_0_to_7cm": 0,
+          "temperature_2m": 0
+        },
+        "agrees": true
+      },
+      "freshness": {
+        "now_utc": "2026-10-03T13:20:08.250080317Z",
+        "target_date": "2026-10-03",
+        "as_of_date": "2026-10-02",
+        "newest_day": "2026-10-02",
+        "oldest_newest_day": "2026-10-02",
+        "lag_days_behind_target": 1,
+        "last_observed_hour": "2026-10-03T13:00:00Z",
+        "points": 252,
+        "points_empty": 0,
+        "points_short": 0,
+        "min_days": 35,
+        "max_days": 35,
+        "points_with_soil_moisture_on_last_day": 241,
+        "points_with_retained_forecast": 0,
+        "forecast_hours_dropped_total": 2520,
+        "sources": [
+          "archive_analysis"
+        ]
+      },
+      "allow_forecast_hours": 0,
+      "fetched_at": "2026-10-03T13:20:08.250080317Z",
+      "from_cache": false,
+      "grid_points": 252,
+      "step_degrees": 0.4,
+      "series_days_needed": 35
+    },
+    "weather_summary": {
+      "schema_version": 1,
+      "usable": true,
+      "as_of_date": "2026-10-02",
+      "first_day": "2026-08-29",
+      "observed_through_day": "2026-10-02",
+      "last_observed_hour_utc": "2026-10-03T13:00:00Z",
+      "includes_forecast_days": false,
+      "forecast_days": [],
+      "windows_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ],
+      "thresholds": {
+        "soil_moisture_abort_floor_vwc": 0.2,
+        "soil_moisture_field_capacity_vwc": 0.3,
+        "soil_moisture_saturated_vwc": 0.45,
+        "wet_day_precip_in": 0.01,
+        "source": "mirrors internal/species/timeline.go (fieldCapacity, abortMoisture, vwcSaturated); the two decision thresholds are probe-verified against the live scorer at render time",
+        "probe_verified": true
+      },
+      "region_scheme": {
+        "name": "oregon-bbox-elev-v1",
+        "version": 1,
+        "description": "Ordered first-match rules over longitude, latitude and DEM elevation, with the Cascade crest as a latitude-dependent line anchored on the volcanoes. Oregon's south border is the 42nd parallel exactly; its north and east borders are piecewise-linear approximations of the Columbia and Snake rivers, accurate to about 0.05 deg against a 0.4 deg weather grid, and to about one cell in the short north-south reach of the Columbia below Longview. Points with no classified land cover (ocean, outside NLCD) are excluded by the caller before assignment.",
+        "elevation_source": "renderer DEM elevation grid (USGS), sampled at the weather grid point",
+        "land_mask": "NLCD classified-land validity; points with no classified land (ocean, outside NLCD) are dropped before assignment",
+        "aggregation": "unweighted mean over the region's weather grid points; each point contributes one value per day, and the 0.4 deg cells differ in area by under 8% across the state"
+      },
+      "grid_points": {
+        "total": 252,
+        "summarised": 178,
+        "dropped_no_series": 0,
+        "dropped_series_does_not_reach_as_of_date": 0,
+        "dropped_no_land_cover": 18,
+        "dropped_no_elevation": 47,
+        "dropped_outside_oregon": 9,
+        "land_cover_available": true
+      },
+      "previous_run": {
+        "path": "out/2026-10-02/manifest.json",
+        "target_date": "2026-10-02",
+        "as_of_date": "2026-10-01",
+        "generated_at": "2026-10-02T13:18:07.926123481Z",
+        "days_between_as_of": 1,
+        "region_scheme_matches": true
+      },
+      "statewide": {
+        "id": "statewide",
+        "name": "Oregon (statewide)",
+        "definition": "every summarised grid point inside the state on classified land; the state spans a rainforest and a desert, so this is a lede, not a forecast",
+        "grid_points": 178,
+        "thin": false,
+        "extent": {
+          "elev_min_ft": 12,
+          "elev_mean_ft": 3610,
+          "elev_max_ft": 7687,
+          "lat_range": [
+            42,
+            45.6
+          ],
+          "lon_range": [
+            -124.5,
+            -116.9
+          ]
+        },
+        "points": [
+          [
+            45.6,
+            -123.7,
+            2036
+          ],
+          [
+            45.6,
+            -123.3,
+            2029
+          ],
+          [
+            45.6,
+            -122.9,
+            320
+          ],
+          [
+            45.6,
+            -121.7,
+            3180
+          ],
+          [
+            45.6,
+            -121.3,
+            1209
+          ],
+          [
+            45.6,
+            -120.9,
+            469
+          ],
+          [
+            45.6,
+            -120.5,
+            1282
+          ],
+          [
+            45.6,
+            -120.1,
+            774
+          ],
+          [
+            45.6,
+            -119.7,
+            1046
+          ],
+          [
+            45.6,
+            -119.3,
+            1420
+          ],
+          [
+            45.6,
+            -118.9,
+            1518
+          ],
+          [
+            45.6,
+            -118.5,
+            3606
+          ],
+          [
+            45.6,
+            -118.1,
+            3797
+          ],
+          [
+            45.6,
+            -117.7,
+            3782
+          ],
+          [
+            45.6,
+            -117.3,
+            4651
+          ],
+          [
+            45.6,
+            -116.9,
+            4187
+          ],
+          [
+            45.2,
+            -123.7,
+            2410
+          ],
+          [
+            45.2,
+            -123.3,
+            825
+          ],
+          [
+            45.2,
+            -122.9,
+            179
+          ],
+          [
+            45.2,
+            -122.5,
+            625
+          ],
+          [
+            45.2,
+            -122.1,
+            2906
+          ],
+          [
+            45.2,
+            -121.7,
+            3620
+          ],
+          [
+            45.2,
+            -121.3,
+            1814
+          ],
+          [
+            45.2,
+            -120.9,
+            1844
+          ],
+          [
+            45.2,
+            -120.5,
+            1467
+          ],
+          [
+            45.2,
+            -120.1,
+            2687
+          ],
+          [
+            45.2,
+            -119.7,
+            3263
+          ],
+          [
+            45.2,
+            -119.3,
+            4846
+          ],
+          [
+            45.2,
+            -118.9,
+            3645
+          ],
+          [
+            45.2,
+            -118.5,
+            4354
+          ],
+          [
+            45.2,
+            -118.1,
+            4732
+          ],
+          [
+            45.2,
+            -117.7,
+            5150
+          ],
+          [
+            45.2,
+            -117.3,
+            7687
+          ],
+          [
+            45.2,
+            -116.9,
+            4614
+          ],
+          [
+            44.8,
+            -123.7,
+            1050
+          ],
+          [
+            44.8,
+            -123.3,
+            214
+          ],
+          [
+            44.8,
+            -122.9,
+            355
+          ],
+          [
+            44.8,
+            -122.5,
+            1218
+          ],
+          [
+            44.8,
+            -122.1,
+            3075
+          ],
+          [
+            44.8,
+            -121.7,
+            4484
+          ],
+          [
+            44.8,
+            -121.3,
+            1995
+          ],
+          [
+            44.8,
+            -120.9,
+            2026
+          ],
+          [
+            44.8,
+            -120.5,
+            2153
+          ],
+          [
+            44.8,
+            -120.1,
+            4032
+          ],
+          [
+            44.8,
+            -119.7,
+            1857
+          ],
+          [
+            44.8,
+            -119.3,
+            3478
+          ],
+          [
+            44.8,
+            -118.9,
+            3655
+          ],
+          [
+            44.8,
+            -118.5,
+            5197
+          ],
+          [
+            44.8,
+            -118.1,
+            7162
+          ],
+          [
+            44.8,
+            -117.7,
+            3494
+          ],
+          [
+            44.8,
+            -117.3,
+            2915
+          ],
+          [
+            44.8,
+            -116.9,
+            3466
+          ],
+          [
+            44.4,
+            -123.7,
+            969
+          ],
+          [
+            44.4,
+            -123.3,
+            260
+          ],
+          [
+            44.4,
+            -122.9,
+            899
+          ],
+          [
+            44.4,
+            -122.5,
+            1172
+          ],
+          [
+            44.4,
+            -122.1,
+            4038
+          ],
+          [
+            44.4,
+            -121.7,
+            3371
+          ],
+          [
+            44.4,
+            -121.3,
+            2369
+          ],
+          [
+            44.4,
+            -120.9,
+            3243
+          ],
+          [
+            44.4,
+            -120.5,
+            4314
+          ],
+          [
+            44.4,
+            -120.1,
+            5212
+          ],
+          [
+            44.4,
+            -119.7,
+            5344
+          ],
+          [
+            44.4,
+            -119.3,
+            3548
+          ],
+          [
+            44.4,
+            -118.9,
+            3702
+          ],
+          [
+            44.4,
+            -118.5,
+            6161
+          ],
+          [
+            44.4,
+            -118.1,
+            4186
+          ],
+          [
+            44.4,
+            -117.7,
+            3823
+          ],
+          [
+            44.4,
+            -117.3,
+            2977
+          ],
+          [
+            44,
+            -124.1,
+            12
+          ],
+          [
+            44,
+            -123.7,
+            415
+          ],
+          [
+            44,
+            -123.3,
+            457
+          ],
+          [
+            44,
+            -122.9,
+            568
+          ],
+          [
+            44,
+            -122.5,
+            1531
+          ],
+          [
+            44,
+            -122.1,
+            4729
+          ],
+          [
+            44,
+            -121.7,
+            6197
+          ],
+          [
+            44,
+            -121.3,
+            3846
+          ],
+          [
+            44,
+            -120.9,
+            3656
+          ],
+          [
+            44,
+            -120.5,
+            4825
+          ],
+          [
+            44,
+            -120.1,
+            4324
+          ],
+          [
+            44,
+            -119.7,
+            5187
+          ],
+          [
+            44,
+            -119.3,
+            4352
+          ],
+          [
+            44,
+            -118.9,
+            4642
+          ],
+          [
+            44,
+            -118.5,
+            5240
+          ],
+          [
+            44,
+            -118.1,
+            4460
+          ],
+          [
+            44,
+            -117.7,
+            3003
+          ],
+          [
+            44,
+            -117.3,
+            2554
+          ],
+          [
+            43.6,
+            -124.1,
+            447
+          ],
+          [
+            43.6,
+            -123.7,
+            781
+          ],
+          [
+            43.6,
+            -123.3,
+            472
+          ],
+          [
+            43.6,
+            -122.9,
+            2271
+          ],
+          [
+            43.6,
+            -122.5,
+            2563
+          ],
+          [
+            43.6,
+            -122.1,
+            4971
+          ],
+          [
+            43.6,
+            -121.7,
+            4369
+          ],
+          [
+            43.6,
+            -121.3,
+            5137
+          ],
+          [
+            43.6,
+            -120.9,
+            5413
+          ],
+          [
+            43.6,
+            -120.5,
+            5073
+          ],
+          [
+            43.6,
+            -120.1,
+            4630
+          ],
+          [
+            43.6,
+            -119.7,
+            4329
+          ],
+          [
+            43.6,
+            -119.3,
+            5159
+          ],
+          [
+            43.6,
+            -118.9,
+            4134
+          ],
+          [
+            43.6,
+            -118.5,
+            4663
+          ],
+          [
+            43.6,
+            -118.1,
+            4011
+          ],
+          [
+            43.6,
+            -117.7,
+            4432
+          ],
+          [
+            43.6,
+            -117.3,
+            2884
+          ],
+          [
+            43.2,
+            -124.1,
+            468
+          ],
+          [
+            43.2,
+            -123.7,
+            2789
+          ],
+          [
+            43.2,
+            -123.3,
+            548
+          ],
+          [
+            43.2,
+            -122.9,
+            2871
+          ],
+          [
+            43.2,
+            -122.5,
+            4283
+          ],
+          [
+            43.2,
+            -122.1,
+            5903
+          ],
+          [
+            43.2,
+            -121.7,
+            5197
+          ],
+          [
+            43.2,
+            -121.3,
+            5760
+          ],
+          [
+            43.2,
+            -120.9,
+            4400
+          ],
+          [
+            43.2,
+            -120.5,
+            4321
+          ],
+          [
+            43.2,
+            -120.1,
+            4520
+          ],
+          [
+            43.2,
+            -119.7,
+            4578
+          ],
+          [
+            43.2,
+            -119.3,
+            4598
+          ],
+          [
+            43.2,
+            -118.9,
+            4114
+          ],
+          [
+            43.2,
+            -118.5,
+            4265
+          ],
+          [
+            43.2,
+            -118.1,
+            5033
+          ],
+          [
+            43.2,
+            -117.7,
+            4034
+          ],
+          [
+            43.2,
+            -117.3,
+            5208
+          ],
+          [
+            42.8,
+            -124.5,
+            99
+          ],
+          [
+            42.8,
+            -124.1,
+            1438
+          ],
+          [
+            42.8,
+            -123.7,
+            2865
+          ],
+          [
+            42.8,
+            -123.3,
+            2051
+          ],
+          [
+            42.8,
+            -122.9,
+            3570
+          ],
+          [
+            42.8,
+            -122.5,
+            3026
+          ],
+          [
+            42.8,
+            -122.1,
+            5068
+          ],
+          [
+            42.8,
+            -121.7,
+            4613
+          ],
+          [
+            42.8,
+            -121.3,
+            5916
+          ],
+          [
+            42.8,
+            -120.9,
+            6445
+          ],
+          [
+            42.8,
+            -120.5,
+            4881
+          ],
+          [
+            42.8,
+            -120.1,
+            4697
+          ],
+          [
+            42.8,
+            -119.7,
+            5045
+          ],
+          [
+            42.8,
+            -119.3,
+            4791
+          ],
+          [
+            42.8,
+            -118.9,
+            5173
+          ],
+          [
+            42.8,
+            -118.5,
+            7311
+          ],
+          [
+            42.8,
+            -118.1,
+            5578
+          ],
+          [
+            42.8,
+            -117.7,
+            3763
+          ],
+          [
+            42.8,
+            -117.3,
+            4547
+          ],
+          [
+            42.4,
+            -124.1,
+            2082
+          ],
+          [
+            42.4,
+            -123.7,
+            2276
+          ],
+          [
+            42.4,
+            -123.3,
+            1262
+          ],
+          [
+            42.4,
+            -122.9,
+            1266
+          ],
+          [
+            42.4,
+            -122.5,
+            3173
+          ],
+          [
+            42.4,
+            -122.1,
+            5535
+          ],
+          [
+            42.4,
+            -121.7,
+            6022
+          ],
+          [
+            42.4,
+            -121.3,
+            4406
+          ],
+          [
+            42.4,
+            -120.9,
+            5003
+          ],
+          [
+            42.4,
+            -120.5,
+            6721
+          ],
+          [
+            42.4,
+            -120.1,
+            5780
+          ],
+          [
+            42.4,
+            -119.7,
+            5952
+          ],
+          [
+            42.4,
+            -119.3,
+            5869
+          ],
+          [
+            42.4,
+            -118.9,
+            4559
+          ],
+          [
+            42.4,
+            -118.5,
+            4026
+          ],
+          [
+            42.4,
+            -118.1,
+            4448
+          ],
+          [
+            42.4,
+            -117.7,
+            4846
+          ],
+          [
+            42.4,
+            -117.3,
+            5098
+          ],
+          [
+            42,
+            -124.1,
+            987
+          ],
+          [
+            42,
+            -123.7,
+            1914
+          ],
+          [
+            42,
+            -123.3,
+            5086
+          ],
+          [
+            42,
+            -122.9,
+            6039
+          ],
+          [
+            42,
+            -122.5,
+            3356
+          ],
+          [
+            42,
+            -122.1,
+            4214
+          ],
+          [
+            42,
+            -121.7,
+            4084
+          ],
+          [
+            42,
+            -121.3,
+            4954
+          ],
+          [
+            42,
+            -120.9,
+            5390
+          ],
+          [
+            42,
+            -120.5,
+            4714
+          ],
+          [
+            42,
+            -120.1,
+            6261
+          ],
+          [
+            42,
+            -119.7,
+            6624
+          ],
+          [
+            42,
+            -119.3,
+            5948
+          ],
+          [
+            42,
+            -118.9,
+            5064
+          ],
+          [
+            42,
+            -118.5,
+            4718
+          ],
+          [
+            42,
+            -118.1,
+            5411
+          ],
+          [
+            42,
+            -117.7,
+            4514
+          ],
+          [
+            42,
+            -117.3,
+            6060
+          ]
+        ],
+        "days_available": 35,
+        "first_day": "2026-08-29",
+        "last_day": "2026-10-02",
+        "forecast_days": [],
+        "precip": {
+          "windows": [
+            {
+              "days": 1,
+              "days_used": 1,
+              "points_used": 178,
+              "mean_in": 0,
+              "mean_mm": 0,
+              "min_in": 0,
+              "min_mm": 0,
+              "max_in": 0,
+              "max_mm": 0,
+              "prior_window_mean_in": 0,
+              "prior_window_mean_mm": 0,
+              "change_vs_prior_window_in": 0,
+              "change_vs_prior_window_mm": 0,
+              "forecast_days_in_window": 0
+            },
+            {
+              "days": 3,
+              "days_used": 3,
+              "points_used": 178,
+              "mean_in": 0.003,
+              "mean_mm": 0.1,
+              "min_in": 0,
+              "min_mm": 0,
+              "max_in": 0.273,
+              "max_mm": 6.9,
+              "prior_window_mean_in": 0.016,
+              "prior_window_mean_mm": 0.4,
+              "change_vs_prior_window_in": -0.013,
+              "change_vs_prior_window_mm": -0.3,
+              "forecast_days_in_window": 0
+            },
+            {
+              "days": 7,
+              "days_used": 7,
+              "points_used": 178,
+              "mean_in": 0.026,
+              "mean_mm": 0.7,
+              "min_in": 0,
+              "min_mm": 0,
+              "max_in": 0.623,
+              "max_mm": 15.8,
+              "prior_window_mean_in": 0.249,
+              "prior_window_mean_mm": 6.3,
+              "change_vs_prior_window_in": -0.223,
+              "change_vs_prior_window_mm": -5.7,
+              "forecast_days_in_window": 0
+            },
+            {
+              "days": 14,
+              "days_used": 14,
+              "points_used": 178,
+              "mean_in": 0.275,
+              "mean_mm": 7,
+              "min_in": 0,
+              "min_mm": 0,
+              "max_in": 2.178,
+              "max_mm": 55.3,
+              "prior_window_mean_in": 0.773,
+              "prior_window_mean_mm": 19.6,
+              "change_vs_prior_window_in": -0.498,
+              "change_vs_prior_window_mm": -12.7,
+              "forecast_days_in_window": 0
+            },
+            {
+              "days": 30,
+              "days_used": 30,
+              "points_used": 178,
+              "mean_in": 1.819,
+              "mean_mm": 46.2,
+              "min_in": 0.535,
+              "min_mm": 13.6,
+              "max_in": 5.227,
+              "max_mm": 132.8,
+              "prior_window_mean_in": null,
+              "prior_window_mean_mm": null,
+              "change_vs_prior_window_in": null,
+              "change_vs_prior_window_mm": null,
+              "forecast_days_in_window": 0
+            }
+          ],
+          "wet_days_last_7_mean": 0.51,
+          "wet_day_threshold_in": 0.01,
+          "days_since_measurable_rain_median": 7,
+          "days_since_measurable_rain_max": 25,
+          "points_with_no_measurable_rain_in_series": 0
+        },
+        "soil_moisture": {
+          "points_with_reading": 178,
+          "points_total": 178,
+          "latest_mean_vwc": 0.1359,
+          "latest_min_vwc": 0.021,
+          "latest_max_vwc": 0.4318,
+          "trailing_3d_mean_vwc": 0.1364,
+          "value_7d_ago_mean_vwc": 0.1711,
+          "change_over_7d_vwc": -0.0352,
+          "value_14d_ago_mean_vwc": 0.1814,
+          "change_over_14d_vwc": -0.0455,
+          "deep_7_to_28cm_latest_mean_vwc": 0.1824,
+          "points_at_or_above_field_capacity": 5,
+          "points_at_or_above_abort_floor": 37,
+          "points_below_abort_floor": 141,
+          "pct_at_or_above_field_capacity": 2.8,
+          "pct_at_or_above_abort_floor": 20.8,
+          "state": "below_abort_floor",
+          "field_capacity_crossing": {
+            "state": "below",
+            "on_date": null,
+            "days_ago": null
+          },
+          "abort_floor_crossing": {
+            "state": "below",
+            "on_date": null,
+            "days_ago": null
+          },
+          "consecutive_days_at_or_above_abort_floor": 0
+        },
+        "air_temp_f": {
+          "trailing_3d_mean_f": 58.9,
+          "min_daily_min_last_7d_f": 25.3,
+          "max_daily_max_last_7d_f": 85.1,
+          "extremes_basis": "daily minimum and maximum",
+          "change_vs_7d_ago_f": 1.1,
+          "cooling_trend_f_positive_is_cooling": -6.8
+        },
+        "soil_temp_f": {
+          "trailing_3d_mean_f": 57.9,
+          "min_daily_min_last_7d_f": 35.6,
+          "max_daily_max_last_7d_f": 70,
+          "extremes_basis": "daily MEAN (the series carries no sub-daily soil extremes), so the real swing is wider",
+          "change_vs_7d_ago_f": -0.4,
+          "cooling_trend_f_positive_is_cooling": -5.4
+        },
+        "previous_run_values": {
+          "precip_7d_in": 0.268,
+          "precip_7d_mm": 6.8,
+          "soil_moisture_latest_mean_vwc": 0.1353,
+          "soil_moisture_trailing_3d_mean_vwc": 0.1402,
+          "air_temp_trailing_3d_mean_f": 56.8,
+          "soil_temp_trailing_3d_mean_f": 56.3
+        },
+        "change_since_previous_run": {
+          "precip_7d_in": -0.242,
+          "precip_7d_mm": -6.1,
+          "soil_moisture_latest_mean_vwc": 0.0006,
+          "soil_moisture_trailing_3d_mean_vwc": -0.0038,
+          "air_temp_trailing_3d_mean_f": 2.1,
+          "soil_temp_trailing_3d_mean_f": 1.6
+        }
+      },
+      "regions": [
+        {
+          "id": "coast",
+          "name": "Coast & coastal valleys",
+          "definition": "lon <= -123.6 and elevation < 1000 ft: the beach plain from Astoria to Brookings AND the coastal river valleys behind it (Nehalem, Siletz, Alsea, Smith), which share its marine climate. Ocean points are excluded by land cover, not by this rule",
+          "grid_points": 8,
+          "thin": false,
+          "extent": {
+            "elev_min_ft": 12,
+            "elev_mean_ft": 522,
+            "elev_max_ft": 987,
+            "lat_range": [
+              42,
+              44.4
+            ],
+            "lon_range": [
+              -124.5,
+              -123.7
+            ]
+          },
+          "points": [
+            [
+              44.4,
+              -123.7,
+              969
+            ],
+            [
+              44,
+              -124.1,
+              12
+            ],
+            [
+              44,
+              -123.7,
+              415
+            ],
+            [
+              43.6,
+              -124.1,
+              447
+            ],
+            [
+              43.6,
+              -123.7,
+              781
+            ],
+            [
+              43.2,
+              -124.1,
+              468
+            ],
+            [
+              42.8,
+              -124.5,
+              99
+            ],
+            [
+              42,
+              -124.1,
+              987
+            ]
+          ],
+          "days_available": 35,
+          "first_day": "2026-08-29",
+          "last_day": "2026-10-02",
+          "forecast_days": [],
+          "precip": {
+            "windows": [
+              {
+                "days": 1,
+                "days_used": 1,
+                "points_used": 8,
+                "mean_in": 0,
+                "mean_mm": 0,
+                "min_in": 0,
+                "min_mm": 0,
+                "max_in": 0,
+                "max_mm": 0,
+                "prior_window_mean_in": 0,
+                "prior_window_mean_mm": 0,
+                "change_vs_prior_window_in": 0,
+                "change_vs_prior_window_mm": 0,
+                "forecast_days_in_window": 0
+              },
+              {
+                "days": 3,
+                "days_used": 3,
+                "points_used": 8,
+                "mean_in": 0.001,
+                "mean_mm": 0,
+                "min_in": 0,
+                "min_mm": 0,
+                "max_in": 0.004,
+                "max_mm": 0.1,
+                "prior_window_mean_in": 0.002,
+                "prior_window_mean_mm": 0.1,
+                "change_vs_prior_window_in": -0.001,
+                "change_vs_prior_window_mm": 0,
+                "forecast_days_in_window": 0
+              },
+              {
+                "days": 7,
+                "days_used": 7,
+                "points_used": 8,
+                "mean_in": 0.011,
+                "mean_mm": 0.3,
+                "min_in": 0,
+                "min_mm": 0,
+                "max_in": 0.036,
+                "max_mm": 0.9,
+                "prior_window_mean_in": 0.776,
+                "prior_window_mean_mm": 19.7,
+                "change_vs_prior_window_in": -0.765,
+                "change_vs_prior_window_mm": -19.4,
+                "forecast_days_in_window": 0
+              },
+              {
+                "days": 14,
+                "days_used": 14,
+                "points_used": 8,
+                "mean_in": 0.787,
+                "mean_mm": 20,
+                "min_in": 0.604,
+                "min_mm": 15.3,
+                "max_in": 1.003,
+                "max_mm": 25.5,
+                "prior_window_mean_in": 0.731,
+                "prior_window_mean_mm": 18.6,
+                "change_vs_prior_window_in": 0.056,
+                "change_vs_prior_window_mm": 1.4,
+                "forecast_days_in_window": 0
+              },
+              {
+                "days": 30,
+                "days_used": 30,
+                "points_used": 8,
+                "mean_in": 3.388,
+                "mean_mm": 86.1,
+                "min_in": 2.583,
+                "min_mm": 65.6,
+                "max_in": 3.964,
+                "max_mm": 100.7,
+                "prior_window_mean_in": null,
+                "prior_window_mean_mm": null,
+                "change_vs_prior_window_in": null,
+                "change_vs_prior_window_mm": null,
+                "forecast_days_in_window": 0
+              }
+            ],
+            "wet_days_last_7_mean": 0.38,
+            "wet_day_threshold_in": 0.01,
+            "days_since_measurable_rain_median": 7,
+            "days_since_measurable_rain_max": 7,
+            "points_with_no_measurable_rain_in_series": 0
+          },
+          "soil_moisture": {
+            "points_with_reading": 8,
+            "points_total": 8,
+            "latest_mean_vwc": 0.1975,
+            "latest_min_vwc": 0.1801,
+            "latest_max_vwc": 0.2225,
+            "trailing_3d_mean_vwc": 0.2071,
+            "value_7d_ago_mean_vwc": 0.3301,
+            "change_over_7d_vwc": -0.1326,
+            "value_14d_ago_mean_vwc": 0.206,
+            "change_over_14d_vwc": -0.0085,
+            "deep_7_to_28cm_latest_mean_vwc": 0.2184,
+            "points_at_or_above_field_capacity": 0,
+            "points_at_or_above_abort_floor": 4,
+            "points_below_abort_floor": 4,
+            "pct_at_or_above_field_capacity": 0,
+            "pct_at_or_above_abort_floor": 50,
+            "state": "below_abort_floor",
+            "field_capacity_crossing": {
+              "state": "below",
+              "on_date": null,
+              "days_ago": null
+            },
+            "abort_floor_crossing": {
+              "state": "below",
+              "on_date": null,
+              "days_ago": null
+            },
+            "consecutive_days_at_or_above_abort_floor": 0
+          },
+          "air_temp_f": {
+            "trailing_3d_mean_f": 61.9,
+            "min_daily_min_last_7d_f": 40.6,
+            "max_daily_max_last_7d_f": 83,
+            "extremes_basis": "daily minimum and maximum",
+            "change_vs_7d_ago_f": 4.8,
+            "cooling_trend_f_positive_is_cooling": -7
+          },
+          "soil_temp_f": {
+            "trailing_3d_mean_f": 60.9,
+            "min_daily_min_last_7d_f": 49.9,
+            "max_daily_max_last_7d_f": 66.6,
+            "extremes_basis": "daily MEAN (the series carries no sub-daily soil extremes), so the real swing is wider",
+            "change_vs_7d_ago_f": 2.9,
+            "cooling_trend_f_positive_is_cooling": -5.8
+          },
+          "previous_run_values": {
+            "precip_7d_in": 0.784,
+            "precip_7d_mm": 19.9,
+            "soil_moisture_latest_mean_vwc": 0.2067,
+            "soil_moisture_trailing_3d_mean_vwc": 0.2202,
+            "air_temp_trailing_3d_mean_f": 60.2,
+            "soil_temp_trailing_3d_mean_f": 59.2
+          },
+          "change_since_previous_run": {
+            "precip_7d_in": -0.773,
+            "precip_7d_mm": -19.6,
+            "soil_moisture_latest_mean_vwc": -0.0092,
+            "soil_moisture_trailing_3d_mean_vwc": -0.0131,
+            "air_temp_trailing_3d_mean_f": 1.7,
+            "soil_temp_trailing_3d_mean_f": 1.7
+          }
+        },
+        {
+          "id": "coast_range",
+          "name": "Coast Range",
+          "definition": "lat >= 43.4, lon <= -123.1 and elevation >= 1000 ft: the timbered ridge between the coast and the Willamette Valley. The eastern limit is -123.1 because the Coast Range does not reach further east at any latitude; a looser limit put the Umpqua National Forest in it",
+          "grid_points": 4,
+          "thin": true,
+          "thin_note": "only 4 weather grid point(s) at 0.4 deg spacing fall in this region; the figures below are real but are not a regional average and should be reported with the point count or not at all",
+          "extent": {
+            "elev_min_ft": 1050,
+            "elev_mean_ft": 1881,
+            "elev_max_ft": 2410,
+            "lat_range": [
+              44.8,
+              45.6
+            ],
+            "lon_range": [
+              -123.7,
+              -123.3
+            ]
+          },
+          "points": [
+            [
+              45.6,
+              -123.7,
+              2036
+            ],
+            [
+              45.6,
+              -123.3,
+              2029
+            ],
+            [
+              45.2,
+              -123.7,
+              2410
+            ],
+            [
+              44.8,
+              -123.7,
+              1050
+            ]
+          ],
+          "days_available": 35,
+          "first_day": "2026-08-29",
+          "last_day": "2026-10-02",
+          "forecast_days": [],
+          "precip": {
+            "windows": [
+              {
+                "days": 1,
+                "days_used": 1,
+                "points_used": 4,
+                "mean_in": 0,
+                "mean_mm": 0,
+                "min_in": 0,
+                "min_mm": 0,
+                "max_in": 0,
+                "max_mm": 0,
+                "prior_window_mean_in": 0,
+                "prior_window_mean_mm": 0,
+                "change_vs_prior_window_in": 0,
+                "change_vs_prior_window_mm": 0,
+                "forecast_days_in_window": 0
+              },
+              {
+                "days": 3,
+                "days_used": 3,
+                "points_used": 4,
+                "mean_in": 0.116,
+                "mean_mm": 3,
+                "min_in": 0.04,
+                "min_mm": 1,
+                "max_in": 0.273,
+                "max_mm": 6.9,
+                "prior_window_mean_in": 0.17,
+                "prior_window_mean_mm": 4.3,
+                "change_vs_prior_window_in": -0.054,
+                "change_vs_prior_window_mm": -1.4,
+                "forecast_days_in_window": 0
+              },
+              {
+                "days": 7,
+                "days_used": 7,
+                "points_used": 4,
+                "mean_in": 0.306,
+                "mean_mm": 7.8,
+                "min_in": 0.136,
+                "min_mm": 3.5,
+                "max_in": 0.623,
+                "max_mm": 15.8,
+                "prior_window_mean_in": 1.399,
+                "prior_window_mean_mm": 35.5,
+                "change_vs_prior_window_in": -1.093,
+                "change_vs_prior_window_mm": -27.8,
+                "forecast_days_in_window": 0
+              },
+              {
+                "days": 14,
+                "days_used": 14,
+                "points_used": 4,
+                "mean_in": 1.705,
+                "mean_mm": 43.3,
+                "min_in": 1.498,
+                "min_mm": 38,
+                "max_in": 2.178,
+                "max_mm": 55.3,
+                "prior_window_mean_in": 1.295,
+                "prior_window_mean_mm": 32.9,
+                "change_vs_prior_window_in": 0.41,
+                "change_vs_prior_window_mm": 10.4,
+                "forecast_days_in_window": 0
+              },
+              {
+                "days": 30,
+                "days_used": 30,
+                "points_used": 4,
+                "mean_in": 4.11,
+                "mean_mm": 104.4,
+                "min_in": 3.491,
+                "min_mm": 88.7,
+                "max_in": 5.227,
+                "max_mm": 132.8,
+                "prior_window_mean_in": null,
+                "prior_window_mean_mm": null,
+                "change_vs_prior_window_in": null,
+                "change_vs_prior_window_mm": null,
+                "forecast_days_in_window": 0
+              }
+            ],
+            "wet_days_last_7_mean": 3,
+            "wet_day_threshold_in": 0.01,
+            "days_since_measurable_rain_median": 2,
+            "days_since_measurable_rain_max": 2,
+            "points_with_no_measurable_rain_in_series": 0
+          },
+          "soil_moisture": {
+            "points_with_reading": 4,
+            "points_total": 4,
+            "latest_mean_vwc": 0.2847,
+            "latest_min_vwc": 0.251,
+            "latest_max_vwc": 0.3422,
+            "trailing_3d_mean_vwc": 0.3015,
+            "value_7d_ago_mean_vwc": 0.3859,
+            "change_over_7d_vwc": -0.1012,
+            "value_14d_ago_mean_vwc": 0.2424,
+            "change_over_14d_vwc": 0.0423,
+            "deep_7_to_28cm_latest_mean_vwc": 0.2878,
+            "points_at_or_above_field_capacity": 1,
+            "points_at_or_above_abort_floor": 4,
+            "points_below_abort_floor": 0,
+            "pct_at_or_above_field_capacity": 25,
+            "pct_at_or_above_abort_floor": 100,
+            "state": "between_abort_floor_and_field_capacity",
+            "field_capacity_crossing": {
+              "state": "below",
+              "on_date": null,
+              "days_ago": null
+            },
+            "abort_floor_crossing": {
+              "state": "crossed",
+              "on_date": "2026-09-01",
+              "days_ago": 31
+            },
+            "consecutive_days_at_or_above_abort_floor": 32
+          },
+          "air_temp_f": {
+            "trailing_3d_mean_f": 56.9,
+            "min_daily_min_last_7d_f": 36.4,
+            "max_daily_max_last_7d_f": 75.5,
+            "extremes_basis": "daily minimum and maximum",
+            "change_vs_7d_ago_f": 5.8,
+            "cooling_trend_f_positive_is_cooling": -7
+          },
+          "soil_temp_f": {
+            "trailing_3d_mean_f": 55,
+            "min_daily_min_last_7d_f": 44.8,
+            "max_daily_max_last_7d_f": 60.3,
+            "extremes_basis": "daily MEAN (the series carries no sub-daily soil extremes), so the real swing is wider",
+            "change_vs_7d_ago_f": 3.6,
+            "cooling_trend_f_positive_is_cooling": -5
+          },
+          "previous_run_values": {
+            "precip_7d_in": 1.694,
+            "precip_7d_mm": 43,
+            "soil_moisture_latest_mean_vwc": 0.3013,
+            "soil_moisture_trailing_3d_mean_vwc": 0.3089,
+            "air_temp_trailing_3d_mean_f": 54.7,
+            "soil_temp_trailing_3d_mean_f": 53.4
+          },
+          "change_since_previous_run": {
+            "precip_7d_in": -1.388,
+            "precip_7d_mm": -35.2,
+            "soil_moisture_latest_mean_vwc": -0.0166,
+            "soil_moisture_trailing_3d_mean_vwc": -0.0074,
+            "air_temp_trailing_3d_mean_f": 2.2,
+            "soil_temp_trailing_3d_mean_f": 1.6
+          }
+        },
+        {
+          "id": "siskiyous",
+          "name": "Siskiyous & southwest interior",
+          "definition": "lat < 43.4 and west of the tapering Klamath-Siskiyou eastern edge (-122.35 at the California line, -123.2 by lat 43.4): the Siskiyou and Klamath mountains with the Rogue and Umpqua valleys they enclose",
+          "grid_points": 14,
+          "thin": false,
+          "extent": {
+            "elev_min_ft": 548,
+            "elev_mean_ft": 2610,
+            "elev_max_ft": 6039,
+            "lat_range": [
+              42,
+              43.2
+            ],
+            "lon_range": [
+              -124.1,
+              -122.5
+            ]
+          },
+          "points": [
+            [
+              43.2,
+              -123.7,
+              2789
+            ],
+            [
+              43.2,
+              -123.3,
+              548
+            ],
+            [
+              42.8,
+              -124.1,
+              1438
+            ],
+            [
+              42.8,
+              -123.7,
+              2865
+            ],
+            [
+              42.8,
+              -123.3,
+              2051
+            ],
+            [
+              42.8,
+              -122.9,
+              3570
+            ],
+            [
+              42.4,
+              -124.1,
+              2082
+            ],
+            [
+              42.4,
+              -123.7,
+              2276
+            ],
+            [
+              42.4,
+              -123.3,
+              1262
+            ],
+            [
+              42.4,
+              -122.9,
+              1266
+            ],
+            [
+              42,
+              -123.7,
+              1914
+            ],
+            [
+              42,
+              -123.3,
+              5086
+            ],
+            [
+              42,
+              -122.9,
+              6039
+            ],
+            [
+              42,
+              -122.5,
+              3356
+            ]
+          ],
+          "days_available": 35,
+          "first_day": "2026-08-29",
+          "last_day": "2026-10-02",
+          "forecast_days": [],
+          "precip": {
+            "windows": [
+              {
+                "days": 1,
+                "days_used": 1,
+                "points_used": 14,
+                "mean_in": 0,
+                "mean_mm": 0,
+                "min_in": 0,
+                "min_mm": 0,
+                "max_in": 0,
+                "max_mm": 0,
+                "prior_window_mean_in": 0,
+                "prior_window_mean_mm": 0,
+                "change_vs_prior_window_in": 0,
+                "change_vs_prior_window_mm": 0,
+                "forecast_days_in_window": 0
+              },
+              {
+                "days": 3,
+                "days_used": 3,
+                "points_used": 14,
+                "mean_in": 0,
+                "mean_mm": 0,
+                "min_in": 0,
+                "min_mm": 0,
+                "max_in": 0,
+                "max_mm": 0,
+                "prior_window_mean_in": 0.009,
+                "prior_window_mean_mm": 0.2,
+                "change_vs_prior_window_in": -0.009,
+                "change_vs_prior_window_mm": -0.2,
+                "forecast_days_in_window": 0
+              },
+              {
+                "days": 7,
+                "days_used": 7,
+                "points_used": 14,
+                "mean_in": 0.01,
+                "mean_mm": 0.3,
+                "min_in": 0,
+                "min_mm": 0,
+                "max_in": 0.056,
+                "max_mm": 1.4,
+                "prior_window_mean_in": 0.368,
+                "prior_window_mean_mm": 9.3,
+                "change_vs_prior_window_in": -0.357,
+                "change_vs_prior_window_mm": -9.1,
+                "forecast_days_in_window": 0
+              },
+              {
+                "days": 14,
+                "days_used": 14,
+                "points_used": 14,
+                "mean_in": 0.378,
+                "mean_mm": 9.6,
+                "min_in": 0.087,
+                "min_mm": 2.2,
+                "max_in": 0.82,
+                "max_mm": 20.8,
+                "prior_window_mean_in": 0.544,
+                "prior_window_mean_mm": 13.8,
+                "change_vs_prior_window_in": -0.166,
+                "change_vs_prior_window_mm": -4.2,
+                "forecast_days_in_window": 0
+              },
+              {
+                "days": 30,
+                "days_used": 30,
+                "points_used": 14,
+                "mean_in": 1.715,
+                "mean_mm": 43.6,
+                "min_in": 0.991,
+                "min_mm": 25.2,
+                "max_in": 3.207,
+                "max_mm": 81.5,
+                "prior_window_mean_in": null,
+                "prior_window_mean_mm": null,
+                "change_vs_prior_window_in": null,
+                "change_vs_prior_window_mm": null,
+                "forecast_days_in_window": 0
+              }
+            ],
+            "wet_days_last_7_mean": 0.36,
+            "wet_day_threshold_in": 0.01,
+            "days_since_measurable_rain_median": 7,
+            "days_since_measurable_rain_max": 7,
+            "points_with_no_measurable_rain_in_series": 0
+          },
+          "soil_moisture": {
+            "points_with_reading": 14,
+            "points_total": 14,
+            "latest_mean_vwc": 0.2145,
+            "latest_min_vwc": 0.0714,
+            "latest_max_vwc": 0.272,
+            "trailing_3d_mean_vwc": 0.2183,
+            "value_7d_ago_mean_vwc": 0.2717,
+            "change_over_7d_vwc": -0.0572,
+            "value_14d_ago_mean_vwc": 0.2249,
+            "change_over_14d_vwc": -0.0104,
+            "deep_7_to_28cm_latest_mean_vwc": 0.2484,
+            "points_at_or_above_field_capacity": 0,
+            "points_at_or_above_abort_floor": 9,
+            "points_below_abort_floor": 5,
+            "pct_at_or_above_field_capacity": 0,
+            "pct_at_or_above_abort_floor": 64.3,
+            "state": "between_abort_floor_and_field_capacity",
+            "field_capacity_crossing": {
+              "state": "below",
+              "on_date": null,
+              "days_ago": null
+            },
+            "abort_floor_crossing": {
+              "state": "crossed",
+              "on_date": "2026-09-02",
+              "days_ago": 30
+            },
+            "consecutive_days_at_or_above_abort_floor": 31
+          },
+          "air_temp_f": {
+            "trailing_3d_mean_f": 59.6,
+            "min_daily_min_last_7d_f": 33.3,
+            "max_daily_max_last_7d_f": 85.1,
+            "extremes_basis": "daily minimum and maximum",
+            "change_vs_7d_ago_f": 3.4,
+            "cooling_trend_f_positive_is_cooling": -7
+          },
+          "soil_temp_f": {
+            "trailing_3d_mean_f": 58.1,
+            "min_daily_min_last_7d_f": 46,
+            "max_daily_max_last_7d_f": 67,
+            "extremes_basis": "daily MEAN (the series carries no sub-daily soil extremes), so the real swing is wider",
+            "change_vs_7d_ago_f": 1,
+            "cooling_trend_f_positive_is_cooling": -5.3
+          },
+          "previous_run_values": {
+            "precip_7d_in": 0.377,
+            "precip_7d_mm": 9.6,
+            "soil_moisture_latest_mean_vwc": 0.2162,
+            "soil_moisture_trailing_3d_mean_vwc": 0.2263,
+            "air_temp_trailing_3d_mean_f": 57.4,
+            "soil_temp_trailing_3d_mean_f": 56.4
+          },
+          "change_since_previous_run": {
+            "precip_7d_in": -0.367,
+            "precip_7d_mm": -9.3,
+            "soil_moisture_latest_mean_vwc": -0.0017,
+            "soil_moisture_trailing_3d_mean_vwc": -0.008,
+            "air_temp_trailing_3d_mean_f": 2.2,
+            "soil_temp_trailing_3d_mean_f": 1.7
+          }
+        },
+        {
+          "id": "willamette_valley",
+          "name": "Willamette Valley",
+          "definition": "lat >= 43.4, -123.6 <= lon <= -122.0 and elevation < 1000 ft: the valley floor, farmland and metro included, and at this grid spacing the continuous lower-Columbia lowland north of Portland with it",
+          "grid_points": 11,
+          "thin": false,
+          "extent": {
+            "elev_min_ft": 179,
+            "elev_mean_ft": 470,
+            "elev_max_ft": 899,
+            "lat_range": [
+              43.6,
+              45.6
+            ],
+            "lon_range": [
+              -123.3,
+              -122.5
+            ]
+          },
+          "points": [
+            [
+              45.6,
+              -122.9,
+              320
+            ],
+            [
+              45.2,
+              -123.3,
+              825
+            ],
+            [
+              45.2,
+              -122.9,
+              179
+            ],
+            [
+              45.2,
+              -122.5,
+              625
+            ],
+            [
+              44.8,
+              -123.3,
+              214
+            ],
+            [
+              44.8,
+              -122.9,
+              355
+            ],
+            [
+              44.4,
+              -123.3,
+              260
+            ],
+            [
+              44.4,
+              -122.9,
+              899
+            ],
+            [
+              44,
+              -123.3,
+              457
+            ],
+            [
+              44,
+              -122.9,
+              568
+            ],
+            [
+              43.6,
+              -123.3,
+              472
+            ]
+          ],
+          "days_available": 35,
+          "first_day": "2026-08-29",
+          "last_day": "2026-10-02",
+          "forecast_days": [],
+          "precip": {
+            "windows": [
+              {
+                "days": 1,
+                "days_used": 1,
+                "points_used": 11,
+                "mean_in": 0,
+                "mean_mm": 0,
+                "min_in": 0,
+                "min_mm": 0,
+                "max_in": 0,
+                "max_mm": 0,
+                "prior_window_mean_in": 0,
+                "prior_window_mean_mm": 0,
+                "change_vs_prior_window_in": 0,
+                "change_vs_prior_window_mm": 0,
+                "forecast_days_in_window": 0
+              },
+              {
+                "days": 3,
+                "days_used": 3,
+                "points_used": 11,
+                "mean_in": 0.003,
+                "mean_mm": 0.1,
+                "min_in": 0,
+                "min_mm": 0,
+                "max_in": 0.008,
+                "max_mm": 0.2,
+                "prior_window_mean_in": 0,
+                "prior_window_mean_mm": 0,
+                "change_vs_prior_window_in": 0.003,
+                "change_vs_prior_window_mm": 0.1,
+                "forecast_days_in_window": 0
+              },
+              {
+                "days": 7,
+                "days_used": 7,
+                "points_used": 11,
+                "mean_in": 0.01,
+                "mean_mm": 0.2,
+                "min_in": 0,
+                "min_mm": 0,
+                "max_in": 0.024,
+                "max_mm": 0.6,
+                "prior_window_mean_in": 0.655,
+                "prior_window_mean_mm": 16.6,
+                "change_vs_prior_window_in": -0.645,
+                "change_vs_prior_window_mm": -16.4,
+                "forecast_days_in_window": 0
+              },
+              {
+                "days": 14,
+                "days_used": 14,
+                "points_used": 11,
+                "mean_in": 0.665,
+                "mean_mm": 16.9,
+                "min_in": 0.427,
+                "min_mm": 10.8,
+                "max_in": 0.844,
+                "max_mm": 21.4,
+                "prior_window_mean_in": 0.923,
+                "prior_window_mean_mm": 23.4,
+                "change_vs_prior_window_in": -0.258,
+                "change_vs_prior_window_mm": -6.5,
+                "forecast_days_in_window": 0
+              },
+              {
+                "days": 30,
+                "days_used": 30,
+                "points_used": 11,
+                "mean_in": 2.642,
+                "mean_mm": 67.1,
+                "min_in": 2.026,
+                "min_mm": 51.5,
+                "max_in": 3.84,
+                "max_mm": 97.5,
+                "prior_window_mean_in": null,
+                "prior_window_mean_mm": null,
+                "change_vs_prior_window_in": null,
+                "change_vs_prior_window_mm": null,
+                "forecast_days_in_window": 0
+              }
+            ],
+            "wet_days_last_7_mean": 0.18,
+            "wet_day_threshold_in": 0.01,
+            "days_since_measurable_rain_median": 7,
+            "days_since_measurable_rain_max": 7,
+            "points_with_no_measurable_rain_in_series": 0
+          },
+          "soil_moisture": {
+            "points_with_reading": 11,
+            "points_total": 11,
+            "latest_mean_vwc": 0.159,
+            "latest_min_vwc": 0.1245,
+            "latest_max_vwc": 0.2512,
+            "trailing_3d_mean_vwc": 0.1642,
+            "value_7d_ago_mean_vwc": 0.2718,
+            "change_over_7d_vwc": -0.1128,
+            "value_14d_ago_mean_vwc": 0.1475,
+            "change_over_14d_vwc": 0.0115,
+            "deep_7_to_28cm_latest_mean_vwc": 0.1762,
+            "points_at_or_above_field_capacity": 0,
+            "points_at_or_above_abort_floor": 1,
+            "points_below_abort_floor": 10,
+            "pct_at_or_above_field_capacity": 0,
+            "pct_at_or_above_abort_floor": 9.1,
+            "state": "below_abort_floor",
+            "field_capacity_crossing": {
+              "state": "below",
+              "on_date": null,
+              "days_ago": null
+            },
+            "abort_floor_crossing": {
+              "state": "below",
+              "on_date": null,
+              "days_ago": null
+            },
+            "consecutive_days_at_or_above_abort_floor": 0
+          },
+          "air_temp_f": {
+            "trailing_3d_mean_f": 62,
+            "min_daily_min_last_7d_f": 40.8,
+            "max_daily_max_last_7d_f": 81.1,
+            "extremes_basis": "daily minimum and maximum",
+            "change_vs_7d_ago_f": 3.7,
+            "cooling_trend_f_positive_is_cooling": -5.5
+          },
+          "soil_temp_f": {
+            "trailing_3d_mean_f": 62.2,
+            "min_daily_min_last_7d_f": 52.7,
+            "max_daily_max_last_7d_f": 65.4,
+            "extremes_basis": "daily MEAN (the series carries no sub-daily soil extremes), so the real swing is wider",
+            "change_vs_7d_ago_f": 2,
+            "cooling_trend_f_positive_is_cooling": -4.9
+          },
+          "previous_run_values": {
+            "precip_7d_in": 0.66,
+            "precip_7d_mm": 16.8,
+            "soil_moisture_latest_mean_vwc": 0.166,
+            "soil_moisture_trailing_3d_mean_vwc": 0.1719,
+            "air_temp_trailing_3d_mean_f": 60.2,
+            "soil_temp_trailing_3d_mean_f": 60.7
+          },
+          "change_since_previous_run": {
+            "precip_7d_in": -0.65,
+            "precip_7d_mm": -16.6,
+            "soil_moisture_latest_mean_vwc": -0.007,
+            "soil_moisture_trailing_3d_mean_vwc": -0.0077,
+            "air_temp_trailing_3d_mean_f": 1.8,
+            "soil_temp_trailing_3d_mean_f": 1.5
+          }
+        },
+        {
+          "id": "cascade_crest",
+          "name": "Cascade crest",
+          "definition": "within 0.35 deg longitude of the crest line (interpolated between Hood, Jefferson, the Sisters, Diamond Peak, Crater Lake and McLoughlin) and elevation >= 4000 ft",
+          "grid_points": 9,
+          "thin": false,
+          "extent": {
+            "elev_min_ft": 4038,
+            "elev_mean_ft": 5015,
+            "elev_max_ft": 6197,
+            "lat_range": [
+              42,
+              44.8
+            ],
+            "lon_range": [
+              -122.1,
+              -121.7
+            ]
+          },
+          "points": [
+            [
+              44.8,
+              -121.7,
+              4484
+            ],
+            [
+              44.4,
+              -122.1,
+              4038
+            ],
+            [
+              44,
+              -122.1,
+              4729
+            ],
+            [
+              44,
+              -121.7,
+              6197
+            ],
+            [
+              43.6,
+              -122.1,
+              4971
+            ],
+            [
+              43.2,
+              -122.1,
+              5903
+            ],
+            [
+              42.8,
+              -122.1,
+              5068
+            ],
+            [
+              42.4,
+              -122.1,
+              5535
+            ],
+            [
+              42,
+              -122.1,
+              4214
+            ]
+          ],
+          "days_available": 35,
+          "first_day": "2026-08-29",
+          "last_day": "2026-10-02",
+          "forecast_days": [],
+          "precip": {
+            "windows": [
+              {
+                "days": 1,
+                "days_used": 1,
+                "points_used": 9,
+                "mean_in": 0,
+                "mean_mm": 0,
+                "min_in": 0,
+                "min_mm": 0,
+                "max_in": 0,
+                "max_mm": 0,
+                "prior_window_mean_in": 0,
+                "prior_window_mean_mm": 0,
+                "change_vs_prior_window_in": 0,
+                "change_vs_prior_window_mm": 0,
+                "forecast_days_in_window": 0
+              },
+              {
+                "days": 3,
+                "days_used": 3,
+                "points_used": 9,
+                "mean_in": 0,
+                "mean_mm": 0,
+                "min_in": 0,
+                "min_mm": 0,
+                "max_in": 0,
+                "max_mm": 0,
+                "prior_window_mean_in": 0.019,
+                "prior_window_mean_mm": 0.5,
+                "change_vs_prior_window_in": -0.019,
+                "change_vs_prior_window_mm": -0.5,
+                "forecast_days_in_window": 0
+              },
+              {
+                "days": 7,
+                "days_used": 7,
+                "points_used": 9,
+                "mean_in": 0.035,
+                "mean_mm": 0.9,
+                "min_in": 0,
+                "min_mm": 0,
+                "max_in": 0.071,
+                "max_mm": 1.8,
+                "prior_window_mean_in": 0.379,
+                "prior_window_mean_mm": 9.6,
+                "change_vs_prior_window_in": -0.344,
+                "change_vs_prior_window_mm": -8.7,
+                "forecast_days_in_window": 0
+              },
+              {
+                "days": 14,
+                "days_used": 14,
+                "points_used": 9,
+                "mean_in": 0.415,
+                "mean_mm": 10.5,
+                "min_in": 0.044,
+                "min_mm": 1.1,
+                "max_in": 0.816,
+                "max_mm": 20.7,
+                "prior_window_mean_in": 1.168,
+                "prior_window_mean_mm": 29.7,
+                "change_vs_prior_window_in": -0.753,
+                "change_vs_prior_window_mm": -19.1,
+                "forecast_days_in_window": 0
+              },
+              {
+                "days": 30,
+                "days_used": 30,
+                "points_used": 9,
+                "mean_in": 2.414,
+                "mean_mm": 61.3,
+                "min_in": 1.745,
+                "min_mm": 44.3,
+                "max_in": 2.975,
+                "max_mm": 75.6,
+                "prior_window_mean_in": null,
+                "prior_window_mean_mm": null,
+                "change_vs_prior_window_in": null,
+                "change_vs_prior_window_mm": null,
+                "forecast_days_in_window": 0
+              }
+            ],
+            "wet_days_last_7_mean": 1,
+            "wet_day_threshold_in": 0.01,
+            "days_since_measurable_rain_median": 6,
+            "days_since_measurable_rain_max": 7,
+            "points_with_no_measurable_rain_in_series": 0
+          },
+          "soil_moisture": {
+            "points_with_reading": 9,
+            "points_total": 9,
+            "latest_mean_vwc": 0.2188,
+            "latest_min_vwc": 0.1334,
+            "latest_max_vwc": 0.3912,
+            "trailing_3d_mean_vwc": 0.2136,
+            "value_7d_ago_mean_vwc": 0.2479,
+            "change_over_7d_vwc": -0.0291,
+            "value_14d_ago_mean_vwc": 0.2564,
+            "change_over_14d_vwc": -0.0376,
+            "deep_7_to_28cm_latest_mean_vwc": 0.2183,
+            "points_at_or_above_field_capacity": 1,
+            "points_at_or_above_abort_floor": 5,
+            "points_below_abort_floor": 4,
+            "pct_at_or_above_field_capacity": 11.1,
+            "pct_at_or_above_abort_floor": 55.6,
+            "state": "between_abort_floor_and_field_capacity",
+            "field_capacity_crossing": {
+              "state": "below",
+              "on_date": null,
+              "days_ago": null
+            },
+            "abort_floor_crossing": {
+              "state": "crossed",
+              "on_date": "2026-09-03",
+              "days_ago": 29
+            },
+            "consecutive_days_at_or_above_abort_floor": 30
+          },
+          "air_temp_f": {
+            "trailing_3d_mean_f": 54.3,
+            "min_daily_min_last_7d_f": 28.6,
+            "max_daily_max_last_7d_f": 79.7,
+            "extremes_basis": "daily minimum and maximum",
+            "change_vs_7d_ago_f": 4.4,
+            "cooling_trend_f_positive_is_cooling": -7.2
+          },
+          "soil_temp_f": {
+            "trailing_3d_mean_f": 48.9,
+            "min_daily_min_last_7d_f": 37,
+            "max_daily_max_last_7d_f": 56.7,
+            "extremes_basis": "daily MEAN (the series carries no sub-daily soil extremes), so the real swing is wider",
+            "change_vs_7d_ago_f": 1.1,
+            "cooling_trend_f_positive_is_cooling": -4.7
+          },
+          "previous_run_values": {
+            "precip_7d_in": 0.414,
+            "precip_7d_mm": 10.5,
+            "soil_moisture_latest_mean_vwc": 0.2091,
+            "soil_moisture_trailing_3d_mean_vwc": 0.2159,
+            "air_temp_trailing_3d_mean_f": 52,
+            "soil_temp_trailing_3d_mean_f": 47.5
+          },
+          "change_since_previous_run": {
+            "precip_7d_in": -0.379,
+            "precip_7d_mm": -9.6,
+            "soil_moisture_latest_mean_vwc": 0.0097,
+            "soil_moisture_trailing_3d_mean_vwc": -0.0023,
+            "air_temp_trailing_3d_mean_f": 2.3,
+            "soil_temp_trailing_3d_mean_f": 1.4
+          }
+        },
+        {
+          "id": "west_cascades",
+          "name": "West Cascades",
+          "definition": "anything west of the crest line not already claimed above: the wet western slope and its foothills. Deliberately unbounded below in elevation, so that the west side is covered exhaustively and no western point can fall through to a rule meant for the east",
+          "grid_points": 11,
+          "thin": false,
+          "extent": {
+            "elev_min_ft": 1172,
+            "elev_mean_ft": 2554,
+            "elev_max_ft": 4283,
+            "lat_range": [
+              42.4,
+              45.2
+            ],
+            "lon_range": [
+              -122.9,
+              -122.1
+            ]
+          },
+          "points": [
+            [
+              45.2,
+              -122.1,
+              2906
+            ],
+            [
+              44.8,
+              -122.5,
+              1218
+            ],
+            [
+              44.8,
+              -122.1,
+              3075
+            ],
+            [
+              44.4,
+              -122.5,
+              1172
+            ],
+            [
+              44,
+              -122.5,
+              1531
+            ],
+            [
+              43.6,
+              -122.9,
+              2271
+            ],
+            [
+              43.6,
+              -122.5,
+              2563
+            ],
+            [
+              43.2,
+              -122.9,
+              2871
+            ],
+            [
+              43.2,
+              -122.5,
+              4283
+            ],
+            [
+              42.8,
+              -122.5,
+              3026
+            ],
+            [
+              42.4,
+              -122.5,
+              3173
+            ]
+          ],
+          "days_available": 35,
+          "first_day": "2026-08-29",
+          "last_day": "2026-10-02",
+          "forecast_days": [],
+          "precip": {
+            "windows": [
+              {
+                "days": 1,
+                "days_used": 1,
+                "points_used": 11,
+                "mean_in": 0,
+                "mean_mm": 0,
+                "min_in": 0,
+                "min_mm": 0,
+                "max_in": 0,
+                "max_mm": 0,
+                "prior_window_mean_in": 0,
+                "prior_window_mean_mm": 0,
+                "change_vs_prior_window_in": 0,
+                "change_vs_prior_window_mm": 0,
+                "forecast_days_in_window": 0
+              },
+              {
+                "days": 3,
+                "days_used": 3,
+                "points_used": 11,
+                "mean_in": 0.004,
+                "mean_mm": 0.1,
+                "min_in": 0,
+                "min_mm": 0,
+                "max_in": 0.036,
+                "max_mm": 0.9,
+                "prior_window_mean_in": 0.007,
+                "prior_window_mean_mm": 0.2,
+                "change_vs_prior_window_in": -0.003,
+                "change_vs_prior_window_mm": -0.1,
+                "forecast_days_in_window": 0
+              },
+              {
+                "days": 7,
+                "days_used": 7,
+                "points_used": 11,
+                "mean_in": 0.06,
+                "mean_mm": 1.5,
+                "min_in": 0,
+                "min_mm": 0,
+                "max_in": 0.186,
+                "max_mm": 4.7,
+                "prior_window_mean_in": 0.631,
+                "prior_window_mean_mm": 16,
+                "change_vs_prior_window_in": -0.571,
+                "change_vs_prior_window_mm": -14.5,
+                "forecast_days_in_window": 0
+              },
+              {
+                "days": 14,
+                "days_used": 14,
+                "points_used": 11,
+                "mean_in": 0.691,
+                "mean_mm": 17.6,
+                "min_in": 0.383,
+                "min_mm": 9.7,
+                "max_in": 1.173,
+                "max_mm": 29.8,
+                "prior_window_mean_in": 1.176,
+                "prior_window_mean_mm": 29.9,
+                "change_vs_prior_window_in": -0.485,
+                "change_vs_prior_window_mm": -12.3,
+                "forecast_days_in_window": 0
+              },
+              {
+                "days": 30,
+                "days_used": 30,
+                "points_used": 11,
+                "mean_in": 2.829,
+                "mean_mm": 71.8,
+                "min_in": 1.985,
+                "min_mm": 50.4,
+                "max_in": 3.661,
+                "max_mm": 93,
+                "prior_window_mean_in": null,
+                "prior_window_mean_mm": null,
+                "change_vs_prior_window_in": null,
+                "change_vs_prior_window_mm": null,
+                "forecast_days_in_window": 0
+              }
+            ],
+            "wet_days_last_7_mean": 0.73,
+            "wet_day_threshold_in": 0.01,
+            "days_since_measurable_rain_median": 6,
+            "days_since_measurable_rain_max": 7,
+            "points_with_no_measurable_rain_in_series": 0
+          },
+          "soil_moisture": {
+            "points_with_reading": 11,
+            "points_total": 11,
+            "latest_mean_vwc": 0.2216,
+            "latest_min_vwc": 0.1598,
+            "latest_max_vwc": 0.2899,
+            "trailing_3d_mean_vwc": 0.228,
+            "value_7d_ago_mean_vwc": 0.2982,
+            "change_over_7d_vwc": -0.0766,
+            "value_14d_ago_mean_vwc": 0.2576,
+            "change_over_14d_vwc": -0.036,
+            "deep_7_to_28cm_latest_mean_vwc": 0.2278,
+            "points_at_or_above_field_capacity": 0,
+            "points_at_or_above_abort_floor": 7,
+            "points_below_abort_floor": 4,
+            "pct_at_or_above_field_capacity": 0,
+            "pct_at_or_above_abort_floor": 63.6,
+            "state": "between_abort_floor_and_field_capacity",
+            "field_capacity_crossing": {
+              "state": "below",
+              "on_date": null,
+              "days_ago": null
+            },
+            "abort_floor_crossing": {
+              "state": "crossed",
+              "on_date": "2026-09-02",
+              "days_ago": 30
+            },
+            "consecutive_days_at_or_above_abort_floor": 31
+          },
+          "air_temp_f": {
+            "trailing_3d_mean_f": 58.8,
+            "min_daily_min_last_7d_f": 31.5,
+            "max_daily_max_last_7d_f": 82.7,
+            "extremes_basis": "daily minimum and maximum",
+            "change_vs_7d_ago_f": 4,
+            "cooling_trend_f_positive_is_cooling": -6.8
+          },
+          "soil_temp_f": {
+            "trailing_3d_mean_f": 55.9,
+            "min_daily_min_last_7d_f": 44.5,
+            "max_daily_max_last_7d_f": 61.6,
+            "extremes_basis": "daily MEAN (the series carries no sub-daily soil extremes), so the real swing is wider",
+            "change_vs_7d_ago_f": 1.5,
+            "cooling_trend_f_positive_is_cooling": -5.4
+          },
+          "previous_run_values": {
+            "precip_7d_in": 0.686,
+            "precip_7d_mm": 17.4,
+            "soil_moisture_latest_mean_vwc": 0.226,
+            "soil_moisture_trailing_3d_mean_vwc": 0.2393,
+            "air_temp_trailing_3d_mean_f": 56.5,
+            "soil_temp_trailing_3d_mean_f": 54
+          },
+          "change_since_previous_run": {
+            "precip_7d_in": -0.626,
+            "precip_7d_mm": -15.9,
+            "soil_moisture_latest_mean_vwc": -0.0044,
+            "soil_moisture_trailing_3d_mean_vwc": -0.0113,
+            "air_temp_trailing_3d_mean_f": 2.3,
+            "soil_temp_trailing_3d_mean_f": 1.9
+          }
+        },
+        {
+          "id": "columbia_basin",
+          "name": "Columbia Basin",
+          "definition": "lat >= 45.0, lon >= -121.4 and elevation < 3500 ft: the dry northern lowlands, from the Deschutes mouth east along the Columbia and Umatilla and on into the lower Grande Ronde and Snake canyons",
+          "grid_points": 12,
+          "thin": false,
+          "extent": {
+            "elev_min_ft": 469,
+            "elev_mean_ft": 1566,
+            "elev_max_ft": 3263,
+            "lat_range": [
+              45.2,
+              45.6
+            ],
+            "lon_range": [
+              -121.3,
+              -118.9
+            ]
+          },
+          "points": [
+            [
+              45.6,
+              -121.3,
+              1209
+            ],
+            [
+              45.6,
+              -120.9,
+              469
+            ],
+            [
+              45.6,
+              -120.5,
+              1282
+            ],
+            [
+              45.6,
+              -120.1,
+              774
+            ],
+            [
+              45.6,
+              -119.7,
+              1046
+            ],
+            [
+              45.6,
+              -119.3,
+              1420
+            ],
+            [
+              45.6,
+              -118.9,
+              1518
+            ],
+            [
+              45.2,
+              -121.3,
+              1814
+            ],
+            [
+              45.2,
+              -120.9,
+              1844
+            ],
+            [
+              45.2,
+              -120.5,
+              1467
+            ],
+            [
+              45.2,
+              -120.1,
+              2687
+            ],
+            [
+              45.2,
+              -119.7,
+              3263
+            ]
+          ],
+          "days_available": 35,
+          "first_day": "2026-08-29",
+          "last_day": "2026-10-02",
+          "forecast_days": [],
+          "precip": {
+            "windows": [
+              {
+                "days": 1,
+                "days_used": 1,
+                "points_used": 12,
+                "mean_in": 0,
+                "mean_mm": 0,
+                "min_in": 0,
+                "min_mm": 0,
+                "max_in": 0,
+                "max_mm": 0,
+                "prior_window_mean_in": 0,
+                "prior_window_mean_mm": 0,
+                "change_vs_prior_window_in": 0,
+                "change_vs_prior_window_mm": 0,
+                "forecast_days_in_window": 0
+              },
+              {
+                "days": 3,
+                "days_used": 3,
+                "points_used": 12,
+                "mean_in": 0.001,
+                "mean_mm": 0,
+                "min_in": 0,
+                "min_mm": 0,
+                "max_in": 0.008,
+                "max_mm": 0.2,
+                "prior_window_mean_in": 0,
+                "prior_window_mean_mm": 0,
+                "change_vs_prior_window_in": 0.001,
+                "change_vs_prior_window_mm": 0,
+                "forecast_days_in_window": 0
+              },
+              {
+                "days": 7,
+                "days_used": 7,
+                "points_used": 12,
+                "mean_in": 0.004,
+                "mean_mm": 0.1,
+                "min_in": 0,
+                "min_mm": 0,
+                "max_in": 0.02,
+                "max_mm": 0.5,
+                "prior_window_mean_in": 0.123,
+                "prior_window_mean_mm": 3.1,
+                "change_vs_prior_window_in": -0.12,
+                "change_vs_prior_window_mm": -3,
+                "forecast_days_in_window": 0
+              },
+              {
+                "days": 14,
+                "days_used": 14,
+                "points_used": 12,
+                "mean_in": 0.127,
+                "mean_mm": 3.2,
+                "min_in": 0.024,
+                "min_mm": 0.6,
+                "max_in": 0.369,
+                "max_mm": 9.4,
+                "prior_window_mean_in": 0.743,
+                "prior_window_mean_mm": 18.9,
+                "change_vs_prior_window_in": -0.616,
+                "change_vs_prior_window_mm": -15.6,
+                "forecast_days_in_window": 0
+              },
+              {
+                "days": 30,
+                "days_used": 30,
+                "points_used": 12,
+                "mean_in": 1.07,
+                "mean_mm": 27.2,
+                "min_in": 0.62,
+                "min_mm": 15.7,
+                "max_in": 1.617,
+                "max_mm": 41.1,
+                "prior_window_mean_in": null,
+                "prior_window_mean_mm": null,
+                "change_vs_prior_window_in": null,
+                "change_vs_prior_window_mm": null,
+                "forecast_days_in_window": 0
+              }
+            ],
+            "wet_days_last_7_mean": 0.17,
+            "wet_day_threshold_in": 0.01,
+            "days_since_measurable_rain_median": 7,
+            "days_since_measurable_rain_max": 7,
+            "points_with_no_measurable_rain_in_series": 0
+          },
+          "soil_moisture": {
+            "points_with_reading": 12,
+            "points_total": 12,
+            "latest_mean_vwc": 0.0703,
+            "latest_min_vwc": 0.0278,
+            "latest_max_vwc": 0.1134,
+            "trailing_3d_mean_vwc": 0.0697,
+            "value_7d_ago_mean_vwc": 0.097,
+            "change_over_7d_vwc": -0.0267,
+            "value_14d_ago_mean_vwc": 0.1027,
+            "change_over_14d_vwc": -0.0324,
+            "deep_7_to_28cm_latest_mean_vwc": 0.1372,
+            "points_at_or_above_field_capacity": 0,
+            "points_at_or_above_abort_floor": 0,
+            "points_below_abort_floor": 12,
+            "pct_at_or_above_field_capacity": 0,
+            "pct_at_or_above_abort_floor": 0,
+            "state": "below_abort_floor",
+            "field_capacity_crossing": {
+              "state": "below",
+              "on_date": null,
+              "days_ago": null
+            },
+            "abort_floor_crossing": {
+              "state": "below",
+              "on_date": null,
+              "days_ago": null
+            },
+            "consecutive_days_at_or_above_abort_floor": 0
+          },
+          "air_temp_f": {
+            "trailing_3d_mean_f": 62.3,
+            "min_daily_min_last_7d_f": 34,
+            "max_daily_max_last_7d_f": 80.9,
+            "extremes_basis": "daily minimum and maximum",
+            "change_vs_7d_ago_f": 1.6,
+            "cooling_trend_f_positive_is_cooling": -4.7
+          },
+          "soil_temp_f": {
+            "trailing_3d_mean_f": 63.4,
+            "min_daily_min_last_7d_f": 49.2,
+            "max_daily_max_last_7d_f": 67.3,
+            "extremes_basis": "daily MEAN (the series carries no sub-daily soil extremes), so the real swing is wider",
+            "change_vs_7d_ago_f": 0.2,
+            "cooling_trend_f_positive_is_cooling": -5.5
+          },
+          "previous_run_values": {
+            "precip_7d_in": 0.126,
+            "precip_7d_mm": 3.2,
+            "soil_moisture_latest_mean_vwc": 0.0697,
+            "soil_moisture_trailing_3d_mean_vwc": 0.0724,
+            "air_temp_trailing_3d_mean_f": 61.5,
+            "soil_temp_trailing_3d_mean_f": 62.3
+          },
+          "change_since_previous_run": {
+            "precip_7d_in": -0.122,
+            "precip_7d_mm": -3.1,
+            "soil_moisture_latest_mean_vwc": 0.0006,
+            "soil_moisture_trailing_3d_mean_vwc": -0.0027,
+            "air_temp_trailing_3d_mean_f": 0.8,
+            "soil_temp_trailing_3d_mean_f": 1.1
+          }
+        },
+        {
+          "id": "east_cascades",
+          "name": "East Cascades",
+          "definition": "from the crest line to 1.4 deg of longitude east of it: the dry eastern slope and the Deschutes and Klamath plateaus below it. Bounded on BOTH sides -- an eastern-slope rule with no western bound silently collects every western point the rules above missed",
+          "grid_points": 25,
+          "thin": false,
+          "extent": {
+            "elev_min_ft": 1995,
+            "elev_mean_ft": 4212,
+            "elev_max_ft": 6445,
+            "lat_range": [
+              42,
+              45.6
+            ],
+            "lon_range": [
+              -121.7,
+              -120.5
+            ]
+          },
+          "points": [
+            [
+              45.6,
+              -121.7,
+              3180
+            ],
+            [
+              45.2,
+              -121.7,
+              3620
+            ],
+            [
+              44.8,
+              -121.3,
+              1995
+            ],
+            [
+              44.8,
+              -120.9,
+              2026
+            ],
+            [
+              44.8,
+              -120.5,
+              2153
+            ],
+            [
+              44.4,
+              -121.7,
+              3371
+            ],
+            [
+              44.4,
+              -121.3,
+              2369
+            ],
+            [
+              44.4,
+              -120.9,
+              3243
+            ],
+            [
+              44.4,
+              -120.5,
+              4314
+            ],
+            [
+              44,
+              -121.3,
+              3846
+            ],
+            [
+              44,
+              -120.9,
+              3656
+            ],
+            [
+              44,
+              -120.5,
+              4825
+            ],
+            [
+              43.6,
+              -121.7,
+              4369
+            ],
+            [
+              43.6,
+              -121.3,
+              5137
+            ],
+            [
+              43.6,
+              -120.9,
+              5413
+            ],
+            [
+              43.2,
+              -121.7,
+              5197
+            ],
+            [
+              43.2,
+              -121.3,
+              5760
+            ],
+            [
+              43.2,
+              -120.9,
+              4400
+            ],
+            [
+              42.8,
+              -121.7,
+              4613
+            ],
+            [
+              42.8,
+              -121.3,
+              5916
+            ],
+            [
+              42.8,
+              -120.9,
+              6445
+            ],
+            [
+              42.4,
+              -121.7,
+              6022
+            ],
+            [
+              42.4,
+              -121.3,
+              4406
+            ],
+            [
+              42,
+              -121.7,
+              4084
+            ],
+            [
+              42,
+              -121.3,
+              4954
+            ]
+          ],
+          "days_available": 35,
+          "first_day": "2026-08-29",
+          "last_day": "2026-10-02",
+          "forecast_days": [],
+          "precip": {
+            "windows": [
+              {
+                "days": 1,
+                "days_used": 1,
+                "points_used": 25,
+                "mean_in": 0,
+                "mean_mm": 0,
+                "min_in": 0,
+                "min_mm": 0,
+                "max_in": 0,
+                "max_mm": 0,
+                "prior_window_mean_in": 0,
+                "prior_window_mean_mm": 0,
+                "change_vs_prior_window_in": 0,
+                "change_vs_prior_window_mm": 0,
+                "forecast_days_in_window": 0
+              },
+              {
+                "days": 3,
+                "days_used": 3,
+                "points_used": 25,
+                "mean_in": 0.001,
+                "mean_mm": 0,
+                "min_in": 0,
+                "min_mm": 0,
+                "max_in": 0.016,
+                "max_mm": 0.4,
+                "prior_window_mean_in": 0,
+                "prior_window_mean_mm": 0,
+                "change_vs_prior_window_in": 0,
+                "change_vs_prior_window_mm": 0,
+                "forecast_days_in_window": 0
+              },
+              {
+                "days": 7,
+                "days_used": 7,
+                "points_used": 25,
+                "mean_in": 0.006,
+                "mean_mm": 0.2,
+                "min_in": 0,
+                "min_mm": 0,
+                "max_in": 0.068,
+                "max_mm": 1.7,
+                "prior_window_mean_in": 0.113,
+                "prior_window_mean_mm": 2.9,
+                "change_vs_prior_window_in": -0.107,
+                "change_vs_prior_window_mm": -2.7,
+                "forecast_days_in_window": 0
+              },
+              {
+                "days": 14,
+                "days_used": 14,
+                "points_used": 25,
+                "mean_in": 0.12,
+                "mean_mm": 3,
+                "min_in": 0,
+                "min_mm": 0,
+                "max_in": 0.396,
+                "max_mm": 10.1,
+                "prior_window_mean_in": 1.026,
+                "prior_window_mean_mm": 26.1,
+                "change_vs_prior_window_in": -0.906,
+                "change_vs_prior_window_mm": -23,
+                "forecast_days_in_window": 0
+              },
+              {
+                "days": 30,
+                "days_used": 30,
+                "points_used": 25,
+                "mean_in": 1.678,
+                "mean_mm": 42.6,
+                "min_in": 0.535,
+                "min_mm": 13.6,
+                "max_in": 3.272,
+                "max_mm": 83.1,
+                "prior_window_mean_in": null,
+                "prior_window_mean_mm": null,
+                "change_vs_prior_window_in": null,
+                "change_vs_prior_window_mm": null,
+                "forecast_days_in_window": 0
+              }
+            ],
+            "wet_days_last_7_mean": 0.2,
+            "wet_day_threshold_in": 0.01,
+            "days_since_measurable_rain_median": 7,
+            "days_since_measurable_rain_max": 15,
+            "points_with_no_measurable_rain_in_series": 0
+          },
+          "soil_moisture": {
+            "points_with_reading": 25,
+            "points_total": 25,
+            "latest_mean_vwc": 0.1186,
+            "latest_min_vwc": 0.0507,
+            "latest_max_vwc": 0.4221,
+            "trailing_3d_mean_vwc": 0.1141,
+            "value_7d_ago_mean_vwc": 0.135,
+            "change_over_7d_vwc": -0.0164,
+            "value_14d_ago_mean_vwc": 0.2037,
+            "change_over_14d_vwc": -0.0851,
+            "deep_7_to_28cm_latest_mean_vwc": 0.1634,
+            "points_at_or_above_field_capacity": 1,
+            "points_at_or_above_abort_floor": 2,
+            "points_below_abort_floor": 23,
+            "pct_at_or_above_field_capacity": 4,
+            "pct_at_or_above_abort_floor": 8,
+            "state": "below_abort_floor",
+            "field_capacity_crossing": {
+              "state": "below",
+              "on_date": null,
+              "days_ago": null
+            },
+            "abort_floor_crossing": {
+              "state": "below",
+              "on_date": null,
+              "days_ago": null
+            },
+            "consecutive_days_at_or_above_abort_floor": 0
+          },
+          "air_temp_f": {
+            "trailing_3d_mean_f": 56.9,
+            "min_daily_min_last_7d_f": 28,
+            "max_daily_max_last_7d_f": 81.8,
+            "extremes_basis": "daily minimum and maximum",
+            "change_vs_7d_ago_f": 2.2,
+            "cooling_trend_f_positive_is_cooling": -6.7
+          },
+          "soil_temp_f": {
+            "trailing_3d_mean_f": 55.3,
+            "min_daily_min_last_7d_f": 36.5,
+            "max_daily_max_last_7d_f": 68.3,
+            "extremes_basis": "daily MEAN (the series carries no sub-daily soil extremes), so the real swing is wider",
+            "change_vs_7d_ago_f": 0.4,
+            "cooling_trend_f_positive_is_cooling": -5.1
+          },
+          "previous_run_values": {
+            "precip_7d_in": 0.12,
+            "precip_7d_mm": 3,
+            "soil_moisture_latest_mean_vwc": 0.1116,
+            "soil_moisture_trailing_3d_mean_vwc": 0.115,
+            "air_temp_trailing_3d_mean_f": 55,
+            "soil_temp_trailing_3d_mean_f": 54
+          },
+          "change_since_previous_run": {
+            "precip_7d_in": -0.114,
+            "precip_7d_mm": -2.8,
+            "soil_moisture_latest_mean_vwc": 0.007,
+            "soil_moisture_trailing_3d_mean_vwc": -0.0009,
+            "air_temp_trailing_3d_mean_f": 1.9,
+            "soil_temp_trailing_3d_mean_f": 1.3
+          }
+        },
+        {
+          "id": "blue_mountains",
+          "name": "Blue Mountains",
+          "definition": "lat >= 44.2, lon >= -119.5 and elevation >= 3500 ft: the Blue, Wallowa, Elkhorn and Strawberry ranges",
+          "grid_points": 20,
+          "thin": false,
+          "extent": {
+            "elev_min_ft": 3548,
+            "elev_mean_ft": 4624,
+            "elev_max_ft": 7687,
+            "lat_range": [
+              44.4,
+              45.6
+            ],
+            "lon_range": [
+              -119.3,
+              -116.9
+            ]
+          },
+          "points": [
+            [
+              45.6,
+              -118.5,
+              3606
+            ],
+            [
+              45.6,
+              -118.1,
+              3797
+            ],
+            [
+              45.6,
+              -117.7,
+              3782
+            ],
+            [
+              45.6,
+              -117.3,
+              4651
+            ],
+            [
+              45.6,
+              -116.9,
+              4187
+            ],
+            [
+              45.2,
+              -119.3,
+              4846
+            ],
+            [
+              45.2,
+              -118.9,
+              3645
+            ],
+            [
+              45.2,
+              -118.5,
+              4354
+            ],
+            [
+              45.2,
+              -118.1,
+              4732
+            ],
+            [
+              45.2,
+              -117.7,
+              5150
+            ],
+            [
+              45.2,
+              -117.3,
+              7687
+            ],
+            [
+              45.2,
+              -116.9,
+              4614
+            ],
+            [
+              44.8,
+              -118.9,
+              3655
+            ],
+            [
+              44.8,
+              -118.5,
+              5197
+            ],
+            [
+              44.8,
+              -118.1,
+              7162
+            ],
+            [
+              44.4,
+              -119.3,
+              3548
+            ],
+            [
+              44.4,
+              -118.9,
+              3702
+            ],
+            [
+              44.4,
+              -118.5,
+              6161
+            ],
+            [
+              44.4,
+              -118.1,
+              4186
+            ],
+            [
+              44.4,
+              -117.7,
+              3823
+            ]
+          ],
+          "days_available": 35,
+          "first_day": "2026-08-29",
+          "last_day": "2026-10-02",
+          "forecast_days": [],
+          "precip": {
+            "windows": [
+              {
+                "days": 1,
+                "days_used": 1,
+                "points_used": 20,
+                "mean_in": 0,
+                "mean_mm": 0,
+                "min_in": 0,
+                "min_mm": 0,
+                "max_in": 0,
+                "max_mm": 0,
+                "prior_window_mean_in": 0,
+                "prior_window_mean_mm": 0,
+                "change_vs_prior_window_in": 0,
+                "change_vs_prior_window_mm": 0,
+                "forecast_days_in_window": 0
+              },
+              {
+                "days": 3,
+                "days_used": 3,
+                "points_used": 20,
+                "mean_in": 0.001,
+                "mean_mm": 0,
+                "min_in": 0,
+                "min_mm": 0,
+                "max_in": 0.008,
+                "max_mm": 0.2,
+                "prior_window_mean_in": 0.013,
+                "prior_window_mean_mm": 0.3,
+                "change_vs_prior_window_in": -0.012,
+                "change_vs_prior_window_mm": -0.3,
+                "forecast_days_in_window": 0
+              },
+              {
+                "days": 7,
+                "days_used": 7,
+                "points_used": 20,
+                "mean_in": 0.017,
+                "mean_mm": 0.4,
+                "min_in": 0,
+                "min_mm": 0,
+                "max_in": 0.15,
+                "max_mm": 3.8,
+                "prior_window_mean_in": 0.146,
+                "prior_window_mean_mm": 3.7,
+                "change_vs_prior_window_in": -0.129,
+                "change_vs_prior_window_mm": -3.3,
+                "forecast_days_in_window": 0
+              },
+              {
+                "days": 14,
+                "days_used": 14,
+                "points_used": 20,
+                "mean_in": 0.163,
+                "mean_mm": 4.1,
+                "min_in": 0.04,
+                "min_mm": 1,
+                "max_in": 0.364,
+                "max_mm": 9.2,
+                "prior_window_mean_in": 1.016,
+                "prior_window_mean_mm": 25.8,
+                "change_vs_prior_window_in": -0.853,
+                "change_vs_prior_window_mm": -21.7,
+                "forecast_days_in_window": 0
+              },
+              {
+                "days": 30,
+                "days_used": 30,
+                "points_used": 20,
+                "mean_in": 1.812,
+                "mean_mm": 46,
+                "min_in": 0.989,
+                "min_mm": 25.1,
+                "max_in": 2.414,
+                "max_mm": 61.3,
+                "prior_window_mean_in": null,
+                "prior_window_mean_mm": null,
+                "change_vs_prior_window_in": null,
+                "change_vs_prior_window_mm": null,
+                "forecast_days_in_window": 0
+              }
+            ],
+            "wet_days_last_7_mean": 0.4,
+            "wet_day_threshold_in": 0.01,
+            "days_since_measurable_rain_median": 7,
+            "days_since_measurable_rain_max": 13,
+            "points_with_no_measurable_rain_in_series": 0
+          },
+          "soil_moisture": {
+            "points_with_reading": 20,
+            "points_total": 20,
+            "latest_mean_vwc": 0.1893,
+            "latest_min_vwc": 0.0559,
+            "latest_max_vwc": 0.4318,
+            "trailing_3d_mean_vwc": 0.1881,
+            "value_7d_ago_mean_vwc": 0.2047,
+            "change_over_7d_vwc": -0.0154,
+            "value_14d_ago_mean_vwc": 0.2676,
+            "change_over_14d_vwc": -0.0783,
+            "deep_7_to_28cm_latest_mean_vwc": 0.2257,
+            "points_at_or_above_field_capacity": 2,
+            "points_at_or_above_abort_floor": 5,
+            "points_below_abort_floor": 15,
+            "pct_at_or_above_field_capacity": 10,
+            "pct_at_or_above_abort_floor": 25,
+            "state": "below_abort_floor",
+            "field_capacity_crossing": {
+              "state": "below",
+              "on_date": null,
+              "days_ago": null
+            },
+            "abort_floor_crossing": {
+              "state": "below",
+              "on_date": null,
+              "days_ago": null
+            },
+            "consecutive_days_at_or_above_abort_floor": 0
+          },
+          "air_temp_f": {
+            "trailing_3d_mean_f": 53.8,
+            "min_daily_min_last_7d_f": 25.3,
+            "max_daily_max_last_7d_f": 76.5,
+            "extremes_basis": "daily minimum and maximum",
+            "change_vs_7d_ago_f": -1.6,
+            "cooling_trend_f_positive_is_cooling": -5.8
+          },
+          "soil_temp_f": {
+            "trailing_3d_mean_f": 51.3,
+            "min_daily_min_last_7d_f": 35.6,
+            "max_daily_max_last_7d_f": 62.5,
+            "extremes_basis": "daily MEAN (the series carries no sub-daily soil extremes), so the real swing is wider",
+            "change_vs_7d_ago_f": -2.2,
+            "cooling_trend_f_positive_is_cooling": -5.1
+          },
+          "previous_run_values": {
+            "precip_7d_in": 0.13,
+            "precip_7d_mm": 3.3,
+            "soil_moisture_latest_mean_vwc": 0.1871,
+            "soil_moisture_trailing_3d_mean_vwc": 0.1924,
+            "air_temp_trailing_3d_mean_f": 51.7,
+            "soil_temp_trailing_3d_mean_f": 49.6
+          },
+          "change_since_previous_run": {
+            "precip_7d_in": -0.113,
+            "precip_7d_mm": -2.9,
+            "soil_moisture_latest_mean_vwc": 0.0022,
+            "soil_moisture_trailing_3d_mean_vwc": -0.0043,
+            "air_temp_trailing_3d_mean_f": 2.1,
+            "soil_temp_trailing_3d_mean_f": 1.7
+          }
+        },
+        {
+          "id": "high_desert",
+          "name": "High Desert",
+          "definition": "everything else in the state: the Basin and Range and Owyhee country of the south-east",
+          "grid_points": 64,
+          "thin": false,
+          "extent": {
+            "elev_min_ft": 1857,
+            "elev_mean_ft": 4677,
+            "elev_max_ft": 7311,
+            "lat_range": [
+              42,
+              44.8
+            ],
+            "lon_range": [
+              -120.9,
+              -116.9
+            ]
+          },
+          "points": [
+            [
+              44.8,
+              -120.1,
+              4032
+            ],
+            [
+              44.8,
+              -119.7,
+              1857
+            ],
+            [
+              44.8,
+              -119.3,
+              3478
+            ],
+            [
+              44.8,
+              -117.7,
+              3494
+            ],
+            [
+              44.8,
+              -117.3,
+              2915
+            ],
+            [
+              44.8,
+              -116.9,
+              3466
+            ],
+            [
+              44.4,
+              -120.1,
+              5212
+            ],
+            [
+              44.4,
+              -119.7,
+              5344
+            ],
+            [
+              44.4,
+              -117.3,
+              2977
+            ],
+            [
+              44,
+              -120.1,
+              4324
+            ],
+            [
+              44,
+              -119.7,
+              5187
+            ],
+            [
+              44,
+              -119.3,
+              4352
+            ],
+            [
+              44,
+              -118.9,
+              4642
+            ],
+            [
+              44,
+              -118.5,
+              5240
+            ],
+            [
+              44,
+              -118.1,
+              4460
+            ],
+            [
+              44,
+              -117.7,
+              3003
+            ],
+            [
+              44,
+              -117.3,
+              2554
+            ],
+            [
+              43.6,
+              -120.5,
+              5073
+            ],
+            [
+              43.6,
+              -120.1,
+              4630
+            ],
+            [
+              43.6,
+              -119.7,
+              4329
+            ],
+            [
+              43.6,
+              -119.3,
+              5159
+            ],
+            [
+              43.6,
+              -118.9,
+              4134
+            ],
+            [
+              43.6,
+              -118.5,
+              4663
+            ],
+            [
+              43.6,
+              -118.1,
+              4011
+            ],
+            [
+              43.6,
+              -117.7,
+              4432
+            ],
+            [
+              43.6,
+              -117.3,
+              2884
+            ],
+            [
+              43.2,
+              -120.5,
+              4321
+            ],
+            [
+              43.2,
+              -120.1,
+              4520
+            ],
+            [
+              43.2,
+              -119.7,
+              4578
+            ],
+            [
+              43.2,
+              -119.3,
+              4598
+            ],
+            [
+              43.2,
+              -118.9,
+              4114
+            ],
+            [
+              43.2,
+              -118.5,
+              4265
+            ],
+            [
+              43.2,
+              -118.1,
+              5033
+            ],
+            [
+              43.2,
+              -117.7,
+              4034
+            ],
+            [
+              43.2,
+              -117.3,
+              5208
+            ],
+            [
+              42.8,
+              -120.5,
+              4881
+            ],
+            [
+              42.8,
+              -120.1,
+              4697
+            ],
+            [
+              42.8,
+              -119.7,
+              5045
+            ],
+            [
+              42.8,
+              -119.3,
+              4791
+            ],
+            [
+              42.8,
+              -118.9,
+              5173
+            ],
+            [
+              42.8,
+              -118.5,
+              7311
+            ],
+            [
+              42.8,
+              -118.1,
+              5578
+            ],
+            [
+              42.8,
+              -117.7,
+              3763
+            ],
+            [
+              42.8,
+              -117.3,
+              4547
+            ],
+            [
+              42.4,
+              -120.9,
+              5003
+            ],
+            [
+              42.4,
+              -120.5,
+              6721
+            ],
+            [
+              42.4,
+              -120.1,
+              5780
+            ],
+            [
+              42.4,
+              -119.7,
+              5952
+            ],
+            [
+              42.4,
+              -119.3,
+              5869
+            ],
+            [
+              42.4,
+              -118.9,
+              4559
+            ],
+            [
+              42.4,
+              -118.5,
+              4026
+            ],
+            [
+              42.4,
+              -118.1,
+              4448
+            ],
+            [
+              42.4,
+              -117.7,
+              4846
+            ],
+            [
+              42.4,
+              -117.3,
+              5098
+            ],
+            [
+              42,
+              -120.9,
+              5390
+            ],
+            [
+              42,
+              -120.5,
+              4714
+            ],
+            [
+              42,
+              -120.1,
+              6261
+            ],
+            [
+              42,
+              -119.7,
+              6624
+            ],
+            [
+              42,
+              -119.3,
+              5948
+            ],
+            [
+              42,
+              -118.9,
+              5064
+            ],
+            [
+              42,
+              -118.5,
+              4718
+            ],
+            [
+              42,
+              -118.1,
+              5411
+            ],
+            [
+              42,
+              -117.7,
+              4514
+            ],
+            [
+              42,
+              -117.3,
+              6060
+            ]
+          ],
+          "days_available": 35,
+          "first_day": "2026-08-29",
+          "last_day": "2026-10-02",
+          "forecast_days": [],
+          "precip": {
+            "windows": [
+              {
+                "days": 1,
+                "days_used": 1,
+                "points_used": 64,
+                "mean_in": 0,
+                "mean_mm": 0,
+                "min_in": 0,
+                "min_mm": 0,
+                "max_in": 0,
+                "max_mm": 0,
+                "prior_window_mean_in": 0,
+                "prior_window_mean_mm": 0,
+                "change_vs_prior_window_in": 0,
+                "change_vs_prior_window_mm": 0,
+                "forecast_days_in_window": 0
+              },
+              {
+                "days": 3,
+                "days_used": 3,
+                "points_used": 64,
+                "mean_in": 0,
+                "mean_mm": 0,
+                "min_in": 0,
+                "min_mm": 0,
+                "max_in": 0,
+                "max_mm": 0,
+                "prior_window_mean_in": 0.023,
+                "prior_window_mean_mm": 0.6,
+                "change_vs_prior_window_in": -0.023,
+                "change_vs_prior_window_mm": -0.6,
+                "forecast_days_in_window": 0
+              },
+              {
+                "days": 7,
+                "days_used": 7,
+                "points_used": 64,
+                "mean_in": 0.023,
+                "mean_mm": 0.6,
+                "min_in": 0,
+                "min_mm": 0,
+                "max_in": 0.264,
+                "max_mm": 6.7,
+                "prior_window_mean_in": 0.04,
+                "prior_window_mean_mm": 1,
+                "change_vs_prior_window_in": -0.017,
+                "change_vs_prior_window_mm": -0.4,
+                "forecast_days_in_window": 0
+              },
+              {
+                "days": 14,
+                "days_used": 14,
+                "points_used": 64,
+                "mean_in": 0.064,
+                "mean_mm": 1.6,
+                "min_in": 0,
+                "min_mm": 0,
+                "max_in": 0.268,
+                "max_mm": 6.8,
+                "prior_window_mean_in": 0.476,
+                "prior_window_mean_mm": 12.1,
+                "change_vs_prior_window_in": -0.412,
+                "change_vs_prior_window_mm": -10.5,
+                "forecast_days_in_window": 0
+              },
+              {
+                "days": 30,
+                "days_used": 30,
+                "points_used": 64,
+                "mean_in": 1.302,
+                "mean_mm": 33.1,
+                "min_in": 0.598,
+                "min_mm": 15.2,
+                "max_in": 3.341,
+                "max_mm": 84.9,
+                "prior_window_mean_in": null,
+                "prior_window_mean_mm": null,
+                "change_vs_prior_window_in": null,
+                "change_vs_prior_window_mm": null,
+                "forecast_days_in_window": 0
+              }
+            ],
+            "wet_days_last_7_mean": 0.56,
+            "wet_day_threshold_in": 0.01,
+            "days_since_measurable_rain_median": 7,
+            "days_since_measurable_rain_max": 25,
+            "points_with_no_measurable_rain_in_series": 0
+          },
+          "soil_moisture": {
+            "points_with_reading": 64,
+            "points_total": 64,
+            "latest_mean_vwc": 0.0738,
+            "latest_min_vwc": 0.021,
+            "latest_max_vwc": 0.194,
+            "trailing_3d_mean_vwc": 0.0731,
+            "value_7d_ago_mean_vwc": 0.0834,
+            "change_over_7d_vwc": -0.0096,
+            "value_14d_ago_mean_vwc": 0.1264,
+            "change_over_14d_vwc": -0.0526,
+            "deep_7_to_28cm_latest_mean_vwc": 0.1475,
+            "points_at_or_above_field_capacity": 0,
+            "points_at_or_above_abort_floor": 0,
+            "points_below_abort_floor": 64,
+            "pct_at_or_above_field_capacity": 0,
+            "pct_at_or_above_abort_floor": 0,
+            "state": "below_abort_floor",
+            "field_capacity_crossing": {
+              "state": "below",
+              "on_date": null,
+              "days_ago": null
+            },
+            "abort_floor_crossing": {
+              "state": "below",
+              "on_date": null,
+              "days_ago": null
+            },
+            "consecutive_days_at_or_above_abort_floor": 0
+          },
+          "air_temp_f": {
+            "trailing_3d_mean_f": 60.3,
+            "min_daily_min_last_7d_f": 28.5,
+            "max_daily_max_last_7d_f": 84.7,
+            "extremes_basis": "daily minimum and maximum",
+            "change_vs_7d_ago_f": -1.3,
+            "cooling_trend_f_positive_is_cooling": -7.8
+          },
+          "soil_temp_f": {
+            "trailing_3d_mean_f": 60.6,
+            "min_daily_min_last_7d_f": 41.9,
+            "max_daily_max_last_7d_f": 70,
+            "extremes_basis": "daily MEAN (the series carries no sub-daily soil extremes), so the real swing is wider",
+            "change_vs_7d_ago_f": -2.2,
+            "cooling_trend_f_positive_is_cooling": -5.8
+          },
+          "previous_run_values": {
+            "precip_7d_in": 0.058,
+            "precip_7d_mm": 1.5,
+            "soil_moisture_latest_mean_vwc": 0.0724,
+            "soil_moisture_trailing_3d_mean_vwc": 0.0739,
+            "air_temp_trailing_3d_mean_f": 57.9,
+            "soil_temp_trailing_3d_mean_f": 58.9
+          },
+          "change_since_previous_run": {
+            "precip_7d_in": -0.035,
+            "precip_7d_mm": -0.9,
+            "soil_moisture_latest_mean_vwc": 0.0014,
+            "soil_moisture_trailing_3d_mean_vwc": -0.0008,
+            "air_temp_trailing_3d_mean_f": 2.4,
+            "soil_temp_trailing_3d_mean_f": 1.7
+          }
+        }
+      ]
+    },
+    "terrain": {
+      "land_cover_present": true,
+      "land_cover_coverage_pct": 95.67476657194224,
+      "forest_cells_pct": 43.04003103556967,
+      "forest_threshold": 0.3,
+      "elevation_points": 34400000,
+      "elevation_source": "usgs_3dep_1_3_arcsec_local_cell_means",
+      "elevation_step_deg": 0.001,
+      "elevation_measured_pct": 96.91656976744186,
+      "terrain_cache_version": 6,
+      "ground_mask_pixels_off_land": 78266,
+      "ground_mask_ground_pct": 94.96861026371008
+    },
+    "model_variant": {
+      "lapse_reference": "cell",
+      "lapse_soil": false,
+      "habitat_penalty": 0,
+      "habitat_ramp": 0,
+      "temp_shoulder_f": 0,
+      "moisture_grade": 0,
+      "trend_continuous": false,
+      "forest_threshold": 0.3,
+      "paint_unassessed": false,
+      "terrain_retention": 0,
+      "terrain_baseline": 0,
+      "cell_elevation_interp": "bilinear",
+      "series_interp": "bilinear",
+      "weather_step_deg": 0.4
+    },
+    "code": {
+      "revision": "unknown",
+      "dirty": false,
+      "revision_describes_module": false,
+      "source_digest": "97f5661583ff7798f8ff7d7457d61491a4b9919d02e0dff228b9ad5c35622b2a",
+      "source_files_hashed": 106,
+      "species_profiles_digest": "b09c5e05643d901c28839d0b9145fddc1128db2820cf84f9deddd9a6ae9d3b1e",
+      "species_profiles_hashed": 18,
+      "digest_note": "the recorded revision does not contain this module's files; it identifies the repository checkout, not this build. source_digest is what identifies the build.",
+      "renderer": "cmd/render",
+      "go_version": "go1.25.0"
+    },
+    "score_bands": null,
+    "species": [
+      {
+        "id": "craterellus_calicornucopioides",
+        "common_name": "Black Trumpet",
+        "scientific_name": "Craterellus calicornucopioides",
+        "model": "timeline",
+        "pixels_assessed": 1509139,
+        "pixels_painted": 24855,
+        "pixels_unassessed": 0,
+        "painted_p50": 0.095226725406377,
+        "painted_p95": 0.26910264587358723,
+        "max_score": 0.3573090399965597,
+        "file": "out/2026-10-03/oregon_craterellus_calicornucopioides_2026-10-03.png",
+        "sha256": "85408d581e901ac24170321997b5b038b847fe02578d7ae60c5e860ba5395ede"
+      },
+      {
+        "id": "lactarius_rubidus",
+        "common_name": "Candy Cap",
+        "scientific_name": "Lactarius rubidus",
+        "model": "timeline",
+        "pixels_assessed": 1509139,
+        "pixels_painted": 25474,
+        "pixels_unassessed": 0,
+        "painted_p50": 0.09522106389307536,
+        "painted_p95": 0.23851368124947986,
+        "max_score": 0.3176080355524975,
+        "file": "out/2026-10-03/oregon_lactarius_rubidus_2026-10-03.png",
+        "sha256": "61ec6b38a31cc0f24ca462abbb8d644fa8505c487f497d2c1670706a49e226b8"
+      },
+      {
+        "id": "sparassis_radicata",
+        "common_name": "Cauliflower Mushroom",
+        "scientific_name": "Sparassis radicata",
+        "model": "snapshot",
+        "fallback_reason": "parasitic substrate (single-organism timeline measured worse; the host coupling is applied in ScoreSite instead)",
+        "pixels_assessed": 1509139,
+        "pixels_painted": 209661,
+        "pixels_unassessed": 0,
+        "painted_p50": 0.09891142310691027,
+        "painted_p95": 0.22252595755443938,
+        "max_score": 0.37560085344784083,
+        "file": "out/2026-10-03/oregon_sparassis_radicata_2026-10-03.png",
+        "sha256": "f07b6d6e6c14512930939a7e10820a0dbf5d51cf10043ba5cd296818884e9ae2"
+      },
+      {
+        "id": "cantharellus_cibarius",
+        "common_name": "Golden Chanterelle",
+        "scientific_name": "Cantharellus formosus",
+        "model": "timeline",
+        "pixels_assessed": 1509139,
+        "pixels_painted": 226267,
+        "pixels_unassessed": 0,
+        "painted_p50": 0.16507091294968318,
+        "painted_p95": 0.3779320364117437,
+        "max_score": 0.6074529171401548,
+        "file": "out/2026-10-03/oregon_cantharellus_cibarius_2026-10-03.png",
+        "sha256": "8421481ee34433972969321be059fc8926b66293930fc0fe3d9bdfe258ef766e"
+      },
+      {
+        "id": "laetiporus_conifericola",
+        "common_name": "Chicken of the Woods",
+        "scientific_name": "Laetiporus conifericola",
+        "model": "snapshot",
+        "fallback_reason": "parasitic substrate (single-organism timeline measured worse; the host coupling is applied in ScoreSite instead)",
+        "pixels_assessed": 1509139,
+        "pixels_painted": 595814,
+        "pixels_unassessed": 0,
+        "painted_p50": 0.259298589802509,
+        "painted_p95": 0.43380391248551636,
+        "max_score": 0.5091850754964061,
+        "file": "out/2026-10-03/oregon_laetiporus_conifericola_2026-10-03.png",
+        "sha256": "aa6f4b8646f27d8c6445bfbbcd941fd13b75151fd27bad0ebc350ef2a7732aab"
+      },
+      {
+        "id": "hydnum_repandum",
+        "common_name": "Hedgehog Mushroom",
+        "scientific_name": "Hydnum repandum",
+        "model": "timeline",
+        "pixels_assessed": 1509139,
+        "pixels_painted": 1911,
+        "pixels_unassessed": 0,
+        "painted_p50": 0.06917463499203497,
+        "painted_p95": 0.13538821851407373,
+        "max_score": 0.1946571880727211,
+        "file": "out/2026-10-03/oregon_hydnum_repandum_2026-10-03.png",
+        "sha256": "36faf4f9c8bd468ad32d3a0c070137e6584fdd25b61a73080dee58842644b22d"
+      },
+      {
+        "id": "hericium_abietis",
+        "common_name": "Lion's Mane",
+        "scientific_name": "Hericium abietis",
+        "model": "timeline",
+        "pixels_assessed": 1509139,
+        "pixels_painted": 212205,
+        "pixels_unassessed": 0,
+        "painted_p50": 0.15619571788557235,
+        "painted_p95": 0.407328733084189,
+        "max_score": 0.6987589278893089,
+        "file": "out/2026-10-03/oregon_hericium_abietis_2026-10-03.png",
+        "sha256": "644fed6f2181bf779b4b010a331445f72330b236641dfa60d396b0df0561474a"
+      },
+      {
+        "id": "hypomyces_lactifluorum",
+        "common_name": "Lobster Mushroom",
+        "scientific_name": "Hypomyces lactifluorum",
+        "model": "snapshot",
+        "fallback_reason": "parasitic substrate (single-organism timeline measured worse; the host coupling is applied in ScoreSite instead)",
+        "pixels_assessed": 1509139,
+        "pixels_painted": 617603,
+        "pixels_unassessed": 0,
+        "painted_p50": 0.2333810376838672,
+        "painted_p95": 0.4092370418660079,
+        "max_score": 0.5062426768713238,
+        "file": "out/2026-10-03/oregon_hypomyces_lactifluorum_2026-10-03.png",
+        "sha256": "a4172eb55c2c694211b21549236019de22b49c38e700629b91765d23964dea24"
+      },
+      {
+        "id": "tricholoma_murrillianum",
+        "common_name": "Pacific Matsutake",
+        "scientific_name": "Tricholoma murrillianum",
+        "model": "timeline",
+        "pixels_assessed": 1509139,
+        "pixels_painted": 28927,
+        "pixels_unassessed": 0,
+        "painted_p50": 0.11578760229263187,
+        "painted_p95": 0.3158789969875511,
+        "max_score": 0.4928016699816868,
+        "file": "out/2026-10-03/oregon_tricholoma_murrillianum_2026-10-03.png",
+        "sha256": "ce13ececac4a03a1757912b4a54d5365937e2d1e4479091d0937f33cdc1acdb5"
+      },
+      {
+        "id": "morchella_importuna",
+        "common_name": "Black Morel",
+        "scientific_name": "Morchella importuna",
+        "model": "timeline",
+        "pixels_assessed": 1509139,
+        "pixels_painted": 305667,
+        "pixels_unassessed": 0,
+        "painted_p50": 0.17158603172934778,
+        "painted_p95": 0.5034401838751618,
+        "max_score": 0.7632148532654626,
+        "file": "out/2026-10-03/oregon_morchella_importuna_2026-10-03.png",
+        "sha256": "b19e11d0516d7837f22342b57e586327d1a52e2c78b1812226aa8d0187b2d36c"
+      },
+      {
+        "id": "pleurotus_ostreatus",
+        "common_name": "Oyster Mushroom",
+        "scientific_name": "Pleurotus ostreatus",
+        "model": "timeline",
+        "pixels_assessed": 1509139,
+        "pixels_painted": 428301,
+        "pixels_unassessed": 0,
+        "painted_p50": 0.29826266301880816,
+        "painted_p95": 0.5862284944583803,
+        "max_score": 0.8029148856643983,
+        "file": "out/2026-10-03/oregon_pleurotus_ostreatus_2026-10-03.png",
+        "sha256": "6a16d76662926329af8f2cee151d8a269853e9b95542875e586fedf695ee89f6"
+      },
+      {
+        "id": "gomphus_clavatus",
+        "common_name": "Pig's Ears",
+        "scientific_name": "Gomphus clavatus",
+        "model": "timeline",
+        "pixels_assessed": 1509139,
+        "pixels_painted": 135813,
+        "pixels_unassessed": 0,
+        "painted_p50": 0.12259077833702602,
+        "painted_p95": 0.36441229450660906,
+        "max_score": 0.6767048398389721,
+        "file": "out/2026-10-03/oregon_gomphus_clavatus_2026-10-03.png",
+        "sha256": "c716339fa56faea52825f61c6936ec418e263d5ab418afde08b0be057e3b2231"
+      },
+      {
+        "id": "boletus_edulis",
+        "common_name": "Porcini / King Bolete",
+        "scientific_name": "Boletus edulis",
+        "model": "timeline",
+        "pixels_assessed": 1509139,
+        "pixels_painted": 260040,
+        "pixels_unassessed": 0,
+        "painted_p50": 0.21602835651898425,
+        "painted_p95": 0.5504139547298588,
+        "max_score": 0.7949672266738168,
+        "file": "out/2026-10-03/oregon_boletus_edulis_2026-10-03.png",
+        "sha256": "8359ddb1ff9c8eeaf3965c15b653e67f923323bd42394ca05ea120d24e6ee4ef"
+      },
+      {
+        "id": "coprinus_comatus",
+        "common_name": "Shaggy Mane",
+        "scientific_name": "Coprinus comatus",
+        "model": "timeline",
+        "pixels_assessed": 1509139,
+        "pixels_painted": 256235,
+        "pixels_unassessed": 0,
+        "painted_p50": 0.17091609051021137,
+        "painted_p95": 0.46361329589436273,
+        "max_score": 0.7357951205237097,
+        "file": "out/2026-10-03/oregon_coprinus_comatus_2026-10-03.png",
+        "sha256": "44a22bc4f9623a2acf7b85b57f2fd19d38bbdc328acaa976e12eff4ee86df8dc"
+      },
+      {
+        "id": "boletus_rex_veris",
+        "common_name": "Spring King Bolete",
+        "scientific_name": "Boletus rex-veris",
+        "model": "timeline",
+        "pixels_assessed": 1509139,
+        "pixels_painted": 306061,
+        "pixels_unassessed": 0,
+        "painted_p50": 0.20514044249152516,
+        "painted_p95": 0.5317730551812978,
+        "max_score": 0.8488611086186078,
+        "file": "out/2026-10-03/oregon_boletus_rex_veris_2026-10-03.png",
+        "sha256": "a9a5b28aed048d4625a890336e39486c820b8c3ebe80e38e9885eae7d53a7271"
+      },
+      {
+        "id": "cantharellus_subalbidus",
+        "common_name": "White Chanterelle",
+        "scientific_name": "Cantharellus subalbidus",
+        "model": "timeline",
+        "pixels_assessed": 1509139,
+        "pixels_painted": 85641,
+        "pixels_unassessed": 0,
+        "painted_p50": 0.12118583686192995,
+        "painted_p95": 0.33009917121179644,
+        "max_score": 0.6463748289222703,
+        "file": "out/2026-10-03/oregon_cantharellus_subalbidus_2026-10-03.png",
+        "sha256": "9e9ccd8ff5fbd7ea61347da656deeadac0cdd1dae38faaa120ff1f882392f041"
+      },
+      {
+        "id": "craterellus_tubaeformis",
+        "common_name": "Yellowfoot / Winter Chanterelle",
+        "scientific_name": "Craterellus tubaeformis",
+        "model": "timeline",
+        "pixels_assessed": 1509139,
+        "pixels_painted": 0,
+        "pixels_unassessed": 0,
+        "painted_p50": 0,
+        "painted_p95": 0,
+        "max_score": 0,
+        "file": "out/2026-10-03/oregon_craterellus_tubaeformis_2026-10-03.png",
+        "sha256": "346b05d465d1f9aea423cf8eafab4127e63521cd6e704a8a33c3e5a6f1127951"
+      }
+    ],
+    "warnings": [
+      "11/252 grid points have no soil-moisture reading on their last day; the timeline moisture term falls back to the precipitation proxy there",
+      "1060700/34400000 elevation field cells (3.1%) carry NO measured site elevation (outside the local DEM footprint and not filled by the fringe fallback); the temperature lapse and the profile elevation ceiling are both inert there, which is correct but is not the same model the rest of the map is scored under",
+      "the recorded revision unknown does not contain this module at all (checkout is on branch \"\"); source_digest 97f5661583ff is what identifies this build",
+      "resolution: pixels 1440 ft; land cover 256 ft; elevation 262 ft; WEATHER 104822 ft (0.4 deg lattice, interpolated, not downscaled to terrain) — the ground detail in this map is real, the weather behind it is regional",
+      "weather summary: 1 region(s) hold too few grid points to average — coast_range (4); their figures are flagged thin and must be reported with the point count or not at all"
+    ],
+    "publishable": true
+  },
+  "images": [
+    {
+      "id": "craterellus_calicornucopioides",
+      "file": "2eaa87491781-oregon_craterellus_calicornucopioides_2026-10-03.png",
+      "url_path": "2026-10-02/2eaa87491781-oregon_craterellus_calicornucopioides_2026-10-03.png",
+      "width": 1456,
+      "height": 1092,
+      "source_bytes": 1410935,
+      "published_bytes": 501260,
+      "palette_colours": 256,
+      "render_sha256": "85408d581e901ac24170321997b5b038b847fe02578d7ae60c5e860ba5395ede",
+      "published_sha256": "2eaa874917812cb05474d2db2eb11a29d1e067a35bc6ff26f14d06b7b80097dc",
+      "origin_verified": true
+    },
+    {
+      "id": "lactarius_rubidus",
+      "file": "43a3d9828b6c-oregon_lactarius_rubidus_2026-10-03.png",
+      "url_path": "2026-10-02/43a3d9828b6c-oregon_lactarius_rubidus_2026-10-03.png",
+      "width": 1456,
+      "height": 1092,
+      "source_bytes": 1412541,
+      "published_bytes": 502689,
+      "palette_colours": 256,
+      "render_sha256": "61ec6b38a31cc0f24ca462abbb8d644fa8505c487f497d2c1670706a49e226b8",
+      "published_sha256": "43a3d9828b6cc711acb49b8aececdec68c572127c395915b3ae9036abf00bc9e",
+      "origin_verified": true
+    },
+    {
+      "id": "sparassis_radicata",
+      "file": "02996918a391-oregon_sparassis_radicata_2026-10-03.png",
+      "url_path": "2026-10-02/02996918a391-oregon_sparassis_radicata_2026-10-03.png",
+      "width": 1456,
+      "height": 1092,
+      "source_bytes": 1653690,
+      "published_bytes": 566720,
+      "palette_colours": 256,
+      "render_sha256": "f07b6d6e6c14512930939a7e10820a0dbf5d51cf10043ba5cd296818884e9ae2",
+      "published_sha256": "02996918a391ac8f913572b667a1802504db82cd0250cd738773306ca066a796",
+      "origin_verified": true
+    },
+    {
+      "id": "cantharellus_cibarius",
+      "file": "ba2033c59ac2-oregon_cantharellus_cibarius_2026-10-03.png",
+      "url_path": "2026-10-02/ba2033c59ac2-oregon_cantharellus_cibarius_2026-10-03.png",
+      "width": 1456,
+      "height": 1092,
+      "source_bytes": 1644649,
+      "published_bytes": 556497,
+      "palette_colours": 256,
+      "render_sha256": "8421481ee34433972969321be059fc8926b66293930fc0fe3d9bdfe258ef766e",
+      "published_sha256": "ba2033c59ac24bc5049bee279ded0a642f58966af5544ff57a363a358e1d53a8",
+      "origin_verified": true
+    },
+    {
+      "id": "laetiporus_conifericola",
+      "file": "74d593cfcb51-oregon_laetiporus_conifericola_2026-10-03.png",
+      "url_path": "2026-10-02/74d593cfcb51-oregon_laetiporus_conifericola_2026-10-03.png",
+      "width": 1456,
+      "height": 1092,
+      "source_bytes": 2039417,
+      "published_bytes": 679511,
+      "palette_colours": 256,
+      "render_sha256": "aa6f4b8646f27d8c6445bfbbcd941fd13b75151fd27bad0ebc350ef2a7732aab",
+      "published_sha256": "74d593cfcb51d7928b61a9aafb1278d0f1c90d094c8964e0e279fe201e9544a0",
+      "origin_verified": true
+    },
+    {
+      "id": "hydnum_repandum",
+      "file": "6231a3be67d0-oregon_hydnum_repandum_2026-10-03.png",
+      "url_path": "2026-10-02/6231a3be67d0-oregon_hydnum_repandum_2026-10-03.png",
+      "width": 1456,
+      "height": 1092,
+      "source_bytes": 1370371,
+      "published_bytes": 496772,
+      "palette_colours": 256,
+      "render_sha256": "36faf4f9c8bd468ad32d3a0c070137e6584fdd25b61a73080dee58842644b22d",
+      "published_sha256": "6231a3be67d0d081b260827432867c93494a31a826f7087b7bdf043eb76fc253",
+      "origin_verified": true
+    },
+    {
+      "id": "hericium_abietis",
+      "file": "6a5f97a849a3-oregon_hericium_abietis_2026-10-03.png",
+      "url_path": "2026-10-02/6a5f97a849a3-oregon_hericium_abietis_2026-10-03.png",
+      "width": 1456,
+      "height": 1092,
+      "source_bytes": 1656775,
+      "published_bytes": 564000,
+      "palette_colours": 256,
+      "render_sha256": "644fed6f2181bf779b4b010a331445f72330b236641dfa60d396b0df0561474a",
+      "published_sha256": "6a5f97a849a3e3edba8b2df141d3f6df7482b06ddc626fe05b3577e03e28980c",
+      "origin_verified": true
+    },
+    {
+      "id": "hypomyces_lactifluorum",
+      "file": "ffa70c4f22b6-oregon_hypomyces_lactifluorum_2026-10-03.png",
+      "url_path": "2026-10-02/ffa70c4f22b6-oregon_hypomyces_lactifluorum_2026-10-03.png",
+      "width": 1456,
+      "height": 1092,
+      "source_bytes": 2051294,
+      "published_bytes": 668611,
+      "palette_colours": 256,
+      "render_sha256": "a4172eb55c2c694211b21549236019de22b49c38e700629b91765d23964dea24",
+      "published_sha256": "ffa70c4f22b65cc5d9e5fc46c260dc311d038de2eeed35bae90fb49acef09fa2",
+      "origin_verified": true
+    },
+    {
+      "id": "tricholoma_murrillianum",
+      "file": "9380201f1d8a-oregon_tricholoma_murrillianum_2026-10-03.png",
+      "url_path": "2026-10-02/9380201f1d8a-oregon_tricholoma_murrillianum_2026-10-03.png",
+      "width": 1456,
+      "height": 1092,
+      "source_bytes": 1408283,
+      "published_bytes": 501798,
+      "palette_colours": 256,
+      "render_sha256": "ce13ececac4a03a1757912b4a54d5365937e2d1e4479091d0937f33cdc1acdb5",
+      "published_sha256": "9380201f1d8ae236273fc0ab3dc8bd4ae83753bbfe6d7b9381f06b9f9ec039c4",
+      "origin_verified": true
+    },
+    {
+      "id": "morchella_importuna",
+      "file": "f16017ab5d94-oregon_morchella_importuna_2026-10-03.png",
+      "url_path": "2026-10-02/f16017ab5d94-oregon_morchella_importuna_2026-10-03.png",
+      "width": 1456,
+      "height": 1092,
+      "source_bytes": 1681858,
+      "published_bytes": 572985,
+      "palette_colours": 256,
+      "render_sha256": "b19e11d0516d7837f22342b57e586327d1a52e2c78b1812226aa8d0187b2d36c",
+      "published_sha256": "f16017ab5d945e284dd70cfa0b234ea669c898607841e47b39bebf3dcc5e9ff4",
+      "origin_verified": true
+    },
+    {
+      "id": "pleurotus_ostreatus",
+      "file": "14f6907dcbc1-oregon_pleurotus_ostreatus_2026-10-03.png",
+      "url_path": "2026-10-02/14f6907dcbc1-oregon_pleurotus_ostreatus_2026-10-03.png",
+      "width": 1456,
+      "height": 1092,
+      "source_bytes": 1778191,
+      "published_bytes": 596639,
+      "palette_colours": 256,
+      "render_sha256": "6a16d76662926329af8f2cee151d8a269853e9b95542875e586fedf695ee89f6",
+      "published_sha256": "14f6907dcbc1cebb95f215ca4d631ed45cc28a01415bd4c5e4da475494bd1b0b",
+      "origin_verified": true
+    },
+    {
+      "id": "gomphus_clavatus",
+      "file": "338a9c2092ce-oregon_gomphus_clavatus_2026-10-03.png",
+      "url_path": "2026-10-02/338a9c2092ce-oregon_gomphus_clavatus_2026-10-03.png",
+      "width": 1456,
+      "height": 1092,
+      "source_bytes": 1570558,
+      "published_bytes": 541687,
+      "palette_colours": 256,
+      "render_sha256": "c716339fa56faea52825f61c6936ec418e263d5ab418afde08b0be057e3b2231",
+      "published_sha256": "338a9c2092cec6eae830e301a40bc5fb3902d4de71b30b4ac135be776422f240",
+      "origin_verified": true
+    },
+    {
+      "id": "boletus_edulis",
+      "file": "bbd6a9ed64fd-oregon_boletus_edulis_2026-10-03.png",
+      "url_path": "2026-10-02/bbd6a9ed64fd-oregon_boletus_edulis_2026-10-03.png",
+      "width": 1456,
+      "height": 1092,
+      "source_bytes": 1723918,
+      "published_bytes": 588371,
+      "palette_colours": 256,
+      "render_sha256": "8359ddb1ff9c8eeaf3965c15b653e67f923323bd42394ca05ea120d24e6ee4ef",
+      "published_sha256": "bbd6a9ed64fd1b5941195459818e7b52c14b7a5f3a95a5029d9753602f20172a",
+      "origin_verified": true
+    },
+    {
+      "id": "coprinus_comatus",
+      "file": "12f2aab183ad-oregon_coprinus_comatus_2026-10-03.png",
+      "url_path": "2026-10-02/12f2aab183ad-oregon_coprinus_comatus_2026-10-03.png",
+      "width": 1456,
+      "height": 1092,
+      "source_bytes": 1701215,
+      "published_bytes": 579984,
+      "palette_colours": 256,
+      "render_sha256": "44a22bc4f9623a2acf7b85b57f2fd19d38bbdc328acaa976e12eff4ee86df8dc",
+      "published_sha256": "12f2aab183ad87d297b454a1a221f801ea8a04744ab4933ead4c378928e3b375",
+      "origin_verified": true
+    },
+    {
+      "id": "boletus_rex_veris",
+      "file": "3e6137d59106-oregon_boletus_rex_veris_2026-10-03.png",
+      "url_path": "2026-10-02/3e6137d59106-oregon_boletus_rex_veris_2026-10-03.png",
+      "width": 1456,
+      "height": 1092,
+      "source_bytes": 1762534,
+      "published_bytes": 595367,
+      "palette_colours": 256,
+      "render_sha256": "a9a5b28aed048d4625a890336e39486c820b8c3ebe80e38e9885eae7d53a7271",
+      "published_sha256": "3e6137d5910613938e61075290190270c1afead1e3f55b24295eba7639222441",
+      "origin_verified": true
+    },
+    {
+      "id": "cantharellus_subalbidus",
+      "file": "152cd03549bf-oregon_cantharellus_subalbidus_2026-10-03.png",
+      "url_path": "2026-10-02/152cd03549bf-oregon_cantharellus_subalbidus_2026-10-03.png",
+      "width": 1456,
+      "height": 1092,
+      "source_bytes": 1501913,
+      "published_bytes": 518881,
+      "palette_colours": 256,
+      "render_sha256": "9e9ccd8ff5fbd7ea61347da656deeadac0cdd1dae38faaa120ff1f882392f041",
+      "published_sha256": "152cd03549bfff7efddff639e27af798cb6facb2b847a53b3483dcf173d4ebff",
+      "origin_verified": true
+    },
+    {
+      "id": "craterellus_tubaeformis",
+      "file": "b05967a69b31-oregon_craterellus_tubaeformis_2026-10-03.png",
+      "url_path": "2026-10-02/b05967a69b31-oregon_craterellus_tubaeformis_2026-10-03.png",
+      "width": 1456,
+      "height": 1092,
+      "source_bytes": 1366415,
+      "published_bytes": 494544,
+      "palette_colours": 256,
+      "render_sha256": "346b05d465d1f9aea423cf8eafab4127e63521cd6e704a8a33c3e5a6f1127951",
+      "published_sha256": "b05967a69b3136cc8bdc825a5926e5cb04434dfce26659f20d48abd46e7a0389",
+      "origin_verified": true
+    }
+  ],
+  "origin_uploaded": true,
+  "publish_notes": []
+}
