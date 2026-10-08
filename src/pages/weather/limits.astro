@@ -218,20 +218,33 @@ const totalBare = bare.reduce((n, b) => n + b.bare.length, 0);
           : ''}
       </p>
 
-      <h2>The report does not describe the weather</h2>
+      <h2>The report does not yet show the weather it has</h2>
       <p>
-        The daily report says what moved in the score distributions between runs. It does not say
-        how much rain fell or where, because the manifest it is built from does not record any
-        weather values — only the provenance of the fetch and the distributions that came out the
-        far end. A rainfall sentence would have to be imagined, so none is written.
+        This section used to say the manifest recorded no weather values at all. That stopped
+        being true: the run record now carries measured rainfall over several trailing windows,
+        soil moisture against the scorer's own abort and field-capacity thresholds, air and soil
+        temperatures, and the change since the previous run — for ten named Oregon regions and
+        for the state as a whole. The daily report still only says what moved in the score
+        distributions, so those figures are published but unread by this page. The limit that
+        remains is narrower and real: every figure is an unweighted mean over a 0.4° grid, so it
+        describes a region, not a hillside inside one.
       </p>
 
-      <h2>It only publishes the current day</h2>
+      <h2>It shows one day, and that day has already happened</h2>
       <p>
-        One run at a time. There is no image archive and no forecast: past runs exist here as
-        numbers — score distributions and provenance, kept in full — but their maps are not
-        republished, and no map is ever drawn for a day the pipeline did not produce. Historical and
-        forecast projections are a later phase.
+        The page draws one run at a time. Past runs are kept in full as numbers — score
+        distributions and provenance — and those are effectively permanent, because each one is a
+        committed file. Their <em>maps</em> are a different matter: images stay on the origin for
+        roughly a month and are then dropped, so a run from last week can still be looked at and
+        one from last year cannot. No map is ever drawn for a day the pipeline did not produce,
+        and the series has real gaps where it did not run.
+      </p>
+      <p>
+        There is no forecast. Every run published so far is entirely observed weather, so nothing
+        on this site tells you about tomorrow. When a forecast does land it will be capped at
+        seven days and marked as forecast rather than blended in, because beyond about five days
+        the thing this model depends on — rain arriving on the right day — stops being
+        predictable: at a week out, well over half of forecast wet days did not happen.
       </p>
 
       <h2>Oregon only</h2>

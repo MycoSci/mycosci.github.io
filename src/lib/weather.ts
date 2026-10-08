@@ -139,6 +139,15 @@ export interface Manifest {
   as_of_date?: string;
   lag_days_behind_target?: number;
   weather?: any;
+  /**
+   * Per-region precipitation, soil-moisture and temperature summaries.
+   *
+   * Landed by the pipeline after this file was written, and unread by any page
+   * until /weather/preview. Typed in weather-report.ts rather than here
+   * because the shape is the data lane's to change; this is only the hook.
+   * Absent on runs older than the schema (2024-11-15 has none).
+   */
+  weather_summary?: any;
   terrain?: any;
   model_variant?: any;
   code?: { revision?: string; dirty?: boolean; renderer?: string; go_version?: string };
@@ -599,6 +608,8 @@ export interface WeatherReport {
   /** Stated limits of this report, derived from what the manifest omits. */
   cannotSay: string;
   unassessedSentence: string;
+  /** The same fact as a complete sentence. Prefer this; see note at its construction. */
+  unassessedFull: string;
   warnings: string[];
   publishNotes: string[];
 }
@@ -812,6 +823,20 @@ export function buildReport(run: RunRecord): WeatherReport {
       : 'None'
     : 'An unknown share';
 
+  // `unassessedSentence` is a bare SUBJECT, not a sentence. Pages that glued it
+  // to " of the map has no land-cover measurement" shipped, on a clean run,
+  // "none of the map has no land-cover measurement" - two negatives cancelling
+  // into the opposite of the truth. Caught live 2026-10-08. Emit the whole
+  // sentence here so no caller has to know which subject it got.
+  const unassessedFull = total
+    ? shareUn > 0
+      ? `About one pixel in ${Math.round(1 / shareUn)} of the map has no land-cover ` +
+        'measurement, so it is never assessed and never painted.'
+      : 'Every pixel of this run had a land-cover measurement, so none was left ' +
+        'unassessed for want of one.'
+    : 'An unknown share of the map has no land-cover measurement, so it is never ' +
+      'assessed and never painted.';
+
   return {
     asOf: run.as_of_date,
     targetDate: run.target_date,
@@ -824,12 +849,22 @@ export function buildReport(run: RunRecord): WeatherReport {
     // "It is not everywhere.   of the map has no land-cover measurement" —
     // a sentence with its subject silently missing. Caught 2026-09-10.
     unassessedSentence,
+    unassessedFull,
+    // This used to read that the manifest carried no weather values and that
+    // adding per-region summaries "is what would let this report say it".
+    // They were added, the disclaimer went stale, and the page spent a month
+    // apologising for data it already had. Rewritten 2026-10-08 against the
+    // run record rather than against anyone's memory of it.
     cannotSay:
-      'Rainfall totals, and anything by region. The manifest carries the score ' +
-      'distributions and the provenance of the weather fetch, not the weather values ' +
-      'themselves, so “the coast took 24 mm over three days” would be invented rather ' +
-      'than read. Adding per-region precipitation and soil-moisture summaries to the ' +
-      'manifest is what would let this report say it.',
+      'Anything finer than a region, and anything ahead of today. The run record now ' +
+      'carries measured weather - rainfall over several trailing windows, soil moisture ' +
+      "against the scorer's own abort and field-capacity thresholds, air and soil " +
+      'temperatures, and the change since the previous run - for ten named Oregon ' +
+      'regions and the state as a whole. This report does not yet present them. ' +
+      'What stays genuinely unsayable is smaller than that: each figure is an ' +
+      'unweighted mean over a 0.4\u00b0 grid, so it describes a region and not a ' +
+      'hillside inside it. And no run published so far contains a forecast, so ' +
+      'every number here is observed weather that has already happened.',
     warnings: m.warnings ?? [],
     publishNotes: run.publish_notes ?? [],
   };
