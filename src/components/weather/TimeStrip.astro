@@ -1,0 +1,208 @@
+---
+/**
+ * The time strip — every published run for one species, plus the forecast lane.
+ *
+ * A weather report gives you a strip of days you can scan and a forecast you
+ * can scan next to it. This is that shape, with two differences that are not
+ * stylistic:
+ *
+ * 1. GAPS ARE DRAWN AS GAPS.
+ *    The pipeline has published nine runs: one in November 2024, three in
+ *    September 2026, five in late September and October 2026. Spacing those
+ *    nine evenly across a strip would draw a continuous autumn out of a series
+ *    with a 662-day hole in it, and a reader would read a trend off it. So
+ *    wherever two consecutive runs are more than a day apart, an explicit
+ *    break is rendered saying how many days the pipeline did not produce. No
+ *    value is interpolated across a break. This is the same discipline the
+ *    daily report already applies in prose ("No value is invented for the days
+ *    the pipeline did not produce") made visual.
+ *
+ * 2. OBSERVED AND FORECAST DO NOT LOOK ALIKE.
+ *    An observed cell is solid: hairline border, filled bar, past tense. A
+ *    forecast cell is hatched, dashed-bordered, carries a FORECAST badge and
+ *    is described in the conditional. The two treatments are defined once, in
+ *    the <style> block below, and the key beside the strip shows them side by
+ *    side so the difference is learnable before it matters. A forecast map
+ *    says conditions MAY BE right; a retrospective map says they HAVE BEEN.
+ *    Those are different claims and the project has already been burned once
+ *    by one glyph meaning two things.
+ *
+ * On every run published to date the forecast lane is EMPTY, because the
+ * pipeline reads a weather archive and `includes_forecast_days` is false. The
+ * lane is rendered anyway, with the reason, because an absent lane reads as
+ * "this product does not do forecasts" and an empty one reads as "not yet".
+ *
+ * Numbers lead and the bar is secondary. The bar is scaled to this species'
+ * own range across the runs on record — which is said on the strip, because a
+ * bar scaled per-species cannot be compared between species and a reader will
+ * try.
+ */
+import { fmtDateShort } from '../../lib/weather';
+import { forecastState, history, type HistoryPoint } from '../../lib/weather-report';
+import type { RunRecord } from '../../lib/weather';
+
+interface Props {
+  speciesId: string;
+  speciesName: string;
+  run: RunRecord;
+}
+const { speciesId, speciesName, run } = Astro.props;
+
+const points: HistoryPoint[] = history(speciesId);
+const fc = forecastState(run);
+
+// Scale to this species' own peak painted share. Null-safe: a species absent
+// from every run gets no bars rather than a divide-by-zero.
+const peak = points.reduce((m, p) => Math.max(m, p.paintedShare ?? 0), 0);
+const barPct = (p: HistoryPoint) =>
+  p.paintedShare == null || peak <= 0 ? 0 : Math.max(2, (p.paintedShare / peak) * 100);
+
+const current = points[points.length - 1];
+---
+
+<div class="border border-lab-800 bg-lab-900">
+  <div class="flex flex-wrap items-baseline justify-between gap-2 px-4 py-3 border-b border-lab-800">
+    <span class="label">// {speciesName} — every published run</span>
+    <span class="label">{points.length} runs on record</span>
+  </div>
+
+  {/* The strip. Scrolls inside its own box so the page never gains a
+      horizontal scrollbar at 375px; newest run is last and is the one the
+      map above is drawn from. */}
+  <div class="overflow-x-auto">
+    <ol class="flex items-stretch min-w-max">
+      {
+        points.map((p, i) => (
+          <>
+            {p.gapToPrevious != null && p.gapToPrevious > 1 && (
+              <li
+                class="ts-break shrink-0 w-14 sm:w-16 flex flex-col items-center justify-center border-r border-lab-800 px-1"
+                aria-label={`Gap of ${p.gapToPrevious} days with no published run`}
+              >
+                <span class="font-mono text-2xs text-lab-500 tabular-nums">{p.gapToPrevious}d</span>
+                <span class="text-2xs text-lab-600 leading-none mt-1 text-center">no run</span>
+              </li>
+            )}
+            <li
+              class:list={[
+                'ts-cell shrink-0 w-[5.5rem] sm:w-24 border-r border-lab-800 px-2.5 py-3',
+                p.kind === 'observed' ? 'ts-observed' : 'ts-forecast',
+                i === points.length - 1 ? 'ts-current' : '',
+              ]}
+            >
+              <span class="block font-mono text-2xs text-lab-500 tabular-nums">
+                {fmtDateShort(p.asOf).replace(/ \d{4}$/, '')}
+              </span>
+              <span class="block font-mono text-2xs text-lab-600 tabular-nums">
+                {p.asOf.slice(0, 4)}
+              </span>
+
+              {p.kind !== 'observed' && (
+                <span class="badge badge-bio mt-1.5 !px-1 !text-[0.5rem]">{p.kindLabel}</span>
+              )}
+
+              {p.speciesAbsent ? (
+                <span class="block text-2xs text-lab-600 mt-3 leading-snug">not in this run</span>
+              ) : (
+                <>
+                  <span class="block font-mono text-sm text-lab-100 tabular-nums mt-2.5">
+                    {p.maxScore != null ? p.maxScore.toFixed(2) : '—'}
+                  </span>
+                  <span class="block font-mono text-2xs text-lab-500 tabular-nums">
+                    {p.paintedShare != null ? `${(p.paintedShare * 100).toFixed(1)}%` : '—'}
+                  </span>
+                  <span class="ts-track block mt-2 h-1 bg-lab-800" aria-hidden="true">
+                    <span class="ts-bar block h-full" style={`width:${barPct(p).toFixed(1)}%`} />
+                  </span>
+                </>
+              )}
+
+              {p.rain7in != null && (
+                <span class="block font-mono text-2xs text-lab-600 tabular-nums mt-2">
+                  {p.rain7in.toFixed(2)}&quot; 7d
+                </span>
+              )}
+            </li>
+          </>
+        ))
+      }
+
+      {/* The forecast lane. Present and empty, with its reason. */}
+      <li
+        class="ts-cell ts-forecast shrink-0 w-32 sm:w-40 px-3 py-3"
+        aria-label="Forecast lane, currently empty"
+      >
+        <span class="block label text-bio-500">Forecast</span>
+        <span class="block text-2xs text-lab-500 mt-2 leading-snug">
+          {fc.available
+            ? `${fc.days.length} day${fc.days.length === 1 ? '' : 's'} projected`
+            : 'No forecast days in this run.'}
+        </span>
+        <span class="block text-2xs text-lab-600 mt-2 leading-snug">
+          {fc.available ? fc.days.join(', ') : 'Projected days appear here, hatched.'}
+        </span>
+      </li>
+    </ol>
+  </div>
+
+  {/* Axis note and the per-species scaling warning, in one line each. */}
+  <div class="border-t border-lab-800 px-4 py-3 space-y-1.5">
+    <p class="text-xs text-lab-400 leading-relaxed">
+      Each column is one published run, dated by the weather behind it. The large figure is the
+      highest score anywhere in Oregon on that run; below it, the share of assessed ground painted;
+      below that, statewide rain over the preceding seven days where the run recorded it.
+      {current?.maxScore != null && <> The rightmost column is the run the map above is drawn from.</>}
+    </p>
+    <p class="text-xs text-lab-500 leading-relaxed">
+      The bar is scaled to <strong>this species' own range</strong> across these runs, so bar
+      heights cannot be compared between species — the figures can. A break in the strip is a
+      stretch the pipeline published nothing for; no value is drawn across one.
+    </p>
+    {!fc.available && <p class="text-xs text-lab-500 leading-relaxed">{fc.reason}</p>}
+  </div>
+</div>
+
+<style>
+  /* ------------------------------------------------------------------
+     Observed and forecast, defined once.
+
+     An observed cell is solid. A forecast cell is hatched and
+     dash-bordered, in the bronze accent, and the hatch is a real
+     background-image rather than an opacity change — a reader on a dim
+     phone screen in the woods will not notice 15% less opacity, and
+     this distinction is the one that must survive bad conditions.
+  ------------------------------------------------------------------ */
+  .ts-bar {
+    background: #c89b3f; /* bio-400 — the accent, never the score ramp */
+  }
+
+  .ts-forecast {
+    border-left: 1px dashed #946a23; /* bio-600 */
+    background-image: repeating-linear-gradient(
+      135deg,
+      rgba(200, 155, 63, 0.14) 0 3px,
+      transparent 3px 7px
+    );
+  }
+
+  .ts-forecast .ts-bar {
+    background: transparent;
+    background-image: repeating-linear-gradient(135deg, #c89b3f 0 2px, transparent 2px 5px);
+  }
+
+  /* The run the page is currently drawn from. A rule under the column,
+     not a fill, so it does not compete with the forecast hatch. */
+  .ts-current {
+    box-shadow: inset 0 -2px 0 0 #c89b3f;
+  }
+
+  /* A break in the series: the only place on the strip that is diagonally
+     struck through, so a gap can never be mistaken for a quiet day. */
+  .ts-break {
+    background-image: repeating-linear-gradient(
+      135deg,
+      rgba(124, 123, 115, 0.22) 0 1px,
+      transparent 1px 6px
+    );
+  }
+</style>

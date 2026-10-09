@@ -1,0 +1,160 @@
+---
+/**
+ * Current conditions — the primary reading, in the shape a weather report uses.
+ *
+ * A conventional report opens with four or five big numbers and a sentence.
+ * This is that, built entirely from `manifest.weather_summary.statewide`,
+ * which the pipeline has been emitting and no page had read.
+ *
+ * TWO THINGS HERE ARE NOT DECORATION
+ *
+ *   1. The lattice caveat is attached TO THE NUMBERS, in the same panel,
+ *      because this is the component that makes it easy to forget. A reader
+ *      shown "soil temperature 59.1°F" in a large typeface will take it for a
+ *      local reading. It is an unweighted mean over 0.4-degree cells —
+ *      about 44 km on a side, interpolated, not downscaled to terrain — and
+ *      the sentence saying so is the run's own warning, verbatim, not a
+ *      paraphrase that could drift from it.
+ *   2. The statewide figures carry their own disclaimer from the data lane:
+ *      "the state spans a rainforest and a desert, so this is a lede, not a
+ *      forecast." That is rendered, not summarised. A single number for
+ *      Oregon is a headline and the regional table below it is the report.
+ *
+ * Nothing in this panel is a probability, a chance of fruiting, or a score.
+ * They are weather readings.
+ */
+import {
+  conditionsLede,
+  headlineReadings,
+  latticeCaveat,
+  type RunKinding,
+  type WeatherSummary,
+} from '../../lib/weather-report';
+import type { RunRecord } from '../../lib/weather';
+
+interface Props {
+  run: RunRecord;
+  summary: WeatherSummary | null;
+  kinding: RunKinding;
+}
+const { run, summary, kinding } = Astro.props;
+
+const readings = headlineReadings(summary);
+const lede = conditionsLede(summary, kinding);
+const caveat = latticeCaveat(run);
+
+// Cell size in km, computed from the run's own step rather than typed in, so a
+// changed lattice moves the sentence instead of making it quietly wrong. One
+// degree of latitude is 111.32 km; this is the north-south side of a cell.
+const stepDeg = Number(run.manifest?.weather?.step_degrees);
+const cellKm = Number.isFinite(stepDeg) && stepDeg > 0 ? Math.round(stepDeg * 111.32) : null;
+const sw = summary?.statewide;
+const th = summary?.thresholds;
+
+// Tone drives emphasis only. Bronze for the accent, orange for caution —
+// never green, which means forest on the base map and nothing else.
+const toneClass: Record<string, string> = {
+  dry: 'text-spore-400',
+  marginal: 'text-bio-300',
+  wet: 'text-bio-400',
+  unknown: 'text-lab-400',
+  plain: 'text-lab-100',
+};
+---
+
+{
+  readings.length ? (
+    <section class="border border-lab-800 bg-lab-900">
+      <div class="flex flex-wrap items-baseline justify-between gap-2 px-5 pt-5">
+        <h2 class="label">// Current conditions · Oregon statewide</h2>
+        <span class="label">
+          Observed through <span class="text-lab-300">{sw?.last_day ?? run.as_of_date}</span>
+        </span>
+      </div>
+
+      {lede && <p class="px-5 pt-3 text-base text-lab-100 leading-relaxed max-w-3xl">{lede}</p>}
+
+      {/* The big readings. Four columns on desktop, two at 375px — never one,
+          because a weather report's value is reading them against each other. */}
+      <dl class="grid grid-cols-2 lg:grid-cols-4 border-t border-l border-lab-800 mt-5">
+        {readings.map((r) => (
+          <div class="border-b border-r border-lab-800 px-4 py-4">
+            <dt class="label">{r.label}</dt>
+            <dd class="mt-2">
+              <span
+                class:list={[
+                  'font-mono text-2xl sm:text-3xl tabular-nums leading-none',
+                  toneClass[r.tone ?? 'plain'],
+                ]}
+              >
+                {r.value}
+              </span>
+              {r.unit && <span class="font-mono text-2xs text-lab-500 ml-1.5">{r.unit}</span>}
+              {r.note && <span class="block text-xs text-lab-400 mt-2 leading-snug">{r.note}</span>}
+            </dd>
+          </div>
+        ))}
+      </dl>
+
+      {/* The statewide block's own words about being a statewide block. */}
+      {sw?.definition && (
+        <p class="px-5 py-4 text-xs text-lab-500 leading-relaxed border-b border-lab-800">
+          Statewide means {sw.definition}
+          {sw.grid_points ? ` — ${sw.grid_points} grid points` : ''}.
+        </p>
+      )}
+
+      {/* The resolution statement. This is the load-bearing one. */}
+      <div class="border-l-2 border-lab-600 bg-lab-950 mx-5 my-5 px-4 py-4">
+        <p class="label">What these numbers are</p>
+        <p class="text-sm text-lab-300 mt-2 leading-relaxed">
+          Unweighted means over a{' '}
+          <span class="font-mono text-lab-100">
+            {Number.isFinite(stepDeg) ? stepDeg : '—'}°
+          </span>{' '}
+          weather lattice — cells roughly {cellKm ?? '—'} km on a side,{' '}
+          <strong>interpolated</strong> between
+          points and never downscaled to the ground. They are coarser than the pixels the maps
+          below are drawn at. The habitat and elevation in those maps are real at map scale; the
+          weather is regional, and a figure in this panel is not a reading from any particular
+          hillside.
+        </p>
+        {caveat && (
+          <p class="font-mono text-2xs text-lab-500 mt-3 leading-relaxed break-words">{caveat}</p>
+        )}
+        {summary?.region_scheme?.aggregation && (
+          <p class="text-xs text-lab-500 mt-2 leading-relaxed">
+            Aggregation: {summary.region_scheme.aggregation}.
+          </p>
+        )}
+      </div>
+
+      {/* The thresholds these states are measured against, so "below abort
+          floor" is a number the reader can check rather than a verdict. */}
+      {th?.soil_moisture_abort_floor_vwc != null && (
+        <p class="px-5 pb-5 text-xs text-lab-500 leading-relaxed">
+          Soil-moisture states are measured against the scorer's own cut points — abort floor{' '}
+          <span class="font-mono text-lab-300">{th.soil_moisture_abort_floor_vwc}</span> vwc, field
+          capacity <span class="font-mono text-lab-300">{th.soil_moisture_field_capacity_vwc}</span>
+          , saturated <span class="font-mono text-lab-300">{th.soil_moisture_saturated_vwc}</span>,
+          and a wet day is over{' '}
+          <span class="font-mono text-lab-300">{th.wet_day_precip_in}</span> in.
+          {th.probe_verified
+            ? ' The two decision thresholds were probe-verified against the live scorer at render time.'
+            : ' These were not probe-verified on this run.'}
+        </p>
+      )}
+    </section>
+  ) : (
+    <section class="border-l-2 border-lab-600 bg-lab-900 px-5 py-5">
+      <p class="label">No conditions summary on this run</p>
+      <p class="text-sm text-lab-300 mt-2 leading-relaxed">
+        This run carries no{' '}
+        <span class="font-mono text-lab-100">weather_summary</span> block, so there are no
+        regional or statewide weather figures to report. Runs published before that schema existed
+        carry only score distributions and the provenance of the weather fetch. Nothing is
+        estimated to fill the gap.
+      </p>
+    </section>
+  )
+}

@@ -1,0 +1,269 @@
+---
+/**
+ * Species selection, and one map at a time.
+ *
+ * THE PROBLEM THIS REPLACES
+ *
+ * /weather stacks all seventeen maps vertically, each 1456 pixels wide. There
+ * is no selector at all: choosing a species means scrolling past the other
+ * sixteen, and comparing two means scrolling between them with nothing on
+ * screen to hold the first one in mind. Seventeen is a bad number — too many
+ * to scroll through comfortably, too few to deserve a search box.
+ *
+ * WHAT THIS IS INSTEAD
+ *
+ * A persistent selector showing all seventeen at once with their current
+ * figures on the face of each, and one map below it. The selector does not
+ * collapse, so switching is one tap from anywhere and the alternatives stay
+ * visible while you read the map — which is the thing a dropdown cannot do.
+ *
+ * GROUPED BY SEASON, NOT ALPHABETICALLY
+ *
+ * "What is out now" is the question, so the group that answers it is first.
+ * The grouping comes from each profile's own `season.months` and nowhere else.
+ * Eight of the seventeen profiles have no season recorded, and they get their
+ * own group saying exactly that — they are not out of season, their season is
+ * unknown, and inferring one from the substrate would be fabricating the field
+ * a forager would most reasonably trust. Edibility was the other candidate
+ * axis and was rejected after looking: all seventeen are `choice`, `edible` or
+ * `edible_with_caution`, so it would sort them into one big pile. Substrate —
+ * ground, dead wood, or a host — rides on every chip instead, because that is
+ * the other thing you need before you set out.
+ *
+ * NO JAVASCRIPT
+ *
+ * Selection is `:target`. The chips are ordinary links to fragment ids and the
+ * panels show on `:target`, so this works with scripting off, survives a
+ * failed bundle on a bad connection, gives every species a shareable URL
+ * (/weather/preview#sp-cantharellus_cibarius), and leaves the back button
+ * doing what the reader expects. People load this in the field on one bar of
+ * signal; a selector that needs a hydrated island is a selector that is
+ * sometimes a blank box.
+ *
+ * Where `:has()` is unavailable the page degrades to showing every panel —
+ * which is exactly what /weather does today. It never degrades to blank.
+ */
+import Plate from './Plate.astro';
+import TimeStrip from './TimeStrip.astro';
+import { evidentialStatus } from '../../lib/weather';
+import type { RunRecord } from '../../lib/weather';
+import { speciesGroups, type SpeciesGroup } from '../../lib/weather-report';
+import type { RunKinding } from '../../lib/weather-report';
+
+interface Props {
+  run: RunRecord;
+  kinding: RunKinding;
+  /** Which species the page opens on. Must be one rendered in this run. */
+  defaultId: string;
+}
+const { run, kinding, defaultId } = Astro.props;
+
+const groups: SpeciesGroup[] = speciesGroups(run);
+const members = groups.flatMap((g) => g.members);
+const rowById = new Map((run.manifest.species ?? []).map((s) => [s.id, s]));
+
+// Active-state rules, generated from the species list rather than hand-typed,
+// so a species added to the model cannot end up with a chip that never
+// highlights. Emitted global because the generated selectors cannot be
+// rewritten by Astro's scoping — every one of them is prefixed .wx-species.
+const activeCss = members
+  .map(
+    (m) =>
+      `.wx-species:has(#sp-${m.id}:target) .wx-chip[data-sp="${m.id}"]{` +
+      `border-color:#c89b3f;background:#1c1408;color:#e9e8e3}`
+  )
+  .join('\n');
+const defaultActiveCss =
+  `.wx-species:not(:has(.wx-panel:target)) .wx-chip[data-sp="${defaultId}"]{` +
+  `border-color:#c89b3f;background:#1c1408;color:#e9e8e3}`;
+---
+
+<section class="wx-species">
+  {/* ----------------------------------------------------------------
+      The selector. Two columns at 375px, four on desktop. Each chip
+      carries the figures, so a reader can pick on the numbers without
+      opening anything — which is most of what the old stacked page was
+      being scrolled for.
+  ----------------------------------------------------------------- */}
+  <div class="flex flex-wrap items-baseline justify-between gap-2 mb-3">
+    <h2 class="label">// Choose a species</h2>
+    <span class="label">{members.length} mapped · grouped by season</span>
+  </div>
+
+  <div class="border border-lab-800 bg-lab-900">
+    {
+      groups.map((g, gi) => (
+        <div class:list={[gi > 0 ? 'border-t border-lab-800' : '']}>
+          <div class="px-4 pt-4 pb-3">
+            <h3 class="text-sm font-semibold text-lab-100">
+              {g.title}
+              <span class="font-mono text-2xs text-lab-500 ml-2 tabular-nums">
+                {g.members.length}
+              </span>
+            </h3>
+            <p class="text-xs text-lab-400 mt-1 leading-relaxed max-w-2xl">{g.note}</p>
+          </div>
+
+          <ul class="grid grid-cols-2 lg:grid-cols-4 gap-px bg-lab-800 border-t border-lab-800">
+            {g.members.map((m) => {
+              const st = evidentialStatus(m.id);
+              return (
+                <li class="bg-lab-950">
+                  <a
+                    href={`#sp-${m.id}`}
+                    data-sp={m.id}
+                    class="wx-chip block h-full border border-transparent px-3 py-3 min-h-[44px] text-lab-300 hover:border-lab-600 hover:text-lab-100 transition-colors"
+                  >
+                    <span class="block text-sm leading-tight">{m.name}</span>
+                    <span class="block font-mono text-2xs text-lab-500 italic mt-0.5 leading-tight">
+                      {m.scientific}
+                    </span>
+                    <span class="flex items-baseline gap-2 mt-2">
+                      <span class="font-mono text-sm text-lab-200 tabular-nums">
+                        {m.maxScore != null ? m.maxScore.toFixed(2) : '—'}
+                      </span>
+                      <span class="font-mono text-2xs text-lab-500 tabular-nums">
+                        {m.paintedShare != null ? `${(m.paintedShare * 100).toFixed(1)}%` : ''}
+                      </span>
+                    </span>
+                    <span class="block text-2xs text-lab-500 mt-1.5 leading-snug">
+                      {m.substrate}
+                    </span>
+                    <span
+                      class:list={[
+                        'block font-mono text-2xs uppercase tracking-wider mt-1',
+                        st.kind === 'measured' ? 'text-bio-500' : 'text-lab-600',
+                      ]}
+                    >
+                      {st.kind === 'measured' ? 'back-tested' : st.label.toLowerCase()}
+                    </span>
+                    {!m.inRun && (
+                      <span class="block text-2xs text-spore-400 mt-1">not in this run</span>
+                    )}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      ))
+    }
+
+    <p class="px-4 py-3 border-t border-lab-800 text-xs text-lab-500 leading-relaxed">
+      The figure on each chip is that species' highest score anywhere in Oregon on this run, and
+      the share of assessed ground its map paints. Neither is a probability. "Back-tested" means
+      somebody has measured how well those scores rank ground against real occurrence records;
+      most of these have not been.
+    </p>
+  </div>
+
+  {/* ----------------------------------------------------------------
+      The maps. One is shown; the rest are in the document, addressable
+      and selected by :target.
+  ----------------------------------------------------------------- */}
+  <div class="wx-panels mt-6">
+    {
+      members.map((m) => {
+        const row = rowById.get(m.id);
+        return (
+          <article
+            id={`sp-${m.id}`}
+            class:list={['wx-panel', m.id === defaultId ? 'wx-panel-default' : '']}
+          >
+            <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 mb-3">
+              <h3 class="text-xl sm:text-2xl font-semibold text-lab-100 tracking-tight">
+                {m.name}
+                <span class="block sm:inline font-normal text-base text-lab-400 italic sm:ml-2">
+                  {m.scientific}
+                </span>
+              </h3>
+              <span class="label">{m.substrate}</span>
+            </div>
+
+            {/* The tense. This is where observed and forecast differ in
+                words as well as in drawing: "have been" against "may be". */}
+            <p
+              class:list={[
+                'text-sm leading-relaxed mb-4 px-4 py-3 border-l-2',
+                kinding.kind === 'observed'
+                  ? 'border-lab-600 bg-lab-900 text-lab-300'
+                  : 'wx-forecast-note border-bio-600 text-lab-200',
+              ]}
+            >
+              <span class="badge badge-bio mr-2">{kinding.label}</span>
+              Brighter ground is where conditions {kinding.verb} right for {m.name.toLowerCase()}
+              {kinding.kind === 'observed'
+                ? ' — this map is built from weather that already happened.'
+                : ' — part of this map is built from weather that has not happened yet.'}{' '}
+              {kinding.detail}
+            </p>
+
+            {row ? (
+              <Plate species={row} run={run} />
+            ) : (
+              <div class="border border-lab-800 bg-lab-900 px-5 py-8">
+                <p class="label text-spore-400">Not rendered in this run</p>
+                <p class="text-sm text-lab-300 mt-2 leading-relaxed max-w-2xl">
+                  The model carries {m.name}, but the run for{' '}
+                  <span class="font-mono text-lab-100">{run.target_date}</span> did not render it.
+                  A species missing from a day's run says nothing about whether it is fruiting; it
+                  says the run did not cover it. No map is drawn from another day's weather to
+                  fill the space.
+                </p>
+              </div>
+            )}
+
+            <div class="mt-4">
+              <TimeStrip speciesId={m.id} speciesName={m.name} run={run} />
+            </div>
+          </article>
+        );
+      })
+    }
+  </div>
+</section>
+
+<style is:global set:html={`${activeCss}\n${defaultActiveCss}`}></style>
+
+<style>
+  /* ------------------------------------------------------------------
+     Selection without script.
+
+     One panel at a time, chosen by the URL fragment. With no fragment
+     the default panel shows. Where :has() is missing the whole thing
+     degrades to every panel stacked — which is what the current page
+     does, so the worst case is today's behaviour and never a blank.
+  ------------------------------------------------------------------ */
+  .wx-panel {
+    display: none;
+  }
+
+  .wx-panel:target {
+    display: block;
+    /* The site header is sticky, so a bare fragment jump parks this panel's
+       heading underneath it. Clear the header, not just the viewport edge. */
+    scroll-margin-top: 5rem;
+  }
+
+  .wx-species:not(:has(.wx-panel:target)) .wx-panel-default {
+    display: block;
+  }
+
+  @supports not selector(:has(*)) {
+    .wx-panel {
+      display: block;
+    }
+  }
+
+  /* The forecast tense note gets the same hatch as a forecast column in
+     the time strip, so one treatment means one thing everywhere on the
+     page. A warning that means two things is how this project got
+     burned before. */
+  .wx-forecast-note {
+    background-image: repeating-linear-gradient(
+      135deg,
+      rgba(200, 155, 63, 0.14) 0 3px,
+      transparent 3px 7px
+    );
+  }
+</style>

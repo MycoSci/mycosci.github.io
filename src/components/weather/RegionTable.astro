@@ -1,0 +1,246 @@
+---
+/**
+ * The regional report — ten named Oregon regions, as a weather report does it.
+ *
+ * This is the half of a weather report that a single statewide number cannot
+ * be: Oregon spans a rainforest and a desert, and on this run the coast range
+ * has had 0.28 in of rain in seven days while the high desert has had 0.01.
+ * A statewide mean of those is a true number about nowhere.
+ *
+ * THE THIN RULE
+ *
+ * The run flags a region `thin` when it holds too few grid points to average,
+ * and its warning is explicit about what the page then owes the reader: the
+ * figures "are flagged thin and must be reported with the point count or not
+ * at all". So every row carries its point count, and a thin row carries the
+ * flag as well. Coast Range has four points on this run. It is shown, counted
+ * and flagged — not dropped, because dropping a region silently is how a
+ * reader concludes there is no data for where they live.
+ *
+ * SORTED BY RAIN, NOT ALPHABETICALLY
+ *
+ * The question a forager brings to this table is "where did it rain". A table
+ * sorted by the answer costs them no scanning. Statewide stays pinned on top
+ * as the lede.
+ *
+ * NO COLOUR RAMP IS USED HERE. The map's ramp means score, this table means
+ * weather, and reusing the ramp would invite reading one as the other. Rows
+ * carry a hairline gutter in the moisture tone and nothing else, and none of
+ * it is green.
+ */
+import { regionRows, type WeatherSummary } from '../../lib/weather-report';
+
+interface Props {
+  summary: WeatherSummary | null;
+}
+const { summary } = Astro.props;
+
+const rows = regionRows(summary);
+
+const gutter: Record<string, string> = {
+  dry: 'bg-spore-500',
+  marginal: 'bg-bio-500',
+  wet: 'bg-bio-300',
+  unknown: 'bg-lab-700',
+};
+
+const fmt = (n: number | null, dp = 2) => (n == null ? '—' : n.toFixed(dp));
+const signed = (n: number | null, dp = 2) =>
+  n == null ? '—' : `${n > 0 ? '+' : n < 0 ? '−' : ''}${Math.abs(n).toFixed(dp)}`;
+---
+
+{
+  rows.length ? (
+    <section>
+      <div class="flex flex-wrap items-baseline justify-between gap-2 mb-3">
+        <h2 class="label">// Regional report</h2>
+        <span class="label">
+          {rows.length - 1} regions · sorted by 7-day rain
+        </span>
+      </div>
+
+      {/* A real table, because this is tabular data and a screen reader should
+          get the row and column headers. It scrolls horizontally INSIDE its own
+          box at 375px, so the page itself never gains a horizontal scrollbar. */}
+      <div class="border border-lab-800 bg-lab-900 overflow-x-auto">
+        <table class="w-full min-w-[46rem] border-collapse text-left">
+          <caption class="sr-only">
+            Precipitation, soil moisture and temperature by Oregon region, averaged over the
+            0.4-degree weather lattice. Figures for regions holding few grid points are flagged
+            thin.
+          </caption>
+          <thead>
+            <tr class="border-b border-lab-800">
+              <th scope="col" class="label font-normal px-4 py-3">Region</th>
+              <th scope="col" class="label font-normal px-3 py-3 text-right">Rain 7d</th>
+              <th scope="col" class="label font-normal px-3 py-3 text-right">vs prior</th>
+              <th scope="col" class="label font-normal px-3 py-3 text-right">Rain 30d</th>
+              <th scope="col" class="label font-normal px-3 py-3 text-right">Dry days</th>
+              <th scope="col" class="label font-normal px-3 py-3 text-right">Soil moisture</th>
+              <th scope="col" class="label font-normal px-3 py-3 text-right">Soil °F</th>
+              <th scope="col" class="label font-normal px-3 py-3 text-right">Air °F</th>
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((r) => (
+              <tr
+                class:list={[
+                  'border-b border-lab-800 last:border-b-0 align-top',
+                  r.isStatewide ? 'bg-lab-950' : '',
+                ]}
+              >
+                <th scope="row" class="font-normal py-3 pr-3 pl-0">
+                  <span class="flex items-stretch gap-3">
+                    <span
+                      class:list={['w-0.5 shrink-0', gutter[r.moisture.tone]]}
+                      aria-hidden="true"
+                    />
+                    <span class="block">
+                      <span
+                        class:list={[
+                          'block text-sm',
+                          r.isStatewide ? 'text-lab-100 font-semibold' : 'text-lab-100',
+                        ]}
+                      >
+                        {r.name}
+                        {r.thin && <span class="badge badge-spore ml-2">thin</span>}
+                      </span>
+                      <span class="block font-mono text-2xs text-lab-500 mt-0.5 tabular-nums">
+                        {r.points} grid point{r.points === 1 ? '' : 's'}
+                        {r.elevMeanFt != null && ` · mean ${r.elevMeanFt.toLocaleString()} ft`}
+                      </span>
+                      {r.thin && (
+                        <span class="block text-2xs text-spore-400 mt-1 leading-snug max-w-[18rem]">
+                          Too few points to average with confidence — the run flagged this
+                          region, and its figures are only shown with the count above.
+                        </span>
+                      )}
+                    </span>
+                  </span>
+                </th>
+                <td class="px-3 py-3 text-right font-mono text-sm text-lab-100 tabular-nums whitespace-nowrap">
+                  {fmt(r.rain7in)}
+                  <span class="text-2xs text-lab-500"> in</span>
+                </td>
+                <td
+                  class:list={[
+                    'px-3 py-3 text-right font-mono text-sm tabular-nums whitespace-nowrap',
+                    r.rain7Change == null
+                      ? 'text-lab-500'
+                      : r.rain7Change > 0
+                        ? 'text-bio-400'
+                        : 'text-lab-400',
+                  ]}
+                >
+                  {signed(r.rain7Change)}
+                </td>
+                <td class="px-3 py-3 text-right font-mono text-sm text-lab-300 tabular-nums whitespace-nowrap">
+                  {fmt(r.rain30in)}
+                </td>
+                <td class="px-3 py-3 text-right font-mono text-sm text-lab-300 tabular-nums whitespace-nowrap">
+                  {r.daysSinceRain ?? '—'}
+                </td>
+                <td class="px-3 py-3 text-right whitespace-nowrap">
+                  <span class="block font-mono text-sm text-lab-100 tabular-nums">
+                    {fmt(r.vwc, 3)}
+                  </span>
+                  <span
+                    class:list={[
+                      'block text-2xs mt-0.5',
+                      r.moisture.tone === 'dry' ? 'text-spore-400' : 'text-lab-400',
+                    ]}
+                  >
+                    {r.moisture.label}
+                  </span>
+                </td>
+                <td class="px-3 py-3 text-right whitespace-nowrap">
+                  <span class="block font-mono text-sm text-lab-100 tabular-nums">
+                    {fmt(r.soilTempF, 1)}
+                  </span>
+                  {r.coolingF != null && (
+                    <span class="block font-mono text-2xs text-lab-500 mt-0.5 tabular-nums">
+                      {r.coolingF > 0
+                        ? `cooling ${r.coolingF.toFixed(1)}`
+                        : r.coolingF < 0
+                          ? `warming ${Math.abs(r.coolingF).toFixed(1)}`
+                          : 'flat'}
+                    </span>
+                  )}
+                </td>
+                <td class="px-3 py-3 text-right font-mono text-sm text-lab-300 tabular-nums whitespace-nowrap">
+                  {fmt(r.airTempF, 1)}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      {/* The key. A weather report's legend explains its ramp in a line, not a
+          paragraph, and this one has to explain three columns a reader has not
+          seen on a weather site before. */}
+      <dl class="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-lab-800 border border-lab-800 border-t-0 text-xs">
+        <div class="bg-lab-950 px-4 py-3">
+          <dt class="label">Rain 7d / 30d</dt>
+          <dd class="text-lab-400 mt-1.5 leading-snug">
+            Mean inches per grid point over the window ending on the run's date. "vs prior" is the
+            change against the preceding window of the same length.
+          </dd>
+        </div>
+        <div class="bg-lab-950 px-4 py-3">
+          <dt class="label">Dry days</dt>
+          <dd class="text-lab-400 mt-1.5 leading-snug">
+            Median days since measurable rain. This is the number that starts and stops the
+            fruiting clock.
+          </dd>
+        </div>
+        <div class="bg-lab-950 px-4 py-3">
+          <dt class="label">Soil moisture</dt>
+          <dd class="text-lab-400 mt-1.5 leading-snug">
+            Volumetric water content, and its state against the scorer's abort floor and field
+            capacity. Below the floor, pins abort.
+          </dd>
+        </div>
+        <div class="bg-lab-950 px-4 py-3">
+          <dt class="label">Soil °F / Air °F</dt>
+          <dd class="text-lab-400 mt-1.5 leading-snug">
+            Trailing 3-day means. The soil figure drives fruiting; the air figure is context.
+            Cooling is the direction autumn fruiting wants.
+          </dd>
+        </div>
+      </dl>
+
+      <p class="text-xs text-lab-500 leading-relaxed mt-3">
+        None of these is a fruiting score and none is a probability. They are the weather the
+        score is computed from, averaged over the same coarse lattice.
+        {summary?.region_scheme?.name && (
+          <>
+            {' '}Region boundaries follow the{' '}
+            <span class="font-mono text-lab-400">{summary.region_scheme.name}</span> scheme.
+          </>
+        )}
+      </p>
+
+      {/* Region definitions, folded away. The site's established disclosure
+          idiom is a native <details>, which opens with no JavaScript. */}
+      <details class="mt-4 border border-lab-800 bg-lab-900">
+        <summary class="cursor-pointer select-none px-4 py-3 label hover:text-lab-100">
+          How each region is defined
+        </summary>
+        <dl class="border-t border-lab-800 px-4 py-4 space-y-3">
+          {rows.map((r) => (
+            <div>
+              <dt class="text-sm text-lab-200">
+                {r.name}{' '}
+                <span class="font-mono text-2xs text-lab-500">({r.points} pts)</span>
+              </dt>
+              <dd class="text-xs text-lab-400 mt-1 leading-relaxed">
+                {r.definition ?? 'No definition recorded in this run.'}
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </details>
+    </section>
+  ) : null
+}

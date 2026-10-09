@@ -1,16 +1,61 @@
 ---
 /**
- * /weather — today's fruiting report.
+ * /weather — the fruiting report, as a weather report.
  *
- * The whole page is assembled from one run record. If there is no publishable
- * run, the page says so rather than showing the last one under today's date.
+ * Shipped 2026-10-08 on Josh's sign-off, promoted from /weather/preview, which
+ * is gone: two copies of this page would have drifted. The previous version is
+ * in git history. Nothing here writes to data/weather/ or depends on anything
+ * the daily job does differently.
+ *
+ * WHAT CHANGED, AND WHY
+ *
+ * The brief was three things: make it read like a weather report, make species
+ * selection and viewing easy, and surface historical and forecast views.
+ *
+ *   The LOOK. A weather report leads with a clear primary reading, a time
+ *   strip you can scan, a legend that explains its ramp in a line, and
+ *   location context. /weather led instead with the enrichment claim and then
+ *   stacked seventeen 1456-pixel maps. The claim is still here and still
+ *   derived — it is the product — but it now sits below the conditions, where
+ *   a report's "what this means" box sits, rather than standing where the
+ *   weather should be. The weather that was missing is `weather_summary`,
+ *   which the pipeline had been emitting for a month and no page had read.
+ *
+ *   SELECTION. Seventeen species, one map at a time, a persistent selector
+ *   that does not collapse, grouped by season. See SpeciesSelect.astro.
+ *
+ *   HISTORY AND FORECAST. Nine published runs exist and their numbers were
+ *   already in the repository; the strip under each map is them. The forecast
+ *   does not exist yet — `includes_forecast_days` is false on every run — so
+ *   the forecast lane is rendered empty with its reason, and the drawing that
+ *   will distinguish a projected day from an observed one is defined and shown
+ *   in the key now, so it can be signed off before any forecast data lands.
+ *
+ * WHAT THE PAGE STILL HAS TO SAY, which a restyle is the easiest way to lose
+ *
+ *   - The weather lattice is 0.4° and interpolated, coarser than the pixels
+ *     the maps draw. This now sits inside the conditions panel, attached to
+ *     the numbers it qualifies, because a panel of large figures is exactly
+ *     where a reader forgets it. The run's own resolution warning is printed
+ *     verbatim underneath.
+ *   - Bands are enrichment against effort-matched controls, never a
+ *     probability. Unchanged, and the word "chance" appears nowhere.
+ *   - Freshness. Freshness.astro carries the fix for the defect where a
+ *     fourteen-day-old map reported "Gap: 1 day behind" — that number is the
+ *     run's internal lag, not its age — and this page renders it high, under
+ *     the masthead, rather than letting conditions appear above it.
+ *   - A forecast map and a retrospective map must not look identical. Handled
+ *     in three places that share one treatment: the time-strip column, the
+ *     tense note above each map, and the key below.
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Conditions from '../../components/weather/Conditions.astro';
 import Freshness from '../../components/weather/Freshness.astro';
 import Legend from '../../components/weather/Legend.astro';
-import Plate from '../../components/weather/Plate.astro';
 import Provenance from '../../components/weather/Provenance.astro';
+import RegionTable from '../../components/weather/RegionTable.astro';
 import SpeciesRoster from '../../components/weather/SpeciesRoster.astro';
+import SpeciesSelect from '../../components/weather/SpeciesSelect.astro';
 import {
   buildReport,
   currentRun,
@@ -23,6 +68,7 @@ import {
   speciesWithBareLookAlikes,
   validationGenerated,
 } from '../../lib/weather';
+import { defaultSpeciesId, runKind, summaryFor } from '../../lib/weather-report';
 
 const run = currentRun;
 const report = run ? buildReport(run) : null;
@@ -30,9 +76,11 @@ const speciesRows = run?.manifest.species ?? [];
 const inRun = new Set(speciesRows.map((s) => s.id));
 const bandsAttached = run?.manifest.score_bands != null;
 
+const summary = run ? summaryFor(run) : null;
+const kinding = run ? runKind(run) : null;
+
 // One legend serves the page, so it may only carry band names when every
-// species on the page was measured to the same cut points. Mixed runs get the
-// raw ramp; per-species bands live on the species pages.
+// species was measured to the same cut points. (Unchanged from /weather.)
 const perSpeciesBands = run ? speciesRows.map((s) => manifestBands(run.manifest, s.id)) : [];
 const pageBands =
   perSpeciesBands.length &&
@@ -40,25 +88,29 @@ const pageBands =
     ? perSpeciesBands[0]
     : null;
 
-// The headline: the measured claim, derived rather than written. A hand-typed
-// "chanterelles turn up 4× as often" stays on the page long after the species
-// stops being back-tested, which is the kind of quiet lie this section exists
-// not to tell. Where nothing has been back-tested, `claim` is null and the page
-// says so instead of inventing a number.
 const claim = headlineClaim(run ?? undefined);
 const coverage = lookAlikeCoverage();
 
 const allProfiles = Object.values(profiles);
 const nMissing = allProfiles.length - inRun.size;
 const nBackTested = allProfiles.filter((p) => evidentialStatus(p.id).kind === 'measured').length;
-
 const bareLookAlikes = speciesWithBareLookAlikes();
 
+// The page opens on the species the headline claim is about, so the opening
+// map and the opening number describe the same mushroom.
+const openOn = run ? defaultSpeciesId(run, claim?.speciesId) : null;
+
+// The land-cover sentence. `unassessedSentence` is a bare SUBJECT ("None",
+// "About one pixel in 12"); gluing " of the map has no land-cover measurement"
+// onto it produced "none of the map has no land-cover measurement" on a clean
+// run — fixed at source in weather.ts, which now emits the whole sentence.
+const landCoverLine = report?.unassessedFull ?? '';
+
 const title = run
-  ? `Where to look — Oregon fruiting map, ${run.as_of_date} | MycoSci`
+  ? `Oregon fruiting report — ${run.as_of_date} | MycoSci`
   : 'Fruiting weather | MycoSci';
 const description = run
-  ? `A foraging map for Oregon: where the weather up to ${run.as_of_date} matches the pattern that precedes fruiting, ranked against the ground real records actually sit on.`
+  ? `Oregon fruiting conditions as of ${run.as_of_date}: statewide and regional rainfall, soil moisture and temperature, and where the weather matches the pattern that precedes fruiting for seventeen species.`
   : 'Daily fruiting maps for Oregon, built from weather archives.';
 ---
 
@@ -67,7 +119,7 @@ const description = run
     {
       !run ? (
         <div class="border-l-2 border-spore-600 bg-spore-600/5 px-5 py-5">
-          <p class="font-mono text-2xs uppercase tracking-wider text-spore-400">No run published</p>
+          <p class="label text-spore-400">No run published</p>
           <h1 class="text-2xl font-semibold text-lab-100 mt-2">There is no map to show.</h1>
           <p class="text-sm text-lab-300 mt-3 leading-relaxed max-w-2xl">
             The pipeline exits without emitting a map rather than publish a degraded one, and this
@@ -76,33 +128,110 @@ const description = run
         </div>
       ) : (
         <>
-          {/* Header */}
-          <div class="border-b border-lab-800 pb-8 mb-8">
-            <div class="flex flex-wrap items-center gap-3">
-              <span class="label text-bio-500">// Fruiting weather</span>
+          {/* ------------------------------------------------------------
+              Masthead. A weather report's banner: where, when, and what
+              kind of reading this is. The kind badge is not decoration —
+              it is the observed/forecast distinction, stated first.
+          ------------------------------------------------------------- */}
+          <header class="border-b border-lab-800 pb-6 mb-6">
+            <div class="flex flex-wrap items-center gap-2.5">
+              <span class="label text-bio-500">// Fruiting report</span>
               <span class="badge badge-bio">Oregon</span>
+              <span class="badge badge-bio">{kinding!.label}</span>
               <span class="label">
                 Weather as of <span class="text-lab-300">{run.as_of_date}</span>
               </span>
             </div>
-            <h1 class="text-3xl sm:text-4xl font-semibold text-lab-100 mt-2 tracking-tight">
+            <h1 class="text-3xl sm:text-4xl font-semibold text-lab-100 mt-2.5 tracking-tight">
               {fmtDate(run.as_of_date)}
             </h1>
             <p class="text-lab-400 mt-3 max-w-3xl leading-relaxed">{report!.lede}</p>
-          </div>
+            <nav class="flex flex-wrap gap-x-5 gap-y-1 mt-4">
+              <a href="#conditions" class="label hover:text-lab-100">Conditions</a>
+              <a href="#maps" class="label hover:text-lab-100">Maps</a>
+              <a href="#regions" class="label hover:text-lab-100">Regions</a>
+              <a href="#worth" class="label hover:text-lab-100">What the colours are worth</a>
+              <a href="/weather/method" class="label hover:text-lab-100">Method ↗</a>
+              <a href="/weather/limits" class="label hover:text-lab-100">Limits ↗</a>
+            </nav>
+          </header>
 
+          {/* Freshness and staleness, high. A page that cannot say it is
+              stale is how this project served a 13-day-old map. */}
           <Freshness run={run} />
 
-          {/* ---------------------------------------------------------------
-              The claim, and the number behind it.
+          {/* ---------------------------------------------------------- */}
+          <section id="conditions" class="mt-10 scroll-mt-20">
+            <Conditions run={run} summary={summary} kinding={kinding!} />
+          </section>
 
-              This is the product, so it leads. The qualifier — that it is a
-              ratio against ground people actually searched, not a percentage
-              — rides along with the number in a line rather than standing as
-              a panel of its own. Every figure is derived from the standing
-              band analysis and from this run; nothing is typed in.
-          ---------------------------------------------------------------- */}
-          <section class="mt-12">
+          {/* ---------------------------------------------------------- */}
+          <section id="maps" class="mt-12 scroll-mt-20">
+            <SpeciesSelect run={run} kinding={kinding!} defaultId={openOn!} />
+
+            <div class="mt-6">
+              <Legend bands={pageBands} />
+            </div>
+
+            {/* The key for the one distinction that must never collapse. */}
+            <div class="border border-lab-800 bg-lab-900 mt-4">
+              <p class="label px-5 pt-4">// Observed and forecast are drawn differently</p>
+              <div class="grid sm:grid-cols-2 gap-px bg-lab-800 border-t border-lab-800 mt-3">
+                <div class="bg-lab-950 px-5 py-4">
+                  <div class="key-observed h-8 border border-lab-700 mb-3"></div>
+                  <p class="text-sm text-lab-100">
+                    <strong>Observed</strong> — conditions that <em>have been</em> right.
+                  </p>
+                  <p class="text-xs text-lab-400 mt-1.5 leading-relaxed">
+                    Solid fill, hairline border. Built from a weather archive, which settles about
+                    a day after the fact. Every run published to date is this.
+                  </p>
+                </div>
+                <div class="bg-lab-950 px-5 py-4">
+                  <div class="key-forecast h-8 border border-dashed border-bio-600 mb-3"></div>
+                  <p class="text-sm text-lab-100">
+                    <strong>Forecast</strong> — conditions that <em>may be</em> right.
+                  </p>
+                  <p class="text-xs text-lab-400 mt-1.5 leading-relaxed">
+                    Diagonal hatch, dashed border, and the conditional tense in the prose above
+                    the map. A hatch rather than a lighter shade, because a shade is not visible
+                    on a dim phone in the woods. Nothing on the page carries this treatment yet.
+                  </p>
+                </div>
+              </div>
+              <p class="px-5 py-4 text-xs text-lab-500 leading-relaxed border-t border-lab-800">
+                A map saying the weather has already been right and a map saying it might be are
+                different claims, and this is where they are kept apart: in the time strip's
+                columns, in the note above each map, and in the masthead badge. One treatment,
+                one meaning, three places.
+              </p>
+            </div>
+
+            {!bandsAttached && (
+              <div class="border-l-2 border-lab-600 bg-lab-900 px-4 py-4 mt-4">
+                <p class="label">No band names on today's images</p>
+                <p class="text-sm text-lab-300 mt-2 leading-relaxed">
+                  This run emitted <span class="font-mono text-lab-100">score_bands: null</span>,
+                  so the images ship with a raw score ramp and no <em>possible</em> or{' '}
+                  <em>prime</em> labels printed on them. The measured cut points are below and on
+                  each species page, dated separately — read the scores off the ramp and compare
+                  them yourself.
+                </p>
+              </div>
+            )}
+          </section>
+
+          {/* ---------------------------------------------------------- */}
+          <section id="regions" class="mt-12 scroll-mt-20">
+            <RegionTable summary={summary} />
+          </section>
+
+          {/* ------------------------------------------------------------
+              The measured claim. Still derived, still the product — moved
+              below the conditions because a weather report puts "what this
+              means" after the reading, not instead of it.
+          ------------------------------------------------------------- */}
+          <section id="worth" class="mt-12 scroll-mt-20">
             <h2 class="label mb-4">// What the colours are worth</h2>
             {claim ? (
               <div class="border border-lab-800 bg-lab-900">
@@ -134,9 +263,7 @@ const description = run
 
                 {typeof claim.todayMax === 'number' && (
                   <div class="border-t border-lab-800 px-6 py-4">
-                    <p class="font-mono text-2xs uppercase tracking-wider text-lab-500">
-                      On today's map
-                    </p>
+                    <p class="label">On this run's map</p>
                     <p class="text-sm text-lab-300 mt-2 leading-relaxed">
                       {claim.speciesName.charAt(0).toUpperCase() + claim.speciesName.slice(1)}'s
                       brightest ground anywhere in Oregon scores{' '}
@@ -148,14 +275,16 @@ const description = run
                           <> — inside the {claim.top.enrichment.toFixed(1)}× band.</>
                         ) : (
                           <>
-                            {' '}— inside the {claim.todayBand.enrichment.toFixed(1)}× band, below
-                            the {claim.top.enrichment.toFixed(1)}× one. Nowhere in the state
-                            reaches the top band on this run.
+                            {' '}
+                            — inside the {claim.todayBand.enrichment.toFixed(1)}× band, below the{' '}
+                            {claim.top.enrichment.toFixed(1)}× one. Nowhere in the state reaches
+                            the top band on this run.
                           </>
                         )
                       ) : (
                         <>
-                          {' '}— below every measured band. Nothing on today's map is on ground the
+                          {' '}
+                          — below every measured band. Nothing on this map is on ground the
                           back-test found enriched.
                         </>
                       )}
@@ -168,9 +297,11 @@ const description = run
                     {nBackTested === 1
                       ? `That number belongs to one species. The other ${allProfiles.length - nBackTested} are mapped by the same model and scored the same way, but nobody has back-tested how well their scores rank ground yet — so read their maps as the model's best answer, not as a measured one.`
                       : `${nBackTested} of the ${allProfiles.length} species here have been back-tested this way; the rest are mapped by the same model but their ranking has not been checked against real records yet.`}{' '}
-                    <a href="/weather/limits" class="text-bio-400 hover:text-bio-300">Which is
-                    which</a>. Standing band analysis dated {validationGenerated || 'unknown'}; none of it
-                    was used to colour the maps below.
+                    <a href="/weather/limits" class="text-bio-400 hover:text-bio-300">
+                      Which is which
+                    </a>
+                    . Standing band analysis dated {validationGenerated || 'unknown'}; none of it
+                    was used to colour the maps above.
                   </p>
                 </div>
               </div>
@@ -178,7 +309,7 @@ const description = run
               <div class="border border-lab-800 bg-lab-900 p-6">
                 <p class="text-sm text-lab-300 leading-relaxed">
                   No species here has been back-tested against real occurrence records yet, so
-                  there is no measured ratio to lead with. Every map below is the model's own
+                  there is no measured ratio to lead with. Every map above is the model's own
                   output — a hypothesis about where to look, with nothing standing behind its
                   ranking.
                 </p>
@@ -194,8 +325,10 @@ const description = run
                   sustained moisture long enough for the mycelium to incubate, and a temperature
                   now inside the species' fruiting range — in forest the species actually
                   associates with.{' '}
-                  <a href="/weather/method" class="text-bio-400 hover:text-bio-300">How the
-                  score is built</a>.
+                  <a href="/weather/method" class="text-bio-400 hover:text-bio-300">
+                    How the score is built
+                  </a>
+                  .
                 </p>
               </div>
               <div class="bg-lab-950 p-6">
@@ -203,75 +336,37 @@ const description = run
                 <p class="text-sm text-lab-400 mt-3 leading-relaxed">
                   Whether there is mycelium under a given hillside, whether the stand was logged,
                   whether somebody picked it out yesterday, or whether the ground is private or
-                  closed. {report!.unassessedFull}{' '}
-                  <a href="/weather/limits" class="text-bio-400 hover:text-bio-300">The full
-                  list</a>.
+                  closed. {landCoverLine}{' '}
+                  <a href="/weather/limits" class="text-bio-400 hover:text-bio-300">
+                    The full list
+                  </a>
+                  .
                 </p>
               </div>
             </div>
           </section>
 
-          {/* Maps */}
-          <section class="mt-12">
-            <h2 class="label mb-4">// Maps</h2>
-            <div class="space-y-6">
-              {speciesRows.length ? (
-                speciesRows.map((sp) => <Plate species={sp} run={run} />)
-              ) : (
-                <div class="card p-6">
-                  <h3 class="text-base font-semibold text-lab-100">No species rendered</h3>
-                  <p class="text-sm text-lab-400 mt-2 leading-relaxed">
-                    The run completed but painted nothing. That is a real answer, not a failure.
-                  </p>
-                </div>
-              )}
-            </div>
-
-            <div class="mt-6">
-              <Legend bands={pageBands} />
-            </div>
-
-            {!bandsAttached && (
-              <div class="border-l-2 border-lab-600 bg-lab-900 px-4 py-4 mt-6">
-                <p class="font-mono text-2xs uppercase tracking-wider text-lab-400">
-                  No band names on today's images
-                </p>
-                <p class="text-sm text-lab-300 mt-2 leading-relaxed">
-                  This run emitted <span class="font-mono text-lab-100">score_bands: null</span>,
-                  so the images ship with a raw score ramp and no <em>possible</em> or{' '}
-                  <em>prime</em> labels printed on them. The measured cut points are above and on
-                  each species page, dated separately — read the scores off the ramp and compare
-                  them yourself.
-                </p>
-              </div>
-            )}
-          </section>
-
-          {/* --------------------------------------------------------------
-              Safety. ONE caveat, stated once, and then the thing that
-              actually protects a reader: what each species is confused with
-              and how the sources say to separate them.
-          --------------------------------------------------------------- */}
+          {/* Safety. ONE caveat, stated once. Unchanged. */}
           <div class="border-l-2 border-red-500 bg-red-500/10 px-5 py-5 mt-12">
-            <p class="font-mono text-2xs uppercase tracking-wider text-red-400">Safety · read this</p>
+            <p class="label text-red-400">Safety · read this</p>
             <p class="text-base text-lab-100 mt-2 leading-relaxed">
-              <strong>This map tells you where to look. It cannot tell you what you are
-              holding.</strong>
+              <strong>
+                This map tells you where to look. It cannot tell you what you are holding.
+              </strong>
             </p>
             <p class="text-sm text-lab-300 mt-3 leading-relaxed">
               Nothing on this site says a mushroom is safe to eat. Some species mapped here have
               look-alikes that will put you in hospital, and one common Oregon look-alike causes
-              flushing, nausea and palpitations — but only if you drink alcohol within a day or
-              two of eating it. Identify with a key, a spore print and, where you can, somebody
-              who already knows the species.
+              flushing, nausea and palpitations — but only if you drink alcohol within a day or two
+              of eating it. Identify with a key, a spore print and, where you can, somebody who
+              already knows the species.
             </p>
             {coverage.researched.length > 0 && (
               <p class="text-sm text-lab-300 mt-3 leading-relaxed">
-                {coverage.researched.length} of the {coverage.total} species here carry a
-                look-alike section written from {coverage.sourcesMin}–{coverage.sourcesMax}{' '}
-                independent sources each — what it is confused with, how the sources say to tell
-                them apart, and where the sources disagree with each other. Read the one for what
-                you are after:{' '}
+                {coverage.researched.length} of the {coverage.total} species here carry a look-alike
+                section written from {coverage.sourcesMin}–{coverage.sourcesMax} independent sources
+                each — what it is confused with, how the sources say to tell them apart, and where
+                the sources disagree with each other. Read the one for what you are after:{' '}
                 {coverage.researched.map((p, i) => (
                   <>
                     {i > 0 && <span class="text-lab-600"> · </span>}
@@ -289,20 +384,18 @@ const description = run
 
           {bareLookAlikes.length > 0 && (
             <div class="border-l-2 border-spore-600 bg-spore-600/5 px-4 py-4 mt-4">
-              <p class="font-mono text-2xs uppercase tracking-wider text-spore-400">
-                Known gap in this data
-              </p>
+              <p class="label text-spore-400">Known gap in this data</p>
               <p class="text-sm text-lab-300 mt-2 leading-relaxed">
                 {bareLookAlikes.length} of the species profiles still record a look-alike as a bare
                 identifier — a name, with no description and no way to tell the two apart:{' '}
                 {bareLookAlikes.map((s) => s.name).join(', ')}. Those are marked as incomplete on
-                the species pages rather than dressed up as guidance. Use a regional field guide
-                for them.
+                the species pages rather than dressed up as guidance. Use a regional field guide for
+                them.
               </p>
             </div>
           )}
 
-          {/* The day's report */}
+          {/* What moved. Now a tightened list rather than the page's spine. */}
           <section class="mt-12">
             <h2 class="label mb-4">// What moved since the last run</h2>
             <div class="card p-6">
@@ -327,13 +420,23 @@ const description = run
                 </ul>
               </div>
               <div class="bg-lab-950 p-6">
-                <h3 class="text-base font-semibold text-lab-100">What this report leaves out</h3>
-                <p class="text-sm text-lab-400 mt-3 leading-relaxed">{report!.cannotSay}</p>
+                <h3 class="text-base font-semibold text-lab-100">What this report still leaves out</h3>
+                <p class="text-sm text-lab-400 mt-3 leading-relaxed">
+                  A forecast. Everything on this page is observed weather out of an archive that
+                  settles about a day after the fact, so if a storm arrived this morning, nothing
+                  here has heard about it. And no map for a day the pipeline did not run — past
+                  runs exist as numbers in the strip under each map, and only the runs with images
+                  still on the map origin can be looked at as pictures.
+                </p>
+                <p class="text-sm text-lab-500 mt-3 leading-relaxed">
+                  Rainfall and regional summaries used to be on this list. They are on the page
+                  now, from{' '}
+                  <span class="font-mono text-lab-400">manifest.weather_summary</span>.
+                </p>
               </div>
             </div>
           </section>
 
-          {/* Warnings the run itself flagged */}
           {(report!.warnings.length > 0 || report!.publishNotes.length > 0) && (
             <section class="mt-12">
               <h2 class="label mb-4">// Flagged on this run</h2>
@@ -348,7 +451,6 @@ const description = run
             </section>
           )}
 
-          {/* Roster */}
           <section class="mt-12">
             <h2 class="label mb-4">// Every species, and how far each has been checked</h2>
             <p class="text-sm text-lab-400 max-w-3xl leading-relaxed mb-2">
@@ -356,7 +458,6 @@ const description = run
               anybody has back-tested how well its scores rank ground against real records — and
               that difference is large enough to belong on the front page. The bar on the left of
               each row is solid where a species has been back-tested and broken where it has not.
-              Species in today's run come first.
             </p>
             <p class="text-sm text-lab-400 max-w-3xl leading-relaxed mb-6">
               {nMissing
@@ -366,7 +467,6 @@ const description = run
             <SpeciesRoster inRun={inRun} />
           </section>
 
-          {/* Provenance */}
           <section class="mt-12">
             <h2 class="label mb-4">// Where this run came from</h2>
             <Provenance run={run} />
@@ -376,3 +476,21 @@ const description = run
     }
   </div>
 </BaseLayout>
+
+<style>
+  /* The key swatches. Same two treatments as TimeStrip.astro, which is a
+     duplication worth naming: if either moves, both must. They are eight
+     lines of CSS and sharing them through a component would cost more
+     indirection than it saves. */
+  .key-observed {
+    background: #c89b3f;
+  }
+
+  .key-forecast {
+    background-image: repeating-linear-gradient(
+      135deg,
+      rgba(200, 155, 63, 0.55) 0 3px,
+      transparent 3px 7px
+    );
+  }
+</style>

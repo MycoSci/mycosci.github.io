@@ -6,6 +6,25 @@
  * settles about a day after the fact, so a morning run lands somewhere between
  * fourteen and thirty-eight hours behind real time. Leading with the map's own
  * date would quietly claim knowledge the run does not have.
+ *
+ * WHAT THIS DID NOT SAY, AND NOW DOES
+ *
+ * Every number below is a statement about the RUN, fixed when the page was
+ * built: as-of date, target date, the gap between them. None of them is a
+ * statement about now. Between 2026-09-08 and 2026-09-17 this section served a
+ * nine-day-old map, and this panel described it in exactly the words it uses
+ * for a map rendered this morning — "1 day behind", accurate about the run and
+ * silent about the week.
+ *
+ * That is the failure mode of a static site publishing perishable data: nothing
+ * on the page knows what day it is. So the age is computed in the reader's
+ * browser, at load, against the reader's own clock, and a map that has stopped
+ * being updated says so itself — which matters most precisely when the
+ * scheduled job is the thing that broke, because then no alert fires either.
+ *
+ * The no-JavaScript path still says something TRUE rather than something
+ * reassuring: it reports the lag measured when the page was built, labelled as
+ * of the build date. It cannot know today's date; it can refuse to imply it.
  */
 import type { RunRecord } from '../../lib/weather';
 
@@ -16,6 +35,20 @@ const { run } = Astro.props;
 
 const lag = run.lag_days_behind_target ?? 0;
 const fresh = run.manifest?.weather?.freshness ?? {};
+
+// Build-time age. Honest and permanent: it is what was true when this HTML was
+// generated, and it is labelled that way.
+const builtAt = new Date();
+const buildISO = builtAt.toISOString().slice(0, 10);
+const daysBetween = (a: string, b: string) =>
+  Math.round((Date.parse(b + 'T00:00:00Z') - Date.parse(a + 'T00:00:00Z')) / 86400000);
+const ageAtBuild = daysBetween(run.as_of_date, buildISO);
+
+// Matches MYCOMAP_STALE_DAYS in the pipeline's scripts/daily-run.sh, which
+// alerts on the same threshold. One number, two places it has to be true: the
+// operator is told and the reader is told, and neither depends on the other
+// still working.
+const STALE_AFTER_DAYS = 3;
 
 const items: Array<{ label: string; value: string; warn?: boolean }> = [
   { label: 'Weather as of', value: run.as_of_date },
@@ -34,6 +67,21 @@ if (fresh.last_observed_hour) {
 }
 ---
 
+<div
+  id="weather-staleness"
+  data-as-of={run.as_of_date}
+  data-stale-after={STALE_AFTER_DAYS}
+  class="border-l-2 border-spore-600 bg-spore-600/5 px-5 py-4 mb-4"
+  hidden
+>
+  <p class="font-mono text-2xs uppercase tracking-wider text-spore-400">Stale map</p>
+  <p class="text-sm text-lab-200 mt-2 leading-relaxed">
+    <span id="weather-staleness-age">This map is out of date.</span>
+    It is published by a job that runs every morning, so an age that keeps growing means that job
+    is failing rather than that the weather stopped. Read the colours as history, not as today.
+  </p>
+</div>
+
 <dl class="grid grid-cols-2 sm:grid-cols-4 border-t border-l border-lab-800">
   {
     items.map((item) => (
@@ -50,4 +98,60 @@ if (fresh.last_observed_hour) {
       </div>
     ))
   }
+  <div class="border-b border-r border-lab-800 px-4 py-3">
+    <dt class="label">Age</dt>
+    <dd
+      id="weather-age"
+      data-as-of={run.as_of_date}
+      data-stale-after={STALE_AFTER_DAYS}
+      class="font-mono text-sm mt-1.5 tabular-nums text-lab-100"
+    >
+      {ageAtBuild === 0 ? 'same day' : `${ageAtBuild}d`} at build ({buildISO})
+    </dd>
+  </div>
 </dl>
+
+<script is:inline>
+  // Inline and unbundled: this is the one number on the page that must not
+  // depend on a request succeeding, because the case it exists for is the case
+  // where the rest of the pipeline is already broken.
+  (function () {
+    var age = document.getElementById('weather-age');
+    if (!age) return;
+    var asOf = age.getAttribute('data-as-of');
+    var staleAfter = parseInt(age.getAttribute('data-stale-after') || '3', 10);
+
+    var asOfMs = Date.parse(asOf + 'T00:00:00Z');
+    if (isNaN(asOfMs)) return;
+
+    // Both sides in UTC days. The reader's local date is what they mean by
+    // "today", and the run's as-of date is a UTC calendar date, so comparing
+    // the two as dates rather than as instants avoids a timezone making a
+    // fresh map look a day old every evening in Oregon.
+    var now = new Date();
+    var todayMs = Date.parse(
+      now.getFullYear() +
+        '-' +
+        String(now.getMonth() + 1).padStart(2, '0') +
+        '-' +
+        String(now.getDate()).padStart(2, '0') +
+        'T00:00:00Z'
+    );
+    var days = Math.round((todayMs - asOfMs) / 86400000);
+    if (days < 0) days = 0;
+
+    age.textContent = days === 0 ? 'today' : days === 1 ? '1 day old' : days + ' days old';
+    if (days > staleAfter) {
+      age.classList.remove('text-lab-100');
+      age.classList.add('text-spore-400');
+
+      var banner = document.getElementById('weather-staleness');
+      var line = document.getElementById('weather-staleness-age');
+      if (line) {
+        line.textContent =
+          'This map is ' + days + ' days old — the weather it describes is from ' + asOf + '.';
+      }
+      if (banner) banner.hidden = false;
+    }
+  })();
+</script>
