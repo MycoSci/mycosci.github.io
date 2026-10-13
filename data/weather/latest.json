@@ -2,8 +2,8 @@
   "as_of_date": "2026-10-12",
   "target_date": "2026-10-13",
   "lag_days_behind_target": 1,
-  "published_at": "2026-10-13T13:22:30.720Z",
-  "manifest_sha256": "8fec9b4339fdb787170c0014a997837e229364dbaa3060eb837474ad5296b06f",
+  "published_at": "2026-10-13T18:19:49.236Z",
+  "manifest_sha256": "0a8944ebd4ea5a4cda05ecf884711042f7787f1455ad5a6dfe1e51b0fd8e2c0a",
   "run": "data/weather/runs/2026-10-12.json",
   "origin_uploaded": true,
   "publishable": true

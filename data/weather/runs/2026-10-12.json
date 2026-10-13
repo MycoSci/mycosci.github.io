@@ -1,17 +1,27 @@
 {
   "record_version": 1,
-  "published_at": "2026-10-13T13:22:30.720Z",
+  "published_at": "2026-10-13T18:19:49.236Z",
   "as_of_date": "2026-10-12",
   "target_date": "2026-10-13",
   "lag_days_behind_target": 1,
-  "manifest_sha256": "8fec9b4339fdb787170c0014a997837e229364dbaa3060eb837474ad5296b06f",
+  "manifest_sha256": "0a8944ebd4ea5a4cda05ecf884711042f7787f1455ad5a6dfe1e51b0fd8e2c0a",
   "manifest_path": "out/2026-10-13/manifest.json",
   "manifest": {
     "manifest_version": 1,
-    "generated_at": "2026-10-13T13:20:08.05576692Z",
+    "extent": {
+      "lat_min": 42,
+      "lat_max": 46.3,
+      "lon_min": -124.5,
+      "lon_max": -116.5,
+      "width_px": 1456,
+      "height_px": 1092,
+      "projection": "web_mercator_epsg3857"
+    },
+    "generated_at": "2026-10-13T18:18:29.509361078Z",
     "target_date": "2026-10-13",
     "as_of_date": "2026-10-12",
     "lag_days_behind_target": 1,
+    "run_kind": "retrospective",
     "weather": {
       "source": "open-meteo archive-api v1 (archive)",
       "model": "ecmwf_ifs",
@@ -53,7 +63,7 @@
       },
       "allow_forecast_hours": 0,
       "fetched_at": "2026-10-13T13:20:08.05576692Z",
-      "from_cache": false,
+      "from_cache": true,
       "grid_points": 252,
       "step_degrees": 0.4,
       "series_days_needed": 35
@@ -3872,8 +3882,8 @@
       "revision": "unknown",
       "dirty": false,
       "revision_describes_module": false,
-      "source_digest": "97f5661583ff7798f8ff7d7457d61491a4b9919d02e0dff228b9ad5c35622b2a",
-      "source_files_hashed": 106,
+      "source_digest": "63c622d32730b24fd3d7aff878509e6838917362123a0328b14bca648fae8649",
+      "source_files_hashed": 113,
       "species_profiles_digest": "b09c5e05643d901c28839d0b9145fddc1128db2820cf84f9deddd9a6ae9d3b1e",
       "species_profiles_hashed": 18,
       "digest_note": "the recorded revision does not contain this module's files; it identifies the repository checkout, not this build. source_digest is what identifies the build.",
@@ -3894,7 +3904,10 @@
         "painted_p95": 0.7819647609331584,
         "max_score": 0.8491549686064463,
         "file": "out/2026-10-13/oregon_craterellus_calicornucopioides_2026-10-13.png",
-        "sha256": "40bb4d973adaa2fc21ade84e13147479dcda622f820eecf0956f0ab501d7ffd4"
+        "sha256": "40bb4d973adaa2fc21ade84e13147479dcda622f820eecf0956f0ab501d7ffd4",
+        "overlay_file": "out/2026-10-13/oregon_craterellus_calicornucopioides_2026-10-13.overlay.png",
+        "overlay_sha256": "6949580eda6b4a4d11a056bd6a1cadceeb26e6d103a3f09dcb345ada4ae66af3",
+        "overlay_pixels": 110123
       },
       {
         "id": "lactarius_rubidus",
@@ -3908,7 +3921,10 @@
         "painted_p95": 0.7476127431930617,
         "max_score": 0.8457901300810566,
         "file": "out/2026-10-13/oregon_lactarius_rubidus_2026-10-13.png",
-        "sha256": "63300b4f44ae68c97ca4b21adb4a608b8c6271ab91ee1bb99fa4dcec2404e0fb"
+        "sha256": "63300b4f44ae68c97ca4b21adb4a608b8c6271ab91ee1bb99fa4dcec2404e0fb",
+        "overlay_file": "out/2026-10-13/oregon_lactarius_rubidus_2026-10-13.overlay.png",
+        "overlay_sha256": "74c02b7a663abf0bdfd84ddcd718e00be3888a990834d81c077f4fccce93d1e3",
+        "overlay_pixels": 113613
       },
       {
         "id": "sparassis_radicata",
@@ -3923,7 +3939,10 @@
         "painted_p95": 0.36072968677063694,
         "max_score": 0.4817565304528636,
         "file": "out/2026-10-13/oregon_sparassis_radicata_2026-10-13.png",
-        "sha256": "a8b3dfdde3072078c0ed9730f1c73171b12941f02022ab21179ba5ab943cc269"
+        "sha256": "a8b3dfdde3072078c0ed9730f1c73171b12941f02022ab21179ba5ab943cc269",
+        "overlay_file": "out/2026-10-13/oregon_sparassis_radicata_2026-10-13.overlay.png",
+        "overlay_sha256": "ee806b43972f0c002e5c91820715efd91bafdd501463677d04f8644eab69d3e3",
+        "overlay_pixels": 507188
       },
       {
         "id": "cantharellus_cibarius",
@@ -3937,7 +3956,10 @@
         "painted_p95": 0.6865366583533934,
         "max_score": 0.8242619794078256,
         "file": "out/2026-10-13/oregon_cantharellus_cibarius_2026-10-13.png",
-        "sha256": "f3a8031cb7d2994d27fc357ea299349be11a3292ad69efecf85fb91060e3abe5"
+        "sha256": "f3a8031cb7d2994d27fc357ea299349be11a3292ad69efecf85fb91060e3abe5",
+        "overlay_file": "out/2026-10-13/oregon_cantharellus_cibarius_2026-10-13.overlay.png",
+        "overlay_sha256": "0bc7510860308b5440495bbea852327347a33ea78410ba6a55d84a2e8c6f0527",
+        "overlay_pixels": 184661
       },
       {
         "id": "laetiporus_conifericola",
@@ -3952,7 +3974,10 @@
         "painted_p95": 0.17542355633456808,
         "max_score": 0.2857765573461808,
         "file": "out/2026-10-13/oregon_laetiporus_conifericola_2026-10-13.png",
-        "sha256": "ff8d4cf1d15aef51dce7c75119d3be2bb6d70a3a9ada6e8c7a86b660ea54f2df"
+        "sha256": "ff8d4cf1d15aef51dce7c75119d3be2bb6d70a3a9ada6e8c7a86b660ea54f2df",
+        "overlay_file": "out/2026-10-13/oregon_laetiporus_conifericola_2026-10-13.overlay.png",
+        "overlay_sha256": "fe8fe670822cab581ad6c25dc805636229457b824be8a93a04d5aac4735524c3",
+        "overlay_pixels": 270546
       },
       {
         "id": "hydnum_repandum",
@@ -3966,7 +3991,10 @@
         "painted_p95": 0.6324176505137977,
         "max_score": 0.8484300369175688,
         "file": "out/2026-10-13/oregon_hydnum_repandum_2026-10-13.png",
-        "sha256": "72b5abb6926344daaba9790836b31106d507eef23c4cb33d65895e5df22bb37e"
+        "sha256": "72b5abb6926344daaba9790836b31106d507eef23c4cb33d65895e5df22bb37e",
+        "overlay_file": "out/2026-10-13/oregon_hydnum_repandum_2026-10-13.overlay.png",
+        "overlay_sha256": "8b51e9807165aa285333c63677c192dfbb01af3922be50e9905a4757100afe9d",
+        "overlay_pixels": 123217
       },
       {
         "id": "hericium_abietis",
@@ -3980,7 +4008,10 @@
         "painted_p95": 0.7746875420459038,
         "max_score": 0.8490902556743505,
         "file": "out/2026-10-13/oregon_hericium_abietis_2026-10-13.png",
-        "sha256": "767f3d0e2fc2203689929c535dec756776af6a034569a6c8c692077ca83ee632"
+        "sha256": "767f3d0e2fc2203689929c535dec756776af6a034569a6c8c692077ca83ee632",
+        "overlay_file": "out/2026-10-13/oregon_hericium_abietis_2026-10-13.overlay.png",
+        "overlay_sha256": "2264d41e2e8fdb91b9e7c41ba792f60aaac4707a759e4b6679a93017fe707cec",
+        "overlay_pixels": 228506
       },
       {
         "id": "hypomyces_lactifluorum",
@@ -3995,7 +4026,10 @@
         "painted_p95": 0.34056323137807076,
         "max_score": 0.4677265068216364,
         "file": "out/2026-10-13/oregon_hypomyces_lactifluorum_2026-10-13.png",
-        "sha256": "b1a823dfa344f9f7cf9d0822c56359148697c46a0969cfe12191a092ad0dbff2"
+        "sha256": "b1a823dfa344f9f7cf9d0822c56359148697c46a0969cfe12191a092ad0dbff2",
+        "overlay_file": "out/2026-10-13/oregon_hypomyces_lactifluorum_2026-10-13.overlay.png",
+        "overlay_sha256": "4aef6fc9a7bd742ae91a1cc24b0ecdbeee741802c2bc2e3e2671faf7e38c8bd9",
+        "overlay_pixels": 405391
       },
       {
         "id": "tricholoma_murrillianum",
@@ -4009,7 +4043,10 @@
         "painted_p95": 0.6837247532748156,
         "max_score": 0.848284791635326,
         "file": "out/2026-10-13/oregon_tricholoma_murrillianum_2026-10-13.png",
-        "sha256": "5cbc9ab079b52d23b799105f7039bbbbdd8f43d739c5fedda4198775e03aaf36"
+        "sha256": "5cbc9ab079b52d23b799105f7039bbbbdd8f43d739c5fedda4198775e03aaf36",
+        "overlay_file": "out/2026-10-13/oregon_tricholoma_murrillianum_2026-10-13.overlay.png",
+        "overlay_sha256": "33e34308cb9acb70d365b38c015936ebebe71d88da1addfae9de7982d28e0b38",
+        "overlay_pixels": 187850
       },
       {
         "id": "morchella_importuna",
@@ -4023,7 +4060,10 @@
         "painted_p95": 0.7553847065243637,
         "max_score": 0.8944621744677408,
         "file": "out/2026-10-13/oregon_morchella_importuna_2026-10-13.png",
-        "sha256": "7638c457e414900d2eeb66a5f9a98f500679952be5d77d97aac026836b19d6f9"
+        "sha256": "7638c457e414900d2eeb66a5f9a98f500679952be5d77d97aac026836b19d6f9",
+        "overlay_file": "out/2026-10-13/oregon_morchella_importuna_2026-10-13.overlay.png",
+        "overlay_sha256": "bb05f7caf377f5db184f8aebde0e24e35ac1a66292c6adbe1547d5fcc15ab54c",
+        "overlay_pixels": 269899
       },
       {
         "id": "pleurotus_ostreatus",
@@ -4037,7 +4077,10 @@
         "painted_p95": 0.688016297808093,
         "max_score": 0.8449653932609373,
         "file": "out/2026-10-13/oregon_pleurotus_ostreatus_2026-10-13.png",
-        "sha256": "3e7add5b01b4856ce20dc20af032695298827e6fd9e722d76235148c8158f0ab"
+        "sha256": "3e7add5b01b4856ce20dc20af032695298827e6fd9e722d76235148c8158f0ab",
+        "overlay_file": "out/2026-10-13/oregon_pleurotus_ostreatus_2026-10-13.overlay.png",
+        "overlay_sha256": "88c017d1064f6f194fbf74fe63cb4afa0879ab0c49c0f3365a5257406683bd89",
+        "overlay_pixels": 282977
       },
       {
         "id": "gomphus_clavatus",
@@ -4051,7 +4094,10 @@
         "painted_p95": 0.7681665963174347,
         "max_score": 0.8498628036738725,
         "file": "out/2026-10-13/oregon_gomphus_clavatus_2026-10-13.png",
-        "sha256": "4090dbcd6e85d81a5e1409cdf20c6a182d1610c0b706add5af743a9dc0eed02a"
+        "sha256": "4090dbcd6e85d81a5e1409cdf20c6a182d1610c0b706add5af743a9dc0eed02a",
+        "overlay_file": "out/2026-10-13/oregon_gomphus_clavatus_2026-10-13.overlay.png",
+        "overlay_sha256": "0de47bab8714c1cbd14a9faff4e217c111a5b2dc268c909e23a5fe3b08498b06",
+        "overlay_pixels": 201673
       },
       {
         "id": "boletus_edulis",
@@ -4065,7 +4111,10 @@
         "painted_p95": 0.7204495950163061,
         "max_score": 0.8496589822088536,
         "file": "out/2026-10-13/oregon_boletus_edulis_2026-10-13.png",
-        "sha256": "303c049fa795df805377214a0e9edc83e2140a437c2701f6d4373f953e78116f"
+        "sha256": "303c049fa795df805377214a0e9edc83e2140a437c2701f6d4373f953e78116f",
+        "overlay_file": "out/2026-10-13/oregon_boletus_edulis_2026-10-13.overlay.png",
+        "overlay_sha256": "5adaf87589a8dd0efbfb2a4013de6388c478a7774bcc545a1905312972dcb982",
+        "overlay_pixels": 204527
       },
       {
         "id": "coprinus_comatus",
@@ -4079,7 +4128,10 @@
         "painted_p95": 0.7366473046135542,
         "max_score": 0.8492542163137964,
         "file": "out/2026-10-13/oregon_coprinus_comatus_2026-10-13.png",
-        "sha256": "dbeeab9c3f06b1e6182092945e0a9f8e48539b0371ea753837667e097f139c76"
+        "sha256": "dbeeab9c3f06b1e6182092945e0a9f8e48539b0371ea753837667e097f139c76",
+        "overlay_file": "out/2026-10-13/oregon_coprinus_comatus_2026-10-13.overlay.png",
+        "overlay_sha256": "4dc79d29139dc22e021a59b3fb9dd0d794b481986abf324baf592ed0af9b4d32",
+        "overlay_pixels": 283328
       },
       {
         "id": "boletus_rex_veris",
@@ -4093,7 +4145,10 @@
         "painted_p95": 0.7737411015036095,
         "max_score": 0.8964626230402285,
         "file": "out/2026-10-13/oregon_boletus_rex_veris_2026-10-13.png",
-        "sha256": "0a17162f62a2200ac858e2b77488394e8659f12d3d9260efaee0198e70838812"
+        "sha256": "0a17162f62a2200ac858e2b77488394e8659f12d3d9260efaee0198e70838812",
+        "overlay_file": "out/2026-10-13/oregon_boletus_rex_veris_2026-10-13.overlay.png",
+        "overlay_sha256": "19cb0498a011b354f66c631f2c54931dcc944e785aa6dbae8211ea85a0a4555c",
+        "overlay_pixels": 200244
       },
       {
         "id": "cantharellus_subalbidus",
@@ -4107,7 +4162,10 @@
         "painted_p95": 0.7200691718812582,
         "max_score": 0.8490549273115174,
         "file": "out/2026-10-13/oregon_cantharellus_subalbidus_2026-10-13.png",
-        "sha256": "6cd4da64dd0fd23eaed54e25cea263272853bb973c19f7344ea7ffe909106630"
+        "sha256": "6cd4da64dd0fd23eaed54e25cea263272853bb973c19f7344ea7ffe909106630",
+        "overlay_file": "out/2026-10-13/oregon_cantharellus_subalbidus_2026-10-13.overlay.png",
+        "overlay_sha256": "5c9819d1c33bad72a90923648ab2ee23e27ca4ce6fe8f13bd805e1e4203a03e1",
+        "overlay_pixels": 176609
       },
       {
         "id": "craterellus_tubaeformis",
@@ -4121,13 +4179,16 @@
         "painted_p95": 0.532019289687937,
         "max_score": 0.7814267806308406,
         "file": "out/2026-10-13/oregon_craterellus_tubaeformis_2026-10-13.png",
-        "sha256": "a000706cb097d99ddb1b555c8268dee977a789b63f9559bf5853eabaa1a8caa5"
+        "sha256": "a000706cb097d99ddb1b555c8268dee977a789b63f9559bf5853eabaa1a8caa5",
+        "overlay_file": "out/2026-10-13/oregon_craterellus_tubaeformis_2026-10-13.overlay.png",
+        "overlay_sha256": "a7dbdd9f122fd945a490a2630136e69c2be355923c91e44d1e954911882fa86b",
+        "overlay_pixels": 37894
       }
     ],
     "warnings": [
       "11/252 grid points have no soil-moisture reading on their last day; the timeline moisture term falls back to the precipitation proxy there",
       "1060700/34400000 elevation field cells (3.1%) carry NO measured site elevation (outside the local DEM footprint and not filled by the fringe fallback); the temperature lapse and the profile elevation ceiling are both inert there, which is correct but is not the same model the rest of the map is scored under",
-      "the recorded revision unknown does not contain this module at all (checkout is on branch \"\"); source_digest 97f5661583ff is what identifies this build",
+      "the recorded revision unknown does not contain this module at all (checkout is on branch \"\"); source_digest 63c622d32730 is what identifies this build",
       "resolution: pixels 1440 ft; land cover 256 ft; elevation 262 ft; WEATHER 104822 ft (0.4 deg lattice, interpolated, not downscaled to terrain) — the ground detail in this map is real, the weather behind it is regional",
       "weather summary: 1 region(s) hold too few grid points to average — coast_range (4); their figures are flagged thin and must be reported with the point count or not at all"
     ],
