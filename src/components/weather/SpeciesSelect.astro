@@ -17,14 +17,18 @@
  * collapse, so switching is one tap from anywhere and the alternatives stay
  * visible while you read the map — which is the thing a dropdown cannot do.
  *
- * GROUPED BY SEASON, NOT ALPHABETICALLY
+ * GROUPED BY CLIMATE ENVELOPE, NOT BY SEASON OR ALPHABETICALLY
  *
- * "What is out now" is the question, so the group that answers it is first.
- * The grouping comes from each profile's own `season.months` and nowhere else.
- * Eight of the seventeen profiles have no season recorded, and they get their
- * own group saying exactly that — they are not out of season, their season is
- * unknown, and inferring one from the substrate would be fabricating the field
- * a forager would most reasonably trust. Edibility was the other candidate
+ * "What is possible now" is the question, so the group that answers it is
+ * first. The grouping compares the run's statewide air temperature, soil
+ * temperature and three-day rainfall against each profile's own
+ * `fruiting_conditions` — which all seventeen carry in full, where only nine
+ * carry a season. Season was the old axis and was wrong: a calendar month is a
+ * proxy for conditions we already hold, and the eight species it dumped into
+ * "Season not recorded" were an artefact of that proxy, not a data gap.
+ * Statewide is a MEAN over a state holding a rainforest and a desert, so the
+ * titles say statewide and every chip keeps its own painted share from the run,
+ * which is the per-pixel truth. Edibility was the other candidate
  * axis and was rejected after looking: all seventeen are `choice`, `edible` or
  * `edible_with_caution`, so it would sort them into one big pile. Substrate —
  * ground, dead wood, or a host — rides on every chip instead, because that is
@@ -87,7 +91,7 @@ const defaultActiveCss =
   ----------------------------------------------------------------- */}
   <div class="flex flex-wrap items-baseline justify-between gap-2 mb-3">
     <h2 class="label">// Choose a species</h2>
-    <span class="label">{members.length} mapped · grouped by season</span>
+    <span class="label">{members.length} mapped · grouped by conditions</span>
   </div>
 
   <div class="border border-lab-800 bg-lab-900">
@@ -112,6 +116,7 @@ const defaultActiveCss =
                   <a
                     href={`#sp-${m.id}`}
                     data-sp={m.id}
+                    title={m.conditions?.why}
                     class="wx-chip block h-full border border-transparent px-3 py-3 min-h-[44px] text-lab-300 hover:border-lab-600 hover:text-lab-100 transition-colors"
                   >
                     <span class="block text-sm leading-tight">{m.name}</span>

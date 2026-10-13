@@ -612,25 +612,78 @@ export function forecastState(run?: RunRecord | null): ForecastState {
 // ---------------------------------------------------------------------------
 
 /**
- * Whether a profile's own season covers a given month.
+ * How a species' own climate envelope compares with the run's conditions.
  *
- * Read from `season.months`, which is an array of month numbers written into
- * the profile by hand. EIGHT of the seventeen profiles have `season: null` —
- * they are not out of season, their season is not recorded — and this returns
- * null for them so the page can say which. Inferring a season from the
- * substrate or from the species' name would be making up the one field a
- * forager would most reasonably trust.
+ * WHY NOT SEASON. This grouped by `season.months` until 2026-10-13. A calendar
+ * month is a PROXY for the conditions that usually occur in it, and we already
+ * hold the conditions themselves: every one of the seventeen profiles carries a
+ * complete `fruiting_conditions` envelope (fourteen fields, 100% coverage),
+ * while only NINE carry a season. So the eight species that used to land in
+ * "Season not recorded" were never a gap in the data - they were a wrong
+ * abstraction showing through, and sourcing seasons for them would have been
+ * filling in a field we should not be reading.
+ *
+ * WHAT THIS IS NOT. These are the run's STATEWIDE means. The map is scored per
+ * pixel and the state spans a rainforest and a high desert, so a species can be
+ * "too dry statewide" while some coastal ground is soaked. The group titles say
+ * statewide for that reason, and every row still carries its own painted share
+ * from the run, which is the per-pixel truth.
  */
-export function inSeason(profile: SpeciesProfile, month: number): boolean | null {
-  const months = profile.season?.months;
-  if (!Array.isArray(months) || !months.length) return null;
-  return months.includes(month);
+export type EnvelopeFit = 'match' | 'dry' | 'temp';
+
+export interface SpeciesConditions {
+  fit: EnvelopeFit;
+  /** The figures behind the verdict, for a reader who wants to check it. */
+  why: string;
+  airF: number | null;
+  soilF: number | null;
+  precipIn: number | null;
 }
 
-export type SeasonGroupId = 'in-season' | 'off-season' | 'unrecorded';
+/**
+ * The window we compare against `precip_threshold_inches_48h`.
+ *
+ * The profiles state a 48-hour threshold; the manifest publishes 1, 3, 7, 14
+ * and 30-day windows. Three days is the nearest window that covers 48 hours,
+ * so the comparison is slightly GENEROUS to the species - it allows an extra
+ * day of rain to count. Named here rather than buried, because a threshold
+ * compared against the wrong window is the kind of thing that reads as skill.
+ */
+const PRECIP_WINDOW_DAYS = 3;
+
+export function speciesConditions(run: RunRecord, profile: SpeciesProfile): SpeciesConditions | null {
+  const sw = (run.manifest as any)?.weather_summary?.statewide;
+  const fc = profile.fruiting_conditions;
+  if (!sw || !fc) return null;
+
+  const airF = typeof sw.air_temp_f?.trailing_3d_mean_f === 'number' ? sw.air_temp_f.trailing_3d_mean_f : null;
+  const soilF = typeof sw.soil_temp_f?.trailing_3d_mean_f === 'number' ? sw.soil_temp_f.trailing_3d_mean_f : null;
+  const win = (sw.precip?.windows ?? []).find((w: any) => w.days === PRECIP_WINDOW_DAYS);
+  const precipIn = typeof win?.mean_in === 'number' ? win.mean_in : null;
+
+  const within = (v: number | null, lo: any, hi: any) =>
+    v === null || typeof lo !== 'number' || typeof hi !== 'number' ? null : v >= lo && v <= hi;
+
+  const airOk = within(airF, fc.air_temp_min_f, fc.air_temp_max_f);
+  const soilOk = within(soilF, fc.soil_temp_min_f, fc.soil_temp_max_f);
+  const tempOk = airOk === null && soilOk === null ? null : airOk !== false && soilOk !== false;
+
+  const threshold = typeof fc.precip_threshold_inches_48h === 'number' ? fc.precip_threshold_inches_48h : null;
+  const wetOk = precipIn === null || threshold === null ? null : precipIn >= threshold;
+
+  const f1 = (n: number | null) => (n === null ? '—' : n.toFixed(1));
+  const f2 = (n: number | null) => (n === null ? '—' : n.toFixed(2));
+  const why =
+    `air ${f1(airF)}°F (wants ${fc.air_temp_min_f}–${fc.air_temp_max_f}), ` +
+    `soil ${f1(soilF)}°F (wants ${fc.soil_temp_min_f}–${fc.soil_temp_max_f}), ` +
+    `${PRECIP_WINDOW_DAYS}-day rain ${f2(precipIn)}" (wants ${f2(threshold)}")`;
+
+  const fit: EnvelopeFit = tempOk === false ? 'temp' : wetOk === false ? 'dry' : 'match';
+  return { fit, why, airF, soilF, precipIn };
+}
 
 export interface SpeciesGroup {
-  id: SeasonGroupId;
+  id: EnvelopeFit | 'all';
   title: string;
   /** Why these are grouped together, and where the grouping came from. */
   note: string;
@@ -645,6 +698,7 @@ export interface SpeciesGroup {
     /** Painted share in the current run, for a one-glance comparison. */
     paintedShare: number | null;
     maxScore: number | null;
+    conditions: SpeciesConditions | null;
   }>;
 }
 
@@ -662,34 +716,26 @@ export function substrateWords(substrate?: string): string {
 }
 
 /**
- * All seventeen species, grouped the way a forager would ask for them.
- *
- * Grouped by SEASON rather than alphabetically, because "what is out now" is
- * the first question and an alphabetical list answers it last. The month is
- * the RUN's month, not the reader's: this is a static page and a selector that
- * reorganised itself at midnight in the reader's timezone would disagree with
- * the map beside it.
+ * All seventeen species, grouped by how the run's conditions sit against each
+ * one's own climate envelope. "What is possible now" is the first question, and
+ * an alphabetical list answers it last.
  *
  * Edibility was the other candidate axis and was rejected on inspection: all
  * seventeen profiles record `choice`, `edible` or `edible_with_caution`, so
  * grouping by it would produce one large pile and two small ones and tell a
- * reader nothing. Substrate — ground, wood, or host — is carried on every row
+ * reader nothing. Substrate - ground, wood, or host - is carried on every row
  * instead, because that is the other thing you need before you set out.
  */
 export function speciesGroups(run: RunRecord): SpeciesGroup[] {
-  const month = Number(run.as_of_date.slice(5, 7));
   const rows = run.manifest.species ?? [];
   const byId = new Map(rows.map((s) => [s.id, s]));
 
-  const buckets: Record<SeasonGroupId, SpeciesGroup['members']> = {
-    'in-season': [],
-    'off-season': [],
-    unrecorded: [],
-  };
+  const buckets: Record<string, SpeciesGroup['members']> = { match: [], dry: [], temp: [], all: [] };
 
   for (const profile of Object.values(profiles)) {
     const sp = byId.get(profile.id);
     const assessed = sp?.pixels_assessed || 0;
+    const conditions = speciesConditions(run, profile);
     const member = {
       id: profile.id,
       profile,
@@ -699,43 +745,48 @@ export function speciesGroups(run: RunRecord): SpeciesGroup[] {
       inRun: Boolean(sp),
       paintedShare: sp && assessed ? (sp.pixels_painted ?? 0) / assessed : null,
       maxScore: typeof sp?.max_score === 'number' ? sp.max_score : null,
+      conditions,
     };
-    const season = inSeason(profile, month);
-    if (season === null) buckets.unrecorded.push(member);
-    else if (season) buckets['in-season'].push(member);
-    else buckets['off-season'].push(member);
+    buckets[conditions ? conditions.fit : 'all'].push(member);
   }
 
   const byName = (a: { name: string }, b: { name: string }) => a.name.localeCompare(b.name);
-  const monthName = new Date(Date.UTC(2000, month - 1, 1)).toLocaleString('en-GB', {
-    month: 'long',
-    timeZone: 'UTC',
-  });
 
   return (
     [
       {
-        id: 'in-season' as SeasonGroupId,
-        title: `In season in ${monthName}`,
-        note: `Their own profile lists ${monthName} among its fruiting months.`,
-        members: buckets['in-season'].sort(byName),
+        id: 'match' as const,
+        title: 'Conditions match statewide',
+        note:
+          "The run's statewide air and soil temperatures sit inside this species' own recorded " +
+          'range and the three-day rainfall clears its threshold. Where on the map that holds is ' +
+          'what the map is for.',
+        members: buckets.match.sort(byName),
       },
       {
-        id: 'unrecorded' as SeasonGroupId,
-        title: 'Season not recorded',
+        id: 'dry' as const,
+        title: 'Warm enough, too dry statewide',
         note:
-          'These profiles carry no season field at all. That is a gap in the dataset, not a ' +
-          'statement that they are out of season — their maps are rendered and scored exactly ' +
-          'like the rest.',
-        members: buckets.unrecorded.sort(byName),
+          'Temperatures are inside the range but statewide rainfall is short of the threshold the ' +
+          'profile asks for. Statewide is a mean over a state containing a rainforest and a ' +
+          'desert, so coastal ground can be wet while this says dry.',
+        members: buckets.dry.sort(byName),
       },
       {
-        id: 'off-season' as SeasonGroupId,
-        title: `Outside their season in ${monthName}`,
+        id: 'temp' as const,
+        title: 'Outside its temperature range statewide',
         note:
-          'Still mapped, and still scored on the same weather. The model reads weather, not a ' +
-          'calendar, so a species can score well outside the months its profile lists.',
-        members: buckets['off-season'].sort(byName),
+          'Air or soil temperature sits outside what this profile records. Still mapped and still ' +
+          'scored on the same weather - the model reads conditions, not a calendar.',
+        members: buckets.temp.sort(byName),
+      },
+      {
+        id: 'all' as const,
+        title: 'Conditions not comparable',
+        note:
+          'This run carries no statewide weather summary, so there is nothing to compare a ' +
+          'profile against. Runs published before the summary existed look like this.',
+        members: buckets.all.sort(byName),
       },
     ] as SpeciesGroup[]
   ).filter((g) => g.members.length > 0);
