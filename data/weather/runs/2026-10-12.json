@@ -1,10 +1,10 @@
 {
   "record_version": 1,
-  "published_at": "2026-10-13T18:19:49.236Z",
+  "published_at": "2026-10-13T18:22:48.154Z",
   "as_of_date": "2026-10-12",
   "target_date": "2026-10-13",
   "lag_days_behind_target": 1,
-  "manifest_sha256": "0a8944ebd4ea5a4cda05ecf884711042f7787f1455ad5a6dfe1e51b0fd8e2c0a",
+  "manifest_sha256": "e146e5d05a7fe270c69c8a31a7656b948e2dca4b5b50727664e6d22e3daf62e0",
   "manifest_path": "out/2026-10-13/manifest.json",
   "manifest": {
     "manifest_version": 1,
@@ -17,7 +17,7 @@
       "height_px": 1092,
       "projection": "web_mercator_epsg3857"
     },
-    "generated_at": "2026-10-13T18:18:29.509361078Z",
+    "generated_at": "2026-10-13T18:21:41.632651252Z",
     "target_date": "2026-10-13",
     "as_of_date": "2026-10-12",
     "lag_days_behind_target": 1,
