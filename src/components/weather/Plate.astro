@@ -20,6 +20,7 @@
  *      like a 404, not like an empty map. A failed load replaces the figure
  *      with what is missing and the digest that would prove it.
  */
+import MapExplore from './MapExplore.astro';
 import {
   imageState,
   noteBody,
@@ -145,6 +146,10 @@ const alt =
       )}
     </p>
   )}
+
+  {/* Last in the figure on purpose: the picture above is the thing that works
+      everywhere, and this is the thing you reach for when it is not enough. */}
+  <MapExplore species={species} run={run} />
 </figure>
 
 <style>

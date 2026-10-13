@@ -1,0 +1,365 @@
+---
+/**
+ * The map you can actually move around in.
+ *
+ * WHY THIS EXISTS
+ *
+ * Every map on this site was a flattened picture: the OSM basemap, the score
+ * paint and the title strip composited into one PNG at zoom 8. "I cannot zoom
+ * in or change layers" was not a frontend omission — it was impossible by
+ * construction, because nothing was served as data. No amount of work on this
+ * side fixes a picture. The renderer now emits a score-only transparent
+ * overlay beside each flat map and publishes the extent it was drawn in, and
+ * this is the thing that consumes them.
+ *
+ * IT IS AN ENHANCEMENT, NEVER A REPLACEMENT
+ *
+ * The static map above it stays the default and stays the thing that works
+ * with scripting off, on one bar of signal, in the field — which is where this
+ * site is actually read. This panel loads nothing until somebody presses the
+ * button: the MapLibre bundle is a dynamic import, so a reader who never opens
+ * it never pays for it. If the import fails, or the run has no overlay, the
+ * page is exactly what it was before.
+ *
+ * THE PROJECTION IS THE PART THAT WOULD HAVE BEEN WRONG SILENTLY
+ *
+ * The overlay is Web Mercator, because the render composites OSM tiles. A
+ * MapLibre `image` source takes its four corners as longitude/latitude, maps
+ * them into Mercator and interpolates the texture linearly in Mercator space —
+ * which is correct for a Mercator image and only for a Mercator image. Had the
+ * renderer drawn in plate carree, these same four corners would place ground
+ * about two kilometres out: close enough to look right, far enough to send
+ * somebody up the wrong hillside. So the component refuses to draw unless the
+ * manifest names the projection it expects, rather than trusting a box of
+ * four numbers whose meaning it has assumed.
+ */
+import { overlayState, type ManifestSpecies, type RunRecord } from '../../lib/weather';
+
+interface Props {
+  species: ManifestSpecies;
+  run: RunRecord;
+}
+const { species, run } = Astro.props;
+
+const extent = run.manifest?.extent;
+const here = overlayState(run, species.id);
+
+/**
+ * Every species in this run that has a usable layer, so the switcher inside
+ * the map is a real layer switcher and not a decorative one. Built here rather
+ * than fetched: the page already holds the whole run record, and a map that
+ * needs a round trip to change layers is a map that fails in the field.
+ */
+const layers = (run.manifest?.species ?? [])
+  .map((sp) => ({
+    id: sp.id,
+    name: sp.common_name ?? sp.id,
+    url: overlayState(run, sp.id).url,
+    max: sp.max_score ?? 0,
+    painted: sp.pixels_painted ?? 0,
+    assessed: sp.pixels_assessed ?? 0,
+  }))
+  .filter((l) => l.url)
+  .sort((a, b) => b.max - a.max);
+
+const usable = here.url !== null && extent !== undefined;
+
+/**
+ * How coarse the thing you are zooming into actually is.
+ *
+ * Two different limits, and the smaller number is not the real one. The image
+ * is 1456 px across eight degrees of longitude, which at this latitude is
+ * about 440 m per pixel — that is the limit on the PICTURE. The weather
+ * lattice behind the scores is 0.4 degrees, about 44 km, interpolated down.
+ * So zooming in reveals the pixel grid long before it reveals any new
+ * information, and the information itself was never finer than a county.
+ * Stated on the panel, because a slippy map implies detail it does not have.
+ */
+const metresPerPixel = extent
+  ? Math.round(
+      ((extent.lon_max - extent.lon_min) *
+        111_320 *
+        Math.cos((((extent.lat_min + extent.lat_max) / 2) * Math.PI) / 180)) /
+        extent.width_px
+    )
+  : 0;
+
+const config = usable
+  ? JSON.stringify({
+      extent,
+      layers,
+      initial: species.id,
+      metresPerPixel,
+    })
+  : '';
+---
+
+{
+  usable ? (
+    <section class="border-t border-lab-800" data-map-explore data-config={config}>
+      <div class="px-5 py-4 flex flex-wrap items-baseline gap-x-4 gap-y-2">
+        <button
+          type="button"
+          data-explore-open
+          class="font-mono text-2xs uppercase tracking-wider border border-spore-600/50 px-3 py-2 text-spore-300 hover:bg-spore-600/10"
+        >
+          Explore this map ·  zoom, pan, switch species
+        </button>
+        <p class="text-xs text-lab-500">
+          Opens the score layer over a live basemap. About {metresPerPixel} m per pixel — the
+          weather behind it is coarser still, a 44 km lattice.
+        </p>
+      </div>
+
+      <!-- Built on demand. Empty until the button is pressed, so nothing here
+           costs anything to a reader who never opens it. -->
+      <div data-explore-panel hidden>
+        <div class="relative">
+          <div data-explore-map class="h-[32rem] w-full bg-lab-950" />
+          <div
+            data-explore-status
+            class="absolute inset-0 grid place-items-center bg-lab-950/80 font-mono text-2xs uppercase tracking-wider text-lab-400"
+          >
+            loading the map…
+          </div>
+        </div>
+        <div class="px-5 py-4 border-t border-lab-800 flex flex-wrap items-center gap-x-6 gap-y-3">
+          <label class="font-mono text-2xs uppercase tracking-wider text-lab-400">
+            Species
+            <select
+              data-explore-species
+              class="ml-2 bg-lab-900 border border-lab-700 px-2 py-1 font-sans text-xs text-lab-200 normal-case tracking-normal"
+            >
+              {layers.map((l) => (
+                <option value={l.id} selected={l.id === species.id}>
+                  {l.name} · max {l.max.toFixed(2)}
+                </option>
+              ))}
+            </select>
+          </label>
+          <label class="font-mono text-2xs uppercase tracking-wider text-lab-400">
+            Layer opacity
+            <input
+              type="range"
+              min="0"
+              max="100"
+              value="80"
+              data-explore-opacity
+              class="ml-2 align-middle"
+            />
+          </label>
+          <button
+            type="button"
+            data-explore-close
+            class="font-mono text-2xs uppercase tracking-wider text-lab-400 hover:text-lab-200 underline"
+          >
+            close
+          </button>
+        </div>
+        <p class="px-5 pb-4 text-xs text-lab-500 leading-relaxed">
+          The colours are the same ramp as the static map above, lifted out of the same render —
+          not a re-score. Zooming past the point where pixels appear shows you the grid, not more
+          detail.
+        </p>
+      </div>
+    </section>
+  ) : (
+    here.reason && (
+      <p class="border-t border-lab-800 px-5 py-4 text-xs text-lab-500">
+        No explorable layer for this map. {here.reason}
+      </p>
+    )
+  )
+}
+
+<script>
+  import type { Map as MlMap } from 'maplibre-gl';
+
+  type Layer = { id: string; name: string; url: string; max: number };
+  type Config = {
+    extent: {
+      lat_min: number;
+      lat_max: number;
+      lon_min: number;
+      lon_max: number;
+      width_px: number;
+      height_px: number;
+      projection: string;
+    };
+    layers: Layer[];
+    initial: string;
+    metresPerPixel: number;
+  };
+
+  /**
+   * The only projection this component knows how to place correctly. Named
+   * rather than assumed: an image source positioned by its four corners is
+   * silently wrong for any other projection, and "silently wrong by two
+   * kilometres" is the single worst outcome available to a foraging map.
+   */
+  const SUPPORTED_PROJECTION = 'web_mercator_epsg3857';
+
+  const SOURCE = 'mycomap-scores';
+  const LAYER = 'mycomap-scores-layer';
+
+  function corners(e: Config['extent']) {
+    // Clockwise from top-left, which is the order an image source expects.
+    return [
+      [e.lon_min, e.lat_max],
+      [e.lon_max, e.lat_max],
+      [e.lon_max, e.lat_min],
+      [e.lon_min, e.lat_min],
+    ] as [number, number][];
+  }
+
+  async function mount(root: HTMLElement) {
+    const config: Config = JSON.parse(root.dataset.config || '{}');
+    const panel = root.querySelector<HTMLElement>('[data-explore-panel]')!;
+    const status = root.querySelector<HTMLElement>('[data-explore-status]')!;
+    const host = root.querySelector<HTMLElement>('[data-explore-map]')!;
+
+    if (config.extent?.projection !== SUPPORTED_PROJECTION) {
+      status.textContent =
+        `this run was drawn in ${config.extent?.projection || 'an unnamed projection'}, ` +
+        'which this viewer cannot place without misreporting ground. the static map above is correct.';
+      return;
+    }
+
+    let maplibre;
+    try {
+      // Dynamic, so the bundle is only fetched by a reader who asks for it.
+      maplibre = await import('maplibre-gl');
+      await import('maplibre-gl/dist/maplibre-gl.css');
+    } catch (err) {
+      status.textContent =
+        'the interactive map could not load on this connection. the static map above still works.';
+      return;
+    }
+
+    const e = config.extent;
+    const map: MlMap = new maplibre.Map({
+      container: host,
+      style: {
+        version: 8,
+        sources: {
+          osm: {
+            type: 'raster',
+            tiles: ['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],
+            tileSize: 256,
+            maxzoom: 19,
+            attribution: '© OpenStreetMap contributors',
+          },
+        },
+        layers: [{ id: 'osm', type: 'raster', source: 'osm' }],
+      },
+      bounds: [
+        [e.lon_min, e.lat_min],
+        [e.lon_max, e.lat_max],
+      ],
+      // Padded, so the painted area can be centred without the camera fighting
+      // the edge, but not so loose that you end up in Nevada wondering why
+      // there is no data.
+      maxBounds: [
+        [e.lon_min - 1.5, e.lat_min - 1.5],
+        [e.lon_max + 1.5, e.lat_max + 1.5],
+      ],
+      // The overlay is ~440 m/px. Past 12 the reader is inspecting the grid,
+      // which is allowed — but there is no point pretending further is useful.
+      maxZoom: 12,
+      attributionControl: { compact: true },
+    });
+
+    map.addControl(new maplibre.NavigationControl({ showCompass: false }), 'top-right');
+    map.addControl(new maplibre.ScaleControl({ unit: 'metric' }), 'bottom-left');
+
+    const byId = new Map(config.layers.map((l) => [l.id, l]));
+    let current = config.initial;
+
+    map.on('load', () => {
+      const layer = byId.get(current);
+      if (!layer) {
+        status.textContent = 'no score layer for this species in this run.';
+        return;
+      }
+      map.addSource(SOURCE, {
+        type: 'image',
+        url: layer.url,
+        coordinates: corners(e),
+      });
+      map.addLayer({
+        id: LAYER,
+        type: 'raster',
+        source: SOURCE,
+        paint: { 'raster-opacity': 0.8, 'raster-fade-duration': 0 },
+      });
+      status.hidden = true;
+    });
+
+    map.on('error', (ev) => {
+      // A tile that fails is a basemap gap and self-evident on screen. A
+      // failed IMAGE source is not: it leaves a basemap with no scores on it,
+      // which reads as "nothing is fruiting anywhere" — the most misleading
+      // state this viewer can be in. So that one is said out loud.
+      const failed = (ev as any)?.sourceId === SOURCE;
+      if (failed) {
+        status.hidden = false;
+        status.textContent = 'the score layer did not load. the static map above is unaffected.';
+      }
+    });
+
+    root.querySelector<HTMLSelectElement>('[data-explore-species]')?.addEventListener(
+      'change',
+      (ev) => {
+        const id = (ev.target as HTMLSelectElement).value;
+        const next = byId.get(id);
+        if (!next) return;
+        current = id;
+        const src = map.getSource(SOURCE) as any;
+        // updateImage keeps the camera where the reader put it, which is the
+        // whole point of switching layers rather than reloading a picture.
+        src?.updateImage({ url: next.url, coordinates: corners(e) });
+      }
+    );
+
+    root.querySelector<HTMLInputElement>('[data-explore-opacity]')?.addEventListener(
+      'input',
+      (ev) => {
+        const v = Number((ev.target as HTMLInputElement).value) / 100;
+        if (map.getLayer(LAYER)) map.setPaintProperty(LAYER, 'raster-opacity', v);
+      }
+    );
+
+    root.querySelector<HTMLButtonElement>('[data-explore-close]')?.addEventListener('click', () => {
+      map.remove();
+      panel.hidden = true;
+      root.querySelector<HTMLElement>('[data-explore-open]')!.hidden = false;
+      root.dataset.mounted = '';
+    });
+  }
+
+  for (const root of document.querySelectorAll<HTMLElement>('[data-map-explore]')) {
+    const open = root.querySelector<HTMLElement>('[data-explore-open]');
+    open?.addEventListener('click', () => {
+      if (root.dataset.mounted === 'yes') return;
+      root.dataset.mounted = 'yes';
+      root.querySelector<HTMLElement>('[data-explore-panel]')!.hidden = false;
+      open.hidden = true;
+      void mount(root);
+    });
+  }
+</script>
+
+<style>
+  /*
+   * The loading scrim hides itself by setting the `hidden` property, and the
+   * UA stylesheet's `[hidden] { display: none }` is a CLASS-level rule that a
+   * utility class setting `display: grid` beats. Caught in a browser, not in
+   * review: the map drew correctly underneath a scrim that never left, so the
+   * finished map looked permanently "loading". An attribute selector outranks
+   * the utility class, which is why this is two attributes rather than
+   * !important.
+   */
+  [data-explore-status][hidden] {
+    display: none;
+  }
+</style>

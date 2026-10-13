@@ -403,7 +403,7 @@ async function convertImages(manifest, asOf, notes) {
     fs.writeFileSync(path.join(dest, name), converted, { mode: 0o644 });
     const meta = await sharp(converted).metadata();
 
-    images.push({
+    const record = {
       id: sp.id,
       file: name,
       // The site joins this to the configured base URL. It never builds a path.
@@ -416,7 +416,82 @@ async function convertImages(manifest, asOf, notes) {
       render_sha256: renderDigest,
       published_sha256: digest,
       origin_verified: null,
-    });
+      overlay_file: null,
+      overlay_url_path: null,
+      overlay_verified: null,
+    };
+
+    /**
+     * The score-only overlay, if the renderer emitted one.
+     *
+     * This is the layer a slippy map can actually use: the flat map above has
+     * the OSM basemap and the title strip composited in, so it can only ever
+     * be shown as a picture. Published alongside rather than instead of it —
+     * the static map stays the thing that works with no JavaScript, and it is
+     * what the viewer falls back to when an overlay is missing.
+     *
+     * Two deliberate choices in the encoding:
+     *
+     *   dither: 0. The default error-diffusion dither mixes neighbouring
+     *   palette entries to approximate a colour it dropped. On a photograph
+     *   that is invisibly correct; on a score ramp it INVENTS INTERMEDIATE
+     *   SCORES — pixels whose colour maps back to a probability the renderer
+     *   never computed there. People read values off this layer by colour, so
+     *   the quantisation is not allowed to interpolate.
+     *
+     *   The digest is checked on the original, same as the flat map, so a
+     *   mismatch between what the renderer signed and what sits on disk stops
+     *   the overlay rather than publishing an unverified data layer.
+     *
+     * A missing or failed overlay is a NOTE, not a refusal. It degrades the
+     * viewer to the static image; it does not make the run unpublishable, and
+     * it deliberately does not enter incompleteReason() — a brand-new derived
+     * artefact should not be able to mark a good run as a failed publish.
+     */
+    const ovRel = sp.overlay_file;
+    if (ovRel) {
+      const ovSrc = path.join(MYCOMAP, ovRel);
+      if (!fs.existsSync(ovSrc)) {
+        notes.push(`${ovRel} is named in the manifest but missing on disk; overlay not published`);
+      } else {
+        const ovBytes = fs.readFileSync(ovSrc);
+        const ovRenderDigest = sha256(ovBytes);
+        if (sp.overlay_sha256 && ovRenderDigest !== sp.overlay_sha256) {
+          notes.push(
+            `${ovRel} does not match its manifest digest (manifest ${sp.overlay_sha256.slice(0, 12)}…, ` +
+              `file ${ovRenderDigest.slice(0, 12)}…); overlay not published`
+          );
+        } else {
+          const ovConverted = await sharp(ovBytes)
+            .png({ palette: true, colours: PALETTE_COLOURS, dither: 0, effort: 10 })
+            .toBuffer();
+          const ovMeta = await sharp(ovConverted).metadata();
+          if (!ovMeta.hasAlpha) {
+            // An overlay that lost its alpha is a solid rectangle that would
+            // hide the basemap entirely. Refuse that specific rendition rather
+            // than ship a layer that looks like a bug in the map.
+            notes.push(`${ovRel} lost its transparency in conversion; overlay not published`);
+          } else {
+            const ovDigest = sha256(ovConverted);
+            const ovName = `${ovDigest.slice(0, 12)}-${path.basename(ovRel)}`;
+            fs.writeFileSync(path.join(dest, ovName), ovConverted, { mode: 0o644 });
+            record.overlay_file = ovName;
+            record.overlay_url_path = `${asOf}/${ovName}`;
+            record.overlay_width = ovMeta.width;
+            record.overlay_height = ovMeta.height;
+            record.overlay_published_bytes = ovConverted.length;
+            record.overlay_render_sha256 = ovRenderDigest;
+            record.overlay_published_sha256 = ovDigest;
+            // Carried through from the renderer, which counted it a second,
+            // independent way. Two numbers that should agree are worth more
+            // than one that cannot be checked.
+            record.overlay_pixels = sp.overlay_pixels ?? null;
+          }
+        }
+      }
+    }
+
+    images.push(record);
   }
   return images;
 }
@@ -556,9 +631,20 @@ async function verifyOrigin(images, notes) {
     );
   }
 
+  // Each image contributes its flat map and, when it has one, its overlay.
+  // The overlay is checked separately and recorded separately: a viewer that
+  // silently shows nothing is worse than one that says the data layer is not
+  // there yet and falls back to the picture.
+  const targets = [];
   for (const img of images) {
-    if (!img.url_path) continue;
-    const url = `${MAPS_BASE_URL}/${img.url_path}`;
+    if (img.url_path) targets.push({ img, path: img.url_path, field: 'origin_verified' });
+    if (img.overlay_url_path) {
+      targets.push({ img, path: img.overlay_url_path, field: 'overlay_verified' });
+    }
+  }
+
+  for (const { img, path: relPath, field } of targets) {
+    const url = `${MAPS_BASE_URL}/${relPath}`;
     if (pinned) {
       // curl, because fetch() cannot pin a hostname to an address and the
       // whole point is to bypass whatever this machine's resolver believes.
@@ -569,20 +655,20 @@ async function verifyOrigin(images, notes) {
           '--resolve', `${base.hostname}:${port}:${pinned}`,
           '-I', url,
         ]).trim();
-        img.origin_verified = code === '200';
+        img[field] = code === '200';
         if (code !== '200') notes.push(`origin (${pinned}) returned ${code} for ${url}`);
       } catch (err) {
-        img.origin_verified = false;
+        img[field] = false;
         notes.push(`could not reach the map origin at ${pinned} for ${url}: ${err.message.split('\n')[0]}`);
       }
       continue;
     }
     try {
       const res = await fetch(url, { method: 'HEAD', redirect: 'follow' });
-      img.origin_verified = res.ok;
+      img[field] = res.ok;
       if (!res.ok) notes.push(`origin returned ${res.status} for ${url}`);
     } catch (err) {
-      img.origin_verified = false;
+      img[field] = false;
       notes.push(`could not reach the map origin for ${url}: ${err.message}`);
     }
   }

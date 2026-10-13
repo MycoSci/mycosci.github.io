@@ -130,6 +130,16 @@ export interface ManifestSpecies {
   max_score?: number;
   file?: string;
   sha256?: string;
+  /**
+   * The score layer with the basemap and title strip removed, for a slippy
+   * map. `overlay_pixels` is counted by differencing the finished image rather
+   * than tallied during painting, so it is an INDEPENDENT count of the same
+   * thing as `pixels_painted` — the two disagreeing means the extraction is
+   * wrong somewhere and the layer should not be trusted.
+   */
+  overlay_file?: string;
+  overlay_sha256?: string;
+  overlay_pixels?: number;
 }
 
 export interface Manifest {
@@ -149,6 +159,25 @@ export interface Manifest {
    */
   weather_summary?: any;
   terrain?: any;
+  /**
+   * Where the image actually is on the earth, and in what projection.
+   *
+   * Absent on runs rendered before 2026-10-13, which is why every consumer
+   * must treat it as optional rather than assume a box. The projection is not
+   * decoration: the render composites OSM tiles, so it is Web Mercator, and
+   * placing it as if it were equirectangular misplaces ground by about two
+   * kilometres here — small enough to look right on screen, large enough to
+   * send somebody up the wrong hillside.
+   */
+  extent?: {
+    lat_min: number;
+    lat_max: number;
+    lon_min: number;
+    lon_max: number;
+    width_px: number;
+    height_px: number;
+    projection: string;
+  };
   model_variant?: any;
   code?: { revision?: string; dirty?: boolean; renderer?: string; go_version?: string };
   score_bands?: any;
@@ -170,6 +199,17 @@ export interface RunImage {
   published_sha256?: string;
   /** true / false / null = never checked (the publish script did not upload) */
   origin_verified?: boolean | null;
+  /** The score-only layer, published beside the flat map. Absent before 2026-10-13. */
+  overlay_file?: string;
+  overlay_url_path?: string;
+  overlay_width?: number;
+  overlay_height?: number;
+  overlay_published_bytes?: number;
+  overlay_pixels?: number;
+  overlay_render_sha256?: string;
+  overlay_published_sha256?: string;
+  /** Checked and recorded separately from the flat map, for the same reason. */
+  overlay_verified?: boolean | null;
 }
 
 export interface RunRecord {
@@ -570,6 +610,48 @@ export function imageState(run: RunRecord, id: string): ImageState {
       'This image was converted but its arrival on the map origin was never confirmed, ' +
       'so it may not load.',
   };
+}
+
+export interface OverlayState {
+  url: string | null;
+  /** Why there is no explorable layer, when there isn't one. Empty when there is. */
+  reason: string;
+}
+
+/**
+ * The explorable score layer for a species, or an honest reason there isn't one.
+ *
+ * Deliberately separate from imageState(): the static map is the thing that
+ * always works, and the overlay is an enhancement on top of it. A run from
+ * before the renderer emitted overlays, or one whose overlay never reached the
+ * origin, must leave the page exactly as it was rather than offering a button
+ * that opens an empty basemap. So this returns a URL only when the overlay was
+ * CONFIRMED present on the origin — `null` (never checked) is treated as not
+ * available, which is the opposite of how imageState() reads it, and for the
+ * opposite reason: showing a picture that might 404 still beats showing
+ * nothing, but opening an interactive map over a missing layer does not.
+ */
+export function overlayState(run: RunRecord, id: string): OverlayState {
+  const extent = run.manifest?.extent;
+  if (!extent) {
+    return {
+      url: null,
+      reason:
+        'This run was rendered before the maps carried their geographic bounds, so there is ' +
+        'nothing to place a layer against.',
+    };
+  }
+  const image = run.images?.find((i) => i.id === id);
+  if (!image?.overlay_url_path) {
+    return { url: null, reason: 'This run did not publish a separable score layer for this species.' };
+  }
+  if (image.overlay_verified !== true) {
+    return {
+      url: null,
+      reason: 'The score layer for this species was not confirmed on the map origin.',
+    };
+  }
+  return { url: `${MAPS_BASE_URL}/${image.overlay_url_path}`, reason: '' };
 }
 
 // ---------------------------------------------------------------------------
