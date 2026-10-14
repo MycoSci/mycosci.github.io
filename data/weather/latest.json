@@ -1,10 +1,10 @@
 {
-  "as_of_date": "2026-10-12",
-  "target_date": "2026-10-13",
+  "as_of_date": "2026-10-13",
+  "target_date": "2026-10-14",
   "lag_days_behind_target": 1,
-  "published_at": "2026-10-13T20:10:47.470Z",
-  "manifest_sha256": "e146e5d05a7fe270c69c8a31a7656b948e2dca4b5b50727664e6d22e3daf62e0",
-  "run": "data/weather/runs/2026-10-12.json",
+  "published_at": "2026-10-14T13:18:38.625Z",
+  "manifest_sha256": "1c3098edbf659450a69d145003804d08fc15226f19de3298879ea40ece21551b",
+  "run": "data/weather/runs/2026-10-13.json",
   "origin_uploaded": true,
   "publishable": true
 }
