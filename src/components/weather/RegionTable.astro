@@ -32,8 +32,13 @@ import { regionRows, type WeatherSummary } from '../../lib/weather-report';
 
 interface Props {
   summary: WeatherSummary | null;
+  /** The run's lattice spacing in degrees. Passed in rather than written into
+   *  the caption: it changed once already (0.4 -> 0.2 on 2026-10-17) and a
+   *  retyped figure is a figure that goes quietly stale. */
+  stepDegrees?: number | null;
 }
-const { summary } = Astro.props;
+const { summary, stepDegrees } = Astro.props;
+const stepDeg = Number.isFinite(stepDegrees as number) ? stepDegrees : null;
 
 const rows = regionRows(summary);
 
@@ -66,8 +71,8 @@ const signed = (n: number | null, dp = 2) =>
         <table class="w-full min-w-[46rem] border-collapse text-left">
           <caption class="sr-only">
             Precipitation, soil moisture and temperature by Oregon region, averaged over the
-            0.4-degree weather lattice. Figures for regions holding few grid points are flagged
-            thin.
+            run's weather lattice{stepDeg ? ` (${stepDeg}°)` : ''}. Figures for regions holding few
+            grid points are flagged thin.
           </caption>
           <thead>
             <tr class="border-b border-lab-800">

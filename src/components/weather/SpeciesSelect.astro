@@ -4,48 +4,73 @@
  *
  * THE PROBLEM THIS REPLACES
  *
- * /weather stacks all seventeen maps vertically, each 1456 pixels wide. There
- * is no selector at all: choosing a species means scrolling past the other
- * sixteen, and comparing two means scrolling between them with nothing on
+ * /weather used to stack all seventeen maps vertically, each 1456 pixels wide,
+ * with no selector at all: choosing a species meant scrolling past the other
+ * sixteen, and comparing two meant scrolling between them with nothing on
  * screen to hold the first one in mind. Seventeen is a bad number — too many
  * to scroll through comfortably, too few to deserve a search box.
  *
  * WHAT THIS IS INSTEAD
  *
- * A persistent selector showing all seventeen at once with their current
- * figures on the face of each, and one map below it. The selector does not
- * collapse, so switching is one tap from anywhere and the alternatives stay
- * visible while you read the map — which is the thing a dropdown cannot do.
+ * Pick a species, see its map. In that order, on one screen, the way a weather
+ * service does it. That is the whole shape, and the 2026-10-17 revision is
+ * about making it true rather than nearly true.
+ *
+ * TWO PICKERS, DELIBERATELY, ONE ABOVE AND ONE BELOW
+ *
+ * The first version put the full selector above the map: seventeen chips in
+ * four groups, each chip carrying its peak score, painted share, substrate and
+ * evidence status, with a paragraph of explanation per group. Good chips —
+ * genuinely the fastest way to pick on the numbers — and about 700 pixels of
+ * them, which at 375px meant the map was entirely below the fold. The owner's
+ * note was that the map should be what you see. So:
+ *
+ *   ABOVE the map: names only, one tap each, wrapped tight. Enough to switch
+ *   and enough to see what else exists, small enough that the map is on screen
+ *   with it. This is the control, not the reference.
+ *
+ *   BELOW the map: the full grouped block, unchanged, with every figure and
+ *   every caveat it carried before. This is the reference — the "which of
+ *   these should I even be looking at" question, which is a different question
+ *   from "show me the next one" and is not asked while standing in a forest.
+ *
+ * Both sets of chips are the same kind of link to the same fragment and both
+ * highlight together, because the generated active-state CSS keys on
+ * `data-sp` and not on position. One selection, two ways to reach it.
  *
  * GROUPED BY CLIMATE ENVELOPE, NOT BY SEASON OR ALPHABETICALLY
  *
- * "What is possible now" is the question, so the group that answers it is
- * first. The grouping compares the run's statewide air temperature, soil
- * temperature and three-day rainfall against each profile's own
- * `fruiting_conditions` — which all seventeen carry in full, where only nine
- * carry a season. Season was the old axis and was wrong: a calendar month is a
- * proxy for conditions we already hold, and the eight species it dumped into
- * "Season not recorded" were an artefact of that proxy, not a data gap.
- * Statewide is a MEAN over a state holding a rainforest and a desert, so the
- * titles say statewide and every chip keeps its own painted share from the run,
- * which is the per-pixel truth. Edibility was the other candidate
- * axis and was rejected after looking: all seventeen are `choice`, `edible` or
- * `edible_with_caution`, so it would sort them into one big pile. Substrate —
- * ground, dead wood, or a host — rides on every chip instead, because that is
- * the other thing you need before you set out.
+ * (This governs the reference block below the map.) "What is possible now" is
+ * the question, so the group that answers it is first. The grouping compares
+ * the run's statewide air temperature, soil temperature and three-day rainfall
+ * against each profile's own `fruiting_conditions` — which all seventeen carry
+ * in full, where only nine carry a season. Season was the old axis and was
+ * wrong: a calendar month is a proxy for conditions we already hold, and the
+ * eight species it dumped into "Season not recorded" were an artefact of that
+ * proxy, not a data gap. Statewide is a MEAN over a state holding a rainforest
+ * and a desert, so the titles say statewide and every chip keeps its own
+ * painted share from the run, which is the per-pixel truth. Edibility was the
+ * other candidate axis and was rejected after looking: all seventeen are
+ * `choice`, `edible` or `edible_with_caution`, so it would sort them into one
+ * big pile. Substrate — ground, dead wood, or a host — rides on every chip
+ * instead, because that is the other thing you need before you set out.
  *
  * NO JAVASCRIPT
  *
  * Selection is `:target`. The chips are ordinary links to fragment ids and the
  * panels show on `:target`, so this works with scripting off, survives a
  * failed bundle on a bad connection, gives every species a shareable URL
- * (/weather/preview#sp-cantharellus_cibarius), and leaves the back button
- * doing what the reader expects. People load this in the field on one bar of
- * signal; a selector that needs a hydrated island is a selector that is
- * sometimes a blank box.
+ * (/weather/#sp-cantharellus_cibarius), and leaves the back button doing what
+ * the reader expects. People load this in the field on one bar of signal; a
+ * selector that needs a hydrated island is a selector that is sometimes a
+ * blank box. This stayed load-bearing through the map inversion: MapExplore
+ * mounts the data map by asking the LAYOUT which panel is visible, so it rides
+ * on top of `:target` without replacing it, and a reader with scripting off
+ * still picks species and still gets a map — the rendered one, which
+ * Plate.astro only hides when scripting is confirmed.
  *
  * Where `:has()` is unavailable the page degrades to showing every panel —
- * which is exactly what /weather does today. It never degrades to blank.
+ * which is what /weather did for its first year. It never degrades to blank.
  */
 import Plate from './Plate.astro';
 import TimeStrip from './TimeStrip.astro';
@@ -66,10 +91,18 @@ const groups: SpeciesGroup[] = speciesGroups(run);
 const members = groups.flatMap((g) => g.members);
 const rowById = new Map((run.manifest.species ?? []).map((s) => [s.id, s]));
 
+// The compact picker is ordered by peak score rather than by climate group:
+// with the figures stripped off the chips there is nothing to read a grouping
+// against, and "brightest first" is the one order that needs no caption. The
+// grouped block below the map is where the envelope reasoning lives.
+const byScore = [...members].sort((a, b) => (b.maxScore ?? -1) - (a.maxScore ?? -1));
+
 // Active-state rules, generated from the species list rather than hand-typed,
 // so a species added to the model cannot end up with a chip that never
 // highlights. Emitted global because the generated selectors cannot be
 // rewritten by Astro's scoping — every one of them is prefixed .wx-species.
+// Both the compact chip and the reference chip for a species match, since the
+// selector keys on data-sp alone.
 const activeCss = members
   .map(
     (m) =>
@@ -84,89 +117,62 @@ const defaultActiveCss =
 
 <section class="wx-species">
   {/* ----------------------------------------------------------------
-      The selector. Two columns at 375px, four on desktop. Each chip
-      carries the figures, so a reader can pick on the numbers without
-      opening anything — which is most of what the old stacked page was
-      being scrolled for.
+      The control. Names only.
+
+      ONE ROW THAT SCROLLS SIDEWAYS AT 375px, two wrapped rows on
+      desktop. This was measured, not guessed: wrapped at 375px the
+      same seventeen names are 297 pixels tall — about two and a half
+      names per row — which put the map 644 pixels into the section
+      and straight back below the fold, which is the thing this
+      revision exists to fix. A sideways strip is 45. It is the shape
+      an hourly forecast strip already uses on a phone, so it reads as
+      a control rather than a list.
+
+      What a strip costs is that not every name is on screen at once,
+      and that cost is paid off twice over: the `<select>` inside the
+      map holds all seventeen with their peak scores, and the full
+      grouped reference block sits under the map. So nothing is only
+      reachable by scrolling this strip.
+
+      min-h keeps every chip past a 36px tap target. The figures these
+      chips used to carry are in the reference block below.
   ----------------------------------------------------------------- */}
-  <div class="flex flex-wrap items-baseline justify-between gap-2 mb-3">
+  <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 mb-2">
     <h2 class="label">// Choose a species</h2>
-    <span class="label">{members.length} mapped · grouped by conditions</span>
+    <span class="label">
+      {/* The swipe hint shares the header row rather than taking a line of its
+          own under the strip: at 375px a line of its own was 22 pixels of the
+          budget this revision is trying to spend on the map. */}
+      <span class="sm:hidden">Swipe → ·{' '}</span>
+      <a href="#wx-all" class="hover:text-lab-100">All {members.length} with figures ↓</a>
+    </span>
   </div>
 
-  <div class="border border-lab-800 bg-lab-900">
+  <nav
+    class="wx-strip flex flex-nowrap sm:flex-wrap overflow-x-auto sm:overflow-x-visible gap-px bg-lab-800 border border-lab-800"
+    aria-label="Choose a species"
+  >
     {
-      groups.map((g, gi) => (
-        <div class:list={[gi > 0 ? 'border-t border-lab-800' : '']}>
-          <div class="px-4 pt-4 pb-3">
-            <h3 class="text-sm font-semibold text-lab-100">
-              {g.title}
-              <span class="font-mono text-2xs text-lab-500 ml-2 tabular-nums">
-                {g.members.length}
-              </span>
-            </h3>
-            <p class="text-xs text-lab-400 mt-1 leading-relaxed max-w-2xl">{g.note}</p>
-          </div>
-
-          <ul class="grid grid-cols-2 lg:grid-cols-4 gap-px bg-lab-800 border-t border-lab-800">
-            {g.members.map((m) => {
-              const st = evidentialStatus(m.id);
-              return (
-                <li class="bg-lab-950">
-                  <a
-                    href={`#sp-${m.id}`}
-                    data-sp={m.id}
-                    title={m.conditions?.why}
-                    class="wx-chip block h-full border border-transparent px-3 py-3 min-h-[44px] text-lab-300 hover:border-lab-600 hover:text-lab-100 transition-colors"
-                  >
-                    <span class="block text-sm leading-tight">{m.name}</span>
-                    <span class="block font-mono text-2xs text-lab-500 italic mt-0.5 leading-tight">
-                      {m.scientific}
-                    </span>
-                    <span class="flex items-baseline gap-2 mt-2">
-                      <span class="font-mono text-sm text-lab-200 tabular-nums">
-                        {m.maxScore != null ? m.maxScore.toFixed(2) : '—'}
-                      </span>
-                      <span class="font-mono text-2xs text-lab-500 tabular-nums">
-                        {m.paintedShare != null ? `${(m.paintedShare * 100).toFixed(1)}%` : ''}
-                      </span>
-                    </span>
-                    <span class="block text-2xs text-lab-500 mt-1.5 leading-snug">
-                      {m.substrate}
-                    </span>
-                    <span
-                      class:list={[
-                        'block font-mono text-2xs uppercase tracking-wider mt-1',
-                        st.kind === 'measured' ? 'text-bio-500' : 'text-lab-600',
-                      ]}
-                    >
-                      {st.kind === 'measured' ? 'back-tested' : st.label.toLowerCase()}
-                    </span>
-                    {!m.inRun && (
-                      <span class="block text-2xs text-spore-400 mt-1">not in this run</span>
-                    )}
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
+      byScore.map((m) => (
+        <a
+          href={`#sp-${m.id}`}
+          data-sp={m.id}
+          title={m.conditions?.why}
+          class="wx-chip shrink-0 whitespace-nowrap bg-lab-950 border border-transparent px-3 py-2 min-h-[38px] flex items-center text-xs leading-tight text-lab-300 hover:border-lab-600 hover:text-lab-100 transition-colors"
+        >
+          {m.name}
+          {!m.inRun && <span class="text-spore-400 ml-1.5">·</span>}
+        </a>
       ))
     }
-
-    <p class="px-4 py-3 border-t border-lab-800 text-xs text-lab-500 leading-relaxed">
-      The figure on each chip is that species' highest score anywhere in Oregon on this run, and
-      the share of assessed ground its map paints. Neither is a probability. "Back-tested" means
-      somebody has measured how well those scores rank ground against real occurrence records;
-      most of these have not been.
-    </p>
-  </div>
+  </nav>
 
   {/* ----------------------------------------------------------------
       The maps. One is shown; the rest are in the document, addressable
-      and selected by :target.
+      and selected by :target. The data map inside each one mounts
+      itself when its panel becomes the visible one — see MapExplore.
   ----------------------------------------------------------------- */}
-  <div class="wx-panels mt-6">
+  <div class="wx-panels mt-5">
     {
       members.map((m) => {
         const row = rowById.get(m.id);
@@ -186,7 +192,16 @@ const defaultActiveCss =
             </div>
 
             {/* The tense. This is where observed and forecast differ in
-                words as well as in drawing: "have been" against "may be". */}
+                words as well as in drawing: "have been" against "may be".
+
+                `kinding.detail` — the sentence saying which kind of run this
+                is and how we know — used to be appended here, which made this
+                note five lines on a phone and pushed the map down by its own
+                height. It is identical on all seventeen panels, so it was not
+                shortened, it was de-duplicated: it is printed once on the
+                observed/forecast key below the map, which is the block whose
+                whole job is that distinction. The species-specific half, the
+                half that has to ride with the picture, stays here. */}
             <p
               class:list={[
                 'text-sm leading-relaxed mb-4 px-4 py-3 border-l-2',
@@ -198,9 +213,8 @@ const defaultActiveCss =
               <span class="badge badge-bio mr-2">{kinding.label}</span>
               Brighter ground is where conditions {kinding.verb} right for {m.name.toLowerCase()}
               {kinding.kind === 'observed'
-                ? ' — this map is built from weather that already happened.'
-                : ' — part of this map is built from weather that has not happened yet.'}{' '}
-              {kinding.detail}
+                ? ' — built from weather that already happened.'
+                : ' — part of this is weather that has not happened yet.'}
             </p>
 
             {row ? (
@@ -226,9 +240,141 @@ const defaultActiveCss =
       })
     }
   </div>
+
+  {/* The score ramp, passed in rather than imported, so the one legend the
+      page computes sits directly under the map it decodes instead of behind
+      the reference block. The page still owns the decision about whether that
+      legend may carry band names. */}
+  <div class="mt-4">
+    <slot name="legend" />
+  </div>
+
+  {/* ----------------------------------------------------------------
+      The reference block. What the selector above used to be, in full,
+      moved below the map it feeds: every figure, every group's
+      reasoning, and each species' evidence status. Nothing here was
+      cut to make room — it was relocated.
+  ----------------------------------------------------------------- */}
+  <div id="wx-all" class="mt-10 scroll-mt-20">
+    <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 mb-3">
+      <h2 class="label">// Every species in this run, with its figures</h2>
+      <span class="label">{members.length} mapped · grouped by conditions</span>
+    </div>
+
+    <div class="border border-lab-800 bg-lab-900">
+      {
+        groups.map((g, gi) => (
+          <div class:list={[gi > 0 ? 'border-t border-lab-800' : '']}>
+            <div class="px-4 pt-4 pb-3">
+              <h3 class="text-sm font-semibold text-lab-100">
+                {g.title}
+                <span class="font-mono text-2xs text-lab-500 ml-2 tabular-nums">
+                  {g.members.length}
+                </span>
+              </h3>
+              <p class="text-xs text-lab-400 mt-1 leading-relaxed max-w-2xl">{g.note}</p>
+            </div>
+
+            <ul class="grid grid-cols-2 lg:grid-cols-4 gap-px bg-lab-800 border-t border-lab-800">
+              {g.members.map((m) => {
+                const st = evidentialStatus(m.id);
+                return (
+                  <li class="bg-lab-950">
+                    <a
+                      href={`#sp-${m.id}`}
+                      data-sp={m.id}
+                      title={m.conditions?.why}
+                      class="wx-chip block h-full border border-transparent px-3 py-3 min-h-[44px] text-lab-300 hover:border-lab-600 hover:text-lab-100 transition-colors"
+                    >
+                      <span class="block text-sm leading-tight">{m.name}</span>
+                      <span class="block font-mono text-2xs text-lab-500 italic mt-0.5 leading-tight">
+                        {m.scientific}
+                      </span>
+                      <span class="flex items-baseline gap-2 mt-2">
+                        <span class="font-mono text-sm text-lab-200 tabular-nums">
+                          {m.maxScore != null ? m.maxScore.toFixed(2) : '—'}
+                        </span>
+                        <span class="font-mono text-2xs text-lab-500 tabular-nums">
+                          {m.paintedShare != null ? `${(m.paintedShare * 100).toFixed(1)}%` : ''}
+                        </span>
+                      </span>
+                      <span class="block text-2xs text-lab-500 mt-1.5 leading-snug">
+                        {m.substrate}
+                      </span>
+                      <span
+                        class:list={[
+                          'block font-mono text-2xs uppercase tracking-wider mt-1',
+                          st.kind === 'measured' ? 'text-bio-500' : 'text-lab-600',
+                        ]}
+                      >
+                        {st.kind === 'measured' ? 'back-tested' : st.label.toLowerCase()}
+                      </span>
+                      {!m.inRun && (
+                        <span class="block text-2xs text-spore-400 mt-1">not in this run</span>
+                      )}
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        ))
+      }
+
+      <p class="px-4 py-3 border-t border-lab-800 text-xs text-lab-500 leading-relaxed">
+        The figure on each chip is that species' highest score anywhere in Oregon on this run, and
+        the share of assessed ground its map paints. Neither is a probability. "Back-tested" means
+        somebody has measured how well those scores rank ground against real occurrence records;
+        most of these have not been. A species marked <em>not in this run</em> carries a dot in the
+        picker above — the run did not cover it, which says nothing about whether it is fruiting.
+      </p>
+    </div>
+  </div>
 </section>
 
 <style is:global set:html={`${activeCss}\n${defaultActiveCss}`}></style>
+
+<script>
+  /**
+   * Keep the chosen name visible in the sideways strip.
+   *
+   * Pure enhancement, and deliberately the ONLY script this component has.
+   * Selection itself is still `:target` and still works with scripting off —
+   * what does not work without this is seeing the highlight when the chosen
+   * name happens to be off the right-hand end of the strip at 375px. With
+   * scripting off the reader taps a name they can already see, so there is
+   * nothing to repair; with scripting on they can also arrive by shared link
+   * or by the switcher inside the map, and then the strip is pointing the
+   * wrong way.
+   *
+   * It asks the LAYOUT which panel ended up visible rather than parsing the
+   * hash — the same question MapExplore asks, for the same reason: the
+   * no-fragment default is then handled by the identical code path as an
+   * explicit selection, and "selected" has exactly one definition on this
+   * page instead of two that can disagree.
+   */
+  function showActiveChip(behavior: ScrollBehavior) {
+    const strip = document.querySelector<HTMLElement>('.wx-strip');
+    if (!strip || strip.scrollWidth <= strip.clientWidth) return;
+    const panel = [...document.querySelectorAll<HTMLElement>('.wx-panel')].find(
+      (p) => p.getClientRects().length > 0
+    );
+    const id = panel?.id.replace(/^sp-/, '');
+    const chip = id
+      ? strip.querySelector<HTMLElement>(`.wx-chip[data-sp="${CSS.escape(id)}"]`)
+      : null;
+    if (!chip) return;
+    strip.scrollTo({
+      left: chip.offsetLeft - (strip.clientWidth - chip.offsetWidth) / 2,
+      behavior,
+    });
+  }
+
+  // Instant on arrival (nothing to animate from), animated afterwards so the
+  // movement reads as a consequence of the tap.
+  showActiveChip('auto');
+  window.addEventListener('hashchange', () => requestAnimationFrame(() => showActiveChip('smooth')));
+</script>
 
 <style>
   /* ------------------------------------------------------------------
@@ -236,8 +382,13 @@ const defaultActiveCss =
 
      One panel at a time, chosen by the URL fragment. With no fragment
      the default panel shows. Where :has() is missing the whole thing
-     degrades to every panel stacked — which is what the current page
-     does, so the worst case is today's behaviour and never a blank.
+     degrades to every panel stacked — which is what the original page
+     did, so the worst case is the old behaviour and never a blank.
+
+     This is also the mechanism MapExplore reads, indirectly: it never
+     looks at the hash, it asks which panel has client rects. Hidden
+     panels here are display:none rather than visibility/opacity
+     precisely so that question has a true answer.
   ------------------------------------------------------------------ */
   .wx-panel {
     display: none;

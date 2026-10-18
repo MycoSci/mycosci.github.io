@@ -1,25 +1,45 @@
 ---
 /**
- * The map you can actually move around in.
+ * The map. Not "the interactive extra" — the map.
  *
- * WHY THIS EXISTS
+ * WHAT THIS WAS, AND WHY IT CHANGED (2026-10-17, at the owner's direction)
  *
- * Every map on this site was a flattened picture: the OSM basemap, the score
- * paint and the title strip composited into one PNG at zoom 8. "I cannot zoom
- * in or change layers" was not a frontend omission — it was impossible by
- * construction, because nothing was served as data. No amount of work on this
- * side fixes a picture. The renderer now emits a score-only transparent
- * overlay beside each flat map and publishes the extent it was drawn in, and
- * this is the thing that consumes them.
+ * Every map on this site used to be a flattened picture: the OSM basemap, the
+ * score paint and the title strip composited into one PNG at zoom 8. "I cannot
+ * zoom in or change layers" was not a frontend omission — it was impossible by
+ * construction, because nothing was served as data. The renderer now emits a
+ * score-only transparent overlay beside each flat map and publishes the extent
+ * it was drawn in, and this is the thing that consumes them.
  *
- * IT IS AN ENHANCEMENT, NEVER A REPLACEMENT
+ * For its first week this panel sat at the BOTTOM of the plate behind an
+ * "Explore this map" button, with the PNG as the headline. That ordering was a
+ * hedge: the data map was new and the picture was proven. The hedge is now
+ * over. The owner's instruction was "instead of the png and exploratory maps
+ * just show the data map", and a reader who has to press a button to get the
+ * real map mostly does not get the real map. So: the picker chooses a species,
+ * this draws it, and the PNG moved behind this component as the fallback —
+ * see Plate.astro, which owns that fallback and reveals it when asked.
  *
- * The static map above it stays the default and stays the thing that works
- * with scripting off, on one bar of signal, in the field — which is where this
- * site is actually read. This panel loads nothing until somebody presses the
- * button: the MapLibre bundle is a dynamic import, so a reader who never opens
- * it never pays for it. If the import fails, or the run has no overlay, the
- * page is exactly what it was before.
+ * WHAT DID NOT CHANGE: THE PNG IS STILL REACHABLE AND STILL CORRECT
+ *
+ * The dynamic import stays. MapLibre is not in the initial page payload; it is
+ * fetched when a plate is actually visible, which is at most one plate. What
+ * changed is the trigger, from a click to "this plate is the one on screen".
+ * And every path out of this component that ends without a drawn map calls
+ * `fallBack()`, which unhides the static picture and prints the reason next to
+ * it. A reader whose map fails gets a map. Nobody gets a blank box.
+ *
+ * ONE MOUNTED MAP, EVER
+ *
+ * The headline page puts seventeen plates in the document and shows one with
+ * `:target`; sixteen of them are `display:none`. Mounting seventeen MapLibre
+ * instances would be seventeen WebGL contexts, which is past what a phone will
+ * give you and well past what it will give you quickly. So the script holds at
+ * most one live map, finds the visible plate by asking the layout (a
+ * `display:none` ancestor means no client rects — true regardless of HOW the
+ * panel was hidden, which keeps this component ignorant of the `:target`
+ * mechanism above it), and tears down and remounts on `hashchange`. The camera
+ * survives the remount, so switching species does not throw away your zoom.
  *
  * THE PROJECTION IS THE PART THAT WOULD HAVE BEEN WRONG SILENTLY
  *
@@ -34,6 +54,7 @@
  * four numbers whose meaning it has assumed.
  */
 import { overlayState, type ManifestSpecies, type RunRecord } from '../../lib/weather';
+import { latticeCellKm } from '../../lib/weather-report';
 
 interface Props {
   species: ManifestSpecies;
@@ -73,7 +94,8 @@ const usable = here.url !== null && extent !== undefined;
  * lattice behind the scores is 0.4 degrees, about 44 km, interpolated down.
  * So zooming in reveals the pixel grid long before it reveals any new
  * information, and the information itself was never finer than a county.
- * Stated on the panel, because a slippy map implies detail it does not have.
+ * Stated on the panel, because a slippy map implies detail it does not have —
+ * and it is stated louder now that this IS the map rather than an extra.
  */
 const metresPerPixel = extent
   ? Math.round(
@@ -83,6 +105,11 @@ const metresPerPixel = extent
         extent.width_px
     )
   : 0;
+
+// Read from the run, not typed here: the lattice went from 44 km to 22 km on
+// 2026-10-17 and a hard-coded figure would have kept saying 44 forever while
+// the page carried on rendering perfectly.
+const cellKm = latticeCellKm(run);
 
 const config = usable
   ? JSON.stringify({
@@ -96,77 +123,70 @@ const config = usable
 
 {
   usable ? (
-    <section class="border-t border-lab-800" data-map-explore data-config={config}>
-      <div class="px-5 py-4 flex flex-wrap items-baseline gap-x-4 gap-y-2">
-        <button
-          type="button"
-          data-explore-open
-          class="font-mono text-2xs uppercase tracking-wider border border-spore-600/50 px-3 py-2 text-spore-300 hover:bg-spore-600/10"
+    <section data-map-explore data-config={config}>
+      {/* The frame. Tall enough on a phone to be a map rather than a strip —
+          30rem is about 60% of a 375x800 viewport, which is roughly what a
+          weather service gives its map and leaves the picker above it and the
+          caption below it on screen. The status scrim sits over the top until
+          a score layer is actually on the map; see the note in <style>, where
+          a scrim that would not leave cost this project a day. */}
+      <div class="relative">
+        <div data-explore-map class="h-[30rem] sm:h-[34rem] w-full bg-lab-950" />
+        <div
+          data-explore-status
+          class="absolute inset-0 grid place-items-center px-6 text-center bg-lab-950/80 font-mono text-2xs uppercase tracking-wider leading-relaxed text-lab-400"
         >
-          Explore this map ·  zoom, pan, switch species
-        </button>
-        <p class="text-xs text-lab-500">
-          Opens the score layer over a live basemap. About {metresPerPixel} m per pixel — the
-          weather behind it is coarser still, a 44 km lattice.
-        </p>
+          loading the map…
+        </div>
       </div>
 
-      <!-- Built on demand. Empty until the button is pressed, so nothing here
-           costs anything to a reader who never opens it. -->
-      <div data-explore-panel hidden>
-        <div class="relative">
-          <div data-explore-map class="h-[32rem] w-full bg-lab-950" />
-          <div
-            data-explore-status
-            class="absolute inset-0 grid place-items-center bg-lab-950/80 font-mono text-2xs uppercase tracking-wider text-lab-400"
+      {/* Controls. Stacked and full-width at 375px, because a select and a
+          slider side by side at that width either overflow or shrink the
+          select until its species names are unreadable. */}
+      <div class="px-4 sm:px-5 py-3 border-t border-lab-800 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
+        <label class="font-mono text-2xs uppercase tracking-wider text-lab-400 flex items-center gap-2 min-w-0">
+          <span class="shrink-0">Species</span>
+          <select
+            data-explore-species
+            class="min-w-0 flex-1 bg-lab-900 border border-lab-700 px-2 py-1.5 font-sans text-xs text-lab-200 normal-case tracking-normal"
           >
-            loading the map…
-          </div>
-        </div>
-        <div class="px-5 py-4 border-t border-lab-800 flex flex-wrap items-center gap-x-6 gap-y-3">
-          <label class="font-mono text-2xs uppercase tracking-wider text-lab-400">
-            Species
-            <select
-              data-explore-species
-              class="ml-2 bg-lab-900 border border-lab-700 px-2 py-1 font-sans text-xs text-lab-200 normal-case tracking-normal"
-            >
-              {layers.map((l) => (
-                <option value={l.id} selected={l.id === species.id}>
-                  {l.name} · max {l.max.toFixed(2)}
-                </option>
-              ))}
-            </select>
-          </label>
-          <label class="font-mono text-2xs uppercase tracking-wider text-lab-400">
-            Layer opacity
-            <input
-              type="range"
-              min="0"
-              max="100"
-              value="80"
-              data-explore-opacity
-              class="ml-2 align-middle"
-            />
-          </label>
-          <button
-            type="button"
-            data-explore-close
-            class="font-mono text-2xs uppercase tracking-wider text-lab-400 hover:text-lab-200 underline"
-          >
-            close
-          </button>
-        </div>
-        <p class="px-5 pb-4 text-xs text-lab-500 leading-relaxed">
-          The colours are the same ramp as the static map above, lifted out of the same render —
-          not a re-score. Zooming past the point where pixels appear shows you the grid, not more
-          detail.
-        </p>
+            {layers.map((l) => (
+              <option value={l.id} selected={l.id === species.id}>
+                {l.name} · max {l.max.toFixed(2)}
+              </option>
+            ))}
+          </select>
+        </label>
+        <label class="font-mono text-2xs uppercase tracking-wider text-lab-400 flex items-center gap-2 sm:shrink-0">
+          <span class="shrink-0">Layer</span>
+          <input
+            type="range"
+            min="0"
+            max="100"
+            value="80"
+            data-explore-opacity
+            class="w-full sm:w-28 align-middle accent-[#c89b3f]"
+          />
+        </label>
       </div>
+
+      {/* The resolution statement. It was in the button's helper text before
+          the button went away; it is not allowed to go away with it. */}
+      <p class="px-4 sm:px-5 pb-4 text-xs text-lab-500 leading-relaxed">
+        About {metresPerPixel} m per pixel, and the weather behind it is coarser still — a{' '}
+        {cellKm ?? '—'} km lattice, interpolated down. Zooming past the point where pixels appear shows you the grid,
+        not more detail. The colours are the same ramp as the downloadable image, lifted out of the
+        same render, not a re-score.
+      </p>
     </section>
   ) : (
+    /* No layer for this species in this run. Say so, and say why — Plate.astro
+       leaves its static picture on screen in exactly this case, so the reader
+       still has a map and now knows what they are not getting. */
     here.reason && (
-      <p class="border-t border-lab-800 px-5 py-4 text-xs text-lab-500">
-        No explorable layer for this map. {here.reason}
+      <p class="border-b border-lab-800 px-5 py-4 text-xs text-lab-500 leading-relaxed">
+        No zoomable data layer for this map, so the rendered picture below is what there is.{' '}
+        {here.reason}
       </p>
     )
   )
@@ -212,29 +232,93 @@ const config = usable
     ] as [number, number][];
   }
 
-  async function mount(root: HTMLElement) {
+  /**
+   * Hand the reader back the static picture.
+   *
+   * Plate.astro hides its PNG as soon as scripting is confirmed, on the
+   * promise that this component will draw something. Every branch here that
+   * breaks that promise calls this, which un-hides the picture and prints the
+   * reason beside it. The one state that must never be reachable is a plate
+   * with no map in it at all.
+   *
+   * It also collapses this component's own frame, and that part was added
+   * after looking at the failure in a browser rather than at the DOM: leaving
+   * a 30rem black box with an apology in the middle of it pushed the picture —
+   * the working map — entirely below the fold on a phone. Hiding the frame
+   * returns the plate to exactly what it was before any of this existed, which
+   * is a page that works. The reason travels with the picture instead, where
+   * the reader is actually looking.
+   */
+  function fallBack(root: HTMLElement, reason: string) {
+    const plate = root.closest<HTMLElement>('[data-plate]');
+    const stat = plate?.querySelector<HTMLElement>('[data-plate-static]');
+    const why = plate?.querySelector<HTMLElement>('[data-plate-static-reason]');
+    if (why) why.textContent = reason;
+    if (stat) stat.hidden = false;
+    root.hidden = true;
+  }
+
+  /**
+   * The live map, and only ever one of them.
+   *
+   * `dead` exists because mount() is async: a reader can tap a second species
+   * while MapLibre is still being fetched for the first, and the handle that
+   * comes back then belongs to a plate that is no longer on screen. The flag
+   * lets the late arrival clean itself up instead of leaving an orphan WebGL
+   * context behind a hidden panel.
+   */
+  type Live = { root: HTMLElement; map: MlMap | null; dead: boolean };
+  let live: Live | null = null;
+
+  /**
+   * Where the reader last had the camera. Switching species tears the map down
+   * and builds a new one, and losing the zoom every time would make the layer
+   * switcher useless for the thing it is for — comparing two species over the
+   * same hillside. Module-level, so it survives the remount.
+   */
+  let camera: { center: [number, number]; zoom: number } | null = null;
+
+  /** On screen, as the layout sees it — no client rects means an ancestor is
+   *  display:none, which is how the `:target` selector above hides a panel. */
+  function onScreen(el: HTMLElement) {
+    return el.getClientRects().length > 0;
+  }
+
+  function visibleRoots(): HTMLElement[] {
+    return [...document.querySelectorAll<HTMLElement>('[data-map-explore]')].filter(onScreen);
+  }
+
+  async function mount(entry: Live) {
+    const root = entry.root;
     const config: Config = JSON.parse(root.dataset.config || '{}');
-    const panel = root.querySelector<HTMLElement>('[data-explore-panel]')!;
     const status = root.querySelector<HTMLElement>('[data-explore-status]')!;
     const host = root.querySelector<HTMLElement>('[data-explore-map]')!;
 
     if (config.extent?.projection !== SUPPORTED_PROJECTION) {
-      status.textContent =
+      const why =
         `this run was drawn in ${config.extent?.projection || 'an unnamed projection'}, ` +
-        'which this viewer cannot place without misreporting ground. the static map above is correct.';
+        'which this viewer cannot place without misreporting ground.';
+      status.textContent = `${why} the rendered picture below is correct.`;
+      fallBack(root, `${why} The rendered picture is unaffected.`);
       return;
     }
 
     let maplibre;
     try {
-      // Dynamic, so the bundle is only fetched by a reader who asks for it.
+      // Dynamic, so MapLibre stays out of the initial page payload and is
+      // fetched for the one plate the reader is actually looking at.
       maplibre = await import('maplibre-gl');
       await import('maplibre-gl/dist/maplibre-gl.css');
     } catch (err) {
-      status.textContent =
-        'the interactive map could not load on this connection. the static map above still works.';
+      status.textContent = 'the data map could not load on this connection.';
+      fallBack(
+        root,
+        'The zoomable data map could not load on this connection, so this is the rendered picture instead.'
+      );
       return;
     }
+
+    if (entry.dead) return; // The reader moved on while the bundle was in flight.
 
     const e = config.extent;
     const map: MlMap = new maplibre.Map({
@@ -252,10 +336,17 @@ const config = usable
         },
         layers: [{ id: 'osm', type: 'raster', source: 'osm' }],
       },
-      bounds: [
-        [e.lon_min, e.lat_min],
-        [e.lon_max, e.lat_max],
-      ],
+      // The remembered camera wins over the default framing, so switching
+      // species keeps you where you were. First map of the session has no
+      // remembered camera and gets the whole state.
+      ...(camera
+        ? { center: camera.center, zoom: camera.zoom }
+        : {
+            bounds: [
+              [e.lon_min, e.lat_min],
+              [e.lon_max, e.lat_max],
+            ] as [[number, number], [number, number]],
+          }),
       // Padded, so the painted area can be centred without the camera fighting
       // the edge, but not so loose that you end up in Nevada wondering why
       // there is no data.
@@ -268,17 +359,22 @@ const config = usable
       maxZoom: 12,
       attributionControl: { compact: true },
     });
+    entry.map = map;
+    if (entry.dead) {
+      map.remove();
+      return;
+    }
 
     map.addControl(new maplibre.NavigationControl({ showCompass: false }), 'top-right');
     map.addControl(new maplibre.ScaleControl({ unit: 'metric' }), 'bottom-left');
 
     const byId = new Map(config.layers.map((l) => [l.id, l]));
-    let current = config.initial;
 
     map.on('load', () => {
-      const layer = byId.get(current);
+      const layer = byId.get(config.initial);
       if (!layer) {
         status.textContent = 'no score layer for this species in this run.';
+        fallBack(root, 'This run published no separable score layer for this species.');
         return;
       }
       map.addSource(SOURCE, {
@@ -290,63 +386,130 @@ const config = usable
         id: LAYER,
         type: 'raster',
         source: SOURCE,
-        paint: { 'raster-opacity': 0.8, 'raster-fade-duration': 0 },
+        paint: {
+          'raster-opacity': 0.8,
+          'raster-fade-duration': 0,
+          // NEAREST, not the default linear interpolation.
+          //
+          // Zoomed past the overlay's native size, linear resampling blends
+          // neighbouring cells into colours the scorer never produced there —
+          // it manufactures intermediate probabilities, smoothly, and the
+          // result reads as a blurry photograph of a map rather than as data.
+          // Nearest shows the cells as they are: blocky at high zoom, but
+          // every colour on screen is a score something actually computed, and
+          // the blockiness is an honest statement of the resolution. The fix
+          // for the blocks is finer data and vector bands, not a filter that
+          // hides them.
+          'raster-resampling': 'nearest',
+        },
       });
       status.hidden = true;
+    });
+
+    // Keep the remembered camera current rather than reading it off a map
+    // that is already being torn down.
+    map.on('moveend', () => {
+      const c = map.getCenter();
+      camera = { center: [c.lng, c.lat], zoom: map.getZoom() };
     });
 
     map.on('error', (ev) => {
       // A tile that fails is a basemap gap and self-evident on screen. A
       // failed IMAGE source is not: it leaves a basemap with no scores on it,
       // which reads as "nothing is fruiting anywhere" — the most misleading
-      // state this viewer can be in. So that one is said out loud.
+      // state this viewer can be in. So that one is said out loud, and the
+      // rendered picture comes back as well.
       const failed = (ev as any)?.sourceId === SOURCE;
       if (failed) {
         status.hidden = false;
-        status.textContent = 'the score layer did not load. the static map above is unaffected.';
+        status.textContent = 'the score layer did not load.';
+        fallBack(
+          root,
+          'The score layer did not load over the live basemap, so this is the rendered picture instead.'
+        );
       }
     });
 
-    root.querySelector<HTMLSelectElement>('[data-explore-species]')?.addEventListener(
-      'change',
-      (ev) => {
-        const id = (ev.target as HTMLSelectElement).value;
-        const next = byId.get(id);
-        if (!next) return;
-        current = id;
-        const src = map.getSource(SOURCE) as any;
-        // updateImage keeps the camera where the reader put it, which is the
-        // whole point of switching layers rather than reloading a picture.
-        src?.updateImage({ url: next.url, coordinates: corners(e) });
-      }
-    );
-
-    root.querySelector<HTMLInputElement>('[data-explore-opacity]')?.addEventListener(
-      'input',
-      (ev) => {
+    root
+      .querySelector<HTMLInputElement>('[data-explore-opacity]')
+      ?.addEventListener('input', (ev) => {
         const v = Number((ev.target as HTMLInputElement).value) / 100;
         if (map.getLayer(LAYER)) map.setPaintProperty(LAYER, 'raster-opacity', v);
-      }
-    );
-
-    root.querySelector<HTMLButtonElement>('[data-explore-close]')?.addEventListener('click', () => {
-      map.remove();
-      panel.hidden = true;
-      root.querySelector<HTMLElement>('[data-explore-open]')!.hidden = false;
-      root.dataset.mounted = '';
-    });
+      });
   }
 
-  for (const root of document.querySelectorAll<HTMLElement>('[data-map-explore]')) {
-    const open = root.querySelector<HTMLElement>('[data-explore-open]');
-    open?.addEventListener('click', () => {
-      if (root.dataset.mounted === 'yes') return;
-      root.dataset.mounted = 'yes';
-      root.querySelector<HTMLElement>('[data-explore-panel]')!.hidden = false;
-      open.hidden = true;
-      void mount(root);
-    });
+  function teardown() {
+    if (!live) return;
+    live.dead = true;
+    live.map?.remove();
+    delete live.root.dataset.mounted;
+    live = null;
   }
+
+  /**
+   * Make the live map match the plate that is on screen.
+   *
+   * Called once on load and again on every `hashchange`, which is how a
+   * species gets chosen on this site: the chips are plain fragment links and
+   * the panels show on `:target`, so the hash IS the selection. Nothing here
+   * reads the hash itself — it asks the layout which panel ended up visible,
+   * which keeps working if the selection mechanism above ever changes.
+   */
+  function sync() {
+    const roots = visibleRoots();
+    const root = roots[0] ?? null;
+
+    /*
+     * Normally there is exactly one on-screen plate. There is one way to get
+     * more: SpeciesSelect's `@supports not selector(:has(*))` escape hatch,
+     * which stacks all seventeen panels rather than risk showing none. Those
+     * extra plates are not getting a live map — one WebGL context at a time is
+     * the point of this whole file — and a plate with a dead frame and a
+     * hidden picture would be the blank box this component exists to prevent.
+     * So they are handed their rendered picture back and their empty frame is
+     * removed. An old browser gets the old page, which is the deal.
+     */
+    for (const other of roots.slice(1)) {
+      fallBack(
+        other,
+        'This browser is showing every species at once, so only the first gets a live map. This is the rendered picture.'
+      );
+    }
+
+    if (live && live.root === root) return;
+    teardown();
+    if (!root) return;
+    root.dataset.mounted = 'yes';
+    live = { root, map: null, dead: false };
+    void mount(live);
+  }
+
+  /**
+   * The switcher inside the map drives the PAGE's selection, not just the
+   * layer. It used to swap the image source in place and leave the camera
+   * alone, which was cheaper but let the map show one species underneath a
+   * heading, a caption and a peak score belonging to another. On a site whose
+   * whole argument is that the numbers and the picture describe the same
+   * mushroom, that is the wrong trade. The camera is preserved across the
+   * remount instead, so the cheap version's one real benefit is kept.
+   *
+   * On a single-species page there is no panel to select, so the same control
+   * means "take me to that species" and navigates there. Silently swapping the
+   * layer under that page's own heading, figures and look-alike section would
+   * be the identical confusion in a worse place.
+   */
+  document.addEventListener('change', (ev) => {
+    const sel = (ev.target as HTMLElement)?.closest<HTMLSelectElement>('[data-explore-species]');
+    if (!sel) return;
+    const id = sel.value;
+    if (document.getElementById(`sp-${id}`)) location.hash = `#sp-${id}`;
+    else location.href = `/weather/species/${id}`;
+  });
+
+  // A hash change repaints via CSS before any frame is drawn; waiting one
+  // frame means visibleRoot() is asked after the new panel is laid out.
+  window.addEventListener('hashchange', () => requestAnimationFrame(sync));
+  sync();
 </script>
 
 <style>

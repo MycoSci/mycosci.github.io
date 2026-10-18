@@ -254,6 +254,20 @@ export function latticeStepDegrees(run?: RunRecord | null): number | null {
   return Number.isFinite(s) && s > 0 ? s : null;
 }
 
+/**
+ * The weather lattice cell size in kilometres, as the run recorded it.
+ *
+ * Derived from the run, never typed into a component. The spacing went from
+ * 0.4 deg to 0.2 deg on 2026-10-17, and at that moment every page that had the
+ * old "44 km" written into its prose became wrong while continuing to render
+ * perfectly — which is this project's most reliable failure, not a new one.
+ * One function, read by everything that says the number out loud.
+ */
+export function latticeCellKm(run?: RunRecord | null): number | null {
+  const d = latticeStepDegrees(run);
+  return d === null ? null : Math.round(d * 111.32);
+}
+
 // ---------------------------------------------------------------------------
 // Soil moisture, in words, against the model's own thresholds
 // ---------------------------------------------------------------------------

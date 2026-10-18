@@ -27,6 +27,7 @@ import {
   conditionsLede,
   headlineReadings,
   latticeCaveat,
+  latticeCellKm,
   type RunKinding,
   type WeatherSummary,
 } from '../../lib/weather-report';
@@ -47,7 +48,7 @@ const caveat = latticeCaveat(run);
 // changed lattice moves the sentence instead of making it quietly wrong. One
 // degree of latitude is 111.32 km; this is the north-south side of a cell.
 const stepDeg = Number(run.manifest?.weather?.step_degrees);
-const cellKm = Number.isFinite(stepDeg) && stepDeg > 0 ? Math.round(stepDeg * 111.32) : null;
+const cellKm = latticeCellKm(run);
 const sw = summary?.statewide;
 const th = summary?.thresholds;
 

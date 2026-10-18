@@ -22,7 +22,18 @@
  *   which the pipeline had been emitting for a month and no page had read.
  *
  *   SELECTION. Seventeen species, one map at a time, a persistent selector
- *   that does not collapse, grouped by climate envelope. See SpeciesSelect.astro.
+ *   that does not collapse. See SpeciesSelect.astro.
+ *
+ *   THE MAP (2026-10-17). "Instead of the png and exploratory maps just show
+ *   the data map... then you select what species and then your shown the data
+ *   map." So the zoomable data map is now the map, drawn on load for whichever
+ *   species is selected, and the rendered PNG became its fallback — hidden
+ *   when scripting is confirmed, brought back with a reason when the data map
+ *   cannot draw. The selector split in two to make room: a names-only picker
+ *   above the map, and the full figures-and-caveats block moved below it. No
+ *   caveat was dropped to buy the space; the resolution statement moved onto
+ *   the map panel itself, where the slippy map that implies detail is. See
+ *   MapExplore.astro and Plate.astro, which own the two halves of that.
  *
  *   HISTORY AND FORECAST. Nine published runs exist and their numbers were
  *   already in the repository; the strip under each map is them. The forecast
@@ -68,7 +79,12 @@ import {
   speciesWithBareLookAlikes,
   validationGenerated,
 } from '../../lib/weather';
-import { defaultSpeciesId, runKind, summaryFor } from '../../lib/weather-report';
+import {
+  defaultSpeciesId,
+  latticeStepDegrees,
+  runKind,
+  summaryFor,
+} from '../../lib/weather-report';
 
 const run = currentRun;
 const report = run ? buildReport(run) : null;
@@ -167,15 +183,29 @@ const description = run
 
           {/* ---------------------------------------------------------- */}
           <section id="maps" class="mt-12 scroll-mt-20">
-            <SpeciesSelect run={run} kinding={kinding!} defaultId={openOn!} />
-
-            <div class="mt-6">
-              <Legend bands={pageBands} />
-            </div>
+            {/* The legend travels INTO the selector as a slot rather than
+                being rendered after it. The selector now ends with the full
+                reference block of seventeen chips, and the legend decodes the
+                colours on the map — so it belongs between the two, where the
+                reader's eye still has the map in it. The page keeps ownership
+                of whether that legend may carry band names, which is a claim
+                about this run and not a layout question. */}
+            <SpeciesSelect run={run} kinding={kinding!} defaultId={openOn!}>
+              <Legend slot="legend" bands={pageBands} />
+            </SpeciesSelect>
 
             {/* The key for the one distinction that must never collapse. */}
             <div class="border border-lab-800 bg-lab-900 mt-4">
               <p class="label px-5 pt-4">// Observed and forecast are drawn differently</p>
+              {/* Which kind THIS run is, and how we know. It used to be
+                  appended to the tense note above every one of the seventeen
+                  maps, where it was the same sentence seventeen times and cost
+                  the map two lines of vertical space on a phone. Said once,
+                  here, in the block that exists to explain the distinction. */}
+              <p class="px-5 pt-3 text-sm text-lab-300 leading-relaxed">
+                <span class="badge badge-bio mr-2">{kinding!.label}</span>
+                {kinding!.detail}
+              </p>
               <div class="grid sm:grid-cols-2 gap-px bg-lab-800 border-t border-lab-800 mt-3">
                 <div class="bg-lab-950 px-5 py-4">
                   <div class="key-observed h-8 border border-lab-700 mb-3"></div>
@@ -223,7 +253,7 @@ const description = run
 
           {/* ---------------------------------------------------------- */}
           <section id="regions" class="mt-12 scroll-mt-20">
-            <RegionTable summary={summary} />
+            <RegionTable summary={summary} stepDegrees={latticeStepDegrees(run)} />
           </section>
 
           {/* ------------------------------------------------------------
