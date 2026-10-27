@@ -1,10 +1,10 @@
 {
   "record_version": 1,
-  "published_at": "2026-10-27T16:05:49.477Z",
+  "published_at": "2026-10-27T16:46:51.480Z",
   "as_of_date": "2026-10-26",
   "target_date": "2026-10-27",
   "lag_days_behind_target": 1,
-  "manifest_sha256": "9b8ebc1631bac7cba949b97bd5dd301617f2fa7731150d8273f67dcd06b04429",
+  "manifest_sha256": "b8895399fd00d856bab38d517721a9826e4d1588629503705745e5effeeea8d8",
   "manifest_path": "out/2026-10-27/manifest.json",
   "manifest": {
     "manifest_version": 1,
@@ -17,7 +17,7 @@
       "height_px": 2184,
       "projection": "web_mercator_epsg3857"
     },
-    "generated_at": "2026-10-27T15:54:09.119072Z",
+    "generated_at": "2026-10-27T16:24:17.11994Z",
     "target_date": "2026-10-27",
     "as_of_date": "2026-10-26",
     "lag_days_behind_target": 1,
@@ -63,7 +63,7 @@
       },
       "allow_forecast_hours": 0,
       "fetched_at": "2026-10-27T15:54:09.119072Z",
-      "from_cache": false,
+      "from_cache": true,
       "grid_points": 943,
       "step_degrees": 0.2,
       "series_days_needed": 35
@@ -102,12 +102,12 @@
       },
       "grid_points": {
         "total": 943,
-        "summarised": 711,
+        "summarised": 729,
         "dropped_no_series": 0,
         "dropped_series_does_not_reach_as_of_date": 0,
         "dropped_no_land_cover": 53,
-        "dropped_no_elevation": 96,
-        "dropped_outside_oregon": 83,
+        "dropped_no_elevation": 59,
+        "dropped_outside_oregon": 102,
         "land_cover_available": true
       },
       "previous_run": {
@@ -123,15 +123,15 @@
         "id": "statewide",
         "name": "Oregon (statewide)",
         "definition": "every summarised grid point inside the state on classified land; the state spans a rainforest and a desert, so this is a lede, not a forecast",
-        "grid_points": 711,
+        "grid_points": 729,
         "thin": false,
         "extent": {
-          "elev_min_ft": 12,
-          "elev_mean_ft": 3561,
+          "elev_min_ft": 17,
+          "elev_mean_ft": 3517,
           "elev_max_ft": 7687,
           "lat_range": [
             42,
-            45.8
+            46
           ],
           "lon_range": [
             -124.5,
@@ -139,6 +139,96 @@
           ]
         },
         "points": [
+          [
+            46,
+            -123.9,
+            136
+          ],
+          [
+            46,
+            -123.7,
+            620
+          ],
+          [
+            46,
+            -123.5,
+            1056
+          ],
+          [
+            46,
+            -123.3,
+            619
+          ],
+          [
+            46,
+            -123.1,
+            1123
+          ],
+          [
+            46,
+            -122.9,
+            205
+          ],
+          [
+            46,
+            -118.9,
+            1532
+          ],
+          [
+            46,
+            -118.7,
+            673
+          ],
+          [
+            46,
+            -118.5,
+            681
+          ],
+          [
+            46,
+            -118.3,
+            1114
+          ],
+          [
+            46,
+            -118.1,
+            3234
+          ],
+          [
+            46,
+            -117.9,
+            5658
+          ],
+          [
+            46,
+            -117.7,
+            2573
+          ],
+          [
+            46,
+            -117.5,
+            3631
+          ],
+          [
+            46,
+            -117.3,
+            3207
+          ],
+          [
+            46,
+            -117.1,
+            2318
+          ],
+          [
+            46,
+            -116.9,
+            1410
+          ],
+          [
+            46,
+            -116.7,
+            1190
+          ],
           [
             45.8,
             -123.9,
@@ -1502,7 +1592,7 @@
           [
             44.2,
             -124.1,
-            963
+            731
           ],
           [
             44.2,
@@ -1682,7 +1772,7 @@
           [
             44,
             -124.1,
-            12
+            73
           ],
           [
             44,
@@ -1862,7 +1952,7 @@
           [
             43.8,
             -124.1,
-            969
+            54
           ],
           [
             43.8,
@@ -2042,7 +2132,7 @@
           [
             43.6,
             -124.1,
-            447
+            263
           ],
           [
             43.6,
@@ -2222,12 +2312,12 @@
           [
             43.4,
             -124.3,
-            312
+            47
           ],
           [
             43.4,
             -124.1,
-            1240
+            992
           ],
           [
             43.4,
@@ -2407,12 +2497,12 @@
           [
             43.2,
             -124.3,
-            312
+            403
           ],
           [
             43.2,
             -124.1,
-            468
+            361
           ],
           [
             43.2,
@@ -2592,12 +2682,12 @@
           [
             43,
             -124.3,
-            368
+            1283
           ],
           [
             43,
             -124.1,
-            315
+            566
           ],
           [
             43,
@@ -2777,17 +2867,17 @@
           [
             42.8,
             -124.5,
-            99
+            30
           ],
           [
             42.8,
             -124.3,
-            305
+            664
           ],
           [
             42.8,
             -124.1,
-            1438
+            3022
           ],
           [
             42.8,
@@ -2967,12 +3057,12 @@
           [
             42.6,
             -124.3,
-            648
+            593
           ],
           [
             42.6,
             -124.1,
-            1769
+            2319
           ],
           [
             42.6,
@@ -3152,12 +3242,12 @@
           [
             42.4,
             -124.3,
-            1874
+            2653
           ],
           [
             42.4,
             -124.1,
-            2082
+            3511
           ],
           [
             42.4,
@@ -3332,12 +3422,12 @@
           [
             42.2,
             -124.3,
-            1828
+            999
           ],
           [
             42.2,
             -124.1,
-            2659
+            952
           ],
           [
             42.2,
@@ -3517,7 +3607,7 @@
           [
             42,
             -124.1,
-            987
+            933
           ],
           [
             42,
@@ -3704,31 +3794,31 @@
             {
               "days": 1,
               "days_used": 1,
-              "points_used": 711,
+              "points_used": 729,
               "mean_in": 0.259,
               "mean_mm": 6.6,
               "min_in": 0,
               "min_mm": 0,
               "max_in": 1.437,
               "max_mm": 36.5,
-              "prior_window_mean_in": 0.073,
-              "prior_window_mean_mm": 1.8,
-              "change_vs_prior_window_in": 0.187,
-              "change_vs_prior_window_mm": 4.7,
+              "prior_window_mean_in": 0.077,
+              "prior_window_mean_mm": 1.9,
+              "change_vs_prior_window_in": 0.183,
+              "change_vs_prior_window_mm": 4.6,
               "forecast_days_in_window": 0
             },
             {
               "days": 3,
               "days_used": 3,
-              "points_used": 711,
-              "mean_in": 0.332,
-              "mean_mm": 8.4,
+              "points_used": 729,
+              "mean_in": 0.336,
+              "mean_mm": 8.5,
               "min_in": 0,
               "min_mm": 0,
               "max_in": 2.248,
               "max_mm": 57.1,
-              "prior_window_mean_in": 0.332,
-              "prior_window_mean_mm": 8.4,
+              "prior_window_mean_in": 0.335,
+              "prior_window_mean_mm": 8.5,
               "change_vs_prior_window_in": 0.001,
               "change_vs_prior_window_mm": 0,
               "forecast_days_in_window": 0
@@ -3736,41 +3826,41 @@
             {
               "days": 7,
               "days_used": 7,
-              "points_used": 711,
-              "mean_in": 0.669,
-              "mean_mm": 17,
+              "points_used": 729,
+              "mean_in": 0.676,
+              "mean_mm": 17.2,
               "min_in": 0.008,
               "min_mm": 0.2,
               "max_in": 2.248,
               "max_mm": 57.1,
-              "prior_window_mean_in": 0.012,
+              "prior_window_mean_in": 0.013,
               "prior_window_mean_mm": 0.3,
-              "change_vs_prior_window_in": 0.657,
-              "change_vs_prior_window_mm": 16.7,
+              "change_vs_prior_window_in": 0.664,
+              "change_vs_prior_window_mm": 16.9,
               "forecast_days_in_window": 0
             },
             {
               "days": 14,
               "days_used": 14,
-              "points_used": 711,
-              "mean_in": 0.682,
-              "mean_mm": 17.3,
+              "points_used": 729,
+              "mean_in": 0.689,
+              "mean_mm": 17.5,
               "min_in": 0.008,
               "min_mm": 0.2,
               "max_in": 2.316,
               "max_mm": 58.8,
-              "prior_window_mean_in": 0.057,
-              "prior_window_mean_mm": 1.5,
-              "change_vs_prior_window_in": 0.624,
+              "prior_window_mean_in": 0.061,
+              "prior_window_mean_mm": 1.6,
+              "change_vs_prior_window_in": 0.628,
               "change_vs_prior_window_mm": 15.9,
               "forecast_days_in_window": 0
             },
             {
               "days": 30,
               "days_used": 30,
-              "points_used": 711,
-              "mean_in": 0.75,
-              "mean_mm": 19,
+              "points_used": 729,
+              "mean_in": 0.76,
+              "mean_mm": 19.3,
               "min_in": 0.016,
               "min_mm": 0.4,
               "max_in": 2.799,
@@ -3789,22 +3879,22 @@
           "points_with_no_measurable_rain_in_series": 0
         },
         "soil_moisture": {
-          "points_with_reading": 711,
-          "points_total": 711,
-          "latest_mean_vwc": 0.2339,
+          "points_with_reading": 729,
+          "points_total": 729,
+          "latest_mean_vwc": 0.2351,
           "latest_min_vwc": 0.0201,
           "latest_max_vwc": 0.4815,
-          "trailing_3d_mean_vwc": 0.2154,
-          "value_7d_ago_mean_vwc": 0.1281,
-          "change_over_7d_vwc": 0.1058,
-          "value_14d_ago_mean_vwc": 0.1354,
+          "trailing_3d_mean_vwc": 0.2165,
+          "value_7d_ago_mean_vwc": 0.1288,
+          "change_over_7d_vwc": 0.1063,
+          "value_14d_ago_mean_vwc": 0.1366,
           "change_over_14d_vwc": 0.0985,
-          "deep_7_to_28cm_latest_mean_vwc": 0.1959,
-          "points_at_or_above_field_capacity": 224,
-          "points_at_or_above_abort_floor": 405,
-          "points_below_abort_floor": 306,
-          "pct_at_or_above_field_capacity": 31.5,
-          "pct_at_or_above_abort_floor": 57,
+          "deep_7_to_28cm_latest_mean_vwc": 0.1965,
+          "points_at_or_above_field_capacity": 229,
+          "points_at_or_above_abort_floor": 421,
+          "points_below_abort_floor": 308,
+          "pct_at_or_above_field_capacity": 31.4,
+          "pct_at_or_above_abort_floor": 57.8,
           "state": "between_abort_floor_and_field_capacity",
           "field_capacity_crossing": {
             "state": "below",
@@ -3819,20 +3909,20 @@
           "consecutive_days_at_or_above_abort_floor": 4
         },
         "air_temp_f": {
-          "trailing_3d_mean_f": 41.8,
+          "trailing_3d_mean_f": 41.9,
           "min_daily_min_last_7d_f": 15.3,
           "max_daily_max_last_7d_f": 82.1,
           "extremes_basis": "daily minimum and maximum",
-          "change_vs_7d_ago_f": -9.7,
+          "change_vs_7d_ago_f": -9.6,
           "cooling_trend_f_positive_is_cooling": 3.3
         },
         "soil_temp_f": {
-          "trailing_3d_mean_f": 41.4,
+          "trailing_3d_mean_f": 41.5,
           "min_daily_min_last_7d_f": 23.8,
           "max_daily_max_last_7d_f": 60.7,
           "extremes_basis": "daily MEAN (the series carries no sub-daily soil extremes), so the real swing is wider",
           "change_vs_7d_ago_f": -8.4,
-          "cooling_trend_f_positive_is_cooling": 4.8
+          "cooling_trend_f_positive_is_cooling": 4.7
         },
         "previous_run_values": {
           "precip_7d_in": 0.04,
@@ -3843,12 +3933,12 @@
           "soil_temp_trailing_3d_mean_f": 47.6
         },
         "change_since_previous_run": {
-          "precip_7d_in": 0.629,
-          "precip_7d_mm": 16,
-          "soil_moisture_latest_mean_vwc": 0.1001,
-          "soil_moisture_trailing_3d_mean_vwc": 0.0798,
-          "air_temp_trailing_3d_mean_f": -9.2,
-          "soil_temp_trailing_3d_mean_f": -6.2
+          "precip_7d_in": 0.636,
+          "precip_7d_mm": 16.2,
+          "soil_moisture_latest_mean_vwc": 0.1013,
+          "soil_moisture_trailing_3d_mean_vwc": 0.0809,
+          "air_temp_trailing_3d_mean_f": -9.1,
+          "soil_temp_trailing_3d_mean_f": -6.1
         }
       },
       "regions": [
@@ -3856,15 +3946,15 @@
           "id": "coast",
           "name": "Coast & coastal valleys",
           "definition": "lon <= -123.6 and elevation < 1000 ft: the beach plain from Astoria to Brookings AND the coastal river valleys behind it (Nehalem, Siletz, Alsea, Smith), which share its marine climate. Ocean points are excluded by land cover, not by this rule",
-          "grid_points": 33,
+          "grid_points": 37,
           "thin": false,
           "extent": {
-            "elev_min_ft": 12,
-            "elev_mean_ft": 499,
-            "elev_max_ft": 987,
+            "elev_min_ft": 18,
+            "elev_mean_ft": 505,
+            "elev_max_ft": 999,
             "lat_range": [
               42,
-              45.8
+              46
             ],
             "lon_range": [
               -124.5,
@@ -3872,6 +3962,16 @@
             ]
           },
           "points": [
+            [
+              46,
+              -123.9,
+              136
+            ],
+            [
+              46,
+              -123.7,
+              620
+            ],
             [
               45.8,
               -123.7,
@@ -3925,7 +4025,7 @@
             [
               44.2,
               -124.1,
-              963
+              731
             ],
             [
               44.2,
@@ -3940,7 +4040,7 @@
             [
               44,
               -124.1,
-              12
+              73
             ],
             [
               44,
@@ -3955,7 +4055,7 @@
             [
               43.8,
               -124.1,
-              969
+              54
             ],
             [
               43.8,
@@ -3970,7 +4070,7 @@
             [
               43.6,
               -124.1,
-              447
+              263
             ],
             [
               43.6,
@@ -3980,7 +4080,12 @@
             [
               43.4,
               -124.3,
-              312
+              47
+            ],
+            [
+              43.4,
+              -124.1,
+              992
             ],
             [
               43.4,
@@ -3990,22 +4095,17 @@
             [
               43.2,
               -124.3,
-              312
+              403
             ],
             [
               43.2,
               -124.1,
-              468
-            ],
-            [
-              43,
-              -124.3,
-              368
+              361
             ],
             [
               43,
               -124.1,
-              315
+              566
             ],
             [
               43,
@@ -4015,17 +4115,17 @@
             [
               42.8,
               -124.5,
-              99
+              30
             ],
             [
               42.8,
               -124.3,
-              305
+              664
             ],
             [
               42.6,
               -124.3,
-              648
+              593
             ],
             [
               42.4,
@@ -4033,9 +4133,19 @@
               619
             ],
             [
+              42.2,
+              -124.3,
+              999
+            ],
+            [
+              42.2,
+              -124.1,
+              952
+            ],
+            [
               42,
               -124.1,
-              987
+              933
             ]
           ],
           "days_available": 35,
@@ -4047,73 +4157,73 @@
               {
                 "days": 1,
                 "days_used": 1,
-                "points_used": 33,
-                "mean_in": 0.657,
-                "mean_mm": 16.7,
-                "min_in": 0.335,
-                "min_mm": 8.5,
+                "points_used": 37,
+                "mean_in": 0.676,
+                "mean_mm": 17.2,
+                "min_in": 0.291,
+                "min_mm": 7.4,
                 "max_in": 1.218,
                 "max_mm": 30.9,
-                "prior_window_mean_in": 0.385,
+                "prior_window_mean_in": 0.384,
                 "prior_window_mean_mm": 9.8,
-                "change_vs_prior_window_in": 0.272,
-                "change_vs_prior_window_mm": 6.9,
+                "change_vs_prior_window_in": 0.292,
+                "change_vs_prior_window_mm": 7.4,
                 "forecast_days_in_window": 0
               },
               {
                 "days": 3,
                 "days_used": 3,
-                "points_used": 33,
-                "mean_in": 1.043,
-                "mean_mm": 26.5,
+                "points_used": 37,
+                "mean_in": 1.061,
+                "mean_mm": 26.9,
                 "min_in": 0.533,
                 "min_mm": 13.5,
                 "max_in": 1.777,
                 "max_mm": 45.1,
-                "prior_window_mean_in": 0.01,
-                "prior_window_mean_mm": 0.3,
-                "change_vs_prior_window_in": 1.033,
-                "change_vs_prior_window_mm": 26.2,
+                "prior_window_mean_in": 0.008,
+                "prior_window_mean_mm": 0.2,
+                "change_vs_prior_window_in": 1.052,
+                "change_vs_prior_window_mm": 26.7,
                 "forecast_days_in_window": 0
               },
               {
                 "days": 7,
                 "days_used": 7,
-                "points_used": 33,
-                "mean_in": 1.056,
-                "mean_mm": 26.8,
+                "points_used": 37,
+                "mean_in": 1.072,
+                "mean_mm": 27.2,
                 "min_in": 0.561,
                 "min_mm": 14.2,
                 "max_in": 1.781,
                 "max_mm": 45.2,
-                "prior_window_mean_in": 0.029,
-                "prior_window_mean_mm": 0.7,
-                "change_vs_prior_window_in": 1.026,
-                "change_vs_prior_window_mm": 26.1,
+                "prior_window_mean_in": 0.032,
+                "prior_window_mean_mm": 0.8,
+                "change_vs_prior_window_in": 1.04,
+                "change_vs_prior_window_mm": 26.4,
                 "forecast_days_in_window": 0
               },
               {
                 "days": 14,
                 "days_used": 14,
-                "points_used": 33,
-                "mean_in": 1.085,
-                "mean_mm": 27.6,
+                "points_used": 37,
+                "mean_in": 1.103,
+                "mean_mm": 28,
                 "min_in": 0.561,
                 "min_mm": 14.2,
                 "max_in": 1.837,
                 "max_mm": 46.7,
-                "prior_window_mean_in": 0.1,
-                "prior_window_mean_mm": 2.5,
-                "change_vs_prior_window_in": 0.986,
-                "change_vs_prior_window_mm": 25,
+                "prior_window_mean_in": 0.123,
+                "prior_window_mean_mm": 3.1,
+                "change_vs_prior_window_in": 0.98,
+                "change_vs_prior_window_mm": 24.9,
                 "forecast_days_in_window": 0
               },
               {
                 "days": 30,
                 "days_used": 30,
-                "points_used": 33,
-                "mean_in": 1.185,
-                "mean_mm": 30.1,
+                "points_used": 37,
+                "mean_in": 1.227,
+                "mean_mm": 31.2,
                 "min_in": 0.577,
                 "min_mm": 14.7,
                 "max_in": 2.334,
@@ -4125,29 +4235,29 @@
                 "forecast_days_in_window": 0
               }
             ],
-            "wet_days_last_7_mean": 2.52,
+            "wet_days_last_7_mean": 2.41,
             "wet_day_threshold_in": 0.01,
             "days_since_measurable_rain_median": 0,
             "days_since_measurable_rain_max": 0,
             "points_with_no_measurable_rain_in_series": 0
           },
           "soil_moisture": {
-            "points_with_reading": 33,
-            "points_total": 33,
-            "latest_mean_vwc": 0.3618,
+            "points_with_reading": 37,
+            "points_total": 37,
+            "latest_mean_vwc": 0.3608,
             "latest_min_vwc": 0.1872,
             "latest_max_vwc": 0.4159,
-            "trailing_3d_mean_vwc": 0.2483,
-            "value_7d_ago_mean_vwc": 0.1743,
-            "change_over_7d_vwc": 0.1875,
-            "value_14d_ago_mean_vwc": 0.2156,
-            "change_over_14d_vwc": 0.1462,
-            "deep_7_to_28cm_latest_mean_vwc": 0.2362,
-            "points_at_or_above_field_capacity": 30,
-            "points_at_or_above_abort_floor": 32,
+            "trailing_3d_mean_vwc": 0.2488,
+            "value_7d_ago_mean_vwc": 0.1762,
+            "change_over_7d_vwc": 0.1846,
+            "value_14d_ago_mean_vwc": 0.2202,
+            "change_over_14d_vwc": 0.1406,
+            "deep_7_to_28cm_latest_mean_vwc": 0.2398,
+            "points_at_or_above_field_capacity": 33,
+            "points_at_or_above_abort_floor": 36,
             "points_below_abort_floor": 1,
-            "pct_at_or_above_field_capacity": 90.9,
-            "pct_at_or_above_abort_floor": 97,
+            "pct_at_or_above_field_capacity": 89.2,
+            "pct_at_or_above_abort_floor": 97.3,
             "state": "at_or_above_field_capacity",
             "field_capacity_crossing": {
               "state": "crossed",
@@ -4162,12 +4272,12 @@
             "consecutive_days_at_or_above_abort_floor": 2
           },
           "air_temp_f": {
-            "trailing_3d_mean_f": 49.2,
+            "trailing_3d_mean_f": 49.1,
             "min_daily_min_last_7d_f": 31.7,
             "max_daily_max_last_7d_f": 82.1,
             "extremes_basis": "daily minimum and maximum",
             "change_vs_7d_ago_f": -4.1,
-            "cooling_trend_f_positive_is_cooling": 0.9
+            "cooling_trend_f_positive_is_cooling": 0.8
           },
           "soil_temp_f": {
             "trailing_3d_mean_f": 49.3,
@@ -4175,7 +4285,7 @@
             "max_daily_max_last_7d_f": 57.2,
             "extremes_basis": "daily MEAN (the series carries no sub-daily soil extremes), so the real swing is wider",
             "change_vs_7d_ago_f": -5.3,
-            "cooling_trend_f_positive_is_cooling": 1.6
+            "cooling_trend_f_positive_is_cooling": 1.5
           },
           "previous_run_values": {
             "precip_7d_in": 0.019,
@@ -4186,11 +4296,11 @@
             "soil_temp_trailing_3d_mean_f": 56.2
           },
           "change_since_previous_run": {
-            "precip_7d_in": 1.037,
-            "precip_7d_mm": 26.3,
-            "soil_moisture_latest_mean_vwc": 0.1782,
-            "soil_moisture_trailing_3d_mean_vwc": 0.0614,
-            "air_temp_trailing_3d_mean_f": -10.2,
+            "precip_7d_in": 1.053,
+            "precip_7d_mm": 26.7,
+            "soil_moisture_latest_mean_vwc": 0.1772,
+            "soil_moisture_trailing_3d_mean_vwc": 0.0619,
+            "air_temp_trailing_3d_mean_f": -10.3,
             "soil_temp_trailing_3d_mean_f": -6.9
           }
         },
@@ -4198,22 +4308,32 @@
           "id": "coast_range",
           "name": "Coast Range",
           "definition": "lat >= 43.4, lon <= -123.1 and elevation >= 1000 ft: the timbered ridge between the coast and the Willamette Valley. The eastern limit is -123.1 because the Coast Range does not reach further east at any latitude; a looser limit put the Umpqua National Forest in it",
-          "grid_points": 22,
+          "grid_points": 23,
           "thin": false,
           "extent": {
             "elev_min_ft": 1033,
-            "elev_mean_ft": 1690,
+            "elev_mean_ft": 1658,
             "elev_max_ft": 2410,
             "lat_range": [
               43.4,
-              45.8
+              46
             ],
             "lon_range": [
-              -124.1,
+              -123.9,
               -123.1
             ]
           },
           "points": [
+            [
+              46,
+              -123.5,
+              1056
+            ],
+            [
+              46,
+              -123.1,
+              1123
+            ],
             [
               45.8,
               -123.9,
@@ -4306,11 +4426,6 @@
             ],
             [
               43.4,
-              -124.1,
-              1240
-            ],
-            [
-              43.4,
               -123.7,
               2069
             ],
@@ -4334,73 +4449,73 @@
               {
                 "days": 1,
                 "days_used": 1,
-                "points_used": 22,
-                "mean_in": 0.793,
+                "points_used": 23,
+                "mean_in": 0.791,
                 "mean_mm": 20.1,
                 "min_in": 0.439,
                 "min_mm": 11.2,
                 "max_in": 1.353,
                 "max_mm": 34.4,
-                "prior_window_mean_in": 0.491,
-                "prior_window_mean_mm": 12.5,
-                "change_vs_prior_window_in": 0.302,
-                "change_vs_prior_window_mm": 7.7,
+                "prior_window_mean_in": 0.515,
+                "prior_window_mean_mm": 13.1,
+                "change_vs_prior_window_in": 0.275,
+                "change_vs_prior_window_mm": 7,
                 "forecast_days_in_window": 0
               },
               {
                 "days": 3,
                 "days_used": 3,
-                "points_used": 22,
-                "mean_in": 1.283,
-                "mean_mm": 32.6,
+                "points_used": 23,
+                "mean_in": 1.306,
+                "mean_mm": 33.2,
                 "min_in": 0.62,
                 "min_mm": 15.7,
                 "max_in": 2.248,
                 "max_mm": 57.1,
-                "prior_window_mean_in": 0.007,
+                "prior_window_mean_in": 0.006,
                 "prior_window_mean_mm": 0.2,
-                "change_vs_prior_window_in": 1.277,
-                "change_vs_prior_window_mm": 32.4,
+                "change_vs_prior_window_in": 1.3,
+                "change_vs_prior_window_mm": 33,
                 "forecast_days_in_window": 0
               },
               {
                 "days": 7,
                 "days_used": 7,
-                "points_used": 22,
-                "mean_in": 1.291,
-                "mean_mm": 32.8,
+                "points_used": 23,
+                "mean_in": 1.313,
+                "mean_mm": 33.4,
                 "min_in": 0.62,
                 "min_mm": 15.7,
                 "max_in": 2.248,
                 "max_mm": 57.1,
-                "prior_window_mean_in": 0.045,
-                "prior_window_mean_mm": 1.1,
-                "change_vs_prior_window_in": 1.246,
-                "change_vs_prior_window_mm": 31.7,
+                "prior_window_mean_in": 0.046,
+                "prior_window_mean_mm": 1.2,
+                "change_vs_prior_window_in": 1.268,
+                "change_vs_prior_window_mm": 32.2,
                 "forecast_days_in_window": 0
               },
               {
                 "days": 14,
                 "days_used": 14,
-                "points_used": 22,
-                "mean_in": 1.336,
-                "mean_mm": 33.9,
+                "points_used": 23,
+                "mean_in": 1.359,
+                "mean_mm": 34.5,
                 "min_in": 0.632,
                 "min_mm": 16.1,
                 "max_in": 2.316,
                 "max_mm": 58.8,
-                "prior_window_mean_in": 0.196,
-                "prior_window_mean_mm": 5,
-                "change_vs_prior_window_in": 1.14,
-                "change_vs_prior_window_mm": 29,
+                "prior_window_mean_in": 0.208,
+                "prior_window_mean_mm": 5.3,
+                "change_vs_prior_window_in": 1.151,
+                "change_vs_prior_window_mm": 29.2,
                 "forecast_days_in_window": 0
               },
               {
                 "days": 30,
                 "days_used": 30,
-                "points_used": 22,
-                "mean_in": 1.532,
-                "mean_mm": 38.9,
+                "points_used": 23,
+                "mean_in": 1.567,
+                "mean_mm": 39.8,
                 "min_in": 0.64,
                 "min_mm": 16.3,
                 "max_in": 2.799,
@@ -4412,28 +4527,28 @@
                 "forecast_days_in_window": 0
               }
             ],
-            "wet_days_last_7_mean": 2.32,
+            "wet_days_last_7_mean": 2.3,
             "wet_day_threshold_in": 0.01,
             "days_since_measurable_rain_median": 0,
             "days_since_measurable_rain_max": 0,
             "points_with_no_measurable_rain_in_series": 0
           },
           "soil_moisture": {
-            "points_with_reading": 22,
-            "points_total": 22,
-            "latest_mean_vwc": 0.3876,
-            "latest_min_vwc": 0.2463,
+            "points_with_reading": 23,
+            "points_total": 23,
+            "latest_mean_vwc": 0.3944,
+            "latest_min_vwc": 0.2918,
             "latest_max_vwc": 0.4707,
-            "trailing_3d_mean_vwc": 0.2745,
-            "value_7d_ago_mean_vwc": 0.2039,
-            "change_over_7d_vwc": 0.1837,
-            "value_14d_ago_mean_vwc": 0.243,
-            "change_over_14d_vwc": 0.1446,
-            "deep_7_to_28cm_latest_mean_vwc": 0.2714,
-            "points_at_or_above_field_capacity": 20,
-            "points_at_or_above_abort_floor": 22,
+            "trailing_3d_mean_vwc": 0.2823,
+            "value_7d_ago_mean_vwc": 0.2079,
+            "change_over_7d_vwc": 0.1865,
+            "value_14d_ago_mean_vwc": 0.2452,
+            "change_over_14d_vwc": 0.1492,
+            "deep_7_to_28cm_latest_mean_vwc": 0.2779,
+            "points_at_or_above_field_capacity": 22,
+            "points_at_or_above_abort_floor": 23,
             "points_below_abort_floor": 0,
-            "pct_at_or_above_field_capacity": 90.9,
+            "pct_at_or_above_field_capacity": 95.7,
             "pct_at_or_above_abort_floor": 100,
             "state": "at_or_above_field_capacity",
             "field_capacity_crossing": {
@@ -4442,22 +4557,22 @@
               "days_ago": 0
             },
             "abort_floor_crossing": {
-              "state": "crossed",
-              "on_date": "2026-10-21",
-              "days_ago": 5
+              "state": "above_since_before_window",
+              "on_date": null,
+              "days_ago": null
             },
-            "consecutive_days_at_or_above_abort_floor": 6
+            "consecutive_days_at_or_above_abort_floor": 35
           },
           "air_temp_f": {
             "trailing_3d_mean_f": 45.3,
             "min_daily_min_last_7d_f": 26.1,
             "max_daily_max_last_7d_f": 77.1,
             "extremes_basis": "daily minimum and maximum",
-            "change_vs_7d_ago_f": -4.9,
+            "change_vs_7d_ago_f": -5,
             "cooling_trend_f_positive_is_cooling": 1.1
           },
           "soil_temp_f": {
-            "trailing_3d_mean_f": 45.1,
+            "trailing_3d_mean_f": 45,
             "min_daily_min_last_7d_f": 39.2,
             "max_daily_max_last_7d_f": 55.5,
             "extremes_basis": "daily MEAN (the series carries no sub-daily soil extremes), so the real swing is wider",
@@ -4473,23 +4588,23 @@
             "soil_temp_trailing_3d_mean_f": 52.2
           },
           "change_since_previous_run": {
-            "precip_7d_in": 1.25,
-            "precip_7d_mm": 31.8,
-            "soil_moisture_latest_mean_vwc": 0.1768,
-            "soil_moisture_trailing_3d_mean_vwc": 0.0584,
+            "precip_7d_in": 1.272,
+            "precip_7d_mm": 32.4,
+            "soil_moisture_latest_mean_vwc": 0.1836,
+            "soil_moisture_trailing_3d_mean_vwc": 0.0662,
             "air_temp_trailing_3d_mean_f": -10.9,
-            "soil_temp_trailing_3d_mean_f": -7.1
+            "soil_temp_trailing_3d_mean_f": -7.2
           }
         },
         {
           "id": "siskiyous",
           "name": "Siskiyous & southwest interior",
           "definition": "lat < 43.4 and west of the tapering Klamath-Siskiyou eastern edge (-122.35 at the California line, -123.2 by lat 43.4): the Siskiyou and Klamath mountains with the Rogue and Umpqua valleys they enclose",
-          "grid_points": 51,
+          "grid_points": 50,
           "thin": false,
           "extent": {
             "elev_min_ft": 548,
-            "elev_mean_ft": 2548,
+            "elev_mean_ft": 2622,
             "elev_max_ft": 6039,
             "lat_range": [
               42,
@@ -4528,6 +4643,11 @@
             ],
             [
               43,
+              -124.3,
+              1283
+            ],
+            [
+              43,
               -123.7,
               1249
             ],
@@ -4554,7 +4674,7 @@
             [
               42.8,
               -124.1,
-              1438
+              3022
             ],
             [
               42.8,
@@ -4589,7 +4709,7 @@
             [
               42.6,
               -124.1,
-              1769
+              2319
             ],
             [
               42.6,
@@ -4629,12 +4749,12 @@
             [
               42.4,
               -124.3,
-              1874
+              2653
             ],
             [
               42.4,
               -124.1,
-              2082
+              3511
             ],
             [
               42.4,
@@ -4665,16 +4785,6 @@
               42.4,
               -122.7,
               2364
-            ],
-            [
-              42.2,
-              -124.3,
-              1828
-            ],
-            [
-              42.2,
-              -124.1,
-              2659
             ],
             [
               42.2,
@@ -4766,73 +4876,73 @@
               {
                 "days": 1,
                 "days_used": 1,
-                "points_used": 51,
-                "mean_in": 0.537,
-                "mean_mm": 13.6,
+                "points_used": 50,
+                "mean_in": 0.511,
+                "mean_mm": 13,
                 "min_in": 0.06,
                 "min_mm": 1.5,
-                "max_in": 1.198,
-                "max_mm": 30.4,
-                "prior_window_mean_in": 0.012,
-                "prior_window_mean_mm": 0.3,
-                "change_vs_prior_window_in": 0.525,
-                "change_vs_prior_window_mm": 13.3,
+                "max_in": 0.99,
+                "max_mm": 25.1,
+                "prior_window_mean_in": 0.019,
+                "prior_window_mean_mm": 0.5,
+                "change_vs_prior_window_in": 0.492,
+                "change_vs_prior_window_mm": 12.5,
                 "forecast_days_in_window": 0
               },
               {
                 "days": 3,
                 "days_used": 3,
-                "points_used": 51,
-                "mean_in": 0.549,
-                "mean_mm": 14,
+                "points_used": 50,
+                "mean_in": 0.529,
+                "mean_mm": 13.4,
                 "min_in": 0.06,
                 "min_mm": 1.5,
                 "max_in": 1.269,
                 "max_mm": 32.2,
-                "prior_window_mean_in": 0.086,
-                "prior_window_mean_mm": 2.2,
-                "change_vs_prior_window_in": 0.463,
-                "change_vs_prior_window_mm": 11.8,
+                "prior_window_mean_in": 0.089,
+                "prior_window_mean_mm": 2.3,
+                "change_vs_prior_window_in": 0.441,
+                "change_vs_prior_window_mm": 11.2,
                 "forecast_days_in_window": 0
               },
               {
                 "days": 7,
                 "days_used": 7,
-                "points_used": 51,
-                "mean_in": 0.655,
-                "mean_mm": 16.6,
+                "points_used": 50,
+                "mean_in": 0.638,
+                "mean_mm": 16.2,
                 "min_in": 0.36,
                 "min_mm": 9.1,
                 "max_in": 1.277,
                 "max_mm": 32.4,
                 "prior_window_mean_in": 0.004,
                 "prior_window_mean_mm": 0.1,
-                "change_vs_prior_window_in": 0.651,
-                "change_vs_prior_window_mm": 16.5,
+                "change_vs_prior_window_in": 0.635,
+                "change_vs_prior_window_mm": 16.1,
                 "forecast_days_in_window": 0
               },
               {
                 "days": 14,
                 "days_used": 14,
-                "points_used": 51,
-                "mean_in": 0.659,
-                "mean_mm": 16.7,
+                "points_used": 50,
+                "mean_in": 0.642,
+                "mean_mm": 16.3,
                 "min_in": 0.364,
                 "min_mm": 9.2,
                 "max_in": 1.277,
                 "max_mm": 32.4,
                 "prior_window_mean_in": 0.013,
                 "prior_window_mean_mm": 0.3,
-                "change_vs_prior_window_in": 0.646,
-                "change_vs_prior_window_mm": 16.4,
+                "change_vs_prior_window_in": 0.629,
+                "change_vs_prior_window_mm": 16,
                 "forecast_days_in_window": 0
               },
               {
                 "days": 30,
                 "days_used": 30,
-                "points_used": 51,
-                "mean_in": 0.683,
-                "mean_mm": 17.3,
+                "points_used": 50,
+                "mean_in": 0.667,
+                "mean_mm": 16.9,
                 "min_in": 0.364,
                 "min_mm": 9.2,
                 "max_in": 1.289,
@@ -4844,28 +4954,28 @@
                 "forecast_days_in_window": 0
               }
             ],
-            "wet_days_last_7_mean": 2.78,
+            "wet_days_last_7_mean": 2.88,
             "wet_day_threshold_in": 0.01,
             "days_since_measurable_rain_median": 0,
             "days_since_measurable_rain_max": 0,
             "points_with_no_measurable_rain_in_series": 0
           },
           "soil_moisture": {
-            "points_with_reading": 51,
-            "points_total": 51,
-            "latest_mean_vwc": 0.335,
+            "points_with_reading": 50,
+            "points_total": 50,
+            "latest_mean_vwc": 0.3335,
             "latest_min_vwc": 0.2043,
             "latest_max_vwc": 0.4675,
-            "trailing_3d_mean_vwc": 0.256,
-            "value_7d_ago_mean_vwc": 0.2025,
-            "change_over_7d_vwc": 0.1325,
-            "value_14d_ago_mean_vwc": 0.2097,
-            "change_over_14d_vwc": 0.1253,
-            "deep_7_to_28cm_latest_mean_vwc": 0.2536,
-            "points_at_or_above_field_capacity": 40,
-            "points_at_or_above_abort_floor": 51,
+            "trailing_3d_mean_vwc": 0.2553,
+            "value_7d_ago_mean_vwc": 0.2016,
+            "change_over_7d_vwc": 0.1319,
+            "value_14d_ago_mean_vwc": 0.2087,
+            "change_over_14d_vwc": 0.1248,
+            "deep_7_to_28cm_latest_mean_vwc": 0.2512,
+            "points_at_or_above_field_capacity": 39,
+            "points_at_or_above_abort_floor": 50,
             "points_below_abort_floor": 0,
-            "pct_at_or_above_field_capacity": 78.4,
+            "pct_at_or_above_field_capacity": 78,
             "pct_at_or_above_abort_floor": 100,
             "state": "at_or_above_field_capacity",
             "field_capacity_crossing": {
@@ -4881,15 +4991,15 @@
             "consecutive_days_at_or_above_abort_floor": 35
           },
           "air_temp_f": {
-            "trailing_3d_mean_f": 46.6,
+            "trailing_3d_mean_f": 46.5,
             "min_daily_min_last_7d_f": 23.5,
             "max_daily_max_last_7d_f": 80.2,
             "extremes_basis": "daily minimum and maximum",
             "change_vs_7d_ago_f": -6.9,
-            "cooling_trend_f_positive_is_cooling": 0.7
+            "cooling_trend_f_positive_is_cooling": 0.6
           },
           "soil_temp_f": {
-            "trailing_3d_mean_f": 46.2,
+            "trailing_3d_mean_f": 46.1,
             "min_daily_min_last_7d_f": 34.2,
             "max_daily_max_last_7d_f": 58.2,
             "extremes_basis": "daily MEAN (the series carries no sub-daily soil extremes), so the real swing is wider",
@@ -4905,27 +5015,27 @@
             "soil_temp_trailing_3d_mean_f": 53.5
           },
           "change_since_previous_run": {
-            "precip_7d_in": 0.642,
-            "precip_7d_mm": 16.3,
-            "soil_moisture_latest_mean_vwc": 0.1206,
-            "soil_moisture_trailing_3d_mean_vwc": 0.0426,
-            "air_temp_trailing_3d_mean_f": -11.7,
-            "soil_temp_trailing_3d_mean_f": -7.3
+            "precip_7d_in": 0.625,
+            "precip_7d_mm": 15.9,
+            "soil_moisture_latest_mean_vwc": 0.1191,
+            "soil_moisture_trailing_3d_mean_vwc": 0.0419,
+            "air_temp_trailing_3d_mean_f": -11.8,
+            "soil_temp_trailing_3d_mean_f": -7.4
           }
         },
         {
           "id": "willamette_valley",
           "name": "Willamette Valley",
           "definition": "lat >= 43.4, -123.6 <= lon <= -122.0 and elevation < 1000 ft: the valley floor, farmland and metro included, and at this grid spacing the continuous lower-Columbia lowland north of Portland with it",
-          "grid_points": 44,
+          "grid_points": 46,
           "thin": false,
           "extent": {
             "elev_min_ft": 17,
-            "elev_mean_ft": 469,
+            "elev_mean_ft": 466,
             "elev_max_ft": 964,
             "lat_range": [
               43.4,
-              45.8
+              46
             ],
             "lon_range": [
               -123.5,
@@ -4933,6 +5043,16 @@
             ]
           },
           "points": [
+            [
+              46,
+              -123.3,
+              619
+            ],
+            [
+              46,
+              -122.9,
+              205
+            ],
             [
               45.8,
               -123.3,
@@ -5163,39 +5283,39 @@
               {
                 "days": 1,
                 "days_used": 1,
-                "points_used": 44,
-                "mean_in": 0.699,
-                "mean_mm": 17.7,
+                "points_used": 46,
+                "mean_in": 0.693,
+                "mean_mm": 17.6,
                 "min_in": 0.269,
                 "min_mm": 6.8,
                 "max_in": 1.437,
                 "max_mm": 36.5,
-                "prior_window_mean_in": 0.464,
-                "prior_window_mean_mm": 11.8,
-                "change_vs_prior_window_in": 0.234,
-                "change_vs_prior_window_mm": 6,
+                "prior_window_mean_in": 0.47,
+                "prior_window_mean_mm": 11.9,
+                "change_vs_prior_window_in": 0.223,
+                "change_vs_prior_window_mm": 5.7,
                 "forecast_days_in_window": 0
               },
               {
                 "days": 3,
                 "days_used": 3,
-                "points_used": 44,
+                "points_used": 46,
                 "mean_in": 1.163,
                 "mean_mm": 29.5,
                 "min_in": 0.691,
                 "min_mm": 17.6,
                 "max_in": 1.683,
                 "max_mm": 42.7,
-                "prior_window_mean_in": 0.006,
+                "prior_window_mean_in": 0.005,
                 "prior_window_mean_mm": 0.1,
-                "change_vs_prior_window_in": 1.157,
+                "change_vs_prior_window_in": 1.158,
                 "change_vs_prior_window_mm": 29.4,
                 "forecast_days_in_window": 0
               },
               {
                 "days": 7,
                 "days_used": 7,
-                "points_used": 44,
+                "points_used": 46,
                 "mean_in": 1.169,
                 "mean_mm": 29.7,
                 "min_in": 0.699,
@@ -5204,32 +5324,32 @@
                 "max_mm": 42.7,
                 "prior_window_mean_in": 0.044,
                 "prior_window_mean_mm": 1.1,
-                "change_vs_prior_window_in": 1.124,
+                "change_vs_prior_window_in": 1.125,
                 "change_vs_prior_window_mm": 28.6,
                 "forecast_days_in_window": 0
               },
               {
                 "days": 14,
                 "days_used": 14,
-                "points_used": 44,
-                "mean_in": 1.213,
+                "points_used": 46,
+                "mean_in": 1.212,
                 "mean_mm": 30.8,
                 "min_in": 0.747,
                 "min_mm": 19,
                 "max_in": 1.743,
                 "max_mm": 44.3,
-                "prior_window_mean_in": 0.085,
-                "prior_window_mean_mm": 2.2,
-                "change_vs_prior_window_in": 1.128,
-                "change_vs_prior_window_mm": 28.6,
+                "prior_window_mean_in": 0.091,
+                "prior_window_mean_mm": 2.3,
+                "change_vs_prior_window_in": 1.122,
+                "change_vs_prior_window_mm": 28.5,
                 "forecast_days_in_window": 0
               },
               {
                 "days": 30,
                 "days_used": 30,
-                "points_used": 44,
-                "mean_in": 1.298,
-                "mean_mm": 33,
+                "points_used": 46,
+                "mean_in": 1.303,
+                "mean_mm": 33.1,
                 "min_in": 0.811,
                 "min_mm": 20.6,
                 "max_in": 2.355,
@@ -5241,28 +5361,28 @@
                 "forecast_days_in_window": 0
               }
             ],
-            "wet_days_last_7_mean": 2.16,
+            "wet_days_last_7_mean": 2.15,
             "wet_day_threshold_in": 0.01,
             "days_since_measurable_rain_median": 0,
             "days_since_measurable_rain_max": 0,
             "points_with_no_measurable_rain_in_series": 0
           },
           "soil_moisture": {
-            "points_with_reading": 44,
-            "points_total": 44,
-            "latest_mean_vwc": 0.3705,
-            "latest_min_vwc": 0.3133,
+            "points_with_reading": 46,
+            "points_total": 46,
+            "latest_mean_vwc": 0.3687,
+            "latest_min_vwc": 0.2793,
             "latest_max_vwc": 0.4815,
-            "trailing_3d_mean_vwc": 0.2359,
-            "value_7d_ago_mean_vwc": 0.1479,
-            "change_over_7d_vwc": 0.2226,
-            "value_14d_ago_mean_vwc": 0.1852,
-            "change_over_14d_vwc": 0.1853,
-            "deep_7_to_28cm_latest_mean_vwc": 0.2205,
-            "points_at_or_above_field_capacity": 44,
-            "points_at_or_above_abort_floor": 44,
+            "trailing_3d_mean_vwc": 0.2364,
+            "value_7d_ago_mean_vwc": 0.1492,
+            "change_over_7d_vwc": 0.2195,
+            "value_14d_ago_mean_vwc": 0.1859,
+            "change_over_14d_vwc": 0.1828,
+            "deep_7_to_28cm_latest_mean_vwc": 0.2212,
+            "points_at_or_above_field_capacity": 45,
+            "points_at_or_above_abort_floor": 46,
             "points_below_abort_floor": 0,
-            "pct_at_or_above_field_capacity": 100,
+            "pct_at_or_above_field_capacity": 97.8,
             "pct_at_or_above_abort_floor": 100,
             "state": "at_or_above_field_capacity",
             "field_capacity_crossing": {
@@ -5278,16 +5398,16 @@
             "consecutive_days_at_or_above_abort_floor": 1
           },
           "air_temp_f": {
-            "trailing_3d_mean_f": 48,
-            "min_daily_min_last_7d_f": 32.1,
+            "trailing_3d_mean_f": 47.9,
+            "min_daily_min_last_7d_f": 31.6,
             "max_daily_max_last_7d_f": 76.9,
             "extremes_basis": "daily minimum and maximum",
-            "change_vs_7d_ago_f": -6.1,
-            "cooling_trend_f_positive_is_cooling": 1.8
+            "change_vs_7d_ago_f": -6,
+            "cooling_trend_f_positive_is_cooling": 1.7
           },
           "soil_temp_f": {
-            "trailing_3d_mean_f": 48.6,
-            "min_daily_min_last_7d_f": 44.5,
+            "trailing_3d_mean_f": 48.5,
+            "min_daily_min_last_7d_f": 43.6,
             "max_daily_max_last_7d_f": 58.5,
             "extremes_basis": "daily MEAN (the series carries no sub-daily soil extremes), so the real swing is wider",
             "change_vs_7d_ago_f": -7,
@@ -5304,10 +5424,10 @@
           "change_since_previous_run": {
             "precip_7d_in": 1.138,
             "precip_7d_mm": 28.9,
-            "soil_moisture_latest_mean_vwc": 0.2174,
-            "soil_moisture_trailing_3d_mean_vwc": 0.0811,
-            "air_temp_trailing_3d_mean_f": -10.3,
-            "soil_temp_trailing_3d_mean_f": -7.7
+            "soil_moisture_latest_mean_vwc": 0.2156,
+            "soil_moisture_trailing_3d_mean_vwc": 0.0816,
+            "air_temp_trailing_3d_mean_f": -10.4,
+            "soil_temp_trailing_3d_mean_f": -7.8
           }
         },
         {
@@ -6088,15 +6208,15 @@
           "id": "columbia_basin",
           "name": "Columbia Basin",
           "definition": "lat >= 45.0, lon >= -121.4 and elevation < 3500 ft: the dry northern lowlands, from the Deschutes mouth east along the Columbia and Umatilla and on into the lower Grande Ronde and Snake canyons",
-          "grid_points": 63,
+          "grid_points": 73,
           "thin": false,
           "extent": {
             "elev_min_ft": 445,
-            "elev_mean_ft": 2005,
+            "elev_mean_ft": 1976,
             "elev_max_ft": 3499,
             "lat_range": [
               45,
-              45.8
+              46
             ],
             "lon_range": [
               -121.3,
@@ -6104,6 +6224,56 @@
             ]
           },
           "points": [
+            [
+              46,
+              -118.9,
+              1532
+            ],
+            [
+              46,
+              -118.7,
+              673
+            ],
+            [
+              46,
+              -118.5,
+              681
+            ],
+            [
+              46,
+              -118.3,
+              1114
+            ],
+            [
+              46,
+              -118.1,
+              3234
+            ],
+            [
+              46,
+              -117.7,
+              2573
+            ],
+            [
+              46,
+              -117.3,
+              3207
+            ],
+            [
+              46,
+              -117.1,
+              2318
+            ],
+            [
+              46,
+              -116.9,
+              1410
+            ],
+            [
+              46,
+              -116.7,
+              1190
+            ],
             [
               45.8,
               -120.1,
@@ -6429,8 +6599,8 @@
               {
                 "days": 1,
                 "days_used": 1,
-                "points_used": 63,
-                "mean_in": 0.095,
+                "points_used": 73,
+                "mean_in": 0.096,
                 "mean_mm": 2.4,
                 "min_in": 0,
                 "min_mm": 0,
@@ -6438,64 +6608,64 @@
                 "max_mm": 15.7,
                 "prior_window_mean_in": 0,
                 "prior_window_mean_mm": 0,
-                "change_vs_prior_window_in": 0.095,
+                "change_vs_prior_window_in": 0.096,
                 "change_vs_prior_window_mm": 2.4,
                 "forecast_days_in_window": 0
               },
               {
                 "days": 3,
                 "days_used": 3,
-                "points_used": 63,
-                "mean_in": 0.095,
+                "points_used": 73,
+                "mean_in": 0.096,
                 "mean_mm": 2.4,
                 "min_in": 0,
                 "min_mm": 0,
                 "max_in": 0.619,
                 "max_mm": 15.7,
-                "prior_window_mean_in": 0.347,
-                "prior_window_mean_mm": 8.8,
-                "change_vs_prior_window_in": -0.252,
-                "change_vs_prior_window_mm": -6.4,
+                "prior_window_mean_in": 0.392,
+                "prior_window_mean_mm": 10,
+                "change_vs_prior_window_in": -0.296,
+                "change_vs_prior_window_mm": -7.5,
                 "forecast_days_in_window": 0
               },
               {
                 "days": 7,
                 "days_used": 7,
-                "points_used": 63,
-                "mean_in": 0.445,
-                "mean_mm": 11.3,
+                "points_used": 73,
+                "mean_in": 0.491,
+                "mean_mm": 12.5,
                 "min_in": 0.008,
                 "min_mm": 0.2,
                 "max_in": 1.572,
                 "max_mm": 39.9,
-                "prior_window_mean_in": 0.005,
+                "prior_window_mean_in": 0.004,
                 "prior_window_mean_mm": 0.1,
-                "change_vs_prior_window_in": 0.44,
-                "change_vs_prior_window_mm": 11.2,
+                "change_vs_prior_window_in": 0.486,
+                "change_vs_prior_window_mm": 12.4,
                 "forecast_days_in_window": 0
               },
               {
                 "days": 14,
                 "days_used": 14,
-                "points_used": 63,
-                "mean_in": 0.45,
-                "mean_mm": 11.4,
+                "points_used": 73,
+                "mean_in": 0.495,
+                "mean_mm": 12.6,
                 "min_in": 0.008,
                 "min_mm": 0.2,
                 "max_in": 1.572,
                 "max_mm": 39.9,
-                "prior_window_mean_in": 0.054,
-                "prior_window_mean_mm": 1.4,
-                "change_vs_prior_window_in": 0.396,
-                "change_vs_prior_window_mm": 10.1,
+                "prior_window_mean_in": 0.061,
+                "prior_window_mean_mm": 1.6,
+                "change_vs_prior_window_in": 0.434,
+                "change_vs_prior_window_mm": 11,
                 "forecast_days_in_window": 0
               },
               {
                 "days": 30,
                 "days_used": 30,
-                "points_used": 63,
-                "mean_in": 0.504,
-                "mean_mm": 12.8,
+                "points_used": 73,
+                "mean_in": 0.556,
+                "mean_mm": 14.1,
                 "min_in": 0.016,
                 "min_mm": 0.4,
                 "max_in": 1.699,
@@ -6507,29 +6677,29 @@
                 "forecast_days_in_window": 0
               }
             ],
-            "wet_days_last_7_mean": 2.13,
+            "wet_days_last_7_mean": 2.22,
             "wet_day_threshold_in": 0.01,
             "days_since_measurable_rain_median": 0,
             "days_since_measurable_rain_max": 31,
             "points_with_no_measurable_rain_in_series": 0
           },
           "soil_moisture": {
-            "points_with_reading": 63,
-            "points_total": 63,
-            "latest_mean_vwc": 0.1486,
+            "points_with_reading": 73,
+            "points_total": 73,
+            "latest_mean_vwc": 0.1601,
             "latest_min_vwc": 0.0201,
-            "latest_max_vwc": 0.2758,
-            "trailing_3d_mean_vwc": 0.1458,
-            "value_7d_ago_mean_vwc": 0.0825,
-            "change_over_7d_vwc": 0.0661,
-            "value_14d_ago_mean_vwc": 0.0923,
-            "change_over_14d_vwc": 0.0563,
-            "deep_7_to_28cm_latest_mean_vwc": 0.1561,
+            "latest_max_vwc": 0.298,
+            "trailing_3d_mean_vwc": 0.1591,
+            "value_7d_ago_mean_vwc": 0.0889,
+            "change_over_7d_vwc": 0.0712,
+            "value_14d_ago_mean_vwc": 0.0998,
+            "change_over_14d_vwc": 0.0603,
+            "deep_7_to_28cm_latest_mean_vwc": 0.1601,
             "points_at_or_above_field_capacity": 0,
-            "points_at_or_above_abort_floor": 16,
-            "points_below_abort_floor": 47,
+            "points_at_or_above_abort_floor": 24,
+            "points_below_abort_floor": 49,
             "pct_at_or_above_field_capacity": 0,
-            "pct_at_or_above_abort_floor": 25.4,
+            "pct_at_or_above_abort_floor": 32.9,
             "state": "below_abort_floor",
             "field_capacity_crossing": {
               "state": "below",
@@ -6544,20 +6714,20 @@
             "consecutive_days_at_or_above_abort_floor": 0
           },
           "air_temp_f": {
-            "trailing_3d_mean_f": 45.1,
+            "trailing_3d_mean_f": 45.2,
             "min_daily_min_last_7d_f": 22.9,
-            "max_daily_max_last_7d_f": 71.3,
+            "max_daily_max_last_7d_f": 73.8,
             "extremes_basis": "daily minimum and maximum",
-            "change_vs_7d_ago_f": -7.2,
-            "cooling_trend_f_positive_is_cooling": 2.4
+            "change_vs_7d_ago_f": -7.3,
+            "cooling_trend_f_positive_is_cooling": 2.7
           },
           "soil_temp_f": {
-            "trailing_3d_mean_f": 45.3,
+            "trailing_3d_mean_f": 45.4,
             "min_daily_min_last_7d_f": 35.1,
-            "max_daily_max_last_7d_f": 54.6,
+            "max_daily_max_last_7d_f": 56,
             "extremes_basis": "daily MEAN (the series carries no sub-daily soil extremes), so the real swing is wider",
-            "change_vs_7d_ago_f": -6.7,
-            "cooling_trend_f_positive_is_cooling": 2.2
+            "change_vs_7d_ago_f": -6.6,
+            "cooling_trend_f_positive_is_cooling": 2.5
           },
           "previous_run_values": {
             "precip_7d_in": 0.045,
@@ -6568,12 +6738,12 @@
             "soil_temp_trailing_3d_mean_f": 51.8
           },
           "change_since_previous_run": {
-            "precip_7d_in": 0.4,
-            "precip_7d_mm": 10.1,
-            "soil_moisture_latest_mean_vwc": 0.0606,
-            "soil_moisture_trailing_3d_mean_vwc": 0.0569,
-            "air_temp_trailing_3d_mean_f": -7.9,
-            "soil_temp_trailing_3d_mean_f": -6.5
+            "precip_7d_in": 0.446,
+            "precip_7d_mm": 11.3,
+            "soil_moisture_latest_mean_vwc": 0.0721,
+            "soil_moisture_trailing_3d_mean_vwc": 0.0702,
+            "air_temp_trailing_3d_mean_f": -7.8,
+            "soil_temp_trailing_3d_mean_f": -6.4
           }
         },
         {
@@ -7197,15 +7367,15 @@
           "id": "blue_mountains",
           "name": "Blue Mountains",
           "definition": "lat >= 44.2, lon >= -119.5 and elevation >= 3500 ft: the Blue, Wallowa, Elkhorn and Strawberry ranges",
-          "grid_points": 83,
+          "grid_points": 85,
           "thin": false,
           "extent": {
             "elev_min_ft": 3548,
-            "elev_mean_ft": 4831,
+            "elev_mean_ft": 4826,
             "elev_max_ft": 7687,
             "lat_range": [
               44.2,
-              45.8
+              46
             ],
             "lon_range": [
               -119.5,
@@ -7213,6 +7383,16 @@
             ]
           },
           "points": [
+            [
+              46,
+              -117.9,
+              5658
+            ],
+            [
+              46,
+              -117.5,
+              3631
+            ],
             [
               45.8,
               -118.1,
@@ -7638,8 +7818,8 @@
               {
                 "days": 1,
                 "days_used": 1,
-                "points_used": 83,
-                "mean_in": 0.127,
+                "points_used": 85,
+                "mean_in": 0.126,
                 "mean_mm": 3.2,
                 "min_in": 0,
                 "min_mm": 0,
@@ -7647,64 +7827,64 @@
                 "max_mm": 10.5,
                 "prior_window_mean_in": 0,
                 "prior_window_mean_mm": 0,
-                "change_vs_prior_window_in": 0.127,
+                "change_vs_prior_window_in": 0.126,
                 "change_vs_prior_window_mm": 3.2,
                 "forecast_days_in_window": 0
               },
               {
                 "days": 3,
                 "days_used": 3,
-                "points_used": 83,
-                "mean_in": 0.127,
+                "points_used": 85,
+                "mean_in": 0.126,
                 "mean_mm": 3.2,
                 "min_in": 0,
                 "min_mm": 0,
                 "max_in": 0.414,
                 "max_mm": 10.5,
-                "prior_window_mean_in": 0.695,
-                "prior_window_mean_mm": 17.7,
-                "change_vs_prior_window_in": -0.568,
-                "change_vs_prior_window_mm": -14.4,
+                "prior_window_mean_in": 0.7,
+                "prior_window_mean_mm": 17.8,
+                "change_vs_prior_window_in": -0.574,
+                "change_vs_prior_window_mm": -14.6,
                 "forecast_days_in_window": 0
               },
               {
                 "days": 7,
                 "days_used": 7,
-                "points_used": 83,
-                "mean_in": 0.822,
-                "mean_mm": 20.9,
+                "points_used": 85,
+                "mean_in": 0.826,
+                "mean_mm": 21,
                 "min_in": 0.147,
                 "min_mm": 3.7,
                 "max_in": 1.462,
                 "max_mm": 37.1,
                 "prior_window_mean_in": 0.001,
                 "prior_window_mean_mm": 0,
-                "change_vs_prior_window_in": 0.821,
+                "change_vs_prior_window_in": 0.825,
                 "change_vs_prior_window_mm": 20.9,
                 "forecast_days_in_window": 0
               },
               {
                 "days": 14,
                 "days_used": 14,
-                "points_used": 83,
-                "mean_in": 0.824,
-                "mean_mm": 20.9,
+                "points_used": 85,
+                "mean_in": 0.827,
+                "mean_mm": 21,
                 "min_in": 0.147,
                 "min_mm": 3.7,
                 "max_in": 1.462,
                 "max_mm": 37.1,
-                "prior_window_mean_in": 0.091,
-                "prior_window_mean_mm": 2.3,
-                "change_vs_prior_window_in": 0.733,
+                "prior_window_mean_in": 0.093,
+                "prior_window_mean_mm": 2.4,
+                "change_vs_prior_window_in": 0.734,
                 "change_vs_prior_window_mm": 18.6,
                 "forecast_days_in_window": 0
               },
               {
                 "days": 30,
                 "days_used": 30,
-                "points_used": 83,
-                "mean_in": 0.927,
-                "mean_mm": 23.5,
+                "points_used": 85,
+                "mean_in": 0.932,
+                "mean_mm": 23.7,
                 "min_in": 0.163,
                 "min_mm": 4.1,
                 "max_in": 1.732,
@@ -7723,22 +7903,22 @@
             "points_with_no_measurable_rain_in_series": 0
           },
           "soil_moisture": {
-            "points_with_reading": 83,
-            "points_total": 83,
-            "latest_mean_vwc": 0.2889,
+            "points_with_reading": 85,
+            "points_total": 85,
+            "latest_mean_vwc": 0.2886,
             "latest_min_vwc": 0.119,
             "latest_max_vwc": 0.4303,
-            "trailing_3d_mean_vwc": 0.3023,
-            "value_7d_ago_mean_vwc": 0.2084,
-            "change_over_7d_vwc": 0.0805,
-            "value_14d_ago_mean_vwc": 0.1878,
-            "change_over_14d_vwc": 0.1011,
-            "deep_7_to_28cm_latest_mean_vwc": 0.2555,
+            "trailing_3d_mean_vwc": 0.302,
+            "value_7d_ago_mean_vwc": 0.2079,
+            "change_over_7d_vwc": 0.0807,
+            "value_14d_ago_mean_vwc": 0.1874,
+            "change_over_14d_vwc": 0.1012,
+            "deep_7_to_28cm_latest_mean_vwc": 0.2548,
             "points_at_or_above_field_capacity": 28,
-            "points_at_or_above_abort_floor": 74,
+            "points_at_or_above_abort_floor": 76,
             "points_below_abort_floor": 9,
-            "pct_at_or_above_field_capacity": 33.7,
-            "pct_at_or_above_abort_floor": 89.2,
+            "pct_at_or_above_field_capacity": 32.9,
+            "pct_at_or_above_abort_floor": 89.4,
             "state": "between_abort_floor_and_field_capacity",
             "field_capacity_crossing": {
               "state": "below",
@@ -7757,7 +7937,7 @@
             "min_daily_min_last_7d_f": 15.3,
             "max_daily_max_last_7d_f": 70,
             "extremes_basis": "daily minimum and maximum",
-            "change_vs_7d_ago_f": -10.4,
+            "change_vs_7d_ago_f": -10.3,
             "cooling_trend_f_positive_is_cooling": 5.7
           },
           "soil_temp_f": {
@@ -7765,8 +7945,8 @@
             "min_daily_min_last_7d_f": 24.7,
             "max_daily_max_last_7d_f": 56.4,
             "extremes_basis": "daily MEAN (the series carries no sub-daily soil extremes), so the real swing is wider",
-            "change_vs_7d_ago_f": -7.2,
-            "cooling_trend_f_positive_is_cooling": 6
+            "change_vs_7d_ago_f": -7.1,
+            "cooling_trend_f_positive_is_cooling": 6.1
           },
           "previous_run_values": {
             "precip_7d_in": 0.088,
@@ -7777,10 +7957,10 @@
             "soil_temp_trailing_3d_mean_f": 39.4
           },
           "change_since_previous_run": {
-            "precip_7d_in": 0.734,
-            "precip_7d_mm": 18.7,
-            "soil_moisture_latest_mean_vwc": 0.0878,
-            "soil_moisture_trailing_3d_mean_vwc": 0.1011,
+            "precip_7d_in": 0.738,
+            "precip_7d_mm": 18.8,
+            "soil_moisture_latest_mean_vwc": 0.0875,
+            "soil_moisture_trailing_3d_mean_vwc": 0.1008,
             "air_temp_trailing_3d_mean_f": -7.7,
             "soil_temp_trailing_3d_mean_f": -3.5
           }
@@ -9187,8 +9367,8 @@
       "elevation_points": 34400000,
       "elevation_source": "usgs_3dep_1_3_arcsec_local_cell_means",
       "elevation_step_deg": 0.001,
-      "elevation_measured_pct": 96.91656976744186,
-      "terrain_cache_version": 6,
+      "elevation_measured_pct": 100,
+      "terrain_cache_version": 7,
       "ground_mask_pixels_off_land": 317966,
       "ground_mask_ground_pct": 94.96861026371008
     },
@@ -9217,8 +9397,8 @@
       "dirty_paths": [
         "?? sandbox/mycomap/"
       ],
-      "source_digest": "d76b2c78c809a80a64b50027041056a0c0af94d5b7cd666953565fc2ad764f6e",
-      "source_files_hashed": 120,
+      "source_digest": "f976bfa4ae953a6034f447760f665faf66af9b75516a392eeff4e9e57689dd2f",
+      "source_files_hashed": 121,
       "species_profiles_digest": "b09c5e05643d901c28839d0b9145fddc1128db2820cf84f9deddd9a6ae9d3b1e",
       "species_profiles_hashed": 18,
       "digest_note": "the recorded revision does not contain this module's files; it identifies the repository checkout, not this build. source_digest is what identifies the build.",
@@ -9233,16 +9413,16 @@
         "scientific_name": "Craterellus calicornucopioides",
         "model": "timeline",
         "pixels_assessed": 6038930,
-        "pixels_painted": 525152,
+        "pixels_painted": 550404,
         "pixels_unassessed": 0,
-        "painted_p50": 0.4215825289371617,
-        "painted_p95": 0.7443316488277112,
+        "painted_p50": 0.4091659119801411,
+        "painted_p95": 0.7464327590413887,
         "max_score": 0.8492509149723928,
         "file": "out/2026-10-27/oregon_craterellus_calicornucopioides_2026-10-27.png",
-        "sha256": "4ae7725a3e39199f5a690fc65c537e282174ec1527d5f8b52d53ac3f158204f0",
+        "sha256": "5ff0a80e8d88443127679046c278501a290f757fcf0fe8d3d4bf7e7f32d160b3",
         "overlay_file": "out/2026-10-27/oregon_craterellus_calicornucopioides_2026-10-27.overlay.png",
-        "overlay_sha256": "100eefd5fd2ee649e31e531e68529f9c214f4720c57c24d70c304924ac940630",
-        "overlay_pixels": 525152
+        "overlay_sha256": "8b51666fb6794f4e2b37971a545ec79cafa88aba24f1eba4af62a838b172a6c0",
+        "overlay_pixels": 550404
       },
       {
         "id": "lactarius_rubidus",
@@ -9250,16 +9430,16 @@
         "scientific_name": "Lactarius rubidus",
         "model": "timeline",
         "pixels_assessed": 6038930,
-        "pixels_painted": 676387,
+        "pixels_painted": 701669,
         "pixels_unassessed": 0,
-        "painted_p50": 0.3626481472295036,
-        "painted_p95": 0.7591632712924634,
-        "max_score": 0.8491742421550413,
+        "painted_p50": 0.34774341487427596,
+        "painted_p95": 0.7603867779474889,
+        "max_score": 0.8492982855609734,
         "file": "out/2026-10-27/oregon_lactarius_rubidus_2026-10-27.png",
-        "sha256": "f4e91033f610a911c3bf33be74b3c9a71ebb97e6c2d96f89bf46e8a31e88d812",
+        "sha256": "a8aa513537dcd7be0b7d60087d63ef052fc2f46090175d092f6c3e8583ad862a",
         "overlay_file": "out/2026-10-27/oregon_lactarius_rubidus_2026-10-27.overlay.png",
-        "overlay_sha256": "227242230e2b614921ac39269296df48857bcd852f96e1ec04f0be0077bf52c5",
-        "overlay_pixels": 676387
+        "overlay_sha256": "ad536525756dada21281807f11cb8da9df95f6bd77ae577671d8ce8aea6d99cd",
+        "overlay_pixels": 701669
       },
       {
         "id": "sparassis_radicata",
@@ -9268,16 +9448,16 @@
         "model": "snapshot",
         "fallback_reason": "parasitic substrate (single-organism timeline measured worse; the host coupling is applied in ScoreSite instead)",
         "pixels_assessed": 6038930,
-        "pixels_painted": 1244182,
+        "pixels_painted": 1250639,
         "pixels_unassessed": 0,
-        "painted_p50": 0.25369912251699306,
-        "painted_p95": 0.5151326085138902,
-        "max_score": 0.6765879405400951,
+        "painted_p50": 0.25376684248843967,
+        "painted_p95": 0.519552365416003,
+        "max_score": 0.6815372827909191,
         "file": "out/2026-10-27/oregon_sparassis_radicata_2026-10-27.png",
-        "sha256": "e9a59ca9afc61eb2a50c987df97a95d30b00d60c7742417902e04f99191ebe39",
+        "sha256": "8b8efbae592c871dd16468a144c45b80bf527b364f2604f624f29e183580395a",
         "overlay_file": "out/2026-10-27/oregon_sparassis_radicata_2026-10-27.overlay.png",
-        "overlay_sha256": "4180b554d9aae91c48fcbf861e5e062ee5795a5317dd36ee4fd964247186f18f",
-        "overlay_pixels": 1244182
+        "overlay_sha256": "9680bdaff95d77afd6bda4069b1cbb2ea26750a5cbfb3ec024bd369727c823e4",
+        "overlay_pixels": 1250639
       },
       {
         "id": "cantharellus_cibarius",
@@ -9285,16 +9465,16 @@
         "scientific_name": "Cantharellus formosus",
         "model": "timeline",
         "pixels_assessed": 6038930,
-        "pixels_painted": 1193302,
+        "pixels_painted": 1195752,
         "pixels_unassessed": 0,
-        "painted_p50": 0.18475428225055462,
-        "painted_p95": 0.6824089095490616,
+        "painted_p50": 0.19247666000798674,
+        "painted_p95": 0.6824478937469407,
         "max_score": 0.8199406677643075,
         "file": "out/2026-10-27/oregon_cantharellus_cibarius_2026-10-27.png",
-        "sha256": "fd8396780feb67b15c1192b844fa3a9f70b5f40b39dcb415d291ecf57d921ac2",
+        "sha256": "9d2741ffb62890c3321a1ecd0c0bb751cefb41e851a910a716c2f2c53bf1eaca",
         "overlay_file": "out/2026-10-27/oregon_cantharellus_cibarius_2026-10-27.overlay.png",
-        "overlay_sha256": "b8d0730da87331c4d1a9541ea55524c62a0bd65ddb50d640052e72b4a4db545d",
-        "overlay_pixels": 1193302
+        "overlay_sha256": "cf21c736cc07adbf80c120ecef6417c40c2b9903a17949bff9612b4ca8473bd6",
+        "overlay_pixels": 1195752
       },
       {
         "id": "laetiporus_conifericola",
@@ -9303,16 +9483,16 @@
         "model": "snapshot",
         "fallback_reason": "parasitic substrate (single-organism timeline measured worse; the host coupling is applied in ScoreSite instead)",
         "pixels_assessed": 6038930,
-        "pixels_painted": 71223,
+        "pixels_painted": 78200,
         "pixels_unassessed": 0,
-        "painted_p50": 0.06737691239299787,
-        "painted_p95": 0.11001150807172104,
-        "max_score": 0.1806310461505443,
+        "painted_p50": 0.06927552566848469,
+        "painted_p95": 0.11433945318485347,
+        "max_score": 0.21246849449397412,
         "file": "out/2026-10-27/oregon_laetiporus_conifericola_2026-10-27.png",
-        "sha256": "566169ccc4aaec7633a8567eeecabb0001a34189318327c2cb702670548673bb",
+        "sha256": "e596d2f832d67d55e9e0c45c045e5d0a6323c006808cce3cb3f86fffb2d684c5",
         "overlay_file": "out/2026-10-27/oregon_laetiporus_conifericola_2026-10-27.overlay.png",
-        "overlay_sha256": "6723d2efe48c04708c9ef21913c53cac6be5db6ed879cda502d405f9408f3c09",
-        "overlay_pixels": 71223
+        "overlay_sha256": "ce1a5d7c1b09e81cd9f743992bc310454260cfe6172ff53eb32bc010eb0ac85c",
+        "overlay_pixels": 78200
       },
       {
         "id": "hydnum_repandum",
@@ -9320,16 +9500,16 @@
         "scientific_name": "Hydnum repandum",
         "model": "timeline",
         "pixels_assessed": 6038930,
-        "pixels_painted": 970461,
+        "pixels_painted": 975422,
         "pixels_unassessed": 0,
-        "painted_p50": 0.23045039205703752,
-        "painted_p95": 0.7409826112423946,
+        "painted_p50": 0.23873126952666157,
+        "painted_p95": 0.7394280062563584,
         "max_score": 0.8497440828259057,
         "file": "out/2026-10-27/oregon_hydnum_repandum_2026-10-27.png",
-        "sha256": "cd98f00971058762af57d9300384129b86a915fa7fc405e94dcc5dd4b46ba13b",
+        "sha256": "3793cfd70e07292f44bb088683ec0bd76f2c27286d1cd67703b4c69a9bef9649",
         "overlay_file": "out/2026-10-27/oregon_hydnum_repandum_2026-10-27.overlay.png",
-        "overlay_sha256": "436e955eb339c4353cd3851cedbf63ea09632a5f844d25447c1e25b465ae45ea",
-        "overlay_pixels": 970461
+        "overlay_sha256": "b17f20bc4250b897de945153fb49e107805d733c4b6a8b466051dc784ba778c3",
+        "overlay_pixels": 975422
       },
       {
         "id": "hericium_abietis",
@@ -9337,16 +9517,16 @@
         "scientific_name": "Hericium abietis",
         "model": "timeline",
         "pixels_assessed": 6038930,
-        "pixels_painted": 1612516,
+        "pixels_painted": 1623236,
         "pixels_unassessed": 0,
-        "painted_p50": 0.12610977604219406,
-        "painted_p95": 0.5821903517870864,
+        "painted_p50": 0.12651269068812848,
+        "painted_p95": 0.5905297271988026,
         "max_score": 0.8497509302391416,
         "file": "out/2026-10-27/oregon_hericium_abietis_2026-10-27.png",
-        "sha256": "e99ad03f032957ce2605d33c68ff10afd7facaa682e1074c71aaf843a0eab9e2",
+        "sha256": "e259c840c57ec0c31358772bc9e33f6559546a62a6fa7d14cf87ecf23af3d462",
         "overlay_file": "out/2026-10-27/oregon_hericium_abietis_2026-10-27.overlay.png",
-        "overlay_sha256": "876f0100c6d5f1c2ae5f5a8218d50bc2ba06a00a335c4600aac87ad0952f77c0",
-        "overlay_pixels": 1612516
+        "overlay_sha256": "773e2d464fe85bd6525ad6b980ed63820b4e4d4ec42d49adfb5b4282a7115251",
+        "overlay_pixels": 1623236
       },
       {
         "id": "hypomyces_lactifluorum",
@@ -9355,16 +9535,16 @@
         "model": "snapshot",
         "fallback_reason": "parasitic substrate (single-organism timeline measured worse; the host coupling is applied in ScoreSite instead)",
         "pixels_assessed": 6038930,
-        "pixels_painted": 1199859,
+        "pixels_painted": 1203336,
         "pixels_unassessed": 0,
-        "painted_p50": 0.1717559484567696,
-        "painted_p95": 0.34507125759861373,
-        "max_score": 0.49909489477946645,
+        "painted_p50": 0.17226040865532166,
+        "painted_p95": 0.3486409258842069,
+        "max_score": 0.5342258115387724,
         "file": "out/2026-10-27/oregon_hypomyces_lactifluorum_2026-10-27.png",
-        "sha256": "f3267ad4ac66eda62d70f2c9272dca461a5c2ce36920211db7ea3ccf8ac1efa5",
+        "sha256": "22b949ce54e54396a2be73129cef5790e873f134d7be650135e88b8e72b3e494",
         "overlay_file": "out/2026-10-27/oregon_hypomyces_lactifluorum_2026-10-27.overlay.png",
-        "overlay_sha256": "4a567d679c607640fb1d49099db2da63ae63212aa6336d3bed86454fdfcffbb5",
-        "overlay_pixels": 1199859
+        "overlay_sha256": "e8f9e610e55f08ad842af1a81ce0d5cd15788f7c8547ba26217a5359b59dc18b",
+        "overlay_pixels": 1203336
       },
       {
         "id": "tricholoma_murrillianum",
@@ -9372,16 +9552,16 @@
         "scientific_name": "Tricholoma murrillianum",
         "model": "timeline",
         "pixels_assessed": 6038930,
-        "pixels_painted": 630981,
+        "pixels_painted": 644116,
         "pixels_unassessed": 0,
-        "painted_p50": 0.28782998773495017,
-        "painted_p95": 0.7056698588585439,
+        "painted_p50": 0.28597698845016917,
+        "painted_p95": 0.7083777980914197,
         "max_score": 0.8496203318534413,
         "file": "out/2026-10-27/oregon_tricholoma_murrillianum_2026-10-27.png",
-        "sha256": "29992127a1d2092486a8fb3c511e063d271b70efe70f2faab6199ca7bbbaff8e",
+        "sha256": "e456e2622100f99846c3b70a4622600354ce6f9e5e873d7b61caec09e7b8e5f6",
         "overlay_file": "out/2026-10-27/oregon_tricholoma_murrillianum_2026-10-27.overlay.png",
-        "overlay_sha256": "5a11bab7987acec1c72d9df37cacf5e25c5d89777cad8e3e5c1a1d195074aeb0",
-        "overlay_pixels": 630981
+        "overlay_sha256": "8b1e902205d6d5aa1ad6c29f66a9e3fe4dee554f8f152d07e34e5804e2f89cd2",
+        "overlay_pixels": 644116
       },
       {
         "id": "morchella_importuna",
@@ -9389,16 +9569,16 @@
         "scientific_name": "Morchella importuna",
         "model": "timeline",
         "pixels_assessed": 6038930,
-        "pixels_painted": 1282192,
+        "pixels_painted": 1292849,
         "pixels_unassessed": 0,
-        "painted_p50": 0.1317460811153825,
-        "painted_p95": 0.49782981694553546,
-        "max_score": 0.778700839897062,
+        "painted_p50": 0.13221285392253102,
+        "painted_p95": 0.50419195791082,
+        "max_score": 0.8287481545714993,
         "file": "out/2026-10-27/oregon_morchella_importuna_2026-10-27.png",
-        "sha256": "d30f5161a020c5235a3537aee906b034874dbbb287da21ca4654962b02aa2d5e",
+        "sha256": "5bfb82001280c936f3e9fcb679788b076ba8eca3729191938219f6ff3bd6b237",
         "overlay_file": "out/2026-10-27/oregon_morchella_importuna_2026-10-27.overlay.png",
-        "overlay_sha256": "c7c9831edb2709982b78fe905d310ef081c5ac2ff63af8f1da351178d0145717",
-        "overlay_pixels": 1282192
+        "overlay_sha256": "e4c53cd07c2b168f38428dac74b60a5158f4f84b216b67c2706761db6f805a57",
+        "overlay_pixels": 1292849
       },
       {
         "id": "pleurotus_ostreatus",
@@ -9406,16 +9586,16 @@
         "scientific_name": "Pleurotus ostreatus",
         "model": "timeline",
         "pixels_assessed": 6038930,
-        "pixels_painted": 1824165,
+        "pixels_painted": 1830543,
         "pixels_unassessed": 0,
-        "painted_p50": 0.1524297885789167,
-        "painted_p95": 0.5143639755467856,
+        "painted_p50": 0.15405359653467438,
+        "painted_p95": 0.5241648108033974,
         "max_score": 0.7383846358190931,
         "file": "out/2026-10-27/oregon_pleurotus_ostreatus_2026-10-27.png",
-        "sha256": "ee274a85801908ce3320a3d491bbc65db8db16eb401c85bcfeabbcd2485c1b77",
+        "sha256": "4682738a372f4e389e91dd111b2dc145475e7e88ecfb5e6aacb3fae32a4d8641",
         "overlay_file": "out/2026-10-27/oregon_pleurotus_ostreatus_2026-10-27.overlay.png",
-        "overlay_sha256": "f14b73586b3f21d4d4645ff70d175eddfa5719982c40d898d07bfb78cfd8cd7f",
-        "overlay_pixels": 1824165
+        "overlay_sha256": "143086cda7d24129002439c61c3f96a2828981d81f00234275167cd5808e92f2",
+        "overlay_pixels": 1830543
       },
       {
         "id": "gomphus_clavatus",
@@ -9423,16 +9603,16 @@
         "scientific_name": "Gomphus clavatus",
         "model": "timeline",
         "pixels_assessed": 6038930,
-        "pixels_painted": 595423,
+        "pixels_painted": 607210,
         "pixels_unassessed": 0,
-        "painted_p50": 0.2498680162792718,
-        "painted_p95": 0.6272685091897722,
-        "max_score": 0.8427469917225474,
+        "painted_p50": 0.24753671757443266,
+        "painted_p95": 0.6329115036290259,
+        "max_score": 0.8494688189496278,
         "file": "out/2026-10-27/oregon_gomphus_clavatus_2026-10-27.png",
-        "sha256": "9d7c3c532e0c18ac5a74ea667528516a91b38df62010e3a6dec80b6e9329c498",
+        "sha256": "a8ba3d2bec17ef08eea51739e5c502f47648a6f59f6be78b7d42cf1ee5378d18",
         "overlay_file": "out/2026-10-27/oregon_gomphus_clavatus_2026-10-27.overlay.png",
-        "overlay_sha256": "7a472552087c387b2460a83d42a0bef4f0dcbef613846de92eccb754c4082c36",
-        "overlay_pixels": 595423
+        "overlay_sha256": "85d6d65475f81fd79ec232c3bc9c4a68ef5d124beca2b46d81c9df83b0db3e8e",
+        "overlay_pixels": 607210
       },
       {
         "id": "boletus_edulis",
@@ -9440,16 +9620,16 @@
         "scientific_name": "Boletus edulis",
         "model": "timeline",
         "pixels_assessed": 6038930,
-        "pixels_painted": 295967,
+        "pixels_painted": 304385,
         "pixels_unassessed": 0,
-        "painted_p50": 0.13221823102837588,
-        "painted_p95": 0.32012963266806954,
-        "max_score": 0.5681153085284839,
+        "painted_p50": 0.13342903934901854,
+        "painted_p95": 0.3252454271856638,
+        "max_score": 0.6407616477350158,
         "file": "out/2026-10-27/oregon_boletus_edulis_2026-10-27.png",
-        "sha256": "b1d47af7bfe393dcf74554a3f8fb781fa02c4754ceb78f4d4520469796efd8fd",
+        "sha256": "5151885973282954e807a05b18f0402a857e9f2a506c6f5b68fcf02556e6d5fd",
         "overlay_file": "out/2026-10-27/oregon_boletus_edulis_2026-10-27.overlay.png",
-        "overlay_sha256": "55bca5f9522dd82a43e87c5e5260bd2ed31dca5de1ef8b77435dae7b19a9df94",
-        "overlay_pixels": 295967
+        "overlay_sha256": "9ab0d5394420c27737719f7067da601aecb9e3970ba52f0fc4edea9f15579c4e",
+        "overlay_pixels": 304385
       },
       {
         "id": "coprinus_comatus",
@@ -9457,16 +9637,16 @@
         "scientific_name": "Coprinus comatus",
         "model": "timeline",
         "pixels_assessed": 6038930,
-        "pixels_painted": 2000169,
+        "pixels_painted": 2011500,
         "pixels_unassessed": 0,
-        "painted_p50": 0.1580249413955287,
-        "painted_p95": 0.5678147039444457,
+        "painted_p50": 0.1586963517466151,
+        "painted_p95": 0.5771274248625249,
         "max_score": 0.8488204884572569,
         "file": "out/2026-10-27/oregon_coprinus_comatus_2026-10-27.png",
-        "sha256": "40a7ef0680474cd3b6610073d3c3d0c9998f7f3a17a60b4dc3c69c0528d71619",
+        "sha256": "24bb5eb8b3e4c260a82f3a4b18d0674888e004196ba2ce731d02dbe5da3be3ec",
         "overlay_file": "out/2026-10-27/oregon_coprinus_comatus_2026-10-27.overlay.png",
-        "overlay_sha256": "269809963466f087970da705a148cbc526124ce03c373125b3f1193ad884681c",
-        "overlay_pixels": 2000169
+        "overlay_sha256": "acb5c9a4fddc7477b485ae257e878d19c308ffb1aa48bd9318e07e6fc176faf8",
+        "overlay_pixels": 2011500
       },
       {
         "id": "boletus_rex_veris",
@@ -9474,16 +9654,16 @@
         "scientific_name": "Boletus rex-veris",
         "model": "timeline",
         "pixels_assessed": 6038930,
-        "pixels_painted": 344568,
+        "pixels_painted": 348928,
         "pixels_unassessed": 0,
-        "painted_p50": 0.16777818082068144,
-        "painted_p95": 0.4224714888526297,
-        "max_score": 0.6483690106271282,
+        "painted_p50": 0.16772038000406755,
+        "painted_p95": 0.42864162771231823,
+        "max_score": 0.7090308161110905,
         "file": "out/2026-10-27/oregon_boletus_rex_veris_2026-10-27.png",
-        "sha256": "9e4c16954f3235359590c3a8f3077ef0f6e197d66930153c49ce463251a8f263",
+        "sha256": "b14c28f70d6a6b026f0f4dabf2749c762031e3d232b92c243d7895c890d386f6",
         "overlay_file": "out/2026-10-27/oregon_boletus_rex_veris_2026-10-27.overlay.png",
-        "overlay_sha256": "a9189ad11e0da555e2e88523e7185b81da84e46e230e1ea67e03290c18df2b51",
-        "overlay_pixels": 344568
+        "overlay_sha256": "dcff3784693e1acf4133c510ee2adef941fa3775fb62c0b40f7603f5f2e21f1f",
+        "overlay_pixels": 348928
       },
       {
         "id": "cantharellus_subalbidus",
@@ -9491,16 +9671,16 @@
         "scientific_name": "Cantharellus subalbidus",
         "model": "timeline",
         "pixels_assessed": 6038930,
-        "pixels_painted": 652840,
+        "pixels_painted": 665702,
         "pixels_unassessed": 0,
-        "painted_p50": 0.20388067569905471,
-        "painted_p95": 0.4850756660712382,
+        "painted_p50": 0.2037424688269282,
+        "painted_p95": 0.49078023640153057,
         "max_score": 0.7799130917725817,
         "file": "out/2026-10-27/oregon_cantharellus_subalbidus_2026-10-27.png",
-        "sha256": "4476bb66e60ac0e4dea758011a861d055b68a9e60a17424bcb0f766c584639e5",
+        "sha256": "f1e42c96b0a398950b361fa6e56d7957a46443a2260b0c57c2114ca36ee62737",
         "overlay_file": "out/2026-10-27/oregon_cantharellus_subalbidus_2026-10-27.overlay.png",
-        "overlay_sha256": "b7b526273525e51f0aeecf4146df0875f2c6d89da51f3bd724c6d3fddc2eff29",
-        "overlay_pixels": 652840
+        "overlay_sha256": "bb6542ef26f2c8cc22c0f3fe6d0f7d4a1c6c163c42a4baabe358579581331e58",
+        "overlay_pixels": 665702
       },
       {
         "id": "craterellus_tubaeformis",
@@ -9508,22 +9688,21 @@
         "scientific_name": "Craterellus tubaeformis",
         "model": "timeline",
         "pixels_assessed": 6038930,
-        "pixels_painted": 804888,
+        "pixels_painted": 800417,
         "pixels_unassessed": 0,
-        "painted_p50": 0.3575807344699097,
-        "painted_p95": 0.745235470077589,
+        "painted_p50": 0.36314773837175746,
+        "painted_p95": 0.7444750944668361,
         "max_score": 0.8962480025375547,
         "file": "out/2026-10-27/oregon_craterellus_tubaeformis_2026-10-27.png",
-        "sha256": "972b80a3a3cf9bb2d136169bbfc1e634eb87606d0ffb963f76275a2f02dd5e89",
+        "sha256": "821792c7a9d3a4a54fc03e381be5a17ad650b09de814f8736879d14486ab3a59",
         "overlay_file": "out/2026-10-27/oregon_craterellus_tubaeformis_2026-10-27.overlay.png",
-        "overlay_sha256": "ebe32a28d541ade28c2d20f1099cc679e61223e8a6c2a69a3253d8e87121d7b7",
-        "overlay_pixels": 804888
+        "overlay_sha256": "00fb9b3360955f2eab43d5f49e2ad0ae816da5d02cebbf69be5343e4d06d2cca",
+        "overlay_pixels": 800417
       }
     ],
     "warnings": [
       "32/943 grid points have no soil-moisture reading on their last day; the timeline moisture term falls back to the precipitation proxy there",
-      "1060700/34400000 elevation field cells (3.1%) carry NO measured site elevation (outside the local DEM footprint and not filled by the fringe fallback); the temperature lapse and the profile elevation ceiling are both inert there, which is correct but is not the same model the rest of the map is scored under",
-      "the recorded revision e12977841a37 does not contain this module at all (checkout is on branch \"tagsnap-telemetry-intake\"); source_digest d76b2c78c809 is what identifies this build",
+      "the recorded revision e12977841a37 does not contain this module at all (checkout is on branch \"tagsnap-telemetry-intake\"); source_digest f976bfa4ae95 is what identifies this build",
       "resolution: pixels 720 ft; land cover 256 ft; elevation 262 ft; WEATHER 52411 ft (0.4 deg lattice, interpolated, not downscaled to terrain) — the ground detail in this map is real, the weather behind it is regional"
     ],
     "publishable": true
@@ -9531,377 +9710,377 @@
   "images": [
     {
       "id": "craterellus_calicornucopioides",
-      "file": "4fff22c97315-oregon_craterellus_calicornucopioides_2026-10-27.png",
-      "url_path": "2026-10-26/4fff22c97315-oregon_craterellus_calicornucopioides_2026-10-27.png",
+      "file": "f4dca61ff27d-oregon_craterellus_calicornucopioides_2026-10-27.png",
+      "url_path": "2026-10-26/f4dca61ff27d-oregon_craterellus_calicornucopioides_2026-10-27.png",
       "width": 2913,
       "height": 2184,
-      "source_bytes": 4765189,
-      "published_bytes": 1608612,
+      "source_bytes": 4815520,
+      "published_bytes": 1624639,
       "palette_colours": 256,
-      "render_sha256": "4ae7725a3e39199f5a690fc65c537e282174ec1527d5f8b52d53ac3f158204f0",
-      "published_sha256": "4fff22c97315d6bd0019cd2472cb586dc9e4fb6b61aff9b905f87a927a1386f6",
+      "render_sha256": "5ff0a80e8d88443127679046c278501a290f757fcf0fe8d3d4bf7e7f32d160b3",
+      "published_sha256": "f4dca61ff27d4f28e08227d2d3f280f37a3d54d60ec9b29e60dd486de8687423",
       "origin_verified": true,
-      "overlay_file": "51a77e09d324-oregon_craterellus_calicornucopioides_2026-10-27.overlay.png",
-      "overlay_url_path": "2026-10-26/51a77e09d324-oregon_craterellus_calicornucopioides_2026-10-27.overlay.png",
+      "overlay_file": "ac40060be652-oregon_craterellus_calicornucopioides_2026-10-27.overlay.png",
+      "overlay_url_path": "2026-10-26/ac40060be652-oregon_craterellus_calicornucopioides_2026-10-27.overlay.png",
       "overlay_verified": true,
       "overlay_width": 2913,
       "overlay_height": 2184,
-      "overlay_published_bytes": 471515,
-      "overlay_render_sha256": "100eefd5fd2ee649e31e531e68529f9c214f4720c57c24d70c304924ac940630",
-      "overlay_published_sha256": "51a77e09d3241cd2630327d5bd2e5638c648e61b1342ae0c443df60e823784be",
-      "overlay_pixels": 525152
+      "overlay_published_bytes": 503527,
+      "overlay_render_sha256": "8b51666fb6794f4e2b37971a545ec79cafa88aba24f1eba4af62a838b172a6c0",
+      "overlay_published_sha256": "ac40060be652c59f23a7d7d80587509e339c366e7e75d2f740e6d048f5b97476",
+      "overlay_pixels": 550404
     },
     {
       "id": "lactarius_rubidus",
-      "file": "bd31eff1b208-oregon_lactarius_rubidus_2026-10-27.png",
-      "url_path": "2026-10-26/bd31eff1b208-oregon_lactarius_rubidus_2026-10-27.png",
+      "file": "f17804456190-oregon_lactarius_rubidus_2026-10-27.png",
+      "url_path": "2026-10-26/f17804456190-oregon_lactarius_rubidus_2026-10-27.png",
       "width": 2913,
       "height": 2184,
-      "source_bytes": 4870586,
-      "published_bytes": 1619742,
+      "source_bytes": 4927320,
+      "published_bytes": 1618171,
       "palette_colours": 256,
-      "render_sha256": "f4e91033f610a911c3bf33be74b3c9a71ebb97e6c2d96f89bf46e8a31e88d812",
-      "published_sha256": "bd31eff1b20854042e2d57c64376e111a64d28cd0d7598647f419fb49c6c4461",
+      "render_sha256": "a8aa513537dcd7be0b7d60087d63ef052fc2f46090175d092f6c3e8583ad862a",
+      "published_sha256": "f178044561907b6f1b8e4c8e744e71e379a753c61d6125befad935fb698dbbbb",
       "origin_verified": true,
-      "overlay_file": "d99f837623bb-oregon_lactarius_rubidus_2026-10-27.overlay.png",
-      "overlay_url_path": "2026-10-26/d99f837623bb-oregon_lactarius_rubidus_2026-10-27.overlay.png",
+      "overlay_file": "613370b68136-oregon_lactarius_rubidus_2026-10-27.overlay.png",
+      "overlay_url_path": "2026-10-26/613370b68136-oregon_lactarius_rubidus_2026-10-27.overlay.png",
       "overlay_verified": true,
       "overlay_width": 2913,
       "overlay_height": 2184,
-      "overlay_published_bytes": 554087,
-      "overlay_render_sha256": "227242230e2b614921ac39269296df48857bcd852f96e1ec04f0be0077bf52c5",
-      "overlay_published_sha256": "d99f837623bba1acde38a79e3e6aa71697a2a5eebcd89a7c495fd02214d44b16",
-      "overlay_pixels": 676387
+      "overlay_published_bytes": 588518,
+      "overlay_render_sha256": "ad536525756dada21281807f11cb8da9df95f6bd77ae577671d8ce8aea6d99cd",
+      "overlay_published_sha256": "613370b68136d10a25e8f87ef34d7093924d0caf71933790b955447fe6861057",
+      "overlay_pixels": 701669
     },
     {
       "id": "sparassis_radicata",
-      "file": "371dca1287a1-oregon_sparassis_radicata_2026-10-27.png",
-      "url_path": "2026-10-26/371dca1287a1-oregon_sparassis_radicata_2026-10-27.png",
+      "file": "39208680f1a3-oregon_sparassis_radicata_2026-10-27.png",
+      "url_path": "2026-10-26/39208680f1a3-oregon_sparassis_radicata_2026-10-27.png",
       "width": 2913,
       "height": 2184,
-      "source_bytes": 5666422,
-      "published_bytes": 1912086,
+      "source_bytes": 5739847,
+      "published_bytes": 1919532,
       "palette_colours": 256,
-      "render_sha256": "e9a59ca9afc61eb2a50c987df97a95d30b00d60c7742417902e04f99191ebe39",
-      "published_sha256": "371dca1287a1174cec296e0fbd71878165c4639a85ea4ee06f7394ef1a6ff390",
+      "render_sha256": "8b8efbae592c871dd16468a144c45b80bf527b364f2604f624f29e183580395a",
+      "published_sha256": "39208680f1a3ebe6ace4d18a6a0b1c78ad601d72ab60b21989b5b2b6fae788d9",
       "origin_verified": true,
-      "overlay_file": "79e3bc99974d-oregon_sparassis_radicata_2026-10-27.overlay.png",
-      "overlay_url_path": "2026-10-26/79e3bc99974d-oregon_sparassis_radicata_2026-10-27.overlay.png",
+      "overlay_file": "65f03cea85a2-oregon_sparassis_radicata_2026-10-27.overlay.png",
+      "overlay_url_path": "2026-10-26/65f03cea85a2-oregon_sparassis_radicata_2026-10-27.overlay.png",
       "overlay_verified": true,
       "overlay_width": 2913,
       "overlay_height": 2184,
-      "overlay_published_bytes": 1077770,
-      "overlay_render_sha256": "4180b554d9aae91c48fcbf861e5e062ee5795a5317dd36ee4fd964247186f18f",
-      "overlay_published_sha256": "79e3bc99974de3256dfa342d13b955ff8991e14203cfd081241e2d73ea482667",
-      "overlay_pixels": 1244182
+      "overlay_published_bytes": 1117631,
+      "overlay_render_sha256": "9680bdaff95d77afd6bda4069b1cbb2ea26750a5cbfb3ec024bd369727c823e4",
+      "overlay_published_sha256": "65f03cea85a26d3e47590db2e5ff899584a3f282a13ce6eaddbf31dddbe5538d",
+      "overlay_pixels": 1250639
     },
     {
       "id": "cantharellus_cibarius",
-      "file": "b599d1494ca4-oregon_cantharellus_cibarius_2026-10-27.png",
-      "url_path": "2026-10-26/b599d1494ca4-oregon_cantharellus_cibarius_2026-10-27.png",
+      "file": "3c41bfcd66a1-oregon_cantharellus_cibarius_2026-10-27.png",
+      "url_path": "2026-10-26/3c41bfcd66a1-oregon_cantharellus_cibarius_2026-10-27.png",
       "width": 2913,
       "height": 2184,
-      "source_bytes": 5414375,
-      "published_bytes": 1759831,
+      "source_bytes": 5476763,
+      "published_bytes": 1790272,
       "palette_colours": 256,
-      "render_sha256": "fd8396780feb67b15c1192b844fa3a9f70b5f40b39dcb415d291ecf57d921ac2",
-      "published_sha256": "b599d1494ca469b2abf411040193efdb758fdce9240304719064b65fc15759f1",
+      "render_sha256": "9d2741ffb62890c3321a1ecd0c0bb751cefb41e851a910a716c2f2c53bf1eaca",
+      "published_sha256": "3c41bfcd66a1eeb127cbde7a9ab5ebfba207992aa681326c71cbca0d7a4648fa",
       "origin_verified": true,
-      "overlay_file": "e520a9f742e9-oregon_cantharellus_cibarius_2026-10-27.overlay.png",
-      "overlay_url_path": "2026-10-26/e520a9f742e9-oregon_cantharellus_cibarius_2026-10-27.overlay.png",
+      "overlay_file": "8530c71c8029-oregon_cantharellus_cibarius_2026-10-27.overlay.png",
+      "overlay_url_path": "2026-10-26/8530c71c8029-oregon_cantharellus_cibarius_2026-10-27.overlay.png",
       "overlay_verified": true,
       "overlay_width": 2913,
       "overlay_height": 2184,
-      "overlay_published_bytes": 895091,
-      "overlay_render_sha256": "b8d0730da87331c4d1a9541ea55524c62a0bd65ddb50d640052e72b4a4db545d",
-      "overlay_published_sha256": "e520a9f742e944ba6691122c8e3cddb00953d0347fb1f231a86df48ae1efa610",
-      "overlay_pixels": 1193302
+      "overlay_published_bytes": 930498,
+      "overlay_render_sha256": "cf21c736cc07adbf80c120ecef6417c40c2b9903a17949bff9612b4ca8473bd6",
+      "overlay_published_sha256": "8530c71c8029d1127694bc38c3e15bcaa45ae76e1bb3cc05672f239cdb628ad9",
+      "overlay_pixels": 1195752
     },
     {
       "id": "laetiporus_conifericola",
-      "file": "0ce71b5f2cb9-oregon_laetiporus_conifericola_2026-10-27.png",
-      "url_path": "2026-10-26/0ce71b5f2cb9-oregon_laetiporus_conifericola_2026-10-27.png",
+      "file": "e5b733811115-oregon_laetiporus_conifericola_2026-10-27.png",
+      "url_path": "2026-10-26/e5b733811115-oregon_laetiporus_conifericola_2026-10-27.png",
       "width": 2913,
       "height": 2184,
-      "source_bytes": 4203988,
-      "published_bytes": 1520063,
+      "source_bytes": 4219110,
+      "published_bytes": 1520539,
       "palette_colours": 256,
-      "render_sha256": "566169ccc4aaec7633a8567eeecabb0001a34189318327c2cb702670548673bb",
-      "published_sha256": "0ce71b5f2cb946024faf2d04d2f07af6af7342a090d347c2e4332b4a50df81c0",
+      "render_sha256": "e596d2f832d67d55e9e0c45c045e5d0a6323c006808cce3cb3f86fffb2d684c5",
+      "published_sha256": "e5b73381111592aec94a2ab0cb2829f934a17eb96269f6a3b97b3d882c0fcfc5",
       "origin_verified": true,
-      "overlay_file": "e93ef940eada-oregon_laetiporus_conifericola_2026-10-27.overlay.png",
-      "overlay_url_path": "2026-10-26/e93ef940eada-oregon_laetiporus_conifericola_2026-10-27.overlay.png",
+      "overlay_file": "4c174aebc36c-oregon_laetiporus_conifericola_2026-10-27.overlay.png",
+      "overlay_url_path": "2026-10-26/4c174aebc36c-oregon_laetiporus_conifericola_2026-10-27.overlay.png",
       "overlay_verified": true,
       "overlay_width": 2913,
       "overlay_height": 2184,
-      "overlay_published_bytes": 115642,
-      "overlay_render_sha256": "6723d2efe48c04708c9ef21913c53cac6be5db6ed879cda502d405f9408f3c09",
-      "overlay_published_sha256": "e93ef940eada3cd4fa3250d20a3fba86b7a75d8d6d40c92e44fb4c2a320ffccc",
-      "overlay_pixels": 71223
+      "overlay_published_bytes": 127351,
+      "overlay_render_sha256": "ce1a5d7c1b09e81cd9f743992bc310454260cfe6172ff53eb32bc010eb0ac85c",
+      "overlay_published_sha256": "4c174aebc36cffb1ca2997f418e677981ac2e18d95177b7d3ae45a4d6c7a5966",
+      "overlay_pixels": 78200
     },
     {
       "id": "hydnum_repandum",
-      "file": "d2ef4dc374ff-oregon_hydnum_repandum_2026-10-27.png",
-      "url_path": "2026-10-26/d2ef4dc374ff-oregon_hydnum_repandum_2026-10-27.png",
+      "file": "32477f5ac86e-oregon_hydnum_repandum_2026-10-27.png",
+      "url_path": "2026-10-26/32477f5ac86e-oregon_hydnum_repandum_2026-10-27.png",
       "width": 2913,
       "height": 2184,
-      "source_bytes": 5336278,
-      "published_bytes": 1772703,
+      "source_bytes": 5391045,
+      "published_bytes": 1790003,
       "palette_colours": 256,
-      "render_sha256": "cd98f00971058762af57d9300384129b86a915fa7fc405e94dcc5dd4b46ba13b",
-      "published_sha256": "d2ef4dc374ff44535c0c7132a1577c661dad5de7faa9dd56785af070f7d4a82a",
+      "render_sha256": "3793cfd70e07292f44bb088683ec0bd76f2c27286d1cd67703b4c69a9bef9649",
+      "published_sha256": "32477f5ac86e6f7d683831f219db114424e6a3ccdebdd6ce160f287b8500fc81",
       "origin_verified": true,
-      "overlay_file": "d4a0d45e5fea-oregon_hydnum_repandum_2026-10-27.overlay.png",
-      "overlay_url_path": "2026-10-26/d4a0d45e5fea-oregon_hydnum_repandum_2026-10-27.overlay.png",
+      "overlay_file": "97cbd9dee44f-oregon_hydnum_repandum_2026-10-27.overlay.png",
+      "overlay_url_path": "2026-10-26/97cbd9dee44f-oregon_hydnum_repandum_2026-10-27.overlay.png",
       "overlay_verified": true,
       "overlay_width": 2913,
       "overlay_height": 2184,
-      "overlay_published_bytes": 819191,
-      "overlay_render_sha256": "436e955eb339c4353cd3851cedbf63ea09632a5f844d25447c1e25b465ae45ea",
-      "overlay_published_sha256": "d4a0d45e5fea259a0ca9197fc779f76515fa4beb04632fbaa721322ee5e69cd8",
-      "overlay_pixels": 970461
+      "overlay_published_bytes": 852281,
+      "overlay_render_sha256": "b17f20bc4250b897de945153fb49e107805d733c4b6a8b466051dc784ba778c3",
+      "overlay_published_sha256": "97cbd9dee44f88c3a12a586f63ce591b67908721222404b8eb1c7cbbeba1bbb9",
+      "overlay_pixels": 975422
     },
     {
       "id": "hericium_abietis",
-      "file": "16ab8c813234-oregon_hericium_abietis_2026-10-27.png",
-      "url_path": "2026-10-26/16ab8c813234-oregon_hericium_abietis_2026-10-27.png",
+      "file": "b2940bd3c054-oregon_hericium_abietis_2026-10-27.png",
+      "url_path": "2026-10-26/b2940bd3c054-oregon_hericium_abietis_2026-10-27.png",
       "width": 2913,
       "height": 2184,
-      "source_bytes": 5632415,
-      "published_bytes": 1834875,
+      "source_bytes": 5694537,
+      "published_bytes": 1871391,
       "palette_colours": 256,
-      "render_sha256": "e99ad03f032957ce2605d33c68ff10afd7facaa682e1074c71aaf843a0eab9e2",
-      "published_sha256": "16ab8c813234b22f6aa7e45f01f2b9316527365de8b41254d4ac8f3674886e70",
+      "render_sha256": "e259c840c57ec0c31358772bc9e33f6559546a62a6fa7d14cf87ecf23af3d462",
+      "published_sha256": "b2940bd3c054fec161f89857cbd58091f66a63abedd530b3606b4550168fed21",
       "origin_verified": true,
-      "overlay_file": "bff02cf90e8a-oregon_hericium_abietis_2026-10-27.overlay.png",
-      "overlay_url_path": "2026-10-26/bff02cf90e8a-oregon_hericium_abietis_2026-10-27.overlay.png",
+      "overlay_file": "f724194e2f3e-oregon_hericium_abietis_2026-10-27.overlay.png",
+      "overlay_url_path": "2026-10-26/f724194e2f3e-oregon_hericium_abietis_2026-10-27.overlay.png",
       "overlay_verified": true,
       "overlay_width": 2913,
       "overlay_height": 2184,
-      "overlay_published_bytes": 1065774,
-      "overlay_render_sha256": "876f0100c6d5f1c2ae5f5a8218d50bc2ba06a00a335c4600aac87ad0952f77c0",
-      "overlay_published_sha256": "bff02cf90e8ad24e202710c4633e90c3215aa48d78a916675758451bdf76f233",
-      "overlay_pixels": 1612516
+      "overlay_published_bytes": 1090209,
+      "overlay_render_sha256": "773e2d464fe85bd6525ad6b980ed63820b4e4d4ec42d49adfb5b4282a7115251",
+      "overlay_published_sha256": "f724194e2f3ed4c647b61b1c5a4398a3e9afbeed301022fab153a449d75f73fa",
+      "overlay_pixels": 1623236
     },
     {
       "id": "hypomyces_lactifluorum",
-      "file": "904b683cad67-oregon_hypomyces_lactifluorum_2026-10-27.png",
-      "url_path": "2026-10-26/904b683cad67-oregon_hypomyces_lactifluorum_2026-10-27.png",
+      "file": "a2fc8a5562ba-oregon_hypomyces_lactifluorum_2026-10-27.png",
+      "url_path": "2026-10-26/a2fc8a5562ba-oregon_hypomyces_lactifluorum_2026-10-27.png",
       "width": 2913,
       "height": 2184,
-      "source_bytes": 5382035,
-      "published_bytes": 1816726,
+      "source_bytes": 5434273,
+      "published_bytes": 1818807,
       "palette_colours": 256,
-      "render_sha256": "f3267ad4ac66eda62d70f2c9272dca461a5c2ce36920211db7ea3ccf8ac1efa5",
-      "published_sha256": "904b683cad679f1adca084a60035d855421235655c69ed5cab281ba20ec2a3c8",
+      "render_sha256": "22b949ce54e54396a2be73129cef5790e873f134d7be650135e88b8e72b3e494",
+      "published_sha256": "a2fc8a5562bacfc93d4dadbcdc742d5b6971cea794f5980ea8ae071f0f9473c5",
       "origin_verified": true,
-      "overlay_file": "f7056775f5ac-oregon_hypomyces_lactifluorum_2026-10-27.overlay.png",
-      "overlay_url_path": "2026-10-26/f7056775f5ac-oregon_hypomyces_lactifluorum_2026-10-27.overlay.png",
+      "overlay_file": "38313ff9c39d-oregon_hypomyces_lactifluorum_2026-10-27.overlay.png",
+      "overlay_url_path": "2026-10-26/38313ff9c39d-oregon_hypomyces_lactifluorum_2026-10-27.overlay.png",
       "overlay_verified": true,
       "overlay_width": 2913,
       "overlay_height": 2184,
-      "overlay_published_bytes": 964984,
-      "overlay_render_sha256": "4a567d679c607640fb1d49099db2da63ae63212aa6336d3bed86454fdfcffbb5",
-      "overlay_published_sha256": "f7056775f5acc5c8b88a88042ea60dc1ce29412ce1b40bd6226aab2d5cf38476",
-      "overlay_pixels": 1199859
+      "overlay_published_bytes": 983590,
+      "overlay_render_sha256": "e8f9e610e55f08ad842af1a81ce0d5cd15788f7c8547ba26217a5359b59dc18b",
+      "overlay_published_sha256": "38313ff9c39db562de0c272ef3376e1349ab1768a13f24958c3f62802ee77910",
+      "overlay_pixels": 1203336
     },
     {
       "id": "tricholoma_murrillianum",
-      "file": "ed79e77608d4-oregon_tricholoma_murrillianum_2026-10-27.png",
-      "url_path": "2026-10-26/ed79e77608d4-oregon_tricholoma_murrillianum_2026-10-27.png",
+      "file": "a0ae0297c5bc-oregon_tricholoma_murrillianum_2026-10-27.png",
+      "url_path": "2026-10-26/a0ae0297c5bc-oregon_tricholoma_murrillianum_2026-10-27.png",
       "width": 2913,
       "height": 2184,
-      "source_bytes": 4920482,
-      "published_bytes": 1665250,
+      "source_bytes": 4967844,
+      "published_bytes": 1671974,
       "palette_colours": 256,
-      "render_sha256": "29992127a1d2092486a8fb3c511e063d271b70efe70f2faab6199ca7bbbaff8e",
-      "published_sha256": "ed79e77608d41436327aa9891aa980b82ebb009d997d09418d3a7e1c951177d5",
+      "render_sha256": "e456e2622100f99846c3b70a4622600354ce6f9e5e873d7b61caec09e7b8e5f6",
+      "published_sha256": "a0ae0297c5bc0ba05b523bf8e3bdb10729a591046c55e291fbe4b50a12700871",
       "origin_verified": true,
-      "overlay_file": "73a1fd03a976-oregon_tricholoma_murrillianum_2026-10-27.overlay.png",
-      "overlay_url_path": "2026-10-26/73a1fd03a976-oregon_tricholoma_murrillianum_2026-10-27.overlay.png",
+      "overlay_file": "3d7d26b08045-oregon_tricholoma_murrillianum_2026-10-27.overlay.png",
+      "overlay_url_path": "2026-10-26/3d7d26b08045-oregon_tricholoma_murrillianum_2026-10-27.overlay.png",
       "overlay_verified": true,
       "overlay_width": 2913,
       "overlay_height": 2184,
-      "overlay_published_bytes": 566825,
-      "overlay_render_sha256": "5a11bab7987acec1c72d9df37cacf5e25c5d89777cad8e3e5c1a1d195074aeb0",
-      "overlay_published_sha256": "73a1fd03a976f149904b012fc0a385b4328509eb397417e4fe8b17d490c02c52",
-      "overlay_pixels": 630981
+      "overlay_published_bytes": 590531,
+      "overlay_render_sha256": "8b1e902205d6d5aa1ad6c29f66a9e3fe4dee554f8f152d07e34e5804e2f89cd2",
+      "overlay_published_sha256": "3d7d26b08045f0b043e4e1b27946c34cf421638dec64a1ee552cb028900704fd",
+      "overlay_pixels": 644116
     },
     {
       "id": "morchella_importuna",
-      "file": "5675ab46e22c-oregon_morchella_importuna_2026-10-27.png",
-      "url_path": "2026-10-26/5675ab46e22c-oregon_morchella_importuna_2026-10-27.png",
+      "file": "acb26af91ff5-oregon_morchella_importuna_2026-10-27.png",
+      "url_path": "2026-10-26/acb26af91ff5-oregon_morchella_importuna_2026-10-27.png",
       "width": 2913,
       "height": 2184,
-      "source_bytes": 5308799,
-      "published_bytes": 1776538,
+      "source_bytes": 5362168,
+      "published_bytes": 1794142,
       "palette_colours": 256,
-      "render_sha256": "d30f5161a020c5235a3537aee906b034874dbbb287da21ca4654962b02aa2d5e",
-      "published_sha256": "5675ab46e22c480aff29c6765cdf49e0ceac32d91f0b759da9c42992c71e8074",
+      "render_sha256": "5bfb82001280c936f3e9fcb679788b076ba8eca3729191938219f6ff3bd6b237",
+      "published_sha256": "acb26af91ff540dbe710516ad814df9951f94886beeea890cff4494fd4487893",
       "origin_verified": true,
-      "overlay_file": "9f924d1c7bf0-oregon_morchella_importuna_2026-10-27.overlay.png",
-      "overlay_url_path": "2026-10-26/9f924d1c7bf0-oregon_morchella_importuna_2026-10-27.overlay.png",
+      "overlay_file": "2960940b96c3-oregon_morchella_importuna_2026-10-27.overlay.png",
+      "overlay_url_path": "2026-10-26/2960940b96c3-oregon_morchella_importuna_2026-10-27.overlay.png",
       "overlay_verified": true,
       "overlay_width": 2913,
       "overlay_height": 2184,
-      "overlay_published_bytes": 875574,
-      "overlay_render_sha256": "c7c9831edb2709982b78fe905d310ef081c5ac2ff63af8f1da351178d0145717",
-      "overlay_published_sha256": "9f924d1c7bf0ebebac5c6478936de0e79e73de3998697c61c160a22028f15ebc",
-      "overlay_pixels": 1282192
+      "overlay_published_bytes": 913893,
+      "overlay_render_sha256": "e4c53cd07c2b168f38428dac74b60a5158f4f84b216b67c2706761db6f805a57",
+      "overlay_published_sha256": "2960940b96c353d3abc9c0a32f910662d6af37c0567b4edc3b75c25819b14cbf",
+      "overlay_pixels": 1292849
     },
     {
       "id": "pleurotus_ostreatus",
-      "file": "30198119df5f-oregon_pleurotus_ostreatus_2026-10-27.png",
-      "url_path": "2026-10-26/30198119df5f-oregon_pleurotus_ostreatus_2026-10-27.png",
+      "file": "39d52a0b04c1-oregon_pleurotus_ostreatus_2026-10-27.png",
+      "url_path": "2026-10-26/39d52a0b04c1-oregon_pleurotus_ostreatus_2026-10-27.png",
       "width": 2913,
       "height": 2184,
-      "source_bytes": 6044651,
-      "published_bytes": 2021935,
+      "source_bytes": 6117450,
+      "published_bytes": 2027808,
       "palette_colours": 256,
-      "render_sha256": "ee274a85801908ce3320a3d491bbc65db8db16eb401c85bcfeabbcd2485c1b77",
-      "published_sha256": "30198119df5f8d3c9124e29132e9507c780fc07d0e76c7ceed9c46d9c6feaa0d",
+      "render_sha256": "4682738a372f4e389e91dd111b2dc145475e7e88ecfb5e6aacb3fae32a4d8641",
+      "published_sha256": "39d52a0b04c12012cf096ee62ec3ccf4ec2c71940cab6554da85edde8abfd414",
       "origin_verified": true,
-      "overlay_file": "d2f6bce346f0-oregon_pleurotus_ostreatus_2026-10-27.overlay.png",
-      "overlay_url_path": "2026-10-26/d2f6bce346f0-oregon_pleurotus_ostreatus_2026-10-27.overlay.png",
+      "overlay_file": "332dbfc157f3-oregon_pleurotus_ostreatus_2026-10-27.overlay.png",
+      "overlay_url_path": "2026-10-26/332dbfc157f3-oregon_pleurotus_ostreatus_2026-10-27.overlay.png",
       "overlay_verified": true,
       "overlay_width": 2913,
       "overlay_height": 2184,
-      "overlay_published_bytes": 1254438,
-      "overlay_render_sha256": "f14b73586b3f21d4d4645ff70d175eddfa5719982c40d898d07bfb78cfd8cd7f",
-      "overlay_published_sha256": "d2f6bce346f0a190cbbbc570e13c3f6e1dcbcd8ade091d06a558b580cafe274d",
-      "overlay_pixels": 1824165
+      "overlay_published_bytes": 1316681,
+      "overlay_render_sha256": "143086cda7d24129002439c61c3f96a2828981d81f00234275167cd5808e92f2",
+      "overlay_published_sha256": "332dbfc157f33e0035cc58957f7a44b9c13e20514f9ca53122ec8fc903e88a6e",
+      "overlay_pixels": 1830543
     },
     {
       "id": "gomphus_clavatus",
-      "file": "3c43d66b4929-oregon_gomphus_clavatus_2026-10-27.png",
-      "url_path": "2026-10-26/3c43d66b4929-oregon_gomphus_clavatus_2026-10-27.png",
+      "file": "e4a1765ca70e-oregon_gomphus_clavatus_2026-10-27.png",
+      "url_path": "2026-10-26/e4a1765ca70e-oregon_gomphus_clavatus_2026-10-27.png",
       "width": 2913,
       "height": 2184,
-      "source_bytes": 4849757,
-      "published_bytes": 1641938,
+      "source_bytes": 4883435,
+      "published_bytes": 1652603,
       "palette_colours": 256,
-      "render_sha256": "9d7c3c532e0c18ac5a74ea667528516a91b38df62010e3a6dec80b6e9329c498",
-      "published_sha256": "3c43d66b49298217508b0cb9ea8a6ef4d319bb6a186df5a227ae89f2b7d03d99",
+      "render_sha256": "a8ba3d2bec17ef08eea51739e5c502f47648a6f59f6be78b7d42cf1ee5378d18",
+      "published_sha256": "e4a1765ca70e6bd97f34755a8246351dd933d375a9b334d9231e028715deb912",
       "origin_verified": true,
-      "overlay_file": "061b046e0586-oregon_gomphus_clavatus_2026-10-27.overlay.png",
-      "overlay_url_path": "2026-10-26/061b046e0586-oregon_gomphus_clavatus_2026-10-27.overlay.png",
+      "overlay_file": "f3775500a386-oregon_gomphus_clavatus_2026-10-27.overlay.png",
+      "overlay_url_path": "2026-10-26/f3775500a386-oregon_gomphus_clavatus_2026-10-27.overlay.png",
       "overlay_verified": true,
       "overlay_width": 2913,
       "overlay_height": 2184,
-      "overlay_published_bytes": 527041,
-      "overlay_render_sha256": "7a472552087c387b2460a83d42a0bef4f0dcbef613846de92eccb754c4082c36",
-      "overlay_published_sha256": "061b046e0586b0fd173f28a3409d148d727869d4a49f4f5e660edded0b5dfb0b",
-      "overlay_pixels": 595423
+      "overlay_published_bytes": 559404,
+      "overlay_render_sha256": "85d6d65475f81fd79ec232c3bc9c4a68ef5d124beca2b46d81c9df83b0db3e8e",
+      "overlay_published_sha256": "f3775500a386a54e73996861e75eedfe2761e6b0e85d2dd5fdda66efd47bf185",
+      "overlay_pixels": 607210
     },
     {
       "id": "boletus_edulis",
-      "file": "5bfe3ac9852f-oregon_boletus_edulis_2026-10-27.png",
-      "url_path": "2026-10-26/5bfe3ac9852f-oregon_boletus_edulis_2026-10-27.png",
+      "file": "11e63a66f073-oregon_boletus_edulis_2026-10-27.png",
+      "url_path": "2026-10-26/11e63a66f073-oregon_boletus_edulis_2026-10-27.png",
       "width": 2913,
       "height": 2184,
-      "source_bytes": 4546230,
-      "published_bytes": 1602333,
+      "source_bytes": 4569253,
+      "published_bytes": 1602784,
       "palette_colours": 256,
-      "render_sha256": "b1d47af7bfe393dcf74554a3f8fb781fa02c4754ceb78f4d4520469796efd8fd",
-      "published_sha256": "5bfe3ac9852f01e771ead4004f81d00a04d5cc2f6ef704de0fa24aeeb24109cd",
+      "render_sha256": "5151885973282954e807a05b18f0402a857e9f2a506c6f5b68fcf02556e6d5fd",
+      "published_sha256": "11e63a66f073f9e945c53131c0873d018f545b4e7e4164f6350f9ad3d6b66c50",
       "origin_verified": true,
-      "overlay_file": "311859f5951f-oregon_boletus_edulis_2026-10-27.overlay.png",
-      "overlay_url_path": "2026-10-26/311859f5951f-oregon_boletus_edulis_2026-10-27.overlay.png",
+      "overlay_file": "870eb1095c69-oregon_boletus_edulis_2026-10-27.overlay.png",
+      "overlay_url_path": "2026-10-26/870eb1095c69-oregon_boletus_edulis_2026-10-27.overlay.png",
       "overlay_verified": true,
       "overlay_width": 2913,
       "overlay_height": 2184,
-      "overlay_published_bytes": 321241,
-      "overlay_render_sha256": "55bca5f9522dd82a43e87c5e5260bd2ed31dca5de1ef8b77435dae7b19a9df94",
-      "overlay_published_sha256": "311859f5951f7697448f0d19c44955f5496d8af1a80b7d6a97ad869ad411642c",
-      "overlay_pixels": 295967
+      "overlay_published_bytes": 337600,
+      "overlay_render_sha256": "9ab0d5394420c27737719f7067da601aecb9e3970ba52f0fc4edea9f15579c4e",
+      "overlay_published_sha256": "870eb1095c69d824732ee9c6a931bef1518fff27969219e9e70e912026314017",
+      "overlay_pixels": 304385
     },
     {
       "id": "coprinus_comatus",
-      "file": "69cfdda7a6d8-oregon_coprinus_comatus_2026-10-27.png",
-      "url_path": "2026-10-26/69cfdda7a6d8-oregon_coprinus_comatus_2026-10-27.png",
+      "file": "9d2dacfc11d4-oregon_coprinus_comatus_2026-10-27.png",
+      "url_path": "2026-10-26/9d2dacfc11d4-oregon_coprinus_comatus_2026-10-27.png",
       "width": 2913,
       "height": 2184,
-      "source_bytes": 6116315,
-      "published_bytes": 2023870,
+      "source_bytes": 6188016,
+      "published_bytes": 2063154,
       "palette_colours": 256,
-      "render_sha256": "40a7ef0680474cd3b6610073d3c3d0c9998f7f3a17a60b4dc3c69c0528d71619",
-      "published_sha256": "69cfdda7a6d8225e20d3ba497ff94ad4766776c253a65eca0fcdd2cb31d11c8e",
+      "render_sha256": "24bb5eb8b3e4c260a82f3a4b18d0674888e004196ba2ce731d02dbe5da3be3ec",
+      "published_sha256": "9d2dacfc11d481dbd1ac39a821472c549289fd48b46633a2238acca4e47d3450",
       "origin_verified": true,
-      "overlay_file": "8cffeee2bd34-oregon_coprinus_comatus_2026-10-27.overlay.png",
-      "overlay_url_path": "2026-10-26/8cffeee2bd34-oregon_coprinus_comatus_2026-10-27.overlay.png",
+      "overlay_file": "16c5c7dbedde-oregon_coprinus_comatus_2026-10-27.overlay.png",
+      "overlay_url_path": "2026-10-26/16c5c7dbedde-oregon_coprinus_comatus_2026-10-27.overlay.png",
       "overlay_verified": true,
       "overlay_width": 2913,
       "overlay_height": 2184,
-      "overlay_published_bytes": 1305772,
-      "overlay_render_sha256": "269809963466f087970da705a148cbc526124ce03c373125b3f1193ad884681c",
-      "overlay_published_sha256": "8cffeee2bd345e935355158fd1eba6439f74871e5bfb012f8517b497624acaa7",
-      "overlay_pixels": 2000169
+      "overlay_published_bytes": 1345858,
+      "overlay_render_sha256": "acb5c9a4fddc7477b485ae257e878d19c308ffb1aa48bd9318e07e6fc176faf8",
+      "overlay_published_sha256": "16c5c7dbedde64aa52233cb46b23ff88cc88bdbfeab926eb66f9526f34481549",
+      "overlay_pixels": 2011500
     },
     {
       "id": "boletus_rex_veris",
-      "file": "49a988d18b74-oregon_boletus_rex_veris_2026-10-27.png",
-      "url_path": "2026-10-26/49a988d18b74-oregon_boletus_rex_veris_2026-10-27.png",
+      "file": "288f2f102a36-oregon_boletus_rex_veris_2026-10-27.png",
+      "url_path": "2026-10-26/288f2f102a36-oregon_boletus_rex_veris_2026-10-27.png",
       "width": 2913,
       "height": 2184,
-      "source_bytes": 4584697,
-      "published_bytes": 1602715,
+      "source_bytes": 4599472,
+      "published_bytes": 1582675,
       "palette_colours": 256,
-      "render_sha256": "9e4c16954f3235359590c3a8f3077ef0f6e197d66930153c49ce463251a8f263",
-      "published_sha256": "49a988d18b74a21c7e49e1e0959eac2355fe581a17e1b2cc9d410d2ca7e008fd",
+      "render_sha256": "b14c28f70d6a6b026f0f4dabf2749c762031e3d232b92c243d7895c890d386f6",
+      "published_sha256": "288f2f102a36097c897fde3cd6f2d91ba1642360239aec74c33249260c22ee58",
       "origin_verified": true,
-      "overlay_file": "f0f09c1c4c78-oregon_boletus_rex_veris_2026-10-27.overlay.png",
-      "overlay_url_path": "2026-10-26/f0f09c1c4c78-oregon_boletus_rex_veris_2026-10-27.overlay.png",
+      "overlay_file": "47cd7182d9e5-oregon_boletus_rex_veris_2026-10-27.overlay.png",
+      "overlay_url_path": "2026-10-26/47cd7182d9e5-oregon_boletus_rex_veris_2026-10-27.overlay.png",
       "overlay_verified": true,
       "overlay_width": 2913,
       "overlay_height": 2184,
-      "overlay_published_bytes": 347841,
-      "overlay_render_sha256": "a9189ad11e0da555e2e88523e7185b81da84e46e230e1ea67e03290c18df2b51",
-      "overlay_published_sha256": "f0f09c1c4c780f4af283f63c416c97f43a7ba7c4446ba796159a661aec458b60",
-      "overlay_pixels": 344568
+      "overlay_published_bytes": 359399,
+      "overlay_render_sha256": "dcff3784693e1acf4133c510ee2adef941fa3775fb62c0b40f7603f5f2e21f1f",
+      "overlay_published_sha256": "47cd7182d9e5abd54206fdd85df9fc07362af68e1dc87e3d8e8cb300d61d7ca2",
+      "overlay_pixels": 348928
     },
     {
       "id": "cantharellus_subalbidus",
-      "file": "8294f7fa33a7-oregon_cantharellus_subalbidus_2026-10-27.png",
-      "url_path": "2026-10-26/8294f7fa33a7-oregon_cantharellus_subalbidus_2026-10-27.png",
+      "file": "2fb049b11a6c-oregon_cantharellus_subalbidus_2026-10-27.png",
+      "url_path": "2026-10-26/2fb049b11a6c-oregon_cantharellus_subalbidus_2026-10-27.png",
       "width": 2913,
       "height": 2184,
-      "source_bytes": 4940566,
-      "published_bytes": 1680695,
+      "source_bytes": 4984204,
+      "published_bytes": 1677486,
       "palette_colours": 256,
-      "render_sha256": "4476bb66e60ac0e4dea758011a861d055b68a9e60a17424bcb0f766c584639e5",
-      "published_sha256": "8294f7fa33a7c5567364ec4f058b5dc335b0ee5d7224cbeb5cdc61fa0aa61da7",
+      "render_sha256": "f1e42c96b0a398950b361fa6e56d7957a46443a2260b0c57c2114ca36ee62737",
+      "published_sha256": "2fb049b11a6c827c39560c49dad404f269590895b57b7120addbcb75952f001b",
       "origin_verified": true,
-      "overlay_file": "bfb4c8bdfca4-oregon_cantharellus_subalbidus_2026-10-27.overlay.png",
-      "overlay_url_path": "2026-10-26/bfb4c8bdfca4-oregon_cantharellus_subalbidus_2026-10-27.overlay.png",
+      "overlay_file": "4019f6c7144a-oregon_cantharellus_subalbidus_2026-10-27.overlay.png",
+      "overlay_url_path": "2026-10-26/4019f6c7144a-oregon_cantharellus_subalbidus_2026-10-27.overlay.png",
       "overlay_verified": true,
       "overlay_width": 2913,
       "overlay_height": 2184,
-      "overlay_published_bytes": 591150,
-      "overlay_render_sha256": "b7b526273525e51f0aeecf4146df0875f2c6d89da51f3bd724c6d3fddc2eff29",
-      "overlay_published_sha256": "bfb4c8bdfca4c8332839fd71b232c5b3d35605b9719643b94fb447c50e1bd792",
-      "overlay_pixels": 652840
+      "overlay_published_bytes": 619743,
+      "overlay_render_sha256": "bb6542ef26f2c8cc22c0f3fe6d0f7d4a1c6c163c42a4baabe358579581331e58",
+      "overlay_published_sha256": "4019f6c7144af485e3ff8aa5e5b56897ad2cba3dd60325ef6821d3a9d55094c3",
+      "overlay_pixels": 665702
     },
     {
       "id": "craterellus_tubaeformis",
-      "file": "ced788a530b8-oregon_craterellus_tubaeformis_2026-10-27.png",
-      "url_path": "2026-10-26/ced788a530b8-oregon_craterellus_tubaeformis_2026-10-27.png",
+      "file": "7e6a875df7f0-oregon_craterellus_tubaeformis_2026-10-27.png",
+      "url_path": "2026-10-26/7e6a875df7f0-oregon_craterellus_tubaeformis_2026-10-27.png",
       "width": 2913,
       "height": 2184,
-      "source_bytes": 5161169,
-      "published_bytes": 1717590,
+      "source_bytes": 5203721,
+      "published_bytes": 1741863,
       "palette_colours": 256,
-      "render_sha256": "972b80a3a3cf9bb2d136169bbfc1e634eb87606d0ffb963f76275a2f02dd5e89",
-      "published_sha256": "ced788a530b80435076c07ca51b659669e2b4a38149acc9c48f72490ca2156ac",
+      "render_sha256": "821792c7a9d3a4a54fc03e381be5a17ad650b09de814f8736879d14486ab3a59",
+      "published_sha256": "7e6a875df7f0b944dbedbe82122f38195713e2e77c4b0cb10e78869311019199",
       "origin_verified": true,
-      "overlay_file": "d28fe7665008-oregon_craterellus_tubaeformis_2026-10-27.overlay.png",
-      "overlay_url_path": "2026-10-26/d28fe7665008-oregon_craterellus_tubaeformis_2026-10-27.overlay.png",
+      "overlay_file": "25bdf91d7fbf-oregon_craterellus_tubaeformis_2026-10-27.overlay.png",
+      "overlay_url_path": "2026-10-26/25bdf91d7fbf-oregon_craterellus_tubaeformis_2026-10-27.overlay.png",
       "overlay_verified": true,
       "overlay_width": 2913,
       "overlay_height": 2184,
-      "overlay_published_bytes": 704462,
-      "overlay_render_sha256": "ebe32a28d541ade28c2d20f1099cc679e61223e8a6c2a69a3253d8e87121d7b7",
-      "overlay_published_sha256": "d28fe7665008951100a90d17c7767d56eb01a5a6a1c3d2e8058c6578250dc7b5",
-      "overlay_pixels": 804888
+      "overlay_published_bytes": 729974,
+      "overlay_render_sha256": "00fb9b3360955f2eab43d5f49e2ad0ae816da5d02cebbf69be5343e4d06d2cca",
+      "overlay_published_sha256": "25bdf91d7fbff3ab50afedef58779783164ebfa0e325cc3e7fd3c24d25bc9443",
+      "overlay_pixels": 800417
     }
   ],
   "origin_uploaded": true,
